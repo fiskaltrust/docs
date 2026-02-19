@@ -7,7 +7,7 @@ title: Diebold Nixdorf-TSE
 
 ### State of certification
 
-Certification-ID of TSE according to chapter 9.2.2 of [Anwendungserlass zu § 146a AO](https://www.bundesfinanzministerium.de/Content/DE/Downloads/BMF_Schreiben/Weitere_Steuerthemen/Abgabenordnung/AO-Anwendungserlass/2021-11-04-aenderung-des-anwendungserlasses-zur-abgabenordnung-AEAO.pdf?__blob=publicationFile&v=2):
+Certification-ID of TSE according to chapter 9.2.2 of Anwendungserlass zu § 146a AO]:
 
 | Certification-ID                                             | Test item                           | Applicant                    | Date       |
 | :----------------------------------------------------------- | :---------------------------------- | :--------------------------- | :--------- |
@@ -43,4 +43,3 @@ The _fiskaltrust.Middleware.SCU.DE.DieboldNixdorf_ package connects the middlewa
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **When starting the middleware, an error is displayed stating that access to the specified COM port was denied** | Wrong COM port is used in the SCU configuration              | Update SCU configuration with the correct COM port used      |
 |                                                              | COM port is already used by a software (typically by the Diebold Nixdorf Web Service included with the TSE) | The Diebold Nixdorf Web Service is not required as all access is made directly via the COM protocol. Uninstalling the Diebold Nixdorf software eliminates this problem. |
-
