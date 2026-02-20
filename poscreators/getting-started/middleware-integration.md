@@ -1,11 +1,17 @@
 ---
 slug: /poscreators/get-started/middleware-integration
-title: Middleware integration
+title: Integration Steps
 ---
 
-# Middleware Integration
+# Integration Steps
 
-This document describes the steps required to configure and test the integration of the ft.Middleware with your POS-System.
+There are several mandatory steps to successfully integrate your solution with **fiskaltrust.Middleware**. These steps include:
+
+- CashBox Configuration
+- Middleware Launcher usage
+- Middleware Communication testing
+
+The following steps describe how to configure and test the integration of **ft.Middleware** with your POS system.
 
 ## 1. CashBox Configuration
 

@@ -1,12 +1,25 @@
 module.exports = [
   {
     type: "category",
-    label: "Get started",
+    label: "Get Started",
     items: [
-      "poscreators/getting-started/get-started",
-      "poscreators/getting-started/middleware-integration",
-      "poscreators/getting-started/integration-checklist",
-      "poscreators/getting-started/onboarding-presentation",
+      {
+        type: "category",
+        label: "Getting Started for PosCreators",
+        items: [
+          "poscreators/getting-started/get-started",
+          "poscreators/getting-started/portal-registration",
+        ],
+      },
+      {
+        type: "category",
+        label: "Middleware Integration",
+        items: [
+          "poscreators/getting-started/middleware-integration",
+          "poscreators/getting-started/integration-checklist",
+        ],
+      },
+      "poscreators/getting-started/onboarding-posdealers",
     ],
   },
   {
