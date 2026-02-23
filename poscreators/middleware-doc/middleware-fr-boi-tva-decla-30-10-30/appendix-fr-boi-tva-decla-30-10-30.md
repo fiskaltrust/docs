@@ -3,7 +3,9 @@ slug: /poscreators/middleware-doc/france
 title: Introduction
 ---
 
-# Appendix: France - BOI-TVA-DECLA 30-10-30
+# Introduction
+
+## France (BOI-TVA-DECLA 30-10-30)
 
 This appendix expands on the [General Part](https://docs.fiskaltrust.eu/docs/poscreators/middleware-doc)'s information by adding details specific to the French market. This additional information is provided only where applicable. The remaining chapters, for which there is no further information required, were omitted.
 

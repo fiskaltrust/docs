@@ -251,9 +251,12 @@ module.exports = [
         items: [
           "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/appendix-fr-boi-tva-decla-30-10-30",
           "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/terminology/terminology",
+          "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/operation-modes/operation-modes",
+          "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/installation/installation",
+          "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/receipt-case-definitions/receipt-case-definitions",
           {
             type: "category",
-            label: "Cash register integration",
+            label: "Cash Register Integration",
             key: "fr-cash-register-integration",
             items: [
               "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/cash-register-integration/cash-register-integration",
@@ -261,12 +264,9 @@ module.exports = [
             ],
           },
           "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/data-structures/data-structures",
+          "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/reference-tables/reference-tables",
           "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/function-structures/function-structures",
           "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/communication/communication",
-          "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/operation-modes/operation-modes",
-          "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/installation/installation",
-          "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/receipt-case-definitions/receipt-case-definitions",
-          "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/reference-tables/reference-tables",
         ],
       },
       {

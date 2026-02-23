@@ -1,11 +1,11 @@
 ---
 slug: /poscreators/middleware-doc/france/reference-tables
-title: Reference tables
+title: Reference Tables
 ---
 
-# Reference tables
+# Reference Tables
 
-### Service Status: ftState
+## Service Status: ftState
 
 The ftState is returned with every receipt response. Through this status, fiskaltrust.Middleware can signal its operability or request processing logic.
 

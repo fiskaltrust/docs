@@ -1,23 +1,23 @@
 ---
 slug: /poscreators/middleware-doc/france/function-structures
-title: Function structures
+title: Function Structures
 ---
 
-## Function structures
+# Function structures
 
-### iPOS Interface
+## iPOS Interface
 
-#### Echo Function
+### Echo Function
 
 There are no special requirements or laws for the French market.
 In case of the French product ChaîneCloud, there is a special condition when the echo-Function is called with an empty string as a Message, which forces to reinitialize the fiskaltrust.Queue in the fiskaltrust.Middleware.
 There is an example in our Postman Collection ["Echo null"](https://middleware-samples.docs.fiskaltrust.cloud/#a6bcafe6-08e1-49a9-b10e-725d1404365e)
 
-#### Sign Function
+### Sign Function
 
 If fiskaltrust.SecurityMechanism is run in FR (`0x4652…`) mode, then the sign function meets the BOI-TVA-DECLA 30-10-30 requirements.
 
-#### Journal Function
+### Journal Function
 
 With this function, a variety of information can be retrieved from a fiskaltrust.SecurityMechanism.
 
