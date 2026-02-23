@@ -1,18 +1,43 @@
 module.exports = [
   {
     type: "category",
+<<<<<<< Updated upstream
     label: "Get started",
     items: [
       "poscreators/getting-started/get-started",
       "poscreators/getting-started/middleware-integration",
       "poscreators/getting-started/integration-checklist",
       "poscreators/getting-started/onboarding-presentation",
+=======
+    collapsed: true,
+    label: "Get Started",
+    items: [
+      {
+        type: "category",
+        collapsed: true,
+        label: "Getting Started for PosCreators",
+        items: [
+          "poscreators/getting-started/get-started",
+          "poscreators/getting-started/portal-registration",
+        ],
+      },
+      {
+        type: "category",
+        collapsed: true,
+        label: "Middleware Integration",
+        items: [
+          "poscreators/getting-started/middleware-integration",
+          "poscreators/getting-started/integration-checklist",
+        ],
+      },
+      "poscreators/getting-started/onboarding-posdealers",
+>>>>>>> Stashed changes
     ],
   },
   {
     type: "category",
-    collapsed: false,
-    label: "Middleware API documentation",
+    collapsed: true,
+    label: "fiskaltrust.Middleware",
     items: [
       {
         type: "category",
@@ -20,32 +45,51 @@ module.exports = [
         items: [
           "poscreators/middleware-doc/general/general",
           "poscreators/middleware-doc/general/terminology/terminology",
+          "poscreators/middleware-doc/general/operation-modes/operation-modes",
           {
             type: "category",
-            label: "Cash register integration",
+            label: "Components",
+            key: "general-components",
             items: [
-              "poscreators/middleware-doc/general/cash-register-integration/cash-register-integration-regular-workflow",
-              "poscreators/middleware-doc/general/cash-register-integration/cash-register-integration-failure-scenarios",
-              "poscreators/middleware-doc/general/cash-register-integration/multi-markets-integration-guide",
+              "poscreators/middleware-doc/general/components/components",
+              "poscreators/middleware-doc/general/components/configuration-components",
             ],
           },
-          "poscreators/middleware-doc/general/data-structures/data-structures",
-          "poscreators/middleware-doc/general/function-structures/function-structures",
-          "poscreators/middleware-doc/general/communication/communication",
-          {
-            type: "category",
-            label: "Operation modes",
-            key: "general-operation-modes",
-            items: [
-              "poscreators/middleware-doc/general/operation-modes/operation-modes",
-              "poscreators/middleware-doc/general/operation-modes/configuration",
-            ],
-          },
-          "poscreators/middleware-doc/general/installation/installation",
+          "poscreators/middleware-doc/general/configuration/configuration",
           "poscreators/middleware-doc/general/receipt-case-definitions/receipt-case-definitions",
-          "poscreators/middleware-doc/general/reference-tables/reference-tables",
         ],
       },
+      {
+        type: "category",
+        label: "Integration",
+        collapsed: true,
+        key: "integration",
+        items: [
+          {
+            type: "category",
+            label: "Cash Register (POS) Integration",
+            collapsed: true,
+            key: "cash-register-integration",
+            items: [
+          "poscreators/middleware-doc/general/cash-register-integration/cash-register-integration-regular-workflow",
+          "poscreators/middleware-doc/general/cash-register-integration/multi-markets-integration-guide",
+          "poscreators/middleware-doc/general/data-structures/data-structures",
+          "poscreators/middleware-doc/general/reference-tables/reference-tables",
+          "poscreators/middleware-doc/general/cash-register-integration/cash-register-integration-failure-scenarios",
+          ],
+          },
+          "poscreators/middleware-doc/general/function-structures/function-structures",
+          "poscreators/middleware-doc/general/communication/communication",
+        ],
+      },
+    ],
+  },
+  {
+    type: "category",
+    label: "Country-Specific Guides",
+    collapsed: true,
+    key: "country-specific-guides",
+    items: [
       {
         type: "category",
         label: "Austria (RKSV)",
@@ -335,34 +379,7 @@ module.exports = [
   },
   {
     type: "category",
-    collapsed: false,
-    label: "Digital Receipt",
-    items: [
-      "poscreators/middleware-doc/digital-receipt/Introduction/digital-receipt-introduction",
-      {
-        type: "category",
-        label: "General",
-        key: "digital-receipt-general",
-        items: [
-          "poscreators/middleware-doc/digital-receipt/General/receive-receipts",
-          "poscreators/middleware-doc/digital-receipt/General/bundles",
-          "poscreators/middleware-doc/digital-receipt/General/compliance",
-          "poscreators/middleware-doc/digital-receipt/Instore-App/digital-receipt-instore-app",
-          {
-            type: "category",
-            label: "Implementation",
-            items: [
-              "poscreators/middleware-doc/digital-receipt/implementation/getting-started",
-              "poscreators/middleware-doc/digital-receipt/implementation/digital-receipt-implementation",
-            ],
-          },
-        ],
-      },
-    ],
-  },
-  {
-    type: "category",
-    collapsed: false,
+    collapsed: true,
     label: "InStore App",
     items: [
       "poscreators/middleware-doc/instore-app/Introduction/digital-receipt-introduction",
@@ -385,27 +402,7 @@ module.exports = [
   },
   {
     type: "link",
-    label: "Middleware API samples",
-    href: "https://middleware-samples.docs.fiskaltrust.cloud/",
-  },
-  {
-    type: "category",
-    collapsed: false,
-    label: "Receipt signing APIs",
-    items: [
-      {
-        type: "category",
-        label: "RKSV.Sign (Austria)",
-        items: [
-          "poscreators/middleware-doc/signing-at-rksv/rksv-sign-intro",
-          "poscreators/middleware-doc/signing-at-rksv/rksv-sign-api",
-          {
-            type: "link",
-            label: "RKSV.Sign API samples",
-            href: "https://rksvsign-samples.docs.fiskaltrust.cloud/",
-          },
-        ],
-      },
-    ],
+    label: "Development Kit",
+    href: "https://github.com/fiskaltrust/possystemapi-devkit/blob/main/README.MD",
   },
 ];

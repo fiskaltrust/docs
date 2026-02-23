@@ -1,11 +1,9 @@
 ---
 slug: /poscreators/middleware-doc/general/reference-tables
-title: Reference tables
+title: Reference Tables
 ---
 
-## Reference tables
-
-### Service Status: ftState
+## Service Status: ftState
 
 The ftState is returned with every receipt response. Through this status, fiskaltrust.Middleware can signal its operability or request processing logic.
 
@@ -40,7 +38,7 @@ if ((ReceiptResponse.ftState & 0x0000000000000040) != 0)
 }
 ```
 
-### Type of Receipt: ftReceiptCase
+## Type of Receipt: ftReceiptCase
 
 The ftReceiptCase indicates the receipt type and defines how it should be processed by the fiskaltrust.SecurityMechanism. The data type is `Int64` and contains the country specific code, which is a value following the ISO-3166-1-ALPHA-2 standard converted from ASCII into hex and used as byte 8 and 7. For definitions regarding national laws, please refer to the appropriate appendix.
 
@@ -48,7 +46,7 @@ The ftReceiptCase indicates the receipt type and defines how it should be proces
 |----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------|
 | `0x0000000000000000` | "default value"<br />Unknown type of receipt.<br />Automatic processing through the localization setting of the fiskaltrust.Middleware is attempted. | 1.1                    |
 
-#### ftReceiptCaseFlag
+### ftReceiptCaseFlag
 
 Business transactions can result in combinations of receipt types, which would be indicated using codes in bytes 6, 5, 4 and 3. These codes can be combined using the logic operator `OR`.
 
@@ -73,7 +71,7 @@ For definitions regarding national laws, please refer to the appropriate country
 |----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|------------------------|
 | `0xXXXX000000000000` | "default value"<br />Unknown type of service: Automatic processing through the localization setting of the fiskaltrust.Middleware is attempted. | 1.0                    |
 
-### Type of Payment: ftPayItemCase
+## Type of Payment: ftPayItemCase
 
 The ftPayItemCase indicates the type of payment within the pay items block and defines how the fiskaltrust.SecurityMechanism processes the individual payment in terms of the receipt. The data type is `Int64` and contains a country specific code which is a value following the ISO-3166-1-ALPHA-2 standard, converted from ASCII into hex and used as byte 8 and 7.
 
@@ -83,7 +81,7 @@ For definitions regarding national laws, please refer to the appropriate appendi
 |----------------------|----------------------------------------------------------------------------------------------------------------------------------------------|------------------------|
 | `0xXXXX000000000000` | "default value"<br />unknown payment type: Automatic processing through the localization setting of the fiskaltrust.Middleware is attempted. | 1.0                    |
 
-### Format of Signature: ftSignatureFormat
+## Format of Signature: ftSignatureFormat
 
 The ftSignatureFormat tells the cash register or input station which display format is required for the signature block section on the receipt.
 
@@ -105,7 +103,7 @@ The ftSignatureFormat tells the cash register or input station which display for
 | `0x0D`    | Base64                                                          | 1.3                    |
 
 
-### Type of Signature: ftSignatureType
+## Type of Signature: ftSignatureType
 
 The ftSignatureType indicates type and origin of the signature. The data type is `Int64` and can contain a country specific code which is a value following the ISO-3166-1-ALPHA-2 standard, converted from ASCII into hex and used as byte 8 and 7.
 
@@ -118,7 +116,7 @@ For definitions regarding national laws, please refer to the appropriate appendi
 | `0x0000000000002000` | alert notification       | 1.0                    |
 | `0x0000000000003000` | failure notification     | 1.0                    |
 
-### <span id="c-type-of-journal-ftjournaltype-129">Type of Journal: ftJournalType</span>
+## <span id="c-type-of-journal-ftjournaltype-129">Type of Journal: ftJournalType</span>
 
 The ftJournalType is used with the journal function and specifies the content and format of the returned journal stream. The data type is `Int64` and contains a country specific code which is a value following the ISO-3166-1-ALPHA-2 standard, converted from ASCII into hex and used as byte 8 and 7.
 

@@ -1,13 +1,11 @@
 ---
 slug: /poscreators/middleware-doc/general/data-structures
-title: Data structures
+title: Data Structures
 ---
-
-## Data structures
 
 This chapter outlines several data structures, which are used in the communication with the fiskaltrust.Middleware.
 
-### Receipt Request
+## Receipt Request
 
 The cash register transfers the data of an entire receipt request to the fiskaltrust.Middleware using the ReceiptRequest data structure.
 
@@ -65,7 +63,7 @@ namespace fiskaltrust.ifPOS.v0
 
 <span id="_Toc527986825" class="anchor"></span>*Code 1. Definition of class ReceiptRequest*
 
-### Receipt response
+## Receipt response
 
 The fiskaltrust.Middleware sends back the processed data to the cash register through the receipt response.
 
@@ -125,7 +123,7 @@ namespace fiskaltrust.ifPOS.v0
 
 <span id="_Toc527986826" class="anchor"></span>*Code 2. Definition of class ReceiptResponse*
 
-### Charge Items Entry
+## Charge Items Entry
 
 Charge items entries are used for receipt requests as well as for receipt responses.
 
@@ -184,7 +182,7 @@ namespace fiskaltrust.ifPOS.v0
 
 <span id="_Toc527986827" class="anchor"></span>*Code 3. Definition of class ChargeItem*
 
-### Pay Items Entry
+## Pay Items Entry
 
 Payment entries are used for receipt requests as well as for receipt responses.
 
@@ -231,7 +229,7 @@ namespace fiskaltrust.ifPOS.v0
 
 <span id="_Toc527986828" class="anchor"></span>*Code 4. Definition of class PayItem*
 
-### <span id="c-signature-entry-224">Signature Entry</span>
+## <span id="c-signature-entry-224">Signature Entry</span>
 
 The signature entry is only used for the receipt response.
 

@@ -1,12 +1,12 @@
 ---
 slug: /poscreators/interface-doc/cash-register-integration/multi-markets-integration-guide
-title: Multi-markets implementation
+title: Multi-Markets Integration
 ---
-### Multi-market integration
+
 This guide provides a guideline of which business cases should be implemented in which market.
 For business cases which are only differing by the Country Code we recommend to use a mapping table in your POS Software. 
 
-#### Typical sign flow
+### Typical sign flow
 - generate generic receipt requests
 
 The typical sign flow happens when a cash register transfers the data of a receipt request to the fiskaltrust.Middleware using the ReceiptRequest data structure, which will be then processed by the fiskaltrust.SecurtityMechanism.
@@ -16,7 +16,7 @@ For more detailed information, please visit the [PosCreators documentation](http
 - depending on the market, set the chargeitem-, payitem- and receiptcases (not every operation may have an e.g. receiptcase in each market -> in that case, do nothing. example: order in AT and FR)
 ![](./images/12-multi-market-mapping.png)
 
-#### Mapping Table
+### Mapping Table
 The table below shows a comparison of common business cases (e.g. ftReceiptcases, ftChargeItemcases and ftPayItemcases) for every market.
 More details for ftReceiptcases, ftPayItemcases and ft ChargeItemcases can be found for each market on the appropriate country specific appendix.
 
