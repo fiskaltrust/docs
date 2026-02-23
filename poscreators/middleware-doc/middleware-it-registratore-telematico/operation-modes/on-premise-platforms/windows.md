@@ -3,7 +3,7 @@ slug: /poscreators/middleware-doc/italy/platforms/windows
 title: Windows
 ---
 
-# fiskaltrust.Middleware für Windows
+# fiskaltrust.Middleware for Windows
 
 The fiskaltrust.Middleware runs as a service on all 32-bit and 64-bit platforms starting from Windows 7. We are following the [.net lifecycle](https://learn.microsoft.com/en-us/lifecycle/products/microsoft-net-and-net-core) and support the same OSs as the current LTS .net versions. 
 

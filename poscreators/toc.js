@@ -300,23 +300,29 @@ module.exports = [
         items: [
           "poscreators/middleware-doc/middleware-it-registratore-telematico/appendix-it-registratore-telematico",
           "poscreators/middleware-doc/middleware-it-registratore-telematico/terminology/terminology",
-          "poscreators/middleware-doc/middleware-it-registratore-telematico/installation/installation",
-          "poscreators/middleware-doc/middleware-it-registratore-telematico/cash-register-integration/cash-register-integration",
-          "poscreators/middleware-doc/middleware-it-registratore-telematico/communication/communication",
-          "poscreators/middleware-doc/middleware-it-registratore-telematico/data-structures/data-structures",
-          {
+                   {
             type: "category",
-            label: "Operation modes",
+            label: "Operation Modes",
             key: "it-operation-modes",
             items: [
               "poscreators/middleware-doc/middleware-it-registratore-telematico/operation-modes/installation",
               {
                 type: "category",
-                label: "On-premise platforms",
+                label: "On-Premise Platforms",
                 key: "it-on-premise-platforms",
                 items: [
                   "poscreators/middleware-doc/middleware-it-registratore-telematico/operation-modes/on-premise-platforms/linux",
                   "poscreators/middleware-doc/middleware-it-registratore-telematico/operation-modes/on-premise-platforms/windows",
+                ],
+              },
+              {
+                type: "category",
+                label: "On-Premise Databases",
+                key: "it-on-premise-databases",
+                items: [
+                  "poscreators/middleware-doc/middleware-it-registratore-telematico/operation-modes/on-premise-databases/sqlite",
+                  "poscreators/middleware-doc/middleware-it-registratore-telematico/operation-modes/on-premise-databases/entity-framework",
+                  "poscreators/middleware-doc/middleware-it-registratore-telematico/operation-modes/on-premise-databases/mysql",
                 ],
               },
               {
@@ -330,18 +336,12 @@ module.exports = [
                   "poscreators/middleware-doc/middleware-it-registratore-telematico/operation-modes/scu/ivaservizi",
                 ],
               },
-              {
-                type: "category",
-                label: "On-premise databases",
-                key: "it-on-premise-databases",
-                items: [
-                  "poscreators/middleware-doc/middleware-it-registratore-telematico/operation-modes/on-premise-databases/sqlite",
-                  "poscreators/middleware-doc/middleware-it-registratore-telematico/operation-modes/on-premise-databases/entity-framework",
-                  "poscreators/middleware-doc/middleware-it-registratore-telematico/operation-modes/on-premise-databases/mysql",
-                ],
-              },
             ],
-          },
+          }, 
+          "poscreators/middleware-doc/middleware-it-registratore-telematico/installation/installation",
+          "poscreators/middleware-doc/middleware-it-registratore-telematico/receipt-case-definitions/receipt-case-definitions",
+          "poscreators/middleware-doc/middleware-it-registratore-telematico/cash-register-integration/cash-register-integration",
+          "poscreators/middleware-doc/middleware-it-registratore-telematico/data-structures/data-structures",
           {
             type: "category",
             label: "Reference Tables",
@@ -357,6 +357,7 @@ module.exports = [
               "poscreators/middleware-doc/middleware-it-registratore-telematico/reference-tables/type-of-journal-ftjournaltype",
             ],
           },
+          "poscreators/middleware-doc/middleware-it-registratore-telematico/communication/communication",
         ],
       },
       {
