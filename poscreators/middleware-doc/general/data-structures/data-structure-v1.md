@@ -1,6 +1,6 @@
 ---
-slug: /poscreators/middleware-doc/general/data-structures
-title: Data Structures
+slug: /poscreators/middleware-doc/general/data-structures/data-structure-v1
+title: Data Structures V1
 ---
 
 This chapter outlines several data structures, which are used in the communication with the fiskaltrust.Middleware.

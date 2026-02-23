@@ -62,15 +62,33 @@ module.exports = [
             collapsed: true,
             key: "cash-register-integration",
             items: [
-          "poscreators/middleware-doc/general/cash-register-integration/cash-register-integration-regular-workflow",
-          "poscreators/middleware-doc/general/cash-register-integration/multi-markets-integration-guide",
-          "poscreators/middleware-doc/general/data-structures/data-structures",
-          "poscreators/middleware-doc/general/reference-tables/reference-tables",
-          "poscreators/middleware-doc/general/cash-register-integration/cash-register-integration-failure-scenarios",
+              "poscreators/middleware-doc/general/cash-register-integration/cash-register-integration-regular-workflow",
+              "poscreators/middleware-doc/general/cash-register-integration/multi-markets-integration-guide",
+          {
+            type: "category",
+            label: "Data Structures",
+            collapsed: true,
+            key: "data-structures",
+            items: [
+              "poscreators/middleware-doc/general/data-structures/data-structure-v1",
+              "poscreators/middleware-doc/general/data-structures/data-structure-v2",
+            ],
+          },
+          {
+            type: "category",
+            label: "Reference Tables",
+            collapsed: true,
+            key: "reference-tables",
+            items: [
+              "poscreators/middleware-doc/general/reference-tables/reference-tables-v1",
+              "poscreators/middleware-doc/general/reference-tables/reference-tables-v2",
+            ],
+          }
           ],
           },
           "poscreators/middleware-doc/general/function-structures/function-structures",
           "poscreators/middleware-doc/general/communication/communication",
+          "poscreators/middleware-doc/general/cash-register-integration/cash-register-integration-failure-scenarios",
         ],
       },
     ],
@@ -83,7 +101,7 @@ module.exports = [
     items: [
       {
         type: "category",
-        label: "Austria (RKSV)",
+        label: "Austria (AT)",
         items: [
           "poscreators/middleware-doc/middleware-at-rksv/appendix-at-rksv",
           "poscreators/middleware-doc/middleware-at-rksv/terminology/terminology",
@@ -99,7 +117,7 @@ module.exports = [
       },
       {
         type: "category",
-        label: "Belgium (Closed Beta)",
+        label: "Belgium (BE)",
         items: [
           "poscreators/middleware-doc/middleware-be/appendix-be",
           "poscreators/middleware-doc/middleware-be/terminology/terminology",
@@ -124,7 +142,7 @@ module.exports = [
       },
       {
         type: "category",
-        label: "Germany (KassenSichV)",
+        label: "Germany (DE)",
         items: [
           "poscreators/middleware-doc/middleware-de-kassensichv/appendix-de-kassensichv",
           "poscreators/middleware-doc/middleware-de-kassensichv/terminology/terminology",
@@ -204,7 +222,7 @@ module.exports = [
       },
       {
         type: "category",
-        label: "Spain (Open Beta)",
+        label: "Spain (ES)",
         items: [
           "poscreators/middleware-doc/middleware-es/appendix-es",
           "poscreators/middleware-doc/middleware-es/terminology/terminology",
@@ -229,7 +247,7 @@ module.exports = [
       },
       {
         type: "category",
-        label: "France (BOI-TVA-DECLA-30-10-30)",
+        label: "France (FR)",
         items: [
           "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/appendix-fr-boi-tva-decla-30-10-30",
           "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/terminology/terminology",
@@ -253,7 +271,7 @@ module.exports = [
       },
       {
         type: "category",
-        label: "Greece (Closed Beta)",
+        label: "Greece (GR)",
         items: [
           "poscreators/middleware-doc/middleware-gr/appendix-gr",
           "poscreators/middleware-doc/middleware-gr/terminology/terminology",
@@ -278,7 +296,7 @@ module.exports = [
       },
       {
         type: "category",
-        label: "Italy (Registratore Telematico)",
+        label: "Italy (IT)",
         items: [
           "poscreators/middleware-doc/middleware-it-registratore-telematico/appendix-it-registratore-telematico",
           "poscreators/middleware-doc/middleware-it-registratore-telematico/terminology/terminology",
@@ -343,7 +361,7 @@ module.exports = [
       },
       {
         type: "category",
-        label: "Portugal (Closed Beta)",
+        label: "Portugal (PT)",
         items: [
           "poscreators/middleware-doc/middleware-pt/appendix-pt",
           "poscreators/middleware-doc/middleware-pt/terminology/terminology",

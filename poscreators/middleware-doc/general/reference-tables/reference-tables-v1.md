@@ -1,6 +1,6 @@
 ---
-slug: /poscreators/middleware-doc/general/reference-tables
-title: Reference Tables
+slug: /poscreators/middleware-doc/general/reference-tables/reference-tables-v1
+title: Reference Tables V1
 ---
 
 ## Service Status: ftState
