@@ -3,6 +3,8 @@ slug: /poscreators/middleware-doc/austria/communication
 title: Communication
 ---
 
+# Communication
+
 This chapter expands more on describing the ways to communicate with the fiskaltrust.Middleware covered in the [Communication](../../general/communication/communication.md) chapter of the General Part, with country-specific information applicable to the Austrian market.
 
 ## Supported protocols

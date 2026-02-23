@@ -3,13 +3,13 @@ slug: /poscreators/middleware-doc/germany/data-structures
 title: Data Structures
 ---
 
-## Data Structures
+# Data Structures
 
 This chapter expands on the descriptions of the country-specific Data Structures, covered in the Chapter ["Data Structures"](../../general/data-structures/data-structures.md) of the General Part, with information applicable to the German market.
 
-### Receipt Request
+## Receipt Request
 
-#### Single fields
+### Single fields
 
 Fields from the receipt request that need special handling for the German market are listed below:
 
@@ -125,4 +125,3 @@ For some cases, it is needed to transmit data within the field `ftPayItemCaseDat
 | `VoucherNr`             | `string`      | mandatory if applicable            | Send via `ftPayItemCaseData` in JSON format if the pay item represents the voucher. To send, please add the key value pair `VoucherNr` e.g. `"ftPayItemCaseData":"{ ..., "VoucherNr":"UAUA91829182HH", ... }"`.                                                                                                                                                                                                                                                             | 1.3         |
 | `MoneyGroupId`          | `string`      | optional                           | Send via `ftPayItemCaseData` in JSON format. To send, please add the key value pair `MoneyGroupId` e.g. `"ftPayItemCaseData":"{ ..., "MoneyGroupId":192, ... }"`. If not sent, the fiskaltrust.Middleware will automatically generate an ID (CRC32 hash) deducted from `ftPayItem.MoneyGroup`                                                                                                                                                                               | 1.3         |
 | `AgencyId`              | `integer`     | mandatory if applicable            | Mandatory if agency business (DE: Agenturgeschäft). Send via `ftPayItemCaseData` in JSON format. To send, please add the key value pair `AgencyId` e.g. `"ftPayItemCaseData":"{ ..., "AgencyId": "73c94a68-c329-4d82-a8e4-d48903791922", ... }"` (the ID can be taken from the Portal's _Agency management_ page). Should only be used in cases where PayItems will be transformed to `GV_TYP`es during DSFinV-K generation - otherwise, please use `ftChargeItemCaseData`. | 1.3         |
-

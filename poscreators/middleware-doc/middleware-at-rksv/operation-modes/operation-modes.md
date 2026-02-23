@@ -3,6 +3,8 @@ slug: /poscreators/middleware-doc/austria/operation-modes
 title: Operation Modes
 ---
 
+# Operation Modes
+
 ## Components of the fiskaltrust.Middleware
 
 ### ASP.net 5/Core Web App
