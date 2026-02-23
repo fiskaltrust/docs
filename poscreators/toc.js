@@ -105,14 +105,14 @@ module.exports = [
         items: [
           "poscreators/middleware-doc/middleware-at-rksv/appendix-at-rksv",
           "poscreators/middleware-doc/middleware-at-rksv/terminology/terminology",
-          "poscreators/middleware-doc/middleware-at-rksv/cash-register-integration/cash-register-integration",
-          "poscreators/middleware-doc/middleware-at-rksv/data-structures/data-structures",
-          "poscreators/middleware-doc/middleware-at-rksv/function-structures/function-structures",
-          "poscreators/middleware-doc/middleware-at-rksv/communication/communication",
           "poscreators/middleware-doc/middleware-at-rksv/operation-modes/operation-modes",
           "poscreators/middleware-doc/middleware-at-rksv/installation/installation",
           "poscreators/middleware-doc/middleware-at-rksv/receipt-case-definitions/receipt-case-definitions",
+          "poscreators/middleware-doc/middleware-at-rksv/cash-register-integration/cash-register-integration",
+          "poscreators/middleware-doc/middleware-at-rksv/data-structures/data-structures",
           "poscreators/middleware-doc/middleware-at-rksv/reference-tables/reference-tables",
+          "poscreators/middleware-doc/middleware-at-rksv/function-structures/function-structures",
+          "poscreators/middleware-doc/middleware-at-rksv/communication/communication",
         ],
       },
       {

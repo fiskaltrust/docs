@@ -1,13 +1,11 @@
 ---
 slug: /poscreators/middleware-doc/austria/reference-tables
-title: Reference tables
+title: Reference Tables
 ---
-
-## Reference tables
 
 This chapter expands on the reference tables covered in the Chapter ["Reference tables"](../../general/reference-tables/reference-tables.md) of the General Part, with country-specific information applicable to the Austrian market.
 
-### Service Status: ftState
+## Service Status: ftState
 
 The table below describes it supported statuses for the ftState field following the Austrian law. The ftState from this reference table and the general part of this documentation can be combined through the logic operator "OR". For example `0x4154000000000010` (monthly report due) and `0x4154000000000008` combined through `OR` results in `0x4154000000000018`.
 
@@ -60,7 +58,7 @@ For Austria (AT) the country code is `0x4154`. Thus, the value for an unknown ft
 
 *Table 22. Type of Receipt: ftReceiptCase (AT - RKSVO)*
 
-#### ftReceiptCaseFlag
+### ftReceiptCaseFlag
 
 This table expands on the values provided in the table ["Type of Receipt: ftReceiptCaseFlag"](../../general/reference-tables/reference-tables.md#ftreceiptcaseflag) of with values applicable to the Austrian market.
 
@@ -79,7 +77,7 @@ This table expands on the values provided in the table ["Type of Receipt: ftRece
 
 *Table 23. Type of Receipt: ftReceiptCase Flags(AT - RKSVO)*
 
-### Type of Service: ftChargeItemCase
+## Type of Service: ftChargeItemCase
 
 This table expands on the values provided in the table ["Type of Service: ftChargeItemCase"](../../general/reference-tables/reference-tables.md#format-of-signature-ftsignatureformat) with values applicable to the Austrian market.
 
@@ -126,7 +124,7 @@ This table expands on the values provided in the table ["Type of Service: ftChar
 
 *Table 24. Type of Service: ftChargeItemCase (AT - RKSVO)*
 
-### Type of Payment: ftPayItemCase
+## Type of Payment: ftPayItemCase
 
 This table expands on the values provided in the table ["Type of Payment: ftPayItemCase"](../../general/reference-tables/reference-tables.md#type-of-payment-ftpayitemcase) with values applicable to the Austrian market.
 
@@ -157,7 +155,7 @@ This table expands on the values provided in the table ["Type of Payment: ftPayI
 
 *Table 25. Type of Payment: ftPayItemCase (AT - RKSVO)*
 
-### Type of Signature: ftSignatureFormat
+## Type of Signature: ftSignatureFormat
 
 This table expands on the values provided in the table ["Format of Signature: ftSignatureFormat"](../../general/reference-tables/reference-tables.md#format-of-signature-ftsignatureformat) with values applicable to the Austrian market.
 
@@ -183,7 +181,7 @@ According to the RKSV, there is one exception: if the fiskaltrust.SecurityMechan
 
 *Table 26. Type of Signature: ftSignatureFormat (AT - RKSVO)*
 
-### Type of Signature: ftSignatureType
+## Type of Signature: ftSignatureType
 
 This table expands on the values provided in the table ["Type of Signature: ftSignatureType"](../../general/reference-tables/reference-tables.md#type-of-signature-ftsignaturetype) with values applicable to the Austrian market.
 
@@ -198,7 +196,7 @@ This table expands on the values provided in the table ["Type of Signature: ftSi
 
 *Table 27. Type of Signature: ftSignatureType (AT - RKSVO)*
 
-### Type of Journal: ftJournalType
+## Type of Journal: ftJournalType
 
 This table expands on the values provided in the table of Chapter ["Type of Journal: ftJournalType"](../../general/reference-tables/reference-tables.md#type-of-journal-ftjournaltype) of the General part with values applicable to the Austrian market.
 
@@ -209,7 +207,7 @@ This table expands on the values provided in the table of Chapter ["Type of Jour
 
 *Table 28. Type of Journal: ftJournalType (AT - RKSVO)*
 
-### <span id="c-printing-of-qr-code-not-supported-191">Printing of QR-Code not supported</span>
+## <span id="c-printing-of-qr-code-not-supported-191">Printing of QR-Code not supported</span>
 
 If no QR code can be issued, it is allowed to place text using OCR typeface onto the receipt. For this procedure, BASE64-coded data fields are displayed in BASE32 according to §11 para. 2 RKSV. This is because the capital "i" and lowercase "L" are not distinguishable from each other in many typefaces.
 

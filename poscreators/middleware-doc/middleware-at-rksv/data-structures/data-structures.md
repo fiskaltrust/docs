@@ -1,17 +1,15 @@
 ---
 slug: /poscreators/middleware-doc/austria/data-structures
-title: Data structures
+title: Data Structures
 ---
-
-## Data structures
 
 This chapter expands more on describing the data structures covered in the Chapter ["Data Structures"](../../general/data-structures/data-structures.md) of the General Part, with country-specific information applicable to the Austrian market.
 
-### Receipt Request
+## Receipt Request
 
 There are no special requirements or laws for the Austrian market.
 
-### Receipt Response
+## Receipt Response
 
 This table describes additional fields of the Receipt Response applicable to the Austrian market.
 
@@ -22,7 +20,7 @@ This table describes additional fields of the Receipt Response applicable to the
 
 <span id="_Toc510009100" class="anchor"></span>*Table 18. Receipt Response (AT - RKSVO)*
 
-### Charge Items Entry
+## Charge Items Entry
 
 This entry determines which counter will be used to sum up the value of the sales tax field (normal, discounted-1, discounted-2, zero or special) for the individual services. It is required for signature creation.
 
@@ -34,11 +32,11 @@ This table describes additional fields of the Charge Items Entry applicable to t
 
 <span id="_Toc510009101" class="anchor"></span>*Table 19. Charge Items Entry (ftChargeItems) (AT - RKSVO)*
 
-### Pay Items Entry
+## Pay Items Entry
 
 There are no special requirements or laws for the Austrian market.
 
-### Signature Entry
+## Signature Entry
 
 In addition to the description provided in the Chapter ["Signature Entry"](../../general/data-structures/data-structures.md#signature-entry) of the General part, a Signature Entry for Austrian market may contain a FinanzOnline notification, which can be sent back depending on the operating mode. This is in particular the case for receipts with special functions.
 
