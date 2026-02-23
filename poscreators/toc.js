@@ -1,14 +1,6 @@
 module.exports = [
   {
     type: "category",
-<<<<<<< Updated upstream
-    label: "Get started",
-    items: [
-      "poscreators/getting-started/get-started",
-      "poscreators/getting-started/middleware-integration",
-      "poscreators/getting-started/integration-checklist",
-      "poscreators/getting-started/onboarding-presentation",
-=======
     collapsed: true,
     label: "Get Started",
     items: [
@@ -31,7 +23,6 @@ module.exports = [
         ],
       },
       "poscreators/getting-started/onboarding-posdealers",
->>>>>>> Stashed changes
     ],
   },
   {
