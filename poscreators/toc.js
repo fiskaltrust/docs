@@ -392,7 +392,7 @@ module.exports = [
     collapsed: true,
     label: "InStore App",
     items: [
-      "poscreators/middleware-doc/instore-app/Introduction/digital-receipt-introduction",
+      "poscreators/middleware-doc/instore-app/introduction/introduction",
       "poscreators/middleware-doc/instore-app/available-settings/settings",
       "poscreators/middleware-doc/instore-app/Setup-guide/setup",
       "poscreators/middleware-doc/instore-app/printer-guide/printer",
