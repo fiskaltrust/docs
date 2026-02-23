@@ -1,9 +1,9 @@
 ---
 slug: /poscreators/middleware-doc/germany/operation-modes/on-premise-installation
-title: On-premise installation
+title: On-Premise Installation
 ---
 
-# On-premise installation
+# On-Premise Installation
 
 The illustration below shows the components available for the premise installation of the fiskaltrust.Middleware for the German market. For the operation modes available and the description of the components please refer to the [general part](../../general/operation-modes/operation-modes.md) .
 

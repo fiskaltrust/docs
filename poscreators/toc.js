@@ -58,7 +58,7 @@ module.exports = [
         items: [
           {
             type: "category",
-            label: "Cash Register (POS) Integration",
+            label: "Cash Register Integration",
             collapsed: true,
             key: "cash-register-integration",
             items: [
@@ -146,27 +146,15 @@ module.exports = [
         items: [
           "poscreators/middleware-doc/middleware-de-kassensichv/appendix-de-kassensichv",
           "poscreators/middleware-doc/middleware-de-kassensichv/terminology/terminology",
-          "poscreators/middleware-doc/middleware-de-kassensichv/installation/installation",
-          {
+                  {
             type: "category",
-            label: "Cash register integration",
-            key: "de-cash-register-integration",
-            items: [
-              "poscreators/middleware-doc/middleware-de-kassensichv/cash-register-integration/cash-register-integration",
-              "poscreators/middleware-doc/middleware-de-kassensichv/cash-register-integration/single-receipt-creation",
-              "poscreators/middleware-doc/middleware-de-kassensichv/cash-register-integration/receipt-sequences-creation",
-            ],
-          },
-          "poscreators/middleware-doc/middleware-de-kassensichv/data-structures/data-structures",
-          {
-            type: "category",
-            label: "Operation modes",
+            label: "Operation Modes",
             key: "de-operation-modes",
             items: [
               "poscreators/middleware-doc/middleware-de-kassensichv/operation-modes/on-premise-installation",
               {
                 type: "category",
-                label: "On-premise platforms",
+                label: "On-Premise Platforms",
                 key: "de-on-premise-platforms",
                 items: [
                   "poscreators/middleware-doc/middleware-de-kassensichv/operation-modes/on-premise-platforms/android",
@@ -191,7 +179,7 @@ module.exports = [
               },
               {
                 type: "category",
-                label: "On-premise databases",
+                label: "On-Premise Databases",
                 key: "de-on-premise-databases",
                 items: [
                   "poscreators/middleware-doc/middleware-de-kassensichv/operation-modes/on-premise-databases/entity-framework",
@@ -201,6 +189,19 @@ module.exports = [
               },
             ],
           },
+          "poscreators/middleware-doc/middleware-de-kassensichv/installation/installation",
+          "poscreators/middleware-doc/middleware-de-kassensichv/receipt-case-definitions/receipt-case-definitions",
+          {
+            type: "category",
+            label: "Cash Register Integration",
+            key: "de-cash-register-integration",
+            items: [
+              "poscreators/middleware-doc/middleware-de-kassensichv/cash-register-integration/cash-register-integration",
+              "poscreators/middleware-doc/middleware-de-kassensichv/cash-register-integration/single-receipt-creation",
+              "poscreators/middleware-doc/middleware-de-kassensichv/cash-register-integration/receipt-sequences-creation",
+            ],
+          },
+          "poscreators/middleware-doc/middleware-de-kassensichv/data-structures/data-structures",
           {
             type: "category",
             label: "Reference Tables",
@@ -216,7 +217,6 @@ module.exports = [
               "poscreators/middleware-doc/middleware-de-kassensichv/reference-tables/type-of-journal-ftjournaltype",
             ],
           },
-          "poscreators/middleware-doc/middleware-de-kassensichv/receipt-case-definitions/receipt-case-definitions",
           "poscreators/middleware-doc/middleware-de-kassensichv/procedural-documentation/dsfinv-k-generation",
         ],
       },

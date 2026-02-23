@@ -1,9 +1,9 @@
 ---
 slug: /poscreators/middleware-doc/germany/receipt-sequences-creation
-title: Receipt sequences creation
+title: Receipt Sequences Creation
 ---
 
-# Receipt sequences creation
+# Receipt Sequences Creation
 
 In the chapter [Single receipt creation](single-receipt-creation.md), the creation of single receipts using either implicit and/or explicit flow has been described.
 

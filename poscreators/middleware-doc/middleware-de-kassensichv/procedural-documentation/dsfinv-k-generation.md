@@ -1,9 +1,9 @@
 ---
 slug: /poscreators/middleware-doc/germany/dsfinv-k
-title: DSFinV-K generation
+title: DSFinV-K Generation
 ---
 
-# Procedural documentation for DSFinV-K generation
+# Procedural Documentation for DSFinV-K Generation
 
 ## DSFinV-K export
 

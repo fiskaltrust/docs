@@ -1,9 +1,9 @@
 ---
 slug: /poscreators/middleware-doc/germany/single-receipt-creation
-title: Single receipt creation
+title: Single Receipt Creation
 ---
 
-# Single receipt creation 
+# Single Receipt Creation 
 
 This chapter describes the general process of creating receipts with fiskaltrust.Middleware and its workflow, according to German law. It requires giving a scope to an ongoing [action](../terminology/terminology.md) over time. This scope is named a [transaction](../terminology/terminology.md). Calls to fiskaltrust.Middleware are processed just in time and cannot be asynchronous over multiple minutes. Therefore and in accordance with German law, a single call is maybe not able to scope a complete transaction. To solve this, multiple calls are used, scoping the same transaction.
 
