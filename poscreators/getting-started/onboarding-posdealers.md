@@ -36,7 +36,9 @@ For more detailed instructions, please open the drop-down window below.
 <details>
   <summary>Management of PosSystems in Details</summary>  
 
-:::caution if you are missing menu items, please check your active roles 
+:::caution
+
+if you are missing menu items, please check your active roles 
 
 :::
 
