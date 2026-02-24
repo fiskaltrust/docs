@@ -395,19 +395,19 @@ module.exports = [
       "poscreators/middleware-doc/instore-app/introduction/introduction",
       "poscreators/middleware-doc/instore-app/available-settings/settings",
       "poscreators/middleware-doc/instore-app/Setup-guide/setup",
-      "poscreators/middleware-doc/instore-app/printer-guide/printer",
-      "poscreators/middleware-doc/instore-app/multiterminal-settings/multiterminal",
-      "poscreators/middleware-doc/instore-app/installation-guides/installation-guides",
-      {
+            {
         type: "category",
         label: "Installation Guides",
         items: [
+          "poscreators/middleware-doc/instore-app/installation-guides/installation-guides",
           "poscreators/middleware-doc/instore-app/installation-guides/manual/manual-guide",
           "poscreators/middleware-doc/instore-app/installation-guides/GooglePlay/googleplay-guide",
           "poscreators/middleware-doc/instore-app/installation-guides/Orderman/orderman-guide",
           "poscreators/middleware-doc/instore-app/installation-guides/Sunmi/sunmi-guide",
         ],
       },
+      "poscreators/middleware-doc/instore-app/printer-guide/printer",
+      "poscreators/middleware-doc/instore-app/multiterminal-settings/multiterminal",
     ],
   },
   {

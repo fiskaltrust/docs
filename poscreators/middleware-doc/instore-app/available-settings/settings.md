@@ -1,9 +1,9 @@
 ---
 slug: /poscreators/middleware-doc/instore-app/available-settings
-title: 'Available settings'
+title: Available Settings
 ---
 
-## InStore App – Available Settings (v1.2.7)
+# Available Settings - InStore App (v1.2.7)
 
 :::info Important
 
@@ -12,13 +12,13 @@ If you are using an older version, some settings may differ or may not be availa
 
 :::
 
-### DeviceId
+## DeviceId
 Shows the unique identifier of this device. Quote this ID when contacting support or managing a fleet. *(Read‑only.)*
 
-### DeviceType
+## DeviceType
 Displays the device model/type (e.g., terminal vendor and model). Useful to identify hardware-specific behavior. *(Read‑only.)*
 
-### IP Address
+## IP Address
 Shows the current IP address of the device on your network. Use it when setting up network printing or firewall rules. *(Read‑only.)*
 
 :::info Note

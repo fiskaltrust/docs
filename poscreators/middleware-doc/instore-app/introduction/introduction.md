@@ -24,12 +24,6 @@ Since all operations within the app (Including QR-Code scanning, accepting and p
 
 fiskaltrust appointed Dr. Markus Knasmüller from BMD to create an external assessment about the conformity of the digital receipt in Austria. The final assessment can be requested here: https://forms.office.com/e/0PcMDYWC2B
 
-## Supported Stores
-- [PAX GP](https://www.whatspos.com)
-- [PAX Italia](https://paxitalia.whatspos.com)
-- [Orderman](https://next.orderman.com) <!-- markdown-link-check-disable-line -->
-- [Sunmi](https://partner.sunmi.com)
-
 ## Receiving receipts with InStore App
 
 This sequence diagram describes the process of generating a digital receipt with the InStore App. The participants in the process are the merchant, fiskaltrust, consumer and the InStore App. 
