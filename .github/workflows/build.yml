@@ -12,6 +12,8 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v5
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
 
       - uses: lycheeverse/lychee-action@v2
         id: lychee_markets
