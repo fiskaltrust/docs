@@ -1,6 +1,6 @@
 ---
 slug: /poscreators/middleware-doc/general/reference-tables/reference-tables-v2
-title: Reference Tables V2 (default)
+title: Reference Tables V2
 ---
 
 # ReceiptRequest related mapping

@@ -42,13 +42,13 @@ For Germany (DE), the country code is `0x4445`. Thus, the value of an unknown `f
 
 
 ## ftReceiptCaseFlag
-This table expands on the values provided in table [ftReceiptCaseFlag in General Part](../../general/reference-tables/reference-tables.md#ftreceiptcaseflag) with values applicable to the German market.
+This table expands on the values provided in table [ftReceiptCaseFlag in General Part](../../general/reference-tables/reference-tables-v2.md#ftreceiptcaseflags) with values applicable to the German market.
 
 | Value | Description | Middleware-Version |
 |-------|-------------|--------------------|
 | 0x0000000000010000 | **Failed receipt** <br /> Using this flag will enable the late signing mode `ftState`  `0x0000000000000008` ,  this ftState is only returned when the mentioned flag is included into the receipts. A zero receipt is necessary to solve the situation even if the middleware responds with `ftState` `0x0000000000000000` This is described in the [Failure scenarios](https://docs.fiskaltrust.cloud/docs/poscreators/middleware-doc/general/cash-register-integration/failure-scenarios#failure-scenarios) . | 1.3- |
 | 0x0000000000020000 | **Training receipt**<br />DSFinV-K: overrides BON_TYP=AVTraining | 1.3- |
-| 0x0000000000040000 | **Reverse/voided receipt**<br />To cancel a receipt, resend it with this flag added to the _ftReceiptCase_ and inverse the _cbPayItems_ or _cbChargeItems_ (**This is not the same behavior as described in the [general part](../../general/reference-tables/reference-tables.md#ftreceiptcaseflag)** — in Germany, this flag requires **only one** of _cbPayItems_ or _cbChargeItems_ to be negative, and **both must not be negative at the same time**). In the DSFinV-K export, this flag will set the column `BON_STORNO` to `true`.<br/>In Middleware versions lower than 1.3.14, this flag created a receipt with the BON_TYP _AVBelegStorno_. This behavior got replaced by a separate _ftReceiptCase_. | 1.3- |
+| 0x0000000000040000 | **Reverse/voided receipt**<br />To cancel a receipt, resend it with this flag added to the _ftReceiptCase_ and inverse the _cbPayItems_ or _cbChargeItems_ (**This is not the same behavior as described in the [general part](../../general/reference-tables/reference-tables-v2.md#ftreceiptcaseflags)** — in Germany, this flag requires **only one** of _cbPayItems_ or _cbChargeItems_ to be negative, and **both must not be negative at the same time**). In the DSFinV-K export, this flag will set the column `BON_STORNO` to `true`.<br/>In Middleware versions lower than 1.3.14, this flag created a receipt with the BON_TYP _AVBelegStorno_. This behavior got replaced by a separate _ftReceiptCase_. | 1.3- |
 | 0x0000000000080000 | **paper/handwritten receipt** | 1.3- |
 | 0x0000000000100000 | **Small business, not taxable sales.** | 1.3- |
 | 0x0000000000200000 | **Receiver is a company** | 1.3- |
@@ -65,4 +65,4 @@ This table expands on the values provided in table [ftReceiptCaseFlag in General
 | 0x0000000040000000 | **Requests to bypass TSEInfo-Call on initiate-SCU-switch**<br/>This flag applies to _initiate-SCU-switch_ only and can be used to unblock the SCU-switch in case the Middleware is not able to recover from "SSCD failed" mode but the TSEInfo-Call is successful. It should not be used per default to avoid hiding recurring issues of this kind. | 1.3.47|
 | 0x0000000100000000 | **Implicit Transaction.** <br />No Start-Transaction call to the `Sign` method is required, it is done implicitly. If the unique identifier set in property `cbReceiptReference` already started a transaction, this will throw an exception. | 1.3.0 |
 | 0x0000000200000000 | **Close transactions on daily closing** <br /> This receiptCaseFlag for Daily-Closing will closes all open transactions on the TSE when a dailyclosing is done. This solves the problem of open transactions from other queues, in a setup where  muultiple queues are used on one tse. | 1.3.75 |
-| 0x0000800000000000 | **Receipt request.** <br />Common behavior, see [general part](../../general/reference-tables/reference-tables.md#ftreceiptcaseflag). | 1.3- |
+| 0x0000800000000000 | **Receipt request.** <br />Common behavior, see [general part](../../general/reference-tables/reference-tables-v2.md#ftreceiptcaseflags). | 1.3- |
