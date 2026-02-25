@@ -3,11 +3,6 @@ slug: /poscreators/middleware-doc/general/data-structures/data-structures-v2
 title: Data Structures V2
 ---
 
-:::info Note
-**Data Structures – Version 2** is available only for  **Austria (AT), France (FR), and Germany (DE)** using the **POSSystem API**.
-
-:::
-
 This chapter outlines several data structures, which are used in the communication with the fiskaltrust.Middleware.
 
 ## Receipt Request

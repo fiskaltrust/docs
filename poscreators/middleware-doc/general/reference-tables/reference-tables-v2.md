@@ -3,13 +3,15 @@ slug: /poscreators/middleware-doc/general/reference-tables/reference-tables-v2
 title: Reference Tables V2
 ---
 
-# ReceiptRequest related mapping
+# Reference Tables V2
 
-## ftReceiptCase
+## ReceiptRequest related mapping
+
+### ftReceiptCase
 
 **Format**: _CCCC_vlll_gggg_txcc_
 
-### t - ReceiptCaseType
+#### t - ReceiptCaseType
 
 | **Type** | **Category** | **Description** |
 |-----------|-----------------|-------------------------|
@@ -19,7 +21,7 @@ title: Reference Tables V2
 | `3` | Log  | Logs are used to store and secure events needed for additional processing or downstream processes (e.g., a log for when the cash drawer is opened). |
 | `4` | Lifecycle  | These operations change the overall state of the Middleware. Depending on local regulations, these receipts are handed over as part of a notification (e.g., FinanzOnline). |
 
-### txcc - ReceiptCase
+#### txcc - ReceiptCase
 
 | **Value** | **Description** |
 |-----------|-----------------|
@@ -56,7 +58,7 @@ title: Reference Tables V2
 | `4021` | Initiate migration. |
 | `4022` | Finish migration. |
 
-### gggg - Global tagging/flags
+#### gggg - Global tagging/flags
 
 #### ftReceiptCaseFlags
 
@@ -271,20 +273,20 @@ version 2
 | `4000` | Respond in **ReceiptResponse**. |
 | `8000` | **ShowInChargeItems**<br />Visualize the item before Total Amount. This inverts amount and does include the amount into the visualized total amount on the receipt. |
 
-# ReceiptResponse related mapping
+## ReceiptResponse related mapping
 
-## ftReceiptnumber
+### ftReceiptnumber
 
 `ft{ReiceiptNumeratorHex}#{RT-Device-Z-Number}-{RT-Device-recNumber}`
 
-## ftState
+### ftState
 
 **Format**: _CCCC_vlll_gggg_gggg_
 
 **v - version**
 version 2
 
-### gggg_gggg - Global tagging/flags
+#### gggg_gggg - Global tagging/flags
 
 | **Value** | **Description** |
 |-----------|-----------------|
