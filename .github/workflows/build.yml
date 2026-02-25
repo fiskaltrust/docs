@@ -7,6 +7,7 @@ on:
 jobs:
   check-links:
     runs-on: ubuntu-latest
+    needs: []
     permissions:
       pull-requests: write
       contents: read
@@ -23,7 +24,7 @@ jobs:
 
   build:
     uses: fiskaltrust/service-docs-ui/.github/workflows/build.yml@main
-    needs: check-links
+    needs: []
     with:
       docs_ref: ${{ github.event.pull_request.head.sha }}
     secrets:
