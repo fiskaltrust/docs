@@ -22,7 +22,7 @@ Please note that the included links in this section lead to DATEV, which only ke
 _[DATEV MeinFiskal](https://www.meinfiskal.de/)_ is an open cloud platform hosted by DATEV. PosCreators, providers of TSE (technical security equipment) and fiskaltrust joined this platform.  
 _DATEV MeinFiskal_ is an integral part of the _fiskaltrust.Carefree_ product bundle. The data is transferred from the fiskaltrust.Portal via an automated interface to the _DATEV MeinFiskal_ platform.  
 
-The _fiskaltrust.Carefree_ product bundle also includes the _[DATEV Kassenarchiv online](https://apps.datev.de/help-center/documents/0904340)_. Additionally, this service enables [revision-safe archiving](https://docs.fiskaltrust.cloud/de/docs/posdealers/buy-resell/products/revision-safe-archiving) in fiskaltrust's cloud, daily archiving of end-of-day totals, individual records and other tax-relevant documents as an **extended memory** of the PosSystem. 
+The _fiskaltrust.Carefree_ product bundle also includes the _[DATEV Kassenarchiv online](https://apps.datev.de/help-center/documents/0904340)_. Additionally, this service enables [revision-safe archiving](../revision-safe-archiving.md) in fiskaltrust's cloud, daily archiving of end-of-day totals, individual records and other tax-relevant documents as an **extended memory** of the PosSystem. 
 By usage of the _DATEV Kassenarchiv online_, your PosOperator reaches a legally compliant kind of higher security:
 * Additional storage to prevent loss of the data 
 * Proof that nobody can change the PosSystem data
@@ -47,13 +47,13 @@ Check if the **isValid** field is **true**. If the **isValid** field shows the v
 
 ##### Common errors in the validation report
 
-| Error |  Cause |
-|---|---|
-| does not validate against content encoding 'base64' cash_point_closing.security.tse.modules[0].certificate  | Certificate of the TSE is missing. Check if TSE is active in fiskaltrust.Portal |
-| JSON does not match any schemas from 'anyOf' cash_point_closing.head.company  | tax id or vat id missing, but at least one of them is required. Check **Master data** in fiskaltrust.Portal |
-| String 'XXXX' does not match regex pattern '^[A-Z]{2}.{1,13} cash_point_closing.head.company.location.vat_id_number  | vat id has the wrong format. Check if vat id has the format DE123456789 in **Master Data** |
-| Required properties are missing from object: brand, model, base_currency_code cash_point_closing.head.company.location.cash_register  | PosSystem Master data is missing. Check if PosSystemId is included in all requests to the fiskaltrust.Middleware |
-| JSON is valid against no schemas from 'oneOf' cash_point_closing.transactions[X].head.references[X]  | Reference to other system is missing mandatory data. Check ReceiptCaseData reference rules [References](https://docs.fiskaltrust.cloud/docs/poscreators/middleware-doc/germany/data-structures#receipt-case-data-ftreceiptcasedata) |
+| Error                                                                                                                                | Cause                                                                                                                                                                                                                               |
+|--------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| does not validate against content encoding 'base64' cash_point_closing.security.tse.modules[0].certificate                           | Certificate of the TSE is missing. Check if TSE is active in fiskaltrust.Portal                                                                                                                                                     |
+| JSON does not match any schemas from 'anyOf' cash_point_closing.head.company                                                         | tax id or vat id missing, but at least one of them is required. Check **Master data** in fiskaltrust.Portal                                                                                                                         |
+| String 'XXXX' does not match regex pattern '^[A-Z]{2}.{1,13} cash_point_closing.head.company.location.vat_id_number                  | vat id has the wrong format. Check if vat id has the format DE123456789 in **Master Data**                                                                                                                                          |
+| Required properties are missing from object: brand, model, base_currency_code cash_point_closing.head.company.location.cash_register | PosSystem Master data is missing. Check if PosSystemId is included in all requests to the fiskaltrust.Middleware                                                                                                                    |
+| JSON is valid against no schemas from 'oneOf' cash_point_closing.transactions[X].head.references[X]                                  | Reference to other system is missing mandatory data. Check ReceiptCaseData reference rules [References](https://docs.fiskaltrust.cloud/docs/poscreators/middleware-doc/germany/data-structures#receipt-case-data-ftreceiptcasedata) |
 
 
 #### PosDealer
@@ -84,16 +84,16 @@ If the following requirements are not met, the [PosOperator Onboarding](../../..
 #### Master data limitations 
 The following table lists the maximum character lengths allowed for the DATEV onboarding:
 
-| Master data  |  maximum character length |Regular Expression|
-|---|---|---|
-| AccountName  | 32 |^\[^\s\].*\[^\s\]$|
-| City  | 42 |^\[^\s\].*\[^\s\]$|
-| Mail | 250  |standard mail|
-| Firstname  | 32 |^\[^\s\].*\[^\s\]$|
-| PostalCode  |max 5 min 5|^\d{5}$|
-| Street  | 32 |^\[^\s\].*\[^\s\]$|
-| Surname  | 32 |^\[^\s\].*\[^\s\]$|
-| VatId | max 14 min 11  |^(DE[0-9]{9}\|[0-9]{2,3}\\/[0-9]{3}\\/[0-9]{4,5}\|[0-9]{3}\\/[0-9]{4}\\/[0-9]{4})$|
+| Master data | maximum character length | Regular Expression |                                     |                                  |
+|-------------|--------------------------|--------------------|-------------------------------------|----------------------------------|
+| AccountName | 32                       | ^\[^\s\].*\[^\s\]$ |                                     |                                  |
+| City        | 42                       | ^\[^\s\].*\[^\s\]$ |                                     |                                  |
+| Mail        | 250                      | standard mail      |                                     |                                  |
+| Firstname   | 32                       | ^\[^\s\].*\[^\s\]$ |                                     |                                  |
+| PostalCode  | max 5 min 5              | ^\d{5}$            |                                     |                                  |
+| Street      | 32                       | ^\[^\s\].*\[^\s\]$ |                                     |                                  |
+| Surname     | 32                       | ^\[^\s\].*\[^\s\]$ |                                     |                                  |
+| VatId       | max 14 min 11            | ^(DE[0-9]{9}\      | [0-9]{2,3}\\/[0-9]{3}\\/[0-9]{4,5}\ | [0-9]{3}\\/[0-9]{4}\\/[0-9]{4})$ |
 
 #### Address data validation
 DATEV has strict checks that verify the entered address data. The city and street must belong to the correct PLZ registered at Deutsche Post. Please check if your address can be found with the given PLZ. You can use the following website provided by the Deutsche Post [PLZ Check](https://www.postdirekt.de/plzserver/)
@@ -136,12 +136,12 @@ Explanations for the necessary requirements for setting up DATEV MeinFiskal you 
 
 ![preview](../../images/DATEV_PW_Change_Dialog-0.png "Access data for DATEV MeinFiskal")
 
-| steps | description                                                                                                                |
-|:----------------------:|-------------------------------------------------------------------------------------------------------------------------------------|
-|![Number 1](../../../images/numbers/circle-1o.png) |After purchasing of a fiskaltrust.Carefree package, select `Company` / `Overview`.  |
-|![Number 2](../../../images/numbers/circle-2o.png) |Scroll down until **Here you can enable connections to 3rd party partners:**.  |
-|![Number 2](../../../images/numbers/circle-3o.png) |Press the `slider`, if you have not yet.|
-|![Number 4](../../../images/numbers/circle-4o.png) |You will be redirected to the page to read and `sign` the contract (**Nutzungsvertrag über die Nutzung von DATEV MeinFiskal**). With your signature, a background process starts. Please give this the necessary time and refrain from refreshing the page. Changing the page or logging off and on again to the account will not have a negative effect.|
+| steps                                              | description                                                                                                                                                                                                                                                                                                                                               |
+|----------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ![Number 1](../../../images/numbers/circle-1o.png) | After purchasing of a fiskaltrust.Carefree package, select `Company` / `Overview`.                                                                                                                                                                                                                                                                        |
+| ![Number 2](../../../images/numbers/circle-2o.png) | Scroll down until **Here you can enable connections to 3rd party partners:**.                                                                                                                                                                                                                                                                             |
+| ![Number 2](../../../images/numbers/circle-3o.png) | Press the `slider`, if you have not yet.                                                                                                                                                                                                                                                                                                                  |
+| ![Number 4](../../../images/numbers/circle-4o.png) | You will be redirected to the page to read and `sign` the contract (**Nutzungsvertrag über die Nutzung von DATEV MeinFiskal**). With your signature, a background process starts. Please give this the necessary time and refrain from refreshing the page. Changing the page or logging off and on again to the account will not have a negative effect. |
 
 ##### Connection set up with success
 
@@ -149,24 +149,24 @@ Explanations for the necessary requirements for setting up DATEV MeinFiskal you 
 ![preview](../../images/DATEV_PW_Change_Dialog-2.png "Access data for DATEV MeinFiskal")
 
 
-| steps | description                                                                                                                |
-|:----------------------:|-------------------------------------------------------------------------------------------------------------------------------------|
-|![Number 1](../../../images/numbers/circle-1o.png) |If the background process for connecting your account to DATEV MeinFiskal was successful, the fiskaltrust.Portal will show you a `Username` and a `Password` with automatically generated values. |
-|![Number 2](../../../images/numbers/circle-2o.png) |Copy or note these values. |
-|![Number 3](../../../images/numbers/circle-3o.png) |Switch to [kassenarchiv/login](https://meinfiskal.de/kassenarchiv/login).  |
-|![Number 4](../../../images/numbers/circle-4o.png) |Log in with the previously automatically generated values.  |
-|![Number 5](../../../images/numbers/circle-5o.png) |Replace the `Username` with an E-mail address of your choice. |
-|![Number 6](../../../images/numbers/circle-6o.png) |Replace the `Password` with an expression of your choice; please note the restrictions and validations of DATEV. |
+| steps                                              | description                                                                                                                                                                                       |
+|----------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ![Number 1](../../../images/numbers/circle-1o.png) | If the background process for connecting your account to DATEV MeinFiskal was successful, the fiskaltrust.Portal will show you a `Username` and a `Password` with automatically generated values. |
+| ![Number 2](../../../images/numbers/circle-2o.png) | Copy or note these values.                                                                                                                                                                        |
+| ![Number 3](../../../images/numbers/circle-3o.png) | Switch to [kassenarchiv/login](https://meinfiskal.de/kassenarchiv/login).                                                                                                                         |
+| ![Number 4](../../../images/numbers/circle-4o.png) | Log in with the previously automatically generated values.                                                                                                                                        |
+| ![Number 5](../../../images/numbers/circle-5o.png) | Replace the `Username` with an E-mail address of your choice.                                                                                                                                     |
+| ![Number 6](../../../images/numbers/circle-6o.png) | Replace the `Password` with an expression of your choice; please note the restrictions and validations of DATEV.                                                                                  |
 
 ##### Connection set up without success
 
 ![preview](../../images/DATEV_PW_Change_Dialog-3.png "Access data for DATEV MeinFiskal")
 
-| steps | description                                                                                                                |
-|:----------------------:|-------------------------------------------------------------------------------------------------------------------------------------|
-|![Number 1](../../../images/numbers/circle-1o.png) |In case of a problem, we strongly recommend checking [Master data](#master-data). |
-|![Number 2](../../../images/numbers/circle-2o.png) |Then select `Company` / `Overview` again. |
-|![Number 3](../../../images/numbers/circle-3o.png) |Press `Perform DATEV MeinFiskal onboarding operations` for a retry.  |
+| steps                                              | description                                                                       |
+|----------------------------------------------------|-----------------------------------------------------------------------------------|
+| ![Number 1](../../../images/numbers/circle-1o.png) | In case of a problem, we strongly recommend checking [Master data](#master-data). |
+| ![Number 2](../../../images/numbers/circle-2o.png) | Then select `Company` / `Overview` again.                                         |
+| ![Number 3](../../../images/numbers/circle-3o.png) | Press `Perform DATEV MeinFiskal onboarding operations` for a retry.               |
 
 #### Setup after the purchase of a DATEV MeinFiskal standalone
 
@@ -243,13 +243,13 @@ The PosOperator can now use the services *DATEV Kassenarchiv online* and order t
 
 ![DATEV MeinFiskal Status](../../images/datev-status-information.png "https://portal-sandbox.fiskaltrust.TLD/AccountProfile")
 
-| Steps | Description                                                                                                                |
-|:----------------------:|-------------------------------------------------------------------------------------------------------------------------------------|
-|![Number 1](../../../images/numbers/circle-1o.png) |Tick `[COMPANY]`  |
-|![Number 2](../../../images/numbers/circle-2o.png) |Choose `Overview`  |
-|![Number 3](../../../images/numbers/circle-3o.png) |Scroll down until `Here you can enable connections to third-party partners`  |
-|![Number 4](../../../images/numbers/circle-4o.png) |Details about the connection and status are given here. |
-|![Number 5](../../../images/numbers/circle-5o.png) |The contract can be downloaded using this link again. It was sent to your E-Mail address when the contact was signed or changed  |
+| Steps                                              | Description                                                                                                                     |
+|----------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
+| ![Number 1](../../../images/numbers/circle-1o.png) | Tick `[COMPANY]`                                                                                                                |
+| ![Number 2](../../../images/numbers/circle-2o.png) | Choose `Overview`                                                                                                               |
+| ![Number 3](../../../images/numbers/circle-3o.png) | Scroll down until `Here you can enable connections to third-party partners`                                                     |
+| ![Number 4](../../../images/numbers/circle-4o.png) | Details about the connection and status are given here.                                                                         |
+| ![Number 5](../../../images/numbers/circle-5o.png) | The contract can be downloaded using this link again. It was sent to your E-Mail address when the contact was signed or changed |
 
 ## Troubleshooting
 
@@ -267,9 +267,9 @@ Please note that the fiskaltrust.Portal supports up to 100 characters in the fie
 ## Import troubleshooting
 There a common mistakes that prevent us from being able to upload the data to DATEV MeinFiskal or the data having errors in the MeinFiskal overview.
 
-| Error  |  Solution |
-|---|---|
-| No Data visible in DATEV MeinFiskal  | This is most of the time caused by the DFKA not being valid. Please see [HowTo: DFKA-Export & validation report](#howto-dfka-export--validation-report) for common errors and help. |
-| Data from one daily-closing is missing in DATEV MeinFiskal  | This is most of the time caused by the DFKA not being valid. Please see [HowTo: DFKA-Export & validation report](#howto-dfka-export--validation-report) for common errors and help. If a single daily-clsoing is affected then a rarely occuring receiptCase might be responsible.  |
-| Errors in the DATEV MeinFiskal overview regarding mismatches in the revenue sums | If the sums don't match then the error is most of the time caused by the ChargeItems and PayItems not matching in some receipts. Please verify that your ChargeItem sums match the PayItem sums in all receipts. The middleware throws errors if the sums don't match and the receipt validation in the fiskaltrust.Portal shows errors. You can use the receipt check button in the fiskaltrust.Portal to identify affected receipts.  |
+| Error                                                                            | Solution                                                                                                                                                                                                                                                                                                                                                                                                                               |
+|----------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| No Data visible in DATEV MeinFiskal                                              | This is most of the time caused by the DFKA not being valid. Please see [HowTo: DFKA-Export & validation report](#howto-dfka-export--validation-report) for common errors and help.                                                                                                                                                                                                                                                    |
+| Data from one daily-closing is missing in DATEV MeinFiskal                       | This is most of the time caused by the DFKA not being valid. Please see [HowTo: DFKA-Export & validation report](#howto-dfka-export--validation-report) for common errors and help. If a single daily-clsoing is affected then a rarely occuring receiptCase might be responsible.                                                                                                                                                     |
+| Errors in the DATEV MeinFiskal overview regarding mismatches in the revenue sums | If the sums don't match then the error is most of the time caused by the ChargeItems and PayItems not matching in some receipts. Please verify that your ChargeItem sums match the PayItem sums in all receipts. The middleware throws errors if the sums don't match and the receipt validation in the fiskaltrust.Portal shows errors. You can use the receipt check button in the fiskaltrust.Portal to identify affected receipts. |
 

@@ -18,7 +18,7 @@ In the **Technical Operations** section, you will find _Scenarios_ for using our
 _fiskaltrust_ provides you as PosDealer with **Information sources**. On the one hand, you will find the _Knowledge Base_ in the fiskaltrust.Portal,
 possible _Cases_ at our support, contractual information and various exports for download. On the other hand, efficiently using this _documentation_, read our _News_ and learn more about other information sources such as _Webinars_ and _Videos_. If _Contacting support_ should be necessary, we will help you prepare your request to best support the process.
 
-If you are still getting familiar with the used expressions or want to reassure your understanding of our usage of them, look at the [Terminology](https://docs.fiskaltrust.cloud/de/docs/faq/terms).
+If you are still getting familiar with the used expressions or want to reassure your understanding of our usage of them, look at the [Terminology](../faq/terms.md).
 
 ## Target audience
 We created this documentation for all employees of PosDealers that are involved in working with fiskaltrust's products. While most of the information published here is technical- or business-driven, distinctive sections may be relevant for other target audiences like members of legal departments.
@@ -26,9 +26,9 @@ We created this documentation for all employees of PosDealers that are involved 
 Below, we've composed a list of specific reader groups and the recommended reading for those:
 
 | Target audience                             | Overview | Get started | Buy / Resell | Technical Operations | Information Sources |
-| ------------------------------------------- | :------: | :---------: | :----------: | :------------------: | :-----------------: |
-| **Project Managers and support staff**      |    ✔️     |      ✔️      |      ✔️       |          ✔️           |          ✔️          |
-| **Rollout technicians and testers**         |    ✔️     |      ✔️      |     ---      |          ✔️           |          ✔️          |
-| **Procurement, Sales and Account Managers** |    ✔️     |     ---     |      ✔️       |         ---          |         ---         |
-| **Legal department**                        |    ✔️     |     ---     |      ✔️       |         ---          |         ---         |
+|---------------------------------------------|----------|-------------|--------------|----------------------|---------------------|
+| **Project Managers and support staff**      | ✔️       | ✔️          | ✔️           | ✔️                   | ✔️                  |
+| **Rollout technicians and testers**         | ✔️       | ✔️          | ---          | ✔️                   | ✔️                  |
+| **Procurement, Sales and Account Managers** | ✔️       | ---         | ✔️           | ---                  | ---                 |
+| **Legal department**                        | ✔️       | ---         | ✔️           | ---                  | ---                 |
 
