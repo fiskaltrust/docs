@@ -1,7 +1,7 @@
 name: Build
 
 on:
-  pull_request_target:
+  pull_request:
     types: [opened, synchronize, reopened]
 
 jobs:
@@ -17,15 +17,33 @@ jobs:
           ref: ${{ github.event.pull_request.head.sha }}
 
       - uses: lycheeverse/lychee-action@v2
-        id: lychee_markets
+        id: lychee
         with:
           args: ". --exclude '^file://.*'"
           fail: true
 
   build:
-    uses: fiskaltrust/service-docs-ui/.github/workflows/build.yml@main
+    runs-on: windows-latest
     needs: []
-    with:
-      docs_ref: ${{ github.event.pull_request.head.sha }}
-    secrets:
-      DOCS_REPOS_READ_TOKEN: ${{ secrets.DOCS_REPOS_READ_TOKEN }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          repository: fiskaltrust/service-docs-ui
+          token: ${{ secrets.DOCS_REPOS_READ_TOKEN }}
+          submodules: true
+
+      - name: Update submodules
+        run: git submodule update --recursive --remote
+
+      - name: Checkout docs to specific ref
+        working-directory: docs
+        run: |
+          git fetch origin ${{ github.event.pull_request.head.sha }}
+          git checkout ${{ github.event.pull_request.head.sha }}
+
+      - name: Restore packages
+        run: yarn install
+
+      - name: Build site
+        run: yarn build
