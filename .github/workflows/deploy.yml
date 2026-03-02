@@ -17,5 +17,6 @@ jobs:
           event-type: update-docs
           client-payload: |-
             {
-              "sha": "${{ github.sha }}"
+              "sha": "${{ github.sha }}",
+              "repository": "${{ github.repository }}"
             }
