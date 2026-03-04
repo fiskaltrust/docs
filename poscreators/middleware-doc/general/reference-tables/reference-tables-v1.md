@@ -61,7 +61,7 @@ Business transactions can result in combinations of receipt types, which would b
 
 These flags are based on national laws and regulations, for further information please refer to the appropriate country specific appendix.
 
-### Type of Service: ftChargeItemCase
+## Type of Service: ftChargeItemCase
 
 The ftChargeItemCase defines the type of service or item in the charge item block and thus how the fiskaltrust.SecurityMechanism processes the individual receipts with regards to receipt generation. The data type is `Int64` and contains a country specific code which is a value following the ISO-3166-1-ALPHA-2 standard, converted from ASCII into hex and used as byte 8 and 7.
 
