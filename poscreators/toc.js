@@ -70,8 +70,7 @@ module.exports = [
             collapsed: true,
             key: "data-structures",
             items: [
-              "poscreators/middleware-doc/general/data-structures/data-structure-v1",
-              "poscreators/middleware-doc/general/data-structures/data-structure-v2",
+              "poscreators/middleware-doc/general/data-structures/data-structures",
             ],
           },
           {
@@ -80,8 +79,7 @@ module.exports = [
             collapsed: true,
             key: "reference-tables",
             items: [
-              "poscreators/middleware-doc/general/reference-tables/reference-tables-v1",
-              "poscreators/middleware-doc/general/reference-tables/reference-tables-v2",
+              "poscreators/middleware-doc/general/reference-tables/reference-tables",
             ],
           }
           ],
