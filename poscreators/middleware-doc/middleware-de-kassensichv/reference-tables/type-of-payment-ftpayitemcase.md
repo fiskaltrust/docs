@@ -5,7 +5,7 @@ title: 'Type of Payment: ftPayItemCase'
 
 # Type of Payment: ftPayItemCase
 
-This table expands on the values provided in table [ftPayItemCase in General Part](../../general/reference-tables/reference-tables-v2.md#ftpayitemcase) with values applicable to the German market.
+This table expands on the values provided in table [ftPayItemCase in General Part](../../general/reference-tables/reference-tables.md#type-of-payment-ftpayitemcase) with values applicable to the German market.
 
 | **Value**  | **Description** | **ZAHLART_TYP (DSFinV-K)** | **Middleware-Version** |
 |---|---|---|---|

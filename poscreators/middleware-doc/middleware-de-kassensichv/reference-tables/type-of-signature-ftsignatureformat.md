@@ -5,7 +5,7 @@ title: 'Format of signature: ftSignatureFormat'
 
 # Format of Signature: ftSignatureFormat
 
-The Middleware uses the same _ftSignatureFormats_ in Germany as in all other countries, as described in the [general part](../../general/reference-tables/reference-tables-v2.md#ftsignatureformat). 
+The Middleware uses the same _ftSignatureFormats_ in Germany as in all other countries, as described in the [general part](../../general/reference-tables/reference-tables.md#format-of-signature-ftsignatureformat). 
 
 :::info
 

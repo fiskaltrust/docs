@@ -70,8 +70,8 @@ module.exports = [
             collapsed: true,
             key: "data-structures",
             items: [
-              "poscreators/middleware-doc/general/data-structures/data-structures-v1",
-              "poscreators/middleware-doc/general/data-structures/data-structures-v2",
+              "poscreators/middleware-doc/general/data-structures/data-structure-v1",
+              "poscreators/middleware-doc/general/data-structures/data-structure-v2",
             ],
           },
           {
