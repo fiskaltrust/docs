@@ -56,7 +56,7 @@ After fiskaltrust.Middleware has received an "end of failure receipt" (i.e. a ze
 
 :::tip
 
-We recommend to send re-send the first failed receipt with the _receipt request_ flag `0x0000800000000000`, which checks if a receipt was already sent and returns it in that case (to cover the case when the Middleware received and processed a receipt, but the answer was lost e.g. due to a network outage). More details about this flag can be found [here](../reference-tables/reference-tables-v1.md#ftreceiptcaseflag)
+We recommend to send re-send the first failed receipt with the _receipt request_ flag `0x0000800000000000`, which checks if a receipt was already sent and returns it in that case (to cover the case when the Middleware received and processed a receipt, but the answer was lost e.g. due to a network outage). More details about this flag can be found [here](../reference-tables/reference-tables.md#ftreceiptcaseflag)
 
 :::
 
