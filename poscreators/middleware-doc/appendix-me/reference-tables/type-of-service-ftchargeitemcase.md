@@ -5,7 +5,7 @@ title: 'Type of service: ftChargeItemCase'
 
 # Type of Service: ftChargeItemCase
 
-This table expands on the values provided in the table [ftChargeItemCase in General Part](../../general/reference-tables/reference-tables-v1.md#type-of-service-ftchargeitemcase), with country-specific values applicable to the German market.
+This table expands on the values provided in the table [ftChargeItemCase in General Part](../../general/reference-tables/reference-tables.md#type-of-service-ftchargeitemcase), with country-specific values applicable to the German market.
 
 
 | **Value** | **Description** | **VAT rate** | **Middleware version** |
