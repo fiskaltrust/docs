@@ -409,10 +409,5 @@ module.exports = [
     type: "link",
     label: "Development Kit",
     href: "https://github.com/fiskaltrust/possystemapi-devkit/blob/main/README.MD",
-  },
-  {
-    type: "link",
-    label: "Development Kit",
-    href: "https://github.com/fiskaltrust/possystemapi-devkit/blob/main/README.MD",
   },  
 ];
