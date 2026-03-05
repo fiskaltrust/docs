@@ -1,11 +1,13 @@
 ---
 slug: /poscreators/middleware-doc/digital-receipt/general/compliance 
-title: 'Compliance'
+title: Compliance
 ---
+
+# Compliance
 
 With our digital receipt solutions, we set the course to a successful and compliant setup in each market of operation.
 
-# Austria requirenments 
+## Austria requirements 
 
 In Austria there are multiple requirements around the receipts issued at the Point of Sale. 
 An digital receipt within the meaning of section "132a (1) BAO" is a receipt that is issued and received in an digital format or is immediately handed to the person making the cash payment. It can be issued, for example by web in an digital format (e.g. as a PDF or text file), but also in a structured file format (e.g. HTML). The receipt must be created and signed by the Point of Sale directly in connection with the cash payment, and then actually reach the disposal area of the receipt recipient. Technical delays such as e.g. uploading to a server are irrelevant because fiskaltrust stores the receipts immediately in the DEP and promptly in an audit-proof memory and for a verification by a financial management body is available. It is up to the issuer of the digital receipt whether this is to be done digitally (by using a smartphone, etc.) or in paper form. The transmission is an obligation of the merchant, a mere granting of the possibility of viewing and photographing the content of the receipt displayed on a screen does not fulfill the obligation to issue receipts. 
@@ -19,7 +21,7 @@ For PosOperator/merchant there is an obligation to issue a receipt and hand this
 
 For consumers, there is an obligation to take the receipt with them (Belegmitnahmepflicht).
 
-## Fulfilment
+### Fulfilment
 
 Each receipt is related to a "Queue" identified via "QueueID", which identifies the specific POS system within an PosOperator/merchant. Also, this "Queue" is assigned to a single outlet within the PosOperator/merchant, which provides configuration elements like location and logo for the digital receipt header and other metadata for receipt generation.
 
@@ -29,13 +31,13 @@ fiskaltrust appointed Dr. Markus Knasmüller to create an external assessment ab
 
 It is required in Austria to implement the POS-API with the /print endpoint or use the InStore App to fulfill the compliance requirements mentioned above in Austria. More details about the integration in Austria can be found in the integration part of this document.
 
-## Evaluation of receipt retrivals for financial administration audits 
+### Evaluation of receipt retrivals for financial administration audits 
 
 For an evaluation of receipt retrieval, it is possible to verify in an audit case (or in general), which receipts were transmitted, retrieved, or printed through the fiskaltrust.Portal using the export function.
 
 You can visit following link in the POS Dealer section for further details: [evaluation of retrievals of digital receipts](../../../../posdealers/buy-resell/products/digital-receipt.md#evaluation-of-retrievals-of-digital-receipts)
 
-# Germany requirements 
+## Germany requirements 
 
 In Germany there are multiple requirements around the receipts issued at the point of sale. 
 

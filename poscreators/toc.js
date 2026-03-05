@@ -352,6 +352,25 @@ module.exports = [
   },
   {
     type: "category",
+    collapsed: false,
+    label: "Digital Receipt",
+    items: [
+      "poscreators/middleware-doc/digital-receipt/digital-receipt-introduction",
+      "poscreators/middleware-doc/digital-receipt/bundles",
+      "poscreators/middleware-doc/digital-receipt/receive-receipts",
+      "poscreators/middleware-doc/digital-receipt/compliance",
+          {
+            type: "category",
+            label: "Implementation",
+            items: [
+              "poscreators/middleware-doc/digital-receipt/implementation/getting-started",
+              "poscreators/middleware-doc/digital-receipt/implementation/digital-receipt-implementation",
+            ],
+          },
+        ],
+  },
+  {
+    type: "category",
     collapsed: true,
     label: "InStore App",
     items: [
