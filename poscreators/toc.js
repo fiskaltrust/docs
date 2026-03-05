@@ -397,7 +397,7 @@ module.exports = [
     items: [
       "poscreators/middleware-doc/instore-app/introduction/introduction",
       "poscreators/middleware-doc/instore-app/available-settings/settings",
-      "poscreators/middleware-doc/instore-app/Setup-guide/setup",
+      "poscreators/middleware-doc/instore-app/setup-guide/setup",
             {
         type: "category",
         label: "Installation Guides",
