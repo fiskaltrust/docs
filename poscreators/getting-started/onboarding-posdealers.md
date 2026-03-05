@@ -7,7 +7,15 @@ title: Onboarding PosDealers
 
 Once you were able to test the integration and successfully establish a communication with the fiskaltrust.Middleware by sending simple requests and receiving correct expected responses, you are now ready to start engaging your PosDealers into discussion about the details of the specific implementation of your POS-System, and agree on the suitable rollout scenarios.
 
-It is important to involve your PosDealers as early as possible, because they have to perform the following steps, among others, before they can roullout the fiskaltrust.Middleware to the PosOperators:
+:::info Important
+
+Involve your PosDealers as early as possible, because they have to perform the following steps, among others, before they can roullout the fiskaltrust.Middleware to the PosOperators. For more details, open the drop-down window below.
+
+:::
+
+<details>
+  <summary>Registration steps for PosDealers</summary>
+
 1. Register in the fiskalttrust.Portal and there digitally sign a cooperation agreement with fiskaltrust.
 2. Depending on the circumstances, request and sign framework agreements for the purchase of products with fiskaltrust.
 3. Invite the PosOperators to the fiskaltrust.Portal so that they can sign the usage agreement for the fiskaltrust.Middleware.
@@ -17,6 +25,8 @@ It is important to involve your PosDealers as early as possible, because they ha
 7. Technical planning and preparation for rollout together with the PosCreator.
 
 These steps can be very time consuming. Therefore, we strongly recommend that you **inform your PosDealers as early as possible and especially invite them to register in the fiskaltrust.Portal**.
+
+</details>
 
 ## 1. Invite PosDealer in fiskaltrust.Portal 
 
@@ -36,7 +46,9 @@ For more detailed instructions, please open the drop-down window below.
 <details>
   <summary>Management of PosSystems in Details</summary>  
 
-:::caution if you are missing menu items, please check your active roles 
+:::caution
+
+if you are missing menu items, please check your active roles 
 
 :::
 

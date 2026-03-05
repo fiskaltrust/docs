@@ -1,12 +1,10 @@
 module.exports = [
   {
     type: "category",
-    collapsed: true,
     label: "Get Started",
     items: [
       {
         type: "category",
-        collapsed: true,
         label: "Getting Started for PosCreators",
         items: [
           "poscreators/getting-started/get-started",
@@ -15,7 +13,6 @@ module.exports = [
       },
       {
         type: "category",
-        collapsed: true,
         label: "Middleware Integration",
         items: [
           "poscreators/getting-started/middleware-integration",
@@ -413,4 +410,9 @@ module.exports = [
     label: "Development Kit",
     href: "https://github.com/fiskaltrust/possystemapi-devkit/blob/main/README.MD",
   },
+  {
+    type: "link",
+    label: "Development Kit",
+    href: "https://github.com/fiskaltrust/possystemapi-devkit/blob/main/README.MD",
+  },  
 ];

@@ -3,13 +3,30 @@ slug: /poscreators/middleware-doc/general/reference-tables/reference-tables-v2
 title: Reference Tables
 ---
 
-# ReceiptRequest related mapping
+# Reference Tables
 
-## ftReceiptCase
+As the Middleware abstracts processes and data accross multiple markets and countries, there is a specific mapping for each market. This mapping is based on the overall tagging system, which provides the additional benefit of a semantical value to  all receipts, charge items, and pay items. The following section briefly describes the overall format.
+
+## Format
+
+Every case sent to the middleware, and every item returned from the middleware, is based on this tagging system. The tagging system uses hex-based numbers, as they simplify flagging and ensure a consistent numbering scheme.
+
+The **_CCCC_vIII_gggg_xxxx** overall format consists of four sections and can be described as follows:
+
+| **Value**            | **Description**                                                                                     |
+|----------------------|-----------------------------------------------------------------------------------------------------|
+| `CCCC` | (e.g., 4954) ASCII of a two-letter ISO country code (https://en.wikipedia.org/wiki/ISO_3166-1) (e.g., IT = 4954) |
+| `vIII` | (e.g., 2000) This section is for versioning the tagging system (currently v2) and for future use.  |
+| `gggg` | (e.g., 0010) These items are used for flags. Flags can change the basic behavior of a given type, but will leave the overall semantical meaning of a type the same. (e.g., voiding of a receipt).|
+| `xxxx` | (e.g., 0001) The last category is usually case-specific but always consists of 4 numbers. |
+
+## ReceiptRequest related mapping
+
+### Type of Receipt: ftReceiptCase
 
 **Format**: _CCCC_vlll_gggg_txcc_
 
-### t - ReceiptCaseType
+#### t - ReceiptCaseType
 
 | **Type** | **Category** | **Description** |
 |-----------|-----------------|-------------------------|
@@ -19,7 +36,7 @@ title: Reference Tables
 | `3` | Log  | Logs are used to store and secure events needed for additional processing or downstream processes (e.g., a log for when the cash drawer is opened). |
 | `4` | Lifecycle  | These operations change the overall state of the Middleware. Depending on local regulations, these receipts are handed over as part of a notification (e.g., FinanzOnline). |
 
-### txcc - ReceiptCase
+#### txcc - ReceiptCase
 
 | **Value** | **Description** |
 |-----------|-----------------|
@@ -56,9 +73,9 @@ title: Reference Tables
 | `4021` | Initiate migration. |
 | `4022` | Finish migration. |
 
-### gggg - Global tagging/flags
+#### gggg - Global tagging/flags
 
-#### ftReceiptCaseFlags
+##### ftReceiptCaseFlags
 
 | **Value** | **Description** |
 |-----------|-----------------|
@@ -67,7 +84,7 @@ title: Reference Tables
 | `0800` | **Group by Position-Number**<br />Position fields are represented as decimal numbers: the whole number indicates the grouped line item, and the fractional part is used within that group. The sum of all `ChargeItems` within a position must count toward the total receipt amount. If the quantity and amount are 0,00, the quantity and amount will not be visualized for this line on the digital receipt, regardless of whether it is a main item or a subitem. |
 | `8000` | **ReceiptRequest**<br />If you don’t receive a response, try this flag first before taking any other action. This will return a stored result, for example in case of a timeout when cash register calls the queue. |
 
-#### PosReceipt (Invoice only)
+##### PosReceipt (Invoice only)
 
 | **Value** | **Description** |
 |-----------|-----------------|
@@ -81,7 +98,7 @@ title: Reference Tables
 | `0200` | **InvoiceProcessingOnly/InvoiceDelivery**<br />Used when a `queueitemid` should be generated for later processing, e.g., issue. |
 | `0400` | **HasTransportInformation**<br />If used, transport information is included in the document. |
 
-#### ZeroReceipt (Dailyoperation only)
+##### ZeroReceipt (Dailyoperation only)
 
 | **Value** | **Description** |
 |-----------|-----------------|
@@ -92,31 +109,31 @@ title: Reference Tables
 | `0100` | Request MasterData update. |
 | `8000` | **Direct SCU communication**<br />`ftReceiptCaseData` carries the request payload within `eu.fiskaltrust.Middleware.SCU.[CC].[implementation]`, and `ftStateData` carries the response payload in the same property name. |
 
-#### LifecycleReceipt only
+##### LifecycleReceipt only
 
 | **Value** | **Description** |
 |-----------|-----------------|
 | `0010` | Queue registration/de-registration only. Bypass SCU factory default initialization. |
 | `0020` | Bypass SCU communication and execute when communication with SCU has failed. |
 
-### lll - Local tagging/flags
+#### lll - Local tagging/flags
 
-#### AT (Austria)
+##### AT (Austria)
 cba … c=reserved ; b=reporting ; a = scu related
 
 | **Value** | **Description** |
 |-----------|-----------------|
 | TBD | TBD |
 
-#### DE (Germany)
+##### DE (Germany)
 
-**All Receipt Type (xxxx)**
+All Receipt Type (xxxx)
 
 | **Value** | **Description** |
 |-----------|-----------------|
 | `001`  | Implicit mode: create `StartTransaction` implicitly for each `ReceiptType`; no call to `Start-Transaction-Receipt` is required. |
 
-**Log operation (3xxx)**
+Log operation (3xxx)
 
 | **Value** | **Description** |
 |-----------|-----------------|
@@ -125,27 +142,27 @@ cba … c=reserved ; b=reporting ; a = scu related
 | `030`  | Delta-Transaction (with technical log type 3001) |
 | `040`  | Fail-Transaction-Receipt (with technical log type 3001) |
 
-#### FR (France)
+##### FR (France)
 cba … c=reserved ; b=reporting ; a = scu related
 
 | **Value** | **Description** |
 |-----------|-----------------|
 | TBD | TBD |
 
-#### IT (Italy)
+##### IT (Italy)
 cba … c=reserved ; b=reporting ; a = scu related
 
 | **Value** | **Description** |
 |-----------|-----------------|
 | `001`  | [RT-Printer/RT-Server/Government Service] not reachable.<br />Responded in case of a zero-receipt and other hard dependencies to the service. (TBD can this be replaced by Request Bypass Connec-tion/Download from SCU). |
 
-#### ReceiptCaseData
+##### ReceiptCaseData
 
 - **Reference in case of "Void"** - used when `cbReceiptReference` cannot be used because of source receipt is in a different queue or system. Fields included: `{ RT-Device-Serialnumber, Z-Number, Document-Number, Document-Moment }`
 
 - **Reference in case of "InvoicePayment"**
 
-## ftChargeItemCase
+## Type of Service: ftChargeItemCase
 
 **Format**: _CCCC_vlll_gggg_NNSV_
 
@@ -198,7 +215,7 @@ For more information, see [VAT rules and rates](https://europa.eu/youreurope/bus
 | 70 | VAT distribution | *VI (VI) is a fiscal VAT (IVA) regime that certain retailers can adopt. It allows the global registration of the daily takings amount without distinguishing the individual VAT rates. Applies only to goods. | |
 | 80 | Excluded<br />8x | *EE (N1) marker mandatory<br />[80] excluded pursuant to art. 15 of Presidential Decree 633/72 | [81] `(mydata:1)` Article 2&3 Includes transactions outside the scope of VAT (e.g., compensations for material damages, income from participations, subsidies, grants, etc., as well as the special regime of Mount Athos.<br />Χωρίς ΦΠΑ - άρθρο 2 και 3 του Κώδικα ΦΠΑ<br />[82] `(mydata:2)` Article 5 Case of transfer of assets of a business as a) a whole, b) a branch, or c) a part of it through onerous or gratuitous cause or in the form of contribution to an existing or newly established legal entity.<br />Χωρίς ΦΠΑ - άρθρο 5 του Κώδικα ΦΠΑ<br />[83] `(mydata:10)` Article 31 Rare case of tax warehouses sales<br />Χωρίς ΦΠΑ - άρθρο 31 του Κώδικα ΦΠΑ<br />[84] `(mydata:11)` Article 32 It includes exemptions applicable to: certain categories of ships and watercraft and aircraft, for diplomatic and consular authorities, recognized international organizations, the European Community, the European Central Bank, etc., NATO and its organizations, to meet the needs of refugees and vulnerable groups, public donors, etc. for certain transports for<br />[85] `(mydata:12)` Article 32.Open seas ships<br />[86] `(mydata:13)` Article 32.1.Open seas ships<br />[87] Χωρίς ΦΠΑ - ΠΟΛ.1029/1995<br />[88] `(mydata 26)` special case where you don’t pay vat as long as the goods or services are intented for another EU state or 3rd party country<br />Χωρίς ΦΠΑ - άρθρο 32 του Κώδικα ΦΠΑ |
 
-| nn (nature of non-VAT/super specific tax V==8 && S==F) | Description               | IT | GR |
+| nn (nature of non-VAT/<br />super specific tax V==8 && S==F) | Description               | IT | GR |
 |--------------------------------------------------------|---------------------------|----|----|
 | 00 | Exact description is used for mapping and printing. | |
 | 10 | | | |
