@@ -3,9 +3,8 @@ slug: /poscreators/middleware-doc/portugal
 title: Introduction
 ---
 
-# Introduction 
+# Appendix: Portugal
 
-## Portugal
 This appendix expands on the General Part's information by adding details specific to the Portuguese market. This additional information is provided only where applicable. The remaining chapters, for which there is no further information required, were omitted.
 
 :::caution

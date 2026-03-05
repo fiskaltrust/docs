@@ -1,5 +1,5 @@
 ---
-slug: /poscreators/middleware-doc/general/reference-tables/reference-tables-v2
+slug: /poscreators/middleware-doc/general/reference-tables/reference-tables
 title: Reference Tables
 ---
 
@@ -13,7 +13,7 @@ Every case sent to the middleware, and every item returned from the middleware, 
 
 The **_CCCC_vIII_gggg_xxxx** overall format consists of four sections and can be described as follows:
 
-| **Value**            | **Description**                                                                                     |
+| Value           | Description                                                                                    |
 |----------------------|-----------------------------------------------------------------------------------------------------|
 | `CCCC` | (e.g., 4954) ASCII of a two-letter ISO country code (https://en.wikipedia.org/wiki/ISO_3166-1) (e.g., IT = 4954) |
 | `vIII` | (e.g., 2000) This section is for versioning the tagging system (currently v2) and for future use.  |
@@ -22,14 +22,14 @@ The **_CCCC_vIII_gggg_xxxx** overall format consists of four sections and can be
 
 ## ReceiptRequest related mapping
 
-### Type of Receipt: ftReceiptCase
+### ftReceiptCase
 
 **Format**: _CCCC_vlll_gggg_txcc_
 
 #### t - ReceiptCaseType
 
-| **Type** | **Category** | **Description** |
-|-----------|-----------------|-------------------------|
+| Type | Category | Description |
+|------|-----------------|-------------------------|
 | `0` | Receipt  | A basic receipt generated as part of a POS sale. It usually serves as proof of payment and is used after the transaction is completed (i.e., once goods are received). This is the usual process done at a POS.  |
 | `1` | Invoice  | An invoice is generated when payment isn't handled immediately.  |
 | `2` | DailyOperations  | This category contains receipt cases that the Middleware requires for various downstream processes (e.g., bookkeeping).  |
@@ -38,15 +38,15 @@ The **_CCCC_vIII_gggg_xxxx** overall format consists of four sections and can be
 
 #### txcc - ReceiptCase
 
-| **Value** | **Description** |
-|-----------|-----------------|
+| Value  | Description |
+|------- |-----------------|
 | `0000` | Unknown receipt type.<br />Use this as a fallback; it is handled the same way as a point-of-sale receipt. |
 | `0001` | Point-of-sale receipt type. |
 | `0002` | Payment transfer receipt type. |
 | `0003` | Point-of-sale receipt without fiscalization obligation or with exceptions to fiscalization regulations. |
 | `0004` | E-Commerce receipt type. |
 | `0005` | Delivery note. |
-| `0006` | Table Check [PT]/ Note [FR]/ Zwischenrechnung [AT]/  ??? |
+| `0006` | Table Check [PT]/ Note [FR]/ Zwischenrechnung [AT]/ |
 | `0007` | Proforma invoice. |
 | `1000` | Unknown invoice type (simplified invoice in the future).|
 | `1001` | B2C invoice type. |
@@ -77,7 +77,7 @@ The **_CCCC_vIII_gggg_xxxx** overall format consists of four sections and can be
 
 ##### ftReceiptCaseFlags
 
-| **Value** | **Description** |
+| Value | Description |
 |-----------|-----------------|
 | `0001` | **Process as Late Signing Receipt**<br />The cash register lost connection to the queue and processed receipts without communicating with the it. All processed receipts marked with the hint "Security mechanism not reachable" must be sent to the queue with this maker. | 
 | `0002` | Training Receipt. |
@@ -86,8 +86,8 @@ The **_CCCC_vIII_gggg_xxxx** overall format consists of four sections and can be
 
 ##### PosReceipt (Invoice only)
 
-| **Value** | **Description** |
-|-----------|-----------------|
+| Value | Description |
+|-------|-----------------|
 | `0004` | **IsVoid**<br />Marks a receipt as **Void** relative to a previous one. Line items should also be marked as `IsVoid` to signal cleared data. |
 | `0008` | **Process as Handwritten Receipt**<br />During a power outage, the cash register will not work, and the merchant issues handwritten receipts. These receipts must be sent to the Security Mechanism using this flag. |
 | `0010` | **IssuerIsSmallBusiness**<br />Businesses below a country-specific size in revenue do not need to declare VAT. With this marker, the receipt shows no VAT, all prices are gross, and a country-specific hint must be printed. |
@@ -100,8 +100,8 @@ The **_CCCC_vIII_gggg_xxxx** overall format consists of four sections and can be
 
 ##### ZeroReceipt (Dailyoperation only)
 
-| **Value** | **Description** |
-|-----------|-----------------|
+| Value | Description |
+|-------|-----------------|
 | `0010` | Request additional information from SCU (TseInfo in Germany, RTInfo in Italy, SignatureCertificate in Austria and France). |
 | `0020` | Request Force Connection/Download from SCU. |
 | `0040` | Request Bypass Connection/Download from SCU. |
@@ -111,8 +111,8 @@ The **_CCCC_vIII_gggg_xxxx** overall format consists of four sections and can be
 
 ##### LifecycleReceipt only
 
-| **Value** | **Description** |
-|-----------|-----------------|
+| Value | Description |
+|-------|-----------------|
 | `0010` | Queue registration/de-registration only. Bypass SCU factory default initialization. |
 | `0020` | Bypass SCU communication and execute when communication with SCU has failed. |
 
@@ -121,22 +121,22 @@ The **_CCCC_vIII_gggg_xxxx** overall format consists of four sections and can be
 ##### AT (Austria)
 cba … c=reserved ; b=reporting ; a = scu related
 
-| **Value** | **Description** |
-|-----------|-----------------|
+| Value | Description |
+|-------|-------------|
 | TBD | TBD |
 
 ##### DE (Germany)
 
 All Receipt Type (xxxx)
 
-| **Value** | **Description** |
-|-----------|-----------------|
+| Value | Description |
+|-------|-------------|
 | `001`  | Implicit mode: create `StartTransaction` implicitly for each `ReceiptType`; no call to `Start-Transaction-Receipt` is required. |
 
 Log operation (3xxx)
 
-| **Value** | **Description** |
-|-----------|-----------------|
+| Value | Description |
+|-------|-------------|
 | `010`  | Start-Transaction (with technical log type 3001) |
 | `020`  | Update-Transaction (with technical log type 3001) |
 | `030`  | Delta-Transaction (with technical log type 3001) |
@@ -145,24 +145,24 @@ Log operation (3xxx)
 ##### FR (France)
 cba … c=reserved ; b=reporting ; a = scu related
 
-| **Value** | **Description** |
-|-----------|-----------------|
+| Value | Description |
+|-------|-------------|
 | TBD | TBD |
 
 ##### IT (Italy)
 cba … c=reserved ; b=reporting ; a = scu related
 
-| **Value** | **Description** |
-|-----------|-----------------|
+| Value | Description |
+|-------|-------------|
 | `001`  | [RT-Printer/RT-Server/Government Service] not reachable.<br />Responded in case of a zero-receipt and other hard dependencies to the service. (TBD can this be replaced by Request Bypass Connec-tion/Download from SCU). |
 
 ##### ReceiptCaseData
 
-- **Reference in case of "Void"** - used when `cbReceiptReference` cannot be used because of source receipt is in a different queue or system. Fields included: `{ RT-Device-Serialnumber, Z-Number, Document-Number, Document-Moment }`
+- **Reference in case of "Void"** - when `cbReceiptReference` cannot be used because of source receipt is in a different queue or system. Fields included: `{ RT-Device-Serialnumber, Z-Number, Document-Number, Document-Moment }`
 
 - **Reference in case of "InvoicePayment"**
 
-## Type of Service: ftChargeItemCase
+## ftChargeItemCase
 
 **Format**: _CCCC_vlll_gggg_NNSV_
 
@@ -172,39 +172,39 @@ version 2
 ### V - VAT
 For more information, see [VAT rules and rates](https://europa.eu/youreurope/business/taxation/vat/vat-rules-rates/index_en.htm).
 
-| V (type of VAT) | Description                          | VAT table code | IT |
-|-----------------|--------------------------------------|----------------|----|
-| 0               | Unknown VAT rate                     | G              |    |
-| 1               | Discounted-1 VAT rate                | B              |    |
-| 2               | Discounted-2 VAT rate                | C              |    |
-| 3               | Normal VAT rate                      | A              |    |
-| 4               | Super reduced-1 VAT rate             | D              |    |
-| 5               | Super reduced-2 VAT rate             | E              |    |
-| 6               | Parking VAT rate                     | F              |    |
-| 7               | Zero VAT rate                        | H              |    |
-| 8               | Not taxable (in VAT context)         | I              |    |
+| V | Description                     | VAT table code |
+|---|---------------------------------|----------------|
+| 0 | Unknown VAT rate                | G              |
+| 1 | Discounted-1 VAT rate           | B              |
+| 2 | Discounted-2 VAT rate           | C              |
+| 3 | Normal VAT rate                 | A              |
+| 4 | Super reduced-1 VAT rate        | D              |
+| 5 | Super reduced-2 VAT rate        | E              |
+| 6 | Parking VAT rate                | F              |
+| 7 | Zero VAT rate                   | H              |
+| 8 | Not taxable (in VAT context)    | I              |
 
 ### S - Type of Service
 
-| S (type of service) | Description                       |
-|---------------------|-----------------------------------|
-| 0                   | Unknown type of service. |
-| 1                   | Delivery (supply of goods) - goods purchased and sold. |
-| 2                   | Other service (supply of service) – services provided. |
-| 3                   | Tip. For owner, use V=0 to 7 (related to total amount). For employee, use V=8 (Not Taxable). |
-| 4                   | Voucher. For Single-Use Voucher, use V=0 to 7. For Multi-Use Voucher, use V=8 (Not Taxable). Voucher sale is a positive (+) amount; voucher redeem is a negative (-) amount. `IsVoid` can be applied to reverse amounts. Avoid using this for Multi-Use Voucher; instead, use `PayItem` with `ShowInChargeItems` flag. For Single-Use Voucher, apply `ShowInPayItems` flag to visualize it like a payment and keep the total amount unreduced. |
-| 5                   | Catalog service (service or good produced in-house) — To be modified!!! |
-| 6                   | Not own sales/agency business. |
-| 7                   | Own consumption. |
-| 8                   | Grant. For unreal grant, use V=0 to 7. For real grant, use V=8. |
-| 9                   | Receivable. Creation is a negative (-) amount; reduction is a positive (+) amount. `IsVoid` can be applied to reverse amounts. Avoid using this; use `PayItem` with the `ShowInChargeItems` flag instead. |
-| A                   | Cash transfer. Cash transfer to the till is positive (+); from the till is negative (-). Only usable with V=8 (Not Taxable). `IsVoid` can be applied to reverse amounts. |
-| F                   | Super-specific type of tax. Detailed definition in NN=nn. V=8 required. |
+| S | Description                       |
+|---|-----------------------------------|
+| 0 | Unknown type of service. |
+| 1 | Delivery (supply of goods) - goods purchased and sold. |
+| 2 | Other service (supply of service) – services provided. |
+| 3 | Tip. For owner, use V=0 to 7 (related to total amount). For employee, use V=8 (Not Taxable). |
+| 4 | Voucher. For Single-Use Voucher, use V=0 to 7. For Multi-Use Voucher, use V=8 (Not Taxable). Voucher sale is a positive (+) amount; voucher redeem is a negative (-) amount. `IsVoid` can be applied to reverse amounts. Avoid using this for Multi-Use Voucher; instead, use `PayItem` with `ShowInChargeItems` flag. For Single-Use Voucher, apply `ShowInPayItems` flag to visualize it like a payment and keep the total amount unreduced. |
+| 5 | Catalog service (service or good produced in-house) — To be modified!!! |
+| 6 | Not own sales/agency business. |
+| 7 | Own consumption. |
+| 8 | Grant. For unreal grant, use V=0 to 7. For real grant, use V=8. |
+| 9 | Receivable. Creation is a negative (-) amount; reduction is a positive (+) amount. `IsVoid` can be applied to reverse amounts. Avoid using this; use `PayItem` with the `ShowInChargeItems` flag instead. |
+| A | Cash transfer. Cash transfer to the till is positive (+); from the till is negative (-). Only usable with V=8 (Not Taxable). `IsVoid` can be applied to reverse amounts. |
+| F | Super-specific type of tax. Detailed definition in NN=nn. V=8 required. |
 
 ### NN - Nature of VAT
 
-| NN (nature of VAT) | Description | IT | GR |
-|--------------------|-------------|----|----|
+| NN | Description | IT | GR |
+|----|-------------|----|----|
 | 00 | Usual VAT applies. | | |
 | 10 | Not Taxable.<br />1x can be used to speci-fy more country-specific details, e.g, IGL. | **NI (N3)** marker mandatory<br />[10] Not taxable – exports<br />[11] Non-taxable – intra-community supplies<br />[12] Non-taxable – transfers to San Marino<br />[13] Non-taxable – transactions assimilated to export supplies<br />[14] Non-taxable – following declarations of intent<br />[15] Non-taxable – other operations which do not contribute to the formation of the ceiling | Marker to print [fiskaltrust]`{myData}`<br />[11] `(mydata:14)` Article 33. non-taxable - intra-community sup-plies Χωρίς ΦΠΑ - άρθρο 33 του Κώδικα ΦΠΑ<br />[12] `(mydata:8)` Article 29-Export of goods outside of EU Χωρίς ΦΠΑ - άρθρο 29 του Κώδικα ΦΠΑ<br />[13] `(mydata:28)` TAXFREE retail to non eu citi-zens Χωρίς ΦΠΑ – άρθρο 29 περ. β’ παρ.1 του Κώδικα ΦΠΑ<br />[14] (myda-ta:16)  Article 45 Includes the special regime of payment of tax from the receiver of goods and ser-vices NOT THE ISSUER Χωρίς ΦΠΑ - άρθρο 45 του Κώδικα ΦΠΑ<br />[15] `(mydata:6)` Article 24 Bottle package recycling, sales of tickets, sales of newspa-pers and maga-zines   Χωρίς ΦΠΑ - άρθρο 24 του Κώδικα ΦΠΑ<br />[16] `(mydata:7)` article 27 Services in Greece for med-ical services, ser-vices provided from doctors, den-tists, insurance services, bank ser-vices, sale of 1st residence Χωρίς ΦΠΑ - άρθρο 27 του Κώδικα ΦΠΑ |
 | 20 |	Not Subject.<br />2x can be used to specify more country-specific details. | **NS (N2)** marker mandatory<br />[20] not subject to VAT pursuant to articles from 7 to 7-septies of Presidential Decree 633/72<br />[21] not subject, other cases | |
@@ -229,8 +229,8 @@ For more information, see [VAT rules and rates](https://europa.eu/youreurope/bus
 
 ### gggg - Global tagging/flags
 
-| **Value** | **Description** |
-|-----------|-----------------|
+| Value | Description |
+|-------|-------------|
 | `0001` | **IsVoid**<br />Marks `ChargeItem` as **Void** of the previous position. Quantity and amount are inverted, related to the original item. |
 | `0002` | **IsReturn/IsRefund**<br />Marks ChargeItem as **Return** of good or service. Quantity and amount are inverted, related to the original item. |
 | `0004` | **Discount**<br />Marks `ChargeItem` as **Discount / Extra** for the previous position. Positive (+) amount is extra, negative (-) amount is **discount**. `IsVoid` or `IsReturn/IsRefund` will invert this behavior. |
@@ -242,7 +242,7 @@ For more information, see [VAT rules and rates](https://europa.eu/youreurope/bus
 
 ### lll - Local tagging/flags
 
-Is there any?
+TBD
 
 ## ftPayItemCase
 
@@ -253,8 +253,8 @@ version 2
 
 ### PP - Payment type
 
-| **Value** | **Description** | **GR**            |
-|-----------|-----------------|-------------------|
+| Value | Description | GR           |
+|-------|-----------------|-------------------|
 | `00` | Unknown | |
 | `01` | Cash | GR: Cash |
 | `02` | NonCash | |
@@ -274,8 +274,8 @@ version 2
 
 ### gggg - Global tagging/flags
 
-| **Value** | **Description** |
-|-----------|-----------------|
+| Value | Description |
+|-------|-------------|
 | `0001` | **IsVoid**<br />Marks `PayItem` as **Void** of the previous position. Quantity and amount are inverted, related to the original item. Used when the exchange of money has not been executed yet. |
 | `0002` | **IsReturn / IsRefund**<br />Marks `PayItem` as **Return** of good or service. Quantity and amount are inverted, related to the original item. Used when the exchange of money has already been executed. |
 | `0004` | (reserved) |
@@ -303,8 +303,8 @@ version 2
 
 ### gggg_gggg - Global tagging/flags
 
-| **Value** | **Description** |
-|-----------|-----------------|
+| Value | Description |
+|-------|-----------------|
 | `0000_0001` | Security Mechanism is Out of Operation.<br />Queue is not started or already stopped. |
 | `0000_0008` | Deferred Queue Mode/Late Signing Mode is active.<br />When the cash register doesn’t reach the queue, it queues up the receipt requests while continuing to do business. Also, with a major failure of the cash register or a power outage, handwritten paper receipts are queued up while continuing to do business. After returning to a fully functional state, these queued `ReceiptRequests` are sent to the queue, keeping the original `cbReceipt-Moment` of the business case `ReceiptCase` tagged/flagged with `0001` (Deferred Queue/Late Signing) or `0008` (Handwritten).<br />A result of this is a marker within the `ftState`, which can be resolved via `ZeroReceipt`. The reason for the marker is a mismatch between processed time along the receipt chain and a manual event to clean up the state, and maybe notify 3rd parties of an outage. |
 | `0000_0040` | Message Pending.<br />Middleware/Queue is a headless background service, but there are situations where communication with the cashier/operator or the cash register is necessary. For example, if the last daily closing was missed or if a special condition related to the signature creation unit or service happened. This is when the message pending flag is set by the middleware and should be signaled to the cashier by the POS system. By executing a `ZeroReceipt`, the cashier can read the message or instruction on the printed or displayed receipt.<br />Related to local regulations, this receipt may be stored/archived for bookkeeping purposes; if so, this is also visualized.
@@ -319,37 +319,37 @@ version 2
 #### AT (Austria)
 cba … c=reserved ; b=reporting ; a = scu related
 
-| **Value** | **Description** |
-|-----------|-----------------|
+| Value | Description |
+|-------|-----------------|
 | `001` | SCU permanent out of service.<br />48h FinanzOnline timeout reached. |
 | `002` | Backup SCU in use. |
 
 #### DE (Germany)
 cba … c=reserved ; b=reporting ; a = scu related
 
-| **Value** | **Description** |
-|-----------|-----------------|
-| `001`  | SCU is in a switching state.<br />The queue is in the process of switching SCUs. This state is returned in case any receipts are processed between the initialize-switch and finish-switch receipts. These receipts are protected by **fiskaltrust.SecurityMechanism**, but are not sent to any TSE, as no SCU is connected at this point. |
+| Value | Description |
+|-------|-----------------|
+| `001` | SCU is in a switching state.<br />The queue is in the process of switching SCUs. This state is returned in case any receipts are processed between the initialize-switch and finish-switch receipts. These receipts are protected by **fiskaltrust.SecurityMechanism**, but are not sent to any TSE, as no SCU is connected at this point. |
 
 #### FR (France)
 cba … c=reserved ; b=reporting ; a = scu related
 
-| **Value** | **Description** |
-|-----------|-----------------|
+| Value | Description |
+|-------|-----------------|
 | TBD | TBD |
 
 #### IT (Italy)
 cba … c=reserved ; b=reporting ; a = scu related
 
-| **Value** | **Description** |
-|-----------|-----------------|
+| Value | Description |
+|-------|-----------------|
 | `001`  | [RT-Printer/RT-Server/Government Service] not reachable.<br />Responded in case of a zero-receipt and other hard dependencies to the service. |
 
 #### ES (Spain)
 cba … c=reserved ; b=reporting ; a = scu related
 
-| **Value** | **Description** |
-|-----------|-----------------|
+| Value | Description |
+|-------|-----------------|
 | TBD | TBD |
 
 ## ftSignature
@@ -360,22 +360,22 @@ cba … c=reserved ; b=reporting ; a = scu related
 
 #### ffff - Format
 
-| **Value** | **Description** |
-|-----------|-----------------|
-| `0000`	| Unknown/no format defined |
-| `0001`	| Text |
-| `0002`	| Link |
-| `0003`	| QR-Code (2D Code) |
-| `0004`	| Code128 (Barcode) |
-| `0005`	| OCR-A (optical character recognition, possible for Base32 data) |
-| `0006`	| PDF417-(2D Code) |
-| `0007`	| DATAMATRIX-(2D Code) |
-| `0008`	| AZTEC-(2D Code) |
-| `0009`	| EAN-8 (Barcode) |
-| `000A`	| EAN-13 (Barcode) |
-| `000B`	| UPC-A (Barcode) |
-| `000C`	| Code39 (Barcode, possible for Base32 data) |
-| `000D`	| Base64 (Raw Data) |
+| Value | Description |
+|-------|-----------------|
+| `0000` | Unknown/no format defined |
+| `0001` | Text |
+| `0002` | Link |
+| `0003` | QR-Code (2D Code) |
+| `0004` | Code128 (Barcode) |
+| `0005` | OCR-A (optical character recognition, possible for Base32 data) |
+| `0006` | PDF417-(2D Code) |
+| `0007` | DATAMATRIX-(2D Code) |
+| `0008` | AZTEC-(2D Code) |
+| `0009` | EAN-8 (Barcode) |
+| `000A` | EAN-13 (Barcode) |
+| `000B` | UPC-A (Barcode) |
+| `000C` | Code39 (Barcode, possible for Base32 data) |
+| `000D` | Base64 (Raw Data) |
 
 #### p - Position
 
@@ -389,21 +389,21 @@ The Basic Layout is:
 
 `SignatureItems` must be printed or visualized on the Receipt within the `SignatureBlock`, in the order they were received, and according to any additional format and visualization flags. For each `SignatureItem`, the first line should display its caption in text format, followed by a new line showing the content of the `SignatureItem` formatted according to the specified format.
 
-| **Value** | **Description** |
-|-----------|-----------------|
-| `0`	| After `PayItemBlock`/Before `Footer` |
-| `1`	| After `Header`/Before `ChargeItemBlock` |
-| `2`	| After `ChargeItemBlock`/Before `TotalTaxBlock` |
-| `3`	| After `TotalTaxBlock`/Before `PayItemBlock` |
-| `4`	| After `Footer` |
-| `5`	| Before `Header` |
+| Value | Description |
+|-------|-----------------|
+| `0` | After `PayItemBlock`/Before `Footer` |
+| `1` | After `Header`/Before `ChargeItemBlock` |
+| `2` | After `ChargeItemBlock`/Before `TotalTaxBlock` |
+| `3` | After `TotalTaxBlock`/Before `PayItemBlock` |
+| `4` | After `Footer` |
+| `5` | Before `Header` |
 
-| **Value** | **Description** |
-|-----------|-----------------|
-| `0100`	| Print/Visualize after `Header` (usual position is after `PayItems`/before `Footer`) |
-| `0200`	| Print/Visualize after `ChargeItems` (usual position is after `PayItems`) |
-| `0400`	| Print/Visualize after `Total` (usual position is after `PayItems`) |
-| `0800`	| Print/Visualize after `ChargeItems` (usual position is after `PayItems`) |
+| Value | Description |
+|-------|-----------------|
+| `0100` | Print/Visualize after `Header` (usual position is after `PayItems`/before `Footer`) |
+| `0200` | Print/Visualize after `ChargeItems` (usual position is after `PayItems`) |
+| `0400` | Print/Visualize after `Total` (usual position is after `PayItems`) |
+| `0800` | Print/Visualize after `ChargeItems` (usual position is after `PayItems`) |
 
 ### ftSignatureFormatFlags
 
@@ -418,119 +418,115 @@ version 2
 
 #### t - Type/Category
 
-| **Value** | **Description** |
-|-----------|-----------------|
-| `0`	| Uncategorized; Normal use (notification) |
-| `1`	| Information (notification); low priority |
-| `2`	| Alert (notification); high priority |
-| `3`	| Failure (notification); high priority |
+| Value | Description |
+|-------|-----------------|
+| `0` | Uncategorized; Normal use (notification) |
+| `1` | Information (notification); low priority |
+| `2` | Alert (notification); high priority |
+| `3` | Failure (notification); high priority |
 
 #### sss - SignatureCase
 
-| **Case**   | **Description**        | **Caption**     |
-|------------|------------------------|-----------------|
-| `000`	 | Notification	| |
-| `001`	 | Primary market-related compliance signature	| |
+| Case   | Description        | Caption     |
+|--------|------------------------|-----------------|
+| `000` | Notification	| |
+| `001`	| Primary market-related compliance signature	| |
 | `010??` |	Middleware version: the version of the middlware used to generate the given receipt	| |
 | `Exx??` |	Related information to `EEEE_EEEE` `ftState`<br />Flag: do not print/visualize<br />Data: Base64 stack trace if debug/sandbox | Exception Number/Name |
 | `Fxx??` |	Related information to `FFFF_FFFF` `ftState`<br />Flag: do not print/visualize<br />Data: Base64 stack trace if debug/sandbox | Exception Number/Name |
 
 #### gggg - Global tagging/flags
 
-| **Value** | **Description** |
-|-----------|-----------------|
-| `0001`	| Archiving required.<br />Signatures marked with this flag are known to be archived related to market-specific bookkeeping requirements. For offline usage or pure open-source usage, receipts or artefacts with this flag should be treated as bookkeeping/accounting-relevant items. |
-| `0010`	| Printing/Visualization is optional. |
-| `0020`	| Do not print/visualize. |
-| `0040`	| Printed receipt only. |
-| `0080`	| Digital receipt only. |
+| Value | Description |
+|-------|-----------------|
+| `0001` | Archiving required.<br />Signatures marked with this flag are known to be archived related to market-specific bookkeeping requirements. For offline usage or pure open-source usage, receipts or artefacts with this flag should be treated as bookkeeping/accounting-relevant items. |
+| `0010` | Printing/Visualization is optional. |
+| `0020` | Do not print/visualize. |
+| `0040` | Printed receipt only. |
+| `0080` | Digital receipt only. |
 
 #### sss - SignatureCase (by market)
 
 ##### AT (Austria)
 
-| **Case**   | **Description**        | **Caption**     |
-|------------|------------------------|-----------------|
-| `001`	 | Signature/Payload according to RKSV | [www.fiskaltrust.at] |
-| `002`  |	Daily operation notification | |
-| `003`  | FinanzOnline notification<br />2D code to execute FinanzOnline notification in case of offline usage or pure open-source usage. | |
+| Case  | Description        | Caption     |
+|-------|--------------------|-------------|
+| `001`	| Signature/Payload according to RKSV | [www.fiskaltrust.at] |
+| `002` |	Daily operation notification | |
+| `003` | FinanzOnline notification<br />2D code to execute FinanzOnline notification in case of offline usage or pure open-source usage. | |
 
 ##### DE (Germany)
 
-| **Case**   | **Description**                                                  | **Caption**              |
-|--------|--------------------------------------------------------------|----------------------|
-| `001`  | Signature/Payload according to Kassen-SichV<br />[qr] format | [www.fiskaltrust.de] |
-| `010`  | Start-transaction-result<br />[do-not-print] flag | |
-| `011`  | Finish-transaction-payload<br />[do-not-print] flag | |
-| `012`  | Finish-transaction-result<br />[do-not-print] flag | |
-| `013`  | QR-Code Version for receipt<br />[optional-print] flag | |
-| `014`  | Cashregister Serialnumber for receipt<br />[optional-print] flag | |
-| `015`  | ProcessType for receipt<br />[optional-print] flag | |
-| `016`  | ProcessData for receipt<br />[optional-print] flag | |
-| `017`  | Transaction number for receipt<br />[optional-print] flag | |
-| `018`  | Signature counter for receipt<br />[optional-print] flag | |
-| `019`  | Transaction start time for receipt<br />[optional-print] flag | |
-| `01A`  | Signature logtime for receipt<br />[optional-print] flag | |
-| `01B`  | Signature algorithm for receipt<br />[optional-print] flag | |
-| `01C`  | Signature logtime format for receipt<br />[optional-print] flag | |
-| `01D`  | Signature for receipt<br />[optional-print] flag | |
-| `01E`  | Public key for receipt<br />[optional-print] flag | |
-| `01F`  | Process start time for receipt | |
-| `020`  | Update-transaction-payload<br />[do-not-print] flag | |
-| `021`  | Update-transaction-result<br />[do-not-print] flag | |
-| `022`  | Certification identification and protection profile restrictions for receipt |  |
-| `023`  | TSE serial number for receipt |  |
+| Case | Description                                                  | Caption              |
+|------|--------------------------------------------------------------|----------------------|
+| `001` | Signature/Payload according to Kassen-SichV<br />[qr] format | [www.fiskaltrust.de] |
+| `010` | Start-transaction-result<br />[do-not-print] flag | |
+| `011` | Finish-transaction-payload<br />[do-not-print] flag | |
+| `012` | Finish-transaction-result<br />[do-not-print] flag | |
+| `013` | QR-Code Version for receipt<br />[optional-print] flag | |
+| `014` | Cashregister Serialnumber for receipt<br />[optional-print] flag | |
+| `015` | ProcessType for receipt<br />[optional-print] flag | |
+| `016` | ProcessData for receipt<br />[optional-print] flag | |
+| `017` | Transaction number for receipt<br />[optional-print] flag | |
+| `018` | Signature counter for receipt<br />[optional-print] flag | |
+| `019` | Transaction start time for receipt<br />[optional-print] flag | |
+| `01A` | Signature logtime for receipt<br />[optional-print] flag | |
+| `01B` | Signature algorithm for receipt<br />[optional-print] flag | |
+| `01C` | Signature logtime format for receipt<br />[optional-print] flag | |
+| `01D` | Signature for receipt<br />[optional-print] flag | |
+| `01E` | Public key for receipt<br />[optional-print] flag | |
+| `01F` | Process start time for receipt | |
+| `020` | Update-transaction-payload<br />[do-not-print] flag | |
+| `021` | Update-transaction-result<br />[do-not-print] flag | |
+| `022` | Certification identification and protection profile restrictions for receipt |  |
+| `023` | TSE serial number for receipt |  |
 
 ##### FR (France)
 
-| **Case** | **Description** | **Caption** |
-|----------|-----------------|-------------|
-| `001`  | Signature/Payload according to French security mechanism (BOI-TVA-DECLA-30-10-30)<br />This is a JWT [qr] format. | [www.fiskaltrust.fr] |
-| `010`  | Shift closing payload |  |
-| `011`  | Day closing payload |  |
-| `012`  | Month closing payload |  |
-| `013`  | Year closing payload |  |
-| `014`  | Archive Totals payload |  |
-| `015`  | Perpetual Totals payload |  |
-|        | Zertification status of cashregister ??? |  |
+| Case | Description | Caption |
+|------|-----------------|-------------|
+| `001` | Signature/Payload according to French security mechanism (BOI-TVA-DECLA-30-10-30)<br />This is a JWT [qr] format. | [www.fiskaltrust.fr] |
+| `010` | Shift closing payload |  |
+| `011` | Day closing payload |  |
+| `012` | Month closing payload |  |
+| `013` | Year closing payload |  |
+| `014` | Archive Totals payload |  |
+| `015` | Perpetual Totals payload |  |
 
 ##### IT (Italy)
 
-| **Case** | **Description** | **Caption** |
-|----------|-----------------|-------------|
+| Case | Description | Caption |
+|------|-----------------|-------------|
 | `001` | Print below [PayItemBlock]/Document fiscalization<br />**RT-Printer**<br />[DATE(DD-MM-YYYY)]<br />[TIME(HH:MM)][NEWLINE]<br />DOCUMENTO N. [z-Number]-[Document-Number][NEWLINE]<br />Codice Lotteria: [LotteryID][NEWLINE]<br />Codice Fiscale: [CustomerID][NEWLINE]<br />RT [SERIALNUMBER][NEWLINE]<br />**RT-Server**<br />[DATE(DD-MM-YYYY)] [TIME(HH:MM)][NEWLINE]<br />DOCUMENTO N. [z-Number]-[Document-Number][NEWLINE]<br />Codice Lotteria: [LotteryID][NEWLINE]<br />Codice Fiscale: [CustomerID][NEWLINE]<br />Server RT [SERIALNUMBER][NEWLINE]<br />Cassa [ftCashboxIdentifica-tion][NEWLINE]<br />-----FIRMA ELETTRONICA-----[NEWLINE]<br />[SHA-METADATA][NEWLINE]<br />---------------------------[NEWLINE]<br />**FE (Fattura Elettronica)**<br />[DATE(DD-MM-YYYY)] [TIME(HH:MM)][NEWLINE]<br />[VAT-ID][NEWLINE]<br />[ftReceiptIdentification][NEWLINE]<br />[ftCashboxIdentification][NEWLINE]<br />If number/signature is present/not null | [www.fiskaltrust.it] |
 | `002` | Print below [Header]/Document Type<br />**Document-Type (1) Vendita**<br />DOCUMENTO COMMERCIA-LE[NEWLINE]<br />di vendita o prestazione[NEWLINE]<br />**Document-Type (3) Reso**<br />DOCUMENTO COMMERCIA-LE[NEWLINE]<br />emesso per ANNULLAMEN-TO[NEWLINE]<br />[NEWLINE]<br />Documento di riferimento:<br />N. [reference-z-Number]-[reference-Document-Number] del [reference-Document-Date(DD-MM-YYYY)][NEWLINE]<br />N. [reference-z-Number]-[reference-Document-Number] del [reference-Document-Date(DD-MM-YYYY)][NEWLINE]<br />RT [reference-RT-Printer-Serialnumber][NEWLINE]<br />Server RT [reference-RT-Server-Serialnumber][NEWLINE]<br />Cassa [reference-ftCashboxIdentification][NEWLINE]<br />XXX del [reference-Document-Date(DD-MM-YYYY)][NEWLINE]<br />**Document-Type (5) Annullo**<br />DOCUMENTO COMMERCIA-LE[NEWLINE]<br />emesso per RESO MERCE[NEWLINE]<br />[NEWLINE]<br />Documento di riferimento:<br />N. [reference-z-Number]-[reference-Document-Number] del [reference-Document-Date(DD-MM-YYYY)][NEWLINE]<br />N. [reference-z-Number]-[reference-Document-Number] del [reference-Document-Date(DD-MM-YYYY)][NEWLINE]RT<br />[reference-RT-Printer-Serialnumber][NEWLINE]<br />Server RT [reference-RT-Server-Serialnumber][NEWLINE]<br />Cassa [reference-ftCashboxIdentification][NEWLINE]<br />XXX del [reference-Document-Date(DD-MM-YYYY)][NEWLINE]<br />If number is on same system<br />If number is on different system<br />If number is unknown XXX<br />"POS" in the case of a POS receipt;<br />"VR" in the case of returnable containers;<br />“ND” in other cases | DOCUMENTO COMMERCIALE |
-| `010`  | RT printer/server serial number | |
-| `011`  | RT printer/server Z-Number | |
-| `012`  | RT printer/server Document-Number | |
-| `013`  | RT printer/server Document-Moment | |
-| `014`  | RT printer/server Document Type | |
-| `015`  | RT printer/server LotteryID | |
-| `016`  | RT printer/server CustomerID | |
-| `017`  | RT server SHA Metadata | |
-| `018`  | Amount | |
-| | ReceiptURL ??? | |
-| | ESC/POS content ??? | |
-| | ????<br />"serialNumber": "99IEC018305",<br />"recNumber": "18",<br />"zRepNumber": "Z0007",<br />"recDate": "2023-08-28T13:21:32+02:00",<br />"recAmount": "5077.14",<br />"customerId": "123456789",<br />"lotteryId": "",<br />"docType": "SALES", | |
+| `010` | RT printer/server serial number | |
+| `011` | RT printer/server Z-Number | |
+| `012` | RT printer/server Document-Number | |
+| `013` | RT printer/server Document-Moment | |
+| `014` | RT printer/server Document Type | |
+| `015` | RT printer/server LotteryID | |
+| `016` | RT printer/server CustomerID | |
+| `017` | RT server SHA Metadata | |
+| `018` | Amount | |
 | `020` | RT Reference ZNumber | |
-| `021`  | RT Reference DocNumber | |
-| `022`  | RT Reference Document Moment | |
+| `021` | RT Reference DocNumber | |
+| `022` | RT Reference Document Moment | |
 
 ##### ES (Spain)
 
-| **Case** | **Description** | **Caption** |
+| Case | Description | Caption |
 |----------|-----------------|-------------|
 | TBD | TBD | |
 
 ##### PT (Portugal)
 
-| **Case** | **Description** | **Caption** |
+| Case | Description | Caption |
 |----------|-----------------|-------------|
 | TBD | TBD | |
 
 ##### GR (Greece)
 
-| **Case** | **Description** | **Caption** |
+| Case | Description | Caption |
 |----------|-----------------|-------------|
 | TBD | TBD | |
 
@@ -543,75 +539,75 @@ version 2
 
 ### t - Type/Category
 
-| **Value** | **Description** |
-|-----------|-----------------|
-| `0`	| Common |
-| `1`	| Market specific |
+| Value | Description |
+|-------|-----------------|
+| `0` | Common |
+| `1` | Market specific |
 
 ### jjj -  JournalCase
 
-| **Case** | **Description** |
-|-----------|-----------------|
-|`000`	| Version Information |
-|`001`	| ActionJournal |
-|`002`	| ReceiptJournal |
-|`003`	| QueueItemJournal |
+| Case | Description |
+|------|-----------------|
+|`000` | Version Information |
+|`001` | ActionJournal |
+|`002` | ReceiptJournal |
+|`003` | QueueItemJournal |
 
 ### gggg -  Global tagging/flags
 
-| **Value** | **Description** |
-|-----------|-----------------|
-| `0001`	| Use ZIP compressed stream |
+| Value | Description |
+|-------|-----------------|
+| `0001` | Use ZIP compressed stream |
 
 ### jjj - JournalCase (by market)
 
 #### AT (Austria)
 
-| **Case**   | **Description**        |
-|------------|------------------------|
-| `001`	 | Status Information QueueAT |
-| `002`  |RKSV-DEP-Export |
+| Case | Description        |
+|------|------------------------|
+| `001`	| Status Information QueueAT |
+| `002` |RKSV-DEP-Export |
 
 #### DE (Germany)
 
-| **Case** | **Description**                                         |
-|--------|-------------------------------------------------------------|
-| `000`  | Status Information QueueDE |
-| `001`  | .TAR-File-Export passthrough from TSE device<br />Limited to data at device. Usually, data are purged from device after successful export. |
-| `002`  | DSFinV-K Export<br />ZIP compression required. |
-| `003`  | .TAR-File-Export |
+| Case | Description                                         |
+|------|-----------------------------------------------------|
+| `000` | Status Information QueueDE |
+| `001` | .TAR-File-Export passthrough from TSE device<br />Limited to data at device. Usually, data are purged from device after successful export. |
+| `002` | DSFinV-K Export<br />ZIP compression required. |
+| `003` | .TAR-File-Export |
 
 #### FR (France)
 
-| **Case** | **Description** |
-|----------|-----------------|
-| `000`  | Status Information QueueFR |
-| `001`  | Ticket ("T" group) export |
-| `002`  | Payment Prove ("P" group) export |
-| `003`  | Invoice ("I" group) export |
-| `004`  | Grand Total ("G" group) export |
-| `007`  | Bill ("B" group) export |
-| `008`  | Archive ("A" group) export |
-| `009`  | Log ("L" group) export |
-| `00A`  | Copy ("C" group) export |
-| `00B`  | Training ("X" group) export |
-| `010`  | Export (in conjunction with Archiv) |
+| Case | Description |
+|------|-----------------|
+| `000` | Status Information QueueFR |
+| `001` | Ticket ("T" group) export |
+| `002` | Payment Prove ("P" group) export |
+| `003` | Invoice ("I" group) export |
+| `004` | Grand Total ("G" group) export |
+| `007` | Bill ("B" group) export |
+| `008` | Archive ("A" group) export |
+| `009` | Log ("L" group) export |
+| `00A` | Copy ("C" group) export |
+| `00B` | Training ("X" group) export |
+| `010` | Export (in conjunction with Archiv) |
 
 #### IT (Italy)
 
-| **Case** | **Description** |
-|----------|-----------------|
-| `000`  | Status Information QueueIT |
-| `001`  | TBD passthrough from RT device |
-| `002`  |  |
-| `003`  |  |
+| Case | Description |
+|------|-----------------|
+| `000` | Status Information QueueIT |
+| `001` | TBD passthrough from RT device |
+| `002` |  |
+| `003` |  |
 
 
 #### ES (Spain)
 
-| **Case** | **Description** |
-|----------|-----------------|
-| `000`  | Status Information QueueES |
-| `001`  |  |
-| `002`  |  |
-| `003`  |  |
+| Case | Description |
+|------|-----------------|
+| `000` | Status Information QueueES |
+| `001` |  |
+| `002` |  |
+| `003` |  |

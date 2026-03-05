@@ -3,9 +3,7 @@ slug: /poscreators/middleware-doc/belgium
 title: Introduction
 ---
 
-# Introduction
-
-## Belgium
+# Appendix: Belgium
 
 This appendix expands on the General Part's information by adding details specific to the Belgian market. This additional information is provided only where applicable. The remaining chapters, for which there is no further information required, were omitted.
 
