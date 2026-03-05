@@ -74,9 +74,30 @@ module.exports = [
           "poscreators/middleware-doc/middleware-at-rksv/communication/communication",
           "poscreators/middleware-doc/middleware-at-rksv/receipt-case-definitions/receipt-case-definitions",
           "poscreators/middleware-doc/middleware-at-rksv/reference-tables/reference-tables",
-        ],
-      },
-      {
+        {
+          type: "category",
+          collapsed: true,
+          label: "Receipt signing APIs",
+          items: [
+            {
+              type: "category",
+              collapsed: true,
+              label: "RKSV.Sign (Austria)",
+              items: [
+                "poscreators/middleware-doc/signing-at-rksv/rksv-sign-intro",
+                "poscreators/middleware-doc/signing-at-rksv/rksv-sign-api",
+                {
+                  type: "link",
+                  label: "RKSV.Sign API samples",
+                  href: "https://rksvsign-samples.docs.fiskaltrust.cloud/",
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    },
+    {
         type: "category",
         label: "Belgium (BE)",
         items: [
@@ -352,7 +373,7 @@ module.exports = [
   },
   {
     type: "category",
-    collapsed: false,
+    collapsed: true,
     label: "Digital Receipt",
     items: [
       "poscreators/middleware-doc/digital-receipt/digital-receipt-introduction",
