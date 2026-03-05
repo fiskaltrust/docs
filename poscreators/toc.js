@@ -376,7 +376,7 @@ module.exports = [
     collapsed: true,
     label: "Digital Receipt",
     items: [
-      "poscreators/middleware-doc/digital-receipt/digital-receipt-introduction",
+      "poscreators/middleware-doc/digital-receipt/introduction",
       "poscreators/middleware-doc/digital-receipt/bundles",
       "poscreators/middleware-doc/digital-receipt/receive-receipts",
       "poscreators/middleware-doc/digital-receipt/compliance",

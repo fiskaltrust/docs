@@ -1,5 +1,5 @@
 ---
-slug: /poscreators/middleware-doc/digital-receipt/digital-receipt-introduction
+slug: /poscreators/middleware-doc/digital-receipt/introduction
 title: Introduction
 ---
 
