@@ -1,7 +1,9 @@
 ---
-slug: /poscreators/middleware-doc/general/components/configuration-components
+slug: /poscreators/middleware-doc/general/components/components-configuration
 title: Configuring Components
 ---
+
+# Configuring Components
 
 For operating the fiskaltrust.Middleware on-premise or off-premise, the components of the fiskaltrust.Middleware need to be configured, downloaded, and installed/started:
 

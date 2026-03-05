@@ -1,7 +1,9 @@
 ---
 slug: /poscreators/middleware-doc/general/components
-title: fiskaltrust.Middleware Components
+title: Middleware Components
 ---
+
+# Middleware Components
 
 Regardless of the characteristics of the product, fiskaltrust.Middleware consists of several logical components. This chapter provides an overview on these components.
 

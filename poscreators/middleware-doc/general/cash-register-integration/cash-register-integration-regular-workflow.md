@@ -3,6 +3,8 @@ slug: /poscreators/middleware-doc/general/cash-register-integration
 title: Cash Register Integration
 ---
 
+# Cash Register Integration
+
 While designing the integration of fiskaltrust.Middleware into Cash Register Systems, our goal was to minimize the impact to the existing workflow as much as possible. With that in mind we've developed the following implementation suggestion.
 
 The best time for the integration is right after all services and payments have been gathered and the receipt has been created in the system, but before it is being printed (response created electronically). Right at that point the receipt data will be transferred to the fiskaltrust.SecurityMechanism via fiskaltrust.iPOS.

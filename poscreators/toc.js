@@ -33,6 +33,8 @@ module.exports = [
         items: [
           "poscreators/middleware-doc/general/general",
           "poscreators/middleware-doc/general/terminology/terminology",
+          "poscreators/middleware-doc/general/cash-register-integration/cash-register-integration-regular-workflow",
+          "poscreators/middleware-doc/general/cash-register-integration/multi-markets-integration-guide",          
           "poscreators/middleware-doc/general/operation-modes/operation-modes",
           {
             type: "category",
@@ -40,55 +42,19 @@ module.exports = [
             key: "general-components",
             items: [
               "poscreators/middleware-doc/general/components/components",
-              "poscreators/middleware-doc/general/components/configuration-components",
+              "poscreators/middleware-doc/general/components/components-configuration",
             ],
           },
           "poscreators/middleware-doc/general/configuration/configuration",
-          "poscreators/middleware-doc/general/receipt-case-definitions/receipt-case-definitions",
-        ],
-      },
-      {
-        type: "category",
-        label: "Integration",
-        collapsed: true,
-        key: "integration",
-        items: [
-          {
-            type: "category",
-            label: "Cash Register Integration",
-            collapsed: true,
-            key: "cash-register-integration",
-            items: [
-              "poscreators/middleware-doc/general/cash-register-integration/cash-register-integration-regular-workflow",
-              "poscreators/middleware-doc/general/cash-register-integration/multi-markets-integration-guide",
-          {
-            type: "category",
-            label: "Data Structures",
-            collapsed: true,
-            key: "data-structures",
-            items: [
-              "poscreators/middleware-doc/general/data-structures/data-structures",
-            ],
-          },
-          {
-            type: "category",
-            label: "Reference Tables",
-            collapsed: true,
-            key: "reference-tables",
-            items: [
-              "poscreators/middleware-doc/general/reference-tables/reference-tables",
-            ],
-          }
-          ],
-          },
+          "poscreators/middleware-doc/general/data-structures/data-structures",
           "poscreators/middleware-doc/general/function-structures/function-structures",
           "poscreators/middleware-doc/general/communication/communication",
+          "poscreators/middleware-doc/general/receipt-case-definitions/receipt-case-definitions",
+          "poscreators/middleware-doc/general/reference-tables/reference-tables",
           "poscreators/middleware-doc/general/cash-register-integration/cash-register-integration-failure-scenarios",
         ],
       },
-    ],
-  },
-  {
+        {
     type: "category",
     label: "Country-Specific Guides",
     collapsed: true,
@@ -100,14 +66,14 @@ module.exports = [
         items: [
           "poscreators/middleware-doc/middleware-at-rksv/appendix-at-rksv",
           "poscreators/middleware-doc/middleware-at-rksv/terminology/terminology",
+          "poscreators/middleware-doc/middleware-at-rksv/cash-register-integration/cash-register-integration",
           "poscreators/middleware-doc/middleware-at-rksv/operation-modes/operation-modes",
           "poscreators/middleware-doc/middleware-at-rksv/installation/installation",
-          "poscreators/middleware-doc/middleware-at-rksv/receipt-case-definitions/receipt-case-definitions",
-          "poscreators/middleware-doc/middleware-at-rksv/cash-register-integration/cash-register-integration",
           "poscreators/middleware-doc/middleware-at-rksv/data-structures/data-structures",
-          "poscreators/middleware-doc/middleware-at-rksv/reference-tables/reference-tables",
           "poscreators/middleware-doc/middleware-at-rksv/function-structures/function-structures",
           "poscreators/middleware-doc/middleware-at-rksv/communication/communication",
+          "poscreators/middleware-doc/middleware-at-rksv/receipt-case-definitions/receipt-case-definitions",
+          "poscreators/middleware-doc/middleware-at-rksv/reference-tables/reference-tables",
         ],
       },
       {
@@ -141,6 +107,16 @@ module.exports = [
         items: [
           "poscreators/middleware-doc/middleware-de-kassensichv/appendix-de-kassensichv",
           "poscreators/middleware-doc/middleware-de-kassensichv/terminology/terminology",
+          {
+            type: "category",
+            label: "Cash Register Integration",
+            key: "de-cash-register-integration",
+            items: [
+              "poscreators/middleware-doc/middleware-de-kassensichv/cash-register-integration/cash-register-integration",
+              "poscreators/middleware-doc/middleware-de-kassensichv/cash-register-integration/single-receipt-creation",
+              "poscreators/middleware-doc/middleware-de-kassensichv/cash-register-integration/receipt-sequences-creation",
+            ],
+          },
                   {
             type: "category",
             label: "Operation Modes",
@@ -185,18 +161,8 @@ module.exports = [
             ],
           },
           "poscreators/middleware-doc/middleware-de-kassensichv/installation/installation",
-          "poscreators/middleware-doc/middleware-de-kassensichv/receipt-case-definitions/receipt-case-definitions",
-          {
-            type: "category",
-            label: "Cash Register Integration",
-            key: "de-cash-register-integration",
-            items: [
-              "poscreators/middleware-doc/middleware-de-kassensichv/cash-register-integration/cash-register-integration",
-              "poscreators/middleware-doc/middleware-de-kassensichv/cash-register-integration/single-receipt-creation",
-              "poscreators/middleware-doc/middleware-de-kassensichv/cash-register-integration/receipt-sequences-creation",
-            ],
-          },
           "poscreators/middleware-doc/middleware-de-kassensichv/data-structures/data-structures",
+          "poscreators/middleware-doc/middleware-de-kassensichv/receipt-case-definitions/receipt-case-definitions",
           {
             type: "category",
             label: "Reference Tables",
@@ -246,9 +212,6 @@ module.exports = [
         items: [
           "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/appendix-fr-boi-tva-decla-30-10-30",
           "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/terminology/terminology",
-          "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/operation-modes/operation-modes",
-          "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/installation/installation",
-          "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/receipt-case-definitions/receipt-case-definitions",
           {
             type: "category",
             label: "Cash Register Integration",
@@ -258,10 +221,13 @@ module.exports = [
               "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/cash-register-integration/failure-scenario",
             ],
           },
+          "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/operation-modes/operation-modes",
+          "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/installation/installation",
           "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/data-structures/data-structures",
-          "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/reference-tables/reference-tables",
           "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/function-structures/function-structures",
           "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/communication/communication",
+          "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/receipt-case-definitions/receipt-case-definitions",
+          "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/reference-tables/reference-tables",
         ],
       },
       {
@@ -295,6 +261,7 @@ module.exports = [
         items: [
           "poscreators/middleware-doc/middleware-it-registratore-telematico/appendix-it-registratore-telematico",
           "poscreators/middleware-doc/middleware-it-registratore-telematico/terminology/terminology",
+          "poscreators/middleware-doc/middleware-it-registratore-telematico/cash-register-integration/cash-register-integration",
                    {
             type: "category",
             label: "Operation Modes",
@@ -334,9 +301,9 @@ module.exports = [
             ],
           }, 
           "poscreators/middleware-doc/middleware-it-registratore-telematico/installation/installation",
-          "poscreators/middleware-doc/middleware-it-registratore-telematico/receipt-case-definitions/receipt-case-definitions",
-          "poscreators/middleware-doc/middleware-it-registratore-telematico/cash-register-integration/cash-register-integration",
           "poscreators/middleware-doc/middleware-it-registratore-telematico/data-structures/data-structures",
+          "poscreators/middleware-doc/middleware-it-registratore-telematico/communication/communication",
+          "poscreators/middleware-doc/middleware-it-registratore-telematico/receipt-case-definitions/receipt-case-definitions",
           {
             type: "category",
             label: "Reference Tables",
@@ -352,7 +319,6 @@ module.exports = [
               "poscreators/middleware-doc/middleware-it-registratore-telematico/reference-tables/type-of-journal-ftjournaltype",
             ],
           },
-          "poscreators/middleware-doc/middleware-it-registratore-telematico/communication/communication",
         ],
       },
       {
@@ -380,6 +346,8 @@ module.exports = [
           },
         ],
       },
+    ],
+  },
     ],
   },
   {

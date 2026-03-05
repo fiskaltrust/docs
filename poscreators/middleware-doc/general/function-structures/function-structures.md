@@ -3,6 +3,8 @@ slug: /poscreators/middleware-doc/general/function-structures
 title: Function Structures
 ---
 
+# Function Structures
+
 ## iPOS Interface
 
 This interface is a communication channel for interacting with the fiskaltrust.Middleware. It provides three basic functions: "echo", "sign", and "journal". The functions "echo" and "sign" return bare-objects, the function "journal" returns a wrapped-object.

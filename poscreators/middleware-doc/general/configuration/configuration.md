@@ -2,6 +2,7 @@
 slug: /poscreators/middleware-doc/general/configuration
 title: Configuration
 ---
+# Configuration
 
 The configuration of fiskaltrust.Middleware defines how the system operates, communicates, and complies with country-specific fiscal regulations. Proper configuration ensures correct processing of receipts, secure data handling, and legally compliant operation within the respective market.
 

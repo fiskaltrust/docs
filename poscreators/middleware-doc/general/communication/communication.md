@@ -3,6 +3,8 @@ slug: /poscreators/middleware-doc/general/communication
 title: Communication
 ---
 
+# Communication
+
 The fiskaltrust.Middleware supports different communication protocols, effectively giving our users the possibility to use it on all currently available platforms and implement the interface in all state-of-the-art programming languages. This enables our users to choose the communication type that suits their scenario best.
 
 The communication protocol is specified by setting the respective URL in the package configuration of the fiskaltrust.Portal. The buttons to the right of the URL field can be used to quickly insert the respective URL:
