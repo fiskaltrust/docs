@@ -1,5 +1,5 @@
 ---
-slug: /poscreators/middleware-doc/general/failure-scenarios
+slug: /poscreators/middleware-doc/general/cash-register-integration/failure-scenarios
 title: Failure Scenarios
 ---
 # Failure Scenarios

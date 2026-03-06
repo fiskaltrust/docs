@@ -1,5 +1,5 @@
 ---
-slug: /poscreators/middleware-doc/general/cash-register-integration
+slug: /poscreators/middleware-doc/general/cash-register-integration/cash-register-integration
 title: Cash Register Integration
 ---
 

@@ -1,5 +1,5 @@
 ---
-slug: /poscreators/interface-doc/general/multi-markets-integration-guide
+slug: /poscreators/interface-doc/general/cash-register-integration/multi-markets-integration-guide
 title: Multi-Markets Integration
 ---
 
