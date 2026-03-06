@@ -28,7 +28,7 @@ fiskaltrust appointed Dr. Markus Knasmüller from BMD to create an external asse
 
 This sequence diagram describes the process of generating a digital receipt with the InStore App. The participants in the process are the merchant, fiskaltrust, consumer and the InStore App. 
 
-![InStore App_sequence](../Introduction/images/sequenze_diagramm_instore_app.png)
+![InStore App_sequence](../introduction/images/sequenze_diagramm_instore_app.png)
 
 The InStore App offers three options: scan QR-Code to receive digital receipt on mobile phone, accept button to manually acknowledge received receipt and print receipt on thermal paper.
 
@@ -45,24 +45,12 @@ In store, the merchant collects items and processes the payment or checkout. The
 
 ![InStore_App_show_receipt](./images/InStore_App_show_receipt.png)
 
-| Number  | Description |
-| ------------- | ------------- |
-| 1  | Receipt number (ft5C43F#357749), date and receipt amount |
-| 2  | QR-Code to https digital receipt document |
-| 3  | `Accept button` |
-| 4  | `Print button` |
-
-## Download the InStore App 
-
-The fiskaltrust InStore App is now available on the following app stores. It necessitates a minimum of Android 7 to run the application. 
-Search for "fiskaltrust InStore App" at following app stores, to download the production release app:
-
-* SUNMI App Store Approved and available for: P2 PRO, P2, V1, V2, & V2 PRO
-* Google Play Store - soon
-* MAXSTORE (PAX) Approved and available for: A35, A80 & A920Pro
-* APK - https://install.appcenter.ms/orgs/fiskaltrust/apps/in-store/distribution_groups/stable (Microsoft App Center)
-
-* APK (Sandbox) - https://install.appcenter.ms/orgs/fiskaltrust/apps/in-store/distribution_groups/preview (Microsoft App Center)
+| Number | Description |
+|--------|-------------|
+| 1 | Receipt number (ft5C43F#357749), date and receipt amount |
+| 2 | QR-Code to https digital receipt document |
+| 3 | `Accept button` |
+| 4 | `Print button` |
 
 ## Configuration 
 
@@ -74,9 +62,7 @@ This high level overview shows you the steps on how to implement and configure t
 
 ## Configure master data
 
-Please visit following link to see the configuration steps for the master data:
-
-https://docs.fiskaltrust.cloud/de/docs/posdealers/buy-resell/products/digital-receipt#introduction
+For more information about the configuration steps for the master data, see [Digital Receipt Introduction](https://docs.fiskaltrust.cloud/de/docs/posdealers/buy-resell/products/digital-receipt#introduction).
 
 # Implementation 
 
