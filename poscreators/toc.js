@@ -35,8 +35,16 @@ module.exports = [
         items: [
           "poscreators/middleware-doc/general/general",
           "poscreators/middleware-doc/general/terminology/terminology",
-          "poscreators/middleware-doc/general/cash-register-integration/cash-register-integration-regular-workflow",
-          "poscreators/middleware-doc/general/cash-register-integration/multi-markets-integration-guide",          
+          {
+            type: "category",
+            label: "Cash Register Integration",
+            key: "general-cash-register-integration",
+            items: [
+              "poscreators/middleware-doc/general/cash-register-integration/cash-register-integration-regular-workflow",
+              "poscreators/middleware-doc/general/cash-register-integration/multi-markets-integration-guide",
+              "poscreators/middleware-doc/general/cash-register-integration/cash-register-integration-failure-scenarios", 
+            ],
+          },                   
           "poscreators/middleware-doc/general/operation-modes/operation-modes",
           {
             type: "category",
@@ -53,7 +61,6 @@ module.exports = [
           "poscreators/middleware-doc/general/communication/communication",
           "poscreators/middleware-doc/general/receipt-case-definitions/receipt-case-definitions",
           "poscreators/middleware-doc/general/reference-tables/reference-tables",
-          "poscreators/middleware-doc/general/cash-register-integration/cash-register-integration-failure-scenarios",
         ],
       },
         {
