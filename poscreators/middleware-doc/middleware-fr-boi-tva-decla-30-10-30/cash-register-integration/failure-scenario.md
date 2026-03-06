@@ -5,7 +5,7 @@ title: Failure Scenario
 
 ## Failure Scenario
 
-This chapter describes the failure scenario and how to handle it in accordance with French law. The general rules for cash register integration are described in the Chapter ["Cash Register Integration"](../../general/cash-register-integration/cash-register-integration-regular-workflow.md) of this document.
+This chapter describes the failure scenario and how to handle it in accordance with French law. The general rules for cash register integration are described in the Chapter [Cash Register Integration](../../general/cash-register-integration/cash-register-integration-regular-workflow.md) of this document.
 
 ### Middleware not reachable or failing
 
