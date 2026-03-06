@@ -404,9 +404,9 @@ module.exports = [
         items: [
           "poscreators/middleware-doc/instore-app/installation-guides/installation-guides",
           "poscreators/middleware-doc/instore-app/installation-guides/manual/manual-guide",
-          "poscreators/middleware-doc/instore-app/installation-guides/GooglePlay/googleplay-guide",
-          "poscreators/middleware-doc/instore-app/installation-guides/Orderman/orderman-guide",
-          "poscreators/middleware-doc/instore-app/installation-guides/Sunmi/sunmi-guide",
+          "poscreators/middleware-doc/instore-app/installation-guides/googleplay/googleplay-guide",
+          "poscreators/middleware-doc/instore-app/installation-guides/orderman/orderman-guide",
+          "poscreators/middleware-doc/instore-app/installation-guides/sunmi/sunmi-guide",
         ],
       },
       "poscreators/middleware-doc/instore-app/printer-guide/printer",

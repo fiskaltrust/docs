@@ -46,7 +46,7 @@ Ensure your device has sufficient storage space before installing the app.
 
 ## Next Steps
 
-After installation, continue with starting and configuring the app in our [setup guide](../../Setup-guide/setup.md).
+After installation, continue with starting and configuring the app in our [setup guide](../../setup-guide/setup.md).
 
 ## Troubleshooting
 

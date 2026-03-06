@@ -1,6 +1,6 @@
 ---
 slug: /poscreators/middleware-doc/instore-app/installation-guides/orderman-guide
-title: 'Orderman Installation Guide'
+title: Orderman Installation Guide
 ---
 
 ## Purpose
@@ -53,7 +53,7 @@ IMPORTANT: Do scroll down now and click on `APPLY` on the very left bottom in th
 The devices list will now show your device and the installation progress.
 When done the `fiskaltrust InStore App` should now be visible in the Orderman SCN Launcher.
 
-Continue with starting and configuring in our [setup guide](../../Setup-guide/setup.md).
+Continue with starting and configuring in our [setup guide](../../setup-guide/setup.md).
 
 ## Advanced install options
 
