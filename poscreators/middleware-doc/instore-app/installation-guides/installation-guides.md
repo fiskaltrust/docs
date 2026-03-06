@@ -10,9 +10,9 @@ The `fiskaltrust InStore App` can be installed directly via app download or via 
 ## Guides
 
 - [Manual](manual/manual-guide.md)
-- [Google Play Store](GooglePlay/googleplay-guide.md)
-- [Orderman SystemCenterNext (SCN)](Orderman/orderman-guide.md)
-- [Sunmi Partner portal](Sunmi/sunmi-guide.md)
+- [Google Play Store](googleplay/googleplay-guide.md)
+- [Orderman SystemCenterNext (SCN)](orderman/orderman-guide.md)
+- [Sunmi Partner portal](sunmi/sunmi-guide.md)
 
 Note: The Manual guide includes both the stable and preview download links.
 

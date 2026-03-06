@@ -5,6 +5,7 @@ module.exports = [
     items: [
       {
         type: "category",
+        collapsed: true,
         label: "Getting Started for PosCreators",
         items: [
           "poscreators/getting-started/get-started",
@@ -13,6 +14,7 @@ module.exports = [
       },
       {
         type: "category",
+        collapsed: true,
         label: "Middleware Integration",
         items: [
           "poscreators/getting-started/middleware-integration",
@@ -25,7 +27,7 @@ module.exports = [
   {
     type: "category",
     collapsed: true,
-    label: "fiskaltrust.Middleware",
+    label: "Compliance Middleware",
     items: [
       {
         type: "category",
