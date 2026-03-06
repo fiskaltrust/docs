@@ -5,7 +5,7 @@ title: Installation
 
 # Installation
 
-This chapter expands on the installation documentation covered in [Installation in General Part](../../general/installation/installation.md), with country-specific information applicable to the German market. 
+This chapter expands on the installation documentation covered in [Installing and Configuring Components](../../general/components/components-install-config.md) in General part, with country-specific information applicable to the German market. 
 
 ## fiskaltrust.Middleware
 

@@ -65,7 +65,7 @@ For configuration scenarios for operating the fiskaltrust.Middleware, please ref
 
 ## Installation
 
-For the on- and off-premise installation of the fiskaltrust.Middleware please refer to the [installation chapter in the general part](../../general/installation/installation.md).
+For the on- and off-premise installation of the fiskaltrust.Middleware please refer to the [Installing and Configuring Components](../../general/components/components-install-config.md) in General part.
 
 
 
