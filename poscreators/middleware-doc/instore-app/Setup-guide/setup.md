@@ -1,5 +1,5 @@
 ---
-slug: /poscreators/middleware-doc/instore-app/setup-guide
+slug: /poscreators/middleware-doc/instore-app/setup-guide/setup
 title: Installation and Setup
 ---
 
