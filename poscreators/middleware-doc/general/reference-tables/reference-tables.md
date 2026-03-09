@@ -75,7 +75,7 @@ The **_CCCC_vIII_gggg_xxxx** overall format consists of four sections and can be
 
 #### gggg - Global tagging/flags
 
-##### ftReceiptCaseFlags
+##### ftReceiptCaseFlag
 
 | Value | Description |
 |-----------|-----------------|
@@ -162,7 +162,7 @@ cba … c=reserved ; b=reporting ; a = scu related
 
 - **Reference in case of "InvoicePayment"**
 
-## ftChargeItemCase
+## Type of Service: ftChargeItemCase
 
 **Format**: _CCCC_vlll_gggg_NNSV_
 
@@ -244,7 +244,7 @@ For more information, see [VAT rules and rates](https://europa.eu/youreurope/bus
 
 TBD
 
-## ftPayItemCase
+## Type of Payment: ftPayItemCase
 
 **Format**: _CCCC_vlll_gggg_xxPP_
 
@@ -354,7 +354,7 @@ cba … c=reserved ; b=reporting ; a = scu related
 
 ## ftSignature
 
-### ftSignatureFormat
+### Format of Signature: ftSignatureFormat
 
 **Format**: p_ffff_
 
@@ -409,7 +409,7 @@ The Basic Layout is:
 
 TBD
 
-### ftSignatureType
+### Type of Signature: ftSignatureType
 
 **Format**: _CCCC_vlll_gggg_tsss
 
@@ -530,7 +530,7 @@ version 2
 |----------|-----------------|-------------|
 | TBD | TBD | |
 
-## ftJournalType
+## Type of Journal: ftJournalType
 
 **Format**: _CCCC_vlll_gggg_tjjj_
 
