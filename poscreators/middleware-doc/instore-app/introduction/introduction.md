@@ -62,7 +62,7 @@ This high level overview shows you the steps on how to implement and configure t
 
 ## Configure master data
 
-For more information about the configuration steps for the master data, see [Digital Receipt Introduction](https://docs.fiskaltrust.cloud/de/docs/posdealers/buy-resell/products/digital-receipt#introduction).
+For more information about the configuration steps for the master data, see [Digital Receipt Introduction](https://docs.fiskaltrust.cloud/docs/posdealers/buy-resell/products/digital-receipt#introduction).
 
 # Implementation 
 
