@@ -26,7 +26,7 @@ module.exports = [
   },
   {
     type: "category",
-    collapsed: true,
+    collapsed: false,
     label: "Compliance Middleware",
     items: [
       {
