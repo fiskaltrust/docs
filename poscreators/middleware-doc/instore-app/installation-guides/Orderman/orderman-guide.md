@@ -1,5 +1,5 @@
 ---
-slug: /poscreators/middleware-doc/instore-app/installation-guides/orderman-guide
+slug: /poscreators/middleware-doc/instore-app/installation-guides/orderman/orderman-guide
 title: Orderman Installation Guide
 ---
 

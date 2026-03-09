@@ -1,6 +1,6 @@
 ---
-slug: /poscreators/middleware-doc/instore-app/installation-guides/sunmi-guide
-title: 'Sunmi Installation Guide'
+slug: /poscreators/middleware-doc/instore-app/installation-guides/sunmi/sunmi-guide
+title: Sunmi Installation Guide
 ---
 
 ## Purpose

@@ -1,6 +1,6 @@
 ---
-slug: /poscreators/middleware-doc/instore-app/installation-guides/googleplay-guide
-title: 'Google Play Installation Guide'
+slug: /poscreators/middleware-doc/instore-app/installation-guides/googleplay/googleplay-guide
+title: Google Play Installation Guide
 ---
 
 ## Purpose
