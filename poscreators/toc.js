@@ -404,9 +404,9 @@ module.exports = [
     collapsed: true,
     label: "InStore App",
     items: [
-      "poscreators/middleware-doc/instore-app/Introduction/introduction",
+      "poscreators/middleware-doc/instore-app/introduction/introduction",
       "poscreators/middleware-doc/instore-app/available-settings/settings",
-      "poscreators/middleware-doc/instore-app/Setup-guide/setup",
+      "poscreators/middleware-doc/instore-app/setup-guide/setup",
             {
         type: "category",
         label: "Installation Guides",
