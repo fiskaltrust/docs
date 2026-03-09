@@ -1,9 +1,9 @@
 ---
 slug: /poscreators/middleware-doc/instore-app/installation-guides
-title: Installation Guides Overview
+title: Installation Guides Introduction
 ---
 
-# Installation Guides Overview
+# Installation Guides Introduction
 
 The `fiskaltrust InStore App` can be installed either by downloading the app directly or through our partners’ device management systems.
 
