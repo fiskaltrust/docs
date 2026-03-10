@@ -3,7 +3,7 @@ slug: /poscreators/middleware-doc/general/data-structures/data-structures
 title: Data Structures
 ---
 
-# Data Structutes
+# Data Structures
 
 This chapter outlines several data structures, which are used in the communication with the fiskaltrust.Middleware.
 
