@@ -1,9 +1,9 @@
 ---
 slug: /poscreators/middleware-doc/digital-receipt/getting-started
-title: 'Getting started'
+title: Getting Started
 ---
 
-# Getting started
+# Getting Started
 
 In this section, the implementation steps to achieve and ensure a complete integration into your Point of Sale software are described. 
 

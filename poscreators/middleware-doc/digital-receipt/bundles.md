@@ -1,9 +1,9 @@
 ---
 slug: /poscreators/middleware-doc/digital-receipt/bundles
-title: 'Bundles'
+title: Bundles
 ---
 
-# Digital receipt bundles 
+# Bundles
 
 fiskaltrust offers four different bundle types, where digital receipt services are included, tailored to enable different use-cases, depending on the user need and the operational environment of the POS system.
 

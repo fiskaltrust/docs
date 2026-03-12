@@ -1,11 +1,11 @@
 ---
 slug: /poscreators/middleware-doc/germany/cash-register-integration
-title: Cash register integration
+title: Cash Register Integration
 ---
 
-# Cash register integration
+# Cash Register Integration
 
-This chapter describes the cash register integration in accordance with German law. The general rules for cash register integration are described in the General Part of this document.
+This chapter describes the cash register integration in accordance with German law. The general rules for cash register integration are described in the Chapter [Cash Register Integration](../../general/cash-register-integration/cash-register-integration-regular-workflow.md) of the general part.
 
 ## Printing receipts
 Like in all other supported countries, the German Middleware returns all compliance-relevant data that need to be printed onto the receipt. In Germany, it's either possible to print a QR code **or** to print the data otherwise contained in this QR code as text. 

@@ -1,6 +1,6 @@
 ---
 slug: /poscreators/middleware-doc/france/data-structures
-title: Data structures
+title: Data Structures
 ---
 
 # Data Structures

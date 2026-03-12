@@ -1,10 +1,11 @@
 ---
 slug: /poscreators/middleware-doc/portugal/reference-tables
-title: Reference tables
+title: Reference Tables
 ---
 
-# Reference tables
-This chapter expands on the reference tables covered in [Reference Tables in General Part](../../general/reference-tables/reference-tables.md#reference-tables), with country-specific information applicable to the Portuguese market. The respective tables can be found in the following sub-sections.
+# Reference Tables
+
+This chapter expands on the reference tables covered in [Reference Tables in General Part](../../general/reference-tables/reference-tables.md), with country-specific information applicable to the Portuguese market. The respective tables can be found in the following sub-sections.
 
 As the Middleware abstracts processes and data over multiple markets/countries, there is a specific mapping for Portuguese market. This mapping is based upon the overall tagging system which gives the additional benefit of giving all receipts, chargeitems and payitems also a semantical value. The following section describes the overall format.
 

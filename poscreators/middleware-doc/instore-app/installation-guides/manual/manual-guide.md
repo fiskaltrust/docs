@@ -1,7 +1,9 @@
 ---
 slug: /poscreators/middleware-doc/instore-app/installation-guides/manual
-title: 'Manual Installation Guide'
+title: Manual Installation Guide
 ---
+
+# Manual Installation Guide
 
 ## Download the App
 

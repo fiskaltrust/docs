@@ -1,12 +1,9 @@
 ---
-slug: /poscreators/middleware-doc/instore-app/setup-guide
-title: 'Setup guide'
+slug: /poscreators/middleware-doc/instore-app/setup-guide/setup
+title: Installation and Setup
 ---
 
-
-# Getting Started Guide
-
-**Step-by-Step Installation and Setup Instructions**
+# Installation and Setup
 
 This guide explains how to install the Fiskaltrust app and connect it to your cash register.
 Please follow the steps below in the given order.
@@ -122,5 +119,3 @@ our support team.
 - **A:** If the app freezes or becomes unresponsive, try restarting the app or your
     device. If the issue persists, check for available updates or reinstall the app to
     ensure it's running the latest version.
-
-

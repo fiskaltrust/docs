@@ -1,24 +1,9 @@
 ---
-slug: /poscreators/middleware-doc/digital-receipt/instore-app
-title: 'InStore App'
+slug: /poscreators/middleware-doc/instore-app/introduction/introduction
+title: Introduction
 ---
 
-# InStore App
-
-:::info summary
-
-After reading this, you understand the concept of the InStore App, the configuration- and implementation steps of the InStore App.
-
-:::
-
-
-## Supported Stores
-- [PAX GP](https://www.whatspos.com)
-- [PAX Italia](https://paxitalia.whatspos.com)
-- [Orderman](https://next.orderman.com) <!-- markdown-link-check-disable-line -->
-- [Sunmi](https://partner.sunmi.com)
-
-## Introduction
+# Introduction
 
 The fiskaltrust InStore app can be used on a touch-enabled devices with an integrated thermal printer. The fiskaltrust InStore App can listen to receipt issuing of multiple CashBoxes filtered by provided terminal-identification by each CashBox. Each time a related CashBox issues a receipt, the fiskaltrust InStore App pops up on the consumer facing touch screen and shows the following elements: 
 
@@ -37,13 +22,13 @@ Setting up the InStore App requires no implementation into the Point of Sale sof
 
 Since all operations within the app (Including QR-Code scanning, accepting and printing) are meticulously logged in the fiskaltrust.Portal, the InStore App attains complete compliance with Austria's obligation to issue receipts ("Belegausgabepflicht") and the obligation to accept receipts ("Belegannahmepflicht"), as well as Germany's obligation to issue receipts ("Belegausgabepflicht"). Furthermore, the app ensures that the receipt will always be issued to the consumer. 
 
-fiskaltrust appointed Dr. Markus Knasmüller from BMD to create an external assessment about the conformity of the digital receipt in Austria. The final assessment can be requested here: https://forms.office.com/e/0PcMDYWC2B  
+fiskaltrust appointed Dr. Markus Knasmüller from BMD to create an external assessment about the conformity of the digital receipt in Austria. The final assessment can be requested here: https://forms.office.com/e/0PcMDYWC2B
 
 ## Receiving receipts with InStore App
 
 This sequence diagram describes the process of generating a digital receipt with the InStore App. The participants in the process are the merchant, fiskaltrust, consumer and the InStore App. 
 
-![InStore App_sequence](../General/images/sequenze_diagramm_instore_app.png)
+![InStore App_sequence](../introduction/images/sequenze_diagramm_instore_app.png)
 
 The InStore App offers three options: scan QR-Code to receive digital receipt on mobile phone, accept button to manually acknowledge received receipt and print receipt on thermal paper.
 
@@ -60,24 +45,12 @@ In store, the merchant collects items and processes the payment or checkout. The
 
 ![InStore_App_show_receipt](./images/InStore_App_show_receipt.png)
 
-| Number | Description                                              |
-|--------|----------------------------------------------------------|
-| 1      | Receipt number (ft5C43F#357749), date and receipt amount |
-| 2      | QR-Code to https digital receipt document                |
-| 3      | `Accept button`                                          |
-| 4      | `Print button`                                           |
-
-## Download the InStore App 
-
-The fiskaltrust InStore App is now available on the following app stores. It necessitates a minimum of Android 7 to run the application. 
-Search for "fiskaltrust InStore App" at following app stores, to download the production release app:
-
-* SUNMI App Store Approved and available for: P2 PRO, P2, V1, V2, & V2 PRO
-* Google Play Store - soon
-* MAXSTORE (PAX) Approved and available for: A35, A80 & A920Pro
-* APK - https://install.appcenter.ms/orgs/fiskaltrust/apps/in-store/distribution_groups/stable (Microsoft App Center)
-
-* APK (Sandbox) - https://install.appcenter.ms/orgs/fiskaltrust/apps/in-store/distribution_groups/preview (Microsoft App Center)
+| Number | Description |
+|--------|-------------|
+| 1 | Receipt number (ft5C43F#357749), date and receipt amount |
+| 2 | QR-Code to https digital receipt document |
+| 3 | `Accept button` |
+| 4 | `Print button` |
 
 ## Configuration 
 
@@ -89,9 +62,7 @@ This high level overview shows you the steps on how to implement and configure t
 
 ## Configure master data
 
-Please visit following link to see the configuration steps for the master data:
-
-[Digital Receipt Introduction](../../../../posdealers/buy-resell/products/digital-receipt.md#introduction)
+For more information about the configuration steps for the master data, see [Digital Receipt Introduction](https://docs.fiskaltrust.cloud/docs/posdealers/buy-resell/products/digital-receipt#introduction).
 
 # Implementation 
 
@@ -414,40 +385,40 @@ To proceed with the configuration, login to your fiskaltrust.Portal account firs
 
 ### Queue 
 
-| Step | Description                                                                                                                                                                                                                                            |
-|------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1    | Navigate to the configuration section and go to Queue                                                                                                                                                                                                  |
-| 2    | Configure Queue                                                                                                                                                                                                                                        |
-| 3    | Copy the URLs to your local machine (Required for CashBox configuration later)                                                                                                                                                                         |
-| 4    | For all countries: Change port to the next free port (+1) and <br/> a.	if no suffix exists after the port: add the suffix "/name_queue" to the URL ("name" can be freely chosen) <br/> b.	if suffix already exists: add the suffix "_queue" to the URL |
-| 5    | Germany & France only: Change grpc port to the next free port (if port is free no need to go up to the next free port) and add the suffix "/name_queue" to the URL ("name" can be freely chosen)                                                       |
-| 6    | Save changes                                                                                                                                                                                                                                           |
+| Step  | Description |
+| ------------- | ------------- |
+| 1  | Navigate to the configuration section and go to Queue  |
+| 2  | Configure Queue  |
+| 3  | Copy the URLs to your local machine (Required for CashBox configuration later)   |
+| 4  | For all countries: Change port to the next free port (+1) and <br/> a.	if no suffix exists after the port: add the suffix "/name_queue" to the URL ("name" can be freely chosen) <br/> b.	if suffix already exists: add the suffix "_queue" to the URL  |
+| 5  | Germany & France only: Change grpc port to the next free port (if port is free no need to go up to the next free port) and add the suffix "/name_queue" to the URL ("name" can be freely chosen)  |
+| 6  | Save changes  |
 
 ### Helper 
 
-| Step | Description                                                                                                                                                                                                                                                                                                        |
-|------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1    | Navigate to Helper                                                                                                                                                                                                                                                                                                 |
-| 2    | Create new helper                                                                                                                                                                                                                                                                                                  |
-| 3    | Add description                                                                                                                                                                                                                                                                                                    |
-| 4    | Select  package name "fiskaltrust.service.helper.posapi"                                                                                                                                                                                                                                                           |
-| 5    | Select latest package version                                                                                                                                                                                                                                                                                      |
-| 6    | Select the outlet of CashBox                                                                                                                                                                                                                                                                                       |
-| 7    | Save configuration                                                                                                                                                                                                                                                                                                 |
-| 8    | Klick configure helper                                                                                                                                                                                                                                                                                             |
-| 9    | All Counties: Insert the previously saved Queue URLs to the Helper URLs and add the suffix "/name" to the URL (analogue to the naming in queue configuration). Germany & France only: Add also GRPC URL with next free port and add the suffix "/name" to the URL (analogue to the naming in queue configuration). |
-| 10   | Save configuration and close                                                                                                                                                                                                                                                                                       |
+| Step  | Description |
+| ------------- | ------------- |
+| 1  | Navigate to Helper  |
+| 2  | Create new helper  |
+| 3  | Add description  |
+| 4  | Select  package name "fiskaltrust.service.helper.posapi"   |
+| 5  | Select latest package version   |
+| 6  | Select the outlet of CashBox    |
+| 7  | Save configuration   |
+| 8  | Klick configure helper   |
+| 9  | All Counties: Insert the previously saved Queue URLs to the Helper URLs and add the suffix "/name" to the URL (analogue to the naming in queue configuration). Germany & France only: Add also GRPC URL with next free port and add the suffix "/name" to the URL (analogue to the naming in queue configuration).   |
+| 10  | Save configuration and close   |
 
 ### CashBox 
 
-| Step | Description                                |
-|------|--------------------------------------------|
-| 1    | Navigate to CashBox                        |
-| 2    | Select your CashBox and click edit by list |
-| 3    | Navigate to Helpers                        |
-| 4    | Activate the POS API Helper                |
-| 5    | Save configuration                         |
-| 6    | Klick rebuild configuration                |
+| Step  | Description |
+| ------------- | ------------- |
+| 1  | Navigate to CashBox   |
+| 2  | Select your CashBox and click edit by list  |
+| 3  | Navigate to Helpers  |
+| 4  | Activate the POS API Helper  |
+| 5  | Save configuration  |
+| 6  | Klick rebuild configuration  |
 
 ### Restart
 
@@ -457,8 +428,8 @@ Restart the fiskaltrust.Middleware to apply the changes.
 
 After installing the InStore App on your Android device, establishing a connection with your preferred CashBox is essential. Here's how:
 
-| Step | Description                                                                                                                                                                                                                                                                                                                                   |
-|------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 1    | Log in to your fiskaltrust.Portal account and proceed to the CashBox you want to pair with the InStore App.                                                                                                                                                                                                                                   |
-| 2    | Extend the overview of the CashBox. Klick `unhide` to generate a new, temporary pairing pin.<br/>![fiskaltrust.Portal_pairing_pin](./images/fiskaltrust.Portal_pairing_pin.png) The pairing pin is valid for five minutes. After the pin expired, you need to generate a new pin, by clicking `unhide` to generate a new pin.                 |
-| 3    | ![InStore_App_pairing_pin](./images/InStore_App_pair_device.jpg) <br/> Enter the four-digit pin into your InStore App, confirm the connection by clicking `Pair`. You can pair multiple InStore App installations with one CashBox. To open the paring to CashBox mask or to pair with a different CashBox, press the touchscreen one second. |
+| Step  | Description |
+| ------------- | ------------- |
+| 1  | Log in to your fiskaltrust.Portal account and proceed to the CashBox you want to pair with the InStore App.  |
+| 2  | Extend the overview of the CashBox. Klick `unhide` to generate a new, temporary pairing pin.<br/>![fiskaltrust.Portal_pairing_pin](./images/fiskaltrust.Portal_pairing_pin.png) The pairing pin is valid for five minutes. After the pin expired, you need to generate a new pin, by clicking `unhide` to generate a new pin.   |
+| 3  | ![InStore_App_pairing_pin](./images/InStore_App_pair_device.jpg) <br/> Enter the four-digit pin into your InStore App, confirm the connection by clicking `Pair`. You can pair multiple InStore App installations with one CashBox. To open the paring to CashBox mask or to pair with a different CashBox, press the touchscreen one second.   |

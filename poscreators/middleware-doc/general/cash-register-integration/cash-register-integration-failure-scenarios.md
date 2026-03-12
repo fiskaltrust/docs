@@ -1,9 +1,9 @@
 ---
 slug: /poscreators/middleware-doc/general/cash-register-integration/failure-scenarios
-title: Failure scenarios
+title: Failure Scenarios
 ---
+# Failure Scenarios
 
-### Failure Scenarios
 This Chapter describes the different scenarios of failure when using the fiskaltrust.Middleware and how to handle them.
 
 On a high level, there are three different failure scenarios that should be considered that are described in more detail in the following sections:
@@ -11,7 +11,7 @@ On a high level, there are three different failure scenarios that should be cons
 2. **Middleware not reachable or failing**: When the cash register doesn't receive any response from the Middleware (e.g. because of a network or server outage), receipts _must_ be re-sent as soon as the Middleware is reachable again, using the flag `0x0000000000010000` to switch to the _late-signing mode_. If required in the respective country, the Middleware will automatically take care of late-signig the receipts then. When the receipts have been successfully re-sent, failure-mode _must_ be left by sending a _zero receipt_.
 3. **Cash register outage**: When the whole cash register/POS system is not working anymore (e.g. because of a power outage or a system failure) and the local fiscalization laws require the tracking of handwritten receipts (like e.g. in Germany) in that case, receipts _may_ be re-sent to the Middleware after the systems are back online with the _handwritten ftReceiptCaseFlag_ `0x0000000000080000`. 
 
-#### Signature Cration Unit not reachable or failing
+## Signature Cration Unit not reachable or failing
 If the communication between the Middleware and the SCU fails (e.g. when the secure Signature Creation Device is not reachable), the POS System can continue to operate until the SCU is accessible again, and the Middleware will handle all legally required steps (e.g. re-signing receipts, if required in the respective market). Receipts created in a state where no communication is possible with the SCU are still secured by the security mechanism of fiskaltrust. The fiskaltrust.Middleware will respond with the ftState = `0xXXXX000000000002` "SCU communication failed" (with `XXXX` being the local market code, see the reference tables in the appendices for more details). The POS-System receives the response and processes the data it contains. For following Requests no more communication attempts are done to avoid long waiting times for each Receipt request/Receipt response sequence.
 <p>
 We are using the "circuit breaker" design pattern for our failed mode. As we are not trying to communicate with the SCU once a call failed, the logic is preventing the failure from constantly recurring during a temporary failure. With this approach the PosOperators are not blocked in their daily business, as the middleware is avoiding long timeouts which would occur for every request to the SCU.
@@ -36,7 +36,8 @@ We recomment to not manually print the text _SCU communication failed_, but to p
 ![reestablished-scu-connection](./images/11-reestablished-connection.png)
 
 
-#### Middleware not reachable or failing
+## Middleware not reachable or failing
+
 If a cash register cannot communicate with the fiskaltrust.Middleware it is most likely due to a failure of the network connection, the Middleware host, or the Middleware itself. Such a failure means that the electronic recording system is not operational and there is no access to the appropriate journal.
 
 ![no-middleware-connection](./images/07-no-middleware-connection.png)
@@ -60,7 +61,8 @@ We recommend to send re-send the first failed receipt with the _receipt request_
 
 :::
 
-#### Cash register outage
+## Cash register outage
+
 In case of a complete outage of the cash register, most fiscalization laws require to track the data on handwritten receipts or specific notebooks. For POS Systems that support tracking these receipts after the cash register comes back online, we recommend sending them to the Middleware as well to ensure a consistent receipt trace (e.g. in exports).
 
 In this case, the following steps _may_ be taken:

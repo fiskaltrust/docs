@@ -1,9 +1,9 @@
 ---
 slug: /poscreators/middleware-doc/digital-receipt/implementation/digital-receipt-implementation
-title: 'Digital receipt implementation'
+title: Digital Receipt Implementation
 ---
 
-# Digital receipt transmission
+# Digital Receipt Implementation
 
 :::note
 
@@ -11,14 +11,13 @@ Before start implementing, please read the getting started section first.
 
 :::
 
-
 fiskaltrust provides two implementing methods for the digital receipt via QR-Code and via Give-Away (QR-Label). The first approach is the POS API Helper, which is primarily recommended for testing/sandbox environments and the InStore App. Configuring the POS API Helper within the fiskaltrust.Portal requires no implementation effort in your Point of Sale software.
 
 However, it's important to highlight that the POS API Helper does not log the delivery statuses of the digital receipt, as mentioned in the section Evaluation of document retrievals for financial administration ("Finanzverwaltung"). The absence of these logs prevents a tax auditor from reviewing the statuses of printing, acceptance, and submission in the event of an audit. This could result in non-compliance, particularly in Austria, due to the lack of logged records for the obligation to issue receipts ("Belegausgabepflicht") and the obligation to accept receipts ("Belegannahmepflicht"), rendering verification impossible.
 
 To address this, the POS API provides comprehensive logging of digital receipt interactions: "printing" a digital receipt and the retrival status. This logging fulfills the requirements for the obligation to issue receipts ("Belegausgabepflicht") and the obligation to accept receipts ("Belegannahmepflicht") in Austria, as well as the obligation to issue receipts ("Belegausgabepflicht") in Germany.
 
-# Create receipts with /sign endpoint + POS API Helper (Dispreferred)
+## Create receipts with /sign endpoint + POS API Helper (Dispreferred)
 
 This sequence diagram describes the process of generating a digital receipt with the sign endpoint and the POS API Helper. The participants in the process are the Point of Sale software, fiskaltrst.Middleware, POS API Helper, fiskaltrust and the consumer. 
 
@@ -96,7 +95,7 @@ To proceed with the configuration, login to your fiskaltrust.Portal account firs
 
 Restart the fiskaltrust.Middleware to apply the changes. 
 
-# Create receipts with the print endpoint – receive receipt with response via POS API (preferred) 
+## Create receipts with the print endpoint – receive receipt with response via POS API (preferred) 
 
 The POS API is the latest addition to the digital receipt ecosystem. The POS API is a superset of the Middleware's "original" IPOS interface, and uses the same models for /sign, /journal and /echo. The core features of this API provides a variety of different functionalities for Point of Sales software and is the central entry point to the fiskaltrust.Middleware. For the digital receipt the /print endpoint is required, to digitally print digital receipts.
 
@@ -504,7 +503,7 @@ accesstoken (required): string
 
 401 - Unauthorized (No or wrong Accesstoken or CashBoxID in header)
 
-# QR-Code version (QR-Code on display)
+## QR-Code version (QR-Code on display)
 
 This method provides the digital receipt via a link from POS API that should be distributed as a QR-Code (e.g. on the customer display of the POS system, handheld or self-service terminal), which should contain the URL to the digital receipt in the following format:
 
@@ -514,7 +513,7 @@ For Sandbox environment the URL should contain following format:
 
 https://receipts-sandbox.fiskaltrust.cloud/v0/[QueueId]/[QueueItemId]
 
-# Give away version (QR-Label)
+## Give away version (QR-Label)
 
 This method provides the digital receipt via QR-Label, a receipt tag that should be distributed via an barcode scanner from the Point of Sale into the Middleware. There are three options in following JSON format available. 
 For this implementation the POS API Helper or POS API is required to change to an direct upload behavior, required for the digital receipt. 
@@ -603,9 +602,9 @@ Please keep in mind that in a real use case, only one of the three mentioned way
 
 :::
 
-# Failure or disruption of internet connection
+## Failure or disruption of internet connection
 
-## Austria 
+### Austria 
 
 In the event of a failure or disruption of the internet connection, where no receipts can be uploaded to the fiskaltrust backed, you are required by Austrian law to print the receipt and make it available for the consumer. 
 If you receive the ftState 0x4154000000000001 or 0x4154000000000004 as a ReceiptResponse, no digital receipt should be visualized as a QR-Code or scanned as Give-Away. The receipt needs to be printed.
@@ -634,7 +633,7 @@ if ((ReceiptResponse.ftState & 0x4154000000000004) != 0)
 
 </details>
 
-## Germany 
+### Germany 
 
 In the event of a failure or disruption of the internet connection, we recommend to print the receipt and make it available to the customer. If you receive the ftState 0x4154000000000001 or 0x4154000000000004 as a ReceiptResponse, no digital receipt should be visualized as a QR-Code or scanned as Give-Away - the receipt should be printed out. The country-specific code is made of the country's code value following the ISO-3166-1-ALPHA-2 standard, converted from ASCII into hex. For Germany (DE) this is 0x4445, which results in 0x4445000000000002 as the value for the "security mechanism was not able to communicate with the TSE device for at least one cycle" status.
 
@@ -663,7 +662,7 @@ if ((ReceiptResponse.ftState & 0x4445000000000100) != 0)
 
 </details>
 
-# Mandatory fields for digital receipt visualization 
+## Mandatory fields for digital receipt visualization 
 
 This chart shows the required data fields to visualize the hole dataset of the digital receipts properly, like the services or items sold, payment methods like voucher or card payment transaction data from your PSP. 
 
@@ -673,7 +672,7 @@ This chart shows the required data fields to visualize the hole dataset of the d
 | cbReceiptReference  | 7657a361-ffe1-4633-86d8-500ee4d1cb0a  | mandatory  | no  | Reference number send by the cash register  |
 | cbReceiptMoment  | 2023-08-01T08:17:32.003Z  | mandatory  | yes  | The time of receipt creation. Must be provided in UTC  |
 
-**cbChargeItems (List of services or items sold)**
+### cbChargeItems (List of services or items sold)
 
 | Field name  | Sample data | Mandatory field | Visualized on receipt | Description |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
@@ -694,7 +693,7 @@ This chart shows the required data fields to visualize the hole dataset of the d
 | UnitPrice  | 2.56  | optional  | no  | ross price per indicated unit  |
 | Moment  | 2023-08-01T07:47:53.68Z  | mandatory  | no  | Time of service (year, month, day, hour, minute, second). Must be provided in UTC  |
 
-**cbPayItems (List of payment received)**
+### cbPayItems (List of payment received)
 
 | Field name  | Sample data | Mandatory field | Visualized on receipt | Description |
 | ------------- | ------------- | ------------- | ------------- | ------------- |

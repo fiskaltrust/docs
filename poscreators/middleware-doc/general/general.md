@@ -3,7 +3,7 @@ slug: /poscreators/middleware-doc
 title: Introduction
 ---
 
-# General Part
+# Introduction
 
 The technical specification of the data interface described in this document provides information regarding the following areas:
 

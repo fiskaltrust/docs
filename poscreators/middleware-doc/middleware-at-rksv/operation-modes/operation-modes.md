@@ -1,13 +1,13 @@
 ---
 slug: /poscreators/middleware-doc/austria/operation-modes
-title: Operation modes
+title: Operation Modes
 ---
 
-## Operation modes
+# Operation Modes
 
-### Components of the fiskaltrust.Middleware
+## Components of the fiskaltrust.Middleware
 
-#### ASP.net 5/Core Web App
+### ASP.net 5/Core Web App
 
 An ASP.NET application provides the functionality of a queue via the REST service. It is available at:
 
@@ -15,11 +15,11 @@ https://signaturcloud.fiskaltrust.at
 
 This application is the bridge between the queue nutshell and fiskaltrust.SignatureCloud. Thanks to the ASP.NET Core, the fiskaltrust.SignatureCloud can be used across platforms and can, after release, be run directly in a computing centre or on a server. As a signature creation device, an HSM, or another software signature creation device, can provide an overall closed system.
 
-### SSCD Nutshell
+## SSCD Nutshell
 
 In Austria, it is mandatory to have an unmodifiable smartcard (write once read many) which must store the issued certificate containing the PosOperator data. This smartcard must be read from a reader, which must be connected to the POS-System's machine via an internal device, a connected external device, a network-connected device, or a web service.
 
-#### fiskaltrust.SignatureCloud
+### fiskaltrust.SignatureCloud
 
 The fiskaltrust.SignatureCloud is an online-only solution. The receipt linking is handled entirely online. The advantage of this solution is that no installation or configuration is required for the client and any platform can use this service.
 
@@ -52,15 +52,15 @@ curl -X GET https://signaturcloud.fiskaltrust.at/api/version -H 'service-version
 ]
 ```
 
-### Configuration of the fiskaltrust.Middleware
+## Configuration of the fiskaltrust.Middleware
 
-#### Online Portal
+### Online Portal
 
 All configuration settings, as well as the relevant extensions, are managed via the online fiskaltrust.Portal, which for Austrian market is available at:
 
 https://portal.fiskaltrust.at
 
-#### Signature Creation Device (SSCD)
+### Signature Creation Device (SSCD)
 
 Signature creation devices used in the Austrian market have various characteristics and requirements.
 
@@ -74,21 +74,21 @@ On testing environments, a software-based private key can be used for signing. S
 
 All signature creation devices can be directly addressed with the interface definition IATSSCD and per network. The fiskaltrust.SecurityMechanism uses the SSCD module "lan" to achieve this.
 
-#### Queue
+### Queue
 
 In this implementation, each receipt is processed accordingly with the RKSV requirements and signed with a configured signature creation device.
 
-#### Journal
+### Journal
 
 The Journal in Austria extracts the RKSV-DEP and includes the machine-readable code with the receipt signatures. It can also export the E131-DEP, which provides a protocol for all receipt requests and responses. The journal also exports the processing protocol, which records all events happening in the queue.
 
-#### Notifications
+### Notifications
 
 Events are extracted from the notification-processing protocol. Special events have localized reporting requirements - for the Austrian market they also contain the FinanzOnline notification according to the RKSV.
 
-#### Configuration Scenarios
+### Configuration Scenarios
 
-#### Single queue scenario
+### Single queue scenario
 
 In the simplest scenario, a fiskaltrust.SecurityMechanism consists of a single signature creation device and a single queue with a data collection protocol (RKSV-DEP).
 
@@ -96,7 +96,7 @@ In the simplest scenario, a fiskaltrust.SecurityMechanism consists of a single s
 
 <span id="_Toc527986821" class="anchor"></span>*Illustration 21. Single queue scenario (AT)*
 
-#### Scenario with several queues for performance improvement
+### Scenario with several queues for performance improvement
 
 To handle scenarios of higher complexity, a fiskaltrust.SecurityMechanism can also consist of several signature creation devices (SSCD) and several queues with data collection protocols (RKSV-DEP). If there are several queues in a fiskaltrust.SecurityMechanism, a load balancer can be used to maximize the performance, and also as a backup outage scenario. In a backup outage scenario, signature creation devices (SSCD) can also be used across services.
 
@@ -106,7 +106,7 @@ The fiskaltrust.SecurityMechanism illustrated below hosts several queues. Each q
 
 <span id="_Toc527986822" class="anchor"></span>*Illustration 22. Scenario with several queues for performance improvement (AT)*
 
-#### Cash Register Network with Backup SSCD
+### Cash Register Network with Backup SSCD
 
 As with the fiskaltrust.SecurityMechanism, the signature creation device is also available via network, and it is possible to use a signature creation device of a different cash register system in backup mode (indicated by the orange access line on the following illustration). Legal prerequisite for this is the registration of both signature creation devices with the same taxpayer.
 

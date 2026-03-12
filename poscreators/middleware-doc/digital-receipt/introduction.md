@@ -1,6 +1,6 @@
 ---
-slug: /poscreators/middleware-doc/instore-app/introduction
-title: 'Introduction'
+slug: /poscreators/middleware-doc/digital-receipt/introduction
+title: Introduction
 ---
 
 # Introduction 
@@ -38,8 +38,6 @@ Once a consumer receives a digital receipt, there are multiple options to intera
 The visualization of the digital receipt variates from the markets legal requirements. The interactions within these digital receipts aim to maximize intuitiveness. To display elements such as merchant logo and metadata (including the company’s legal name and address), it’s essential to initially configure this data in the fiskaltrust.Portal.
 
 ## Austria 
-
-
 
 ![digital-receipt-sample-at](./images/digita_receipt_sample_at.png)
 

@@ -1,9 +1,9 @@
 ---
 slug: /poscreators/middleware-doc/digital-receipt/general/receive-receipts
-title: 'Receive Receipts'
+title: Receiving Digital Receipts
 ---
 
-# Receive receipts 
+# Receiving Digital Receipts
 
 There are various ways receipts are provided and transported towards the consumer. When a merchant uses digital receipts, it is important to teach the staff on how to use the system and to provide information on the availability of the different methods used. Not all available methods should be implemented, only the most efficient way related to the business should be used. 
 

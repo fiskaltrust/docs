@@ -1,7 +1,9 @@
 ---
 slug: /poscreators/middleware-doc/instore-app/installation-guides/orderman-guide
-title: 'Orderman Installation Guide'
+title: Orderman Installation Guide
 ---
+
+# Orderman Installation Guide
 
 ## Purpose
 

@@ -1,7 +1,9 @@
 ---
 slug: /poscreators/middleware-doc/instore-app/multiterminal-settings
-title: 'Multiterminal Settings'
+title: Multi-Terminal Setup
 ---
+
+# Multi-Terminal Setup
 
 ## Rules for Multi-Terminal Setups
 

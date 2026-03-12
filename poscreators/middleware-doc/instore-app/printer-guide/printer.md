@@ -1,10 +1,10 @@
 ---
 slug: /poscreators/middleware-doc/instore-app/printer-guide
-title: 'Printer Guide'
+title: Printer Setup
 ---
 
 
-# InStore App - Printer Setup Guide
+# Printer Setup Guide
 
 **Introduction**
 

@@ -1,11 +1,11 @@
 ---
 slug: /poscreators/middleware-doc/italy/data-structures
-title: Data structures
+title: Data Structures
 ---
 
-# Data structures
+# Data Structures
 
-This chapter expands on the descriptions of the country-specific Data Structures, covered in the Chapter ["Data Structures"](../../general/data-structures/data-structures.md) of the General Part, with information applicable to the Italian market.
+This chapter expands on the descriptions of the country-specific Data Structures, covered in the Chapter [Data Structures](../../general/data-structures/data-structures.md) of the General Part, with information applicable to the Italian market.
 
 ## Receipt Request
 
