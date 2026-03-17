@@ -98,7 +98,7 @@ Changing the area of value creation; e.g.
 
 #### How to use
 
-Document the field/section in which the receipt is created with [cbArea](https://docs.fiskaltrust.cloud/docs/poscreators/middleware-doc/general/data-structures#receipt-request).
+Document the field/section in which the receipt is created with [cbArea](../../general/data-structures/data-structures.md).
 
 #### Workflow example
 
