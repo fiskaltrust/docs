@@ -1,5 +1,5 @@
 ---
-slug: /poscreators/middleware-doc/general/data-structures/data-structures
+slug: /poscreators/middleware-doc/general/data-structures
 title: Data Structures
 ---
 
