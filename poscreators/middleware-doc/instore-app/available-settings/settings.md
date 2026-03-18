@@ -3,11 +3,11 @@ slug: /poscreators/middleware-doc/instore-app/available-settings
 title: Available Settings
 ---
 
-# Available Settings - InStore App (v1.2.7)
+# Available Settings - InStore App (v1.2.8)
 
 :::info Important
 
-All settings and options described here apply **only** to version **1.2.7** of the InStore App.  
+All settings and options described here apply **only** to version **1.2.8** of the InStore App.  
 If you are using an older version, some settings may differ or may not be available at all.
 
 :::
@@ -37,11 +37,9 @@ The CashBox the app is paired with. It links the app to the correct fiscal/payme
 ### Unpair CashBox
 Disconnects the current CashBox to pair another one (e.g., when moving the device to a new store).
 
-### Refresh DeviceConfiguration
-This button updates your device with the current backend configuration without requiring an app restart.
-
 ### End App
 Closes the app gracefully and persists configuration changes.  
+It also stops the background service, so **Enable running in Background** is no longer active until the app is started again.  
 *Note:* Closing during an active process (e.g., printing) may interrupt that process, finish ongoing tasks first.
 
 ### Terminal ID Filter
@@ -81,10 +79,6 @@ This configuration can be applied:
 
 ## App settings
 
-### Enable NFC
-Enables **receipt transmission via NFC**.  
-**Preview:** This feature currently works **only on fiskaltrust‑provided devices**.
-
 ### Enable running in Background
 Runs the app as an  **Android foreground service** also displaying a notification in the Android status bar (when notifications are enabled in Android settings) that shows "InStore App is running in the background". The service takes care that the app is run at all times.
 
@@ -105,6 +99,8 @@ Some options depend on the selected mode.
 #### Printers
 Shows all available printers (USB, Bluetooth, or ESC POS Network printing). Select the one you want to use.
 
+**ESC POS Network printing** is available as a new default option and can be configured.
+
 #### Print Delay
 Defines the delay before an issued receipt will get printed automatically if the guest/customer is not receiving the receipt in another way like scanning the QR code with their phone, just accepting it by pressing OK or another method.
 
@@ -117,9 +113,6 @@ Set the receipt width: **48 mm**, **72 mm**, or **80 mm**.
 #### Print Demo
 Executes a simple "demo" test print to check basic printer functionality.
 
-#### Enable Network Print Server
-Opens a network print server on port **9100** so other systems can print through this device.
-
 ---
 
 ## Payment settings
@@ -131,7 +124,7 @@ The UI first asks you to pick a **Payment** method. Depending on the method, add
 :::
 
 #### Payment
-Select the payment provider to use on this device (e.g., **Hobex ECR**, **Hobex POSit**, **Softpay.io**, **Viva Wallet**, **GP tom**, **GP Pay**, **Shift4**).  
+Select the payment provider to use on this device (e.g., **Hobex ECR**, **Hobex POSit**, **Softpay.io**, **WPI SoftPay**, **Viva Wallet**, **GP tom**, **GP Pay**, **Shift4**).  
 After selection, provider‑specific options appear as needed.
 
 ##### Hobex ECR (example of provider‑specific fields)
@@ -149,30 +142,8 @@ After selection, provider‑specific options appear as needed.
 
 ---
 
-## Middleware
-
-### Middleware URL
-The endpoint the app uses to communicate with the fiskaltrust Middleware.
-
-### Start Middleware
-Starts the connection to the Middleware using the configured URL.
-
-### Stop Middleware
-Stops the live connection (use before changing URL, switching networks, or during maintenance).
-
----
-
-## Danger Zone
-
-### Factory reset
-Restores the app to factory defaults and clears all local data/configuration.  
-Use this when giving the device to a different store/location or if a clean setup is needed.
-
----
-
 ## Best practices
 
 - Keep **Use local configuration** **off** if you manage settings centrally — this prevents drift from backend policies.
-- After changing **Middleware URL**, tap **Stop Middleware** → update the URL → **Start Middleware**.
-- For **Network Print Server**, consider setting a **static IP** or DHCP reservation; otherwise clients can lose the printer when the IP changes.
 - For **Hobex ECR**, use **Test Communication** before going live.
+- For **Shift4**, use **Test Communication** before going live.
