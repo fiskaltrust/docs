@@ -1,5 +1,5 @@
 ---
-slug: /poscreators/middleware-doc/general/reference-tables/reference-tables
+slug: /poscreators/middleware-doc/general/reference-tables
 title: Reference Tables
 ---
 

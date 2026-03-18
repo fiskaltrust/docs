@@ -13,7 +13,7 @@ For business cases which are only differing by the Country Code we recommend to 
 
 The typical sign flow happens when a cash register transfers the data of a receipt request to the fiskaltrust.Middleware using the ReceiptRequest data structure, which will be then processed by the fiskaltrust.SecurtityMechanism.
 After being processed by the fiskaltrust.SecurtityMechanism, the data will be added to the fiskaltrust.ReceiptResponse, which will be sent to the database of the cash register enabling the receipt to be printed either on paper or digitally.
-For more detailed information, please visit the [PosCreators documentation](https://docs.fiskaltrust.cloud/docs/poscreators/middleware-doc/general/cash-register-integration#workflow---regular-operation)
+For more detailed information, please visit the [PosCreators documentation](../../general/cash-register-integration/cash-register-integration-regular-workflow.md)
 
 - depending on the market, set the chargeitem-, payitem- and receiptcases (not every operation may have an e.g. receiptcase in each market -> in that case, do nothing. example: order in AT and FR)
 ![](./images/12-multi-market-mapping.png)
