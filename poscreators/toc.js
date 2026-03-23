@@ -406,8 +406,15 @@ module.exports = [
     items: [
       "poscreators/middleware-doc/instore-app/introduction/introduction",
       "poscreators/middleware-doc/instore-app/available-settings/settings",
-      "poscreators/middleware-doc/instore-app/Setup-guide/setup",
-            {
+          {
+            type: "category",
+            label: "Installation and Setup",
+            items: [
+              "poscreators/middleware-doc/instore-app/Setup-guide/setup",
+              "poscreators/middleware-doc/instore-app/Setup-guide/dummy-payment-provider",
+            ],
+          },
+          {
         type: "category",
         label: "Installation Guides",
         items: [
