@@ -1,5 +1,5 @@
 ---
-slug: /poscreators/middleware-doc/instore-app/setup-guide/dummy-payment-provider
+slug: /poscreators/middleware-doc/instore-app/setup/dummy-payment-provider
 title: Dummy Payment Provider (Developer Mode)
 ---
 
