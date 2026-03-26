@@ -22,6 +22,10 @@ The **_CCCC_vIII_gggg_xxxx** overall format consists of four sections and can be
 
 ## ReceiptRequest related mapping
 
+The cash register transfers the data for an entire receipt request to the fiskaltrust.Middleware using the ReceiptRequest data structure.
+
+The details of the fields supported by this data structure are outlined in the table below. The fiskaltrust receipt case field (`ftReceiptCase`) is of utmost importance for the correct processing of the receipt. This field defines the receipt type, determines whether the receipt must be secured in accordance with national law, and specifies how to calculate the correct values for each national counter.
+
 ### ftReceiptCase
 
 **Format**: _CCCC_vlll_gggg_txcc_
@@ -290,6 +294,10 @@ version 2
 
 # ReceiptResponse related mapping
 
+The fiskaltrust.Middleware sends the processed data back to the cash register through the receipt response.
+
+The data included in the request, such as header, service, pay items, and footer is not returned. Instead, the returned data is added to the receipt as a supplement to the data provided in the receipt request.
+
 ## ftReceiptnumber
 
 `ft{ReiceiptNumeratorHex}#{RT-Device-Z-Number}-{RT-Device-recNumber}`
@@ -306,6 +314,7 @@ version 2
 | Value | Description |
 |-------|-----------------|
 | `0000_0001` | Security Mechanism is Out of Operation.<br />Queue is not started or already stopped. |
+| `0000_0002` | SCU (Signature Creation Unit) temporarily out of service.<br />For at least one receipt, it was not possible to obtain a signature from an allocated SCU. Therefore, the security mechanism has been put into "signature creation device out of service" mode. Regardless of whether an allocated SCU becomes available again, this mode remains in effect until a ZeroReceipt clears the state and performs the required market-specific action. |
 | `0000_0008` | Deferred Queue Mode/Late Signing Mode is active.<br />When the cash register doesn’t reach the queue, it queues up the receipt requests while continuing to do business. Also, with a major failure of the cash register or a power outage, handwritten paper receipts are queued up while continuing to do business. After returning to a fully functional state, these queued `ReceiptRequests` are sent to the queue, keeping the original `cbReceipt-Moment` of the business case `ReceiptCase` tagged/flagged with `0001` (Deferred Queue/Late Signing) or `0008` (Handwritten).<br />A result of this is a marker within the `ftState`, which can be resolved via `ZeroReceipt`. The reason for the marker is a mismatch between processed time along the receipt chain and a manual event to clean up the state, and maybe notify 3rd parties of an outage. |
 | `0000_0040` | Message Pending.<br />Middleware/Queue is a headless background service, but there are situations where communication with the cashier/operator or the cash register is necessary. For example, if the last daily closing was missed or if a special condition related to the signature creation unit or service happened. This is when the message pending flag is set by the middleware and should be signaled to the cashier by the POS system. By executing a `ZeroReceipt`, the cashier can read the message or instruction on the printed or displayed receipt.<br />Related to local regulations, this receipt may be stored/archived for bookkeeping purposes; if so, this is also visualized.
 | `0000_0100` | `DailyClosing` due.<br />When the first `cbReceiptMoment` used since the last `DailyClosing` and the current/latest `cbReceiptMoment` in the `ReceiptRequest` have a date gap of more than two days (e.g., the first since the last daily closing is 24/08 and the current is 26/08), then this state indicates a `DailyClosing` should be done.<br />`DailyClosing` is an essential part of the security mechanism and executes additional market-specific clean-up tasks. Therefore, each queue should perform a `DailyClsoing` to clear persistent changes in business data and updates in the business period. |
