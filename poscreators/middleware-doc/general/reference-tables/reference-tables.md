@@ -22,11 +22,11 @@ The **_CCCC_vIII_gggg_xxxx** overall format consists of four sections and can be
 
 ## ReceiptRequest related mapping
 
-The cash register transfers the data for an entire receipt request to the fiskaltrust.Middleware using the ReceiptRequest data structure.
+The cash register transfers the data for an entire receipt request to the fiskaltrust.Middleware using the ReceiptRequest data structure. The details of the fields supported by this data structure are outlined in the tables below. 
 
-The details of the fields supported by this data structure are outlined in the table below. The fiskaltrust receipt case field (`ftReceiptCase`) is of utmost importance for the correct processing of the receipt. This field defines the receipt type, determines whether the receipt must be secured in accordance with national law, and specifies how to calculate the correct values for each national counter.
+### Type of Receipt: ftReceiptCase
 
-### ftReceiptCase
+The fiskaltrust receipt case field (`ftReceiptCase`) is of utmost importance for the correct processing of the receipt. This field defines the receipt type, determines whether the receipt must be secured in accordance with national law, and specifies how to calculate the correct values for each national counter.
 
 **Format**: _CCCC_vlll_gggg_txcc_
 
@@ -131,13 +131,13 @@ cba … c=reserved ; b=reporting ; a = scu related
 
 ##### DE (Germany)
 
-All Receipt Type (xxxx)
+**All Receipt Type (xxxx)**
 
 | Value | Description |
 |-------|-------------|
 | `001`  | Implicit mode: create `StartTransaction` implicitly for each `ReceiptType`; no call to `Start-Transaction-Receipt` is required. |
 
-Log operation (3xxx)
+**Log operation (3xxx)**
 
 | Value | Description |
 |-------|-------------|
@@ -166,14 +166,14 @@ cba … c=reserved ; b=reporting ; a = scu related
 
 - **Reference in case of "InvoicePayment"**
 
-## Type of Service: ftChargeItemCase
+### Type of Service: ftChargeItemCase
 
 **Format**: _CCCC_vlll_gggg_NNSV_
 
 **v - version**
 version 2
 
-### V - VAT
+#### V - VAT
 For more information, see [VAT rules and rates](https://europa.eu/youreurope/business/taxation/vat/vat-rules-rates/index_en.htm).
 
 | V | Description                     | VAT table code |
@@ -188,7 +188,7 @@ For more information, see [VAT rules and rates](https://europa.eu/youreurope/bus
 | 7 | Zero VAT rate                   | H              |
 | 8 | Not taxable (in VAT context)    | I              |
 
-### S - Type of Service
+#### S - Type of Service
 
 | S | Description                       |
 |---|-----------------------------------|
@@ -205,7 +205,7 @@ For more information, see [VAT rules and rates](https://europa.eu/youreurope/bus
 | A | Cash transfer. Cash transfer to the till is positive (+); from the till is negative (-). Only usable with V=8 (Not Taxable). `IsVoid` can be applied to reverse amounts. |
 | F | Super-specific type of tax. Detailed definition in NN=nn. V=8 required. |
 
-### NN - Nature of VAT
+#### NN - Nature of VAT
 
 | NN | Description | IT | GR |
 |----|-------------|----|----|
@@ -231,7 +231,7 @@ For more information, see [VAT rules and rates](https://europa.eu/youreurope/bus
 | 70 | | | |
 | 80 | | | |
 
-### gggg - Global tagging/flags
+#### gggg - Global tagging/flags
 
 | Value | Description |
 |-------|-------------|
@@ -244,18 +244,18 @@ For more information, see [VAT rules and rates](https://europa.eu/youreurope/bus
 | `4000` | **RespondInReceiptResponse**<br />Respond in **ReceiptResponse**. |
 | `8000` | **ShowInPayments**<br />Visualize the item after Total Amount. Amount is inverted and not included in the visualized total amount on the receipt. |
 
-### lll - Local tagging/flags
+#### lll - Local tagging/flags
 
 TBD
 
-## Type of Payment: ftPayItemCase
+### Type of Payment: ftPayItemCase
 
 **Format**: _CCCC_vlll_gggg_xxPP_
 
 **v - version**
 version 2
 
-### PP - Payment type
+#### PP - Payment type
 
 | Value | Description | GR           |
 |-------|-----------------|-------------------|
@@ -276,7 +276,7 @@ version 2
 | `0E` | Grant | |
 | `0F` | Ticket Restaurant (Sodexo, Edenred, etc.) | |
 
-### gggg - Global tagging/flags
+#### gggg - Global tagging/flags
 
 | Value | Description |
 |-------|-------------|
@@ -292,24 +292,26 @@ version 2
 | `4000` | Respond in **ReceiptResponse**. |
 | `8000` | **ShowInChargeItems**<br />Visualize the item before Total Amount. This inverts amount and does include the amount into the visualized total amount on the receipt. |
 
-# ReceiptResponse related mapping
+## ReceiptResponse related mapping
 
 The fiskaltrust.Middleware sends the processed data back to the cash register through the receipt response.
 
 The data included in the request, such as header, service, pay items, and footer is not returned. Instead, the returned data is added to the receipt as a supplement to the data provided in the receipt request.
 
-## ftReceiptnumber
+### ftReceiptNumber
 
 `ft{ReiceiptNumeratorHex}#{RT-Device-Z-Number}-{RT-Device-recNumber}`
 
-## ftState
+### Service Status: ftState
+
+The `ftState` is returned with every receipt response. This status allows fiskaltrust.Middleware to indicate its operability or control request processing logic.
 
 **Format**: _CCCC_vlll_gggg_gggg_
 
 **v - version**
 version 2
 
-### gggg_gggg - Global tagging/flags
+#### gggg_gggg - Global tagging/flags
 
 | Value | Description |
 |-------|-----------------|
@@ -323,9 +325,9 @@ version 2
 | `EEEE_EEEE` | Error.<br />Something went wrong while processing the last request. `QueueItem` exists but didn’t reach the state of a `ReceiptItem` and didn’t consume a `ftReceiptNumber` within the chain. Error reason is shown within the responded `ftSignatureItems`. This happens, for example, if the `ReceiptCase` is not recognized or is wrong. |
 | `FFFF_FFFF` | Fail.<br />Something went wrong while processing the last request, and nothing persisted within the Queue. Fail reason is shown within the responded `ftSignatureItems`. This happens, for example, when the flag `ReceiptRequest` is used after a communication outage, and no properly processed item is found. |
 
-### lll - Local tagging/flags
+#### lll - Local tagging/flags
 
-#### AT (Austria)
+##### AT (Austria)
 cba … c=reserved ; b=reporting ; a = scu related
 
 | Value | Description |
@@ -333,41 +335,41 @@ cba … c=reserved ; b=reporting ; a = scu related
 | `001` | SCU permanent out of service.<br />48h FinanzOnline timeout reached. |
 | `002` | Backup SCU in use. |
 
-#### DE (Germany)
+##### DE (Germany)
 cba … c=reserved ; b=reporting ; a = scu related
 
 | Value | Description |
 |-------|-----------------|
 | `001` | SCU is in a switching state.<br />The queue is in the process of switching SCUs. This state is returned in case any receipts are processed between the initialize-switch and finish-switch receipts. These receipts are protected by **fiskaltrust.SecurityMechanism**, but are not sent to any TSE, as no SCU is connected at this point. |
 
-#### FR (France)
+##### FR (France)
 cba … c=reserved ; b=reporting ; a = scu related
 
 | Value | Description |
 |-------|-----------------|
 | TBD | TBD |
 
-#### IT (Italy)
+##### IT (Italy)
 cba … c=reserved ; b=reporting ; a = scu related
 
 | Value | Description |
 |-------|-----------------|
 | `001`  | [RT-Printer/RT-Server/Government Service] not reachable.<br />Responded in case of a zero-receipt and other hard dependencies to the service. |
 
-#### ES (Spain)
+##### ES (Spain)
 cba … c=reserved ; b=reporting ; a = scu related
 
 | Value | Description |
 |-------|-----------------|
 | TBD | TBD |
 
-## ftSignature
+### ftSignature
 
-### Format of Signature: ftSignatureFormat
+#### Format of Signature: ftSignatureFormat
 
 **Format**: p_ffff_
 
-#### ffff - Format
+##### ffff - Format
 
 | Value | Description |
 |-------|-----------------|
@@ -386,7 +388,7 @@ cba … c=reserved ; b=reporting ; a = scu related
 | `000C` | Code39 (Barcode, possible for Base32 data) |
 | `000D` | Base64 (Raw Data) |
 
-#### p - Position
+##### p - Position
 
 The Basic Layout is:
 [Header]
@@ -539,21 +541,21 @@ version 2
 |----------|-----------------|-------------|
 | TBD | TBD | |
 
-## Type of Journal: ftJournalType
+### Type of Journal: ftJournalType
 
 **Format**: _CCCC_vlll_gggg_tjjj_
 
 **v - version**
 version 2
 
-### t - Type/Category
+#### t - Type/Category
 
 | Value | Description |
 |-------|-----------------|
 | `0` | Common |
 | `1` | Market specific |
 
-### jjj -  JournalCase
+#### jjj -  JournalCase
 
 | Case | Description |
 |------|-----------------|
@@ -562,22 +564,22 @@ version 2
 |`002` | ReceiptJournal |
 |`003` | QueueItemJournal |
 
-### gggg -  Global tagging/flags
+#### gggg -  Global tagging/flags
 
 | Value | Description |
 |-------|-----------------|
 | `0001` | Use ZIP compressed stream |
 
-### jjj - JournalCase (by market)
+#### jjj - JournalCase (by market)
 
-#### AT (Austria)
+##### AT (Austria)
 
 | Case | Description        |
 |------|------------------------|
 | `001`	| Status Information QueueAT |
 | `002` |RKSV-DEP-Export |
 
-#### DE (Germany)
+##### DE (Germany)
 
 | Case | Description                                         |
 |------|-----------------------------------------------------|
@@ -586,7 +588,7 @@ version 2
 | `002` | DSFinV-K Export<br />ZIP compression required. |
 | `003` | .TAR-File-Export |
 
-#### FR (France)
+##### FR (France)
 
 | Case | Description |
 |------|-----------------|
@@ -602,7 +604,7 @@ version 2
 | `00B` | Training ("X" group) export |
 | `010` | Export (in conjunction with Archiv) |
 
-#### IT (Italy)
+##### IT (Italy)
 
 | Case | Description |
 |------|-----------------|
@@ -611,8 +613,7 @@ version 2
 | `002` |  |
 | `003` |  |
 
-
-#### ES (Spain)
+##### ES (Spain)
 
 | Case | Description |
 |------|-----------------|
