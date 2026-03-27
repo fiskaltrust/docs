@@ -1,9 +1,9 @@
 ---
-slug: /poscreators/middleware-doc/instore-app/setup-guide/setup
-title: Installation and Setup
+slug: /poscreators/middleware-doc/instore-app/setup/getting-started
+title: Getting Started
 ---
 
-# Installation and Setup
+# Getting Started
 
 This guide explains how to install the Fiskaltrust app and connect it to your cash register.
 Please follow the steps below in the given order.
