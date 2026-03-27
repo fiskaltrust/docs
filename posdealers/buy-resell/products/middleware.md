@@ -19,7 +19,7 @@ First, the fiskaltrust.Middleware ensures that all receipts are processed by a t
 
 As the _technical_ implementation of security, each request and also each response is hashed, ensuring data integrity of requests and responses. To ensure immutability, another hash value is generated that relates to the entire request-response cycle, including the identification of the cycle, the time of operation, the human-readable document number, and the hash values of the request, response, and previous receipt, called the document hash value. This concatenation of the receipt hash value provides immutability and the ability to detect all changes and a deletion in any action provided by the POS System.
 
-![receipt-chaining](../images/receipt-chain.png)
+![receipt-chaining](../images/receipt-chain.svg)
 
 To limit the risk of an attack on the chain from the last unlinked hash value, fiskaltrust provides a mechanism that mirrors the current data to the fiskaltrust cloud. This data mirror can detect attacks that would not be detectable at the cash register itself.
 
