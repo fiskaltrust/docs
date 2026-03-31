@@ -5,6 +5,8 @@ title: Reference Tables
 
 # Reference Tables
 
+This chapter expands on the reference tables covered in [Reference Tables in General Part](../../general/reference-tables/reference-tables-v1.md), with country-specific information applicable to the French market. The respective tables can be found in the following sub-sections.
+
 ## Service Status: ftState
 
 The ftState is returned with every receipt response. Through this status, fiskaltrust.Middleware can signal its operability or request processing logic.
