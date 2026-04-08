@@ -44,7 +44,7 @@ Note that the following figures and steps are exemplary.
 |![Number 2](../../images/numbers/circle-2o.png) | _Click on `+Add` for creating a new Helper._                                                                                                |
 |![Number 3](../../images/numbers/circle-3o.png) | Add or edit a **name** for your Helper at  `Description`.                                                                                   |
 |![Number 4](../../images/numbers/circle-4o.png) | Select `fiskaltrust.Middleware.Helper.LocalPosSystemApi` from the **`Package name`** drop-down. Note that this selection **cannot be changed later**. |
-|![Number 5](../../images/numbers/circle-5o.png) | Select one `Package version` using the drop-down menu.                                                                                      |
+|![Number 5](../../images/numbers/circle-5o.png) | Select the latest `Package version` using the drop-down menu.                                                                                      |
 |![Number 6](../../images/numbers/circle-6o.png) | You can select one of the available outlets with the drop-down menu.                                                                        |
 |![Number 7](../../images/numbers/circle-7o.png) | `Save` your changes.                                                                                                                        |
 
@@ -55,10 +55,10 @@ Once saved, a **success** notification will appear confirming that the Helper ha
 
 | steps | description                                                                                                                                 |
 |:----------------------:|---------------------------------------------------------------------------------------------------------------------------------------------|
-|![Number 1](../../images/numbers/circle-1o.png) | Click `http` to generate a URL through which the POS-System can access the Helper. Alternatively, use `net.pipe` for a local connection that requires no internet access or firewall configuration. You may also rename the URL to one of your own choosing.                                                                |
+|![Number 1](../../images/numbers/circle-1o.png) | Click `http` to generate a URL through which the POS-System can access the Helper. You may also rename the URL to one of your own choosing.                                                                |
 |![Number 2](../../images/numbers/circle-2o.png) | `Save` your changes to return to `Configuration`/ `Helper`.                                                                                            |
 
-## Assign a PosSystem API Helper
+## Use a PosSystem API Helper
 
 ![assignposysstemapi.png](images/assignposysstemapi.png)
 
@@ -91,7 +91,7 @@ The same LocalPosSystemApi Helper can be used in multiple cashboxes.
 
 :::caution
 
-The minimum required Launcher version is **2.0.0-rc.25**.
+The minimum required Launcher version is **2.0.0-rc.25**. When downloading a launcher the latest version is automatically downloaded.
 
 :::
 
@@ -101,11 +101,11 @@ The minimum required Launcher version is **2.0.0-rc.25**.
 |:----------------------:|-------------|
 |![Number 1](../../images/numbers/circle-1o.png) | Return to the `Configuration` / `CashBox` page. You should see the Helper URL you configured in the previous step. |
 |![Number 2](../../images/numbers/circle-2o.png) | Click `Rebuild configuration` and wait for the success confirmation. |
-|![Number 3](../../images/numbers/circle-3o.png) | Click `Download` and select the correct Launcher version for your system. The minimum required version is **2.0.0-rc.25**. |
+|![Number 3](../../images/numbers/circle-3o.png) | Click `Download` and select the correct Version 2 Launcher architecture for your system. |
 
 ## Deploy the CashBox
 
-Once the Launcher package is downloaded, extract it and run `fiskaltrust.Launcher.exe` to start the Middleware. For detailed instructions on starting the Launcher and installing it as a service, see [Launcher for Windows, Linux & macOS](launchers/desktop.md).
+Once the Launcher package is downloaded, extract it and run `launcher-test.cmd` (or `launcher-test.sh` on unix based systems) to start the Middleware. For detailed instructions on starting the Launcher and installing it as a service, see [Launcher 2.0 Getting Started](https://github.com/fiskaltrust/middleware-launcher?tab=readme-ov-file#getting-started).
 
 ## Test the PosSystem API Helper
 
