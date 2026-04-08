@@ -28,7 +28,7 @@ The PosSystem API Helper must be part of the **same [CashBox](cashbox.md)** as t
 
 :::caution
 
-As the local PosSystem API Helper is currently only supported on the Launcher 2.0 this is not usable like that in France. If you're interested in running this in Austria reach out to us as the launcher 2.0 is not enabled per default there.
+As the local PosSystem API Helper is currently only supported on the Launcher 2.0 this setup does not work for France. If you're interested in running this in Austria reach out to us as the launcher 2.0 is not enabled per default there.
 
 :::
 ## Add a Helper Local PosSystem API
