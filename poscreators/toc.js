@@ -381,6 +381,11 @@ module.exports = [
     ],
   },
   {
+  type: "category",
+  label: "Experience Middleware",
+  collapsed: false,
+  items: [
+  {
     type: "category",
     collapsed: true,
     label: "Digital Receipt",
@@ -398,37 +403,39 @@ module.exports = [
             ],
           },
         ],
-  },
-  {
-    type: "category",
-    collapsed: true,
-    label: "InStore App",
-    items: [
-      "poscreators/middleware-doc/instore-app/introduction/introduction",
-      "poscreators/middleware-doc/instore-app/available-settings/settings",
-          {
-            type: "category",
-            label: "Installation and Setup",
-            items: [
-              "poscreators/middleware-doc/instore-app/Setup-guide/setup",
-              "poscreators/middleware-doc/instore-app/Setup-guide/dummy-payment-provider",
-            ],
-          },
-          {
-        type: "category",
-        label: "Installation Guides",
-        items: [
-          "poscreators/middleware-doc/instore-app/installation-guides/installation-guides",
-          "poscreators/middleware-doc/instore-app/installation-guides/manual/manual-guide",
-          "poscreators/middleware-doc/instore-app/installation-guides/GooglePlay/googleplay-guide",
-          "poscreators/middleware-doc/instore-app/installation-guides/Orderman/orderman-guide",
-          "poscreators/middleware-doc/instore-app/installation-guides/Sunmi/sunmi-guide",
-        ],
-      },
-      "poscreators/middleware-doc/instore-app/printer-guide/printer",
-      "poscreators/middleware-doc/instore-app/multiterminal-settings/multiterminal",
-    ],
-  },
+    },
+    {
+      type: "category",
+      collapsed: true,
+      label: "InStore App",
+      items: [
+        "poscreators/middleware-doc/instore-app/introduction/introduction",
+        "poscreators/middleware-doc/instore-app/available-settings/settings",
+        {
+          type: "category",
+          label: "Installation and Setup",
+          items: [
+            "poscreators/middleware-doc/instore-app/Setup-guide/setup",
+            "poscreators/middleware-doc/instore-app/Setup-guide/dummy-payment-provider",
+          ],
+        },
+        {
+          type: "category",
+          label: "Installation Guides",
+          items: [
+            "poscreators/middleware-doc/instore-app/installation-guides/installation-guides",
+            "poscreators/middleware-doc/instore-app/installation-guides/manual/manual-guide",
+            "poscreators/middleware-doc/instore-app/installation-guides/GooglePlay/googleplay-guide",
+            "poscreators/middleware-doc/instore-app/installation-guides/Orderman/orderman-guide",
+            "poscreators/middleware-doc/instore-app/installation-guides/Sunmi/sunmi-guide",
+          ],
+        },
+        "poscreators/middleware-doc/instore-app/printer-guide/printer",
+        "poscreators/middleware-doc/instore-app/multiterminal-settings/multiterminal",
+      ],
+    },
+  ],
+},
   {
     type: "link",
     label: "Development Kit",
