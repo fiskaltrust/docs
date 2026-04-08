@@ -136,7 +136,7 @@ A Signature Entry can include an electronic signature for printing on the receip
 **All SignatureItems send back to the POS-System must be printed on the receipt, therefore it's mandatory to print the content of the fields _Caption_ and _Data_.**
 
 The signature excerpt (ftSignatureType 0x4652000000000008) is only mandatory for NF525 compliance and the caption "-----" must not be printed. It is 4 characters extracted from the JWT signature part and following NF525 specification (characters 3, 7, 13 and 19).
-NF525 requires that the signature exerpt has to be printed after the product number shown on the NF525 certificate.
+NF525 requires that the signature excerpt must to be printed after the product number shown on the NF525 certificate.
 
 Exemple with signature excerpt "Wxi2" and product number "1234" : `(NF525) B 1234 Wxi2 HAPPYPOS v1.1`
 
