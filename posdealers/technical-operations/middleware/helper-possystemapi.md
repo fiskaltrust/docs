@@ -4,6 +4,12 @@ title: Local PosSystem API Helper
 ---
 # How to Configure the Local PosSystem API Helper with Launcher 2.0
 
+:::caution
+
+The local PosSystem API Helper is currently in preview.
+
+:::
+
 :::info summary
 
 After reading this, you can set up and configure the local PosSystem API Helper within a Launcher 2.0 deployment.
@@ -20,6 +26,11 @@ The PosSystem API Helper must be part of the **same [CashBox](cashbox.md)** as t
 
 :::
 
+:::caution
+
+As the local PosSystem API Helper is currently only supported on the Launcher 2.0 this is not usable like that in France. If you're interested in running this in Austria reach out to us as the launcher 2.0 is not enabled per default there.
+
+:::
 ## Add a Helper Local PosSystem API
 
 To add the local PosSystem API Helper, navigate to `Configuration` / `Helper` in the fiskaltrust Portal and follow the steps below. 
@@ -64,6 +75,12 @@ Once saved, a **success** notification will appear confirming that the Helper ha
 | ![Number 4](../../images/numbers/circle-4o.png) | Activate the Helper by selecting its checkbox. |
 
 ![savecashboxconfig.png](images/savecashboxconfig.png)
+
+:::info
+
+The same LocalPosSystemApi Helper can be used in multiple cashboxes.
+
+:::
 
 |                      steps                      | description |
 |:-----------------------------------------------:|-----------|
