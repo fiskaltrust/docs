@@ -376,8 +376,11 @@ module.exports = [
   type: "category",
   label: "Experience Middleware",
   collapsed: true,
-  items: [
-  {
+    items: [
+      "poscreators/middleware-doc/experience-middleware/introduction",
+      "poscreators/middleware-doc/experience-middleware/terminology",
+      "poscreators/middleware-doc/experience-middleware/payments",
+      {
     type: "category",
     collapsed: true,
     label: "Digital Receipt",
