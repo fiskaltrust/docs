@@ -9,7 +9,7 @@ The **Payment** component of the Experience Middleware allows POS systems to int
 
 Rather than replacing existing POS payment logic, fiskaltrust provides a **unified payment endpoint** that can be used alongside fiscalization and digital receipt features. This keeps integrations flexible and avoids vendor lock-in.
 
-Payments are integrated through the **InStore App** and the fiskaltrust.Middleware, allowing transactions, fiscal receipts, and optional digital receipts to be handled in a coordinated flow.
+Payments are integrated through the **InStore App** and the POS System API, allowing transactions, fiscal receipts, and optional digital receipts to be handled in a coordinated flow.
 
 ## Key Design Principles
 
