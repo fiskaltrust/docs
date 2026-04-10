@@ -379,7 +379,7 @@ module.exports = [
     items: [
       "poscreators/middleware-doc/experience-middleware/introduction",
       "poscreators/middleware-doc/experience-middleware/terminology",
-      "poscreators/middleware-doc/experience-middleware/payments",
+      "poscreators/middleware-doc/experience-middleware/payment",
       {
     type: "category",
     collapsed: true,
