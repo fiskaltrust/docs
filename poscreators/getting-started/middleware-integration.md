@@ -27,6 +27,12 @@ A so-called CashBox is a configuration container that connects (links) the confi
 
 ![cashbox](images/middleware.png)
 
+<!--
+This graphic is correct but "TSE" is a term that's specific to germany.
+The term that we use internally for those is "Secure Signature Creation Device" (SSCD).
+SSCD is used in some [other graphics](https://docs.fiskaltrust.eu/docs/poscreators/middleware-doc/general/cash-register-integration/failure-scenarios#failure-scenarios) aswell if I remember correctly but it's maybe not quite self explanatory.
+-->
+
 The steps for the creation and configuration of the CashBox are covered in the [further part of this document](#15-cashbox-creation).
 
 ### 1.3 Configuration of the SCU
@@ -36,6 +42,11 @@ The SCU (Signature Creation Unit) is a component of the ft.Middleware, which is 
 To create an SCU configuration in the fiskaltrust.Portal, select the menu item ``Configuration -> Signature creation unit`` and press the button "Create". Enter a short description (name) and select the package for your TSE at "Package Name". Then select the latest version under "Package Version" and press the button "Save".
 
 ![cashbox-config-scu-creation-01](images/cashbox-config-scu-creation-01.png)
+
+<!--
+The SCU that's shown here the "fiskaltrust.Middleware.SCU.DE.Fiskaly" has been deprecated replaced with the "fiskaltrust.Middleware.SCU.DE.FiskalyCertified".
+Also we should probably not show an `-rc` version but a normal one with out a prerelease prefix.
+-->
 
 Further configuration information is now required, and it may vary depending on the previously selected TSE package. In general, you specify here how the SCU can reach the TSE, and the endpoint via which the Queue will communicate with the SCU.
 
@@ -64,6 +75,11 @@ The Queue is a component of the fiskaltrust.Middleware which collects the receiv
 Under the menu item ``Configuration -> Queue`` you will find the button for creating a new Queue. Press this button to get to the input form. Enter a short description (name) and the CashBoxIdentification. The CashBoxIdentification will later be used by the SCU as clientID for the TSE. It is therefore important to enter a ["printable string"](https://en.wikipedia.org/wiki/PrintableString) with a maximum of 20 characters and that the **used value is unique**.
 
 ![cashbox-config-queue-creation-01](images/cashbox-config-queue-creation-01.png)
+
+<!--
+We should also not show an `-rc` version here.
+-->
+
 
 After saving, a form appears in which you can specify the communication endpoint. We will use this later for the communication with the queue. For our example we can choose http(REST) by pressing the corresponding button.
 
@@ -104,6 +120,11 @@ Before downloading the launcher **it is important that you "rebuild" the CashBox
 After rebuild you can now download the launcher. The download of the launcher is initiated by clicking the button "Download .NET Launcher" (globe symbol).
 
 ![icon-download-launcher](images/icon-download-launcher.png)
+
+<!--
+This button is still valid in FR and AT but in all of the other market's there's a download button with a popup.
+This download button and popup will also be enabled in AT and FR at some point in the maybe not so near future.
+-->
 
 ### 2.2 Enabling debug mode
 

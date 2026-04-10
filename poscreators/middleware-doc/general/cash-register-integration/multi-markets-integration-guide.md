@@ -18,6 +18,12 @@ For more detailed information, please visit the [PosCreators documentation](../.
 - depending on the market, set the chargeitem-, payitem- and receiptcases (not every operation may have an e.g. receiptcase in each market -> in that case, do nothing. example: order in AT and FR)
 ![](./images/12-multi-market-mapping.png)
 
+<!--
+With the possystem api the business case factory is not needed amymore.
+That's all handled by the possystem api and the v2 tagging.
+Also the mapping table below is obsolete when using the v2 tagging with the possystem api.
+-->
+
 ## Mapping Table
 The table below shows a comparison of common business cases (e.g. ftReceiptcases, ftChargeItemcases and ftPayItemcases) for every market.
 More details for ftReceiptcases, ftPayItemcases and ft ChargeItemcases can be found for each market on the appropriate country specific appendix.

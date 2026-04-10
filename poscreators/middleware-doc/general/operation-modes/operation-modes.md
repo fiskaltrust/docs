@@ -8,7 +8,9 @@ title: Operation Modes
 The fiskaltrust.Middleware can be operated in following operational environments:
 
 ![operational-environments](images/operational-environments.svg)
-([click to enlarge](images/operational-environments.svg))
+<!--
+I think we should mention the cloudcashbox here as well.
+-->
 
 Identification of the operational environment from the perspective of a POS operator:
 
