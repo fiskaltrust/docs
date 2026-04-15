@@ -7,12 +7,12 @@ title: Introduction
 
 The fiskaltrust InStore App can be used on touch-enabled devices with an integrated thermal printer. The fiskaltrust InStore App can listen to receipt issuing of multiple CashBoxes, filtered by provided terminal-identification by each CashBox. Each time a related CashBox issues a receipt, the fiskaltrust InStore App appears on the consumer-facing touchscreen and shows the following elements: 
 
-* The receipt number, creation time, and total amount
-* A QR code containing with the HTTPS receipt link for the consumer to access the receipt
-* An OK button to manually acknowledge receipt
-* A Print button with a countdown timer to print receipt
-* A Send per Mail button to send the receipt via email
-* A Send per SMS button to send the receipt via SMS
+* The receipt number, creation time, and total amount.
+* A QR code containing the HTTPS receipt link for the consumer to access the receipt.
+* An OK button to manually acknowledge receipt.
+* A Print button with a countdown timer to print receipt.
+* A Send per Mail button to send the receipt via email.
+* A Send per SMS button to send the receipt via SMS.
 
 When the QR code is scanned and the HTTPS receipt link is used to download the receipt, an acknowledgement of receipt by the consumer is logged in the background, and the current receipt display is closed. 
 
@@ -20,9 +20,9 @@ When the OK button is tapped by the consumer, a manual acknowledgement of receip
 
 When the Print button is tapped by the consumer, or when the countdown expires, a paper receipt is printed and the event is logged for analytics. The current receipt display is closed after successful printing.
 
-When the Send per Mail button is tapped by the consumer, TBD
+When the Send per Mail button is tapped by the consumer, a screen is displayed prompting the consumer to enter their email address.
 
-When the Send per SMS button is tapped by the consumer, TBD
+When the Send per SMS button is tapped by the consumer, a screen is displayed prompting the consumer to enter their phone number.
 
 Setting up the InStore App requires no implementation into the point-of-sale software.
 
@@ -32,7 +32,7 @@ fiskaltrust appointed Dr. Markus Knasmüller from BMD to create an external asse
 
 ## Receiving Digital Receipts with InStore App
 
-This sequence diagram describes the process of generating a digital receipt with the InStore App. The participants in the process are the merchant, fiskaltrust, the consumer and the InStore App. 
+The following diagram describes the process of generating a digital receipt with the InStore App. The participants in the process are the merchant, fiskaltrust, the consumer and the InStore App. 
 
 ![InStore App_sequence](../introduction/images/sequenze_diagramm_instore_app.png)
 
@@ -40,15 +40,15 @@ The InStore App offers five options: scanning the QR code to receive the digital
 
 In-store, the merchant collects items and processes the payment or checkout. The merchant then sends a sign message to fiskaltrust for fiscalization purposes. 
 
-**Scan QR code:** The InStore App continuously listens to the fiskaltrust receipt backend for incoming receipt push events. When an HTTPS receipt link is received, it displays a QR code on the device screen. The consumer scans the QR code with their mobile phone and receives the HTTPS receipt link. The InStore app sends a log to the fiskaltrust backend indicating that the receipt was scanned by the consumer. The fiskaltrust backend renders the receipt, and the QR code display on the InStore App device is closed. The consumer can now accesses the HTML receipt document and provide feedback regarding the receipt. 
+- **Scan QR code:** The InStore App continuously listens to the fiskaltrust receipt backend for incoming receipt push events. When an HTTPS receipt link is received, it displays a QR code on the device screen. The consumer scans the QR code with their mobile phone and receives the HTTPS receipt link. The InStore app sends a log to the fiskaltrust backend indicating that the receipt was scanned by the consumer. The fiskaltrust backend renders the receipt, and the QR code display on the InStore App device is closed. The consumer can now accesses the HTML receipt document and provide feedback regarding the receipt. 
 
-**Acknowledge:** The consumer manually acknowledges receipt by tapping the OK button in the InStore App. The InStore app sends a log to the fiskaltrust backend indicating that the receipt was acknowledged manually. The InStore app receives a response from the fiskaltrust backend to close the display. 
+- **Acknowledge:** The consumer manually acknowledges receipt by tapping the OK button in the InStore App. The InStore app sends a log to the fiskaltrust backend indicating that the receipt was acknowledged manually. The InStore app receives a response from the fiskaltrust backend to close the display. 
 
-**Print receipt:** Consumers can manually initiate paper receipt printing on the InStore App device by clicking the Print button. Additionally, if there is no user interaction, a paper receipt is automatically printed after a default countdown of 15 seconds. Once the receipt is printed, the display closes and the print command is logged.
+- **Print receipt:** Consumers can manually initiate paper receipt printing on the InStore App device by tapping the Print button. Additionally, if there is no user interaction, a paper receipt is automatically printed after a default countdown of 15 seconds. Once the receipt is printed, the display closes and the print command is logged.
 
-**Send receipt via email:** TBD
+- **Send receipt via email:** Consumers can choose to receive the digital receipt via email by tapping the Send per Mail button on the InStore App device. A screen will then be displayed where the consumer can enter their email address.
 
-**Send receipt via SMS:** TBD
+- **Send receipt via SMS:** Consumers can choose to receive the digital receipt via SMS by tapping the Send per SMS button on the InStore App device. A screen will then be displayed where the consumer can enter their phone number.
 
 ## Displaying Receipts in the InStore App
 
@@ -83,7 +83,7 @@ This means that existing implementations can be easily reused by adapting them t
 
 As most operations, especially `/print` requests, may take an extended amount of time, this API is designed to be fully asynchronous. After sending a request to the `/print` endpoint, the InStore App immediately displays the QR code. Note that the `/sign` operation does not necessarily need to be implemented for the InStore App. 
 
-A general sample of this process flow is illustrated in the following picture:
+A general sample of this process flow is illustrated as follows:
 
 ![Screenshot 2023-11-07 152951](https://github.com/fiskaltrust/interface-doc/assets/124153755/bd976d8c-3119-47b1-852d-abb678aea01d)
 
@@ -95,31 +95,33 @@ The fiskaltrust InStore App requires a permanent and stable internet connection.
 
 ## Availability
 
-The production API can be reached at https://pos-api.fiskaltrust.cloud as for all fiskaltrust services, the sandbox instance should be used for development and testing: https://pos-api-sandbox.fiskaltrust.cloud.
+The production API is available at https://pos-api.fiskaltrust.cloud as for all fiskaltrust services, the sandbox instance should be used for development and testing and is available at https://pos-api-sandbox.fiskaltrust.cloud.
 
 The same endpoints will also be added to the on-premise Launcher (natively in version 2.0, and via additional Helper packages for earlier versions).
 
 :::info
 
 - **Sign** endpoint is only available in Austria with the Cloud CashBox.
-- **Print** Endpoint is available in Austria and Germany.
+- **Print** endpoint is available in Austria and Germany.
 
 :::
 
 ## Authentication
 
-Authentication is handled via the headers CashBoxID and Accesstoken, which are mandatory for each request. Those values can be obtained by creating a CashBox in the one of the country-specific fiskaltrust.Portal.
+Authentication is handled via the `CashBoxID` and `Accesstoken` headers, which are mandatory for each request. These values can be obtained by creating a CashBox in the one of the country-specific fiskaltrust.Portal.
 
 ## Operation Flow (Digital Receipt)
 
-Typically, a full receipt flow when using digital receipt (sign, print and response) would look like this:
+Typically, a complete receipt flow when using digital receipt (sign, print, and response) looks as follows:
 
-1. Call the /sign endpoint and asynchronously wait for the result
-2. If the signing was successful, call the /print endpoint and the InStore App will visualize the QR code to the digital receipt 
+1. Call the `/sign` endpoint and wait asynchronously for the result.
+2. If signing is successful, call the `/print` endpoint. The InStore App then displays the QR code to the digital receipt.
 
 ## Asynchronously Sign a Receipt According to Local Regulations (Sign Endpoint)
 
-This method can be used to sign different types of receipts according to the local fiscalization regulations. After signing the receipt according to the fiscal law, this method asynchronously returns the data that will be visualized on the digital receipt. The format of the receipt request is documented in the Middleware API docs, and the exact behavior of the method is determined by the cases sent within the properties (e.g. ftReceiptCase, ftChargeItemCase and ftPayItemCase).
+This method can be used to sign different types of receipts in accordance with local fiscalization regulations. After signing the receipt according to fiscal law, the method asynchronously returns the data that will be displayed on the digital receipt.
+
+The format of the receipt request is documented in the Middleware API documentation. The exact behavior of the method is determined by the cases sent within the properties (for example, `ftReceiptCase`, `ftChargeItemCase`, and `ftPayItemCase`).
 
 **POST:**
 
@@ -388,55 +390,56 @@ accesstoken (required): string
 
 ## Configuring POS API Helper
 
-The POS API Helper is available in all countries. This Helper is responsible for uploading data from the local Queue to the digital receipt endpoint. This Helper is configured in the fiskaltrust.Portal and assigned to each CashBox that uses digital receipts. The POS API Helper changes to an direct upload behavior of the digital receipts.
+The POS API Helper is available in all countries. This Helper is responsible for uploading data from the local Queue to the digital receipt endpoint. It is configured in the fiskaltrust.Portal and assigned to each CashBox that uses digital receipts. The POS API Helper enables direct upload of digital receipts.
 
-To proceed with the configuration, login to your fiskaltrust.Portal account first. 
+To proceed with the configuration, log in to your fiskaltrust.Portal account first. 
 
-### Queue 
+### Queue
 
-| Step  | Description |
-| ------------- | ------------- |
-| 1  | Navigate to the configuration section and go to Queue  |
-| 2  | Configure Queue  |
-| 3  | Copy the URLs to your local machine (Required for CashBox configuration later)   |
-| 4  | For all countries: Change port to the next free port (+1) and <br/> a.	if no suffix exists after the port: add the suffix "/name_queue" to the URL ("name" can be freely chosen) <br/> b.	if suffix already exists: add the suffix "_queue" to the URL  |
-| 5  | Germany & France only: Change grpc port to the next free port (if port is free no need to go up to the next free port) and add the suffix "/name_queue" to the URL ("name" can be freely chosen)  |
-| 6  | Save changes  |
+To configure the Queue, complete the following steps:
 
-### Helper 
+1. Navigate to **Configuration** > **Queue**.
+2. Click the **Configure Queue** icon.
+3. Copy the URLs to your local machine (required for CashBox configuration later).
+4. For all countries: change port to the next free port (+1). If no suffix exists after the port, add the suffix `/name_queue` to the URL ("name" can be freely chosen). If a suffix already exists, add the suffix `_queue` to the URL.
+5. For Germany and France only: change the gRPC port to the next free port. If the port is free, no need to go to the next free port. Then add the suffix `/name_queue` to the URL ("name" can be freely chosen).
+6. Save the changes.
 
-| Step  | Description |
-| ------------- | ------------- |
-| 1  | Navigate to Helper  |
-| 2  | Create new helper  |
-| 3  | Add description  |
-| 4  | Select  package name "fiskaltrust.service.helper.posapi"   |
-| 5  | Select latest package version   |
-| 6  | Select the outlet of CashBox    |
-| 7  | Save configuration   |
-| 8  | Click configure helper   |
-| 9  | All Counties: Insert the previously saved Queue URLs to the Helper URLs and add the suffix "/name" to the URL (analogue to the naming in queue configuration). Germany & France only: Add also GRPC URL with next free port and add the suffix "/name" to the URL (analogue to the naming in queue configuration).   |
-| 10  | Save configuration and close   |
+### Helper
 
-### CashBox 
+To configure the Helper, complete the following steps:
 
-| Step  | Description |
-| ------------- | ------------- |
-| 1  | Navigate to CashBox   |
-| 2  | Select your CashBox and click edit by list  |
-| 3  | Navigate to Helpers  |
-| 4  | Activate the POS API Helper  |
-| 5  | Save configuration  |
-| 6  | Click rebuild configuration  |
+1. Navigate to **Configuration** > **Helper**.
+2. Create a new helper by clicking the **+Add** button.
+3. Add a description.
+4. Select the package name "fiskaltrust.service.helper.posapi".
+5. Select the latest package version.
+6. Select the outlet of the CashBox.
+7. Save the configuration.
+8. Configure the helper by clicking the **Configuration** icon.
+9. For all countries: insert the previously saved queue URLs into the helper URLs and add the suffix `/name` to the URL (analogous to the naming used in the queue configuration).
+10. For Germany and France only: also add the gRPC URL with the next free port and add the suffix `/name` to the URL (analogous to the naming used in the queue configuration).
+11. Save configuration and close.
+
+### CashBox
+
+To configure the CashBox, complete the following steps:
+
+1. Navigate to **Configuration** > **CashBox**.
+2. Select your CashBox and click the **Edit** icon.
+3. Navigate to **Helpers**.
+4. Activate the POS API Helper.
+5. Save the configuration.
+6. Click the **Rebuild configuration** icon for your CashBox.
 
 After completing the POS API Helper configuration, restart the fiskaltrust.Middleware to apply the changes. 
 
 ## Pairing InStore App
 
-After installing the InStore App on your Android device, establishing a connection with your preferred CashBox is essential. Here's how:
+After installing the InStore App on your Android device, establish a connection with your preferred CashBox by completing the following steps:
 
-| Step  | Description |
-| ------------- | ------------- |
-| 1  | Log in to your fiskaltrust.Portal account and proceed to the CashBox you want to pair with the InStore App.  |
-| 2  | Extend the overview of the CashBox. Click `unhide` to generate a new, temporary pairing pin.<br/>![fiskaltrust.Portal_pairing_pin](./images/fiskaltrust.Portal_pairing_pin.png) The pairing pin is valid for five minutes. After the pin expired, you need to generate a new pin, by clicking `unhide` to generate a new pin.   |
-| 3  | Enter the four-digit pin into your InStore App, confirm the connection by clicking `Pair`. You can pair multiple InStore App installations with one CashBox. To open the pairing to CashBox mask or to pair with a different CashBox, press the touchscreen one second.<br/>![InStore_App_pairing_pin](./images/InStore_App_pair_device.png) |
+1. Log in to your fiskaltrust.Portal account and navigate to **Configuration** > **CashBox**.
+2. Select the CashBox that you want to pair with the InStore App.
+3. Expand the CashBox overview.
+4. On **PIN for InStore App**, click the refresh button to generate a new temporary pairing PIN. The pairing PIN is valid for five minutes. After it expires, you must generate a new PIN by clicking the refresh button again.<br/>![fiskaltrust.Portal_pairing_pin](./images/fiskaltrust.Portal_pairing_pin.png)
+5. Enter the four-digit PIN into your InStore App and confirm the connection by clicking **Pair**. You can pair multiple InStore App installations with one CashBox. To open the pairing-to-CashBox screen or pair with a different CashBox, press and hold the touchscreen for one second.<br/>![InStore_App_pairing_pin](./images/InStore_App_pair_device.png)
