@@ -107,6 +107,8 @@ After rebuild you can now download the launcher. The download of the launcher is
 
 ### 2.2 Enabling debug mode
 
+**Unavailable for 1.2 launcher**
+
 When the download is completed, you will receive a zip file containing the launcher, its corresponding configuration, and other required files. Now, unpack the zip file and in the newly unzipped folder locate a ``test.cmd`` file, which we will edit. Open it with an editor of your choice and add the argument `` -verbosity=Debug`` at the end of the second line (which starts with ``fiskaltrust.exe``). This will give us more detailed log output later. Now save and close the ``test.cmd`` file.
 
 ### 2.3 Starting the launcher
