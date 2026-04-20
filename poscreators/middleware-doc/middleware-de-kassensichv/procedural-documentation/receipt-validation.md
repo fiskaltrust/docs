@@ -23,6 +23,7 @@ This error indicates that at least one receipt exists for the specified business
 ## Error 5010
 
 ### Vat Cross Net Missmatch
+![Receipt validation error E5010](../../images/receiptvalidationE5010.png)
 
 ### Description
 
