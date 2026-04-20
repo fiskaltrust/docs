@@ -13,14 +13,14 @@ Below you will find a list of all possible errors, including detailed descriptio
 
 
 
-## Error1000
+## Error-1000
 
 ### Missing Daily Closing Receipt
 
 This error indicates that at least one receipt exists for the specified business day, but no daily closing receipt (DailyClosing) was found for that date. For every business day with fiscal receipts, a daily closing receipt is required to generate a valid DSFinV‑K export.
 
 
-## Error 5010
+## Error-5010
 
 ### Vat Cross Net Missmatch
 ![Receipt validation error E5010](../../images/receiptvalidationE5010.png)
