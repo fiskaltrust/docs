@@ -12,4 +12,11 @@ The Fiskaltrust Receipt Validation provides the possibility to validate customer
 Below you will find a list of all possible errors, including detailed descriptions of how to resolve them.
 
 
-### Error 5000
+
+## Error1000
+
+### Missing Daily Closing Receipt
+
+This error indicates that at least one receipt exists for the specified business day, but no daily closing receipt (DailyClosing) was found for that date. For every business day with fiscal receipts, a daily closing receipt is required to generate a valid DSFinV‑K export.
+
+
