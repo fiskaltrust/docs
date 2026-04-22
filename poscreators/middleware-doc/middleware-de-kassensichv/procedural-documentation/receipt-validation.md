@@ -78,3 +78,27 @@ If the difference is too large to be explained by rounding, incorrect values are
 - Small rounding differences may occur due to calculation order and decimal precision.
 - Unreasonable or large differences are always treated as errors.
 - The POS system is responsible for transmitting internally consistent fiscal values.
+
+## Error-5011
+
+### VAT rate does not match ftChargeItemCase
+
+**Description**  
+This error occurs when the VATRate specified on a charge item does not match the VAT rate implied by the given ftChargeItemCase. Each ftChargeItemCase represents a predefined VAT category and therefore implies an expected VAT rate. If the transmitted VATRate conflicts with that expectation, receipt validation fails.
+
+**Example**
+Position 1 in receipt ft19F#IT416: VATRate (20.00%) does not match the rate implied by ftChargeItemCase (0x4445000000000001, expected 19.00%).
+
+**Cause**  
+The POS system transmitted inconsistent VAT information for a charge item:
+- The ftChargeItemCase implies a fixed VAT rate.
+- The VATRate field contains a different percentage.
+
+**Resolution**
+Ensure that the VAT information is consistent:
+- If the VATRate is correct, use a matching ftChargeItemCase.
+- If the ftChargeItemCase is correct, adjust the VATRate accordingly.
+- Verify that the POS tax configuration matches the fiscal country configuration.
+
+**Notes**
+This validation prevents incorrect VAT reporting in DSFinV-K exports and fiscal audits.
