@@ -131,3 +131,35 @@ Ensure that all cash payments are reported consistently:
 ### Notes
 
 This validation ensures that cash flow reported in DSFinV-K exports and fiscal audits is traceable between individual receipts and daily closings.
+
+<a id="error-5030"></a>
+## Error-5030 – Payment total does not match receipt gross turnover
+
+### Description
+
+This error occurs when the sum of all payment amounts across receipts does not match the sum of per-receipt gross turnover. The payment total is aggregated from pay items (including transformed business case pay items), while the gross turnover is calculated from charge items and transformed pay items on each receipt. These two values must be equal; otherwise the receipt data is inconsistent.
+
+### Example
+
+Total payment amount (12.00) does not match the sum of per-receipt gross turnover (10.00).  
+Difference: 2.00.
+
+../../images/receiptvalidationE5030.png
+
+### Cause
+
+The payment side and the turnover side of the receipts do not balance:
+
+- A pay item that must be transformed into a business case (e.g. tip, deposit) was not correctly defined.
+- Signs or amounts of cancellation/void items are inconsistent between payments and turnover.
+
+### Resolution
+
+Ensure that payments and turnover are consistent:
+
+- Verify that business case (e.g. tip, deposit) are correctly defined
+- Review cancellation/storno receipts and position cancellations for correct signs and amounts.
+
+### Notes
+
+This validation guarantees that, across all receipts, the money received (payments) equals the goods/services sold (gross turnover), as required by DSFinV-K exports and fiscal audits.
