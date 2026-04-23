@@ -17,6 +17,7 @@ Below you will find a list of all possible errors, including detailed descriptio
 - [Error 5010 – VAT calculation mismatch](#error-5010)
 - [Error 5011 – Gross amount mismatch](#error-5011)
 - [Error 5020 – Cash payment total mismatch](#error-5020)
+- [Error 5030 – Payment total does not match receipt gross turnover](#error-5030)
 
 <a id="error-1000"></a>
 ## Error 1000 – Missing daily closing
@@ -144,7 +145,7 @@ This error occurs when the sum of all payment amounts across receipts does not m
 Total payment amount (12.00) does not match the sum of per-receipt gross turnover (10.00).  
 Difference: 2.00.
 
-../../images/receiptvalidationE5030.png
+![Error 5030 – PaymentTurnoverMismatch](../../images/receiptvalidationE5030.png)
 
 ### Cause
 
