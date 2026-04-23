@@ -18,16 +18,14 @@ Below you will find a list of all possible errors, including detailed descriptio
 - [Error 5011 – Gross amount mismatch](#error-5011)
 - [Error 5020 – Cash payment total mismatch](#error-5020)
 
-
-## Error 1000 – Missing daily closing
 <a id="error-1000"></a>
+## Error 1000 – Missing daily closing
 
 ### Description
 This error indicates that at least one receipt exists for the specified business day, but no daily closing receipt (DailyClosing) was found for that date. For every business day with fiscal receipts, a daily closing receipt is required to generate a valid DSFinV‑K export.
 
-
-## Error-5010 - Vat Cross Net Missmatch
 <a id="error-5010"></a>
+## Error-5010 - Vat Cross Net Missmatch
 
 ### Description
 This error indicates an inconsistency between Net, VAT, and Gross amounts on a receipt line item.
@@ -76,8 +74,8 @@ If the difference is too large to be explained by rounding, incorrect values are
 - Unreasonable or large differences are always treated as errors.
 - The POS system is responsible for transmitting internally consistent fiscal values.
 
-## Error-5011 - VAT rate does not match ftChargeItemCase
 <a id="error-5011"></a>
+## Error-5011 - VAT rate does not match ftChargeItemCase
 
 **Description**  
 This error occurs when the VATRate specified on a charge item does not match the VAT rate implied by the given ftChargeItemCase. Each ftChargeItemCase represents a predefined VAT category and therefore implies an expected VAT rate. If the transmitted VATRate conflicts with that expectation, receipt validation fails.
@@ -101,8 +99,8 @@ Ensure that the VAT information is consistent:
 **Notes**
 This validation prevents incorrect VAT reporting in DSFinV-K exports and fiscal audits.
 
-## Error-5020 – Cash payment total mismatch
 <a id="error-5020"></a>
+## Error-5020 – Cash payment total mismatch
 
 ### Description
 
