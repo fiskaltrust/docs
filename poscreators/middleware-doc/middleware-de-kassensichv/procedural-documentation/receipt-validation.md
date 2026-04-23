@@ -11,17 +11,23 @@ The Fiskaltrust Receipt Validation provides the possibility to validate customer
 
 Below you will find a list of all possible errors, including detailed descriptions of how to resolve them.
 
+## Error overview
+
+- [Error 1000 – Missing daily closing](#error-1000)
+- [Error 5010 – VAT calculation mismatch](#error-5010)
+- [Error 5011 – Gross amount mismatch](#error-5011)
+- [Error 5020 – Cash payment total mismatch](#error-5020)
 
 
-## Error-1000
-### Missing Daily Closing Receipt
+## Error 1000 – Missing daily closing
+<a id="error-1000"></a>
 
 ### Description
 This error indicates that at least one receipt exists for the specified business day, but no daily closing receipt (DailyClosing) was found for that date. For every business day with fiscal receipts, a daily closing receipt is required to generate a valid DSFinV‑K export.
 
 
-## Error-5010
-### Vat Cross Net Missmatch
+## Error-5010 - Vat Cross Net Missmatch
+<a id="error-5010"></a>
 
 ### Description
 This error indicates an inconsistency between Net, VAT, and Gross amounts on a receipt line item.
@@ -70,8 +76,8 @@ If the difference is too large to be explained by rounding, incorrect values are
 - Unreasonable or large differences are always treated as errors.
 - The POS system is responsible for transmitting internally consistent fiscal values.
 
-## Error-5011
-### VAT rate does not match ftChargeItemCase
+## Error-5011 - VAT rate does not match ftChargeItemCase
+<a id="error-5011"></a>
 
 **Description**  
 This error occurs when the VATRate specified on a charge item does not match the VAT rate implied by the given ftChargeItemCase. Each ftChargeItemCase represents a predefined VAT category and therefore implies an expected VAT rate. If the transmitted VATRate conflicts with that expectation, receipt validation fails.
@@ -94,3 +100,36 @@ Ensure that the VAT information is consistent:
 
 **Notes**
 This validation prevents incorrect VAT reporting in DSFinV-K exports and fiscal audits.
+
+## Error-5020 – Cash payment total mismatch
+<a id="error-5020"></a>
+
+### Description
+
+This error occurs when the sum of cash pay items across individual receipts does not match the total cash payment amount reported in the cashpoint closing. Per-receipt cash payments are aggregated from receipt-process receipts only; non-receipt process types are excluded from the per-receipt sum but are still included in the closing total. A mismatch between these two values indicates inconsistent cash handling between the individual receipts and the aggregated closing.
+
+### Example
+
+The sum of per-receipt cash payments (-149.00) differs from the total cash payment amount (-19.00) by -130.00.
+
+![Error 5020 – CashAmountMismatch](../../images/receiptvalidationE5020.png)
+
+### Cause
+
+The cash-related data in the cashpoint closing is not consistent with the individual receipts:
+
+- A receipt-process receipt contains a cash pay item that is not reflected in the closing total.
+- A non-receipt-process receipt (e.g. SonstigerVorgang) carries a cash pay item that is included in the closing total but not in the per-receipt aggregation.
+- Cash pay items were incorrectly classified, transformed, or omitted when the closing was generated.
+
+### Resolution
+
+Ensure that all cash payments are reported consistently:
+
+- Verify that every receipt-level cash pay item is included in the cashpoint closing total.
+- Ensure that non-receipt-process receipts carrying cash pay items are accounted for in the closing, not in the per-receipt aggregation.
+- Review the POS configuration for correct classification of cash payment types (IsCashPaymentType).
+
+### Notes
+
+This validation ensures that cash flow reported in DSFinV-K exports and fiscal audits is traceable between individual receipts and daily closings.
