@@ -17,7 +17,7 @@ Below you will find a list of all possible errors, including detailed descriptio
 - [Error 5010 – VAT calculation mismatch](#error-5010)
 - [Error 5011 – Gross amount mismatch](#error-5011)
 - [Error 5020 – Cash payment total mismatch](#error-5020)
-- [Error 5030 – Payment total does not match receipt gross turnover](#error-5030)
+- [Error 5035 – Payment total does not match receipt gross turnover](#error-5035)
 
 <a id="error-1000"></a>
 ## Error 1000 – Missing daily closing
@@ -133,34 +133,49 @@ Ensure that all cash payments are reported consistently:
 
 This validation ensures that cash flow reported in DSFinV-K exports and fiscal audits is traceable between individual receipts and daily closings.
 
-<a id="error-5030"></a>
-## Error-5030 – Payment total does not match receipt gross turnover
+<a id="error-5035"></a>
+## Error-5035 – Payment total does not match receipt gross turnover
+
 
 ### Description
 
-This error occurs when the sum of all payment amounts across receipts does not match the sum of per-receipt gross turnover. The payment total is aggregated from pay items (including transformed business case pay items), while the gross turnover is calculated from charge items and transformed pay items on each receipt. These two values must be equal; otherwise the receipt data is inconsistent.
+This error occurs when the **total payment amount** does not match the **sum of per‑receipt gross turnover**.
+
+The check combines:
+- the **overall payment total**, aggregated from all pay items (including transformed business case pay items), and
+- the **gross turnover**, calculated from charge items and transformed pay items across all receipts.
+
+Both values must be equal. Any difference indicates inconsistent aggregation or classification between payments and turnover data.
 
 ### Example
 
 Total payment amount (12.00) does not match the sum of per-receipt gross turnover (10.00).  
 Difference: 2.00.
 
-![Error 5030 – PaymentTurnoverMismatch](../../images/receiptvalidationE5030.png)
+![Error 5035 – PaymentTurnoverMismatch](../../images/receiptvalidationE5030.png)
 
 ### Cause
 
 The payment side and the turnover side of the receipts do not balance:
 
-- A pay item that must be transformed into a business case (e.g. tip, deposit) was not correctly defined.
-- Signs or amounts of cancellation/void items are inconsistent between payments and turnover.
+- One or more payment items are missing from the payment total.
+- Charge items or transformed pay items are missing from the gross turnover calculation.
+- A pay item that must be transformed into a business case (e.g. tip, deposit) was not correctly transformed on one side.
+- Payment or turnover items are incorrectly grouped, for example by VAT key.
+- Signs or amounts of cancellation or void items differ between payment aggregation and turnover calculation.
 
 ### Resolution
 
 Ensure that payments and turnover are consistent:
 
-- Verify that business case (e.g. tip, deposit) are correctly defined
-- Review cancellation/storno receipts and position cancellations for correct signs and amounts.
+- Verify that all payment items are fully accounted for in the total payment amount.
+- Verify that all charge items and transformed pay items contribute to the gross turnover.
+- Ensure that transformed business case pay items are handled consistently in both calculations.
+- Check that charge items and transformed pay items are correctly grouped by VAT key.
+- Review cancellation and storno data for consistent signs and amounts.
+- Re-run the export after payment totals and gross turnover totals match.
 
 ### Notes
 
-This validation guarantees that, across all receipts, the money received (payments) equals the goods/services sold (gross turnover), as required by DSFinV-K exports and fiscal audits.
+This validation ensures that, across all receipts, the money received (payments) equals the goods or services sold (gross turnover), as required for DSFinV‑K exports and fiscal audits.
+
