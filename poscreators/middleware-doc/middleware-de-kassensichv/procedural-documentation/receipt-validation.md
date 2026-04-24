@@ -19,6 +19,7 @@ Below you will find a list of all possible errors, including detailed descriptio
 - [Error 5020 – Cash payment total mismatch](#error-5020)
 - [Error 5035 – Payment total does not match receipt gross turnover](#error-5035)
 - [Error 5070 – Position quantity and unit price do not match position gross amount](#error-5070)
+- [Error 5290 – Storno receipt without reference to the original transaction](#error-5290)
 
 <a id="error-1000"></a>
 ## Error 1000 – Missing daily closing
@@ -35,7 +36,11 @@ This error indicates an inconsistency between Net, VAT, and Gross amounts on a r
 **Example**
 Position 1 in receipt ftD#IT14: Net (76,52400) + calculated VAT (12,24384) at 16,00% = 88,76784 does not match Gross (91,10000). Difference: -2,33216.
 
-![Receipt validation error E5010](../../images/receiptvalidationE5010.png)
+<p align="center">
+  <img src="../images/receiptvalidationE5010.png"
+       alt="Receipt validation error"
+       width="90%">
+</p>
 
 ### Background
 fiskaltrust applies the gross (brutto) calculation method.  
