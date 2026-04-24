@@ -160,7 +160,7 @@ The payment side and the turnover side of the receipts do not balance:
 
 - One or more payment items are missing from the payment total.
 - Charge items or transformed pay items are missing from the gross turnover calculation.
-- A pay item that must be transformed into a business case (e.g. tip, deposit) was not correctly transformed on one side.
+- A pay item that must be transformed into a business case (e.g. tip, deposit) was not correctly sent.
 - Payment or turnover items are incorrectly grouped, for example by VAT key.
 - Signs or amounts of cancellation or void items differ between payment aggregation and turnover calculation.
 
@@ -173,9 +173,51 @@ Ensure that payments and turnover are consistent:
 - Ensure that transformed business case pay items are handled consistently in both calculations.
 - Check that charge items and transformed pay items are correctly grouped by VAT key.
 - Review cancellation and storno data for consistent signs and amounts.
-- Re-run the export after payment totals and gross turnover totals match.
 
 ### Notes
 
 This validation ensures that, across all receipts, the money received (payments) equals the goods or services sold (gross turnover), as required for DSFinV‑K exports and fiscal audits.
+
+<a id="error-5070"></a>
+## Error-5070 – Position quantity and unit price do not match position gross amount
+
+### Description
+
+This error occurs when, for an individual charge item (position) on a receipt, the **unit price × quantity** (optionally divided by the **unit quantity factor**) does not match the **position gross amount** (`POS_BRUTTO`).
+
+The check compares:
+- `STK_BR` × `MENGE` (÷ `FAKTOR`, if provided) – the amount recalculated from the position's unit price, quantity and unit quantity factor, and
+- `POS_BRUTTO` – the gross amount actually recorded for the charge item.
+
+Both values must be equal (within a tolerance of 0.01). Any deviation indicates an inconsistency between the per‑unit pricing data and the stored line amount.
+
+### Example
+
+Position 0 in receipt ft5#IT41279: STK_BR (3.00000) * MENGE (2.000) = 6.00000 does not match POS_BRUTTO (10.00000).
+
+![Error 5070 – PositionQuantityUnitpriceMismatch](../../images/receiptvalidationE5070.png)
+
+### Cause
+
+The position's unit pricing data does not reconcile with its gross amount:
+
+- `UnitPrice` is set incorrectly or out of sync with `Amount` and `Quantity`.
+- `Quantity` does not reflect the actual number of units sold for the given `Amount`.
+- `UnitQuantity` (the factor, e.g. for bulk/weight items) is missing, zero, or incorrect.
+- The sign (positive/negative) of `Quantity` or `Amount` is handled inconsistently on cancellation or storno positions.
+- Rounding was applied only to `Amount` but not to the per‑unit calculation (or vice versa), producing a difference larger than 0.01.
+
+### Resolution
+
+Ensure that the per‑unit pricing of every charge item reconciles with its gross amount:
+
+- Verify that `UnitPrice` × `Quantity` (÷ `UnitQuantity`, when used) equals the charge item's `Amount`.
+- When `UnitPrice` is not provided, ensure `Amount` and `Quantity` are mutually consistent.
+- For bulk/weight items, check that `UnitQuantity` is correctly set and non‑zero.
+- For cancellation and storno positions, apply signs consistently on quantity and amount so the recalculated line amount matches `POS_BRUTTO`.
+- Avoid intermediate rounding that causes `STK_BR × MENGE` to drift from the stored gross amount by more than 0.01.
+
+### Notes
+
+This validation ensures that each position on a receipt is internally consistent: the unit‑based representation (`STK_BR`, `MENGE`, `FAKTOR`) must reproduce the recorded gross amount (`POS_BRUTTO`), as required for DSFinV‑K exports and fiscal audits at the line level.
 
