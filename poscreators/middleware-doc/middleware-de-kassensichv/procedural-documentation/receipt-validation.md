@@ -18,6 +18,7 @@ Below you will find a list of all possible errors, including detailed descriptio
 - [Error 5011 – Gross amount mismatch](#error-5011)
 - [Error 5020 – Cash payment total mismatch](#error-5020)
 - [Error 5035 – Payment total does not match receipt gross turnover](#error-5035)
+- [Error 5070 – Position quantity and unit price do not match position gross amount](#error-5070)
 
 <a id="error-1000"></a>
 ## Error 1000 – Missing daily closing
