@@ -1,6 +1,6 @@
 ---
 slug: /poscreators/middleware-doc/germany/receiptvalidation
-title: DSFinV-K Receipt Validation
+title: DSFinV-K Receipt Validation (Release TBA)
 ---
 
 # Procedural documentation for clarifying errors shown in the fiskaltrust Receipt Validation
@@ -222,3 +222,42 @@ Ensure that the per‑unit pricing of every charge item reconciles with its gros
 
 This validation ensures that each position on a receipt is internally consistent: the unit‑based representation (`STK_BR`, `MENGE`, `FAKTOR`) must reproduce the recorded gross amount (`POS_BRUTTO`), as required for DSFinV‑K exports and fiscal audits at the line level.
 
+<a id="error-5290"></a>
+## Error-5290 – Storno receipt without reference to the original transaction
+
+### Description
+
+This error occurs when a receipt is flagged as a **void/storno** (Storno) but does **not carry a reference** to the original transaction it cancels.
+
+The check inspects void receipts for at least one of the following references:
+- `cbPreviousReceiptReference` – the identifier of the previous/original receipt on the POS side, or
+- `ftReceiptCaseData` – a JSON payload providing `RefType` **and** `RefReceiptId` that link the storno to the original transaction.
+
+Both places are checked. If neither is populated on a void receipt, the receipt fails the check.
+
+### Example
+
+![Error 5290 – StornoWithoutReference](../../images/receiptvalidationE5290.png)
+
+### Cause
+
+A void/storno receipt was transmitted without linking it to the original transaction:
+
+- `cbPreviousReceiptReference` was left empty on a storno receipt.
+- `ftReceiptCaseData` does not contain both `RefType` and `RefReceiptId`, or the JSON is malformed and cannot be deserialized.
+- The POS flags a receipt as void (e.g. for correction or cancellation) but omits the link to the originally issued receipt.
+- The original receipt identifier is stored in a custom/unsupported field instead of the expected properties.
+
+### Resolution
+
+Ensure every storno receipt carries a verifiable reference to the original transaction:
+
+- Populate `cbPreviousReceiptReference` on the POS side with the identifier of the receipt being cancelled, or
+- Provide `ftReceiptCaseData` as a valid JSON object containing both `RefType` and `RefReceiptId` for the original transaction.
+- Verify that the JSON stored in `ftReceiptCaseData` is well‑formed (parsable by the middleware's `ReceiptCaseData` model).
+- If a receipt was incorrectly flagged as void, correct the receipt case so the check no longer applies.
+- Do not emit standalone storno receipts without a traceable link to the receipt they cancel.
+
+### Notes
+
+This validation enforces traceability of cancellations as required for DSFinV‑K exports and fiscal audits: every void/storno transaction must be unambiguously linked to the original receipt it reverses, either via the POS‑side reference or via structured receipt case data.
