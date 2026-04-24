@@ -1,9 +1,9 @@
 ---
 slug: /poscreators/get-started/onboarding-posdealers
-title: Onboarding PosDealers
+title: PosDealer Onboarding
 ---
 
-# Onboarding PosDealers
+# PosDealer Onboarding Preparation
 
 Once you were able to test the integration and successfully establish a communication with the fiskaltrust.Middleware by sending simple requests and receiving correct expected responses, you are now ready to start engaging your PosDealers into discussion about the details of the specific implementation of your POS-System, and agree on the suitable rollout scenarios.
 

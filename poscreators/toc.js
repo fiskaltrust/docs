@@ -4,6 +4,7 @@ module.exports = [
     label: "Getting Started",
     items: [
       "poscreators/getting-started/get-started",
+      "poscreators/getting-started/onboarding-process",
       "poscreators/getting-started/portal-registration",
 
       {
