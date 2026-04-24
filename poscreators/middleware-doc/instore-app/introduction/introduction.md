@@ -11,8 +11,8 @@ The fiskaltrust InStore App can be used on touch-enabled devices with an integra
 * A QR code containing the HTTPS receipt link for the consumer to access the receipt.
 * An OK button to manually acknowledge receipt.
 * A Print button with a countdown timer to print receipt.
-* A Send per Mail button to send the receipt via email.
-* A Send per SMS button to send the receipt via SMS.
+* A Send by Email button to send the receipt via email.
+* A Send by SMS button to send the receipt via SMS.
 
 When the QR code is scanned and the HTTPS receipt link is used to download the receipt, an acknowledgement of receipt by the consumer is logged in the background, and the current receipt display is closed. 
 
@@ -20,9 +20,9 @@ When the OK button is tapped by the consumer, a manual acknowledgement of receip
 
 When the Print button is tapped by the consumer, or when the countdown expires, a paper receipt is printed and the event is logged for analytics. The current receipt display is closed after successful printing.
 
-When the Send per Mail button is tapped by the consumer, a screen is displayed prompting the consumer to enter their email address.
+When the Send by Email button is tapped by the consumer, a screen is displayed prompting the consumer to enter their email address.
 
-When the Send per SMS button is tapped by the consumer, a screen is displayed prompting the consumer to enter their phone number.
+When the Send by SMS button is tapped by the consumer, a screen is displayed prompting the consumer to enter their phone number.
 
 Setting up the InStore App requires no implementation into the point-of-sale software.
 
@@ -46,9 +46,9 @@ In-store, the merchant collects items and processes the payment or checkout. The
 
 - **Print receipt:** Consumers can manually initiate paper receipt printing on the InStore App device by tapping the Print button. Additionally, if there is no user interaction, a paper receipt is automatically printed after a default countdown of 15 seconds. Once the receipt is printed, the display closes and the print command is logged.
 
-- **Send receipt via email:** Consumers can choose to receive the digital receipt via email by tapping the Send per Mail button on the InStore App device. A screen will then be displayed where the consumer can enter their email address.
+- **Send receipt via email:** Consumers can choose to receive the digital receipt via email by tapping the Send by Email button on the InStore App device. A screen will then be displayed where the consumer can enter their email address.
 
-- **Send receipt via SMS:** Consumers can choose to receive the digital receipt via SMS by tapping the Send per SMS button on the InStore App device. A screen will then be displayed where the consumer can enter their phone number.
+- **Send receipt via SMS:** Consumers can choose to receive the digital receipt via SMS by tapping the Send by SMS button on the InStore App device. A screen will then be displayed where the consumer can enter their phone number.
 
 ## Displaying Receipts in the InStore App
 
@@ -60,8 +60,8 @@ In-store, the merchant collects items and processes the payment or checkout. The
 | 2 | QR code to access the digital receipt document |
 | 3 | `OK` button to confirm and close the receipt view |
 | 4 | `Print` button to print the receipt |
-| 5 | `Send per Mail` button to send the receipt via email |
-| 6 | `Send per SMS` button to send the receipt via SMS |
+| 5 | `Send by Email` button to send the receipt via email |
+| 6 | `Send by SMS` button to send the receipt via SMS |
 
 ## Configuring InStore App
 

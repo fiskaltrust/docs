@@ -49,6 +49,6 @@ In-store, the merchant collects items and processes the payment or checkout. The
 
 - **Print receipt:** Consumers can manually initiate paper receipt printing on the InStore App device by tapping the Print button. Additionally, if there is no user interaction, a paper receipt is automatically printed after a default countdown of 15 seconds. Once the receipt is printed, the display closes and the print command is logged.
 
-- **Send receipt via email:** Consumers can choose to receive the digital receipt via email by tapping the Send per Mail button on the InStore App device. A screen will then be displayed where the consumer can enter their email address.
+- **Send receipt via email:** Consumers can choose to receive the digital receipt via email by tapping the Send by Email button on the InStore App device. A screen will then be displayed where the consumer can enter their email address.
 
-- **Send receipt via SMS:** Consumers can choose to receive the digital receipt via SMS by tapping the Send per SMS button on the InStore App device. A screen will then be displayed where the consumer can enter their phone number.
+- **Send receipt via SMS:** Consumers can choose to receive the digital receipt via SMS by tapping the Send by SMS button on the InStore App device. A screen will then be displayed where the consumer can enter their phone number.
