@@ -3,7 +3,7 @@ slug: /poscreators/middleware-doc/germany/receiptvalidation
 title: DSFinV-K Receipt Validation (Release TBA)
 ---
 
-# Procedural documentation for clarifying errors shown in the fiskaltrust Receipt Validation
+# Procedural documentation for clarifying errors shown in the fiskaltrust Receipt Validation (Release TBA)
 
 ## Receipt Validation
 
