@@ -1,5 +1,5 @@
 ---
-slug: /poscreators/get-started/onboarding-process
+slug: /get-started/onboarding-process
 title: Onboarding Process
 ---
 
@@ -36,13 +36,13 @@ The onboarding process is a phased progression. Each role completes a specific s
 ### Phase 4: Data and Compliance Verification (PosDealer)
 
 - Audit [Master Data](https://docs.fiskaltrust.cloud/docs/posdealers/getting-started/operator-onboarding/master-data) to ensure 100% accuracy.
-- Verify the Tax ID documentation.
+- Verify that the Tax ID is correct and complies with the applicable tax ID schema.
 - Sign and file the [VPA (Partner Agreement)](https://docs.fiskaltrust.cloud/docs/posdealers/buy-resell/overview#volume-purchase-agreement).
 
 ### Phase 5: Knowledge Transfer (Intro Call) (PosCreator → PosDealer)
 
-- Confirm full product knowledge across the entire catalog.
-- Review and internalize objection-handling materials.
+- Confirm understanding of product offering and operational requirements, based on the intro call discussion, including the Compliance Checklist (single official PDF document). For reference only, example [Germany-specific](https://github.com/user-attachments/files/27156922/Dealer-Compliance_Checklist_EN.pdf) version.
+- Review and internalize objection-handling materials as part of the commercial onboarding (sales training).
 
 ### Phase 6: Deployment and Rollout (PosDealer)
 
