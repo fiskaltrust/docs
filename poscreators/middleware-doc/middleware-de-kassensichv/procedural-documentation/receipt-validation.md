@@ -21,12 +21,12 @@ Below you will find a list of all possible errors, including detailed descriptio
 - [Error 5070 – Position quantity and unit price do not match position gross amount](#error-5070)
 - [Error 5290 – Storno receipt without reference to the original transaction](#error-5290)
 
-<h2 id="error-1000">Error 1000 – Missing daily closing</h2>
+## Error 1000 – Missing daily closing {#error-1000}
 
 ### Description
 This error indicates that at least one receipt exists for the specified business day, but no daily closing receipt (DailyClosing) was found for that date. For every business day with fiscal receipts, a daily closing receipt is required to generate a valid DSFinV‑K export.
 
-<h2 id="error-5010">Error-5010 - Vat Cross Net Missmatch</h2>
+## Error-5010 - Vat Cross Net Missmatch {#error-5010}
 
 ### Description
 This error indicates an inconsistency between Net, VAT, and Gross amounts on a receipt line item.
@@ -79,7 +79,7 @@ If the difference is too large to be explained by rounding, incorrect values are
 - Unreasonable or large differences are always treated as errors.
 - The POS system is responsible for transmitting internally consistent fiscal values.
 
-<h2 id="error-5011">Error-5011 - VAT rate does not match ftChargeItemCase</h2>
+## Error-5011 - VAT rate does not match ftChargeItemCase {#error-5011}
 
 **Description**  
 This error occurs when the VATRate specified on a charge item does not match the VAT rate implied by the given ftChargeItemCase. Each ftChargeItemCase represents a predefined VAT category and therefore implies an expected VAT rate. If the transmitted VATRate conflicts with that expectation, receipt validation fails.
@@ -107,7 +107,7 @@ Ensure that the VAT information is consistent:
 **Notes**
 This validation prevents incorrect VAT reporting in DSFinV-K exports and fiscal audits.
 
-<h2 id="error-5020">Error-5020 – Cash payment total mismatch</h2>
+## Error-5020 – Cash payment total mismatch {#error-5020}
 
 ### Description
 
@@ -143,7 +143,7 @@ Ensure that all cash payments are reported consistently:
 
 This validation ensures that cash flow reported in DSFinV-K exports and fiscal audits is traceable between individual receipts and daily closings.
 
-<h2 id="error-5035">Error-5035 – Payment total does not match receipt gross turnover</h2>
+## Error-5035 – Payment total does not match receipt gross turnover {#error-5035}
 
 
 ### Description
@@ -191,7 +191,7 @@ Ensure that payments and turnover are consistent:
 
 This validation ensures that, across all receipts, the money received (payments) equals the goods or services sold (gross turnover), as required for DSFinV‑K exports and fiscal audits.
 
-<h2 id="error-5070">Error-5070 – Position quantity and unit price do not match position gross amount</h2>
+## Error-5070 – Position quantity and unit price do not match position gross amount {#error-5070}
 
 ### Description
 
@@ -237,7 +237,7 @@ Ensure that the per‑unit pricing of every charge item reconciles with its gros
 
 This validation ensures that each position on a receipt is internally consistent: the unit‑based representation (`STK_BR`, `MENGE`, `FAKTOR`) must reproduce the recorded gross amount (`POS_BRUTTO`), as required for DSFinV‑K exports and fiscal audits at the line level.
 
-<h2 id="error-5290">Error-5290 – Storno receipt without reference to the original transaction</h2>
+## Error-5290 – Storno receipt without reference to the original transaction {#error-5290}
 
 ### Description
 
