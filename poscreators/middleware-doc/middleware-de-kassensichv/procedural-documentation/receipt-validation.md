@@ -39,7 +39,7 @@ Position 1 in receipt ftD#IT14: Net (76,52400) + calculated VAT (12,24384) at 16
 <p align="center">
   <img src="../../images/receiptvalidationE5010.png"
        alt="Receipt validation error"
-       width="40%">
+       width="40%" />
 </p>
 
 ### Background
@@ -93,7 +93,7 @@ Position 1 in receipt ft19F#IT416: VATRate (20.00%) does not match the rate impl
 <p align="center">
   <img src="../../images/receiptvalidationE5011.png"
        alt="Receipt validation error"
-       width="40%">
+       width="40%" />
 </p>
 
 **Cause**  
@@ -124,12 +124,12 @@ The sum of per-receipt cash payments (-149.00) differs from the total cash payme
 <p align="center">
   <img src="../../images/receiptvalidationE5020.png"
        alt="Receipt validation error"
-       width="60%">
+       width="60%" />
 </p>
 
 ### Cause
 
-The cash-related data in the cashpoint closing is not consistent with the individual receipts:
+The cash-related data
 
 - A receipt-process receipt contains a cash pay item that is not reflected in the closing total.
 - A non-receipt-process receipt (e.g. SonstigerVorgang) carries a cash pay item that is included in the closing total but not in the per-receipt aggregation.
@@ -169,7 +169,7 @@ Difference: 2.00.
 <p align="center">
   <img src="../../images/receiptvalidationE5030.png"
        alt="Receipt validation error"
-       width="40%">
+       width="40%" />
 </p>
 
 ### Cause
@@ -216,7 +216,7 @@ Position 0 in receipt ft5#IT41279: STK_BR (3.00000) * MENGE (2.000) = 6.00000 do
 <p align="center">
   <img src="../../images/receiptvalidationE5070.png"
        alt="Receipt validation error"
-       width="60%">
+       width="60%" />
 </p>
 
 ### Cause
@@ -261,7 +261,7 @@ Both places are checked. If neither is populated on a void receipt, the receipt 
 <p align="center">
   <img src="../../images/receiptvalidationE5290.png"
        alt="Receipt validation error"
-       width="40%">
+       width="40%" />
 </p>
 
 ### Cause
