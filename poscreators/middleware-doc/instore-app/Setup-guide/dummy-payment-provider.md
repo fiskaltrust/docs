@@ -11,18 +11,20 @@ This feature is available with InStore App v1.2.8-rc1 and later.
 
 :::
 
-The InStore App supports a developer mode. When enabled, a hidden **Dummy Payment Provider** can be configured, allowing easy integration and testing of different payment success and error scenarios without requiring access to a real payment provider. To enable the developer mode in the InStore App, complete the following steps:
+The InStore App supports a developer mode that exposes a hidden **Dummy Payment Provider**, allowing easy integration and testing of different payment success and error scenarios without requiring access to a real payment provider.
 
-1. Start the InStore App and navigate to the home screen.
-2. At the bottom of the screen, tap the **fiskaltrust** logo five times to open the Developer Mode PIN entry dialog.
-3. Enter the PIN: `4242`.
-4. If successful, an information dialog will appear confirming that Developer Mode is enabled. Tap OK to close the dialog. The app will then exit automatically.
+Developer mode is now automatically activated based on the type of CashBox that the InStore App is paired with:
+
+- **Sandbox CashBox** - Developer mode is **enabled** automatically.
+- **Production CashBox** - Developer mode is **disabled** automatically.
+
+Manual controls are no longer available: there is no toggle, logo tap, or PIN entry required.
 
 ## Configuring the Dummy Payment Provider
 
-1. Restart the InStore App.
-2. Open **Settings** and navigate to the **Payment settings** section.
-3. Tap **Payment entry** (the first item in **Payment Settings**) and select the **Dummy Payment Provider**, which is now visible because the developer mode is active.
+1. Ensure the InStore App is paired with a **sandbox** CashBox.
+2. Open **Settings** and navigate to the **Payment Settings** section.
+3. Tap **Payment entry** (the first item in **Payment Settings**) and select the **Dummy Payment Provider**, which is visible because developer mode is active.
 
 ## Using the Dummy Payment Provider
 
