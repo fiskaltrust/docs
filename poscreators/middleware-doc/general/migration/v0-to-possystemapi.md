@@ -65,6 +65,29 @@ POS System → WCF or REST (/v0/) → fiskaltrust Queue
 POS System → HTTP REST (/possystemapi/) → LocalPosSystemApi Helper → fiskaltrust Queue
 ```
 
+## Cloud CashBox: base URL change
+
+If your integration targets a **cloud CashBox** (i.e. your POS system calls the fiskaltrust cloud endpoint rather than a locally-running Middleware), the base URL changes as part of the migration:
+
+| Environment | v0 base URL                                              | v2 base URL                                          |
+|-------------|----------------------------------------------------------|------------------------------------------------------|
+| Sandbox     | `https://signaturcloud-sandbox.fiskaltrust.fr` (FR)      | `https://possystem-api-sandbox.fiskaltrust.eu/v2`    |
+| Sandbox     | `https://signaturcloud-sandbox.fiskaltrust.at` (AT)      | `https://possystem-api-sandbox.fiskaltrust.eu/v2`    |
+| Sandbox     | `https://signaturcloud-sandbox.fiskaltrust.de` (DE)      | `https://possystem-api-sandbox.fiskaltrust.eu/v2`    |
+| Production  | `https://signaturcloud.fiskaltrust.fr` (FR)              | `https://possystem-api.fiskaltrust.eu/v2`            |
+| Production  | `https://signaturcloud.fiskaltrust.at` (AT)              | `https://possystem-api.fiskaltrust.eu/v2`            |
+| Production  | `https://signaturcloud.fiskaltrust.de` (DE)              | `https://possystem-api.fiskaltrust.eu/v2`            |
+
+Note that the v2 cloud endpoint is a **single, market-agnostic URL** — the market is determined by the `ftReceiptCase` value and your CashBox configuration, not the host.
+
+The path structure changes accordingly:
+
+| Operation | v0 path                                    | v2 path                  |
+|-----------|--------------------------------------------|--------------------------|
+| Sign      | `/[json|xml]/v0/sign`                       | `/api/v2/sign`           |
+| Echo      | `/[json|xml]/v0/echo`                       | `/api/v2/echo`           |
+| Journal   | `/[json|xml]/v0/journal`                    | `/api/v2/journal`        |
+
 ## Configuration steps
 
 The portal-side configuration requires adding a **LocalPosSystemApi Helper** to your CashBox and rebuilding it with Launcher 2.0. Rather than duplicating those steps here, follow the [Local PosSystem API Helper guide](../../../../posdealers/technical-operations/middleware/helper-possystemapi.md), which covers:
@@ -130,6 +153,53 @@ The v2 `ReceiptRequest` is a superset of the v0 model. Most existing fields are 
 
 All other fields (`ftCashBoxID`, `cbTerminalID`, `cbReceiptMoment`, `cbChargeItems`, `cbPayItems`, `ftReceiptCase`, etc.) carry over unchanged.
 
+### Case value changes
+
+The integer values used for `ftReceiptCase`, `ftChargeItemCase`, and `ftPayItemCase` differ between the v0 and v2 interfaces. **Updating these values is the most substantial part of the migration.** Each receipt and item type has a corresponding v2 value, and sending v0 values to the v2 endpoint will result in incorrect processing.
+
+:::info Developer Portal
+
+The authoritative source for v2 case values and their mapping to v0 cases is the **[fiskaltrust Developer Portal](https://developers.fiskaltrust.eu/#/pos-system)**. It provides market-specific business case examples (AT, FR, DE) with the correct v2 `ftReceiptCase`, `ftChargeItemCase`, and `ftPayItemCase` values for each scenario. Use these examples as your reference when updating your integration.
+
+:::
+
+A systematic approach to updating case values:
+
+1. List every `ftReceiptCase`, `ftChargeItemCase`, and `ftPayItemCase` value currently used in your integration
+2. For each value, find the corresponding business case in the Developer Portal for your market
+3. Replace the v0 value with the v2 value shown in the portal example
+4. Repeat for all receipt types (including special receipts such as Start-Receipt, Stop-Receipt, daily/shift closings, and Zero-Receipts)
+
+### `ftReceiptCaseData` format change
+
+The `ftReceiptCaseData` field changes from a **JSON-encoded string** in v0 to a **market-keyed JSON object** in v2.
+
+**v0 format** — the entire value is a JSON string embedded as a string field:
+
+```json
+{
+  "ftReceiptCase": "...",
+  "ftReceiptCaseData": "{\"Code\":\"20\", \"Message\":\"Archivage fiscal de période\", \"Information\":\"\"}"
+}
+```
+
+**v2 format** — the value is a plain JSON object with a market key (`"FR"`, `"AT"`, `"DE"`) whose value is a JSON-encoded string:
+
+```json
+{
+  "ftReceiptCase": "...",
+  "ftReceiptCaseData": {
+    "FR": "{\"Code\": \"20\", \"Message\": \"Archivage fiscal de période\", \"Information\": \"\"}"
+  }
+}
+```
+
+Key points:
+- The outer field is now a **JSON object**, not a string
+- The inner value (per market key) remains a **JSON-encoded string** of the market-specific payload
+- Use the two-letter ISO market code as the key (`"FR"`, `"AT"`, `"DE"`)
+- If `ftReceiptCaseData` is not needed for a particular receipt type, the field can be omitted entirely
+
 ### ReceiptResponse changes
 
 The `ReceiptResponse` structure is largely compatible. Verify that your receipt printing logic correctly handles:
@@ -160,7 +230,7 @@ If you need to convert existing .NET Tick values, use the formulas from the [Fun
 
 ## Testing the migration
 
-The easiest way to validate your v2 integration is the **[fiskaltrust Developer Portal](https://developer.fiskaltrust.eu/)**, which provides an interactive interface for sending requests to a running Middleware instance.
+The easiest way to validate your v2 integration is the **[fiskaltrust Developer Portal](https://developers.fiskaltrust.eu/)**, which provides an interactive interface for sending requests to a running Middleware instance.
 
 For code samples and a full API reference, see the **[PosSystem API Development Kit](https://github.com/fiskaltrust/possystemapi-devkit)** on GitHub.
 
