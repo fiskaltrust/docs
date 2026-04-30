@@ -294,13 +294,7 @@ accesstoken (required): string
 
 :::info
 
-The `ftJournalType` value is market-specific. Common cross-market values include:
-- `0` – Version information (returns middleware version as JSON)
-- `1` – ActionJournal in internal format
-- `2` – ReceiptJournal in internal format
-- `3` – QueueItemJournal in internal format
-
-For country-specific values (e.g., Germany's DSFinV-K export or Austria's RKSV-DEP export), please refer to the relevant country appendix.
+The `ftJournalType` value is market-specific. See the reference table linked above for all possible values, including country-specific ones (e.g., Germany's DSFinV-K export or Austria's RKSV-DEP export).
 
 :::
 

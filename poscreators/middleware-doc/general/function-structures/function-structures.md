@@ -72,7 +72,7 @@ When using the REST communication protocol, the journal function is available at
 POST http://[base-url]/[json|xml]/[v0|v1]/journal
 ```
 
-The request parameters are passed as **URL query string parameters** (the request body is ignored for journal calls):
+The request parameters are passed as **URL query string parameters** (the request body is ignored for the on-premise Middleware REST endpoint):
 
 | Parameter | Description |
 |-----------|-------------|
@@ -95,6 +95,8 @@ The response is a raw byte stream. The format and content of the response depend
 :::info
 
 On Linux (Mono), the `/json/v1` version prefix is not included in the URL. See the [Linux platform documentation](../../middleware-de-kassensichv/operation-modes/on-premise-platforms/linux.md#rest-limitations) for details.
+
+When using the cloud-hosted **POS API** (`pos-api.fiskaltrust.cloud`) instead of the on-premise Middleware, the parameters are sent in the JSON request body rather than as query string parameters. See the [POS API documentation](../../digital-receipt/implementation/digital-receipt-implementation.md#retrieve-journal-data-journal-endpoint) for details.
 
 :::
 
