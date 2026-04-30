@@ -370,7 +370,6 @@ module.exports = [
       },
     ],
   },
-
       {
         type: "category",
         label: "Migration Guides",
