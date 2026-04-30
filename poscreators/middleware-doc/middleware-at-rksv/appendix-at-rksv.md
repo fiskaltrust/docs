@@ -17,4 +17,10 @@ https://www.lindeverlag.at/onlineprodukt/handbuch-registrierkassen-und-belegerte
 
 Ritz/Koran/Kutschera/Knasmüller, Handbuch Registrierkassen- und Belegerteilungspflicht, 2. Auflage 2019, Linde Verlag Wien. ISBN: 9783707335910
 
+:::info Upgrading to PosSystem API (v2)
+
+New features such as e-invoicing are available exclusively through the **PosSystem API (v2)**. If you are currently using the v0 interface (WCF/REST), see the [v0 → PosSystem API migration guide](../general/migration/v0-to-possystemapi.md) for step-by-step instructions.
+
+:::
+
 <div class="alert alert--warning" role="alert">Please note that this information is only complete when combined with the <b>General</b> part. To implement the Middleware, users should get themselves familiar with the general information first and then refer to the country-specific details listed here.</div>

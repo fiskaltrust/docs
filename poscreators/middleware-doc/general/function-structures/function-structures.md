@@ -5,6 +5,12 @@ title: Function Structures
 
 # Function Structures
 
+:::info Migrating to PosSystem API (v2)?
+
+If you are an Austria (AT) or France (FR) customer currently using the v0 synchronous `Sign`/`Echo`/`Journal` calls and planning to move to the new PosSystem API, see the [v0 → PosSystem API migration guide](../migration/v0-to-possystemapi.md).
+
+:::
+
 ## iPOS Interface
 
 This interface is a communication channel for interacting with the fiskaltrust.Middleware. It provides three basic functions: "echo", "sign", and "journal". The functions "echo" and "sign" return bare-objects, the function "journal" returns a wrapped-object.
