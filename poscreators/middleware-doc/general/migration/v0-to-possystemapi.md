@@ -83,7 +83,7 @@ The three core operations map directly from v0 to v2, but the calling convention
 
 | v0 call                                          | v2 HTTP endpoint                  | Notes                                                                 |
 |--------------------------------------------------|-----------------------------------|-----------------------------------------------------------------------|
-| `proxy.Echo("message")`                          | `POST /api/v2/echo`               | Request/response body is a JSON object `{"message": "..."}` |
+| `proxy.Echo("message")`                          | `POST /api/v2/echo`               | Request body: `{"message": "..."}` — response mirrors the same structure: `{"message": "..."}` |
 | `proxy.Sign(receiptRequest)`                     | `POST /api/v2/sign`               | Request body is the JSON-serialised `ReceiptRequest`; response is `ReceiptResponse` |
 | `proxy.Journal(ftJournalType, from, to)`         | `POST /api/v2/journal`            | Request body carries `ftJournalType`, `from`, and `to` as ISO 8601 date-time strings (see [Timestamps](#timestamps)) |
 
@@ -97,6 +97,25 @@ accesstoken: <your Access Token>
 ```
 
 Both values are available on the CashBox page in the fiskaltrust.Portal. On first use, you also need to **pair** the client via the PIN displayed in the Portal (see the [Helper setup guide](../../../../posdealers/technical-operations/middleware/helper-possystemapi.md#test-the-possystem-api-helper)).
+
+#### Echo example
+
+**Request:**
+
+```json
+POST /api/v2/echo
+{
+  "message": "test"
+}
+```
+
+**Response:**
+
+```json
+{
+  "message": "test"
+}
+```
 
 ### ReceiptRequest changes
 
