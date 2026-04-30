@@ -377,6 +377,15 @@ module.exports = [
       },
     ],
   },
+
+      {
+        type: "category",
+        label: "Migration Guides",
+        collapsed: true,
+        items: [
+          "poscreators/middleware-doc/general/migration/v0-to-possystemapi",
+        ],
+      },
     ],
   },
   {
