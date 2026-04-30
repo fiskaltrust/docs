@@ -234,6 +234,76 @@ accesstoken (required): string
 
 401 - Unauthorized (No or wrong Accesstoken or CashBoxID in header)
 
+## Retrieve journal data (Journal endpoint)
+
+This method retrieves journal data from the fiskaltrust.Middleware, such as version information, action journals, receipt journals, or country-specific exports (e.g., DSFinV-K or TAR files for Germany). It uses the same request model as the Middleware's iPOS interface.
+
+**POST:**
+
+https://pos-api.fiskaltrust.cloud/v0/journal (Production)
+
+https://pos-api-sandbox.fiskaltrust.cloud/v0/journal (Sandbox)
+
+**Header parameters:**
+
+cashboxid (required): string <br/>
+accesstoken (required): string
+
+<details>
+<summary>Request body schema (JSON):</summary>
+
+
+```json
+{
+  "ftJournalType": 0,
+  "from": 0,
+  "to": 638800000000000000
+}
+```
+
+| Field | Type | Description |
+|-------|------|-------------|
+| `ftJournalType` | int64 | Specifies the content and format of the returned journal data. See the reference table ["Type of Journal: ftJournalType"](../../general/reference-tables/reference-tables.md#type-of-journal-ftjournaltype) for all possible values, including country-specific ones. |
+| `from` | int64 | Start of the requested time range as [.NET Ticks](https://docs.microsoft.com/en-us/dotnet/api/system.datetime.ticks). Use `0` to retrieve data from the beginning. |
+| `to` | int64 | End of the requested time range as [.NET Ticks](https://docs.microsoft.com/en-us/dotnet/api/system.datetime.ticks). Use the current timestamp (e.g., `DateTime.UtcNow.Ticks`) to retrieve up to the current moment. |
+
+
+</details>
+
+**Responses:**
+
+200 - Returns a unique identifier, which can be used to obtain the result of the operation via the response endpoint. The actual journal data is returned when polling the `/response` endpoint with this identifier.
+
+<details>
+<summary>Response sample (JSON):</summary>
+
+
+```json
+{
+  "type": "journal",
+  "identifier": "a1b2c3d4-e5f6-7890-abcd-ef1234567890"
+}
+```
+
+
+</details>
+
+400 - Bad request (Please check the request)
+
+401 - Unauthorized (No or wrong Accesstoken or CashBoxID in header)
+
+:::info
+
+The `ftJournalType` value is market-specific. Common cross-market values include:
+- `0` – Version information (returns middleware version as JSON)
+- `1` – ActionJournal in internal format
+- `2` – ReceiptJournal in internal format
+- `3` – QueueItemJournal in internal format
+
+For country-specific values (e.g., Germany's DSFinV-K export or Austria's RKSV-DEP export), please refer to the relevant country appendix.
+
+:::
+
 ## Asynchronously create a digital receipt (Print endpoint) 
 
 This method is used to "print" a digital receipt, based on the receipt request and response pair from signing a receipt via the sign endpoint. The asynchronously created response contains the URL to the digital receipt. 
