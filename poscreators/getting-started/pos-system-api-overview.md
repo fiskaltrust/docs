@@ -59,6 +59,44 @@ The API exposes a compact, consistent set of endpoints covering the full fiscal 
 
 Each endpoint performs a well-defined step within the overall fiscal workflow and contributes to a traceable, compliant transaction chain.
 
+## End-to-End Request Flow
+
+The diagram below illustrates a typical fiscal transaction lifecycle, showing how a POS system interacts with the fiskaltrust.Middleware through the POS System API and how the Middleware in turn communicates with country-specific signing components and the fiskaltrust.Cloud.
+
+```
+   ┌─────────────────┐                  ┌──────────────────────────┐                  ┌────────────────────┐
+   │   POS System    │                  │  fiskaltrust.Middleware  │                  │  fiskaltrust.Cloud │
+   │ (Cash Register) │                  │      (POS System API)    │                  │      / Portal      │
+   └────────┬────────┘                  └────────────┬─────────────┘                  └──────────┬─────────┘
+            │                                        │                                           │
+            │  /echo  (health check)                 │                                           │
+            │ ─────────────────────────────────────▶ │                                           │
+            │ ◀───────────────────────────────────── │                                           │
+            │                                        │                                           │
+            │  /order (register order data)          │                                           │
+            │ ─────────────────────────────────────▶ │                                           │
+            │ ◀──────────────── order state ──────── │                                           │
+            │                                        │                                           │
+            │  /pay   (process payment)              │                                           │
+            │ ─────────────────────────────────────▶ │                                           │
+            │ ◀──────────────── payment state ────── │                                           │
+            │                                        │                                           │
+            │  /sign  (fiscalize receipt)            │   country-specific signing                │
+            │ ─────────────────────────────────────▶ │ ───────────────▶ (SCU / TSE / RT / ...)   │
+            │ ◀──────────── signed receipt data ──── │ ◀───────────────                          │
+            │                                        │                                           │
+            │  /issue (generate receipt output)      │                                           │
+            │ ─────────────────────────────────────▶ │                                           │
+            │ ◀──────────── digital / printable ──── │                                           │
+            │                                        │                                           │
+            │  /journal (audit / closing exports)    │                                           │
+            │ ─────────────────────────────────────▶ │ ────────── upload receipt chain ────────▶ │
+            │ ◀──────────── journal data ─────────── │ ◀─────── configuration / updates ──────── │
+            │                                        │                                           │
+```
+
+Every request carries the headers `x-cashbox-id`, `x-cashbox-accesstoken`, `x-possystem-id`, and `x-operation-id`, so each step can be safely retried without producing duplicate fiscal actions.
+
 ## Versioning and Compatibility
 
 The POS System API uses **semantic versioning**:
@@ -68,3 +106,33 @@ The POS System API uses **semantic versioning**:
 - If no version is specified, the latest available version is used
 
 This guarantees backward compatibility while allowing regulatory and functional extensions over time.
+
+## FAQ
+
+**Q: What is the difference between the POS System API and the fiskaltrust.Middleware?**
+
+A: The fiskaltrust.Middleware is the component that performs the actual fiscalization, signing, and journaling logic. The POS System API is the HTTP/JSON interface exposed by the Middleware that POS systems use to drive these operations. POS systems do not call signing components (SCU, TSE, RT, …) directly — they always interact with the Middleware through the POS System API.
+
+**Q: Do I need a different integration per country?**
+
+A: No. The POS System API is unified across markets and abstracts country-specific fiscal rules behind the same set of endpoints (`/echo`, `/order`, `/pay`, `/sign`, `/issue`, `/journal`). Country-specific behaviour is driven by the CashBox configuration and the data sent in the requests, not by a separate API surface.
+
+**Q: What is `x-operation-id` used for, and how should it be generated?**
+
+A: `x-operation-id` is a unique identifier per logical operation that makes requests idempotent. If the same `x-operation-id` is sent twice (for example after a network timeout), the Middleware returns the result of the original operation or blocks until it completes, instead of executing the operation a second time. It should be a unique value per logical operation (typically a GUID/UUID) and must remain identical across retries of the same call.
+
+**Q: Where do I get `x-cashbox-id`, `x-cashbox-accesstoken`, and `x-possystem-id`?**
+
+A: These values are issued via the fiskaltrust Portal as part of configuring a CashBox and registering a POS system variant. They are tied to a specific CashBox configuration and must be stored securely on the POS side.
+
+**Q: Is the POS System API safe to retry on network errors?**
+
+A: Yes. The API is designed around an idempotent, state-based model. Retrying a request with the same `x-operation-id` is the recommended way to recover from transient network issues, timeouts, or interrupted responses without risking duplicate fiscal actions.
+
+**Q: How are breaking changes handled?**
+
+A: The API uses semantic versioning. Breaking changes are introduced only in major versions; non-breaking changes may add optional fields without altering existing models. If no version is specified, the latest available version is used, so pinning to a specific major version is recommended for production integrations.
+
+**Q: Can `/pay` be used without `/sign`, or vice versa?**
+
+A: Each endpoint represents a step in the fiscal workflow and is intended to be used as part of the overall process. Which steps are required depends on the country-specific fiscal rules and the business case being executed. The combination of steps performed for a given transaction must result in a complete, traceable, and compliant chain.
