@@ -63,37 +63,7 @@ Each endpoint performs a well-defined step within the overall fiscal workflow an
 
 The diagram below illustrates a typical fiscal transaction lifecycle, showing how a POS system interacts with the fiskaltrust.Middleware through the POS System API and how the Middleware in turn communicates with country-specific signing components and the fiskaltrust.Cloud.
 
-```
-   ┌─────────────────┐                  ┌──────────────────────────┐                  ┌────────────────────┐
-   │   POS System    │                  │  fiskaltrust.Middleware  │                  │  fiskaltrust.Cloud │
-   │ (Cash Register) │                  │      (POS System API)    │                  │      / Portal      │
-   └────────┬────────┘                  └────────────┬─────────────┘                  └──────────┬─────────┘
-            │                                        │                                           │
-            │  /echo  (health check)                 │                                           │
-            │ ─────────────────────────────────────▶ │                                           │
-            │ ◀───────────────────────────────────── │                                           │
-            │                                        │                                           │
-            │  /order (register order data)          │                                           │
-            │ ─────────────────────────────────────▶ │                                           │
-            │ ◀──────────────── order state ──────── │                                           │
-            │                                        │                                           │
-            │  /pay   (process payment)              │                                           │
-            │ ─────────────────────────────────────▶ │                                           │
-            │ ◀──────────────── payment state ────── │                                           │
-            │                                        │                                           │
-            │  /sign  (fiscalize receipt)            │   country-specific signing                │
-            │ ─────────────────────────────────────▶ │ ───────────────▶ (SCU / TSE / RT / ...)   │
-            │ ◀──────────── signed receipt data ──── │ ◀───────────────                          │
-            │                                        │                                           │
-            │  /issue (generate receipt output)      │                                           │
-            │ ─────────────────────────────────────▶ │                                           │
-            │ ◀──────────── digital / printable ──── │                                           │
-            │                                        │                                           │
-            │  /journal (audit / closing exports)    │                                           │
-            │ ─────────────────────────────────────▶ │ ────────── upload receipt chain ────────▶ │
-            │ ◀──────────── journal data ─────────── │ ◀─────── configuration / updates ──────── │
-            │                                        │                                           │
-```
+![POS System API end-to-end request flow](images/pos-system-api-request-flow.svg)
 
 Every request carries the headers `x-cashbox-id`, `x-cashbox-accesstoken`, `x-possystem-id`, and `x-operation-id`, so each step can be safely retried without producing duplicate fiscal actions.
 
