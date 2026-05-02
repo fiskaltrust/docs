@@ -3,11 +3,24 @@
  *
  * Structurizr DSL source for `pos-system-api-request-flow.svg`.
  *
+ * The Structurizr renderer draws dynamic views as box-and-arrow diagrams
+ * with numbered edges; it has no built-in "sequence diagram" mode. To get
+ * a true sequence diagram, export the dynamic view to PlantUML or Mermaid
+ * (both natively support sequence diagrams) and render that.
+ *
  * Render with:
- *   - https://playground.structurizr.com  (paste this file, open the
- *     "PosSystemApiRequestFlow" view, switch the renderer to
- *     "Sequence diagram", then export PNG / SVG / PlantUML / Mermaid).
- *   - or the Structurizr CLI:  structurizr-cli export -workspace pos-system-api-request-flow.dsl -format plantuml/mermaid
+ *   - Structurizr Lite (Docker): run `structurizr/lite` against this file,
+ *     open the "PosSystemApiRequestFlow" view, then use the diagram
+ *     toolbar's Export button to copy the PlantUML or Mermaid source.
+ *     Render the resulting `@startuml` / `sequenceDiagram` snippet on
+ *     https://www.plantuml.com/plantuml or https://mermaid.live.
+ *   - Structurizr CLI:
+ *       structurizr-cli export -workspace pos-system-api-request-flow.dsl -format mermaid
+ *     (or `-format plantuml`). The dynamic view is emitted as a
+ *     `sequenceDiagram` (Mermaid) / sequence diagram (PlantUML).
+ *   - https://playground.structurizr.com previews only the standard
+ *     Structurizr renderer; use its Export menu and the same
+ *     PlantUML/Mermaid rendering step above.
  *
  * When the diagram changes, edit this file and regenerate the SVG — keep
  * the two files in sync.
