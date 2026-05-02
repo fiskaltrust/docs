@@ -35,6 +35,11 @@ workspace "fiskaltrust POS System API" "End-to-end request flow between a POS sy
 
         middleware = softwareSystem "fiskaltrust.Middleware" "Exposes the POS System API and orchestrates fiscalization, payment, issuing and journaling." {
             tags "Middleware"
+
+            posApi       = container "POS System API"   "HTTP endpoints (/echo, /order, /pay, /sign, /issue, /journal) consumed by the POS." "REST API"
+            queue        = container "Action queue"     "Orchestrates order, payment, signing, issuing and journaling actions; persists state for retries."
+            scuProxy     = container "SCU / TSE proxy"  "Country-specific adapter that forwards signing requests to the signing component."
+            journalStore = container "Journal store"    "Local persistence for the receipt chain and audit / closing exports." "Database"
         }
 
         signing = softwareSystem "Signing component & Cloud" "Country-specific signing component (SCU / TSE / RT / …) and the fiskaltrust.Cloud." {
@@ -46,9 +51,22 @@ workspace "fiskaltrust POS System API" "End-to-end request flow between a POS sy
         middleware -> pos        "Returns API responses"
         middleware -> signing    "Performs country-specific signing and uploads the receipt chain"
         signing    -> middleware "Returns signature data and configuration / updates"
+
+        # Container-level relationships that back the container view.
+        pos          -> posApi       "Calls POS System API endpoints" "HTTPS / JSON"
+        posApi       -> queue        "Enqueues orders, payments, signing, issuing and journaling actions"
+        queue        -> scuProxy     "Requests receipt signing"
+        queue        -> journalStore "Persists receipt chain and exports"
+        scuProxy     -> signing      "Forwards signing requests and uploads receipt chain"
+        signing      -> scuProxy     "Returns signature data and configuration / updates"
     }
 
     views {
+        container middleware "MiddlewareContainers" "Internal containers of the fiskaltrust.Middleware that implement the POS System API." {
+            include *
+            autoLayout lr
+        }
+
         dynamic * "PosSystemApiRequestFlow" "Every request carries x-cashbox-id, x-cashbox-accesstoken, x-possystem-id and x-operation-id — safe to retry without duplicating fiscal actions." {
 
             # /echo
@@ -88,6 +106,15 @@ workspace "fiskaltrust POS System API" "End-to-end request flow between a POS sy
                 background #e8f0fb
                 color #1f3a5f
                 stroke #1f3a5f
+            }
+            element "Container" {
+                shape RoundedBox
+                background #d6e4f7
+                color #1f3a5f
+                stroke #1f3a5f
+            }
+            element "Database" {
+                shape Cylinder
             }
             element "Signing" {
                 background #fff2dc
