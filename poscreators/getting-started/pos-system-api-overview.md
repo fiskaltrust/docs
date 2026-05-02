@@ -48,16 +48,18 @@ All access credentials are managed and issued via the **fiskaltrust Portal** as 
 
 ## Core API Endpoints
 
-The API exposes a compact, consistent set of endpoints covering the full fiscal lifecycle:
+The API exposes a compact, consistent set of endpoints that cover the full fiscal lifecycle. The same endpoints are used across all supported markets — country-specific compliance is driven by the CashBox configuration, not by a separate API surface.
 
-- `/echo` – connectivity check and health verification
-- `/order` – register order data and query processing state
-- `/pay` – execute and monitor payment processing
-- `/sign` – finalize and fiscalize receipts according to national rules
-- `/issue` – generate and manage digital or printable receipts
-- `/journal` – retrieve audit-relevant journal data
+| Endpoint   | Purpose                                                                                              | Typical use case                                          |
+|------------|------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|
+| `/echo`    | Connectivity and health check; can also be used to verify Middleware version and capabilities.       | Test the connection on POS startup.                       |
+| `/order`   | Register order data and query the processing state of an order.                                      | Send sales lines, items, quantities, prices and VAT.      |
+| `/pay`     | Execute and monitor payment processing, including timeouts and payment-method allocation.            | Settle an order with one or more payment methods.         |
+| `/sign`    | Finalize and fiscalize the receipt according to national rules (signing, hash chaining, etc.).       | Produce an audit-proof, country-compliant receipt.        |
+| `/issue`   | Generate and manage receipt output, and update its delivery state (digital or printable).            | Hand the signed receipt over to the customer.             |
+| `/journal` | Retrieve audit-relevant journal data and ranges for closings, exports and inspections.              | Daily/monthly closings, audit exports, archive snapshots. |
 
-Each endpoint performs a well-defined step within the overall fiscal workflow and contributes to a traceable, compliant transaction chain.
+Each endpoint performs a well-defined step within the overall fiscal workflow and contributes to a traceable, compliant transaction chain. For the full request/response models, payload schemas and per-endpoint error codes, see the [POS System API reference (v2.1)](https://docs.fiskaltrust.cloud/apis/pos-system-api).
 
 ## End-to-End Request Flow
 
@@ -76,6 +78,15 @@ The POS System API uses **semantic versioning**:
 - If no version is specified, the latest available version is used
 
 This guarantees backward compatibility while allowing regulatory and functional extensions over time.
+
+## Reference Documentation and Tooling
+
+When implementing against the POS System API, the following resources complement this overview:
+
+- **API reference (v2.1)** – complete specification of all endpoints, request and response models, headers and error codes: [https://docs.fiskaltrust.cloud/apis/pos-system-api](https://docs.fiskaltrust.cloud/apis/pos-system-api).
+- **Interactive developer portal** – browse endpoints by market and send live requests against a paired CashBox: [https://developer.fiskaltrust.eu](https://developer.fiskaltrust.eu/#/pos-system/tutorials/general/api-endpoints-overview).
+- **Local PosSystem API Helper** – Middleware helper that exposes the POS System API as a local endpoint for Launcher 2.0 deployments and testing: see [Local PosSystem API Helper](../../posdealers/technical-operations/middleware/helper-possystemapi.md).
+- **Sample code and SDKs** – reference implementations and integration samples: [`fiskaltrust/possystemapi-devkit`](https://github.com/fiskaltrust/possystemapi-devkit).
 
 ## FAQ
 
