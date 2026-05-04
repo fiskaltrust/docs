@@ -435,5 +435,13 @@ module.exports = [
     type: "link",
     label: "Development Kit",
     href: "https://github.com/fiskaltrust/possystemapi-devkit/blob/main/README.MD",
-  }, 
+  },
+  {
+    type: "category",
+    label: "POSSystemAPI Migration",
+    collapsed: false,
+    items: [
+      "poscreators/pos-system-api/migration/v0-to-possystemapi",
+    ],
+  },
 ];
