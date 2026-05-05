@@ -37,14 +37,18 @@ The merchants PosDealer can participate by means of placing orders and intermedi
 
 ![give-away](./images/sequenze_diagramm_instore_app.png)
 
-This sequence diagram describes the process of generating a digital receipt with the InStore App. The participants in the process are the merchant, fiskaltrust, consumer and the InStore App. 
+The following diagram describes the process of generating a digital receipt with the InStore App. The participants in the process are the merchant, fiskaltrust, the consumer and the InStore App.
 
-The InStore App offers three options: scan QR-Code to receive digital receipt on mobile phone, accept button to manually acknowledge received receipt and print receipt on thermal paper.
+The InStore App offers five options: scanning the QR code to receive the digital receipt on a mobile phone, tapping the OK button to manually acknowledge receipt, printing the receipt on thermal paper, sending the receipt via email, or sending it via SMS.
 
-In store, the merchant collects items and processes the payment or checkout. Then the merchant sends a sign message to fiskaltrust for fiscalization purposes. 
+In-store, the merchant collects items and processes the payment or checkout. The merchant then sends a sign message to fiskaltrust for fiscalization purposes. 
 
-**Scan QR-Code:** The InStore App constantly listening to the fiskaltrust receipt backend, if there is an receipt push command. Once the InStore App received an https receipt link, the QR-Code gets visualized on the InStore App device. The consumer scans the QR-Code with his mobile phone. He receives the https receipt link, the InStore App sends an log that the receipt got scanned by consumer. The fiskaltrust backend renders the receipt, the QR-Code display on the InStore App device closes. The consumer can now accesses the HTML receipt document. The consumer can then provide feedback regarding the receipt. 
+- **Scan QR code:** The InStore App continuously listens to the fiskaltrust receipt backend for incoming receipt push events. When an HTTPS receipt link is received, it displays a QR code on the device screen. The consumer scans the QR code with their mobile phone and receives the HTTPS receipt link. The InStore app sends a log to the fiskaltrust backend indicating that the receipt was scanned by the consumer. The fiskaltrust backend renders the receipt, and the QR code display on the InStore App device is closed. The consumer can now accesses the HTML receipt document and provide feedback regarding the receipt. 
 
-**Acknowledge:** The consumer manually accepts the he received the receipt, by pressing the accept button on the InStore App. The InStore App send to fiskaltrust backend and log, that the receipt got acknowledged manually. The InStore App gets a response from fiskaltrust, to close the display. 
+- **Acknowledge:** The consumer manually acknowledges receipt by tapping the OK button in the InStore App. The InStore app sends a log to the fiskaltrust backend indicating that the receipt was acknowledged manually. The InStore app receives a response from the fiskaltrust backend to close the display. 
 
-**Print receipt:** Consumers can manually initiate paper receipt printing on the InStore App device by clicking the print button. Additionally, in the absence of user interaction, a paper receipt will be automatically printed after a default countdown of 15 seconds. Once the receipt is printed, the display will close and the print command will be logged.
+- **Print receipt:** Consumers can manually initiate paper receipt printing on the InStore App device by tapping the Print button. Additionally, if there is no user interaction, a paper receipt is automatically printed after a default countdown of 15 seconds. Once the receipt is printed, the display closes and the print command is logged.
+
+- **Send receipt via email:** Consumers can choose to receive the digital receipt via email by tapping the Send by Email button on the InStore App device. A screen will then be displayed where the consumer can enter their email address.
+
+- **Send receipt via SMS:** Consumers can choose to receive the digital receipt via SMS by tapping the Send by SMS button on the InStore App device. A screen will then be displayed where the consumer can enter their phone number.
