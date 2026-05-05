@@ -18,7 +18,13 @@ We are using the "circuit breaker" design pattern for our failed mode. As we are
 </p>
 
 ![no-scu-connection](./images/10-no-scu-connection.png)
-  
+
+<!--
+In the graphic it says "TSE communication failure" but the TSE only exists in DE.
+Should maybe say "SSCD communication failure".
+Also what should be printed (last step) on the receipt depends on the market and is is returned by the queue in the response signatures.
+-->
+
 When the SCU is reachable again, a Zero-Receipt must be sent, which forces a communication retry towards the SSCD. If the fiskaltrust.Middleware is able to connect to the SCU again, the ftState = `0xXXXX000000000000` (ok) is returned to the POS system via the response and the fiskaltrust.Middleware is ready for normal operation again. Furthermore, the response contains a listing of the requests that were not signed by the SSCD. The requests affected by the failure of the communication with the SCU do not have to be sent to the Queue again after the problem has been resolved.
 
 :::tip
@@ -35,12 +41,21 @@ We recomment to not manually print the text _SCU communication failed_, but to p
 
 ![reestablished-scu-connection](./images/11-reestablished-connection.png)
 
+<!--
+"TSE" is mentioned again.
+And I think the "list of requests that could not be signed by the TSE" is not applicable for all markets so we can probably remove it.
+-->
 
 ## Middleware not reachable or failing
 
 If a cash register cannot communicate with the fiskaltrust.Middleware it is most likely due to a failure of the network connection, the Middleware host, or the Middleware itself. Such a failure means that the electronic recording system is not operational and there is no access to the appropriate journal.
 
 ![no-middleware-connection](./images/07-no-middleware-connection.png)
+
+
+<!--
+What the POS has to do/print (last step) kind of depends on the market.
+-->
 
 In this case, the following steps must be taken:
 
@@ -58,6 +73,8 @@ After fiskaltrust.Middleware has received an "end of failure receipt" (i.e. a ze
 :::tip
 
 We recommend to send re-send the first failed receipt with the _receipt request_ flag `0x0000800000000000`, which checks if a receipt was already sent and returns it in that case (to cover the case when the Middleware received and processed a receipt, but the answer was lost e.g. due to a network outage). More details about this flag can be found [here](../reference-tables/reference-tables.md#ftreceiptcaseflag)
+
+<!-- The receipt request flag presented here is the v1 flag. In v2 it's 0x0000000080000000. -->
 
 :::
 

@@ -11,6 +11,11 @@ The communication protocol is specified by setting the respective URL in the pac
 
 ![queue-configuration](./images/url-configuration.png)
 
+<!--
+Again an -rc version is shown.
+We should probably show a rest url as that's the most commonly used option.
+-->
+
 _Buttons for other URL options (like gRPC) may be available as well, depending on the country._
 
 :::info

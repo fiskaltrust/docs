@@ -15,6 +15,11 @@ The integration process is divided into discrete stages, each with specific obje
 
 ![integration phases](images/pos-creator-integration-phases.png)
 
+<!--
+I think this one is kind of correct... maybe step 4 comes before step 3.
+But I'm not sure this is still how we want to communicate it as we now have the accademy where most of that is tackled I think.
+-->
+
 Before proceeding with this guide, review the following resources:
 
 ### Video Tutorial
