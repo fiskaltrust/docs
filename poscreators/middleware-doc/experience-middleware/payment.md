@@ -41,3 +41,30 @@ Payment integration is primarily relevant for:
 - **PosCreators** who want to support multiple payment providers with a single integration.
 - **PosDealers** managing merchant rollouts across markets.
 - **PosOperators** who want simpler setups, fewer devices, or hardware-free payment options where available.
+
+## Vendor Feature Matrix
+
+The matrix below shows which payment features are supported per vendor. Use it to plan integrations and to spot gaps where fiskaltrust can help.
+
+A version number (e.g. `1.3.0+`) means the feature is available from that InStore App release onwards. All other values are explained in the [legend](#legend).
+
+| Vendor                                  | payment | refund | unreferenced-refund | cancel | TIP (pay-app → fiskaltrust) | TIP (fiskaltrust → pay-app) | under-payment | batch processing (close-batch) | Transaction Status Check | merchant receipt support (in addition to customer receipt) |
+|-----------------------------------------|---------|--------|---------------------|--------|--------------------|--------------------|---------------|--------------------------------|--------------------------|------------------------------------------------------------|
+| Viva                                    | 1.2.5+  | 1.3.0+ | –                   | 1.3.0+ | 1.3.0+             | –                  | ?             | ?                              | ?                        | ?                                                          |
+| Hobex POSit                             | 1.2.8+  | 1.3.0+ | –                   | 1.3.0+ | 1.3.0+             | ?                  | ?             | yes (auto)                     | 1.3.0+                   | ?                                                          |
+| Hobex ECR                               | 1.2.5+  | 1.3.0+ | –                   | 1.3.0+ | 1.3.0+             | ?                  | ?             | ?                              | 1.3.0+                   | ?                                                          |
+| Worldline / PayOne WPI (TOM + SmartPOS) | 1.2.5+  | 1.3.0+ | n/a                 | 1.3.0+ | 1.3.0+             | –                  | ?             | n/a                            | 1.3.0+                   | ?                                                          |
+| Softpay.io                              | 1.2.8+  | 1.3.0+ | –                   | 1.3.0+ | 1.3.0+             | ?                  | ?             | yes (auto)                     | 1.3.0+                   | ?                                                          |
+| Global Payments – GPtom                 | 1.2.5+  | 1.3.0+ | ?                   | 1.3.0+ | 1.3.0+             | ?                  | ?             | –                              | 1.2.8+                   | ?                                                          |
+| Global Payments – GP Pay                | 1.2.5+  | 1.3.0+ | ?                   | 1.3.0+ | 1.3.0+             | ?                  | ?             | ?                              | ?                        | ?                                                          |
+| Shift4                                  | 1.2.8+  | 1.2.8+ | n/a                 | 1.2.8+ | 1.3.0+             | –                  | 1.3.1+        | n/a                            | 1.3.0+                   | ?                                                          |
+
+### Legend
+
+| Value     | Meaning                                                              |
+|-----------|----------------------------------------------------------------------|
+| `1.x.y+`  | Available from this InStore App release onwards                      |
+| `yes`     | Supported today                                                      |
+| `–`       | Possible, but not on our roadmap yet                                 |
+| `?`       | We do not know whether it is supported by the payment vendor         |
+| `n/a`     | Not supported by the payment vendor                                  |
