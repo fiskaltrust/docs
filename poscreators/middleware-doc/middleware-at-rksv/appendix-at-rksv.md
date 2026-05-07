@@ -19,7 +19,7 @@ Ritz/Koran/Kutschera/Knasmüller, Handbuch Registrierkassen- und Belegerteilungs
 
 :::info Upgrading to PosSystem API (v2)
 
-New features such as e-invoicing are available exclusively through the **PosSystem API (v2)**. If you are currently using the v0 interface (WCF/REST), see the [v0 → PosSystem API migration guide](../general/migration/v0-to-possystemapi.md) for step-by-step instructions.
+New features such as e-invoicing are available exclusively through the **PosSystem API (v2)**. If you are currently using the v0 interface (WCF/REST), see the Migrating from API v0 to PosSystem API (v2) guide for instructions.
 
 :::
 

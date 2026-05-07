@@ -11,13 +11,17 @@ The legacy **v0 SignatureCloud API** (also referred to by its subdomain pattern 
 
 Migrating to v2 gives you:
 
-- **E-invoicing support** - Access to e-invoicing features and all future compliance capabilities
+- **E-invoicing support** - Access to e-invoicing features and all future compliance capabilities.
 - **Alignment with fiskaltrust Middleware v2** — the POSSystemAPI interface is designed to remain largely stable when the middleware transitions from v1.2 to v2, making this migration valuable preparation.
 - **Long-term supportability** — v0 is considered deprecated; customers are encouraged to migrate as soon as possible.
 - **Simpler authentication** - PIN-based pairing for simpler, more secure authentication setup.
 - **Modern and flexible API design** - A modern, standard HTTP/REST API that works with any programming language or framework.
 
+:::info
+
 This guide is primarily targeted at PosCreators integrating **cloud cashboxes** in the **AT, FR, and DE** markets.
+
+:::
  
 ## Prerequisites
 
@@ -28,8 +32,6 @@ Before starting the migration, ensure you have:
 - An existing integration that successfully produces receipts against the v0 SignatureCloud API.
 - Access to a **sandbox cashbox** for testing your migrated integration before going live.
 - **Launcher 2.0** (minimum version `2.0.0-rc.25`) — the PosSystem API requires Launcher 2.0.
-- Familiarity with the [Local PosSystem API Helper setup guide](../../../../posdealers/technical-operations/middleware/helper-possystemapi.md).
-- Familiarity with the **POSSystemAPI business case examples**, which serve as the reference for the new request format: [https://developers.fiskaltrust.eu/#/pos-system](https://developers.fiskaltrust.eu/#/pos-system)
 
 :::caution Market availability
 
@@ -37,6 +39,7 @@ The PosSystem API via Launcher 2.0 has market-specific constraints:
 
 - **Austria (AT):** Launcher 2.0 is not enabled by default. Contact fiskaltrust support to enable it for your account.
 - **France (FR):** Launcher 2.0 is not yet supported. French customers should contact fiskaltrust for the current roadmap before planning a migration.
+- **Germany (DE):** TBD
 
 :::
 
@@ -44,23 +47,23 @@ The PosSystem API via Launcher 2.0 has market-specific constraints:
 
 The following table summarises the key architectural differences between the two integration approaches:
 
-| Aspect                  | v0 (legacy)                                                       | v2 — PosSystem API                                               |
+| Aspect                  | v0 (legacy)                                                       | v2 - PosSystem API                                               |
 |-------------------------|-------------------------------------------------------------------|------------------------------------------------------------------|
 | **Protocol**            | WCF (SOAP) or REST `/v0/`                                         | HTTP REST `/possystemapi/`                                       |
 | **Communication style** | Synchronous (blocking)                                            | Modern REST (JSON)                                               |
 | **Middleware component**| Queue package directly                                            | LocalPosSystemApi Helper in front of the Queue                   |
 | **Launcher**            | Launcher 1.x                                                      | Launcher 2.0 (min. `2.0.0-rc.25`)                               |
-| **Authentication**      | CashboxID + AccessToken (per request / in service binding)        | CashboxID + AccessToken in HTTP headers, PIN pairing via Portal  |
-| **Client libraries**    | .NET `ifPOS.v0` NuGet package, WCF proxies, or REST HTTP calls    | Any HTTP client; official devkit available                       |
-| **New feature support** | None — no new features planned                                    | All new features (e-invoicing, etc.)                             |
+| **Authentication**      | Cashbox ID + AccessToken (per request / in service binding)        | Cashbox ID + AccessToken in HTTP headers, PIN pairing via Portal  |
+| **Client libraries**    | .NET `ifPOS.v0` NuGet package, WCF proxies, or REST HTTP calls    | Any HTTP client
+| **New feature support** | None - no new features planned                                    | All new features (e-invoicing, etc.)                             |
 
-**v0 data flow:**
+- **v0 data flow:**
 
 ```
 POS System → WCF or REST (/v0/) → fiskaltrust Queue
 ```
 
-**v2 data flow:**
+- **v2 data flow:**
 
 ```
 POS System → HTTP REST (/possystemapi/) → LocalPosSystemApi Helper → fiskaltrust Queue
@@ -81,9 +84,7 @@ If your integration targets a **Cloud CashBox** (for example, your POS system ca
 
 :::info
 
-The new endpoint is **market-agnostic** — the same base URL is used for AT, FR, and DE. The market is determined by the `ftCashBoxID` and queue configuration, not the URL.
-
-Note that the v2 cloud endpoint is a **single, market-agnostic URL** — the market is determined by the `ftReceiptCase` value and your CashBox configuration, not the host.
+The v2 cloud endpoint uses a single, market-agnostic base URL for all markets (AT, FR, DE), with the actual market determined by values such as the `ftCashBoxID` / `ftReceiptCase` and your **CashBox and queue configuration**, not by the URL or host.
 
 :::
 
@@ -97,24 +98,24 @@ The path structure changes accordingly:
 | Echo      | `/[json|xml]/v0/echo`                       | `/api/v2/echo`           |
 | Journal   | `/[json|xml]/v0/journal`                    | `/api/v2/journal`        |
 
-## Case Values
+### Case Values
 
 The integer values used for `ftReceiptCase`, `ftChargeItemCase`, and `ftPayItemCase` differ between the v0 and v2 interfaces. Updating these values is the most substantial part of the migration. You must remap all case values in your requests.
 
-:::info Developer Portal
+:::info Development Plataform
 
-The authoritative source for v2 case values and their mapping to v0 cases is the [fiskaltrust Developer Portal](https://developers.fiskaltrust.eu/#/pos-system). It provides market-specific business case examples (AT, FR, DE) with the correct v2 `ftReceiptCase`, `ftChargeItemCase`, and `ftPayItemCase` values for each scenario. Use these examples as your reference when updating your integration.
+The authoritative source for v2 case values and their mapping to v0 cases is the **fiskaltrust** [Development Platform](https://developers.fiskaltrust.eu/#/pos-system). It provides market-specific business case examples (AT, FR, DE) with the correct v2 `ftReceiptCase`, `ftChargeItemCase`, and `ftPayItemCase` values for each scenario. Use these examples as your reference when updating your integration.
 
 :::
 
 A systematic approach to updating case values:
 
 1. List every `ftReceiptCase`, `ftChargeItemCase`, and `ftPayItemCase` value currently used in your integration.
-2. For each value, find the corresponding business case in the Developer Portal for your market.
-3. Replace the v0 value with the v2 value shown in the portal example.
+2. For each value, find the corresponding business case in the [Development Platform](https://developers.fiskaltrust.eu/#/pos-system) for your market.
+3. Replace the v0 value with the v2 value shown in the platform example.
 4. Repeat for all receipt types (including special receipts such as Start-Receipt, Stop-Receipt, daily/shift closings, and Zero-Receipts).
 
-### ftReceiptCase
+#### ftReceiptCase
 
 <details>
 <summary>Austria (AT)</summary>
@@ -127,12 +128,6 @@ A systematic approach to updating case values:
 | Out of operation / stop receipt | `0x4154000000000004` | TODO |
 | Monthly closing | `0x4154000000000005` | TODO |
 | Yearly closing | `0x4154000000000006` | TODO |
-
-:::caution TODO
-
-The POSSystemAPI v2 values for AT `ftReceiptCase` must be verified.
-
-:::
 
 </details>
 
@@ -149,12 +144,6 @@ The POSSystemAPI v2 values for AT `ftReceiptCase` must be verified.
 | Monthly closing | `0x4652000000000006` | TODO |
 | Yearly closing | `0x4652000000000007` | TODO |
 | Archives / fiscal period archive | `0x4652000000000015` | TODO |
-
-:::caution TODO
-
-The POSSystemAPI v2 values for FR `ftReceiptCase` must be verified.
-
-:::
 
 </details>
 
@@ -176,7 +165,7 @@ The POSSystemAPI v2 values for FR `ftReceiptCase` must be verified.
 
 </details>
 
-### ftChargeItemCase
+#### ftChargeItemCase
 
 <details>
 <summary>Austria (AT)</summary>
@@ -210,7 +199,7 @@ The POSSystemAPI v2 values for FR `ftReceiptCase` must be verified.
 
 </details>
 
-### ftPayItemCase
+#### ftPayItemCase
 
 <details>
 <summary>Austria (AT)</summary>
@@ -264,15 +253,15 @@ The POSSystemAPI v2 values for FR `ftReceiptCase` must be verified.
 </details>
 
 Key differences highlighted:
-1. The base URL changes (see Step 1).
-2. All `*Case` numeric values must be remapped (see mapping tables above).
-3. `ftReceiptCaseData` is now an object keyed by market code instead of a raw string (see the section below).
+1. The base URL changes.
+2. All case numeric values must be remapped.
+3. `ftReceiptCaseData` is now an object keyed by market code instead of a raw string.
 
-### ftReceiptCaseData Format
+#### ftReceiptCaseData Format
 
 The `ftReceiptCaseData` field changes from a **JSON-encoded string** in v0 to a **market-keyed JSON object** in v2.
 
-**v0 format** — the entire value is a JSON string embedded as a string field:
+- **v0 format**: the entire value is a JSON string embedded as a string field.
 
 ```json
 {
@@ -281,7 +270,7 @@ The `ftReceiptCaseData` field changes from a **JSON-encoded string** in v0 to a 
 }
 ```
 
-**v2 format** — the value is a plain JSON object with a market key (`"FR"`, `"AT"`, `"DE"`) whose value is a JSON-encoded string:
+- **v2 format**: the value is a plain JSON object with a market key (`"FR"`, `"AT"`, `"DE"`) whose value is a JSON-encoded string.
 
 ```json
 {
@@ -296,9 +285,8 @@ Key points:
 - The outer field is now a **JSON object**, not a string.
 - The inner value (per market key) remains a **JSON-encoded string** of the market-specific payload.
 - Use the two-letter ISO market code as the key (`"FR"`, `"AT"`, `"DE"`).
-- If `ftReceiptCaseData` is not needed for a particular receipt type, the field can be omitted entirely.
 
-#### Examples by Market
+##### Examples by Market
 
 **Austria (AT)**
 
@@ -335,20 +323,33 @@ Key points:
 
 :::warning
 
-If `ftReceiptCaseData` is not needed for a particular receipt, pass an empty object (`{}`) or omit the field entirely. **Do not pass a bare empty string (`""`)** as the top-level value — that was valid in v0 but is no longer accepted at the outer level in v2.
+If `ftReceiptCaseData` is not needed for a particular receipt, pass an empty object (`{}`) or omit the field entirely. Do not pass a bare empty string (`""`) as the top-level value — that was valid in v0 but is no longer accepted at the outer level in v2.
 
-The inner string value for a given market key **may** be an empty string (`""`) when no additional case data is required for that market.
+The inner string value for a given market key may be an empty string (`""`) when no additional case data is required for that market.
 
 :::
 
-### ReceiptResponse
+#### ReceiptRequest
+
+The v2 `ReceiptRequest` is a superset of the v0 model. Most existing fields are directly reusable. The key differences are:
+
+| Field                       | v0                                  | v2                                                    |
+|-----------------------------|-------------------------------------|-------------------------------------------------------|
+| `cbReceiptReference`        | Optional in some flows              | **Required** — must be a unique string per request    |
+| `Currency`                  | Not present                         | Added — ISO 4217 currency code (default: `EUR`)       |
+| `DecimalPrecisionMultiplier`| Not present                         | Added — controls integer vs. floating-point amounts (default: `1`, i.e. floating-point) |
+| `ftPosSystemID`             | Optional                            | Recommended — identifies your POS software           |
+
+All other fields (`ftCashBoxID`, `cbTerminalID`, `cbReceiptMoment`, `cbChargeItems`, `cbPayItems`, `ftReceiptCase`, etc.) carry over unchanged.
+
+#### ReceiptResponse
 
 The `ReceiptResponse` structure is largely compatible. Verify that your receipt printing logic correctly handles:
 
-- `ftSignatures` — format and type values are unchanged; ensure all entries are printed as required by national regulations
-- `ftState` — error flag interpretation is unchanged; check your error-handling code still covers all states
+- `ftSignatures` — format and type values are unchanged; ensure all entries are printed as required by national regulations.
+- `ftState` — error flag interpretation is unchanged; check your error-handling code still covers all states.
 
-### Timestamps
+#### Timestamps
 
 The v0 Journal call used **.NET Ticks** for the `from` and `to` parameters:
 
@@ -369,20 +370,6 @@ The v2 Journal request uses **ISO 8601 UTC date-time strings** in the JSON body:
 
 If you need to convert existing .NET Tick values, use the formulas from the [Function Structures reference](../function-structures/function-structures.md#timestamps).
 
-### ReceiptRequest
-
-The v2 `ReceiptRequest` is a superset of the v0 model. Most existing fields are directly reusable; the key differences are:
-
-| Field                       | v0                                  | v2                                                    |
-|-----------------------------|-------------------------------------|-------------------------------------------------------|
-| `cbReceiptReference`        | Optional in some flows              | **Required** — must be a unique string per request    |
-| `Currency`                  | Not present                         | Added — ISO 4217 currency code (default: `EUR`)       |
-| `DecimalPrecisionMultiplier`| Not present                         | Added — controls integer vs. floating-point amounts (default: `1`, i.e. floating-point) |
-| `ftPosSystemID`             | Optional                            | Recommended — identifies your POS software           |
-
-All other fields (`ftCashBoxID`, `cbTerminalID`, `cbReceiptMoment`, `cbChargeItems`, `cbPayItems`, `ftReceiptCase`, etc.) carry over unchanged.
-
-
 ## Local CashBox
 
 :::note Sandbox/admin access only
@@ -391,7 +378,7 @@ Local cashbox migration requires additional configuration steps that are current
 
 :::
 
-The portal-side configuration requires adding a **LocalPosSystemApi Helper** to your CashBox and rebuilding it with Launcher 2.0. Rather than duplicating those steps here, follow the [Local PosSystem API Helper guide](../../../../posdealers/technical-operations/middleware/helper-possystemapi.md), which covers:
+The portal-side configuration requires adding a **LocalPosSystemApi Helper** to your CashBox and rebuilding it with Launcher 2.0. Rather than duplicating those steps here, follow the [How to Configure the Local PosSystem API Helper with Launcher 2.0](../../../../posdealers/technical-operations/middleware/helper-possystemapi.md) guide, which covers:
 
 1. Adding a `fiskaltrust.Middleware.Helper.LocalPosSystemApi` Helper in the Portal.
 2. Configuring the Helper URL.
@@ -399,14 +386,9 @@ The portal-side configuration requires adding a **LocalPosSystemApi Helper** to 
 4. Rebuilding the CashBox configuration.
 5. Downloading and running Launcher 2.0.
 
-For reference documentation on local cashbox configuration, see the country-specific middleware appendixes:
-- [Austria - Middleware Documentation](/poscreators/middleware-doc/middleware-at-rksv/appendix-at-rksv)
-- [France - Middleware Documentation](/poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/appendix-fr-boi-tva-decla-30-10-30)
-- [Germany - Middleware Documentation](/poscreators/middleware-doc/middleware-de-kassensichv/appendix-de-kassensichv)
+### API changes
 
-## API changes
-
-### Method mapping
+#### Method mapping
 
 The three core operations map directly from v0 to v2, but the calling convention changes from a .NET WCF/REST client to standard HTTP POST requests:
 
@@ -416,7 +398,7 @@ The three core operations map directly from v0 to v2, but the calling convention
 | `proxy.Sign(receiptRequest)`                     | `POST /api/v2/sign`               | Request body is the JSON-serialised `ReceiptRequest`; response is `ReceiptResponse` |
 | `proxy.Journal(ftJournalType, from, to)`         | `POST /api/v2/journal`            | Request body carries `ftJournalType`, `from`, and `to` as ISO 8601 date-time strings (see [Timestamps](#timestamps)) |
 
-#### Authentication
+##### Authentication
 
 All v2 requests must include the following HTTP headers:
 
@@ -427,7 +409,7 @@ accesstoken: <your Access Token>
 
 Both values are available on the CashBox page in the fiskaltrust.Portal. On first use, you also need to **pair** the client via the PIN displayed in the Portal (see the [Helper setup guide](../../../../posdealers/technical-operations/middleware/helper-possystemapi.md#test-the-possystem-api-helper)).
 
-#### Echo example
+##### Echo example
 
 **Request:**
 

@@ -5,9 +5,9 @@ title: Communication
 
 # Communication
 
-:::info Migrating to PosSystem API (v2)?
+:::info PosSystem API (v2) Migration
 
-If you are an Austria (AT) or France (FR) customer currently using the v0 WCF or REST interface and planning to move to the new PosSystem API, see the [v0 → PosSystem API migration guide](../migration/v0-to-possystemapi.md).
+If you are an Austria (AT) or France (FR) customer currently using the v0 WCF or REST interface and planning to move to the new PosSystem API, see the Migrating from API v0 to PosSystem API (v2) guide.
 
 :::
 
