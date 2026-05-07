@@ -7,15 +7,15 @@ title: Migrating from API v0 to PosSystem API (v2)
 
 ## Introduction
 
-The legacy **v0 SignatureCloud API** (also referred to by its subdomain pattern `signaturcloud-sandbox.*`) and the original synchronous `ifPOS.v0` fiskaltrust.Middleware API - primarily used in Austria (AT) and France (FR) - remain functional but no longer receive new features. All current and future development, including e-invoicing support and upcoming compliance capabilities, is available exclusively through the **POSSystem API (v2)**, making migration strongly recommended.
+The legacy **v0 SignatureCloud API** (also referred to by its subdomain pattern `signaturcloud-sandbox.*`) and the original synchronous `ifPOS.v0` fiskaltrust.Middleware API — primarily used in Austria (AT) and France (FR) — remain functional but no longer receive new features. All current and future development, including e-invoicing support and upcoming compliance capabilities, is available exclusively through the **POSSystem API (v2)**, making migration strongly recommended.
 
 Migrating to v2 gives you:
 
-- **E-invoicing support** - Access to e-invoicing features and all future compliance capabilities.
+- **E-invoicing support** — Access to e-invoicing features and all future compliance capabilities.
 - **Alignment with fiskaltrust Middleware v2** — the POSSystemAPI interface is designed to remain largely stable when the middleware transitions from v1.2 to v2, making this migration valuable preparation.
 - **Long-term supportability** — v0 is considered deprecated; customers are encouraged to migrate as soon as possible.
-- **Simpler authentication** - PIN-based pairing for simpler, more secure authentication setup.
-- **Modern and flexible API design** - A modern, standard HTTP/REST API that works with any programming language or framework.
+- **Simpler authentication** — PIN-based pairing for simpler, more secure authentication setup.
+- **Modern and flexible API design** — A modern, standard HTTP/REST API that works with any programming language or framework.
 
 :::info
 
@@ -84,7 +84,7 @@ If your integration targets a **Cloud CashBox** (for example, your POS system ca
 
 :::info
 
-The v2 cloud endpoint uses a single, market-agnostic base URL for all markets (AT, FR, DE), with the actual market determined by values such as the `ftCashBoxID` / `ftReceiptCase` and your **CashBox and queue configuration**, not by the URL or host.
+The v2 cloud endpoint uses a single, market-agnostic base URL for all markets (AT, FR, DE), with the actual market determined by values such as the `ftCashBoxID`, `ftReceiptCase` and your **CashBox and queue configuration**, not by the URL or host.
 
 :::
 
@@ -407,7 +407,7 @@ cashboxid:   <your CashBox GUID>
 accesstoken: <your Access Token>
 ```
 
-Both values are available on the CashBox page in the fiskaltrust.Portal. On first use, you also need to **pair** the client via the PIN displayed in the Portal (see the [Helper setup guide](../../../../posdealers/technical-operations/middleware/helper-possystemapi.md#test-the-possystem-api-helper)).
+Both values are available on the CashBox page in the fiskaltrust.Portal. On first use, you also need to **pair** the client via the PIN displayed in the Portal. For more information, see how to [Test the PosSystem API Helper](../../../../posdealers/technical-operations/middleware/helper-possystemapi.md#test-the-possystem-api-helper).
 
 ##### Echo example
 
