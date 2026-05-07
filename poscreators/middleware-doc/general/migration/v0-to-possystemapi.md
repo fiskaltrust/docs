@@ -104,14 +104,14 @@ The integer values used for `ftReceiptCase`, `ftChargeItemCase`, and `ftPayItemC
 
 :::info Development Plataform
 
-The authoritative source for v2 case values and their mapping to v0 cases is the **fiskaltrust** [Development Platform](https://developers.fiskaltrust.eu/#/pos-system). It provides market-specific business case examples (AT, FR, DE) with the correct v2 `ftReceiptCase`, `ftChargeItemCase`, and `ftPayItemCase` values for each scenario. Use these examples as your reference when updating your integration.
+The authoritative source for v2 case values and their mapping to v0 cases is the **fiskaltrust** [Development Platform](https://developers.fiskaltrust.eu/pos-system). It provides market-specific business case examples (AT, FR, DE) with the correct v2 `ftReceiptCase`, `ftChargeItemCase`, and `ftPayItemCase` values for each scenario. Use these examples as your reference when updating your integration.
 
 :::
 
 A systematic approach to updating case values:
 
 1. List every `ftReceiptCase`, `ftChargeItemCase`, and `ftPayItemCase` value currently used in your integration.
-2. For each value, find the corresponding business case in the [Development Platform](https://developers.fiskaltrust.eu/#/pos-system) for your market.
+2. For each value, find the corresponding business case in the [Development Platform](https://developers.fiskaltrust.eu/pos-system#/pos-system) for your market.
 3. Replace the v0 value with the v2 value shown in the platform example.
 4. Repeat for all receipt types (including special receipts such as Start-Receipt, Stop-Receipt, daily/shift closings, and Zero-Receipts).
 
