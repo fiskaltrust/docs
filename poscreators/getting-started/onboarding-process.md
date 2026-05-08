@@ -41,7 +41,7 @@ The onboarding process is a phased progression. Each role completes a specific s
 
 ### Phase 5: Knowledge Transfer (Intro Call) (PosCreator → PosDealer)
 
-- Confirm understanding of product offering and operational requirements, based on the intro call discussion, including the Compliance Checklist (single official PDF document). For reference only, example [Germany-specific](https://github.com/user-attachments/files/27156922/Dealer-Compliance_Checklist_EN.pdf) version.
+- Confirm understanding of product offering and operational requirements, based on the intro call discussion, including the Compliance Checklist (single official PDF document). For reference only, example [Germany-specific](presentations/dealer-compliance_checklist.pdf). version.
 - Review and internalize objection-handling materials as part of the commercial onboarding (sales training).
 
 ### Phase 6: Deployment and Rollout (PosDealer)
