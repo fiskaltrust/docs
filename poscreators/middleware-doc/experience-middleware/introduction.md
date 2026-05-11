@@ -19,6 +19,8 @@ The Experience Middleware consists of the following components:
 
 - **InStore App**: A customer-facing application that displays receipts, QR codes, and receipt interaction options at the point of sale.
 
+- **E-Invoicing**: Enables POS, ERP, and e-commerce systems to generate and deliver structured electronic invoices in country-specific formats through a single integration point, covering both B2B and B2G regulatory requirements.
+
 Each component can be used independently or combined, depending on the business case and market requirements.
 
 ## Intended Audience
