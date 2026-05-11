@@ -23,7 +23,6 @@ module.exports = [
   collapsed: true,
     items: [
       "poscreators/middleware-doc/possystem-api/introduction",
-      "poscreators/middleware-doc/possystem-api/migration",
     ],
 },
   {

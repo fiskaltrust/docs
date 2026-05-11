@@ -1,18 +1,18 @@
 ---
 slug: /poscreators/possystem-api/introduction
-title: POS System API
+title: Introduction
 ---
 
-# POS System API – Overview
+# Introduction
 
 The **fiskaltrust POS System API** is the central, process-driven interface between a POS system and the **fiskaltrust.Middleware**. It provides a unified HTTP/JSON API to execute all fiscal-relevant operations required by a compliant POS integration.
 
 Through this API, POS systems interact with the Middleware to:
 
 - Register order and payment data.
-- Fiscalize and cryptographically seal receipts
-- Issue digital or printable receipts
-- Export journal data for audits and closings
+- Fiscalize and cryptographically seal receipts.
+- Issue digital or printable receipts.
+- Export journal data for audits and closings.
 
 The POS System API acts as the **single technical entry point** for fiscalization, payments, issuing, and data export, independent of country-specific fiscal rules.
 
@@ -22,9 +22,9 @@ The API follows a **processual, state-based design**. Each transaction is handle
 
 Key characteristics:
 
-- Each request represents one step in a fiscal process
-- Calls are **idempotent** and safe to retry
-- The backend guarantees deterministic results for repeated calls
+- Each request represents one step in a fiscal process.
+- Calls are **idempotent** and safe to retry.
+- The backend guarantees deterministic results for repeated calls.
 
 To enable safe retries, every request must include a unique **operation identifier** (`x-operation-id`). If a request is repeated with the same identifier, the Middleware either:
 
@@ -39,10 +39,10 @@ The POS System API is always accessed **in the context of a CashBox**.
 
 Each request must include:
 
-- `x-cashbox-id` – identifies the target CashBox
-- `x-cashbox-accesstoken` – authenticates the caller
-- `x-possystem-id` – identifies the registered POS system variant
-- `x-operation-id` – ensures idempotent execution
+- `x-cashbox-id` – identifies the target CashBox.
+- `x-cashbox-accesstoken` – authenticates the caller.
+- `x-possystem-id` – identifies the registered POS system variant.
+- `x-operation-id` – ensures idempotent execution.
 
 All access credentials are managed and issued via the **fiskaltrust Portal** as part of the CashBox configuration.
 
@@ -65,7 +65,7 @@ Each endpoint performs a well-defined step within the overall fiscal workflow an
 
 The diagram below illustrates a typical fiscal transaction lifecycle, showing how a POS system interacts with the fiskaltrust.Middleware through the POS System API and how the Middleware in turn communicates with country-specific signing components and the fiskaltrust.Cloud.
 
-![POS System API end-to-end request flow](images/pos-system-api-request-flow.svg)
+![POS System API end-to-end request flow](./images/pos-system-api-request-flow.svg)
 
 Every request carries the headers `x-cashbox-id`, `x-cashbox-accesstoken`, `x-possystem-id`, and `x-operation-id`, so each step can be safely retried without producing duplicate fiscal actions.
 
