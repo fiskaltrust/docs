@@ -42,11 +42,11 @@ Payment integration is primarily relevant for:
 - **PosDealers** managing merchant rollouts across markets.
 - **PosOperators** who want simpler setups, fewer devices, or hardware-free payment options where available.
 
-## Vendor Feature Matrix
+## Payment Service Provider (PSP) Feature Matrix
 
 The matrix below shows which payment features are supported per vendor. Use it to plan integrations and to spot gaps where fiskaltrust can help.
 
-| PSP<br />(Payment Service Provider)             | payment | refund | unreferenced-refund | cancel | Transaction Status Check | TIP<br />(pay-app → fiskaltrust) | TIP<br />(fiskaltrust → pay-app) | under-payment | batch processing<br />(close-batch) | merchant receipt support<br />(in addition to customer receipt) |
+| PSP                             | payment | refund | unreferenced-refund | cancel | Transaction Status Check | TIP<br />(pay-app → fiskaltrust) | TIP<br />(fiskaltrust → pay-app) | under-payment | batch processing<br />(close-batch) | merchant receipt support<br />(in addition to customer receipt) |
 |-------------------------------------------------|---------|--------|---------------------|--------|--------------------------|----------------------------------|----------------------------------|---------------|--------------------------------------|----------------------------------------------------------------|
 | Viva                                            | 1.2.5+  | 1.3.0+ | –                   | 1.3.0+ | ?                        | 1.3.0+                           | –                                | ?             | ?                                    | ?                                                              |
 | Hobex POSit                                     | 1.2.8+  | 1.3.0+ | –                   | 1.3.0+ | 1.3.0+                   | 1.3.0+                           | ?                                | ?             | yes (auto)                           | ?                                                              |
