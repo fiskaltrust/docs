@@ -15,6 +15,8 @@ The Experience Middleware consists of the following components:
 
 - **Payment**: Integrates payment flows into the fiskaltrust platform using a unified payment endpoint, while keeping POS systems independent of specific payment providers.
 
+- **Delivery**: Defines how receipts and invoices are handed over after checkout, including digital receipt, printed receipt, structured invoice, and upcoming e-invoicing flows.
+
 - **Digital Receipt**: Enables receipts to be delivered digitally via QR code, link, message, or other channels after a transaction has been fiscalized.
 
 - **InStore App**: A customer-facing application that displays receipts, QR codes, and receipt interaction options at the point of sale.
