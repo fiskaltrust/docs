@@ -14,28 +14,28 @@ Through this API, POS systems interact with the Middleware to:
 - Issue digital or printable receipts.
 - Export journal data for audits and closings.
 
-The POS System API acts as the **single technical entry point** for fiscalization, payments, issuing, and data export, independent of country-specific fiscal rules.
+The POS System API acts as the single technical entry point for fiscalization, payments, issuing, and data export, independent of country-specific fiscal rules.
 
 ## Process-Driven and Idempotent Design
 
-The API follows a **processual, state-based design**. Each transaction is handled as a sequence of state transitions on the server side, comparable to a finite state machine.
+The API follows a processual, state-based design. Each transaction is handled as a sequence of state transitions on the server side, comparable to a finite state machine.
 
 Key characteristics:
 
 - Each request represents one step in a fiscal process.
-- Calls are **idempotent** and safe to retry.
+- Calls are idempotent and safe to retry.
 - The backend guarantees deterministic results for repeated calls.
 
-To enable safe retries, every request must include a unique **operation identifier** (`x-operation-id`). If a request is repeated with the same identifier, the Middleware either:
+To enable safe retries, every request must include a unique operation identifier (`x-operation-id`). If a request is repeated with the same identifier, the Middleware either:
 
 - Returns the already completed result, or
-- Blocks until the original operation finishes
+- Blocks until the original operation finishes.
 
 This approach ensures robustness against network interruptions and timeouts without risking duplicate fiscal actions.
 
 ## Authentication and Identification
 
-The POS System API is always accessed **in the context of a CashBox**.
+The POS System API is always accessed in the context of a CashBox.
 
 Each request must include:
 
@@ -53,7 +53,6 @@ The API exposes a compact, consistent set of endpoints that cover the full fisca
 | Endpoint   | Purpose                                                                                              | Typical use case                                          |
 |------------|------------------------------------------------------------------------------------------------------|-----------------------------------------------------------|
 | `/echo`    | Connectivity and health check; can also be used to verify Middleware version and capabilities.       | Test the connection on POS startup.                       |
-| `/order`   | Register order data and query the processing state of an order.                                      | Send sales lines, items, quantities, prices and VAT.      |
 | `/pay`     | Execute and monitor payment processing, including timeouts and payment-method allocation.            | Settle an order with one or more payment methods.         |
 | `/sign`    | Finalize and fiscalize the receipt according to national rules (signing, hash chaining, etc.).       | Produce an audit-proof, country-compliant receipt.        |
 | `/issue`   | Generate and manage receipt output, and update its delivery state (digital or printable).            | Hand the signed receipt over to the customer.             |
@@ -71,11 +70,11 @@ Every request carries the headers `x-cashbox-id`, `x-cashbox-accesstoken`, `x-po
 
 ## Versioning and Compatibility
 
-The POS System API uses **semantic versioning**:
+The POS System API uses semantic versioning:
 
-- Breaking changes are introduced only in major versions
-- Non-breaking changes may add fields without altering existing models
-- If no version is specified, the latest available version is used
+- Breaking changes are introduced only in major versions.
+- Non-breaking changes may add fields without altering existing models.
+- If no version is specified, the latest available version is used.
 
 This guarantees backward compatibility while allowing regulatory and functional extensions over time.
 
