@@ -173,3 +173,11 @@ A: The API uses semantic versioning. Breaking changes are introduced only in maj
 **Q: Can `/pay` be used without `/sign`, or vice versa?**
 
 A: Each endpoint represents a step in the fiscal workflow and is intended to be used as part of the overall process. Which steps are required depends on the country-specific fiscal rules and the business case being executed. The combination of steps performed for a given transaction must result in a complete, traceable, and compliant chain.
+
+**Q: Which deployment option should I choose for a new rollout?**
+
+A: For all new rollouts, **Option 1 (Cloud CashBox)** or **Option 2 (Local POS System API Helper inside the CashBox)** are recommended. Both support v2 requests across all markets with a single implementation. Option 3 is intended for integrations that must retain an existing Middleware 1.2 CashBox.
+
+**Q: Can I use the same implementation for both Cloud and Local CashBoxes?**
+
+A: Yes. All three deployment options accept the same v2 request format, so a single POS integration works regardless of whether a Cloud CashBox or a Local CashBox is in use.
