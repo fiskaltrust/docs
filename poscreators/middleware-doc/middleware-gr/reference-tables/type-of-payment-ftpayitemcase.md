@@ -18,21 +18,21 @@ version 2
 | **Value**            | **Description**                                                                                | **Middleware version** |
 | -------------------- | ---------------------------------------------------------------------------------------------- | ---------------------- |
 | `00` | **Unknown payment type for GR**<br />This is handled like a cash payment in national currency. | 1.3.45                    |
-| `01` | **Cash payment**<br />cash                                                | 1.3.45                    |
-| `02` | **NonCash**<br />cash                                                 | 1.3.45                    |
-| `03` | **Crossed cheque**<br />cash                                                                   | 1.3.45                    |
-| `04` | **Debit card payment**<br />cash                                                            | 1.3.45                    |
-| `05` | **Credit card payment**<br />cash                                                              | 1.3.45                    |
-| `06` | **Voucher payment (coupon) - voucher by money value**<br />cash                                | 1.3.45                    |
-| `07` | **Online payment**<br />noncash                                                                | 1.3.45                    |
-| `08` | **Loyalty program Customer card payment**<br />|1.3.45|
-| `09` | **Accounts receivable**<br />| 1.3.45                    |
-| `0A` | **SEPA transfer**<br />| 1.3.45                    |
-| `0B` | **Other Bank transfer**<br />| 1.3.45                    |
-| `0C` | **Transfer to Cashbook / Vault / Owner / Employee**<br />Positive (+) amount contributes to cashbox/vault. This higher the amount in cashbox/vault.<br />Negative (-) amount lowers the amount in cashbox/vault. |1.3.45|
-| `0D` | **Internal / Material consumption**<br />| 1.3.45|
-| `0E` | **Grant**<br />| 1.3.45|
-| `0F` | **Ticket Restaurant / (Sodexo, edenred, usw.)**<br />| 1.3.45|
+| `01` | Cash     | 1.3.45 |
+| `02` | NonCash  | 1.3.45 |
+| `03` | Cheque   | 1.3.45 |
+| `04` | POS/e-POS | 1.3.45 |
+| `05` | POS/e-POS | 1.3.45 |
+| `06` | Cheque   | 1.3.45  |
+| `07` | **Online payment**<br />NonCash | 1.3.45 |
+| `08` | Loyalty program/Customer card payment |1.3.45 |
+| `09` | On Credit | 1.3.45 |
+| `0A` | Default maps to Domestic payments.<br />**Description == “IRIS”** maps to **IRIS**<br />**Description == "RF code payment (Web banking)"** maps to **Web banking**. | 1.3.45 |
+| `0B` | Maps to **International Business Payment Account** | 1.3.45                    |
+| `0C` | **Transfer to Cashbook / Vault / Owner / Employee**<br />Positive (+) amount contributes to cashbox/vault. This higher the amount in cashbox/vault.<br />Negative (-) amount lowers the amount in cashbox/vault. |1.3.45 |
+| `0D` | Internal/Material consumption | 1.3.45 |
+| `0E` | Grant | 1.3.45 |
+| `0F` | Ticket Restaurant (Sodexo, Edenred) | 1.3.45 |
 
 #### v - version
 version 2
