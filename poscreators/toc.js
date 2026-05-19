@@ -370,7 +370,7 @@ module.exports = [
       },
     ],
   },
-    ],
+  ],
   },
   {
   type: "category",
