@@ -5,24 +5,31 @@ title: Multi-Markets Integration
 
 # Multi-Markets Integration
 
-This guide provides a guideline of which business cases should be implemented in which market.
-For business cases which are only differing by the Country Code we recommend to use a mapping table in your POS Software. 
+This guide provides an overview of the business cases that should be implemented for each supported market.
 
-## Typical sign flow
-- generate generic receipt requests
+Market-specific behavior is automatically determined based on the configured fiskaltrust queue. POS systems no longer need to handle or map country codes manually, which simplifies multi-market integrations.
 
-The typical sign flow happens when a cash register transfers the data of a receipt request to the fiskaltrust.Middleware using the ReceiptRequest data structure, which will be then processed by the fiskaltrust.SecurtityMechanism.
-After being processed by the fiskaltrust.SecurtityMechanism, the data will be added to the fiskaltrust.ReceiptResponse, which will be sent to the database of the cash register enabling the receipt to be printed either on paper or digitally.
-For more detailed information, please visit the [PosCreators documentation](../../general/cash-register-integration/cash-register-integration-regular-workflow.md)
+## Typical Sign Flow
 
-- depending on the market, set the chargeitem-, payitem- and receiptcases (not every operation may have an e.g. receiptcase in each market -> in that case, do nothing. example: order in AT and FR)
+### Generate generic receipt requests
+
+The typical sign flow starts when a cash register transfers receipt data to the fiskaltrust.Middleware using the `ReceiptRequest` data structure. The request is then processed by the fiskaltrust.SecurityMechanism. After processing, the resulting data is added to the `ReceiptResponse`, which is returned to the cash register and can be used for printing or digital receipt delivery. For more information, see [Cash Register Integration](../../general/cash-register-integration/cash-register-integration-regular-workflow.md)
+
+POS systems should generate generic receipt requests whenever possible. Market-specific behavior is automatically determined based on the configured fiskaltrust queue. Therefore, country-specific mappings for receipt cases, charge items, or pay items are generally no longer required in the POS implementation.
+
+Some business cases may still differ between markets. If a specific operation is not supported in a market, no corresponding receipt case needs to be provided. For example, the `Order` operation is handled differently in Austria and France.
+
 ![](./images/12-multi-market-mapping.png)
 
 ## Mapping Table
-The table below shows a comparison of common business cases (e.g. ftReceiptcases, ftChargeItemcases and ftPayItemcases) for every market.
-More details for ftReceiptcases, ftPayItemcases and ft ChargeItemcases can be found for each market on the appropriate country specific appendix.
 
-|**business cases** | **AT** | **DE** |**FR** |**ME**|**IT**|
+The following table provides an overview of common business cases (for example, **ftReceiptCase**, **ftChargeItemCase**, and **ftPayItemCase**) across the supported markets.
+
+The market context is automatically determined by the configured fiskaltrust queue. The table is intended as a reference for understanding market-specific differences and supported business cases.
+
+More detailed information about **ftReceiptCase**, **ftPayItemCase**, and **ftChargeItemCase** values can be found in the corresponding country-specific appendices.
+
+|**Business Cases** | **AT** | **DE** |**FR** |**ME**|**IT**|
 |----------------------|-----------|-----------------------|--------------------------------------|-----------------------------|-----------------------------|
 |**ftReceiptcase**|||||||
 |Cash sales / POS-receipt / Ticket|`0x4154000000000001`|`0x4445000100000001`|`0x4652000000000001`|`0x4D45000000000001`| `0x4954200000000001`|
@@ -41,14 +48,14 @@ More details for ftReceiptcases, ftPayItemcases and ft ChargeItemcases can be fo
 |Finish SCU switch||`0x4445000000000018`||||
 |Archives|||`0x4652000000000015`|||
 
-|**business cases** | **AT** | **DE** |**FR** |**ME**|**IT**|
+|**Business Cases** | **AT** | **DE** |**FR** |**ME**|**IT**|
 |----------------------|-----------|-----------------------|--------------------------------------|-----------------------------|-----------------------------|
 |**ftChargeItemcase**| | | | | |
 |Unknown type of service/product normal|`0x4154000000000003`|`0x4445000000000001`|`0x465200000000003`|`0x4D45000000000001`|`0x4954200000000003`|
 |Unknown type of service/product discounted-1|`0x4154000000000001`|`0x4445000000000002`|`0x465200000000001`|`0x4D45000000000002`|`0x4954200000000001`|
 |Unknown type of service/product discounted-2|`0x4154000000000002`||`0x465200000000002`||`0x4954200000000002`|
 
-|**business cases** | **AT** | **DE** |**FR** |**ME**|**IT**|
+|**Business Cases** | **AT** | **DE** |**FR** |**ME**|**IT**|
 |----------------------|-----------|-----------------------|--------------------------------------|-----------------------------|-----------------------------|
 |**ftPayItemcase** ||||||
 |Cash payment in national currency|`0x4154000000000001`|`0x4445000000000001`|`0x4652000000000001`|`0x4D45000000000001`|`0x4954200000000001`|
