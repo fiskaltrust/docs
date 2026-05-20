@@ -3,7 +3,7 @@ title: Delivery
 slug: /poscreators/experience-middleware/delivery
 ---
 
-# Delivery
+# Delivery (/issue)
 
 The **Delivery** component of the Experience Middleware defines the formats and channels through which receipts and invoices generated at the point of sale are transmitted to consumers and business customers.
 
@@ -40,18 +40,217 @@ For implementation details, see the [Digital Receipt](../digital-receipt/introdu
 
 A machine-readable invoice containing standardized data fields in addition to the human-readable representation.
 
-- Used primarily for **business-to-business (B2B)** transactions where the recipient needs to import the invoice into an accounting or ERP system.
+- Used for **business-to-business (B2B)**, **business-to-government (B2G)**, and - in some countries - **business-to-consumer (B2C)** transactions where the recipient needs to import the invoice into an accounting or ERP system.
 - Carries the same fiscal guarantees as a regular receipt while including structured data (item lines, tax breakdowns, buyer information) in a defined format.
 - Can be issued alongside or instead of a printed or digital receipt, depending on the customer's request at checkout.
 
+#### Structured Invoice Payload Examples
+
+The following examples show structured invoice requests for different transaction types.
+
+##### B2B Invoice
+
+```json
+{
+  "ftReceiptCase": 35184372092930,
+  "cbReceiptReference": "1234-a6aa5439-5553-4779-a972-259867986a39",
+  "cbReceiptMoment": "{{$isoTimestamp}}",
+  "cbCustomer": {
+    "CustomerVATId": "026883248",
+    "CustomerName": "Πελάτης A.E.",
+    "CustomerStreet": "Κηφισίας 12",
+    "CustomerZip": "12345",
+    "CustomerCity": "Αθηνών",
+    "CustomerCountry": "GR"
+  },
+  "cbChargeItems": [
+    {
+      "Quantity": 1,
+      "Description": "Couch",
+      "Amount": 1200,
+      "VATRate": 20,
+      "ftChargeItemCase": 35184372088851,
+      "VATAmount": 200
+    }
+  ],
+  "cbPayItems": [
+    {
+      "Description": "Cash",
+      "Amount": 1200,
+      "ftPayItemCase": 35184372088833
+    }
+  ]
+}
+```
+
+##### B2C Invoice
+
+```json
+{
+  "ftReceiptCase": 35184372092929,
+  "cbReceiptReference": "invoice-12345-1a4dbda8-9a40-4011-8cad-0139d2545bd5",
+  "cbReceiptMoment": "{{$isoTimestamp}}",
+  "cbCustomer": {
+    "CustomerName": "Sepp Steiner",
+    "CustomerId": null,
+    "CustomerType": "B2C",
+    "CustomerStreet": "Alpenstraße 99",
+    "CustomerZip": "5020",
+    "CustomerCity": "Salzburg",
+    "CustomerCountry": "AT"
+  },
+  "cbChargeItems": [
+    {
+      "Quantity": 3,
+      "Description": "Beer 0.3l",
+      "Amount": 13.8,
+      "VATRate": 20,
+      "ftChargeItemCase": 35184372088867
+    },
+    {
+      "Quantity": 4,
+      "Description": "Coffee",
+      "Amount": 9.2,
+      "VATRate": 20,
+      "ftChargeItemCase": 35184372088867
+    },
+    {
+      "Quantity": 2,
+      "Description": "Lunch menu",
+      "Amount": 31.8,
+      "VATRate": 20,
+      "ftChargeItemCase": 35184372088867
+    },
+    {
+      "Quantity": 2,
+      "Description": "Standard room 06.07. - 08.07.2025",
+      "Amount": 300,
+      "VATRate": 20,
+      "ftChargeItemCase": 35184372088867
+    }
+  ],
+  "cbPayItems": [
+    {
+      "Description": "Accounts Receivable",
+      "Amount": 354.8,
+      "ftPayItemCase": 35184372088841
+    }
+  ]
+}
+```
+
 ### E-invoicing
 
-The electronic exchange of invoices in a structured format between businesses, and increasingly between businesses and tax authorities.
+The electronic exchange of invoices in a structured format across **B2B**, **B2G**, and **B2C** transactions, and increasingly between businesses and tax authorities.  E-invoicing is built into the fiskaltrust.Middleware's core process — any merchant already integrated with `/sign` is ready to use it, with support available directly through the POS system API.
 
-- Several European markets are introducing or extending mandatory e-invoicing requirements (for example for B2B and B2G transactions).
-- fiskaltrust is extending the Experience Middleware to support these flows from the point of sale, enabling merchants to issue compliant e-invoices through the same integration already used for fiscalization and digital receipts.
+#### E-invoice Payload Examples
 
-> **Note:** E-invoicing support in the Experience Middleware is **work in progress**. Country-specific availability, supported formats, and integration details will be documented as the feature becomes available.
+The following examples show e-invoice requests for different transaction types.
+
+##### B2B E-invoice
+
+```json
+{
+  "ftReceiptCase": 35184372088836,
+  "cbReceiptReference": "Ecomm-B2B-IC-001-866afb78-b77c-46d2-b77c-3d4756884409",
+  "cbReceiptMoment": "{{$isoTimestamp}}",
+  "cbCustomer": {
+    "CustomerVATId": "DE123456789",
+    "CustomerName": "EU Buyer GmbH",
+    "CustomerStreet": "Sample Street 1",
+    "CustomerZip": "12345",
+    "CustomerCity": "Berlin",
+    "CustomerCountry": "DE"
+  },
+  "cbChargeItems": [
+    {
+      "Quantity": 10,
+      "Description": "Electronic Gadgets",
+      "Amount": 500,
+      "VATRate": 0,
+      "ftChargeItemCase": 35184372093208,
+      "ftChargeItemCaseData": {
+        "GR": {
+          "exemptionReason": 2
+        }
+      }
+    }
+  ],
+  "cbPayItems": [
+    {
+      "Quantity": 1,
+      "Description": "Non-cash Payment",
+      "Amount": 500,
+      "ftPayItemCase": 35184372088834
+    }
+  ],
+  "ftReceiptCaseData": {
+    "GR": {
+      "mydataoverride": {
+        "invoice": {
+          "invoiceHeader": {
+            "deliveryMethod": 2,
+            "currencyCode": "EUR",
+            "otherInvoiceHeader": {
+              "thirdPartyVATId": "DE123456789"
+            },
+            "invoiceType": "1.1"
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+##### B2C E-invoice
+
+```json
+{
+  "ftReceiptCase": 35184372088836,
+  "cbReceiptReference": "Ecomm-B2C-001-866afb78-b77c-46d2-b77c-3d4756884409",
+  "cbReceiptMoment": "{{$isoTimestamp}}",
+  "cbCustomer": {
+    "CustomerVATId": "",
+    "CustomerName": "John Doe",
+    "CustomerStreet": "",
+    "CustomerZip": "",
+    "CustomerCity": "",
+    "CustomerCountry": "GR",
+    "CustomerEmail": "john.doe@example.com"
+  },
+  "cbChargeItems": [
+    {
+      "Quantity": 1,
+      "Description": "Software License",
+      "Amount": 100,
+      "VATRate": 22,
+      "ftChargeItemCase": 35184372088851
+    }
+  ],
+  "cbPayItems": [
+    {
+      "Quantity": 1,
+      "Description": "Non-cash Payment",
+      "Amount": 124,
+      "ftPayItemCase": 35184372088834
+    }
+  ],
+  "ftReceiptCaseData": {
+    "GR": {
+      "mydataoverride": {
+        "invoice": {
+          "invoiceHeader": {
+            "deliveryMethod": 1,
+            "currencyCode": "EUR",
+            "invoiceType": "11.1"
+          }
+        }
+      }
+    }
+  }
+}
+```
 
 ## Delivery from a Point-of-Sale Perspective
 
