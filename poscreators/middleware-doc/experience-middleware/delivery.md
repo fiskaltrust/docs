@@ -25,7 +25,7 @@ The traditional paper receipt issued at the point of sale.
 
 An electronic version of the receipt delivered to the consumer through a digital channel after the transaction has been fiscalized.
 
-- Delivered via QR code, HTTPS link, SMS, email, or the [InStore App](https://docs.fiskaltrust.cloud/docs/poscreators/middleware-doc/instore-app/introduction).
+- Delivered via QR code, HTTPS link, SMS, email, or the [InStore App](https://docs.fiskaltrust.eu/docs/poscreators/middleware-doc/instore-app/introduction).
 - Linked to the underlying fiscal receipt so that the digital and fiscal documents always correspond.
 - Reduces paper consumption and enables downstream interactions such as loyalty, returns, or feedback collection.
 
