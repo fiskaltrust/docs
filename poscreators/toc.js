@@ -19,10 +19,11 @@ module.exports = [
   },
   {
   type: "category",
-  label: "PosSystem API",
+  label: "POS System API",
   collapsed: true,
     items: [
       "poscreators/middleware-doc/possystem-api/introduction",
+      "poscreators/middleware-doc/possystem-api/android-intent",
     ],
 },
   {
