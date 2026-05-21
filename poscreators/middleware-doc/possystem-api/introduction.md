@@ -28,10 +28,11 @@ Key characteristics:
 
 To enable safe retries, every request must include a unique operation identifier (`x-operation-id`). If a request is repeated with the same identifier, the Middleware either:
 
-- Returns the already completed result, or
-- Blocks until the original operation finishes.
+- Returns the already completed result,
+- Blocks until the original operation finishes, or
+- Returns `409 Conflict` if the same `x-operation-id` is reused with a different request body.
 
-This approach ensures robustness against network interruptions and timeouts without risking duplicate fiscal actions.
+This approach ensures robustness against network interruptions and timeouts without risking duplicate fiscal actions. A retry must always send the exact same body as the original request; otherwise the call is rejected as a conflict.
 
 ## Authentication and Identification
 
@@ -66,7 +67,7 @@ The diagram below illustrates a typical fiscal transaction lifecycle, showing ho
 
 ![POS System API end-to-end request flow](./images/pos-system-api-request-flow.svg)
 
-Every request carries the headers `x-cashbox-id`, `x-cashbox-accesstoken`, `x-possystem-id`, and `x-operation-id`, so each step can be safely retried without producing duplicate fiscal actions.
+Every request carries the same identification and authentication headers (`x-cashbox-id`, `x-cashbox-accesstoken`, `x-possystem-id`) plus a per-operation `x-operation-id`. The `x-operation-id` is what makes each step safe to retry without producing duplicate fiscal actions.
 
 ## Deployment Options
 
@@ -152,7 +153,7 @@ A: The fiskaltrust.Middleware is the component that performs the actual fiscaliz
 
 **Q: Do I need a different integration per country?**
 
-A: No. The POS System API is unified across markets and abstracts country-specific fiscal rules behind the same set of endpoints (`/echo`, `/order`, `/pay`, `/sign`, `/issue`, `/journal`). Country-specific behaviour is driven by the CashBox configuration and the data sent in the requests, not by a separate API surface.
+A: No. The POS System API is unified across markets and abstracts country-specific fiscal rules behind the same set of endpoints (`/echo`, `/pay`, `/sign`, `/issue`, `/journal`). Country-specific behaviour is driven by the CashBox configuration and the data sent in the requests, not by a separate API surface.
 
 **Q: What is `x-operation-id` used for, and how should it be generated?**
 
