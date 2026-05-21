@@ -1,4 +1,4 @@
-# Android Intent Integration Guide
+# Android Intent Integration
 
 ## Overview
 
