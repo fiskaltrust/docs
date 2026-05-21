@@ -16,11 +16,11 @@ module.exports = [
       },
       "poscreators/getting-started/onboarding-posdealers",
     ],
-  },
+},
   {
-  type: "category",
-  label: "POS System API",
-  collapsed: true,
+    type: "category",
+    label: "POS System API",
+    collapsed: true,
     items: [
       "poscreators/middleware-doc/possystem-api/introduction",
       "poscreators/middleware-doc/possystem-api/android-intent",
