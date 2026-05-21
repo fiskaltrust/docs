@@ -114,6 +114,8 @@ A systematic approach to updating case values:
 2. For each value, find the corresponding business case in the [Development Platform](https://developer.fiskaltrust.eu/) for your market.
 3. Replace the v0 value with the v2 value shown in the platform example.
 4. Repeat for all receipt types (including special receipts such as Start-Receipt, Stop-Receipt, daily/shift closings, and Zero-Receipts).
+5. If you don't find some values used in your integration in the table below, it seams that you just have to change the v0 with the v2 value.
+6. **Important:** You'll see, in certain cases, for the same value in v0, you now need to specify a more precise value. For example, with invoices, there was only one code in v0, but now there are several possible values. Your POS system must therefore integrate whether the invoice is issued for B2C, B2B, B2G, etc.
 
 #### ftReceiptCase
 
@@ -134,16 +136,38 @@ A systematic approach to updating case values:
 <details>
 <summary>France (FR)</summary>
 
-| Business Case | v0 Value | POSSystemAPI v2 Value |
-|---------------|----------|-----------------------|
-| Cash sales / POS receipt | `0x4652000000000001` | TODO |
-| Zero receipt | `0x465200000000000F` | TODO |
-| Initial operation / start receipt | `0x4652000000000010` | TODO |
-| Out of operation / stop receipt | `0x4652000000000011` | TODO |
-| Daily closing | `0x4652000000000005` | TODO |
-| Monthly closing | `0x4652000000000006` | TODO |
-| Yearly closing | `0x4652000000000007` | TODO |
-| Archives / fiscal period archive | `0x4652000000000015` | TODO |
+| Business Case | v0 Value | POSSystemAPI v2 Value | Comment |
+|---------------|----------|-----------------------|---------|
+| Foreign sales | `0x465200000000000E` | `0x4652200008000000` | Unknown receipt type. Use this as a fallback; it is handled the same way as a point-of-sale receipt. |
+| Foreign sales | `0x465200000000000E` | `0x4652200008000001` | Point-of-sale receipt type. |
+| Foreign sales | `0x465200000000000E` | `0x4652200008000002` | Payment transfer receipt type. |
+| Foreign sales | `0x465200000000000E` | `0x4652200008000003` | Point-of-sale receipt without fiscalization obligation or with exceptions to fiscalization regulations. |
+| Payment transfer | `0x465200000000000A` or `0x465200000000000B` or `0x465200000000000C` | `0x4652200000000002` | All payment transfer receipt types ; conditional. pay-in to drawer/till, pay-out from drawer/till |
+| Point-of-sale receipt type without fiskalisation obligation or with exemption | `0x465200000000000E` | `0x4652200000000003` |  |
+| E-commerce receipt type | `0x465200000000000E` | `0x4652200000000004` |  |
+| Delivery note receipt type | `0x4652000000000009` | `0x4652200000000005` |  |
+| Bill receipt type | `0x4652000000000008` | `0x4652200000000006` |  |
+| Proforma invoice receipt type | `0x4652000000000008` | `0x4652200000000007` |  |
+| Unknown invoice type | `0x4652000000000003` | `0x4652200000001000` | Your POS system must therefore integrate whether the invoice is issued for B2C, B2B, B2G, etc. |
+| B2C invoice type | `0x4652000000000003` | `0x4652200000001001` | Your POS system must therefore integrate whether the invoice is issued for B2C, B2B, B2G, etc. |
+| B2B invoice type | `0x4652000000000003` | `0x4652200000001002` | Your POS system must therefore integrate whether the invoice is issued for B2C, B2B, B2G, etc. |
+| B2G invoice type | `0x4652000000000003` | `0x4652200000001003` | Your POS system must therefore integrate whether the invoice is issued for B2C, B2B, B2G, etc. |
+| Zero receipt dailyoperation type | `0x465200000000000F` | `0x4652200000002000` |  |
+| Shift closing dailyoperation type | `0x4652000000000004` | `0x4652200000002010` |  |
+| Daily closing dailyoperation type | `0x4652000000000005` | `0x4652200000002011` |  |
+| Monthly closing dailyoperation type | `0x4652000000000006` | `0x4652200000002012` |  |
+| Yearly closing dailyoperation type | `0x4652000000000007` | `0x4652200000002013` |  |
+| Unknown/unspecified protocol type | `0x4652000000000014` | `0x4652200000003000` |  |
+| Technical event protocol type | `0x4652000000000012` | `0x4652200000003001` |  |
+| Audit event / accounting event protocol type | `0x4652000000000013` | `0x4652200000003002` |  |
+| Internal usage / material consumption protocol type | `0x465200000000000D` | `0x4652200000003003` |  |
+| Order protocol type | `0x4652000000000008` | `0x4652200000003004` |  |
+| Pay protocol type | `0x4652000000000002` | `0x4652200000003005` | Payment prove |
+| Copy receipt / re-print existing receipt protocol type | `0x4652000000000016` | `0x4652200000003010` |  |
+| Archive receipt / archive all previous data protocol type | `0x4652000000000015` | `0x4652200000003011` |  |
+| Start-receipt lifecycle type | `0x4652000000000010` | `0x4652200000004001` |  |
+| Stop-receipt lifecycle type | `0x4652000000000011` | `0x4652200000004002` |  |
+| IsReturn/IsRefund | `0x4652000000040000` | `0x4652200001000000` | Full return/refund receipt. If one or more charge items are returned/refunded, please use the appropriate receipt type and the corresponding ChargeItemCase tag. |
 
 </details>
 
