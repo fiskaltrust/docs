@@ -1,3 +1,8 @@
+---
+slug: /poscreators/possystem-api/android-intent
+title: Android Intent Integration
+---
+
 # Android Intent Integration
 
 ## Overview
