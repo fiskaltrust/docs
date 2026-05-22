@@ -32,7 +32,6 @@ module.exports = [
         key: "general-cash-register-integration",
         items: [
           "poscreators/middleware-doc/general/cash-register-integration/cash-register-integration-regular-workflow",
-          "poscreators/middleware-doc/general/cash-register-integration/multi-markets-integration-guide",
           "poscreators/middleware-doc/general/cash-register-integration/cash-register-integration-failure-scenarios",
         ],
       },
