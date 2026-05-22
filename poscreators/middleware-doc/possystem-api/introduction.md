@@ -73,61 +73,9 @@ Every request carries the same identification and authentication headers (`x-cas
 
 When `/pay` is part of the flow, the `ftPayItems` array returned by `/pay` can be reused directly as `cbPayItems` in the subsequent `/sign` request — no transformation needed. This links the fiscal receipt to the electronic payment without the POS having to re-map terminal data.
 
-## Deployment Options
+## Availability
 
-The POS System API can be used in three different deployment configurations, each suited to different infrastructure setups. In all cases, the same v2 request format is used — making it possible to implement once and deploy anywhere.
-
-### Option 1 — POS System API Helper with a Cloud CashBox
-
-In this setup, the POS system communicates with the **Cloud PosSystem API**, backed by a Cloud CashBox. All five endpoint groups are reachable: `/echo`, `/sign`, and `/journal` route to the Middleware directly (and are also available in the Local Helper deployments in Options 2 and 3), while `/pay` and `/issue` are handled by the Cloud CashBox.
-
-**Key benefits:**
-
-- Uniform v2 requests work across all markets.
-- A single implementation can be reused for both Cloud CashBoxes and Local CashBoxes.
-- Recommended for all new rollouts — no market-specific handling required.
-
-### Option 2 — Local POS System API Helper inside the CashBox
-
-In this setup, the **Local PosSystem API Helper** runs as an additional component inside an existing (or new) CashBox — alongside the Queue and the SCU. The POS system sends v2 requests directly to this local Helper, which forwards them to the Queue.
-
-**Setup steps:**
-
-1. Add the Local POS System API Helper to an existing or new CashBox.
-2. Configure the POS system to send v2 requests to the Local POS System API Helper endpoint.
-
-**Key benefits:**
-
-- No separate infrastructure required — the Helper is bundled inside the same CashBox.
-- Works for all markets **except** Middleware 1.2 deployments (see Option 3 below).
-- Suitable for Local CashBox installations where low-latency or offline operation is needed.
-
-### Option 3 — Local POS System API Helper with a Middleware 1.2 CashBox
-
-The Middleware 1.2 stack runs on a legacy technology baseline that does not support hosting the Local POS System API Helper directly. In this case, a **second CashBox** is set up containing only the Local POS System API Helper, which is then connected to the existing 1.2 Middleware CashBox.
-
-**Setup steps:**
-
-1. Keep the existing Middleware 1.2 CashBox (Queue + SCU) running as-is.
-2. Configure a second CashBox containing only the Local POS System API Helper.
-3. Connect the Helper CashBox to the Middleware 1.2 CashBox using its CashBox ID and access token.
-4. Start both CashBoxes.
-5. Configure the POS system to send v2 requests to the Local POS System API Helper endpoint.
-
-**Key benefits:**
-
-- Enables v2 request support on legacy Middleware 1.2 installations without replacing the existing CashBox.
-- The existing 1.2 CashBox requires no changes.
-
-### Comparison
-
-| | Option 1 — Cloud CashBox | Option 2 — Local Helper in CashBox | Option 3 — Local Helper + Middleware 1.2 |
-|---|---|---|---|
-| **CashBoxes required** | 1 (Cloud) | 1 (Local) | 2 (Local) |
-| **Helper location** | Cloud | Inside CashBox | Separate CashBox |
-| **Supports Middleware 1.2** | N/A | ✗ | ✓ |
-| **All markets supported** | ✓ | ✓ | ✓ |
-| **v2 requests** | ✓ | ✓ | ✓ |
+The POS System API is available in every supported fiskaltrust deployment scenario: as a **cloud-hosted endpoint** and as part of the **Local Middleware on Windows, Linux, and Android**. The same v2 request format works across all of them, so a single POS integration runs unchanged regardless of where the Middleware is deployed.
 
 ## Versioning and Compatibility
 
@@ -161,6 +109,3 @@ A: These values are issued via the fiskaltrust Portal as part of configuring a C
 
 A: Each endpoint represents a step in the fiscal workflow and is intended to be used as part of the overall process. Which steps are required depends on the country-specific fiscal rules and the business case being executed. The combination of steps performed for a given transaction must result in a complete, traceable, and compliant chain.
 
-**Q: Which deployment option should I choose for a new rollout?**
-
-A: For all new rollouts, **Option 1 (Cloud CashBox)** or **Option 2 (Local POS System API Helper inside the CashBox)** are recommended. Both support v2 requests across all markets with a single implementation. Option 3 is intended for integrations that must retain an existing Middleware 1.2 CashBox.
