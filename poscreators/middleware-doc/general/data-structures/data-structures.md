@@ -7,7 +7,7 @@ title: Data Structures
 
 This chapter outlines several data structures, which are used in the communication with the fiskaltrust.Middleware.
 
-## Receipt Request
+## ReceiptRequest
 
 The cash register transfers the data of an entire receipt request to **fiskaltrust.Middleware** using the `ReceiptRequest` data structure. The details of the fields supported by this structure are outlined in the following table.
 
