@@ -101,6 +101,10 @@ A: No. The POS System API is unified across markets and abstracts country-specif
 
 A: `x-operation-id` is a unique identifier per logical operation that makes requests idempotent. If the same `x-operation-id` is sent twice (for example after a network timeout), the Middleware returns the result of the original operation or blocks until it completes, instead of executing the operation a second time. It should be a unique value per logical operation (typically a GUID/UUID) and must remain identical across retries of the same call.
 
+**Q: Is the POS System API safe to retry on network errors?**
+
+A: Yes. Retrying a request with the same `x-operation-id` and the same body is the recommended way to recover from transient network issues, timeouts, or interrupted responses without risking duplicate fiscal actions. If the body differs from the original, the retry is rejected with `409 Conflict`.
+
 **Q: Where do I get `x-cashbox-id`, `x-cashbox-accesstoken`, and `x-possystem-id`?**
 
 A: These values are issued via the fiskaltrust Portal as part of configuring a CashBox and registering a POS system variant. They are tied to a specific CashBox configuration and must be stored securely on the POS side.
@@ -108,4 +112,12 @@ A: These values are issued via the fiskaltrust Portal as part of configuring a C
 **Q: Can `/pay` be used without `/sign`, or vice versa?**
 
 A: Each endpoint represents a step in the fiscal workflow and is intended to be used as part of the overall process. Which steps are required depends on the country-specific fiscal rules and the business case being executed. The combination of steps performed for a given transaction must result in a complete, traceable, and compliant chain.
+
+**Q: Can the same POS integration run against both the cloud endpoint and the Local Middleware?**
+
+A: Yes. All deployment scenarios — the cloud-hosted endpoint and the Local Middleware on Windows, Linux, and Android — accept the same v2 request format. A single POS integration works against any of them without code changes.
+
+**Q: How are breaking changes handled?**
+
+A: The API uses semantic versioning. Breaking changes are introduced only in major versions; non-breaking changes may add optional fields without altering existing models. If no version is specified, the latest available version is used, so pinning to a specific major version is recommended for production integrations.
 
