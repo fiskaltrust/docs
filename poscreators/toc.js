@@ -5,7 +5,6 @@ module.exports = [
     items: [
       "poscreators/getting-started/get-started",
       "poscreators/getting-started/portal-registration",
-
       {
         type: "category",
         collapsed: true,
@@ -15,10 +14,18 @@ module.exports = [
           "poscreators/getting-started/integration-checklist",
         ],
       },
-
       "poscreators/getting-started/onboarding-posdealers",
     ],
-  },
+},
+  {
+    type: "category",
+    label: "POS System API",
+    collapsed: true,
+    items: [
+      "poscreators/middleware-doc/possystem-api/introduction",
+      "poscreators/middleware-doc/possystem-api/android-intent",
+    ],
+},
   {
     type: "category",
     collapsed: true,
