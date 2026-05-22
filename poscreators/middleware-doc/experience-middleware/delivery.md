@@ -219,18 +219,11 @@ By consolidating these formats under a single delivery layer, the Experience Mid
 
 ### e-Delivery
 
-e-Delivery refers to having a defined digital channel for communicating and exchanging documents such as invoices and receipts.
+e-Delivery refers to having a defined digital channel for communicating and exchanging documents such as invoices and receipts. Common channels include email — a widely adopted digital protocol — or regulated networks such as **Peppol**, mandated in several countries for B2B and B2G document exchange.
 
-There are various channels that can be used for document delivery — email, for example, is a widely adopted digital channel based on a defined protocol. In some countries, however, regulatory mandates dictate how documents must be delivered. Historically, this has meant physical printing, but regulations evolve: a market may require email delivery today, a specific network protocol tomorrow, and something else entirely in the future.
+It is important to distinguish between the **format** (the structured data representation), the **delivery channel** (how the document reaches the recipient), and the **mandate** (the local regulatory requirement defining which channel must be used). A market may require physical printing today, email tomorrow, or a specific network protocol in the future — delivery rules evolve with local regulation.
 
-A well-known example of a mandated delivery channel is **Peppol**, a standardised network used across several countries for B2B and B2G document exchange.
-
-The key distinction here is between:
-- **Format** — the structured data representation of a document (e.g. e-invoice).
-- **Delivery** — the channel through which that document reaches the recipient.
-- **Mandate** — the local regulatory requirement that defines which channel must be used.
-
-fiskaltrust supports the creation and conversion of structured document formats across markets. Delivery, however, is governed by local regulation — each market may mandate a different channel for different invoice types. While fiskaltrust can produce the correct format, the actual delivery to the recipient is handled outside the Middleware, in line with the applicable local requirements.
+fiskaltrust supports the creation and conversion of structured document formats across markets. The actual delivery to the recipient, however, is handled outside the Middleware in line with the applicable local requirements.
 
 ## Intended Audience for Delivery Integration
 
