@@ -11,6 +11,8 @@ This document describes the Android intent call interface for unlocking offline 
 
 By using Android intents, mobile applications can communicate with the fiskaltrust.Middleware running side-by-side on Android devices to perform fiscal operations even without an active internet connection.
 
+To test the Android integration with the latest preview build, download the [Preview APK of the Android Launcher](https://downloads.fiskaltrust.cloud/downloads/android/fiskaltrust-middleware-launcher-android/preview/eu.fiskaltrust.androidlauncher-Signed.apk).
+
 ### Key Features
 
 - **Offline fiscalization**: Perform fiscal operations without internet connectivity
