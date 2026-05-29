@@ -92,12 +92,6 @@ In addition to managing notifications through the portal, Dealers can trigger a 
 POST api/notifications/de/triggermanually
 ```
 
-:::tip sandbox
-
-A sandbox environment is available at `https://helipad-sandbox.fiskaltrust.cloud`. Use it to test requests before running them against the production system at `https://helipad.fiskaltrust.cloud`.
-
-:::
-
 ### Authentication
 
 The request requires your Dealer account credentials passed as HTTP headers.
@@ -109,18 +103,12 @@ The request requires your Dealer account credentials passed as HTTP headers.
 
 ### Request Body
 
-Send a JSON object containing the target Operator's account ID.
-
-| Field           | Type   | Description                                              |
-|-----------------|--------|----------------------------------------------------------|
-| `posOperatorId` | string | The account ID of the PosOperator for whom the notification should be triggered. |
+Send the PosOperator's account ID as a plain JSON string in the request body.
 
 **Example body**
 
 ```json
-{
-  "posOperatorId": "POSOPERATOR_ACCOUNT_ID"
-}
+"POSOPERATOR_ACCOUNT_ID"
 ```
 
 ### Example Requests
@@ -132,7 +120,7 @@ curl.exe -X POST \
   -H "Content-Type: application/json" \
   -H "accountid: ACCOUNT_ID" \
   -H "accesstoken: ACCOUNT_ACCESS_TOKEN" \
-  -d '{"posOperatorId": "POSOPERATOR_ACCOUNT_ID"}' \
+  -d '"POSOPERATOR_ACCOUNT_ID"' \
   https://helipad.fiskaltrust.cloud/api/notifications/de/triggermanually
 ```
 
@@ -140,7 +128,7 @@ curl.exe -X POST \
 
 ```powershell
 $headers = @{ accountid = "ACCOUNT_ID"; accesstoken = "ACCOUNT_ACCESS_TOKEN" }
-$body    = '{"posOperatorId": "POSOPERATOR_ACCOUNT_ID"}'
+$body    = '"POSOPERATOR_ACCOUNT_ID"'
 Invoke-WebRequest `
   -Uri         https://helipad.fiskaltrust.cloud/api/notifications/de/triggermanually `
   -Method      Post `
