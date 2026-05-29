@@ -102,7 +102,7 @@ Please do not select it without further information, we recommend to read this s
 | steps                                              | description                                                                                                                                                                                              |
 |----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ![Number 1](../../../images/numbers/circle-1o.png) | If you still consider it necessary to completely synchronize the data in the fiskaltrust.portal with the data in finanzOnline, use the action `Execute FinanzOnline status update for all PosOperators`. |
-| ![Number 2](../../../images/numbers/circle-2o.png) | We recommend to check the PosOperators status individually a first. Confirm your decision otherwise.                                                                                                     |
+| ![Number 2](../../../images/numbers/circle-2o.png) | We recommend to check the PosOperators status individually first. Confirm your decision otherwise.                                                                                                     |
 
 ## Troubleshooting
 

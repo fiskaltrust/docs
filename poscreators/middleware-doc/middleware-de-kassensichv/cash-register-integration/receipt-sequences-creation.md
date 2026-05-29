@@ -118,7 +118,7 @@ Multiple POS-Systems are involved in the business action and only one of them is
 - Restaurant/Wellness/Hotel using different POS-Systems; one system is used for final invoice creation
 - Membership cards/vouchers with multiple POS-Systems involved
 
-### Option A: ChargeItems collected via "internal" queue are payed at an external system or queue
+### Option A: ChargeItems collected via "internal" queue are paid at an external system or queue
 
 #### How to use
 
@@ -130,9 +130,9 @@ ChargeItems are collected via ftReceiptCase 'Info-internal' or 'Info-order'. 'cb
 
 ([click to expand](media/chargeitem-internal-payment-external.svg))
 
-A couple checks-in in a hotel for one night. They have a beer at the hotel bar, which uses a different POS-System than at the reception. The couple wishes the consumption to be paid via accomodation invoice at checkout. Therefore, an 'info-internal' is used instead of a 'POS receipt'. 'cbArea' is used to provide the information about the connected business action using the room number as unique identifier.
+A couple checks in to a hotel for one night. They have a beer at the hotel bar, which uses a different POS-System than at the reception. The couple wishes the consumption to be paid via accommodation invoice at checkout. Therefore, an 'info-internal' is used instead of a 'POS receipt'. 'cbArea' is used to provide the information about the connected business action using the room number as unique identifier.
 
-### Option B: ChargeItems collected at an external system or queue are payed at the internal queue
+### Option B: ChargeItems collected at an external system or queue are paid at the internal queue
 
 #### How to use
 
@@ -190,7 +190,7 @@ In this example, we are using the payitem option for managing the multi-purpose 
 
 After charging the bracelet, the customer redeems the voucher in several cases. A positive amount of 'ftPayItemCase' `0x444500000000000D` gets converted to a multi-purpose voucher redemption. The negative amount of payment indicates the credit available after the redemption.
 
-In the last business action, the customer wants to have his credit payed out. The positive amount of 'ftPayItemCase' `0x444500000000000D` is set to the actual credit value so that the payment amount is zero.
+In the last business action, the customer wants to have his credit paid out. The positive amount of 'ftPayItemCase' `0x444500000000000D` is set to the actual credit value so that the payment amount is zero.
 
 #### Code examples
 

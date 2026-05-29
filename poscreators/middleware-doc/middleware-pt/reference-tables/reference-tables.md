@@ -11,7 +11,7 @@ As the Middleware abstracts processes and data over multiple markets/countries, 
 
 ## Format
 
-Every case that is sent to the middleware, or every Item that is being returned from the middleware is based upon this tagging system. For the tagging system we are using hex based numbers since they make things like, flagging and having a consistend numbering scheme easier.
+Every case that is sent to the middleware, or every Item that is being returned from the middleware is based upon this tagging system. For the tagging system we are using hex based numbers since they make things like, flagging and having a consistent numbering scheme easier.
 
 The overall format is built up of 4 sections:
 
@@ -23,5 +23,5 @@ _CCCC_vIII_gggg_xxxx
 |----------------------|-----------------------------------------------------------------------------------------------------|
 |CCCC|(e.g 5054): ASCII of two letter ISO country code (https://en.wikipedia.org/wiki/ISO_3166-1) (e.g. PT = 5054) |
 |vIII|(e.g. 2000): This section is for versioning the tagging system (currently v2) and for future use  |
-|gggg|(e.g. 0010): These items are used for flags. Flags can change the basic behavior of a given type, but will live the overall semantical meaning of a type the same. (e.g. voiding of a receipt)|
+|gggg|(e.g. 0010): These items are used for flags. Flags can change the basic behavior of a given type, but will leave the overall semantical meaning of a type the same. (e.g. voiding of a receipt)|
 |xxxx|(e.g. 0001): The last category is usually case specific but always consists of 4 numbers |

@@ -8,7 +8,7 @@ This chapter expands on the installation documentation covered in [Installing an
 
 ## fiskaltrust.Middleware
 
-In case of technical issue, it is advised to use the debug launcher in the Download section of the Portal.
+In case of a technical issue, it is advised to use the debug launcher in the Download section of the Portal.
 
 For PosSystem using Windows [fiskaltrust_fiskaltrust.launcher-debug-v1.2.zip](https://github.com/fiskaltrust/interface-doc/files/12484702/fiskaltrust_fiskaltrust.launcher-debug-v1.2.zip)
 

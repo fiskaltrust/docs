@@ -64,7 +64,7 @@ https://portal.fiskaltrust.at
 
 Signature creation devices used in the Austrian market have various characteristics and requirements.
 
-SmartCard – it is the most simple form of a SSCD. It is connected directly via a USB connection to the hardware, which runs the fiskaltrust.SecurityMechanism. A PCSC driver, supported by the respective operating system is necessary for the chip-card reader to operate such local signature creation devices. Windows provides this for many chip-card readers. For Linux or Mac the [PCSC lite project](https://pcsclite.apdu.fr/) can be consulted.
+SmartCard – it is the most simple form of an SSCD. It is connected directly via a USB connection to the hardware, which runs the fiskaltrust.SecurityMechanism. A PCSC driver, supported by the respective operating system is necessary for the chip-card reader to operate such local signature creation devices. Windows provides this for many chip-card readers. For Linux or Mac the [PCSC lite project](https://pcsclite.apdu.fr/) can be consulted.
 
 Online signature service - A SSCD can also be used as an online service, where it is unnecessary to access any local hardware to use it. However, for each signature an internet connection is required. An example of this type of SSCD module is the "atrustonline".
 
@@ -100,7 +100,7 @@ In the simplest scenario, a fiskaltrust.SecurityMechanism consists of a single s
 
 To handle scenarios of higher complexity, a fiskaltrust.SecurityMechanism can also consist of several signature creation devices (SSCD) and several queues with data collection protocols (RKSV-DEP). If there are several queues in a fiskaltrust.SecurityMechanism, a load balancer can be used to maximize the performance, and also as a backup outage scenario. In a backup outage scenario, signature creation devices (SSCD) can also be used across services.
 
-The fiskaltrust.SecurityMechanism illustrated below hosts several queues. Each queue runs a RKSV-DEP and a E131-DEP. The queues can address a signature creation device available within a pool.
+The fiskaltrust.SecurityMechanism illustrated below hosts several queues. Each queue runs a RKSV-DEP and an E131-DEP. The queues can address a signature creation device available within a pool.
 
 ![](./images/22.png)
 

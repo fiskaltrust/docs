@@ -91,7 +91,7 @@ In addition, with his authorization, this user can invite other company employee
 ![Enter user data](images/registration/user_data.png "https://portal-sandbox.fiskaltrust.TLD/Account/Register")
 
 :::tip  Error message
-If the E-Mail address entered in _E-Mail_ is already in use in the fiskaltrust.Portal, you will see a warning message. This message will show that a user with this E-Mailadress already exists. By clicking the link in this information, you can initiate the password reset for this user.
+If the E-Mail address entered in _E-Mail_ is already in use in the fiskaltrust.Portal, you will see a warning message. This message will show that a user with this E-Mail address already exists. By clicking the link in this information, you can initiate the password reset for this user.
 :::
 
 ### Confirm registration
@@ -133,9 +133,9 @@ If the password for logging into the fiskaltrust.Portal is lost or forgotten; yo
 | Steps | Description                                                                                                                |
 |:----------------------:|-------------------------------------------------------------------------------------------------------------------------------------|
 |![Number 1](../images/numbers/circle-1o.png) |Go to the login screen of the fiskaltrust.Portal and click on the link `If you have forgotten your password, please click here`.  |
-|![Number 2](../images/numbers/circle-2o.png) |Solve the CAPTCHA..  |
+|![Number 2](../images/numbers/circle-2o.png) |Solve the CAPTCHA.  |
 |![Number 3](../images/numbers/circle-3o.png) |Enter the E-Mail address you used when registering your account.  |
-|![Number 4](../images/numbers/circle-4o.png) | You will see a confirmation that the link for resetting the password has been sent to the entered E-Mail address. If not, check whether the E-Mail address in usage is the very same you used when you registered your account..  |
+|![Number 4](../images/numbers/circle-4o.png) | You will see a confirmation that the link for resetting the password has been sent to the entered E-Mail address. If not, check whether the E-Mail address in usage is the very same you used when you registered your account.  |
 |![Number 5](../images/numbers/circle-5o.png) |Check after a few minutes the inbox of this E-Mail address. When you click the link in the E-Mail, a browser window will open and show the password reset page of the fiskaltrust.Portal.  |
 |![Number 6](../images/numbers/circle-6o.png) |Enter the E-Mail address of your _fiskaltrust_ account, the new password and confirm it by entering it a second time. Your click on `RESET` will save the new password; you see a confirmation page, and you can log in to the fiskaltrust.Portal again.  |
 
