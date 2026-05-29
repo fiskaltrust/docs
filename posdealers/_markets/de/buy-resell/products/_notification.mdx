@@ -82,6 +82,79 @@ If the notification was successful, the operator receives a **confirmation email
 
 ![Confirmation Email](./images/ConfirmationEmail_DE.png)
 
+## Trigger Notifications via API
+
+In addition to managing notifications through the portal, Dealers can trigger a notification for a specific Operator programmatically using the REST API.
+
+### Endpoint
+
+```
+POST api/notifications/de/triggermanually
+```
+
+:::tip sandbox
+
+A sandbox environment is available at `https://helipad-sandbox.fiskaltrust.cloud`. Use it to test requests before running them against the production system at `https://helipad.fiskaltrust.cloud`.
+
+:::
+
+### Authentication
+
+The request requires your Dealer account credentials passed as HTTP headers.
+
+| Header        | Description                                                                 |
+|---------------|-----------------------------------------------------------------------------|
+| `accountid`   | Your Dealer account ID, found in the portal under `[COMPANYNAME]` / `Overview`. |
+| `accesstoken` | Your Dealer account access token, found in the same location as the account ID. |
+
+### Request Body
+
+Send a JSON object containing the target Operator's account ID.
+
+| Field           | Type   | Description                                              |
+|-----------------|--------|----------------------------------------------------------|
+| `posOperatorId` | string | The account ID of the PosOperator for whom the notification should be triggered. |
+
+**Example body**
+
+```json
+{
+  "posOperatorId": "POSOPERATOR_ACCOUNT_ID"
+}
+```
+
+### Example Requests
+
+**curl**
+
+```shell
+curl.exe -X POST \
+  -H "Content-Type: application/json" \
+  -H "accountid: ACCOUNT_ID" \
+  -H "accesstoken: ACCOUNT_ACCESS_TOKEN" \
+  -d '{"posOperatorId": "POSOPERATOR_ACCOUNT_ID"}' \
+  https://helipad.fiskaltrust.cloud/api/notifications/de/triggermanually
+```
+
+**Invoke-WebRequest (PowerShell)**
+
+```powershell
+$headers = @{ accountid = "ACCOUNT_ID"; accesstoken = "ACCOUNT_ACCESS_TOKEN" }
+$body    = '{"posOperatorId": "POSOPERATOR_ACCOUNT_ID"}'
+Invoke-WebRequest `
+  -Uri         https://helipad.fiskaltrust.cloud/api/notifications/de/triggermanually `
+  -Method      Post `
+  -Headers     $headers `
+  -Body        $body `
+  -ContentType application/json
+```
+
+### Response
+
+A status code of `200` confirms that the notification trigger was accepted for the specified Operator. Check the Notifications page in the portal to monitor the resulting notification status.
+
+---
+
 ## Troubleshooting & Support  
 
 ### Common Problems
