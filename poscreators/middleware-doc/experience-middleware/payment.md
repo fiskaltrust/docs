@@ -41,3 +41,28 @@ Payment integration is primarily relevant for:
 - **PosCreators** who want to support multiple payment providers with a single integration.
 - **PosDealers** managing merchant rollouts across markets.
 - **PosOperators** who want simpler setups, fewer devices, or hardware-free payment options where available.
+
+## Payment Service Provider (PSP) Feature Matrix
+
+The matrix below shows which payment features are supported per vendor. Use it to plan integrations and to spot gaps where fiskaltrust can help.
+
+| PSP                             | payment | refund | unreferenced-refund | cancel | Transaction Status Check | TIP<br />(pay-app → fiskaltrust) | TIP<br />(fiskaltrust → pay-app) | under-payment | batch processing<br />(close-batch) | merchant receipt support<br />(in addition to customer receipt) |
+|-------------------------------------------------|---------|--------|---------------------|--------|--------------------------|----------------------------------|----------------------------------|---------------|--------------------------------------|----------------------------------------------------------------|
+| Viva                                            | 1.2.5+  | 1.3.0+ | –                   | 1.3.0+ | ?                        | 1.3.0+                           | –                                | ?             | ?                                    | ?                                                              |
+| Hobex POSit                                     | 1.2.8+  | 1.3.0+ | –                   | 1.3.0+ | 1.3.0+                   | 1.3.0+                           | ?                                | ?             | yes (auto)                           | ?                                                              |
+| Hobex ECR                                       | 1.2.5+  | 1.3.0+ | –                   | 1.3.0+ | 1.3.0+                   | 1.3.0+                           | ?                                | ?             | ?                                    | ?                                                              |
+| Worldline / PayOne WPI<br />(TOM + SmartPOS)    | 1.2.5+  | 1.3.0+ | n/a                 | 1.3.0+ | 1.3.0+                   | 1.3.0+                           | –                                | ?             | n/a                                  | ?                                                              |
+| Softpay\.io                                     | 1.2.8+  | 1.3.0+ | –                   | 1.3.0+ | 1.3.0+                   | 1.3.0+                           | ?                                | ?             | yes (auto)                           | ?                                                              |
+| Global Payments<br />GPtom                      | 1.2.5+  | 1.3.0+ | ?                   | 1.3.0+ | 1.2.8+                   | 1.3.0+                           | ?                                | ?             | –                                    | ?                                                              |
+| Global Payments<br />GP Pay                     | 1.2.5+  | 1.3.0+ | ?                   | 1.3.0+ | ?                        | 1.3.0+                           | ?                                | ?             | ?                                    | ?                                                              |
+| Shift4                                          | 1.2.8+  | 1.2.8+ | n/a                 | 1.2.8+ | 1.3.0+                   | 1.3.0+                           | –                                | –             | n/a                                  | ?                                                              |
+
+### Legend
+
+| Value        | Meaning                                                                            |
+|--------------|------------------------------------------------------------------------------------|
+| `1.x.y+`     | Available from this InStore App release onwards.                                   |
+| `yes (auto)` | Is supported by the PSP in an automatic way. No intervention from our side needed. |
+| `–`          | Supported by the PSP but not on our roadmap (yet).                                 |
+| `?`          | We do not know whether it is supported by the PSP as of today.                     |
+| `n/a`        | Not supported by the PSP.                                                          |
