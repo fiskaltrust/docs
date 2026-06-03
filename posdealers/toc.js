@@ -24,10 +24,10 @@ module.exports = [
     label: "Getting Started",
     items: [
       "posdealers/getting-started/overview-getting-started",
-      "posdealers/getting-started/onboarding",
       "posdealers/getting-started/sandbox",
       "posdealers/getting-started/registration",
       "posdealers/getting-started/company-roles",
+      "posdealers/getting-started/onboarding",
       {
         type: "category",
         label: "Operator Onboarding",

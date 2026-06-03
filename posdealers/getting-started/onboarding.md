@@ -5,11 +5,11 @@ title: PosDealer Onboarding
 
 # PosDealer Onboarding Guide
 
-Welcome to the PosDealer onboarding process within the **fiskaltrust** platform. As a PosDealer, you play a central role in deploying compliant fiscalization solutions by connecting PosCreators POS systems with PosOperators daily operations.
+As a PosDealer, you are responsible for deploying compliant fiscalization solutions by connecting PosCreators' POS systems with PosOperators' daily operations.
 
 While **fiskaltrust** provides the fiscalization infrastructure and PosCreators deliver the technical integration, you are responsible for configuring, deploying, and supporting compliant systems for your PosOperators. In some cases, a PosCreator may also take on the commercial role of a PosDealer.
 
-This checklist guides you step by step through the onboarding journey - from initial account setup to successful operator rollout. Completing each step ensures a smooth, compliant, and scalable deployment for your customers.
+This guide provides a step-by-step checklist for the onboarding process, from initial account setup to successful operator rollout. Completing each step helps ensure a smooth, compliant, and scalable deployment for your customers.
 
 ## PosDealer Onboarding Checklist
 

@@ -5,13 +5,14 @@ title: Onboarding Process
 
 # Onboarding Process - Roles and Flow
 
-Welcome to the **fiskaltrust** onboarding roadmap. Implementing a fiscalization system is a collaborative effort between **PosCreators**, **PosDealers**, and **PosOperators**.
 
-Understanding how these roles interact is the key to a compliant and seamless rollout:
+This page provides an overview of the roles and responsibilities involved in the fiskaltrust onboarding process. Implementing a fiscalization system requires collaboration between **PosCreators**, **PosDealers**, and **PosOperators**.
 
-- **For PosCreators:** As the software developers, you focus on integrating the fiskaltrust Middleware via the technical interface. You use the portal to manage your POS systems and invite Dealers to distribute your solution.
-- **For PosDealers:** As the distributors and system integrators, you manage the rollout by bundling software and hardware. You support your customers (Operators) and use portal tools to simplify the deployment of compliance services.
-- **For PosOperators:** As the end-users (merchants), you use the POS system in your daily business while the Middleware ensures compliance in the background. Your primary point of contact for sales and support is your PosDealer.
+Understanding how these roles interact helps ensure a compliant and efficient rollout:
+
+- **PosCreators:** Develop and maintain POS software integrations with the fiskaltrust Middleware. They use the portal to manage POS systems and invite PosDealers to distribute their solutions.
+- **PosDealers:** Distribute, configure, and deploy fiscalization solutions by combining software and hardware. They manage customer onboarding, support PosOperators, and use portal tools to streamline compliance deployments.
+- **PosOperators:** As the end-users (merchants), they use the POS system in their daily business while fiskaltrust Middleware handles fiscal compliance in the background. PosDealers typically serve as their primary contact for sales, deployment, and support.
 
 ## The Integrated Onboarding Journey
 
