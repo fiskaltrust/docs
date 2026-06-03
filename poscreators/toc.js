@@ -376,7 +376,7 @@ module.exports = [
       },
     ],
   },
-    ],
+  ],
   },
   {
   type: "category",
