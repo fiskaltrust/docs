@@ -19,7 +19,7 @@ The CloudCashbox is a fully hosted SaaS version of fiskaltrust's Middleware, off
 ### Key features include:
 
 - Support for PosAPI and classic Middleware API: Ensures compatibility with various POS systems.
-- Centralized Management: Fiskaltrust manages the entire setup, offering more control and flexibility.
+- Centralized Management: fiskaltrust manages the entire setup, offering more control and flexibility.
 - Easy Rollout: The product can be rolled out via the portal, and migration from existing Cashboxes is streamlined through a dedicated process.
 
 
@@ -40,7 +40,7 @@ On the next screen, choose the Business Rollout.
 ![20241016-2-rollout-cloud-cashbox](https://github.com/user-attachments/assets/3a0dc353-5bb8-42ce-bc23-917d0bd6fde8)
 
 
-Once the next screen is loaded, you can now search for _CloudCashbox_ products. In this case, we did the Rollout with a fiskaltrust. Carefree package. It is also possible to rollout an fiskaltrust.Carefree package with your already existing entitlements if you have some or to simply rollout the _CloudCashbox_ as a standalone product.
+Once the next screen is loaded, you can now search for _CloudCashbox_ products. In this case, we did the Rollout with a fiskaltrust. Carefree package. It is also possible to rollout a fiskaltrust.Carefree package with your already existing entitlements if you have some or to simply rollout the _CloudCashbox_ as a standalone product.
 
 ![20241016-3-rollout-cloud-cashbox](https://github.com/user-attachments/assets/309ba6b0-26f0-4215-939c-70ae2c29b80a)
 
@@ -121,7 +121,7 @@ After this step, you will be asked to verify your selection. If everything is al
 ![20241017-5-migration-cloud-cashbox](https://github.com/user-attachments/assets/439ea46f-eee1-43e5-b6a7-9b26fbb73126)
 
 
-Your request has then been sent and can take to up to 5 days to be validated.
+Your request has then been sent and can take up to 5 days to be validated.
 
 ![20241017-6-migration-cloud-cashbox](https://github.com/user-attachments/assets/e7b840ee-f63c-48be-9390-015cd3e6f810)
 

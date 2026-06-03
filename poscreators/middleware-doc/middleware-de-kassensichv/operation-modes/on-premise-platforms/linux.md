@@ -58,7 +58,7 @@ If you haven't already decided for a communication technology, we strongly recom
 
 ### REST limitations
 When using REST, the HTTP endpoint slightly differs from the Windows version, as the version prefix cannot be included because of the mentioned Mono issues. Hence, a REST endpoint on Linux must be called like this: `http://localhost:1500/a4c4e466-721a-4011-a9a5-a23827a21b45/sign`:
-- The `/json/v1` part needs to be omited
+- The `/json/v1` part needs to be omitted
 - The URL must be written in lower case
 - When calling the _journal_ endpoint, the `type`, `from` and `to` GET parameters must be included
 

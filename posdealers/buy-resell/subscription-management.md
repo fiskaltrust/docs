@@ -22,7 +22,7 @@ On this page, you can also manage subscriptions by opting for automatic renewals
 [Subscription-management](./images/subscription-management.png)
 
 ## Renewals
-Renewing subscriptions is an annual process that can either be done manually, or automatically by the Portal. Both ways are described below; please not that the automatic renewal is an opt-in feature that needs to be activated.
+Renewing subscriptions is an annual process that can either be done manually, or automatically by the Portal. Both ways are described below; please note that the automatic renewal is an opt-in feature that needs to be activated.
 
 ### Automatic Renewals
 To enable automatic renewals, you need to sign a side letter to the PosDealer contract, allowing fiskaltrust to do these otherwise manual interactions for you. 
@@ -34,7 +34,7 @@ This feature ensures that your PosOperators' product subscriptions are automatic
 The column _Renewal type_ allows you to choose between enabling or disabling the automatic renewal feature for one specific subscriptions.
 
 ### Manual Renewals
-You always have the option to manually renew specific outlets - either because this is the default flow you prefer, or because you disabled automatic renewals for speific subscriptions. 
+You always have the option to manually renew specific outlets - either because this is the default flow you prefer, or because you disabled automatic renewals for specific subscriptions. 
 
 Subscriptions can either be renewed one-by-one by selecting _Renew subscriptions_ in the _Actions_ column, or in a bulk operation by selecting multiple rows and clicking on the _Renew subscriptions_ button at the end of the page. Both ways will trigger a popup window where you can select if you either want your Quote to include the required entitlements for the renewals, or if you already have existing entitlements you want to consume.
 
@@ -43,7 +43,7 @@ Subscriptions can either be renewed one-by-one by selecting _Renew subscriptions
 Confirming this dialog will create a Quote and automatically load it into the basket, where it can then be checked out.
 
 ## Cancellation
-Cancelling subscriptions can either be done one-by-one by selecting _Cancel suscription_ in the _Actions_ column of each row, or y multi-selecting multiple suscriptions and using the _Cancel suscriptions_ button at the end of the page. You will be asked for confirmation in both cases ebfore the subscriptions are cancelled.
+Cancelling subscriptions can either be done one-by-one by selecting _Cancel subscription_ in the _Actions_ column of each row, or by multi-selecting multiple subscriptions and using the _Cancel subscriptions_ button at the end of the page. You will be asked for confirmation in both cases before the subscriptions are cancelled.
 
 When subscriptions are cancelled within the billing period, the cancellation will become effective at the end of the runtime period - i.e. the product can be used until then as before.
 

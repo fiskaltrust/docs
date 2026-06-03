@@ -41,7 +41,7 @@ A Queue is defined [here](../../business-basics/architecture.md#queue), find mor
 | ![Number 6](../../images/numbers/circle-6o.png)   | At `Timeout`, you can specify a millisecond value for the timeout of the Queue.                                                                                                                                                  |
 | ![Number 7](../../images/numbers/circle-7o.png)   | The `Country Code` depends on the chosen fiskaltrust.Portal and cannot be changed, see [reference tables](../../../poscreators/middleware-doc/middleware-de-kassensichv/reference-tables/service-status-ftstate.md) for details. |
 | ![Number 8](../../images/numbers/circle-8o.png)   | Enter the desired `CashBox Identification` but note that this value cannot be changed again after saving your Queue.                                                                                                             |
-| ![Number 9](../../images/numbers/circle-9o.png)   | At `Outlet`, you can choose the desired option but note that this value cannot be changed again afer saving your Queue.                                                                                                          |
+| ![Number 9](../../images/numbers/circle-9o.png)   | At `Outlet`, you can choose the desired option but note that this value cannot be changed again after saving your Queue.                                                                                                          |
 | ![Number 10](../../images/numbers/circle-10o.png) |                                                                                                                                                                                                                                  |
 
 ### Assign the SCU to the Queue
@@ -56,7 +56,7 @@ The SCU must be assigned to the Queue. Therefore go to `Configuration` / `Queue`
 | ![Number 2](../../images/numbers/circle-2o.png) | To expand your CashBoxes, please choose `+Add`.                                                                        |
 | ![Number 3](../../images/numbers/circle-3o.png) | You must add a `Description`.                                                                                          |
 | ![Number 4](../../images/numbers/circle-4o.png) | At `IP Address`, you can enter a value (optional).                                                                     |
-| ![Number 5](../../images/numbers/circle-5o.png) | At `Oulet`, you can choose the desired outlet but note that this value cannot be changed again afer saving your Queue. |
+| ![Number 5](../../images/numbers/circle-5o.png) | At `Outlet`, you can choose the desired outlet but note that this value cannot be changed again after saving your Queue. |
 | ![Number 6](../../images/numbers/circle-6o.png) |                                                                                                                        |
 | ![Number 7](../../images/numbers/circle-7o.png) | Click the button `edit by list` to add the Queue, SCU and optionally a helper.                                         |
 

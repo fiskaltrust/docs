@@ -15,11 +15,11 @@ fiskaltrust provides two implementing methods for the digital receipt via QR-Cod
 
 However, it's important to highlight that the POS API Helper does not log the delivery statuses of the digital receipt, as mentioned in the section Evaluation of document retrievals for financial administration ("Finanzverwaltung"). The absence of these logs prevents a tax auditor from reviewing the statuses of printing, acceptance, and submission in the event of an audit. This could result in non-compliance, particularly in Austria, due to the lack of logged records for the obligation to issue receipts ("Belegausgabepflicht") and the obligation to accept receipts ("Belegannahmepflicht"), rendering verification impossible.
 
-To address this, the POS API provides comprehensive logging of digital receipt interactions: "printing" a digital receipt and the retrival status. This logging fulfills the requirements for the obligation to issue receipts ("Belegausgabepflicht") and the obligation to accept receipts ("Belegannahmepflicht") in Austria, as well as the obligation to issue receipts ("Belegausgabepflicht") in Germany.
+To address this, the POS API provides comprehensive logging of digital receipt interactions: "printing" a digital receipt and the retrieval status. This logging fulfills the requirements for the obligation to issue receipts ("Belegausgabepflicht") and the obligation to accept receipts ("Belegannahmepflicht") in Austria, as well as the obligation to issue receipts ("Belegausgabepflicht") in Germany.
 
 ## Create receipts with /sign endpoint + POS API Helper (Dispreferred)
 
-This sequence diagram describes the process of generating a digital receipt with the sign endpoint and the POS API Helper. The participants in the process are the Point of Sale software, fiskaltrst.Middleware, POS API Helper, fiskaltrust and the consumer. 
+This sequence diagram describes the process of generating a digital receipt with the sign endpoint and the POS API Helper. The participants in the process are the Point of Sale software, fiskaltrust.Middleware, POS API Helper, fiskaltrust and the consumer. 
 
 ![pos_api_helper_sequence](./images/POS_API_Helper_sequence.png)
 
@@ -50,7 +50,7 @@ The consumer accesses the receipt by scanning the QR-Code displayed on the custo
 
 ## Configure POS API Helper 
 
-The POS API Helper is available in all countries. This Helper is responsible for uploading data from the local Queue to the digital receipt endpoint. This Helper is configured in the fiskaltrust.Portal and assigned to each CashBox that uses digital receipts. The POS API Helper changes to an direct upload behavior of the digital receipts.
+The POS API Helper is available in all countries. This Helper is responsible for uploading data from the local Queue to the digital receipt endpoint. This Helper is configured in the fiskaltrust.Portal and assigned to each CashBox that uses digital receipts. The POS API Helper changes to a direct upload behavior of the digital receipts.
 
 To proceed with the configuration, login to your fiskaltrust.Portal account first. 
 
@@ -76,8 +76,8 @@ To proceed with the configuration, login to your fiskaltrust.Portal account firs
 | 5  | Select latest package version   |
 | 6  | Select the outlet of CashBox    |
 | 7  | Save configuration   |
-| 8  | Klick configure helper   |
-| 9  | All Counties: Insert the previously saved Queue URLs to the Helper URLs and add the suffix "/name" to the URL (analogue to the naming in queue configuration). Germany & France only: Add also GRPC URL with next free port and add the suffix "/name" to the URL (analogue to the naming in queue configuration).   |
+| 8  | Click configure helper   |
+| 9  | All Countries: Insert the previously saved Queue URLs to the Helper URLs and add the suffix "/name" to the URL (analogue to the naming in queue configuration). Germany & France only: Add also GRPC URL with next free port and add the suffix "/name" to the URL (analogue to the naming in queue configuration).   |
 | 10  | Save configuration and close   |
 
 ### CashBox 
@@ -89,7 +89,7 @@ To proceed with the configuration, login to your fiskaltrust.Portal account firs
 | 3  | Navigate to Helpers  |
 | 4  | Activate the POS API Helper  |
 | 5  | Save configuration  |
-| 6  | Klick rebuild configuration  |
+| 6  | Click rebuild configuration  |
 
 ### Restart
 
@@ -101,7 +101,7 @@ The POS API is the latest addition to the digital receipt ecosystem. The POS API
 
 This means that existing implementations can very easily be reused by adjusting them to the asynchronous flow. The IPOS interface will continue to be fully supported by the Middleware.
 
-As most operations especially /print requests may take an extended amount of time, this API is designed in a completely asynchronous way. After sending a request to one of the endpoints listed below, the API immediately returns a message identifier (i.e. an UID), which can then be used to query for the result via the /response endpoint. Please note: The /sign operation does not necessary needs to be implemented for digital receipt application. 
+As most operations especially /print requests may take an extended amount of time, this API is designed in a completely asynchronous way. After sending a request to one of the endpoints listed below, the API immediately returns a message identifier (i.e. a UID), which can then be used to query for the result via the /response endpoint. Please note: The /sign operation does not necessarily need to be implemented for digital receipt application. 
 
 A general sample of this process flow is illustrated in the picture below:
 
@@ -408,7 +408,7 @@ accesstoken (required): string
 
 This method is used to obtain the result of a previously executed asynchronous operation. Callers should pass the result object from this referenced operation into the body, and the method will either return the requested response, or HTTP 204 in case the operation has not finished yet.
 
-The response type of this methos depends on the type of the referenced asynchronous operation. For the digital receipt the PrintResponse can be used to obtain the URL to the digital receipt:
+The response type of this method depends on the type of the referenced asynchronous operation. For the digital receipt the PrintResponse can be used to obtain the URL to the digital receipt:
 
 <details>
 <summary>Request sample for print operation:</summary>
@@ -515,8 +515,8 @@ https://receipts-sandbox.fiskaltrust.cloud/v0/[QueueId]/[QueueItemId]
 
 ## Give away version (QR-Label)
 
-This method provides the digital receipt via QR-Label, a receipt tag that should be distributed via an barcode scanner from the Point of Sale into the Middleware. There are three options in following JSON format available. 
-For this implementation the POS API Helper or POS API is required to change to an direct upload behavior, required for the digital receipt. 
+This method provides the digital receipt via QR-Label, a receipt tag that should be distributed via a barcode scanner from the Point of Sale into the Middleware. There are three options in following JSON format available. 
+For this implementation the POS API Helper or POS API is required to change to a direct upload behavior, required for the digital receipt. 
 
 
 <details>
@@ -606,7 +606,7 @@ Please keep in mind that in a real use case, only one of the three mentioned way
 
 ### Austria 
 
-In the event of a failure or disruption of the internet connection, where no receipts can be uploaded to the fiskaltrust backed, you are required by Austrian law to print the receipt and make it available for the consumer. 
+In the event of a failure or disruption of the internet connection, where no receipts can be uploaded to the fiskaltrust backend, you are required by Austrian law to print the receipt and make it available for the consumer. 
 If you receive the ftState 0x4154000000000001 or 0x4154000000000004 as a ReceiptResponse, no digital receipt should be visualized as a QR-Code or scanned as Give-Away. The receipt needs to be printed.
 
 The country-specific code is made of the country's code value following the ISO-3166-1-ALPHA-2 standard, converted from ASCII into hex. For Austria (AT) this is 0x4154, which results in 0x4154000000000001 as the value for the "out of service" status.
@@ -664,7 +664,7 @@ if ((ReceiptResponse.ftState & 0x4445000000000100) != 0)
 
 ## Mandatory fields for digital receipt visualization 
 
-This chart shows the required data fields to visualize the hole dataset of the digital receipts properly, like the services or items sold, payment methods like voucher or card payment transaction data from your PSP. 
+This chart shows the required data fields to visualize the whole dataset of the digital receipts properly, like the services or items sold, payment methods like voucher or card payment transaction data from your PSP. 
 
 | Field name  | Sample data | Mandatory field | Visualized on receipt | Description |
 | ------------- | ------------- | ------------- | ------------- | ------------- |
@@ -690,7 +690,7 @@ This chart shows the required data fields to visualize the hole dataset of the d
 | ProductBarcode  | 16514646137  | optional  | currently not*  | Product’s barcode  |
 | Unit  | Stk  | optional  | no  | Unit of measurement  |
 | UnitQuantity  |  -  |  optional  | no  | Quantity of the service(s) of receipt entry, displayed in indicated units  |
-| UnitPrice  | 2.56  | optional  | no  | ross price per indicated unit  |
+| UnitPrice  | 2.56  | optional  | no  | Gross price per indicated unit  |
 | Moment  | 2023-08-01T07:47:53.68Z  | mandatory  | no  | Time of service (year, month, day, hour, minute, second). Must be provided in UTC  |
 
 ### cbPayItems (List of payment received)

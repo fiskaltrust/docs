@@ -9,14 +9,14 @@ Once you were able to test the integration and successfully establish a communic
 
 :::info Important
 
-Involve your PosDealers as early as possible, because they have to perform the following steps, among others, before they can roullout the fiskaltrust.Middleware to the PosOperators. For more details, open the drop-down window below.
+Involve your PosDealers as early as possible, because they have to perform the following steps, among others, before they can rollout the fiskaltrust.Middleware to the PosOperators. For more details, open the drop-down window below.
 
 :::
 
 <details>
   <summary>Registration steps for PosDealers</summary>
 
-1. Register in the fiskalttrust.Portal and there digitally sign a cooperation agreement with fiskaltrust.
+1. Register in the fiskaltrust.Portal and there digitally sign a cooperation agreement with fiskaltrust.
 2. Depending on the circumstances, request and sign framework agreements for the purchase of products with fiskaltrust.
 3. Invite the PosOperators to the fiskaltrust.Portal so that they can sign the usage agreement for the fiskaltrust.Middleware.
 4. Request access rights to the PosOperator`s fiskaltrust.Account so that the PosDealer can redeem and activate the product entitlements purchased from fiskaltrust
@@ -128,7 +128,7 @@ If the PosCreator accepts the assignment, the connection between the PosDealer`s
 
 As the approach to the rollout highly depends on the implementation, the components, and the capabilities of your POS-System, you should select the appropriate rollout scenario and discuss it with your POS Dealers, to ensure their sufficient levels of knowledge and understanding required for the successful execution of the rollout process.
 
-The rollout has 2 separate areas, the [buy- and resell part](https://docs.fiskaltrust.cloud/docs/posdealers/buy-resell/overview), and [the technical rollout](https://docs.fiskaltrust.cloud/docs/posdealers/buy-resell/rollout-plans), which are both covered in the the PosDealer area of this documentation.
+The rollout has 2 separate areas, the [buy- and resell part](https://docs.fiskaltrust.cloud/docs/posdealers/buy-resell/overview), and [the technical rollout](https://docs.fiskaltrust.cloud/docs/posdealers/buy-resell/rollout-plans), which are both covered in the PosDealer area of this documentation.
 
 The technical stage requires a close collaboration of the technical experts from both sides: yours and the POS Dealer`s. You will discuss the details of the implementation, agree on the approach for rollout automation and templating, and select the best strategy for the rollout based on the appropriate rollout scenario. We have documented examples of different [rollout scenarios](https://docs.fiskaltrust.cloud/docs/posdealers/technical-operations/rollout-scenarios) in our documentation portal.
 

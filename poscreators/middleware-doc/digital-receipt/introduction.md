@@ -17,11 +17,11 @@ The overarching goal of fiskaltrust is to provide a universal methodology, based
 
 # Consumer interaction 
 
-All interactions with or by consumers are as intuitive as possible. Therefor well-known symbols, designs and flows are used, related to the device or apps the consumer is using on their mobile phones.
+All interactions with or by consumers are as intuitive as possible. Therefore well-known symbols, designs and flows are used, related to the device or apps the consumer is using on their mobile phones.
 
 A consumer is not always interested in a receipt, but for special situations a receipt is required. This can be a refund after return of goods or to prove warranty in case of damaged goods. Also when a consumer is on the road with friends and family and purchases are laid out upfront, the receipt helps to keep track of spendings and can prove the amount which needs to be repaid.
 
-When a consumer works for a business, in special when it comes to travel expenses, then also a receipt is required to get reimbursement of expenses from the employer. Also, the employing company is required to keep the receipt withing the bookkeeping records, in this case.
+When a consumer works for a business, in special when it comes to travel expenses, then also a receipt is required to get reimbursement of expenses from the employer. Also, the employing company is required to keep the receipt within the bookkeeping records, in this case.
 
 # Interact with the digital receipt 
 
@@ -35,7 +35,7 @@ Once a consumer receives a digital receipt, there are multiple options to intera
 
 # Visualization and features on the digital receipt
 
-The visualization of the digital receipt variates from the markets legal requirements. The interactions within these digital receipts aim to maximize intuitiveness. To display elements such as merchant logo and metadata (including the company’s legal name and address), it’s essential to initially configure this data in the fiskaltrust.Portal.
+The visualization of the digital receipt varies from the markets legal requirements. The interactions within these digital receipts aim to maximize intuitiveness. To display elements such as merchant logo and metadata (including the company’s legal name and address), it’s essential to initially configure this data in the fiskaltrust.Portal.
 
 ## Austria 
 

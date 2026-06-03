@@ -9,9 +9,9 @@ To install the fiskaltrust InStore App and connect it to your cash register, com
 
 ## Step 1: Install the app
 
-Refer to the [installation guides](../installation-guides/installation-guides.md) for detailed intructions.
+Refer to the [installation guides](../installation-guides/installation-guides.md) for detailed instructions.
 
-## Step2: Start the app and grant permissions
+## Step 2: Start the app and grant permissions
 
 * Once installed, launch the app.
 * If prompted, enable the **Display over other apps** option (this allows the app to stay in the foreground while you work in other apps).<br/>![DisplayOverApps](./images/DisplayOverApps.png)

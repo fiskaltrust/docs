@@ -16,7 +16,7 @@ Please check the country-specific notes for further details. Unfortunately, not 
 
 ### Explanation of terms and graphics
 
-Please not our [terminology](https://docs.fiskaltrust.cloud/docs/faq/terms) for the terms used in our application and this documentation.
+Please note our [terminology](https://docs.fiskaltrust.cloud/docs/faq/terms) for the terms used in our application and this documentation.
 
 
 Pros and cons describe the scenarios. The term _POS-System fails_ means that the Queue will switch into a failure mode but is still operational until you, as a PosDealer or PosOperator, restore the connection by a zero receipt. 
@@ -100,7 +100,7 @@ You, as a PosDealer, can recommend this scenario for interconnected POS-Systems.
 
 :::tip
 
-Our partners' experiences showed that in exceptional cases, terminals become defective and, e.g., repeatedly send a broken receipt. If this happens at a high frequency, this could block the shared Queue. You can achieve excellent reliability by creating a separate queue for each terminal and, e.g., hosting all of them in the same CasHbox, as shown in the following diagram.
+Our partners' experiences showed that in exceptional cases, terminals become defective and, e.g., repeatedly send a broken receipt. If this happens at a high frequency, this could block the shared Queue. You can achieve excellent reliability by creating a separate queue for each terminal and, e.g., hosting all of them in the same CashBox, as shown in the following diagram.
 
 :::
 
