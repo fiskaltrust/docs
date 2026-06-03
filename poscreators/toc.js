@@ -22,6 +22,15 @@ module.exports = [
   },
   {
     type: "category",
+    label: "POS System API",
+    collapsed: true,
+    items: [
+      "poscreators/middleware-doc/possystem-api/introduction",
+      "poscreators/middleware-doc/possystem-api/android-intent",
+    ],
+  },
+  {
+    type: "category",
     collapsed: true,
     label: "Compliance Middleware",
     items: [
