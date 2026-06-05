@@ -64,7 +64,7 @@ For more information, see [VAT rules and rates](https://europa.eu/youreurope/bus
 #### lll - local tagging/flag
 
 | **Value** | **Description** | **Middleware Version** |
-| --------- | -------------- | ---------------------- |
+| --------- | --------------- | ---------------------- |
 | `001` | **Discounts** | 1.3.45 |
 | `002` | **Subtotal surcharges** | 1.3.45 |
 
