@@ -15,6 +15,7 @@ _CCCC_vlll_gggg_xxPP_
 version 2
 
 #### PP - payment type
+
 | **Value** | **Description** | **Middleware Version** |
 | --------- | --------------- | ---------------------- |
 | `00` | **Unknown payment type for IT**<br />This is handled like a cash payment in national currency. | 1.3.45 |
