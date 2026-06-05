@@ -20,7 +20,7 @@ For more information, see [VAT rules and rates](https://europa.eu/youreurope/bus
 | **Value** | **Description** | **Middleware Version** |
 | --------- | --------------- | ---------------------- |
 | `0` | **Unknown type of service for IT**<br />With the help of the VAT-rates table saved within fiskaltrust.SecurityMechanisms. | 1.3.45 |
-| `1` | **Discounted-1 VAT rate**<br />(as of 1.1.2022, this is 10%). | 1.3.45 |
+| `1` | **Discounted 1 VAT rate**<br />(as of 1.1.2022, this is 10%). | 1.3.45 |
 | `2` | **Discounted 2 VAT rate**<br />(as of 1.1.2022, this is calculated with 5%). | 1.3.45 |
 | `3` | **Normal VAT rate**<br />(as of 1.1.2022, this is calculated with 22%). | 1.3.45 |
 | `4` | **Super reduced 1 VAT rate**<br /> | 1.3.45 |
