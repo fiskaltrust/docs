@@ -36,6 +36,6 @@ version 2
 | `0080` | Digital receipt only. | 1.3.45 |
 
 #### sss - SignatureCase 
-| **Value** | **Description** | **Caption** | **Middleware-Version** |
+| **Value** | **Description** | **Caption** | **Middleware Version** |
 | --------- | --------------- | ----------- | ---------------------- |
 | TBD | TBD | TBD | TBD |
