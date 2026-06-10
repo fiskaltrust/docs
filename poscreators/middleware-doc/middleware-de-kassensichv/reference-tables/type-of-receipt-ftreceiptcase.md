@@ -43,7 +43,7 @@ For Germany (DE), the country code is `0x4445`. Thus, the value of an unknown `f
 
 ## ftReceiptCaseFlag
 
-This table expands on the values provided in table [ftReceiptCaseFlag](../../general/reference-tables/reference-tables.md#ftreceiptcaseflag) of the Compliance Middleware with values applicable to the German market.
+This table expands on the values provided in the [ftReceiptCaseFlag](../../general/reference-tables/reference-tables.md#ftreceiptcaseflag) reference table of the Compliance Middleware with values applicable to the German market.
 
 | **Value** | **Description** | **Middleware Version** |
 | --------- | --------------- | ---------------------- |

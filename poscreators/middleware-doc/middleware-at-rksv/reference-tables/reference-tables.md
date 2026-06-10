@@ -62,7 +62,7 @@ For Austria (AT) the country code is `0x4154`. Thus, the value for an unknown ft
 
 ### ftReceiptCaseFlag
 
-This table expands on the values provided in the table [Type of Receipt: ftReceiptCaseFlag](../../general/reference-tables/reference-tables.md#ftreceiptcaseflag) with values applicable to the Austrian market.
+This table expands on the values provided in the [Type of Receipt: ftReceiptCaseFlag](../../general/reference-tables/reference-tables.md#ftreceiptcaseflag) reference table with values applicable to the Austrian market.
 
 | **Value** | **Description** | **Middleware Version** |
 | --------- | --------------- | ---------------------- |
@@ -81,7 +81,7 @@ This table expands on the values provided in the table [Type of Receipt: ftRecei
 
 ## Type of Service: ftChargeItemCase
 
-This table expands on the values provided in the table [Type of Service: ftChargeItemCase](../../general/reference-tables/reference-tables.md#format-of-signature-ftsignatureformat) with values applicable to the Austrian market.
+This table expands on the values provided in the [Type of Service: ftChargeItemCase](../../general/reference-tables/reference-tables.md#format-of-signature-ftsignatureformat) reference table with values applicable to the Austrian market.
 
 | **Value** | **Description** | **Middleware Version** |
 | --------- | --------------- | ---------------------- |
@@ -128,7 +128,7 @@ This table expands on the values provided in the table [Type of Service: ftCharg
 
 ## Type of Payment: ftPayItemCase
 
-This table expands on the values provided in the table [Type of Payment: ftPayItemCase](../../general/reference-tables/reference-tables.md#type-of-payment-ftpayitemcase) with values applicable to the Austrian market.
+This table expands on the values provided in the [Type of Payment: ftPayItemCase](../../general/reference-tables/reference-tables.md#type-of-payment-ftpayitemcase) reference table with values applicable to the Austrian market.
 
 | **Value** | **Description** | **Middleware Version** |
 | --------- | --------------- | ---------------------- |
@@ -159,7 +159,7 @@ This table expands on the values provided in the table [Type of Payment: ftPayIt
 
 ## Type of Signature: ftSignatureType
 
-This table expands on the values provided in the table [Type of Signature: ftSignatureType](../../general/reference-tables/reference-tables.md#type-of-signature-ftsignaturetype) with values applicable to the Austrian market.
+This table expands on the values provided in the [Type of Signature: ftSignatureType](../../general/reference-tables/reference-tables.md#type-of-signature-ftsignaturetype) reference table with values applicable to the Austrian market.
 
 | **Value** | **Description** | **Middleware Version** |
 | --------- | --------------- | ----------- |
@@ -174,7 +174,7 @@ This table expands on the values provided in the table [Type of Signature: ftSig
 
 ## Format of Signature: ftSignatureFormat
 
-This table expands on the values provided in the table [Format of Signature: ftSignatureFormat](../../general/reference-tables/reference-tables.md#format-of-signature-ftsignatureformat) with values applicable to the Austrian market.
+This table expands on the values provided in the [Format of Signature: ftSignatureFormat](../../general/reference-tables/reference-tables.md#format-of-signature-ftsignatureformat) reference table with values applicable to the Austrian market.
 
 According to the RKSV, there is one exception: if the fiskaltrust.SecurityMechanism responds with a QR code but the printer, through which the receipt is supposed to be printed (or electronically issued), cannot display QR codes, it is allowed to convert the signature value and display it as bar code, link, or in OCR typeface on the receipt. This requirement and a sample code can be found in the [Printing of QR-Code not supported](#printing-of-qr-code-not-supported) section.
 
@@ -200,7 +200,7 @@ According to the RKSV, there is one exception: if the fiskaltrust.SecurityMechan
 
 ## Type of Journal: ftJournalType
 
-This table expands on the values provided in the table [Type of Journal: ftJournalType](../../general/reference-tables/reference-tables.md#type-of-journal-ftjournaltype) with values applicable to the Austrian market.
+This table expands on the values provided in the [Type of Journal: ftJournalType](../../general/reference-tables/reference-tables.md#type-of-journal-ftjournaltype) reference table with values applicable to the Austrian market.
 
 | **Value** | **Description** | **Middleware Version** |
 | --------- | --------------- | ---------------------- |

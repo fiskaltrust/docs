@@ -5,7 +5,7 @@ title: 'Type of Service: ftChargeItemCase'
 
 # Type of Service: ftChargeItemCase
 
-This table expands on the values provided in the table [ftChargeItemCase](../../general/reference-tables/reference-tables.md#type-of-service-ftchargeitemcase) of the Compliance Middleware, with country-specific values applicable to the German market.
+This table expands on the values provided in the [Type of Service: ftChargeItemCase](../../general/reference-tables/reference-tables.md#type-of-service-ftchargeitemcase) reference table of the Compliance Middleware, with country-specific values applicable to the German market.
 
 | **Value** | **Description** | **UST_SCHLUESSEL (DSFinV-K)** | **GV_TYP (DSFinV-K)** | **Middleware Version** |
 | --- | --- | --- | --- | --- |

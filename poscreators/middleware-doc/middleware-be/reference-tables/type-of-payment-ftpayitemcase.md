@@ -5,7 +5,7 @@ title: 'Type of Payment: ftPayItemCase'
 
 # Type of Payment: ftPayItemCase
 
-This table expands on the values provided in the table [ftPayItemCase](../../general/reference-tables/reference-tables.md#type-of-payment-ftpayitemcase) of the Compliance Middleware with values applicable to the Belgian market.
+This table expands on the values provided in the [Type of Payment: ftPayItemCase](../../general/reference-tables/reference-tables.md#type-of-payment-ftpayitemcase) reference table of the Compliance Middleware with values applicable to the Belgian market.
 
 ## Format
 
