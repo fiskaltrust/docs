@@ -25,7 +25,7 @@ As a POS creator, your first goal is to be able to send requests to our free ft.
 
 A so-called CashBox is a configuration container that connects (links) the configurations of individual components of the fiskaltrust.Middleware which can be configured in the fiskaltrust.Portal. The fiskaltrust.Portal can contain the configurations of Queues, SCUs, and various Helpers - and a CashBox connects them with each other. Next, we will configure an SCU and a Queue needed for testing, and then connect them together in the CashBox.
 
-![cashbox](images/middleware.png)
+![cashbox](images/middleware.svg)
 
 The steps for the creation and configuration of the CashBox are covered in the [further part of this document](#15-cashbox-creation).
 
