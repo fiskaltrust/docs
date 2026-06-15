@@ -63,7 +63,7 @@ This configuration can be applied:
 
 ## Printer settings
 
-Tapping **Printer** opens a sub-page where you can select a printer. The remaining printer configuration necesary, if any, appears once a printer is selected.
+When you tap on Printer, a subpage will open where you can select a printer. Any remaining print options will appear after selecting a physical printer.
 
 #### Printer
 Shows all available printers (USB, Bluetooth, ESC POS Network printing, ... ). Select the one you want to use.
@@ -95,7 +95,7 @@ Select the payment provider to use on this device (e.g., **Hobex ECR**, **Hobex 
 
 ##### Use Sandbox app *(internal / sandbox builds only)*
 For **Softpay.io**, **Hobex POSit**, and **GPTom** (and maybe others in future) show a **Use Sandbox app** switch. When enabled, the provider's sandbox app is used instead of the production app.
-This switch is only available when the InStore App is paired to a sandbox cashbox.
+This switch is only available when the InStore App is paired with a sandbox cashbox.
 
 ##### HobexECR
 - **Terminal ID** – The terminal ID assigned by Hobex.
