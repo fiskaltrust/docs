@@ -3,18 +3,12 @@ slug: /poscreators/middleware-doc/instore-app/available-settings
 title: Available Settings
 ---
 
-# Available Settings - InStore App (v1.3.1)
+# Available Settings - InStore App
 
 :::info Important
 
-All settings and options described here apply **only** to version **1.3.1** of the InStore App.  
+All settings and options described here apply to version the release **1.3.1** of the InStore App.  
 If you are using an older version, some settings may differ or may not be available at all.
-
-:::
-
-:::info Visibility of settings
-
-Many settings are shown or hidden depending on context — the selected **Operation Mode**, whether a real (non-virtual) printer is selected, and the selected payment provider. Some options only appear in internal **sandbox/development** builds. Where this is the case, it is noted below.
 
 :::
 
@@ -32,7 +26,7 @@ Defines which features are available in the UI. Some options and sections appear
 
 :::info Note
 
-Selecting **Merchant** mode automatically enables **Enable running in Background** (see below).
+As merchante mode is usually used in an environment where the InStore App is not the main application used on the host device, selecting **Merchant** mode automatically enables **Enable running in Background**.
 
 :::
 
@@ -49,7 +43,7 @@ When enabled it results in the following behaviour:
 
 :::info Note
 
-This setting is **mandatory for Android 15+**. It is only shown on Android (it is hidden on Windows).
+This setting is **mandatory for Android 15+**.
 
 :::
 
@@ -69,29 +63,20 @@ This configuration can be applied:
 
 ## Printer settings
 
-Tapping **Printer** opens a picker where you can select a printer; the remaining print options appear once a real printer is selected.
-
-:::info Note
-
-Some options depend on the selected Operation Mode and on the selected printer type.
-
-:::
+Tapping **Printer** opens a sub-page where you can select a printer; the remaining print options configuration necesary, if any, appear once a real printer is selected.
 
 #### Printer
-Shows all available printers (USB, Bluetooth, or **ESC POS Network printing**). Select the one you want to use. Some payment terminals also expose an integrated printer (e.g. the Shift4 Commerce Engine printer or a SmartPOS integrated printer), which appears here when that payment provider is active.
-
-**ESC POS Network printing** is available as a default option and can be configured via the **IP Address** and **IP Port** fields (see below).
+Shows all available printers (USB, Bluetooth, ESC POS Network printing, ... ). Select the one you want to use.
+Some payment terminals also expose an integrated printer and are tied to the payment configuration (e.g. the Shift4 Commerce Engine printer). Such printers might only appear after the payment provider was configured. Therefore we suggest to first configure Payment and afterwards the printer.
 
 #### Print Delay
 Defines the delay before an issued receipt will get printed automatically if the guest/customer is not receiving the receipt in another way like scanning the QR code with their phone, just accepting it by pressing OK or another method.
 
-Adjust the value with the **–/+** stepper in **5‑second steps**. The range is **0–100 s**; a value of **0** is shown as **"Off"** and disables the automatic timed print.
-
-Default: 30 s.
-**Available only in Consumer mode and only when a real printer is selected.**
+Default: 30s.
+**Available only in Consumer mode.**
 
 #### Paper width
-Set the receipt width: **48 mm**, **72 mm**, or **80 mm**. *(Shown only when a real printer is selected.)*
+Set the receipt width: **48 mm**, **72 mm**, or **80 mm**.
 
 #### IP Address / IP Port
 Shown only when **ESC POS Network printing** is selected. Enter the printer's network **IP Address** and **IP Port** (default port **9100**).
@@ -106,23 +91,14 @@ Executes a simple "demo" test print to check basic printer functionality.
 Tapping **Payment Method** opens a sub-page where you select and configure a payment provider.
 
 #### Payment Method
-Select the payment provider to use on this device. The list shown in the picker depends on the device and build, and may include:
-
-- **HobexECR**
-- **Hobex POSit**
-- **Softpay.io**
-- **Worldline/PayOne SmartPOS** or **Worldline/PayOne TOM** (depending on the device type)
-- **Viva Wallet SoftPay**
-- **GPTom SoftPay**
-- **GPPay**
-- **Shift4 / S4**
-
+Select the payment provider to use on this device (e.g., **Hobex ECR**, **Hobex POSit**, **Softpay.io**, **WPI SoftPay**, **Viva Wallet**, **GP tom**, **GP Pay**, **Shift4**). 
 After selection, provider‑specific options appear as needed.
 
 ##### Use Sandbox app *(internal / sandbox builds only)*
-For **Softpay.io**, **Hobex POSit**, and **GPTom**, sandbox/development builds show a **Use Sandbox app** switch. When enabled, the provider's sandbox app is used instead of the production app. This switch is not present in production builds.
+For **Softpay.io**, **Hobex POSit**, and **GPTom** (and maybe others in future) show a **Use Sandbox app** switch. When enabled, the provider's sandbox app is used instead of the production app.
+This switch is only available when the InStore App is paired to a sandbox cashbox.
 
-##### HobexECR (example of provider‑specific fields)
+##### HobexECR
 - **Terminal ID** – The terminal ID assigned by Hobex.
 - **Password** – The password for ECR integration (tap the eye icon to reveal/hide it).
 - **Host** – Hostname or IP of the ECR endpoint (default `localhost`).
@@ -135,25 +111,23 @@ For **Softpay.io**, **Hobex POSit**, and **GPTom**, sandbox/development builds s
 - **Allow API Debugging** – Allows insecure certificates for troubleshooting. **Do not use in production.**
 
 #### Test Communication
-Shown for **HobexECR** and **Shift4**. Checks connectivity with the configured payment endpoint before going live. For Shift4 the check can take up to ~180 s.
+Available for some payment solutions only. Checks connectivity with the configured payment endpoint before going live.
 
 ---
 
 ## Other
-
-The **Other** section of the Settings page contains two rows — **Advanced** and **About** — each opening its own sub-page.
 
 ### Advanced
 
 Tapping **Advanced** opens a sub-page with the following options:
 
 #### Enable webview URL
-When enabled, the configured URL is shown on the home screen (the idle "no active session" view) instead of the default screen. Enter a valid `http://` or `https://` URL in the field that appears. While the toggle is on but the field is empty or the URL is invalid, the app keeps showing the default home screen and displays an inline warning.
+When enabled, the website represented by the configured URL is shown on the home screen (the idle "no active session" view) instead of the default screen. Enter a valid `http://` or `https://` URL in the field that appears. While the toggle is on but the field is empty or the URL is invalid, the app keeps showing the default home screen and displays an inline warning.
 
 #### Lock settings via PIN
 When enabled, opening the **Settings** page requires a 6‑digit PIN. This prevents unwanted configuration changes (e.g. by waiters).
 
-- When you enable the lock, the app shows the **fixed PIN once** so you can note it down — the PIN does not change.
+- When you enable the lock, the app shows the **PIN once** so you can note it down.
 - Disabling the lock also requires entering the PIN.
 - After **5 wrong attempts within one hour**, PIN entry is locked for up to an hour.
 
@@ -173,7 +147,7 @@ Tapping **About** opens a sub-page showing device and app information. *(All fie
 - **Device Type** – The device model/type (e.g., terminal vendor and model). Useful to identify hardware-specific behavior.
 - **Device ID** – The unique identifier of this device. Quote this ID when contacting support or managing a fleet. Tap it to show the full ID in a popup.
 - **CashBox ID** – The CashBox the app is paired with (shows **"Not paired"** when no CashBox is paired). Tap it to show the full ID in a popup.
-- **Support contact** – Displays the fiskaltrust support email address: **hello@fiskaltrust.eu**.
+- **Support contact** – Displays the fiskaltrust support email address.
 - **Version** – The currently installed app version.
 
 ---
@@ -181,6 +155,4 @@ Tapping **About** opens a sub-page showing device and app information. *(All fie
 ## Best practices
 
 - Keep **Use local configuration** **off** if you manage settings centrally — this prevents drift from backend policies.
-- Use **Test Communication** before going live for **HobexECR** and **Shift4**.
-- Keep **Allow API Debugging** (Shift4) **off** in production — it is for troubleshooting only.
-- When using **Lock settings via PIN**, note the PIN shown on activation and store it safely.
+- Use **Test Communication** before going live when available.
