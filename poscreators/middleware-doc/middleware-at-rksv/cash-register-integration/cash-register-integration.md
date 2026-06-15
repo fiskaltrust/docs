@@ -103,7 +103,7 @@ Furthermore, you can find two fundamentally different types of failure distingui
 
 ### Signature Creation Device Failure
 
-A signature creation device failure must be assumed if fiskaltrust.SecuritymMechanisms cannot communicate with the signature creation device temporarily. This can happen when e.g. the chip-card reader is faulty.
+A signature creation device failure must be assumed if fiskaltrust.SecurityMechanisms cannot communicate with the signature creation device temporarily. This can happen when e.g. the chip-card reader is faulty.
 
 In case of a signature creation device failure, the machine-readable code from fiskaltrust.SecurityMechanisms (following the RKSV) is processed and sent back to the cash register. The status of the fiskaltrust.SecurityMechanism is communicated to the cash register input station with every response. The failure status can only be terminated through a zero receipt. Requesting the zero receipt can be done automatically through the input station or manually by the user.
 

@@ -88,7 +88,7 @@ The start receipt has to be sent before the security mechanism is used for the f
 
 The stop receipt is required for scheduled decommissioning of security mechanisms and/or cash registers. The stop receipt is used to switch off: the receipt chaining, the counter up-counting, and the totalizer storing. It also concludes the data collection log.
 
-This receipt has a meaningful response from fiskaltrust.SecurityMechanism only the first time: in order to stop operative calculations and the operation of a queue. After receiving a stop receipt the queue will be closed. There will be no positive response from the cash register when a receipt is send to a closed queue.
+This receipt has a meaningful response from fiskaltrust.SecurityMechanism only the first time: in order to stop operative calculations and the operation of a queue. After receiving a stop receipt the queue will be closed. There will be no positive response from the cash register when a receipt is sent to a closed queue.
 
 A closed queue can’t be reopened with a start receipt. Instead, a new queue has to be generated and initialized with a start receipt.
 

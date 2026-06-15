@@ -119,7 +119,7 @@ import EditOutletDE from '../../_markets/de/getting-started/operator-onboarding/
 
 ## Evaluation of retrievals of digital receipts
 
-In an audit case for the tax authorities (or in general), you, as a PosDeler or PosOperator, can verify which documents were transmitted and retrieved or printed using an export via the fiskaltrust.Portal. 
+In an audit case for the tax authorities (or in general), you, as a PosDealer or PosOperator, can verify which documents were transmitted and retrieved or printed using an export via the fiskaltrust.Portal. 
 
 Use `Configuration` / `Queue` and select the desired Queue. The button `Export` leads you to a page for creating new exports (Tools / Export / Create new). When using the digital receipt, an additional file is added to the `Full export (XML)` Export type. This file provides information about the status of the individual digital receipts. In addition, linking the data records is possible using the ftReceiptJournalID, which is contained both in the raw and in the print data records.  
 

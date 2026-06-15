@@ -112,7 +112,7 @@ Inviting PosOperators to a PosDealer account with an import file is especially i
 |![Number 1](../../images/numbers/circle-1o.png) |Choose the fiskaltrust.Portal and `PosOperator` / `Invitation`|
 |![Number 2](../../images/numbers/circle-2o.png) |Check the configurations of the invitations as previously described [_here_](#preparation-of-invitations) |
 |![Number 3](../../images/numbers/circle-3o.png) |Use `Download demo CSV file`.  |
-|![Number 4](../../images/numbers/circle-4o.png) |Open the the demo CSV file.  |
+|![Number 4](../../images/numbers/circle-4o.png) |Open the demo CSV file.  |
 |![Number 5](../../images/numbers/circle-5o.png) |See the explanations [_below_](#fields-of-the-csv-file), add the requested data of the PosOperators and save the date as a CSV file.  |
 |![Number 6](../../images/numbers/circle-6o.png) |Change  again to the fiskaltrust.Portal and choose `PosOperator` / `Invitation`.|
 |![Number 7](../../images/numbers/circle-7o.png) |In the section named `PosOperators that should be invited` use `Choose file...` to set your CSV file.  |

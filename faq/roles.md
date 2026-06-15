@@ -30,6 +30,6 @@ Our primary focus for this group is to simplify rollout processes by providing s
 ## PosOperator
 _PosOperators are the "end users" of Possystems, i.e. the businesses and persons who actually operate the Possystem in locations like shops. restaurants or hotels._
 
-Usually, PosOperator have not direct relationship with fiskaltrust, as their direct contact for sales and support topic is the PosDealer, and the fiskaltrust.Middleware is just running in the background, integrated into the Possoftware. Only at the request of tax authorities or auditors, with the help of PosDealer, provide the data that meets the requirements of the tax regulations.
+Usually, PosOperators have no direct relationship with fiskaltrust, as their direct contact for sales and support topic is the PosDealer, and the fiskaltrust.Middleware is just running in the background, integrated into the Possoftware. Only at the request of tax authorities or auditors, with the help of PosDealer, provide the data that meets the requirements of the tax regulations.
 
 As a service provider, fiskaltrust is therefore not offering direct support for PosOperators. If you belong to this group, please reach out to your PosDealer.

@@ -48,7 +48,7 @@ import ReactPlayer from "react-player"
 
 :::tip Copying expressions made easy
 
-Fiskaltrust`s documentation, in particular the technical chapters, contains code blocks. These you can execute on your system's command line. When hovering with the mouse over such a code block, a copy button will appear in the top right. This button allows you to copy the whole code with one click to your clipboard. You can save time and avoid typos or spelling issues. Please note the respective explanatory text for notes on where to use the code and whether adjustments are necessary.
+Fiskaltrust's documentation, in particular the technical chapters, contains code blocks. These you can execute on your system's command line. When hovering with the mouse over such a code block, a copy button will appear in the top right. This button allows you to copy the whole code with one click to your clipboard. You can save time and avoid typos or spelling issues. Please note the respective explanatory text for notes on where to use the code and whether adjustments are necessary.
 
 :::
 

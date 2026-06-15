@@ -36,13 +36,13 @@ https://europa.eu/youreurope/business/taxation/vat/vat-rules-rates/index_en.htm
 | `0` | **Unknown type of service**<br />With the help of the VAT-rates table saved within fiskaltrust.SecurityMechanisms. | 1.3.67  |
 | `1` | **Delivery (supply of goods)**<br />| 1.3.67 |
 | `2` | **Other service (supply of service)**<br />| 1.3.67   |
-| `3` | **Tip**<br /> For owner use V=0 to 7, related to total amount <br /> For Employee use V=8, Not Taxable(as of 1.1.2022, this is calculated with 5%). | 1.3.67  |
+| `3` | **Tip**<br /> For owner use V=0 to 7, related to total amount <br /> For Employee use V=8, Not Taxable (as of 1.1.2022, this is calculated with 5%). | 1.3.67  |
 | `4` | **Voucher**<br /> For Single-Use-Voucher use V=0 to 7<br />For Multi-Use-Voucher use V=8, Not Taxable<br />Voucher Sale is a positive (+) amount.<br />Voucher Redeem is a negative (-) amount.<br />IsVoid can be applied to reverse amounts.<br />Avoid to use this for Multi-Use-Voucher, use PayItem instead, with ShowInChargeItems flag. For Single-Use-Voucher, apply the ShowInPayItems flag to visualize it similar to payment and to keep the total amount unreduced. | 1.3.67 |
 | `5` | **Catalog service**<br /> | 1.3.67 |
 | `6` | **Not own sales / Agency business**<br />| 1.3.67 |
 | `7` | **Own Consumption**<br />| 1.3.67 |
 | `8` | **Grant**<br />For Unreal Grant use V=0 to 7<br />For Real Grant use V=8  |1.3.67| 
-| `9` | **Receivable**<br />Receiveable creation is negative (-) amount<br />Receiveable reduction is positive (+) amount.<br />IsVoid can be applied to reverse amounts.<br />Avoid to use this, use PayItem instead.  |1.3.67|   
+| `9` | **Receivable**<br />Receivable creation is negative (-) amount<br />Receivable reduction is positive (+) amount.<br />IsVoid can be applied to reverse amounts.<br />Avoid to use this, use PayItem instead.  |1.3.67|   
 | `A` | **Cash Transfer**<br />Cash Transfer to till is positive (+) amount<br />Cash Transfer from till is negative (-) amount.<br />Only useable with V=8, Not Taxable. <br />IsVoid can be applied to reverse amounts|1.3.67|    
 
 #### NN - nature of VAT  
@@ -50,12 +50,12 @@ https://europa.eu/youreurope/business/taxation/vat/vat-rules-rates/index_en.htm
 | **Value**            | **Description**                                                                                        | **Spec. for Spanish reg.** | **Middleware Version** |
 | -------------------- | -------------- |  -------------- | ---------------------- |
 | `00` | **usual VAT applies**<br />| | 1.3.67  |
-| `20` | **Not Subject**<br />2x can be used to specify more country specific details.| *NS (N2) marker mandatory<br />[20] not subject by aticles 7 and 14<br />[21] not subject, location rules| 1.3.67   |
+| `20` | **Not Subject**<br />2x can be used to specify more country specific details.| *NS (N2) marker mandatory<br />[20] not subject by articles 7 and 14<br />[21] not subject, location rules| 1.3.67   |
 | `30` | **Exempt**<br /> 3x| *ES (N4) marker mandatory<br />[30] Exempt by article 20<br />[31] Exempt by article 21<br />[32] Exempt by article 22<br />[33] Exempt by article 23 and 24<br />[34] Exempt by article 25<br />[35] Exempt, other cases | 1.3.67  |
 | `50` | **Reverse charge**<br /> 5x | *AL (N6) marker mandatory<br />[50] reverse charge | 1.3.67 |
 
 
-#### lll - local taggin/flag
+#### lll - local tagging/flag
 
 TBD
 

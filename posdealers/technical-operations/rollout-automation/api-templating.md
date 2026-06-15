@@ -147,7 +147,7 @@ For example, to specify a timeout value of 10,000 milliseconds for the **second*
 
 
 
-#### Market-specfic parameters
+#### Market-specific parameters
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

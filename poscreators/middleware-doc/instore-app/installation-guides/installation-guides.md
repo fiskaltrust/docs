@@ -18,7 +18,7 @@ Note: The Manual guide includes both the stable and preview download links.
 
 ## Also supported
 
-For the following protals please refer to the partners documentation and support on how to install the `fiskaltrust InStore App`:
+For the following portals please refer to the partners documentation and support on how to install the `fiskaltrust InStore App`:
 
 - [PAX Viva Wallet](https://vivawallet.whatspos.com)
 - [PAX Global Payments](https://www.whatspos.com)

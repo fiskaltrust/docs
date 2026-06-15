@@ -5,7 +5,7 @@ title: Reference Tables
 
 # Reference Tables
 
-As the Middleware abstracts processes and data accross multiple markets and countries, there is a specific mapping for each market. This mapping is based on the overall tagging system, which provides the additional benefit of a semantical value to  all receipts, charge items, and pay items. The following section briefly describes the overall format.
+As the Middleware abstracts processes and data across multiple markets and countries, there is a specific mapping for each market. This mapping is based on the overall tagging system, which provides the additional benefit of a semantical value to  all receipts, charge items, and pay items. The following section briefly describes the overall format.
 
 ## Format
 
@@ -96,7 +96,7 @@ The fiskaltrust receipt case field (`ftReceiptCase`) is of utmost importance for
 | `0008` | **Process as Handwritten Receipt**<br />During a power outage, the cash register will not work, and the merchant issues handwritten receipts. These receipts must be sent to the Security Mechanism using this flag. |
 | `0010` | **IssuerIsSmallBusiness**<br />Businesses below a country-specific size in revenue do not need to declare VAT. With this marker, the receipt shows no VAT, all prices are gross, and a country-specific hint must be printed. |
 | `0020` | **ReceiverIsBusiness**<br />Specific data must be included on the receipt. |
-| `0040` | **ReceiverIsKnown**<br />Characteristics related to UStG are provided. For example, Name, Adress, VAT-ID, other local details. |
+| `0040` | **ReceiverIsKnown**<br />Characteristics related to UStG are provided. For example, Name, Address, VAT-ID, other local details. |
 | `0080` | **IsSaleInForeignCountry** | |
 | `0100` | **IsReturn/IsRefund**<br />Marks the receipt as a return of goods or services. |
 | `0200` | **InvoiceProcessingOnly/InvoiceDelivery**<br />Used when a `queueitemid` should be generated for later processing, e.g., issue. |
@@ -319,7 +319,7 @@ version 2
 | `0000_0002` | SCU (Signature Creation Unit) temporarily out of service.<br />For at least one receipt, it was not possible to obtain a signature from an allocated SCU. Therefore, the security mechanism has been put into "signature creation device out of service" mode. Regardless of whether an allocated SCU becomes available again, this mode remains in effect until a ZeroReceipt clears the state and performs the required market-specific action. |
 | `0000_0008` | Deferred Queue Mode/Late Signing Mode is active.<br />When the cash register doesn’t reach the queue, it queues up the receipt requests while continuing to do business. Also, with a major failure of the cash register or a power outage, handwritten paper receipts are queued up while continuing to do business. After returning to a fully functional state, these queued `ReceiptRequests` are sent to the queue, keeping the original `cbReceipt-Moment` of the business case `ReceiptCase` tagged/flagged with `0001` (Deferred Queue/Late Signing) or `0008` (Handwritten).<br />A result of this is a marker within the `ftState`, which can be resolved via `ZeroReceipt`. The reason for the marker is a mismatch between processed time along the receipt chain and a manual event to clean up the state, and maybe notify 3rd parties of an outage. |
 | `0000_0040` | Message Pending.<br />Middleware/Queue is a headless background service, but there are situations where communication with the cashier/operator or the cash register is necessary. For example, if the last daily closing was missed or if a special condition related to the signature creation unit or service happened. This is when the message pending flag is set by the middleware and should be signaled to the cashier by the POS system. By executing a `ZeroReceipt`, the cashier can read the message or instruction on the printed or displayed receipt.<br />Related to local regulations, this receipt may be stored/archived for bookkeeping purposes; if so, this is also visualized.
-| `0000_0100` | `DailyClosing` due.<br />When the first `cbReceiptMoment` used since the last `DailyClosing` and the current/latest `cbReceiptMoment` in the `ReceiptRequest` have a date gap of more than two days (e.g., the first since the last daily closing is 24/08 and the current is 26/08), then this state indicates a `DailyClosing` should be done.<br />`DailyClosing` is an essential part of the security mechanism and executes additional market-specific clean-up tasks. Therefore, each queue should perform a `DailyClsoing` to clear persistent changes in business data and updates in the business period. |
+| `0000_0100` | `DailyClosing` due.<br />When the first `cbReceiptMoment` used since the last `DailyClosing` and the current/latest `cbReceiptMoment` in the `ReceiptRequest` have a date gap of more than two days (e.g., the first since the last daily closing is 24/08 and the current is 26/08), then this state indicates a `DailyClosing` should be done.<br />`DailyClosing` is an essential part of the security mechanism and executes additional market-specific clean-up tasks. Therefore, each queue should perform a `DailyClosing` to clear persistent changes in business data and updates in the business period. |
 | `0000_0200` | `MonthlyClosing` due.<br />When the first `cbReceiptMoment` used since last `MonthlyClosing` and the current/latest `cbReceiptMoment` in the `ReceiptRequest` are different, this state indicates a `MonthlyClosing` should be done. |
 | `0000_0400` | `YearlyClosing` due. |
 | `EEEE_EEEE` | Error.<br />Something went wrong while processing the last request. `QueueItem` exists but didn’t reach the state of a `ReceiptItem` and didn’t consume a `ftReceiptNumber` within the chain. Error reason is shown within the responded `ftSignatureItems`. This happens, for example, if the `ReceiptCase` is not recognized or is wrong. |
@@ -442,7 +442,7 @@ version 2
 |--------|------------------------|-----------------|
 | `000` | Notification	| |
 | `001`	| Primary market-related compliance signature	| |
-| `010??` |	Middleware version: the version of the middlware used to generate the given receipt	| |
+| `010??` |	Middleware version: the version of the middleware used to generate the given receipt	| |
 | `Exx??` |	Related information to `EEEE_EEEE` `ftState`<br />Flag: do not print/visualize<br />Data: Base64 stack trace if debug/sandbox | Exception Number/Name |
 | `Fxx??` |	Related information to `FFFF_FFFF` `ftState`<br />Flag: do not print/visualize<br />Data: Base64 stack trace if debug/sandbox | Exception Number/Name |
 

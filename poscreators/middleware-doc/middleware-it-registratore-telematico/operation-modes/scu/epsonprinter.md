@@ -11,7 +11,7 @@ title: Epson-Printer
 
 **Stable from version:** 1.3.45
 
-The _fiskaltrust.Middleware.SCU.IT.EpsonRTPrinter_ package connects the middleware with a Epson-Printer.
+The _fiskaltrust.Middleware.SCU.IT.EpsonRTPrinter_ package connects the middleware with an Epson-Printer.
 
 ### Parameters
 
