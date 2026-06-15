@@ -7,7 +7,7 @@ title: Available Settings
 
 :::info Important
 
-All settings and options described here apply to version the release **1.3.1** of the InStore App.  
+All settings and options described here apply to version **1.3.1** of the InStore App.  
 If you are using an older version, some settings may differ or may not be available at all.
 
 :::
@@ -63,7 +63,7 @@ This configuration can be applied:
 
 ## Printer settings
 
-Tapping **Printer** opens a sub-page where you can select a printer; the remaining print options configuration necesary, if any, appear once a real printer is selected.
+Tapping **Printer** opens a sub-page where you can select a printer. The remaining printer configuration necesary, if any, appears once a printer is selected.
 
 #### Printer
 Shows all available printers (USB, Bluetooth, ESC POS Network printing, ... ). Select the one you want to use.
@@ -92,7 +92,6 @@ Tapping **Payment Method** opens a sub-page where you select and configure a pay
 
 #### Payment Method
 Select the payment provider to use on this device (e.g., **Hobex ECR**, **Hobex POSit**, **Softpay.io**, **WPI SoftPay**, **Viva Wallet**, **GP tom**, **GP Pay**, **Shift4**). 
-After selection, provider‑specific options appear as needed.
 
 ##### Use Sandbox app *(internal / sandbox builds only)*
 For **Softpay.io**, **Hobex POSit**, and **GPTom** (and maybe others in future) show a **Use Sandbox app** switch. When enabled, the provider's sandbox app is used instead of the production app.
@@ -119,8 +118,6 @@ Available for some payment solutions only. Checks connectivity with the configur
 
 ### Advanced
 
-Tapping **Advanced** opens a sub-page with the following options:
-
 #### Enable webview URL
 When enabled, the website represented by the configured URL is shown on the home screen (the idle "no active session" view) instead of the default screen. Enter a valid `http://` or `https://` URL in the field that appears. While the toggle is on but the field is empty or the URL is invalid, the app keeps showing the default home screen and displays an inline warning.
 
@@ -146,7 +143,7 @@ Tapping **About** opens a sub-page showing device and app information. *(All fie
 - **IP Address** – The current IP address of the device on your network. Use it when setting up network printing or firewall rules. Only appears when the device is connected via **LAN/WLAN**; hidden when using mobile data.
 - **Device Type** – The device model/type (e.g., terminal vendor and model). Useful to identify hardware-specific behavior.
 - **Device ID** – The unique identifier of this device. Quote this ID when contacting support or managing a fleet. Tap it to show the full ID in a popup.
-- **CashBox ID** – The CashBox the app is paired with (shows **"Not paired"** when no CashBox is paired). Tap it to show the full ID in a popup.
+- **CashBox ID** – The CashBox the app is paired with. Tap it to show the full ID in a popup.
 - **Support contact** – Displays the fiskaltrust support email address.
 - **Version** – The currently installed app version.
 
