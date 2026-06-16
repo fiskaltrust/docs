@@ -33,7 +33,7 @@ The steps for the creation and configuration of the CashBox are covered in the [
 
 The SCU (Signature Creation Unit) is a component of the ft.Middleware, which is responsible for the communication with the TSE. Depending on which TSE you plan to use, the SCU will have to be configured accordingly.
 
-To create an SCU configuration in the fiskaltrust.Portal, select the menu item ``Configuration -> Signature creation unit`` and press the button "Create". Enter a short description (name) and select the package for your TSE at "Package Name". Then select the latest version under "Package Version" and press the button "Save".
+To create an SCU configuration in the fiskaltrust.Portal, select the menu item `Configuration -> Signature creation unit` and click "Create". Enter a short description (name) for the SCU and select the package for your TSE under "Package Name". Then select the latest version under "Package Version" and select the appropriate "Outlet". Click "Save" to create the SCU configuration.
 
 ![cashbox-config-scu-creation-01](images/cashbox-config-scu-creation-01.png)
 
