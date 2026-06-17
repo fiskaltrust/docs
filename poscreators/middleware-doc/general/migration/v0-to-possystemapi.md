@@ -122,8 +122,8 @@ A systematic approach to updating case values:
 
 **Fixed Mappings**
 
-| **v2 (in)** | **v0 (out)** | **Comment** |
-| ----------- | ------------ | ----------- |
+| **v2 (in)** | **v0 (out)** | **Description** |
+| ----------- | ------------ | --------------- |
 | `0x4154_2000_0000_0000` | `0x4154_0000_0000_0000` | Unknown receipt type, threated the same way as a point-of-sale receipt type |
 | `0x4154_2000_0000_0001` | `0x4154_0000_0000_0001` | Point-of-sale receipt type |
 | `0x4154_2000_0000_0003` | `0x4154_0000_0000_0007` | Point-of-sale receipt type without fiskalisation obligation or with exemption |
@@ -156,8 +156,8 @@ A systematic approach to updating case values:
 
 **Dynamics Mappings**
 
-| **v2 (in)** | **v0 (out)** | **Comment** |
-| ----------- | ------------ | ----------- |
+| **v2 (in)** | **v0 (out)** | **Description** |
+| ----------- | ------------ | --------------- |
 | `0x4154_2000_0000_0002` | `0x4154_0000_0000_000A` | Payment transfer receipt type ; conditional. ChargeItems == [] && cash(PayItems) > 0 , pay-in to drawer/till |
 | `0x4154_2000_0000_0002` | `0x4154_0000_0000_000B` | Payment transfer receipt type ; conditional. ChargeItems == [] && cash(PayItems) < 0 , pay-out from drawer/till |
 | `0x4154_2000_0000_0002` | `0x4154_0000_0000_000C` | Payment transfer receipt type |
@@ -188,8 +188,8 @@ A systematic approach to updating case values:
 <details>
 <summary>France (FR)</summary>
 
-| **v2 (in)** | **v0 (out)** | **Comment** |
-| ----------- | ------------ | ----------- |
+| **v2 (in)** | **v0 (out)** | **Description** |
+| ----------- | ------------ | --------------- |
 | `0x4652_2000_0000_0000` | `0x4652_0000_0000_0000` | Unknown receipt type, threated the same way as a point-of-sale receipt type |
 | `0x4652_2ooo_o8oo_0000` | `0x4652_0000_0000_000E` | IsSaleInForeignCountry flag recognized in any point-of-sale receipt type, v0 makes no difference between unknown, pos, pos with exemption |
 | `0x4652_2ooo_o8oo_0001` | `0x4652_0000_0000_000E` | IsSaleInForeignCountry flag recognized in any point-of-sale receipt type, v0 makes no difference between unknown, pos, pos with exemption |
@@ -251,8 +251,8 @@ A systematic approach to updating case values:
 <details>
 <summary>Germany (DE)</summary>
 
-| **v2 (in)** | **v0 (out)** | **Comment** |
-| ----------- | ------------ | ----------- |
+| **v2 (in)** | **v0 (out)** | **Description** |
+| ----------- | ------------ | --------------- |
 | `0x4445_2000_0000_0000` | `0x4445_0000_0000_0000` | Unknown receipt type, threated the same way as a point-of-sale receipt type |
 | `0x4445_2ooo_o8oo_0000` | `0x4445_0000_0000_0015` | IsSaleInForeignCountry flag recognized in any point-of-sale receipt type, v0 makes no difference between unknown, pos, pos with exemption |
 | `0x4445_2ooo_o8oo_0001` | `0x4445_0000_0000_0015` | IsSaleInForeignCountry flag recognized in any point-of-sale receipt type, v0 makes no difference between unknown, pos, pos with exemption |
@@ -321,219 +321,13 @@ A systematic approach to updating case values:
 
 </details>
 
-##### ftReceiptCaseFlag
-
-<details>
-<summary>Austria (AT)</summary>
-
-**Fixed Mappings**
-
-| **v2 (in)** | **v0 (out)** | **Comment** |
-| ----------- | ------------ | ----------- |
-| `0x4154_2000_0000_0000` | `0x4154_0000_0000_0000` | Unknown receipt type, threated the same way as a point-of-sale receipt type |
-| `0x4154_2000_0000_0001` | `0x4154_0000_0000_0001` | Point-of-sale receipt type |
-| `0x4154_2000_0000_0003` | `0x4154_0000_0000_0007` | Point-of-sale receipt type without fiskalisation obligation or with exemption |
-| `0x4154_2000_0000_0004` | `0x4154_0000_0000_000F` | E-commerce receipt type |
-| `0x4154_2000_0000_0005` | `0x4154_0000_0000_0009` | Delivery note receipt type |
-| `0x4154_2000_0000_1000` | `0x4154_0000_0000_0008` | Unknown invoice type |
-| `0x4154_2000_0000_1001` | `0x4154_0000_0000_0008` | B2C invoice type |
-| `0x4154_2000_0000_1002` | `0x4154_0000_0000_0008` | B2B invoice type |
-| `0x4154_2000_0000_1003` | `0x4154_0000_0000_0008` | B2G invoice type |
-| `0x4154_2000_0000_2000` | `0x4154_0000_0000_0002` | Zero receipt dailyoperation type |
-| `0x4154_2000_0000_2001` | `0x4154_0000_0000_0002` | (reserved) dailyoperation type |
-| `0x4154_2000_0000_2010` | `0x4154_0000_0000_0002` | Shift closing dailyoperation type |
-| `0x4154_2000_0000_2011` | `0x4154_0000_0000_0002` | Daily closing dailyoperation type |
-| `0x4154_2000_0000_2012` | `0x4154_0000_0000_0005` | Monthly closing dailyoperation type |
-| `0x4154_2000_0000_2013` | `0x4154_0000_0000_0006` | Yearly closing dailyoperation type |
-| `0x4154_2000_0000_3000` | `0x4154_0000_0000_000D` | Unknown/unspecified protocol type |
-| `0x4154_2000_0000_3001` | `0x4154_0000_0000_000D` | Technical event protocol type |
-| `0x4154_2000_0000_3002` | `0x4154_0000_0000_000D` | Audit event / accounting event protocol type |
-| `0x4154_2000_0000_3003` | `0x4154_0000_0000_000E` | Internal usage / material consumption protocol type |
-| `0x4154_2000_0000_3004` | `0x4154_0000_0000_000D` | Order protocol type |
-| `0x4154_2000_0000_3005` | `0x4154_0000_0000_000D` | Pay protocol type |
-| `0x4154_2000_0000_3010` | `0x4154_0000_0000_000D` | Copy receipt / re-print existing receipt protocol type => no implementation in v0 |
-| `0x4154_2000_0000_3011` | `0x4154_0000_0000_000D` | Archive receipt / archive all previouse data protocol type => no implementation in v0 |
-| `0x4154_2000_0000_4001` | `0x4154_0000_0000_0003` | Start-receipt lifecycle type |
-| `0x4154_2000_0000_4002` | `0x4154_0000_0000_0004` | Stop-receipt lifecycle type |
-| `0x4154_2000_0000_4011` | `0x4154_0000_0000_0002` | Start-scu-switch lifecycle type => no implementation in v0, using zeroreceipt |
-| `0x4154_2000_0000_4012` | `0x4154_0000_0000_0002` | Stop-scu-switch lifecycle type => no implementation in v0, using zeroreceipt |
-| `0x4154_2000_0000_4021` | `0x4154_0000_0000_0002` | Start-migration lifecycle type => no implementation in v0, using zeroreceipt |
-| `0x4154_2000_0000_4022` | `0x4154_0000_0000_0002` | Stop-migration lifecycle type => no implementation in v0, using zeroreceipt |
-
-**Dynamics Mappings**
-
-| **v2 (in)** | **v0 (out)** | **Comment** |
-| ----------- | ------------ | ----------- |
-| `0x4154_2000_0000_0002` | `0x4154_0000_0000_000A` | Payment transfer receipt type ; conditional. ChargeItems == [] && cash(PayItems) > 0 , pay-in to drawer/till |
-| `0x4154_2000_0000_0002` | `0x4154_0000_0000_000B` | Payment transfer receipt type ; conditional. ChargeItems == [] && cash(PayItems) < 0 , pay-out from drawer/till |
-| `0x4154_2000_0000_0002` | `0x4154_0000_0000_000C` | Payment transfer receipt type |
-| `0x4154_2000_0800_0000` | `0x4154_0000_0000_0010` | IsSaleInForeignCountry flag recognized in any point-of-sale receipt type, v0 makes no difference between unknown, pos, pos with exemption |
-| `0x4154_2000_0800_0001` | `0x4154_0000_0000_0010` | IsSaleInForeignCountry flag recognized in any point-of-sale receipt type, v0 makes no difference between unknown, pos, pos with exemption |
-| `0x4154_2000_0800_0002` | `0x4154_0000_0000_0010` | IsSaleInForeignCountry flag recognized in any point-of-sale receipt type, v0 makes no difference between unknown, pos, pos with exemption |
-| `0x4154_2000_0800_0003` | `0x4154_0000_0000_0010` | IsSaleInForeignCountry flag recognized in any point-of-sale receipt type, v0 makes no difference between unknown, pos, pos with exemption |
-| `0x4154_2000_0010_2000` | `0x0000_0000_0000_0000` | Request additional SCU information / RKSV signing certificate information (type2) |
-| `0x4154_2000_0020_2000` | `0x0000_0000_0000_0000` | Request download of SCU journal / no implementation in v0 (type2) |
-| `0x4154_2000_0040_2000` | `0x0000_0000_0000_0000` | Request bypoass of SCU SCU journal / no implementation in v0 (type2) |
-| `0x4154_2000_0080_2000` | `0x0000_0000_0000_0000` | Request execute SCU self-test / no implementation in v0 (type2) |
-| `0x4154_2000_0100_2000` | `0x0000_0000_0000_0000` | Request masterdata update / no implementation in v0 (type2) |
-| `0x4154_2000_0010_4000` | `0x0000_0000_0000_0000` | Queue registration/de-registration only (no initial provision/no final de-provistion) of SCU / no implementation in v0 (type4) |
-| `0x4154_2000_0001_0000` | `0x0000_0000_0001_0000` | v2 process late signing => v0 general failed receipt (type0,1) |
-| `0x4154_2000_0002_0000` | `0x0000_0000_0002_0000` | v2 training mode => v0 general training receipt (type0,1,3) |
-| `0x4154_2000_0004_0000` | `0x0000_0000_0004_0000` | v2 IsVoid => v0 general void receipt (type0,1) |
-| `0x4154_2000_0008_0000` | `0x0000_0000_0008_0000` | v2 handwritten mode => v0 general handwritten receipt (type0,1) |
-| `0x4154_2000_0010_0000` | `0x0000_0000_0010_0000` | v2 IssurIsSmallBusiness => v0 Germany small business, sales tax relief (type0,1) |
-| `0x4154_2000_0020_0000` | `0x0000_0000_0020_0000` | v2 ReceiverIsBusiness => v0 Germany receiver is a company (type0,1) |
-| `0x4154_2000_0040_0000` | `0x0000_0000_0040_0000` | v2 ReceiverIsKnown => v0 Germany receiver is known (type0,1) |
-| `0x4154_2000_0080_0000` | `0x0000_0000_0080_0000` | v2 IsSaleInForeignCountry => v0 Germany no action required, handled as indirect translations (type0,1) |
-| `0x4154_2000_0100_0000` | `0x0000_0000_0000_0000` | v2 IsReturn/IsRefund => v0 no action required, <br/>optional verify cbPreviouseReceiptReference set; <br/>optional verify ChargeItem(Amount) == (-1)xcbPreviouseReceiptReference(ChargeItem(Amount)); <br/>optional verify ChargeItem(Quantity) == (-1)xcbPreviouseReceiptReference(ChargeItem(Quantity));  (type0,1) |
-| `0x4154_2000_0800_0000` | `0x0000_0000_0000_0000` | v2 Group by Position-Number => v0 not supported |
-| `0x4154_2000_8000_0000` | `0x0000_8000_0000_0000` | v2 ReceiptRequest => v0 general receipt request |
-
-</details>
-
-<details>
-<summary>France (FR)</summary>
-
-| **v2 (in)** | **v0 (out)** | **Comment** |
-| ----------- | ------------ | ----------- |
-| `0x4652_2000_0000_0000` | `0x4652_0000_0000_0000` | Unknown receipt type, threated the same way as a point-of-sale receipt type |
-| `0x4652_2000_0800_0000` | `0x4652_0000_0000_000E` | IsSaleInForeignCountry flag recognized in any point-of-sale receipt type, v0 makes no difference between unknown, pos, pos with exemption |
-| `0x4652_2000_0800_0001` | `0x4652_0000_0000_000E` | IsSaleInForeignCountry flag recognized in any point-of-sale receipt type, v0 makes no difference between unknown, pos, pos with exemption |
-| `0x4652_2000_0800_0002` | `0x4652_0000_0000_000E` | IsSaleInForeignCountry flag recognized in any point-of-sale receipt type, v0 makes no difference between unknown, pos, pos with exemption |
-| `0x4652_2000_0800_0003` | `0x4652_0000_0000_000E` | IsSaleInForeignCountry flag recognized in any point-of-sale receipt type, v0 makes no difference between unknown, pos, pos with exemption |
-| `0x4652_2000_0000_0001` | `0x4652_0000_0000_0001` | Point-of-sale receipt type |
-| `0x4652_2000_0000_0002` | `0x4652_0000_0000_000A` | Payment transfer receipt type ; conditional. ChargeItems == [] && cash(PayItems) > 0 , pay-in to drawer/till |
-| `0x4652_2000_0000_0002` | `0x4652_0000_0000_000B` | Payment transfer receipt type ; conditional. ChargeItems == [] && cash(PayItems) < 0 , pay-out from drawer/till |
-| `0x4652_2000_0000_0002` | `0x4652_0000_0000_000C` | Payment transfer receipt type |
-| `0x4652_2000_0000_0003` | `0x4652_0000_0000_000E` | Point-of-sale receipt type without fiskalisation obligation or with exemption => v0 France handles it in Foreign sales and chaines it into Bill |
-| `0x4652_2000_0000_0004` | `0x4652_0000_0000_000E` | E-commerce receipt type => v0 France handles it in Foreign sales and chaines it into Bill |
-| `0x4652_2000_0000_0005` | `0x4652_0000_0000_0009` | Delivery note receipt type |
-| `0x4652_2000_0000_0006` | `0x4652_0000_0000_0008` | Bill receipt type |
-| `0x4652_2000_0000_0007` | `0x4652_0000_0000_0008` | Proforma invoice receipt type |
-| `0x4652_2000_0000_1000` | `0x4652_0000_0000_0003` | Unknown invoice type |
-| `0x4652_2000_0000_1001` | `0x4652_0000_0000_0003` | B2C invoice type |
-| `0x4652_2000_0000_1002` | `0x4652_0000_0000_0003` | B2B invoice type |
-| `0x4652_2000_0000_1003` | `0x4652_0000_0000_0003` | B2G invoice type |
-| `0x4652_2000_0000_2000` | `0x4652_0000_0000_000F` | Zero receipt dailyoperation type |
-| `0x4652_2000_0000_2001` | `0x4652_0000_0000_000F` | (reserved) dailyoperation type |
-| `0x4652_2000_0000_2010` | `0x4652_0000_0000_0004` | Shift closing dailyoperation type |
-| `0x4652_2000_0000_2011` | `0x4652_0000_0000_0005` | Daily closing dailyoperation type |
-| `0x4652_2000_0000_2012` | `0x4652_0000_0000_0006` | Monthly closing dailyoperation type |
-| `0x4652_2000_0000_2013` | `0x4652_0000_0000_0007` | Yearly closing dailyoperation type |
-| `0x4652_2000_0000_3000` | `0x4652_0000_0000_0014` | Unknown/unspecified protocol type |
-| `0x4652_2000_0000_3001` | `0x4652_0000_0000_0012` | Technical event protocol type |
-| `0x4652_2000_0000_3002` | `0x4652_0000_0000_0013` | Audit event / accounting event protocol type |
-| `0x4652_2000_0000_3003` | `0x4652_0000_0000_000D` | Internal usage / material consumption protocol type |
-| `0x4652_2000_0000_3004` | `0x4652_0000_0000_0008` | Order protocol type |
-| `0x4652_2000_0000_3005` | `0x4652_0000_0000_0002` | Pay protocol type => v0 france payment prove |
-| `0x4652_2000_0000_3010` | `0x4652_0000_0000_0016` | Copy receipt / re-print existing receipt protocol type |
-| `0x4652_2000_0000_3011` | `0x4652_0000_0000_0015` | Archive receipt / archive all previouse data protocol type |
-| `0x4652_2000_0000_4001` | `0x4652_0000_0000_0010` | Start-receipt lifecycle type |
-| `0x4652_2000_0000_4002` | `0x4652_0000_0000_0011` | Stop-receipt lifecycle type |
-| `0x4652_2000_0000_4011` | `0x4652_0000_0000_000F` | Start-scu-switch lifecycle type => no implementation in v0, using zeroreceipt |
-| `0x4652_2000_0000_4012` | `0x4652_0000_0000_000F` | Stop-scu-switch lifecycle type => no implementation in v0, using zeroreceipt |
-| `0x4652_2000_0000_4021` | `0x4652_0000_0000_000F` | Start-migration lifecycle type => no implementation in v0, using zeroreceipt |
-| `0x4652_2000_0000_4022` | `0x4652_0000_0000_000F` | Stop-migration lifecycle type => no implementation in v0, using zeroreceipt |
-| `0x4652_2000_0010_2000` | `0x0000_0000_0000_0000` | Request additional SCU information / signing certificate information (type2) |
-| `0x4652_2000_0020_2000` | `0x0000_0000_0000_0000` | Request download of SCU journal / no implementation in v0 (type2) |
-| `0x4652_2000_0040_2000` | `0x0000_0000_0000_0000` | Request bypoass of SCU SCU journal / no implementation in v0 (type2) |
-| `0x4652_2000_0080_2000` | `0x0000_0000_0000_0000` | Request execute SCU self-test / no implementation in v0 (type2) |
-| `0x4652_2000_0100_2000` | `0x0000_0000_0000_0000` | Request masterdata update / no implementation in v0 (type2) |
-| `0x4652_2000_0010_4000` | `0x0000_0000_0000_0000` | Client registration/de-registration only (no initial provision/no final de-provistion) of SCU / no implementation in v0 (type4) |
-| `0x4652_2000_0001_0000` | `0x0000_0000_0001_0000` | v2 process late signing => v0 general failed receipt (type0,1) |
-| `0x4652_2000_0002_0000` | `0x0000_0000_0002_0000` | v2 training mode => v0 general training receipt (type0,1,3) |
-| `0x4652_2000_0004_0000` | `0x0000_0000_0004_0000` | v2 IsVoid => v0 general void receipt (type0,1) |
-| `0x4652_2000_0008_0000` | `0x0000_0000_0000_0000` | v2 handwritten mode => v0 general handwritten receipt, no implementation in v0 (type0,1) |
-| `0x4652_2000_0010_0000` | `0x0000_0000_0000_0000` | v2 IssurIsSmallBusiness => v0 general small business, sales tax relief, no implementation in v0 France (type0,1) |
-| `0x4652_2000_0020_0000` | `0x0000_0000_0000_0000` | v2 ReceiverIsBusiness => v0 general receiver is a company, no implementation in v0 France (type0,1) |
-| `0x4652_2000_0040_0000` | `0x0000_0000_0000_0000` | v2 ReceiverIsKnown => v0 general receiver is known, no implementation in v0 France (type0,1) |
-| `0x4652_2000_0080_0000` | `0x0000_0000_0000_0000` | v2 IsSaleInForeignCountry => v0 general no action required, handled as indirect translations (type0,1) |
-| `0x4652_2000_0100_0000` | `0x0000_0000_0000_0000` | v2 IsReturn/IsRefund => v0 no action required, <br/>optional verify cbPreviouseReceiptReference set; <br/>optional verify ChargeItem(Amount) == (-1)xcbPreviouseReceiptReference(ChargeItem(Amount)); <br/>optional verify ChargeItem(Quantity) == (-1)xcbPreviouseReceiptReference(ChargeItem(Quantity)); (type0,1), no implementation in v0 |
-| `0x4652_2000_0800_0000` | `0x0000_0000_0000_0000` | v2 Group by Position-Number => v0 not supported |
-| `0x4652_2000_8000_0000` | `0x0000_8000_0000_0000` | v2 ReceiptRequest => v0 general receipt request |
-
-</details>
-
-<details>
-<summary>Germany (DE)</summary>
-
-| **v2 (in)** | **v0 (out)** | **Comment** |
-| ----------- | ------------ | ----------- |
-| `0x4445_2000_0000_0000` | `0x4445_0000_0000_0000` | Unknown receipt type, threated the same way as a point-of-sale receipt type |
-| `0x4445_2000_0800_0000` | `0x4445_0000_0000_0015` | IsSaleInForeignCountry flag recognized in any point-of-sale receipt type, v0 makes no difference between unknown, pos, pos with exemption |
-| `0x4445_2000_0800_0001` | `0x4445_0000_0000_0015` | IsSaleInForeignCountry flag recognized in any point-of-sale receipt type, v0 makes no difference between unknown, pos, pos with exemption |
-| `0x4445_2000_0800_0002` | `0x4445_0000_0000_0015` | IsSaleInForeignCountry flag recognized in any point-of-sale receipt type, v0 makes no difference between unknown, pos, pos with exemption |
-| `0x4445_2000_0800_0003` | `0x4445_0000_0000_0015` | IsSaleInForeignCountry flag recognized in any point-of-sale receipt type, v0 makes no difference between unknown, pos, pos with exemption |
-| `0x4445_2000_0100_0003` | `0x4445_0000_0000_0016` | German "AVBelegstorno/Kassenbeleg-V1" which should not be used with TSE (technical saftey device), pos with exemption |
-| `0x4445_2000_0000_0001` | `0x4445_0000_0000_0001` | Point-of-sale receipt type |
-| `0x4445_2000_0000_0002` | `0x4445_0000_0000_0011` | Payment transfer receipt type |
-| `0x4445_2000_0000_0003` | `0x4445_0000_0000_0015` | Point-of-sale receipt type without fiskalisation obligation or with exemption => v0 Germany handles it in Foreign sales |
-| `0x4445_2000_0000_0004` | `0x4445_0000_0000_0015` | E-commerce receipt type => v0 Germany handles it in Foreign sales |
-| `0x4445_2000_0000_0005` | `0x4445_0000_0000_000F` | Delivery note receipt type |
-| `0x4445_2000_0000_1000` | `0x4445_0000_0000_000E` | Unknown invoice type |
-| `0x4445_2000_0000_1001` | `0x4445_0000_0000_000D` | B2C invoice type |
-| `0x4445_2000_0000_1002` | `0x4445_0000_0000_000C` | B2B invoice type |
-| `0x4445_2000_0000_1003` | `0x4445_0000_0000_000E` | B2G invoice type |
-| `0x4445_2000_0000_2000` | `0x4445_0001_0000_0002` | Zero receipt dailyoperation type |
-| `0x4445_2000_0000_2001` | `0x4445_0001_0000_0002` | (reserved) dailyoperation type |
-| `0x4445_2000_0000_2010` | `0x4445_0001_0000_0002` | Shift closing dailyoperation type |
-| `0x4445_2000_0000_2011` | `0x4445_0001_0000_0007` | Daily closing dailyoperation type |
-| `0x4445_2000_0000_2012` | `0x4445_0001_0000_0005` | Monthly closing dailyoperation type |
-| `0x4445_2000_0000_2013` | `0x4445_0001_0000_0006` | Yearly closing dailyoperation type |
-| `0x4445_2000_0000_3000` | `0x4445_0000_0000_0013` | Unknown/unspecified protocol type => v0 German "AVSonstige/Kassenbeleg-V1" requires ChargeItems != [] && PayItems != [] |
-| `0x4445_2000_0000_3000` | `0x4445_0000_0000_0013` | Unknown/unspecified protocol type => v0 German "SonstigerVorgang" requires ChargeItems == [] |
-| `0x4445_2000_0000_3001` | `0x4445_0000_0000_0014` | Technical event protocol type |
-| `0x4445_2011_0000_3001` | `0x4445_0000_0000_0008` | German "Start-Transaction" |
-| `0x4445_2021_0000_3001` | `0x4445_0000_0000_0009` | German "Update-Transaction" |
-| `0x4445_2031_0000_3001` | `0x4445_0000_0000_000A` | German "Delta-Transaction" |
-| `0x4445_2041_0000_3001` | `0x4445_0000_0000_000B` | German "Fail-Transaction" to close single open transaction |
-| `0x4445_2040_0000_3001` | `0x4445_0001_0000_000B` | German "Fail-Transaction" to close multiple open transactions |
-| `0x4445_2000_0000_3002` | `0x4445_0000_0000_0014` | Audit event / accounting event protocol type |
-| `0x4445_2000_0000_3003` | `0x4445_0000_0000_0012` | Internal usage / material consumption protocol type |
-| `0x4445_2000_0000_3004` | `0x4445_0000_0000_0010` | Order protocol type => v0 German "Bestellung-V1" requires ChargeItems != [] && PayItems == [] |
-| `0x4445_2000_0000_3004` | `0x4445_0000_0000_0010` | Order protocol type => v0 German "AVBestellung/Kassenbeleg-V1" requires PayItems != [] |
-| `0x4445_2000_0000_3005` | `0x4445_0000_0000_0010` | Pay protocol type => v0 German "AVBestellung/Kassenbeleg-V1" requires PayItems != [] |
-| `0x4445_2000_0000_3010` | `0x4445_0000_0000_0014` | Copy receipt / re-print existing receipt protocol type |
-| `0x4445_2000_0000_3011` | `0x4445_0000_0000_0014` | Archive receipt / archive all previouse data protocol type |
-| `0x4445_2000_0000_4001` | `0x4445_0001_0000_0003` | Start-receipt lifecycle type |
-| `0x4445_2000_0000_4002` | `0x4445_0001_0000_0004` | Stop-receipt lifecycle type |
-| `0x4445_2000_0000_4011` | `0x4445_0001_0000_0010` | Start-scu-switch lifecycle type |
-| `0x4445_2000_0000_4012` | `0x4445_0001_0000_0011` | Stop-scu-switch lifecycle type |
-| `0x4445_2000_0000_4021` | `0x4445_0001_0000_0010` | Start-migration lifecycle type |
-| `0x4445_2000_0000_4022` | `0x4445_0001_0000_0011` | Stop-migration lifecycle type |
-| `0x4445_2000_0010_2000` | `0x0000_0001_0080_0000` | Request additional SCU information / TSE (type2) |
-| `0x4445_2000_0020_2000` | `0x0000_0001_0200_0000` | Request download of SCU journal / force TSE-TAR file download (type2) |
-| `0x4445_2000_0040_2000` | `0x0000_0001_0400_0000` | Request bypoass of SCU SCU journal / bypass TSE-TAR file download (type2) |
-| `0x4445_2000_0080_2000` | `0x0000_0001_0100_0000` | Request execute SCU self-test / execute TSE self-test (type2) |
-| `0x4445_2000_0100_2000` | `0x0000_0001_0800_0000` | Request masterdata update (type2) |
-| `0x4445_2000_0010_4000` | `0x0000_0001_0100_0000` | Client registration/de-registration only (no initial provision/no final de-provistion) of SCU / ClientId registration/de-registration only for TSE (type4) |
-| `0x4445_2000_0000_0000` | `0x0000_0001_0000_0000` | Implicit flow for receipt type |
-| `0x4445_2000_0000_1000` | `0x0000_0001_0000_0000` | Implicit flow for invoice type |
-| `0x4445_2000_0000_3000` | `0x0000_0001_0000_0000` | Implicit flow for log type |
-| `0x4445_2000_0000_0000` | `0x0000_0000_0000_0000` | Explicit flow for receipt type , no effect , information only |
-| `0x4445_2000_0000_1000` | `0x0000_0000_0000_0000` | Explicit flow for invoice type , no effect , information only |
-| `0x4445_2000_0000_3000` | `0x0000_0000_0000_0000` | Explicit flow for log type , no effect , information only |
-| `0x4445_2000_0001_0000` | `0x0000_0000_0001_0000` | v2 process late signing => v0 general failed receipt (type0,1) |
-| `0x4445_2000_0002_0000` | `0x0000_0000_0002_0000` | v2 training mode => v0 general training receipt (type0,1,3) |
-| `0x4445_2000_0004_0000` | `0x0000_0000_0004_0000` | v2 IsVoid => v0 general void receipt (type0,1) |
-| `0x4445_2000_0008_0000` | `0x0000_0000_0008_0000` | v2 handwritten mode => v0 general handwritten receipt (type0,1) |
-| `0x4445_2000_0010_0000` | `0x0000_0000_0010_0000` | v2 IssurIsSmallBusiness => v0 Germany small business, sales tax relief (type0,1) |
-| `0x4445_2000_0020_0000` | `0x0000_0000_0020_0000` | v2 ReceiverIsBusiness => v0 Germany receiver is a company (type0,1) |
-| `0x4445_2000_0040_0000` | `0x0000_0000_0040_0000` | v2 ReceiverIsKnown => v0 Germany receiver is known (type0,1) |
-| `0x4445_2000_0080_0000` | `0x0000_0000_0080_0000` | v2 IsSaleInForeignCountry => v0 Germany no action required, handled as indirect translations (type0,1) |
-| `0x4445_2000_0100_0000` | `0x0000_0000_0000_0000` | v2 IsReturn/IsRefund => v0 no action required, <br/>optional verify cbPreviouseReceiptReference set; <br/>optional verify ChargeItem(Amount) == (-1)xcbPreviouseReceiptReference(ChargeItem(Amount)); <br/>optional verify ChargeItem(Quantity) == (-1)xcbPreviouseReceiptReference(ChargeItem(Quantity)); (type0,1) |
-| `0x4445_2000_0800_0000` | `0x0000_0000_0000_0000` | v2 Group by Position-Number => v0 not supported |
-| `0x4445_2000_8000_0000` | `0x0000_8000_0000_0000` | v2 ReceiptRequest => v0 general receipt request |
-
-</details>
-
 #### ftChargeItemCase
 
 <details>
 <summary>Austria (AT)</summary>
 
-| **v2 (in)** | **v0 (out)** | **Comment** |
-| ----------- | ------------ | ----------- |
+| **v2 (in)** | **v0 (out)** | **Description** |
+| ----------- | ------------ | --------------- |
 | `0x4154_2000_0000_0000` | `0x4154_0000_0000_0000` | Unknown chargeitem type, unknown type of service, unknown type of vat, future logic may detect vat-type from vat-rate |
 | `0x4154_2000_oooo_oo01` | `0x4154_0000_0000_0001` | Unknown type of service, discounted1 type of vat |
 | `0x4154_2000_oooo_oo02` | `0x4154_0000_0000_0002` | Unknown type of service, discounted2 type of vat |
@@ -646,8 +440,8 @@ A systematic approach to updating case values:
 <details>
 <summary>France (FR)</summary>
 
-| **v2 (in)** | **v0 (out)** | **Comment** |
-| ----------- | ------------ | ----------- |
+| **v2 (in)** | **v0 (out)** | **Description** |
+| ----------- | ------------ | --------------- |
 | `0x4652_2000_0000_0000` | `0x4652_0000_0000_0000` | Unknown chargeitem type, unknown type of service, unknown type of vat, future logic may detect vat-type from vat-rate |
 | `0x4652_2000_oooo_oo01` | `0x4652_0000_0000_0001` | Unknown type of service, discounted1 type of vat |
 | `0x4652_2000_oooo_oo02` | `0x4652_0000_0000_0002` | Unknown type of service, discounted2 type of vat |
@@ -760,8 +554,8 @@ A systematic approach to updating case values:
 <details>
 <summary>Germany (DE)</summary>
 
-| **v2 (in)** | **v0 (out)** | **Comment** |
-| ----------- | ------------ | ----------- |
+| **v2 (in)** | **v0 (out)** | **Description** |
+| ----------- | ------------ | --------------- |
 | `0x4445_2000_0000_0000` | `0x4445_0000_0000_0000` | Unknown chargeitem type, unknown type of service, unknown type of vat, future logic may detect vat-type from vat-rate |
 | `0x4445_2000_oooo_oo01` | `0x4445_0000_0000_0002` | Unknown type of service, discounted1 type of vat |
 | `0x4445_2000_oooo_oo02` | `0x4445_0000_0000_0007` | Unknown type of service, discounted2 type of vat => not defined in v0, goto unknown |
@@ -916,402 +710,13 @@ A systematic approach to updating case values:
 
 </details>
 
-##### ftChargeItemCaseFlag
-
-<details>
-<summary>Austria (AT)</summary>
-
-| **v2 (in)** | **v0 (out)** | **Comment** |
-| ----------- | ------------ | ----------- |
-| `0x4154_2000_0000_0000` | `0x4154_0000_0000_0000` | Unknown chargeitem type, unknown type of service, unknown type of vat, future logic may detect vat-type from vat-rate |
-| `0x4154_2000_0000_0001` | `0x4154_0000_0000_0001` | Unknown type of service, discounted1 type of vat |
-| `0x4154_2000_0000_0002` | `0x4154_0000_0000_0002` | Unknown type of service, discounted2 type of vat |
-| `0x4154_2000_0000_0003` | `0x4154_0000_0000_0003` | Unknown type of service, normal type of vat |
-| `0x4154_2000_0000_0004` | `0x4154_0000_0000_0004` | Unknown type of service, superreduced1 type of vat |
-| `0x4154_2000_0000_0005` | `0x4154_0000_0000_0005` | Unknown type of service, superreduced2 type of vat => not defined in v0, goto zero |
-| `0x4154_2000_0000_0006` | `0x4154_0000_0000_0005` | Unknown type of service, parking type of vat => not defined in v0, goto zero |
-| `0x4154_2000_0000_0007` | `0x4154_0000_0000_0005` | Unknown type of service, zero type of vat |
-| `0x4154_2000_0000_0008` | `0x4154_0000_0000_0005` | Unknown type of service, not taxable type of vat => not defined in v0, goto zero |
-| `0x4154_2000_0000_5008` | `0x4154_0000_0000_0006` | Not taxable type of vat, reverse charge => v0 specific implementation |
-| `0x4154_2000_0000_0011` | `0x4154_0000_0000_0008` | Supply of goods type of service, discounted1 type of vat |
-| `0x4154_2000_0000_0012` | `0x4154_0000_0000_0009` | Supply of goods type of service, discounted2 type of vat |
-| `0x4154_2000_0000_0013` | `0x4154_0000_0000_000A` | Supply of goods type of service, normal type of vat |
-| `0x4154_2000_0000_0014` | `0x4154_0000_0000_000B` | Supply of goods type of service, superreduced1 type of vat |
-| `0x4154_2000_0000_0015` | `0x4154_0000_0000_000C` | Supply of goods type of service, superreduced2 type of vat => not defined in v0, goto zero |
-| `0x4154_2000_0000_0016` | `0x4154_0000_0000_000C` | Supply of goods type of service, parking type of vat => not defined in v0, goto zero |
-| `0x4154_2000_0000_0017` | `0x4154_0000_0000_000C` | Supply of goods type of service, zero type of vat |
-| `0x4154_2000_0000_0018` | `0x4154_0000_0000_000C` | Supply of goods type of service, not taxable type of vat => not defined in v0, goto zero |
-| `0x4154_2000_0000_0021` | `0x4154_0000_0000_000D` | Supply of service type of service, discounted1 type of vat |
-| `0x4154_2000_0000_0022` | `0x4154_0000_0000_000E` | Supply of service type of service, discounted2 type of vat |
-| `0x4154_2000_0000_0023` | `0x4154_0000_0000_000F` | Supply of service type of service, normal type of vat |
-| `0x4154_2000_0000_0024` | `0x4154_0000_0000_0010` | Supply of service type of service, superreduced1 type of vat |
-| `0x4154_2000_0000_0025` | `0x4154_0000_0000_0011` | Supply of service type of service, superreduced2 type of vat => not defined in v0, goto zero |
-| `0x4154_2000_0000_0026` | `0x4154_0000_0000_0011` | Supply of service type of service, parking type of vat => not defined in v0, goto zero |
-| `0x4154_2000_0000_0027` | `0x4154_0000_0000_0011` | Supply of service type of service, zero type of vat |
-| `0x4154_2000_0000_0028` | `0x4154_0000_0000_0011` | Supply of service type of service, not taxable type of vat => not defined in v0, goto zero |
-| `0x4154_2000_0000_0031` | `0x4154_0000_0000_0001` | Tip to owner type of service, discounted1 type of vat |
-| `0x4154_2000_0000_0032` | `0x4154_0000_0000_0002` | Tip to owner type of service, discounted2 type of vat |
-| `0x4154_2000_0000_0033` | `0x4154_0000_0000_0003` | Tip to owner type of service, normal type of vat |
-| `0x4154_2000_0000_0034` | `0x4154_0000_0000_0004` | Tip to owner type of service, superreduced1 type of vat |
-| `0x4154_2000_0000_0035` | `0x4154_0000_0000_0005` | Tip to owner type of service, superreduced2 type of vat |
-| `0x4154_2000_0000_0036` | `0x4154_0000_0000_0005` | Tip to owner type of service, parking type of vat |
-| `0x4154_2000_0000_0037` | `0x4154_0000_0000_0005` | Tip to owner type of service, zero type of vat |
-| `0x4154_2000_0000_0038` | `0x4154_0000_0000_0005` | Tip to employee type of service, not taxable type of vat |
-| `0x4154_2000_0000_0041` | `0x4154_0000_0000_0001` | Single-use voucher type of service, discounted1 type of vat |
-| `0x4154_2000_0000_0042` | `0x4154_0000_0000_0002` | Single-use voucher type of service, discounted2 type of vat |
-| `0x4154_2000_0000_0043` | `0x4154_0000_0000_0003` | Single-use voucher type of service, normal type of vat |
-| `0x4154_2000_0000_0044` | `0x4154_0000_0000_0004` | Single-use voucher type of service, superreduced1 type of vat |
-| `0x4154_2000_0000_0045` | `0x4154_0000_0000_0005` | Single-use voucher type of service, superreduced2 type of vat |
-| `0x4154_2000_0000_0046` | `0x4154_0000_0000_0005` | Single-use voucher type of service, parking type of vat |
-| `0x4154_2000_0000_0047` | `0x4154_0000_0000_0005` | Single-use voucher type of service, zero type of vat |
-| `0x4154_2000_0000_0048` | `0x4154_0000_0000_0021` | Multi-use voucher type of service, not taxable type of vat |
-| `0x4154_2000_0000_0051` | `0x4154_0000_0000_0012` | Catalog service type of service, discounted1 type of vat |
-| `0x4154_2000_0000_0052` | `0x4154_0000_0000_0013` | Catalog service type of service, discounted2 type of vat |
-| `0x4154_2000_0000_0053` | `0x4154_0000_0000_0014` | Catalog service type of service, normal type of vat |
-| `0x4154_2000_0000_0054` | `0x4154_0000_0000_0015` | Catalog service type of service, superreduced1 type of vat |
-| `0x4154_2000_0000_0055` | `0x4154_0000_0000_0016` | Catalog service type of service, superreduced2 type of vat |
-| `0x4154_2000_0000_0056` | `0x4154_0000_0000_0016` | Catalog service type of service, parking type of vat |
-| `0x4154_2000_0000_0057` | `0x4154_0000_0000_0016` | Catalog service type of service, zero type of vat |
-| `0x4154_2000_0000_0058` | `0x4154_0000_0000_0016` | Catalog service type of service, not taxable type of vat |
-| `0x4154_2000_0000_0061` | `0x4154_0000_0000_0007` | Agency business type of service, discounted1 type of vat |
-| `0x4154_2000_0000_0062` | `0x4154_0000_0000_0007` | Agency business type of service, discounted2 type of vat |
-| `0x4154_2000_0000_0063` | `0x4154_0000_0000_0007` | Agency business type of service, normal type of vat |
-| `0x4154_2000_0000_0064` | `0x4154_0000_0000_0007` | Agency business type of service, superreduced1 type of vat |
-| `0x4154_2000_0000_0065` | `0x4154_0000_0000_0007` | Agency business type of service, superreduced2 type of vat |
-| `0x4154_2000_0000_0066` | `0x4154_0000_0000_0007` | Agency business type of service, parking type of vat |
-| `0x4154_2000_0000_0067` | `0x4154_0000_0000_0007` | Agency business type of service, zero type of vat |
-| `0x4154_2000_0000_0068` | `0x4154_0000_0000_0021` | Receiveable of thired party type of service, not taxable type of vat |
-| `0x4154_2000_0000_0071` | `0x4154_0000_0000_0017` | Own consumption type of service, discounted1 type of vat |
-| `0x4154_2000_0000_0072` | `0x4154_0000_0000_0018` | Own consumption type of service, discounted2 type of vat |
-| `0x4154_2000_0000_0073` | `0x4154_0000_0000_0019` | Own consumption type of service, normal type of vat |
-| `0x4154_2000_0000_0074` | `0x4154_0000_0000_001A` | Own consumption type of service, superreduced1 type of vat |
-| `0x4154_2000_0000_0075` | `0x4154_0000_0000_001B` | Own consumption type of service, superreduced2 type of vat |
-| `0x4154_2000_0000_0076` | `0x4154_0000_0000_001B` | Own consumption type of service, parking type of vat |
-| `0x4154_2000_0000_0077` | `0x4154_0000_0000_001B` | Own consumption type of service, zero type of vat |
-| `0x4154_2000_0000_0078` | `0x4154_0000_0000_001B` | Own consumption type of service, not taxable type of vat |
-| `0x4154_2000_0000_0081` | `0x4154_0000_0000_0001` | Grant (unreal) type of service, discounted1 type of vat |
-| `0x4154_2000_0000_0082` | `0x4154_0000_0000_0002` | Grant (unreal) type of service, discounted2 type of vat |
-| `0x4154_2000_0000_0083` | `0x4154_0000_0000_0003` | Grant (unreal) type of service, normal type of vat |
-| `0x4154_2000_0000_0084` | `0x4154_0000_0000_0004` | Grant (unreal) type of service, superreduced1 type of vat |
-| `0x4154_2000_0000_0085` | `0x4154_0000_0000_0005` | Grant (unreal) type of service, superreduced2 type of vat |
-| `0x4154_2000_0000_0086` | `0x4154_0000_0000_0005` | Grant (unreal) type of service, parking type of vat |
-| `0x4154_2000_0000_0087` | `0x4154_0000_0000_0005` | Grant (unreal) type of service, zero type of vat |
-| `0x4154_2000_0000_0088` | `0x4154_0000_0000_0005` | Grant (real) type of service, not taxable type of vat |
-| `0x4154_2000_0000_0098` | `0x4154_0000_0000_0022` | Receiveable type of service, not taxable type of vat |
-| `0x4154_2000_0000_00A8` | `0x4154_0000_0000_0023` | Cash transfer type of service, not taxable type of vat |
-| `0x4154_2000_0008_0000` | `0x4154_0000_0000_0020` | Downpayment, unknown type of service, unknown type of vat |
-| `0x4154_2000_0008_0001` | `0x4154_0000_0000_001C` | Downpayment, unknown type of service, discounted1 type of vat |
-| `0x4154_2000_0008_0002` | `0x4154_0000_0000_001D` | Downpayment, unknown type of service, discounted2 type of vat |
-| `0x4154_2000_0008_0003` | `0x4154_0000_0000_001E` | Downpayment, unknown type of service, normal type of vat |
-| `0x4154_2000_0008_0004` | `0x4154_0000_0000_001F` | Downpayment, unknown type of service, superreduced1 type of vat |
-| `0x4154_2000_0008_0005` | `0x4154_0000_0000_0020` | Downpayment, unknown type of service, superreduced2 type of vat => not defined in v0, goto zero |
-| `0x4154_2000_0008_0006` | `0x4154_0000_0000_0020` | Downpayment, unknown type of service, parking type of vat => not defined in v0, goto zero |
-| `0x4154_2000_0008_0007` | `0x4154_0000_0000_0020` | Downpayment, unknown type of service, zero type of vat |
-| `0x4154_2000_0008_0008` | `0x4154_0000_0000_0020` | Downpayment, unknown type of service, not taxable type of vat => not defined in v0, goto zero |
-| `0x4154_2000_0008_0011` | `0x4154_0000_0000_001C` | Downpayment, supply of goods type of service, discounted1 type of vat |
-| `0x4154_2000_0008_0012` | `0x4154_0000_0000_001D` | Downpayment, supply of goods type of service, discounted2 type of vat |
-| `0x4154_2000_0008_0013` | `0x4154_0000_0000_001E` | Downpayment, supply of goods type of service, normal type of vat |
-| `0x4154_2000_0008_0014` | `0x4154_0000_0000_001F` | Downpayment, supply of goods type of service, superreduced1 type of vat |
-| `0x4154_2000_0008_0015` | `0x4154_0000_0000_0020` | Downpayment, supply of goods type of service, superreduced2 type of vat => not defined in v0, goto zero |
-| `0x4154_2000_0008_0016` | `0x4154_0000_0000_0020` | Downpayment, supply of goods type of service, parking type of vat => not defined in v0, goto zero |
-| `0x4154_2000_0008_0017` | `0x4154_0000_0000_0020` | Downpayment, supply of goods type of service, zero type of vat |
-| `0x4154_2000_0008_0018` | `0x4154_0000_0000_0020` | Downpayment, supply of goods type of service, not taxable type of vat => not defined in v0, goto zero |
-| `0x4154_2000_0008_0021` | `0x4154_0000_0000_001C` | Downpayment, supply of service type of service, discounted1 type of vat |
-| `0x4154_2000_0008_0022` | `0x4154_0000_0000_001D` | Downpayment, supply of service type of service, discounted2 type of vat |
-| `0x4154_2000_0008_0023` | `0x4154_0000_0000_001E` | Downpayment, supply of service type of service, normal type of vat |
-| `0x4154_2000_0008_0024` | `0x4154_0000_0000_001F` | Downpayment, supply of service type of service, superreduced1 type of vat |
-| `0x4154_2000_0008_0025` | `0x4154_0000_0000_0020` | Downpayment, supply of service type of service, superreduced2 type of vat => not defined in v0, goto zero |
-| `0x4154_2000_0008_0026` | `0x4154_0000_0000_0020` | Downpayment, supply of service type of service, parking type of vat => not defined in v0, goto zero |
-| `0x4154_2000_0008_0027` | `0x4154_0000_0000_0020` | Downpayment, supply of service type of service, zero type of vat |
-| `0x4154_2000_0008_0028` | `0x4154_0000_0000_0020` | Downpayment, supply of service type of service, not taxable type of vat => not defined in v0, goto zero |
-| `0x4154_2000_0001_0000` | `0x0000_0000_0000_0000` | v2 IsVoid => v0 general void => no implementation in v0 |
-| `0x4154_2000_0002_0000` | `0x0000_0000_0000_0000` | v2 IsReturn/Refund => v0 general refund => no implementation in v0 |
-| `0x4154_2000_0004_0000` | `0x0000_0000_0000_0000` | v2 Discount => v0 general discount => no implementation in v0 |
-| `0x4154_2000_0010_0000` | `0x0000_0000_0000_0000` | v2 Returnable => v0 general returnable => no implementation in v0 |
-| `0x4154_2000_0020_0000` | `0x0000_0000_0000_0000` | v2 Take Away => v0 take away => no implementation in v0 |
-
-</details>
-
-<details>
-<summary>France (FR)</summary>
-
-| **v2 (in)** | **v0 (out)** | **Comment** |
-| ----------- | ------------ | ----------- |
-| `0x4652_2000_0000_0000` | `0x4652_0000_0000_0000` | Unknown chargeitem type, unknown type of service, unknown type of vat, future logic may detect vat-type from vat-rate |
-| `0x4652_2000_0000_0001` | `0x4652_0000_0000_0001` | Unknown type of service, discounted1 type of vat |
-| `0x4652_2000_0000_0002` | `0x4652_0000_0000_0002` | Unknown type of service, discounted2 type of vat |
-| `0x4652_2000_0000_0003` | `0x4652_0000_0000_0003` | Unknown type of service, normal type of vat |
-| `0x4652_2000_0000_0004` | `0x4652_0000_0000_0004` | Unknown type of service, superreduced1 type of vat |
-| `0x4652_2000_0000_0005` | `0x4652_0000_0000_0005` | Unknown type of service, superreduced2 type of vat => not defined in v0, goto zero |
-| `0x4652_2000_0000_0006` | `0x4652_0000_0000_0005` | Unknown type of service, parking type of vat => not defined in v0, goto zero |
-| `0x4652_2000_0000_0007` | `0x4652_0000_0000_0005` | Unknown type of service, zero type of vat |
-| `0x4652_2000_0000_0008` | `0x4652_0000_0000_0005` | Unknown type of service, not taxable type of vat => not defined in v0, goto zero |
-| `0x4652_2000_0000_5008` | `0x4652_0000_0000_0006` | Not taxable type of vat, reverse charge => v0 specific implementation |
-| `0x4652_2000_0000_0011` | `0x4652_0000_0000_0008` | Supply of goods type of service, discounted1 type of vat |
-| `0x4652_2000_0000_0012` | `0x4652_0000_0000_0009` | Supply of goods type of service, discounted2 type of vat |
-| `0x4652_2000_0000_0013` | `0x4652_0000_0000_000A` | Supply of goods type of service, normal type of vat |
-| `0x4652_2000_0000_0014` | `0x4652_0000_0000_000B` | Supply of goods type of service, superreduced1 type of vat |
-| `0x4652_2000_0000_0015` | `0x4652_0000_0000_000C` | Supply of goods type of service, superreduced2 type of vat => not defined in v0, goto zero |
-| `0x4652_2000_0000_0016` | `0x4652_0000_0000_000C` | Supply of goods type of service, parking type of vat => not defined in v0, goto zero |
-| `0x4652_2000_0000_0017` | `0x4652_0000_0000_000C` | Supply of goods type of service, zero type of vat |
-| `0x4652_2000_0000_0018` | `0x4652_0000_0000_000C` | Supply of goods type of service, not taxable type of vat => not defined in v0, goto zero |
-| `0x4652_2000_0000_0021` | `0x4652_0000_0000_000D` | Supply of service type of service, discounted1 type of vat |
-| `0x4652_2000_0000_0022` | `0x4652_0000_0000_000E` | Supply of service type of service, discounted2 type of vat |
-| `0x4652_2000_0000_0023` | `0x4652_0000_0000_000F` | Supply of service type of service, normal type of vat |
-| `0x4652_2000_0000_0024` | `0x4652_0000_0000_0010` | Supply of service type of service, superreduced1 type of vat |
-| `0x4652_2000_0000_0025` | `0x4652_0000_0000_0011` | Supply of service type of service, superreduced2 type of vat => not defined in v0, goto zero |
-| `0x4652_2000_0000_0026` | `0x4652_0000_0000_0011` | Supply of service type of service, parking type of vat => not defined in v0, goto zero |
-| `0x4652_2000_0000_0027` | `0x4652_0000_0000_0011` | Supply of service type of service, zero type of vat |
-| `0x4652_2000_0000_0028` | `0x4652_0000_0000_0011` | Supply of service type of service, not taxable type of vat => not defined in v0, goto zero |
-| `0x4652_2000_0000_0031` | `0x4652_0000_0000_0001` | Tip to owner type of service, discounted1 type of vat |
-| `0x4652_2000_0000_0032` | `0x4652_0000_0000_0002` | Tip to owner type of service, discounted2 type of vat |
-| `0x4652_2000_0000_0033` | `0x4652_0000_0000_0003` | Tip to owner type of service, normal type of vat |
-| `0x4652_2000_0000_0034` | `0x4652_0000_0000_0004` | Tip to owner type of service, superreduced1 type of vat |
-| `0x4652_2000_0000_0035` | `0x4652_0000_0000_0005` | Tip to owner type of service, superreduced2 type of vat |
-| `0x4652_2000_0000_0036` | `0x4652_0000_0000_0005` | Tip to owner type of service, parking type of vat |
-| `0x4652_2000_0000_0037` | `0x4652_0000_0000_0005` | Tip to owner type of service, zero type of vat |
-| `0x4652_2000_0000_0038` | `0x4652_0000_0000_0005` | Tip to employee type of service, not taxable type of vat |
-| `0x4652_2000_0000_0041` | `0x4652_0000_0000_0001` | Single-use voucher type of service, discounted1 type of vat |
-| `0x4652_2000_0000_0042` | `0x4652_0000_0000_0002` | Single-use voucher type of service, discounted2 type of vat |
-| `0x4652_2000_0000_0043` | `0x4652_0000_0000_0003` | Single-use voucher type of service, normal type of vat |
-| `0x4652_2000_0000_0044` | `0x4652_0000_0000_0004` | Single-use voucher type of service, superreduced1 type of vat |
-| `0x4652_2000_0000_0045` | `0x4652_0000_0000_0005` | Single-use voucher type of service, superreduced2 type of vat |
-| `0x4652_2000_0000_0046` | `0x4652_0000_0000_0005` | Single-use voucher type of service, parking type of vat |
-| `0x4652_2000_0000_0047` | `0x4652_0000_0000_0005` | Single-use voucher type of service, zero type of vat |
-| `0x4652_2000_0000_0048` | `0x4652_0000_0000_0021` | Multi-use voucher type of service, not taxable type of vat |
-| `0x4652_2000_0000_0051` | `0x4652_0000_0000_0012` | Catalog service type of service, discounted1 type of vat |
-| `0x4652_2000_0000_0052` | `0x4652_0000_0000_0013` | Catalog service type of service, discounted2 type of vat |
-| `0x4652_2000_0000_0053` | `0x4652_0000_0000_0014` | Catalog service type of service, normal type of vat |
-| `0x4652_2000_0000_0054` | `0x4652_0000_0000_0015` | Catalog service type of service, superreduced1 type of vat |
-| `0x4652_2000_0000_0055` | `0x4652_0000_0000_0016` | Catalog service type of service, superreduced2 type of vat |
-| `0x4652_2000_0000_0056` | `0x4652_0000_0000_0016` | Catalog service type of service, parking type of vat |
-| `0x4652_2000_0000_0057` | `0x4652_0000_0000_0016` | Catalog service type of service, zero type of vat |
-| `0x4652_2000_0000_0058` | `0x4652_0000_0000_0016` | Catalog service type of service, not taxable type of vat |
-| `0x4652_2000_0000_0061` | `0x4652_0000_0000_0007` | Agency business type of service, discounted1 type of vat |
-| `0x4652_2000_0000_0062` | `0x4652_0000_0000_0007` | Agency business type of service, discounted2 type of vat |
-| `0x4652_2000_0000_0063` | `0x4652_0000_0000_0007` | Agency business type of service, normal type of vat |
-| `0x4652_2000_0000_0064` | `0x4652_0000_0000_0007` | Agency business type of service, superreduced1 type of vat |
-| `0x4652_2000_0000_0065` | `0x4652_0000_0000_0007` | Agency business type of service, superreduced2 type of vat |
-| `0x4652_2000_0000_0066` | `0x4652_0000_0000_0007` | Agency business type of service, parking type of vat |
-| `0x4652_2000_0000_0067` | `0x4652_0000_0000_0007` | Agency business type of service, zero type of vat |
-| `0x4652_2000_0000_0068` | `0x4652_0000_0000_0021` | Receiveable of thired party type of service, not taxable type of vat |
-| `0x4652_2000_0000_0071` | `0x4652_0000_0000_0017` | Own consumption type of service, discounted1 type of vat |
-| `0x4652_2000_0000_0072` | `0x4652_0000_0000_0018` | Own consumption type of service, discounted2 type of vat |
-| `0x4652_2000_0000_0073` | `0x4652_0000_0000_0019` | Own consumption type of service, normal type of vat |
-| `0x4652_2000_0000_0074` | `0x4652_0000_0000_001A` | Own consumption type of service, superreduced1 type of vat |
-| `0x4652_2000_0000_0075` | `0x4652_0000_0000_001B` | Own consumption type of service, superreduced2 type of vat |
-| `0x4652_2000_0000_0076` | `0x4652_0000_0000_001B` | Own consumption type of service, parking type of vat |
-| `0x4652_2000_0000_0077` | `0x4652_0000_0000_001B` | Own consumption type of service, zero type of vat |
-| `0x4652_2000_0000_0078` | `0x4652_0000_0000_001B` | Own consumption type of service, not taxable type of vat |
-| `0x4652_2000_0000_0081` | `0x4652_0000_0000_0001` | Grant (unreal) type of service, discounted1 type of vat |
-| `0x4652_2000_0000_0082` | `0x4652_0000_0000_0002` | Grant (unreal) type of service, discounted2 type of vat |
-| `0x4652_2000_0000_0083` | `0x4652_0000_0000_0003` | Grant (unreal) type of service, normal type of vat |
-| `0x4652_2000_0000_0084` | `0x4652_0000_0000_0004` | Grant (unreal) type of service, superreduced1 type of vat |
-| `0x4652_2000_0000_0085` | `0x4652_0000_0000_0005` | Grant (unreal) type of service, superreduced2 type of vat |
-| `0x4652_2000_0000_0086` | `0x4652_0000_0000_0005` | Grant (unreal) type of service, parking type of vat |
-| `0x4652_2000_0000_0087` | `0x4652_0000_0000_0005` | Grant (unreal) type of service, zero type of vat |
-| `0x4652_2000_0000_0088` | `0x4652_0000_0000_0005` | Grant (real) type of service, not taxable type of vat |
-| `0x4652_2000_0000_0098` | `0x4652_0000_0000_0022` | Receiveable type of service, not taxable type of vat |
-| `0x4652_2000_0000_00A8` | `0x4652_0000_0000_0022` | Cash transfer type of service, not taxable type of vat |
-| `0x4652_2000_0008_0000` | `0x4652_0000_0000_0020` | Downpayment, unknown type of service, unknown type of vat |
-| `0x4652_2000_0008_0001` | `0x4652_0000_0000_001C` | Downpayment, unknown type of service, discounted1 type of vat |
-| `0x4652_2000_0008_0002` | `0x4652_0000_0000_001D` | Downpayment, unknown type of service, discounted2 type of vat |
-| `0x4652_2000_0008_0003` | `0x4652_0000_0000_001E` | Downpayment, unknown type of service, normal type of vat |
-| `0x4652_2000_0008_0004` | `0x4652_0000_0000_001F` | Downpayment, unknown type of service, superreduced1 type of vat |
-| `0x4652_2000_0008_0005` | `0x4652_0000_0000_0020` | Downpayment, unknown type of service, superreduced2 type of vat => not defined in v0, goto zero |
-| `0x4652_2000_0008_0006` | `0x4652_0000_0000_0020` | Downpayment, unknown type of service, parking type of vat => not defined in v0, goto zero |
-| `0x4652_2000_0008_0007` | `0x4652_0000_0000_0020` | Downpayment, unknown type of service, zero type of vat |
-| `0x4652_2000_0008_0008` | `0x4652_0000_0000_0020` | Downpayment, unknown type of service, not taxable type of vat => not defined in v0, goto zero |
-| `0x4652_2000_0008_0011` | `0x4652_0000_0000_001C` | Downpayment, supply of goods type of service, discounted1 type of vat |
-| `0x4652_2000_0008_0012` | `0x4652_0000_0000_001D` | Downpayment, supply of goods type of service, discounted2 type of vat |
-| `0x4652_2000_0008_0013` | `0x4652_0000_0000_001E` | Downpayment, supply of goods type of service, normal type of vat |
-| `0x4652_2000_0008_0014` | `0x4652_0000_0000_001F` | Downpayment, supply of goods type of service, superreduced1 type of vat |
-| `0x4652_2000_0008_0015` | `0x4652_0000_0000_0020` | Downpayment, supply of goods type of service, superreduced2 type of vat => not defined in v0, goto zero |
-| `0x4652_2000_0008_0016` | `0x4652_0000_0000_0020` | Downpayment, supply of goods type of service, parking type of vat => not defined in v0, goto zero |
-| `0x4652_2000_0008_0017` | `0x4652_0000_0000_0020` | Downpayment, supply of goods type of service, zero type of vat |
-| `0x4652_2000_0008_0018` | `0x4652_0000_0000_0020` | Downpayment, supply of goods type of service, not taxable type of vat => not defined in v0, goto zero |
-| `0x4652_2000_0008_0021` | `0x4652_0000_0000_001C` | Downpayment, supply of service type of service, discounted1 type of vat |
-| `0x4652_2000_0008_0022` | `0x4652_0000_0000_001D` | Downpayment, supply of service type of service, discounted2 type of vat |
-| `0x4652_2000_0008_0023` | `0x4652_0000_0000_001E` | Downpayment, supply of service type of service, normal type of vat |
-| `0x4652_2000_0008_0024` | `0x4652_0000_0000_001F` | Downpayment, supply of service type of service, superreduced1 type of vat |
-| `0x4652_2000_0008_0025` | `0x4652_0000_0000_0020` | Downpayment, supply of service type of service, superreduced2 type of vat => not defined in v0, goto zero |
-| `0x4652_2000_0008_0026` | `0x4652_0000_0000_0020` | Downpayment, supply of service type of service, parking type of vat => not defined in v0, goto zero |
-| `0x4652_2000_0008_0027` | `0x4652_0000_0000_0020` | Downpayment, supply of service type of service, zero type of vat |
-| `0x4652_2000_0008_0028` | `0x4652_0000_0000_0020` | Downpayment, supply of service type of service, not taxable type of vat => not defined in v0, goto zero |
-| `0x4652_2000_0001_0000` | `0x0000_0000_0000_0000` | v2 IsVoid => v0 general void => no implementation in v0 |
-| `0x4652_2000_0002_0000` | `0x0000_0000_0000_0000` | v2 IsReturn/Refund => v0 general refund => no implementation in v0 |
-| `0x4652_2000_0004_0000` | `0x0000_0000_0000_0000` | v2 Discount => v0 general discount => no implementation in v0 |
-| `0x4652_2000_0010_0000` | `0x0000_0000_0000_0000` | v2 Returnable => v0 general returnable => no implementation in v0 |
-| `0x4652_2000_0020_0000` | `0x0000_0000_0000_0000` | v2 Take Away => v0 take away => no implementation in v0 |
-
-</details>
-
-<details>
-<summary>Germany (DE)</summary>
-
-| **v2 (in)** | **v0 (out)** | **Comment** |
-| ----------- | ------------ | ----------- |
-| `0x4445_2000_0000_0000` | `0x4445_0000_0000_0000` | Unknown chargeitem type, unknown type of service, unknown type of vat, future logic may detect vat-type from vat-rate |
-| `0x4445_2000_0000_0001` | `0x4445_0000_0000_0002` | Unknown type of service, discounted1 type of vat |
-| `0x4445_2000_0000_0002` | `0x4445_0000_0000_0007` | Unknown type of service, discounted2 type of vat => not defined in v0, goto unknown |
-| `0x4445_2000_0000_0003` | `0x4445_0000_0000_0001` | Unknown type of service, normal type of vat |
-| `0x4445_2000_0000_0004` | `0x4445_0000_0000_0003` | Unknown type of service, superreduced1 type of vat |
-| `0x4445_2000_0000_0005` | `0x4445_0000_0000_0004` | Unknown type of service, superreduced2 type of vat |
-| `0x4445_2000_0000_0006` | `0x4445_0000_0000_0007` | Unknown type of service, parking type of vat => not defined in v0, goto unknown |
-| `0x4445_2000_0000_0007` | `0x4445_0000_0000_0006` | Unknown type of service, zero type of vat |
-| `0x4445_2000_0000_0008` | `0x4445_0000_0000_0005` | Unknown type of service, not taxable type of vat |
-| `0x4445_2000_0000_0011` | `0x4445_0000_0000_0012` | Supply of goods type of service, discounted1 type of vat |
-| `0x4445_2000_0000_0012` | `0x4445_0000_0000_0017` | Supply of goods type of service, discounted2 type of vat => not defined in v0, goto unknown |
-| `0x4445_2000_0000_0013` | `0x4445_0000_0000_0011` | Supply of goods type of service, normal type of vat |
-| `0x4445_2000_0000_0014` | `0x4445_0000_0000_0013` | Supply of goods type of service, superreduced1 type of vat |
-| `0x4445_2000_0000_0015` | `0x4445_0000_0000_0014` | Supply of goods type of service, superreduced2 type of vat |
-| `0x4445_2000_0000_0016` | `0x4445_0000_0000_0017` | Supply of goods type of service, parking type of vat => not defined in v0, goto unknown |
-| `0x4445_2000_0000_0017` | `0x4445_0000_0000_0016` | Supply of goods type of service, zero type of vat |
-| `0x4445_2000_0000_0018` | `0x4445_0000_0000_0015` | Supply of goods type of service, not taxable type of vat |
-| `0x4445_2000_0000_0021` | `0x4445_0000_0000_001A` | Supply of service type of service, discounted1 type of vat |
-| `0x4445_2000_0000_0022` | `0x4445_0000_0000_001F` | Supply of service type of service, discounted2 type of vat => not defined in v0, goto unknown |
-| `0x4445_2000_0000_0023` | `0x4445_0000_0000_0019` | Supply of service type of service, normal type of vat |
-| `0x4445_2000_0000_0024` | `0x4445_0000_0000_001B` | Supply of service type of service, superreduced1 type of vat |
-| `0x4445_2000_0000_0025` | `0x4445_0000_0000_001C` | Supply of service type of service, superreduced2 type of vat |
-| `0x4445_2000_0000_0026` | `0x4445_0000_0000_001F` | Supply of service type of service, parking type of vat => not defined in v0, goto unknown |
-| `0x4445_2000_0000_0027` | `0x4445_0000_0000_001E` | Supply of service type of service, zero type of vat |
-| `0x4445_2000_0000_0028` | `0x4445_0000_0000_001D` | Supply of service type of service, not taxable type of vat |
-| `0x4445_2000_0010_0001` | `0x4445_0000_0000_0022` | Returnable type of service, discounted1 type of vat |
-| `0x4445_2000_0010_0002` | `0x4445_0000_0000_0027` | Returnable type of service, discounted2 type of vat => not defined in v0, goto unknown |
-| `0x4445_2000_0010_0003` | `0x4445_0000_0000_0021` | Returnable type of service, normal type of vat |
-| `0x4445_2000_0010_0004` | `0x4445_0000_0000_0023` | Returnable type of service, superreduced1 type of vat |
-| `0x4445_2000_0010_0005` | `0x4445_0000_0000_0024` | Returnable type of service, superreduced2 type of vat |
-| `0x4445_2000_0010_0006` | `0x4445_0000_0000_0027` | Returnable type of service, parking type of vat => not defined in v0, goto unknown |
-| `0x4445_2000_0010_0007` | `0x4445_0000_0000_0026` | Returnable type of service, zero type of vat |
-| `0x4445_2000_0010_0008` | `0x4445_0000_0000_0025` | Returnable type of service, not taxable type of vat |
-| `0x4445_2000_0012_0001` | `0x4445_0000_0000_002A` | Returnable refund type of service, discounted1 type of vat |
-| `0x4445_2000_0012_0002` | `0x4445_0000_0000_002F` | Returnable refund type of service, discounted2 type of vat => not defined in v0, goto unknown |
-| `0x4445_2000_0012_0003` | `0x4445_0000_0000_0029` | Returnable refund type of service, normal type of vat |
-| `0x4445_2000_0012_0004` | `0x4445_0000_0000_002B` | Returnable refund type of service, superreduced1 type of vat |
-| `0x4445_2000_0012_0005` | `0x4445_0000_0000_002C` | Returnable refund type of service, superreduced2 type of vat |
-| `0x4445_2000_0012_0006` | `0x4445_0000_0000_0027` | Returnable refund type of service, parking type of vat => not defined in v0, goto unknown |
-| `0x4445_2000_0012_0007` | `0x4445_0000_0000_002E` | Returnable refund type of service, zero type of vat |
-| `0x4445_2000_0012_0008` | `0x4445_0000_0000_002D` | Returnable refund type of service, not taxable type of vat |
-| `0x4445_2000_0004_0001` | `0x4445_0000_0000_0032` | Discount (amount < 0) type of service, discounted1 type of vat |
-| `0x4445_2000_0004_0002` | `0x4445_0000_0000_0037` | Discount (amount < 0) type of service, discounted2 type of vat => not defined in v0, goto unknown |
-| `0x4445_2000_0004_0003` | `0x4445_0000_0000_0031` | Discount (amount < 0) type of service, normal type of vat |
-| `0x4445_2000_0004_0004` | `0x4445_0000_0000_0033` | Discount (amount < 0) type of service, superreduced1 type of vat |
-| `0x4445_2000_0004_0005` | `0x4445_0000_0000_0034` | Discount (amount < 0) type of service, superreduced2 type of vat |
-| `0x4445_2000_0004_0006` | `0x4445_0000_0000_0037` | Discount (amount < 0) type of service, parking type of vat => not defined in v0, goto unknown |
-| `0x4445_2000_0004_0007` | `0x4445_0000_0000_0036` | Discount (amount < 0) type of service, zero type of vat |
-| `0x4445_2000_0004_0008` | `0x4445_0000_0000_0035` | Discount (amount < 0) type of service, not taxable type of vat |
-| `0x4445_2000_0004_0001` | `0x4445_0000_0000_003A` | Discount (amount > 0) type of service, discounted1 type of vat |
-| `0x4445_2000_0004_0002` | `0x4445_0000_0000_003F` | Discount (amount > 0) type of service, discounted2 type of vat => not defined in v0, goto unknown |
-| `0x4445_2000_0004_0003` | `0x4445_0000_0000_0039` | Discount (amount > 0) type of service, normal type of vat |
-| `0x4445_2000_0004_0004` | `0x4445_0000_0000_003B` | Discount (amount > 0) type of service, superreduced1 type of vat |
-| `0x4445_2000_0004_0005` | `0x4445_0000_0000_003C` | Discount (amount > 0) type of service, superreduced2 type of vat |
-| `0x4445_2000_0004_0006` | `0x4445_0000_0000_0037` | Discount (amount > 0) type of service, parking type of vat => not defined in v0, goto unknown |
-| `0x4445_2000_0004_0007` | `0x4445_0000_0000_003E` | Discount (amount > 0) type of service, zero type of vat |
-| `0x4445_2000_0004_0008` | `0x4445_0000_0000_003D` | Discount (amount > 0) type of service, not taxable type of vat |
-| `0x4445_2000_0000_0081` | `0x4445_0000_0000_0042` | Grant (unreal) type of service, discounted1 type of vat |
-| `0x4445_2000_0000_0082` | `0x4445_0000_0000_0047` | Grant (unreal) type of service, discounted2 type of vat => not defined in v0, goto unknown |
-| `0x4445_2000_0000_0083` | `0x4445_0000_0000_0041` | Grant (unreal) type of service, normal type of vat |
-| `0x4445_2000_0000_0084` | `0x4445_0000_0000_0043` | Grant (unreal) type of service, superreduced1 type of vat |
-| `0x4445_2000_0000_0085` | `0x4445_0000_0000_0044` | Grant (unreal) type of service, superreduced2 type of vat |
-| `0x4445_2000_0000_0086` | `0x4445_0000_0000_0047` | Grant (unreal) type of service, parking type of vat => not defined in v0, goto unknown |
-| `0x4445_2000_0000_0087` | `0x4445_0000_0000_0046` | Grant (unreal) type of service, zero type of vat |
-| `0x4445_2000_0000_0088` | `0x4445_0000_0000_0049` | Grant (real) type of service, not taxable type of vat => _0045 will not be reachable from v2 |
-| `0x4445_2000_0000_0031` | `0x4445_0000_0000_0052` | Tip to owner type of service, discounted1 type of vat |
-| `0x4445_2000_0000_0032` | `0x4445_0000_0000_0057` | Tip to owner type of service, discounted2 type of vat => not defined in v0, goto unknown |
-| `0x4445_2000_0000_0033` | `0x4445_0000_0000_0051` | Tip to owner type of service, normal type of vat |
-| `0x4445_2000_0000_0034` | `0x4445_0000_0000_0053` | Tip to owner type of service, superreduced1 type of vat |
-| `0x4445_2000_0000_0035` | `0x4445_0000_0000_0054` | Tip to owner type of service, superreduced2 type of vat |
-| `0x4445_2000_0000_0036` | `0x4445_0000_0000_0057` | Tip to owner type of service, parking type of vat => not defined in v0, goto unknown |
-| `0x4445_2000_0000_0037` | `0x4445_0000_0000_0056` | Tip to owner type of service, zero type of vat |
-| `0x4445_2000_0000_0038` | `0x4445_0000_0000_0059` | Tip to employee type of service, not taxable type of vat => _0055 will not be reachable from v2 |
-| `0x4445_2000_0000_0041` | `0x4445_0000_0000_0062` | Single-use voucher (amount > 0) type of service, discounted1 type of vat |
-| `0x4445_2000_0000_0042` | `0x4445_0000_0000_0067` | Single-use voucher (amount > 0) type of service, discounted2 type of vat => not defined in v0, goto unknown |
-| `0x4445_2000_0000_0043` | `0x4445_0000_0000_0061` | Single-use voucher (amount > 0) type of service, normal type of vat |
-| `0x4445_2000_0000_0044` | `0x4445_0000_0000_0063` | Single-use voucher (amount > 0) type of service, superreduced1 type of vat |
-| `0x4445_2000_0000_0045` | `0x4445_0000_0000_0064` | Single-use voucher (amount > 0) type of service, superreduced2 type of vat |
-| `0x4445_2000_0000_0046` | `0x4445_0000_0000_0067` | Single-use voucher (amount > 0) type of service, parking type of vat => not defined in v0, goto unknown |
-| `0x4445_2000_0000_0047` | `0x4445_0000_0000_0066` | Single-use voucher (amount > 0) type of service, zero type of vat |
-| `0x4445_2000_0000_0048` | `0x4445_0000_0000_0060` | Multi-use voucher (amount > 0) type of service, not taxable type of vat |
-| `0x4445_2000_0000_0041` | `0x4445_0000_0000_006A` | Single-use voucher (amount > 0) type of service, discounted1 type of vat |
-| `0x4445_2000_0000_0042` | `0x4445_0000_0000_006F` | Single-use voucher (amount < 0) type of service, discounted2 type of vat => not defined in v0, goto unknown |
-| `0x4445_2000_0000_0043` | `0x4445_0000_0000_0069` | Single-use voucher (amount < 0) type of service, normal type of vat |
-| `0x4445_2000_0000_0044` | `0x4445_0000_0000_006B` | Single-use voucher (amount < 0) type of service, superreduced1 type of vat |
-| `0x4445_2000_0000_0045` | `0x4445_0000_0000_006C` | Single-use voucher (amount < 0) type of service, superreduced2 type of vat |
-| `0x4445_2000_0000_0046` | `0x4445_0000_0000_006F` | Single-use voucher (amount < 0) type of service, parking type of vat => not defined in v0, goto unknown |
-| `0x4445_2000_0000_0047` | `0x4445_0000_0000_006E` | Single-use voucher (amount < 0) type of service, zero type of vat |
-| `0x4445_2000_0000_0048` | `0x4445_0000_0000_0068` | Multi-use voucher (amount < 0) type of service, not taxable type of vat |
-| `0x4445_2000_0000_0091` | `0x4445_0000_0000_0072` | Receiveable (amount > 0), discounted1 type of vat |
-| `0x4445_2000_0000_0092` | `0x4445_0000_0000_0077` | Receiveable (amount > 0), discounted2 type of vat => not defined in v0, goto unknown |
-| `0x4445_2000_0000_0093` | `0x4445_0000_0000_0071` | Receiveable (amount > 0), normal type of vat |
-| `0x4445_2000_0000_0094` | `0x4445_0000_0000_0073` | Receiveable (amount > 0), superreduced1 type of vat |
-| `0x4445_2000_0000_0095` | `0x4445_0000_0000_0074` | Receiveable (amount > 0), superreduced2 type of vat |
-| `0x4445_2000_0000_0096` | `0x4445_0000_0000_0077` | Receiveable (amount > 0), parking type of vat => not defined in v0, goto unknown |
-| `0x4445_2000_0000_0097` | `0x4445_0000_0000_0076` | Receiveable (amount > 0), zero type of vat |
-| `0x4445_2000_0000_0098` | `0x4445_0000_0000_0075` | Receiveable (amount > 0), not taxable type of vat |
-| `0x4445_2000_0000_0091` | `0x4445_0000_0000_007A` | Receiveable (amount < 0), discounted1 type of vat |
-| `0x4445_2000_0000_0092` | `0x4445_0000_0000_007F` | Receiveable (amount < 0), discounted2 type of vat => not defined in v0, goto unknown |
-| `0x4445_2000_0000_0093` | `0x4445_0000_0000_0079` | Receiveable (amount < 0), normal type of vat |
-| `0x4445_2000_0000_0094` | `0x4445_0000_0000_007B` | Receiveable (amount < 0), superreduced1 type of vat |
-| `0x4445_2000_0000_0095` | `0x4445_0000_0000_007C` | Receiveable (amount < 0), superreduced2 type of vat |
-| `0x4445_2000_0000_0096` | `0x4445_0000_0000_007F` | Receiveable (amount < 0), parking type of vat => not defined in v0, goto unknown |
-| `0x4445_2000_0000_0097` | `0x4445_0000_0000_007E` | Receiveable (amount < 0), zero type of vat |
-| `0x4445_2000_0000_0098` | `0x4445_0000_0000_007D` | Receiveable (amount < 0), not taxable type of vat |
-| `0x4445_2000_0008_0001` | `0x4445_0000_0000_0082` | Downpayment (amount < 0) type of service, discounted1 type of vat |
-| `0x4445_2000_0008_0002` | `0x4445_0000_0000_0087` | Downpayment (amount < 0) type of service, discounted2 type of vat => not defined in v0, goto unknown |
-| `0x4445_2000_0008_0003` | `0x4445_0000_0000_0081` | Downpayment (amount < 0) type of service, normal type of vat |
-| `0x4445_2000_0008_0004` | `0x4445_0000_0000_0083` | Downpayment (amount < 0) type of service, superreduced1 type of vat |
-| `0x4445_2000_0008_0005` | `0x4445_0000_0000_0084` | Downpayment (amount < 0) type of service, superreduced2 type of vat |
-| `0x4445_2000_0008_0006` | `0x4445_0000_0000_0087` | Downpayment (amount < 0) type of service, parking type of vat => not defined in v0, goto unknown |
-| `0x4445_2000_0008_0007` | `0x4445_0000_0000_0086` | Downpayment (amount < 0) type of service, zero type of vat |
-| `0x4445_2000_0008_0008` | `0x4445_0000_0000_0085` | Downpayment (amount < 0) type of service, not taxable type of vat |
-| `0x4445_2000_0008_0001` | `0x4445_0000_0000_008A` | Downpayment (amount > 0) type of service, discounted1 type of vat |
-| `0x4445_2000_0008_0002` | `0x4445_0000_0000_008F` | Downpayment (amount > 0) type of service, discounted2 type of vat => not defined in v0, goto unknown |
-| `0x4445_2000_0008_0003` | `0x4445_0000_0000_0089` | Downpayment (amount > 0) type of service, normal type of vat |
-| `0x4445_2000_0008_0004` | `0x4445_0000_0000_008B` | Downpayment (amount > 0) type of service, superreduced1 type of vat |
-| `0x4445_2000_0008_0005` | `0x4445_0000_0000_008C` | Downpayment (amount > 0) type of service, superreduced2 type of vat |
-| `0x4445_2000_0008_0006` | `0x4445_0000_0000_0087` | Downpayment (amount > 0) type of service, parking type of vat => not defined in v0, goto unknown |
-| `0x4445_2000_0008_0007` | `0x4445_0000_0000_008E` | Downpayment (amount > 0) type of service, zero type of vat |
-| `0x4445_2000_0008_0008` | `0x4445_0000_0000_008D` | Downpayment (amount > 0) type of service, not taxable type of vat |
-| `0x4445_2000_0000_00A8` | `0x4445_0000_0000_0097 X TODO different cash transfers` | Cash transfer type of service, not taxable type of vat |
-| `0x4445_2000_0000_5008` | `0x4445_0000_0000_00A1` | Not taxable type of vat, reverse charge => v0 specific implementation |
-| `0x4445_2000_0000_0061` | `0x4445_0000_0000_00A2` | Agency business type of service, discounted1 type of vat |
-| `0x4445_2000_0000_0062` | `0x4445_0000_0000_00A2` | Agency business type of service, discounted2 type of vat |
-| `0x4445_2000_0000_0063` | `0x4445_0000_0000_00A2` | Agency business type of service, normal type of vat |
-| `0x4445_2000_0000_0064` | `0x4445_0000_0000_00A2` | Agency business type of service, superreduced1 type of vat |
-| `0x4445_2000_0000_0065` | `0x4445_0000_0000_00A2` | Agency business type of service, superreduced2 type of vat |
-| `0x4445_2000_0000_0066` | `0x4445_0000_0000_00A2` | Agency business type of service, parking type of vat |
-| `0x4445_2000_0000_0067` | `0x4445_0000_0000_00A2` | Agency business type of service, zero type of vat |
-| `0x4445_2000_0000_0051` | `0x4445_0000_0000_0002` | Catalog service type of service, discounted1 type of vat => not defined in v0, use unknown |
-| `0x4445_2000_0000_0052` | `0x4445_0000_0000_0007` | Catalog service type of service, discounted2 type of vat => not defined in v0, use unknown |
-| `0x4445_2000_0000_0053` | `0x4445_0000_0000_0001` | Catalog service type of service, normal type of vat => not defined in v0, use unknown |
-| `0x4445_2000_0000_0054` | `0x4445_0000_0000_0003` | Catalog service type of service, superreduced1 type of vat => not defined in v0, use unknown |
-| `0x4445_2000_0000_0055` | `0x4445_0000_0000_0004` | Catalog service type of service, superreduced2 type of vat => not defined in v0, use unknown |
-| `0x4445_2000_0000_0056` | `0x4445_0000_0000_0007` | Catalog service type of service, parking type of vat => not defined in v0, use unknown |
-| `0x4445_2000_0000_0057` | `0x4445_0000_0000_0006` | Catalog service type of service, zero type of vat => not defined in v0, use unknown |
-| `0x4445_2000_0000_0058` | `0x4445_0000_0000_0005` | Catalog service type of service, not taxable type of vat => not defined in v0, use unknown |
-| `0x4445_2000_0000_0071` | `0x4445_0000_0000_0042` | Own consumption type of service, discounted1 type of vat => not defined in v0, use grant |
-| `0x4445_2000_0000_0072` | `0x4445_0000_0000_0047` | Own consumption type of service, discounted2 type of vat => not defined in v0, use grant |
-| `0x4445_2000_0000_0073` | `0x4445_0000_0000_0041` | Own consumption type of service, normal type of vat => not defined in v0, use grant |
-| `0x4445_2000_0000_0074` | `0x4445_0000_0000_0043` | Own consumption type of service, superreduced1 type of vat => not defined in v0, use grant |
-| `0x4445_2000_0000_0075` | `0x4445_0000_0000_0044` | Own consumption type of service, superreduced2 type of vat => not defined in v0, use grant |
-| `0x4445_2000_0000_0076` | `0x4445_0000_0000_0047` | Own consumption type of service, parking type of vat => not defined in v0, use grant |
-| `0x4445_2000_0000_0077` | `0x4445_0000_0000_0046` | Own consumption type of service, zero type of vat => not defined in v0, use grant |
-| `0x4445_2000_0000_0078` | `0x4445_0000_0000_0045` | Own consumption type of service, not taxable type of vat => not defined in v0, use grant |
-| `0x4445_2000_0020_0000` | `0x0000_0000_0001_0000` | v2 Take Away |
-| `0x4445_2000_0001_0000` | `0x0000_0000_0000_0000` | v2 IsVoid => v0 general void => no implementation in v0 |
-| `0x4445_2000_0002_0000` | `0x0000_0000_0000_0000` | v2 IsReturn/Refund => v0 general refund => no implementation in v0 |
-| `0x4445_2000_0004_0000` | `0x0000_0000_0000_0000` | v2 Discount => v0 general discount => no implementation in v0 |
-| `0x4445_2000_0010_0000` | `0x0000_0000_0000_0000` | v2 Returnable => v0 general returnable => no implementation in v0 |
-
-</details>
-
 #### ftPayItemCase
 
 <details>
 <summary>Austria (AT)</summary>
 
-| **v2 (in)** | **v0 (out)** | **Comment** |
-| ----------- | ------------ | ----------- |
+| **v2 (in)** | **v0 (out)** | **Description** |
+| ----------- | ------------ | --------------- |
 | `0x4154_2000_0000_0000` | `0x4154_0000_0000_0000` | Unknown payitem type |
 | `0x4154_2000_oooo_oo01` | `0x4154_0000_0000_0001` | Cash payment |
 | `0x4154_2000_oo1o_oo01` | `0x4154_0000_0000_0002` | Cash payment, in foreign currency |
@@ -1339,7 +744,7 @@ A systematic approach to updating case values:
 <details>
 <summary>France (FR)</summary>
 
-| **v2 (in)** | **v0 (out)** | **Comment** |
+| **v2 (in)** | **v0 (out)** | **Description** |
 | ----------- | ------------ | ----------- |
 | `0x4652_2000_0000_0000` | `0x4652_0000_0000_0000` | Unknown payitem type |
 | `0x4652_2000_oooo_oo01` | `0x4652_0000_0000_0001` | Cash payment |
@@ -1368,8 +773,8 @@ A systematic approach to updating case values:
 <details>
 <summary>Germany (DE)</summary>
 
-| **v2 (in)** | **v0 (out)** | **Comment** |
-| ----------- | ------------ | ----------- |
+| **v2 (in)** | **v0 (out)** | **Description** |
+| ----------- | ------------ | --------------- |
 | `0x4445_2000_0000_0000` | `0x4445_0000_0000_0000` | Unknown payitem type |
 | `0x4445_2000_oooo_oo01` | `0x4445_0000_0000_0001` | Cash payment |
 | `0x4445_2000_oo1o_oo01` | `0x4445_0000_0000_0002` | Cash payment, in foreign currency |
@@ -1399,104 +804,18 @@ A systematic approach to updating case values:
 
 </details>
 
-##### ftPayItemCaseFlag
-
-<details>
-<summary>Austria (AT)</summary>
-
-| **v2 (in)** | **v0 (out)** | **Comment** |
-| ----------- | ------------ | ----------- |
-| `0x4154_2000_0000_0000` | `0x4154_0000_0000_0000` | Unknown payitem type |
-| `0x4154_2000_0000_0001` | `0x4154_0000_0000_0001` | Cash payment |
-| `0x4154_2000_0010_0001` | `0x4154_0000_0000_0002` | Cash payment, in foreign currency |
-| `0x4154_2000_0000_0002` | `0x4154_0000_0000_0007` | Non-cash payment => v0 online payment, not rksv relevant payments |
-| `0x4154_2000_0000_0003` | `0x4154_0000_0000_0003` | Crossed check payment |
-| `0x4154_2000_0000_0004` | `0x4154_0000_0000_0004` | Debit card payment |
-| `0x4154_2000_0000_0005` | `0x4154_0000_0000_0005` | Credit card payment |
-| `0x4154_2000_0000_0006` | `0x4154_0000_0000_0006` | Voucher payment |
-| `0x4154_2000_0000_0007` | `0x4154_0000_0000_0007` | Online payment |
-| `0x4154_2000_0000_0008` | `0x4154_0000_0000_0008` | Loyality program, customer card payment |
-| `0x4154_2000_0000_0009` | `0x4154_0000_0000_000B` | Accounts receiveable |
-| `0x4154_2000_0000_000A` | `0x4154_0000_0000_000C` | Sepa wire transfer |
-| `0x4154_2000_0000_000B` | `0x4154_0000_0000_000D` | Other wire/bank transer |
-| `0x4154_2000_0000_000C` | `0x4154_0000_0000_000E` | Transfer to cashbook, amount negativ => v0 cashbook expense |
-| `0x4154_2000_0000_000C` | `0x4154_0000_0000_000E` | Transfer to cashbook, amount positiv => v0 cashbook contribution |
-| `0x4154_2000_0000_000D` | `0x4154_0000_0000_0011` | Internal / material consumption |
-| `0x4154_2000_0000_000E` | `0x4154_0000_0000_000B` | Grant => v0 accounts receiveable |
-| `0x4154_2000_0000_000F` | `0x4154_0000_0000_0006` | Ticket restaurant => v0 voucher |
-| `0x4154_2000_0008_0009` | `0x4154_0000_0000_0010` | Accounts receiveable, downpayment flag => v0 levy / downpayment |
-| `0x4154_2000_0020_0001` | `0x4154_0000_0000_0012` | Cash payment, change flag => v0 change / tip |
-| `0x4154_2000_0040_0001` | `0x4154_0000_0040_0012` | Cash payment, tip flag => v0 change / tip |
-
-</details>
-
-<details>
-<summary>France (FR)</summary>
-
-| **v2 (in)** | **v0 (out)** | **Comment** |
-| ----------- | ------------ | ----------- |
-| `0x4652_2000_0000_0000` | `0x4652_0000_0000_0000` | Unknown payitem type |
-| `0x4652_2000_0000_0001` | `0x4652_0000_0000_0001` | Cash payment |
-| `0x4652_2000_0010_0001` | `0x4652_0000_0000_0002` | Cash payment, in foreign currency |
-| `0x4652_2000_0000_0002` | `0x4652_0000_0000_0007` | Non-cash payment => v0 online payment, not rksv relevant payments |
-| `0x4652_2000_0000_0003` | `0x4652_0000_0000_0003` | Crossed check payment |
-| `0x4652_2000_0000_0004` | `0x4652_0000_0000_0004` | Debit card payment |
-| `0x4652_2000_0000_0005` | `0x4652_0000_0000_0005` | Credit card payment |
-| `0x4652_2000_0000_0006` | `0x4652_0000_0000_0006` | Voucher payment |
-| `0x4652_2000_0000_0007` | `0x4652_0000_0000_0007` | Online payment |
-| `0x4652_2000_0000_0008` | `0x4652_0000_0000_0008` | Loyality program, customer card payment |
-| `0x4652_2000_0000_0009` | `0x4652_0000_0000_000B` | Accounts receiveable |
-| `0x4652_2000_0000_000A` | `0x4652_0000_0000_000C` | Sepa wire transfer |
-| `0x4652_2000_0000_000B` | `0x4652_0000_0000_000D` | Other wire/bank transer |
-| `0x4652_2000_0000_000C` | `0x4652_0000_0000_000E` | Transfer to cashbook, amount negativ => v0 cashbook expense |
-| `0x4652_2000_0000_000C` | `0x4652_0000_0000_000E` | Transfer to cashbook, amount positiv => v0 cashbook contribution |
-| `0x4652_2000_0000_000D` | `0x4652_0000_0000_0011` | Internal / material consumption |
-| `0x4652_2000_0000_000E` | `0x4652_0000_0000_000B` | Grant => v0 accounts receiveable |
-| `0x4652_2000_0000_000F` | `0x4652_0000_0000_0006` | Ticket restaurant => v0 voucher |
-| `0x4652_2000_0008_0009` | `0x4652_0000_0000_0010` | Accounts receiveable, downpayment flag => v0 levy / downpayment |
-| `0x4652_2000_0020_0001` | `0x4652_0000_0000_0012` | Cash payment, change flag => v0 change / tip |
-| `0x4652_2000_0040_0001` | `0x4652_0000_0040_0012` | Cash payment, tip flag => v0 change / tip |
-
-</details>
-
-<details>
-<summary>Germany (DE)</summary>
-
-| **v2 (in)** | **v0 (out)** | **Comment** |
-| ----------- | ------------ | ----------- |
-| `0x4445_2000_0000_0000` | `0x4445_0000_0000_0000` | Unknown payitem type |
-| `0x4445_2000_0000_0001` | `0x4445_0000_0000_0001` | Cash payment |
-| `0x4445_2000_0010_0001` | `0x4445_0000_0000_0002` | Cash payment, in foreign currency |
-| `0x4445_2000_0000_0002` | `0x4445_0000_0000_0007` | Non-cash payment => v0 online payment, not rksv relevant payments |
-| `0x4445_2000_0000_0003` | `0x4445_0000_0000_0003` | Crossed check payment |
-| `0x4445_2000_0000_0004` | `0x4445_0000_0000_0004` | Debit card payment |
-| `0x4445_2000_0000_0005` | `0x4445_0000_0000_0005` | Credit card payment |
-| `0x4445_2000_0000_0006` | `0x4445_0000_0000_000D` | Voucher payment |
-| `0x4445_2000_0000_0007` | `0x4445_0000_0000_0006` | Online payment |
-| `0x4445_2000_0000_0008` | `0x4445_0000_0000_0007` | Loyality program, customer card payment |
-| `0x4445_2000_0000_0009` | `0x4445_0000_0000_000E` | Accounts receiveable |
-| `0x4445_2000_0000_000A` | `0x4445_0000_0000_0008` | Sepa wire transfer |
-| `0x4445_2000_0000_000B` | `0x4445_0000_0000_0009` | Other wire/bank transer |
-| `0x4445_2000_0000_000C` | `0x4445_0000_0000_0012` | Transfer to ... [cashbook / vault / owner / employee], amount negativ, ??? MoneyGroup == "EmptyTill" => v0 cash transfer to empty till |
-| `0x4445_2000_0000_000C` | `0x4445_0000_0000_0013` | Transfer to ... [cashbook / vault / owner / employee], MoneyGroup == ??? "Owner" => v0 cash transfer to owner |
-| `0x4445_2000_0000_000C` | `0x4445_0000_0000_0014` | Transfer to ... [cashbook / vault / owner / employee], MoneyGroup == ??? "Till",  => v0 cash transfer from/to till |
-| `0x4445_2000_0000_000C` | `0x4445_0000_0000_0015` | Transfer to ... [cashbook / vault / owner / employee], MoneyGroup == ??? "Employee" => v0 cash transfer to employee |
-| `0x4445_2000_0000_000C` | `0x4445_0000_0000_0016` | Transfer to ... [cashbook / vault / owner / employee], MoneyGroup == ??? "Cashbook" => v0 cash transfer from/to cashbook |
-| `0x4445_2000_0000_000C` | `0x4445_0000_0000_0017` | Transfer to ... [cashbook / vault / owner / employee], MoneyGroup == ??? "CashDifference" => v0 cash difference in till |
-| `0x4445_2000_0000_000D` | `0x4445_0000_0000_000A` | Internal / material consumption |
-| `0x4445_2000_0000_000E` | `0x4445_0000_0000_0011` | Grant => v0 (real)grant |
-| `0x4445_2000_0000_000F` | `0x4445_0000_0000_0006` | Ticket restaurant => v0 voucher |
-| `0x4445_2000_0008_0009` | `0x4445_0000_0000_000F` | Accounts receiveable, downpayment flag => v0 downpayment |
-| `0x4445_2000_0020_0001` | `0x4445_0000_0000_000B` | Cash payment, change flag => v0 change |
-| `0x4445_2000_0030_0001` | `0x4445_0000_0000_000C` | Cash payment, in foreign currency, change flag => v0 change in foreign currency |
-| `0x4445_2000_0040_0001` | `0x4445_0000_0040_0012` | Cash payment, tip flag => v0 tip to employee |
-
-</details>
-
 Key differences highlighted:
 1. The base URL changes.
 2. All case numeric values must be remapped.
 3. `ftReceiptCaseData` is now an object keyed by market code instead of a raw string.
+
+:::info Important
+
+For the `ftReceiptCaseFlag`, `ftChargeItemCaseFlag`, and `ftPayItemCaseFlag` fields, replace every lowercase letter `o` in flag values with the digit `0` (zero). Examples:
+- `0x4154_2oo0_oo8o_2ooo` → `0x4154_2000_0080_2000`
+- `0xoooo_oooo_oooo_oooo` → `0x0000_0000_0000_0000`
+
+:::
 
 #### ftReceiptCaseData Format
 
