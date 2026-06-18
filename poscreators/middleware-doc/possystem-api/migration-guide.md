@@ -74,7 +74,7 @@ Local cashbox migration requires additional configuration steps that are current
 
 :::
 
-The portal-side configuration requires adding a **LocalPosSystemApi Helper** to your CashBox and rebuilding it with Launcher 2.0. Rather than duplicating those steps here, follow the [How to Configure the Local PosSystem API Helper with Launcher 2.0](../../../../posdealers/technical-operations/middleware/helper-possystemapi.md) guide, which covers:
+The portal-side configuration requires adding a **LocalPosSystemApi Helper** to your CashBox and rebuilding it with Launcher 2.0. Rather than duplicating those steps here, follow the [How to Configure the Local PosSystem API Helper with Launcher 2.0](../../../posdealers/technical-operations/middleware/helper-possystemapi.md) guide, which covers:
 
 1. Adding a `fiskaltrust.Middleware.Helper.LocalPosSystemApi` Helper in the Portal.
 2. Configuring the Helper URL.
