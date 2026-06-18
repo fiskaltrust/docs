@@ -25,7 +25,7 @@ The interface specification is provided by fiskaltrust.Interface NuGet package, 
 
 :::info Upgrading to PosSystem API (v2)
 
-New features such as e-invoicing are available exclusively through the **PosSystem API (v2)**. If you are currently using the v0 interface (WCF/REST), see the Migrating from API v0 to PosSystem API (v2) guide for instructions.
+New features such as e-invoicing are available exclusively through the **PosSystem API (v2)**. If you are currently using the v0 interface (WCF/REST), see the [Migrating from API v0 to PosSystem API (v2)](https://docs.fiskaltrust.eu/docs/poscreators/possystem-api/migration-guide-v0-v2) guide for instructions.
 
 :::
 

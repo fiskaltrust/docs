@@ -25,6 +25,7 @@ module.exports = [
     items: [
       "poscreators/middleware-doc/possystem-api/introduction",
       "poscreators/middleware-doc/possystem-api/android-intent",
+      "poscreators/middleware-doc/possystem-api/migration-guide",
     ],
 },
   {

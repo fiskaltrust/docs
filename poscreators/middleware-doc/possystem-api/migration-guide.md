@@ -1,11 +1,9 @@
 ---
-slug: /poscreators/middleware-doc/general/migration/v0-to-possystemapi
-title: Migrating from API v0 to PosSystem API (v2)
+slug: /poscreators/possystem-api/migration-guide-v0-v2
+title: Migration Guide (v0 to v2)
 ---
 
 # Migrating from API v0 to PosSystem API (v2)
-
-## Introduction
 
 The legacy **v0 SignatureCloud API** (also referred to by its subdomain pattern `signaturcloud-sandbox.*`) and the original synchronous `ifPOS.v0` fiskaltrust.Middleware API — primarily used in Austria (AT) and France (FR) — remain functional but no longer receive new features. All current and future development, including e-invoicing support and upcoming compliance capabilities, is available exclusively through the **POSSystem API (v2)**, making migration strongly recommended.
 
@@ -38,7 +36,6 @@ The PosSystem API via Launcher 2.0 has market-specific constraints:
 
 - **Austria (AT):** Launcher 2.0 is not enabled by default. Contact fiskaltrust support to enable it for your account.
 - **France (FR):** Launcher 2.0 is not yet supported. The workaround is setting 2 cashboxes, one with the queue and one with the POSSystemAPI helper without a queue. French customers should contact fiskaltrust for more instructions if needed.
-- **Germany (DE):** TBD
 
 :::
 
@@ -112,7 +109,7 @@ A systematic approach to updating case values:
 
 1. List every `ftReceiptCase`, `ftChargeItemCase`, and `ftPayItemCase` value currently used in your integration.
 2. For each value, find the corresponding business case in the [Development Platform](https://developer.fiskaltrust.eu/) for your market.
-3. Replace the v0 value with the v2 value shown in the platform example. Remove the country code (4154 for AT, 4445 for DE, and 4652 for FR) which is not needed anymore.
+3. Replace the v0 value with the v2 value shown in the platform example. Remove the country code (`4154` for AT, `4445` for DE, and `4652` for FR), as it is no longer required.
 4. Repeat for all receipt types (including special receipts such as Start-Receipt, Stop-Receipt, daily/shift closings, and Zero-Receipts).
 5. If you don't find some values used in your integration in the table below, it seams that you just have to change the v0 with the v2 value.
 6. **Important:** You'll see, in certain cases, for the same value in v0, you now need to specify a more precise value. For example, with invoices, there was only one code in v0, but now there are several possible values. Your POS system must therefore integrate whether the invoice is issued for B2C, B2B, B2G, etc.

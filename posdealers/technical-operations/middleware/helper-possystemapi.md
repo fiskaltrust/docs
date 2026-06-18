@@ -14,14 +14,6 @@ The local PosSystem API Helper is currently in preview.
 
 After reading this, you can set up and configure the local PosSystem API Helper within a Launcher 2.0 deployment.
 
-:::
-
-:::info Migrating from v0?
-
-If your POS system currently uses the v0 interface (WCF/REST) and you are migrating to the PosSystem API, see the [v0 → PosSystem API migration guide](../../../poscreators/middleware-doc/general/migration/v0-to-possystemapi.md) for a full overview of API and data model changes.
-
-:::
-
 ## Introduction
 
 The local PosSystem API Helper is a Middleware component that exposes a local endpoint through which the POS System communicates with the fiskaltrust Middleware. It acts as a bridge between the POS System and the underlying Queue, and is required for Launcher 2.0 deployments.
