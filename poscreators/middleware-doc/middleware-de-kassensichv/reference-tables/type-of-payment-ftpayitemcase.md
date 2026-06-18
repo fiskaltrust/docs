@@ -21,7 +21,7 @@ This table expands on the values provided in table [ftPayItemCase in General Par
 | `0x4445000000000009` | Other Bank transfer | Unbar | 1.3- |
 | `0x444500000000000A` | Internal / material consumption | Keine | 1.3- |
 | `0x444500000000000B` | Change in national currency | Bar | 1.3- |
-| `0x444500000000000C` | Change in foreign curreny | Bar | 1.3- |
+| `0x444500000000000C` | Change in foreign currency | Bar | 1.3- |
 | `0x444500000000000D` | Voucher<br />not taxable <br />DSFinV-K transformation required. UST_Schluessel=5. Negative amount gets converted to GV_TYP=MehrzweckgutscheinKauf. Positive amount gets converted to TYP_GV=MehrzweckgutscheinEinlösung. amount=-amount. In case of void-receipt everything is returned. | Keine | 1.3 |
 | `0x444500000000000E` | Receivable<br />not taxable <br />DSFinV-K transformation required. UST_Schluessel=5. Negative amount gets converted to GV_TYP=Forderungsauflösung. Positive amount gets converted to GV_TYP=Forderungsentstehung. amount=-amount. In case of cancellation-receipt the +/- sign has to be returned.  | Keine | 1.3- |
 | `0x444500000000000F` | Down payment<br />not taxable <br />DSFinV-K transformation required. UST_Schluessel=5. Negative amount gets converted to GV_TYP=Anzahlungseinstellung. Positive amount gets converted to GV_TYP=Anzahlungsaufloesung. amount=-amount. In case of void-receipt everything is returned. Not valid for taxable down payments, where it is clearly defined what the service is for. | Keine  | 1.3- |

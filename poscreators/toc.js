@@ -4,8 +4,8 @@ module.exports = [
     label: "Getting Started",
     items: [
       "poscreators/getting-started/get-started",
+      "poscreators/getting-started/onboarding-process",
       "poscreators/getting-started/portal-registration",
-
       {
         type: "category",
         collapsed: true,
@@ -15,10 +15,18 @@ module.exports = [
           "poscreators/getting-started/integration-checklist",
         ],
       },
-
       "poscreators/getting-started/onboarding-posdealers",
     ],
-  },
+},
+  {
+    type: "category",
+    label: "POS System API",
+    collapsed: true,
+    items: [
+      "poscreators/middleware-doc/possystem-api/introduction",
+      "poscreators/middleware-doc/possystem-api/android-intent",
+    ],
+},
   {
     type: "category",
     collapsed: true,
@@ -32,7 +40,6 @@ module.exports = [
         key: "general-cash-register-integration",
         items: [
           "poscreators/middleware-doc/general/cash-register-integration/cash-register-integration-regular-workflow",
-          "poscreators/middleware-doc/general/cash-register-integration/multi-markets-integration-guide",
           "poscreators/middleware-doc/general/cash-register-integration/cash-register-integration-failure-scenarios",
         ],
       },
@@ -380,6 +387,7 @@ module.exports = [
       "poscreators/middleware-doc/experience-middleware/introduction",
       "poscreators/middleware-doc/experience-middleware/terminology",
       "poscreators/middleware-doc/experience-middleware/payment",
+      "poscreators/middleware-doc/experience-middleware/delivery",
       {
     type: "category",
     collapsed: true,

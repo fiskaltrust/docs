@@ -42,7 +42,7 @@ These fair use rules may be adjusted by **fiskaltrust** due to specific characte
 
 ### Recommendation for compliance with the fair use rule
 
-If a physical location cannot be covered by a single outlet due to higher requirements, you have the option to create additional virtual outlets for this physical location in thefiskaltrust.Portal. The virtual outlets must be created with the address of the physical location in thefiskaltrust.Portal so that they can be assigned to it.  
+If a physical location cannot be covered by a single outlet due to higher requirements, you have the option to create additional virtual outlets for this physical location in the fiskaltrust.Portal. The virtual outlets must be created with the address of the physical location in the fiskaltrust.Portal so that they can be assigned to it.  
 The required location-specific _fiskaltrust_ products can then be purchased separately for each outlet created.
 
 ### Non-compliance with the Fair Use Policy

@@ -210,7 +210,7 @@ Each subitem is described in the table below:
 | `Z_ERSTELLUNG`     | Date of the cashpoint closing          | ISO 8601 und RFC3339 date | Automatically filled by fiskaltrust from `cbReceiptMoment` of the daily closing receipt                                 |
 | `Z_NR`             | Nr. of the cashpoint closing           | Integer                   | Automatically created and filled by fiskaltrust                                                                         |
 | `BON_ID`           | Action-ID                              | String (40)               | Automatically created and filled by fiskaltrust (`ftReceiptIdentification`)                                             |
-| `ABRECHNUNGSKREIS` | Connection criterion of the assignment | String (50)               | Mandatory, filled by fiskaltrust. by using `cbReceiptReference` and `cPreviousReceiptReference` to determine the value. |
+| `ABRECHNUNGSKREIS` | Connection criterion of the assignment | String (50)               | Mandatory, filled by fiskaltrust. by using `cbReceiptReference` and `cbPreviousReceiptReference` to determine the value. |
 
 #### File: Bonkopf_Zahlarten (datapayment.csv)
 

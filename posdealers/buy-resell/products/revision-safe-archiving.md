@@ -8,7 +8,7 @@ In addition to basic fiscalization, we offer cloud-based add-ons for revision-sa
 
 :::tip tip
 
-In this contect, **revision-safe** means that data is stored in a secure and immutable way that makes it impossible to be changed after it was saved once.
+In this context, **revision-safe** means that data is stored in a secure and immutable way that makes it impossible to be changed after it was saved once.
 
 :::
 

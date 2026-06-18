@@ -84,7 +84,7 @@ https://packages.fiskaltrust.cloud/version ft download packages                 
 https://dc.services.visualstudio.com/      ft error reporting                        okay  COMPUTER-NAME
 ```
 
-The output's last table (with `Url`) is attractive, as it indicates which network connections succeeded.Analyzing the log
+The output's last table (with `Url`) is attractive, as it indicates which network connections succeeded. Analyzing the log
 
 The first step in debugging connectivity issues is typically the Middleware's log. You could either start the Middleware in [test [mode](../middleware/launchers/desktop.md) and analyze its output directly in the console or configure a [log file](../middleware/logging.md). In either case, please ensure the log level is set to `debug`.
 

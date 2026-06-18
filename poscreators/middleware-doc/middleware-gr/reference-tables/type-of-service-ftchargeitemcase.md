@@ -42,14 +42,14 @@ https://europa.eu/youreurope/business/taxation/vat/vat-rules-rates/index_en.htm
 | `6` | **Not own sales / Agency business**<br />| 
 | `7` | **Own Consumption**<br />| 
 | `8` | **Grant**<br />For Unreal Grant use V=0 to 7<br />For Real Grant use V=8  | 
-| `9` | **Receivable**<br />Receiveable creation is negative (-) amount<br />Receiveable reduction is positive (+) amount.<br />IsVoid can be applied to reverse amounts.<br />Avoid to use this, use PayItem instead.  |1.3.67|   
+| `9` | **Receivable**<br />Receivable creation is negative (-) amount<br />Receivable reduction is positive (+) amount.<br />IsVoid can be applied to reverse amounts.<br />Avoid to use this, use PayItem instead.  |1.3.67|   
 | `A` | **Cash Transfer**<br />Cash Transfer to till is positive (+) amount<br />Cash Transfer from till is negative (-) amount.<br />Only useable with V=8, Not Taxable. <br />IsVoid can be applied to reverse amounts|1.3.67|    
 
 #### NN - nature of VAT  
 
 TBD
 
-#### lll - local taggin/flag
+#### lll - local tagging/flag
 
 TBD
 

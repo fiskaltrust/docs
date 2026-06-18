@@ -5,7 +5,7 @@ title: RKSV.Sign API
 
 # RKSV.Sign API
 
-At it's core, the _RKSV.Sign_ API uses the [IATSSCD](https://github.com/fiskaltrust/middleware-interface-dotnet/blob/master/src/fiskaltrust.ifPOS/v0/at/IATSSCD.cs) interface that is also internally used by the Middleware to communicate with Austrian signing devices and services.
+At its core, the _RKSV.Sign_ API uses the [IATSSCD](https://github.com/fiskaltrust/middleware-interface-dotnet/blob/master/src/fiskaltrust.ifPOS/v0/at/IATSSCD.cs) interface that is also internally used by the Middleware to communicate with Austrian signing devices and services.
 
 The API is hosted with REST and WCF/SOAP endpoints, users can decide which one to use.
 

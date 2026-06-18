@@ -98,7 +98,7 @@ The following sample is a trimmed-down CashBox skeleton outlining the overall st
 
 ## CashBox maintenance (fiskaltrust.Portal)
 
-The fiskaltrust.Portal is the starting point for each CashBox, where you create and maintain all your CashBoxes.There, you will find an overview of the CashBoxes of an account.  
+The fiskaltrust.Portal is the starting point for each CashBox, where you create and maintain all your CashBoxes. There, you will find an overview of the CashBoxes of an account.  
 You log in as PosDealer and switch to the desired account (`PosOperators` / `Overview`).
 
 ![](../../images/cashbox_portal-2023-08-25.png "https://portal-sandbox.fiskaltrust.TLD/CashBox#/")

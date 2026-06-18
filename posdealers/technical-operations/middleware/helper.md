@@ -53,7 +53,7 @@ If you have further questions or need clarification, please contact your fiskalt
 |![Number 5](../../images/numbers/circle-5o.png) |**For all countries**: Change port to the next free port (+1) and.  |
 |...|a.	if **no suffix** exists after the port: add the suffix "/ _placeholder__queue" to the URL (_placeholder_ can be freely chosen)|
 |...|b.	b.	if a suffix already exists: add the suffix "_queue" to the URL|
-|![Number 6](../../images/numbers/circle-6o.png) |**Germany & France only:** Change `grpc port` to the next free port and add the suffix "/I_queue" to the URL (_placeholder_ can be chosen freely). If the designated port is free there is no need to go up to the next free port..  |
+|![Number 6](../../images/numbers/circle-6o.png) |**Germany & France only:** Change `grpc port` to the next free port and add the suffix "/I_queue" to the URL (_placeholder_ can be chosen freely). If the designated port is free there is no need to go up to the next free port.  |
 |![Number 7](../../images/numbers/circle-7o.png) |`Save` your changes.  |
 
 ###### Preparation Helper

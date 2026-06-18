@@ -107,6 +107,12 @@ After rebuild you can now download the launcher. The download of the launcher is
 
 ### 2.2 Enabling debug mode
 
+:::info Note
+
+The debug mode is not available for launcher version 1.2. When using AT queues, a [debug launcher](https://docs.fiskaltrust.cloud/docs/poscreators/middleware-doc/france/installation#fiskaltrustmiddleware) is available. However, it only provides additional logging for AT-specific scenarios.
+
+:::
+
 When the download is completed, you will receive a zip file containing the launcher, its corresponding configuration, and other required files. Now, unpack the zip file and in the newly unzipped folder locate a ``test.cmd`` file, which we will edit. Open it with an editor of your choice and add the argument `` -verbosity=Debug`` at the end of the second line (which starts with ``fiskaltrust.exe``). This will give us more detailed log output later. Now save and close the ``test.cmd`` file.
 
 ### 2.3 Starting the launcher
@@ -129,7 +135,7 @@ After starting the launcher, the local middleware is available. Next, we will in
 
 Once the Postman collection loads, it must still be configured to send requests to the previously started local middleware. To do this, select the "fiskaltrust Middleware" collection, go to "Edit", and select the "Variables" tab. Here we find the two variables that are important for us: ``base_url`` and ``cashbox_id``. We need to modify those values as follows:
 
-- **base_url** - here we specify the URL of the previously created http(REST) endpoint of the Queue. The required value can be found in the fiskaltrust.Portal under the menu item ``Configuration -> Queue`` . Expand the detail area of the list entry of our Queue and copy the URL from there. For example ``rest://localhost:1500/f84bf516-a17b-4432-afa6-8c1050e2854d`` . Now replace ``rest://`` with ``http://`` in the URL to get the value for the Postman ``base_url`` variable. Example ``http://localhost:1500/f84bf516-a17b-4432-afa6-8c1050e2854d``. Now enter this value in Postmman for the variable ``base_url`` as ``CURRENT_VALUE``.
+- **base_url** - here we specify the URL of the previously created http(REST) endpoint of the Queue. The required value can be found in the fiskaltrust.Portal under the menu item ``Configuration -> Queue`` . Expand the detail area of the list entry of our Queue and copy the URL from there. For example ``rest://localhost:1500/f84bf516-a17b-4432-afa6-8c1050e2854d`` . Now replace ``rest://`` with ``http://`` in the URL to get the value for the Postman ``base_url`` variable. Example ``http://localhost:1500/f84bf516-a17b-4432-afa6-8c1050e2854d``. Now enter this value in Postman for the variable ``base_url`` as ``CURRENT_VALUE``.
 
 - **cashbox_id** - here we must specify the ID of our configuration container (not to be confused with the CashBoxIdentification). We can find the value for the ``cashbox_id`` in the fiskaltrust.Portal under the menu item ``Configuration -> CashBox``. To do so, expand the detail area of the list entry of our CashBox and copy the value of **CashBoxId**. For example ``90682627-f707-45ab-84df-f855118bba97``. Now enter this as the value of the variable ``cashbox_id`` under ``CURRENT_VALUE`` in the Postman collection.
 

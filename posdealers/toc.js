@@ -27,6 +27,7 @@ module.exports = [
       "posdealers/getting-started/sandbox",
       "posdealers/getting-started/registration",
       "posdealers/getting-started/company-roles",
+      "posdealers/getting-started/onboarding",
       {
         type: "category",
         label: "Operator Onboarding",

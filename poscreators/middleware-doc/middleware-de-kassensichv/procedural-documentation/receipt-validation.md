@@ -7,7 +7,7 @@ title: DSFinV-K Receipt Validation (Release TBA)
 
 ## Receipt Validation
 
-The Fiskaltrust Receipt Validation provides the possibility to validate customer implementations based on queue data. The test cases are defined according to the DSFinV‑K specification. It provides customers with a tool to easily adjust their implementation to fully comply with the requirements set by the tax authorities.
+The fiskaltrust Receipt Validation provides the possibility to validate customer implementations based on queue data. The test cases are defined according to the DSFinV‑K specification. It provides customers with a tool to easily adjust their implementation to fully comply with the requirements set by the tax authorities.
 
 Below you will find a list of all possible errors, including detailed descriptions of how to resolve them.
 
@@ -30,7 +30,7 @@ This error indicates that at least one receipt exists for the specified business
 
 ## Error-5010
 
-### Vat Cross Net Missmatch
+### Vat Cross Net Mismatch
 
 #### Description
 This error indicates an inconsistency between Net, VAT, and Gross amounts on a receipt line item.

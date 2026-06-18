@@ -5,7 +5,7 @@ title: Voided receipt regular workflow
 
 ## Voided receipt workflow
 
-As a reminder and for legal reason any data sent to the fiskaltrust.Middleware cannot be deleted afterwards. Based on this, all changes must done by sending a new receipt. 
+As a reminder and for legal reason any data sent to the fiskaltrust.Middleware cannot be deleted afterwards. Based on this, all changes must be done by sending a new receipt. 
 To complete a voided or cancel receipt, the same ticket with negative values should be sent to the fiskaltrust.Middleware.
 The main things that should be changed on the voided or cancelled receipt:
 - The field ftReceiptCase stays the same as the original but the flag for voided ticket must be set. (The value 4 on position 12).
