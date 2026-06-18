@@ -31,43 +31,16 @@ Before starting the migration, ensure you have:
 - Access to the **fiskaltrust.Portal** to reconfigure CashBoxes.
 - An existing integration that successfully produces receipts against the v0 SignatureCloud API.
 - Access to a **sandbox cashbox** for testing your migrated integration before going live.
-- **Launcher 2.0** (minimum version `2.0.0-rc.25`) — the PosSystem API requires Launcher 2.0.
 
-:::caution Market availability
+:::caution Market availability for local setups
 
 The PosSystem API via Launcher 2.0 has market-specific constraints:
 
 - **Austria (AT):** Launcher 2.0 is not enabled by default. Contact fiskaltrust support to enable it for your account.
-- **France (FR):** Launcher 2.0 is not yet supported. French customers should contact fiskaltrust for the current roadmap before planning a migration.
+- **France (FR):** Launcher 2.0 is not yet supported. The workaround is setting 2 cashboxes, one with the queue and one with the POSSystemAPI helper without a queue. French customers should contact fiskaltrust for more instructions if needed.
 - **Germany (DE):** TBD
 
 :::
-
-## Architecture Overview
-
-The following table summarises the key architectural differences between the two integration approaches:
-
-| Aspect | v0 (legacy) | v2 - PosSystem API |
-| ------ | ----------- | ------------------ |
-| **Protocol** | WCF (SOAP) or REST `/v0/` | HTTP REST `/possystemapi/` |
-| **Communication style** | Synchronous (blocking) | Modern REST (JSON) |
-| **Middleware component** | Queue package directly | LocalPosSystemApi Helper in front of the Queue |
-| **Launcher** | Launcher 1.x | Launcher 2.0 (min. `2.0.0-rc.25`) |
-| **Authentication** | Cashbox ID + AccessToken (per request / in service binding) | Cashbox ID + AccessToken in HTTP headers, PIN pairing via Portal |
-| **Client libraries** | .NET `ifPOS.v0` NuGet package, WCF proxies, or REST HTTP calls | Any HTTP client |
-| **New feature support** | None - no new features planned | All new features (e-invoicing, etc.) |
-
-- **v0 data flow:**
-
-```
-POS System → WCF or REST (/v0/) → fiskaltrust Queue
-```
-
-- **v2 data flow:**
-
-```
-POS System → HTTP REST (/possystemapi/) → LocalPosSystemApi Helper → fiskaltrust Queue
-```
 
 ## Cloud CashBox (base URL change)
 
@@ -92,9 +65,9 @@ Replace all occurrences of the per-market v0 base URL in your integration with t
 
 The path structure changes accordingly:
 
-- Sign - **v0 path:** `/[json|xml]/v0/sign`; **v2 path:** `/api/v2/sign`
-- Echo - **v0 path:** `/[json|xml]/v0/echo`; **v2 path:** `/api/v2/echo`
-- Journal - **v0 path:** `/[json|xml]/v0/journal`; **v2 path:** `/api/v2/journal`
+- Sign - **v0 path:** `/[json|xml]/sign`; **v2 path:** `/sign`
+- Echo - **v0 path:** `/[json|xml]/echo`; **v2 path:** `/echo`
+- Journal - **v0 path:** `/[json|xml]/journal`; **v2 path:** `/journal`
 
 ### Case Values
 
@@ -909,27 +882,6 @@ The `ReceiptResponse` structure is largely compatible. Verify that your receipt 
 - `ftSignatures` — format and type values are unchanged; ensure all entries are printed as required by national regulations.
 - `ftState` — error flag interpretation is unchanged; check your error-handling code still covers all states.
 
-#### Timestamps
-
-The v0 Journal call used **.NET Ticks** for the `from` and `to` parameters:
-
-```
-// v0 example
-proxy.Journal(ftJournalType, 0, DateTime.UtcNow.Ticks);
-```
-
-The v2 Journal request uses **ISO 8601 UTC date-time strings** in the JSON body:
-
-```json
-{
-  "ftJournalType": 8301034833876213761,
-  "from": "2020-01-01T00:00:00Z",
-  "to": "2024-12-31T23:59:59Z"
-}
-```
-
-If you need to convert existing .NET Tick values, use the formulas from the [Function Structures reference](../function-structures/function-structures.md#timestamps).
-
 ## Local CashBox
 
 :::note Sandbox/admin access only
@@ -954,17 +906,18 @@ The three core operations map directly from v0 to v2, but the calling convention
 
 | v0 call  | v2 HTTP endpoint | Notes |
 | -------- | ---------------- |------ |
-| `proxy.Echo("message")` | `POST /api/v2/echo` | Request body: `{"message": "..."}` — response mirrors the same structure: `{"message": "..."}` |
-| `proxy.Sign(receiptRequest)` | `POST /api/v2/sign` | Request body is the JSON-serialised `ReceiptRequest`; response is `ReceiptResponse` |
-| `proxy.Journal(ftJournalType, from, to)` | `POST /api/v2/journal` | Request body carries `ftJournalType`, `from`, and `to` as ISO 8601 date-time strings (see [Timestamps](#timestamps)) |
+| `proxy.Echo("message")` | `POST /v2/echo` | Request body: `{"message": "..."}` — response mirrors the same structure: `{"message": "..."}` |
+| `proxy.Sign(receiptRequest)` | `POST /v2/sign` | Request body is the JSON-serialised `ReceiptRequest`; response is `ReceiptResponse` |
+| `proxy.Journal(ftJournalType, from, to)` | `POST /v2/journal` | Request body carries `ftJournalType`, `from`, and `to` as ISO 8601 date-time strings (see [Timestamps](#timestamps)) |
 
 ##### Authentication
 
 All v2 requests must include the following HTTP headers:
 
 ```
-cashboxid:   <your CashBox GUID>
-accesstoken: <your Access Token>
+x-cashbox-id :   <your CashBox GUID>
+x-cashbox-accesstoken : <your Access Token>
+x-operation-id : a UUID randomly generated on your side
 ```
 
 Both values are available on the CashBox page in the fiskaltrust.Portal. On first use, you also need to **pair** the client via the PIN displayed in the Portal. For more information, see how to [Test the PosSystem API Helper](../../../../posdealers/technical-operations/middleware/helper-possystemapi.md#test-the-possystem-api-helper).
@@ -974,7 +927,7 @@ Both values are available on the CashBox page in the fiskaltrust.Portal. On firs
 **Request:**
 
 ```json
-POST /api/v2/echo
+POST /v2/echo
 {
   "message": "test"
 }
