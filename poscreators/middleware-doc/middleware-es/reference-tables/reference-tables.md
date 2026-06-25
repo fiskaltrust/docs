@@ -13,7 +13,7 @@ The Compliance Middleware [Reference Tables](../../general/reference-tables/refe
 
 :::
 
-As the Middleware abstracts processes and data over multiple markets/countries, there is a specific mapping for Spanish market. This mapping is based upon the overall tagging system which gives the additional benefit of giving all receipts, chargeitems and payitems also a semantical value. The following section describes the overall format.
+As the Middleware abstracts processes and data over multiple markets/countries, there is a specific mapping for the Spanish market. This mapping is based upon the overall tagging system which gives the additional benefit of giving all receipts, chargeitems and payitems also a semantical value. The following section describes the overall format.
 
 ## Format
 

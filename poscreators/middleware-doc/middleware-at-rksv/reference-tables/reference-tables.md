@@ -7,6 +7,14 @@ title: Reference Tables
 
 This page expands on the reference tables covered in the [Reference Tables](../../general/reference-tables/reference-tables-v1.md) of the Compliance Middleware, with country-specific information applicable to the Austrian market.
 
+:::info POSSystem API v2 Reference
+
+The Compliance Middleware [Reference Tables](../../general/reference-tables/reference-tables.md) contain the core POSSystem API v2 tagging structure used across all markets and should be your primary reference.
+
+:::
+
+As the Middleware abstracts processes and data over multiple markets/countries, there is a specific mapping for the Austrian market. This mapping is based upon the overall tagging system which gives the additional benefit of giving all receipts, chargeitems and payitems also a semantical value. The following section describes the overall format.
+
 ## Service Status: ftState
 
 The table below describes the supported statuses for the ftState field following the Austrian law. The ftState from this reference table and the general part of this documentation can be combined through the logic operator "OR". For example `0x4154000000000010` (monthly report due) and `0x4154000000000008` combined through `OR` results in `0x4154000000000018`.

@@ -7,6 +7,14 @@ title: Reference Tables
 
 This page expands on the reference tables covered in the [Reference Tables](../../general/reference-tables/reference-tables-v1.md) of the Compliance Middleware, with country-specific information applicable to the French market.
 
+:::info POSSystem API v2 Reference
+
+The Compliance Middleware [Reference Tables](../../general/reference-tables/reference-tables.md) contain the core POSSystem API v2 tagging structure used across all markets and should be your primary reference.
+
+:::
+
+As the Middleware abstracts processes and data over multiple markets/countries, there is a specific mapping for the French market. This mapping is based upon the overall tagging system which gives the additional benefit of giving all receipts, chargeitems and payitems also a semantical value. The following section describes the overall format.
+
 ## Service Status: ftState
 
 The ftState is returned with every receipt response. Through this status, fiskaltrust.Middleware can signal its operability or request processing logic.
