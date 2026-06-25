@@ -50,19 +50,21 @@ The configuration container - identified by the unique `CashboxId` - can be inte
 
 ### Workflow - regular operation
 
-The following diagram illustrates the regular creation of a receipt with fiskaltrust.Middleware. The implementation of a fiskaltrust.SecurityMechanism may differ between countries and derive from their national laws – for details please refer to the appropriate appendix.
+The following diagram illustrates the regular creation and issuance of a receipt using the fiskaltrust ecosystem and the PosSystem API (v2). During the workflow, the POS system submits the transaction for fiscalization through the `/sign` endpoint, which is processed by fiskaltrust.Middleware and the configured fiskaltrust.SecurityMechanism. After a signed receipt has been returned, the receipt can be issued through the `/issue` endpoint, enabling both printable and digital receipt delivery scenarios.
+
+The implementation of a fiskaltrust.SecurityMechanism may differ between countries and derive from their national laws. For country-specific details, refer to the appropriate appendix.
 
 ![](./images/02-regular-operation.svg)
 
 ### Workflow - special receipts
 
-The following diagram illustrates the creation of a special receipt with fiskaltrust.Middleware. For a general description of special receipts, please refer to ["Receipt for special functions"](#receipt-for-special-functions) Chapter. For national laws on receipts, refer to the appropriate appendix.
+The following diagram illustrates the creation of a special receipt with fiskaltrust.Middleware. For a general description of special receipts, see [Receipt for special functions](#receipt-for-special-functions). For national laws on receipts, refer to the appropriate appendix.
 
 ![](./images/03-special-receipts.png)
 
 ### Workflow - failure of communication or failure of the fiskaltrust.Middleware (timeout)
 
-The following diagram illustrates the workflow of a failure of fiskaltrust.Middleware. For a description of recovering, please refer to the appropriate appendix.
+The following diagram illustrates the workflow of a failure of fiskaltrust.Middleware. For a description of recovering, refer to the appropriate appendix.
 
 ![](./images/04-service-failure-timeout.png)
 
@@ -72,7 +74,7 @@ The following diagram illustrates the workflow of a failure of fiskaltrust.Middl
 
 There are several receipt requirements fulfilled by the fiskaltrust.Middleware in addition to the usual receipts produced by business transactions. Those special receipts can support the process of collecting additional information.
 
-This section describes the receipt types used for those special functions. For further information on how to fulfil the requirements of national laws, please refer to the appropriate appendix.
+This section describes the receipt types used for those special functions. For further information on how to fulfil the requirements of national laws, refer to the appropriate appendix.
 
 ### Zero Receipt
 
@@ -95,16 +97,18 @@ This receipt has a meaningful response from fiskaltrust.SecurityMechanism only t
 A closed queue can’t be reopened with a start receipt. Instead, a new queue has to be generated and initialized with a start receipt.
 
 #### End of Failure Receipt (Collective Failure Report)
+
 The End of failure Receipt is required to exit the late signing mode when the receipts created during a failure are transferred.
 After fiskaltrust.Middleware has received an "end of failure receipt", the status of failure is terminated by receiving a response with normal state code.
 
 ## Receipt structure
 
-This chapter describes the receipt structure.
+This section describes the structure of a receipt, including the main blocks provided by the cash register and the additional data added by fiskaltrust.Middleware.
 
 ![](./images/06-receipt-structure.svg)
 
-<span id="_Toc527986807" class="anchor"></span>*Figure 8. Receipt Structure - general; cash register-receipt data (header, charge items, pay items, footer) and fiskaltrust-receipt data (header, charge items, pay items, signature, footer)*
+<span id="_Toc527986807" class="anchor"></span>
+*Figure 8. Receipt Structure – The POS receipt consists of header, charge items, pay items, and footer. fiskaltrust enriches the receipt during fiscalization by adding receipt number, tax-related data, signature, and fiscal metadata. The POSSystem API V2 further produces an issued receipt including digital receipt information.*
 
 ### Receipt Header
 
@@ -132,7 +136,7 @@ The receipt footer contains messages or announcements for the customer. It can b
 
 ## Data Collection Log
 
-The Data Collection Log is generally defined by national laws. For further, country-specific information, please refer to the appropriate appendix.
+The Data Collection Log is generally defined by national laws. For further, country-specific information, refer to the appropriate appendix.
 
 ## fiskaltrust.ReceiptJournal
 
