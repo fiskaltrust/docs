@@ -50,7 +50,7 @@ The configuration container - identified by the unique `CashboxId` - can be inte
 
 The following diagram illustrates the regular creation of a receipt with fiskaltrust.Middleware. The implementation of a fiskaltrust.SecurityMechanism may differ between countries and derive from their national laws – for details please refer to the appropriate appendix.
 
-![](./images/02-regular-operation.png)
+![](./images/02-regular-operation.svg)
 
 ### Workflow - special receipts
 
@@ -100,9 +100,9 @@ After fiskaltrust.Middleware has received an "end of failure receipt", the statu
 
 This chapter describes the receipt structure.
 
-![](./images/06-receipt-structure.png)
+![](./images/06-receipt-structure.svg)
 
-<span id="_Toc527986807" class="anchor"></span>*Illustration* *6. Receipt Structure - general; cash register-receipt data (header, charge items, pay items, footer) and fiskaltrust-receipt data (header, charge items, pay items, signature, footer)*
+<span id="_Toc527986807" class="anchor"></span>*Figure 8. Receipt Structure - general; cash register-receipt data (header, charge items, pay items, footer) and fiskaltrust-receipt data (header, charge items, pay items, signature, footer)*
 
 ### Receipt Header
 
