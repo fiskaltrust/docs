@@ -92,7 +92,7 @@ The following call parameters are available with the launcher `fiskaltrust.exe`:
 | `-proxy` | Sets the proxy server to be used to connect to the internet. The value can be used as follows: `"address=xxx.xxx.xxx.xxx;username=test;password=pwd123"`. `username` and `password` are optional values. See [Using a Proxy](https://link.fiskaltrust.cloud/rollout/proxy) | yes | | | | | |
 | `-verbosity` | Sets the level of debug-information in the logfile. The value is a string. Possible values are: `Trace` \ | `Debug` \ | `Information` \ | `Warning` \ | `Error` \ | `Critical`<br />**Supported in the German market only!** | yes. <br />Use in the static configuration the key `loglevel` |
 
-<span id="_Toc527986661" class="anchor"></span>*Table 8. fiskaltrust.exe launch parameters*
+<span id="_Toc527986661" class="anchor"></span>*Table 2. fiskaltrust.exe launch parameters*
 
 ### Starting the Launcher
 
