@@ -5,11 +5,11 @@ title: 'Type of Payment: ftPayItemCase'
 
 # Type of Payment: ftPayItemCase
 
-This table expands on the values provided in table [ftPayItemCase in General Part](../../general/reference-tables/reference-tables.md#type-of-payment-ftpayitemcase) with values applicable to the Greek market.
+This table expands on the values provided in the [Type of Payment: ftPayItemCase](../../general/reference-tables/reference-tables.md#type-of-payment-ftpayitemcase) reference table of the Compliance Middleware with values applicable to the Greek market.
 
 ## Format
 
-_CCCC_vlll_gggg_xxPP_ 
+_CCCC_vlll_gggg_xxPP_
 
 #### v - version
 version 2
