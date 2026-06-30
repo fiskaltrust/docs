@@ -6,18 +6,18 @@ title: PosSystem API Helper with Existing 1.2 CashBox
 
 :::info summary
 
-After reading this, you can configure the local PosSystem API Helper and use it with an existing Launcher 1.2 CashBox by setting up a new Launcher 1.3 CashBox alongside it.
+After reading this, you can configure the local PosSystem API Helper and use it with an existing 1.2 CashBox by setting up a new 1.3 CashBox alongside it.
 
 :::
 
 ## Introduction
 
-This guide describes how to use the local PosSystem API Helper when you already have a running Launcher 1.2 CashBox. The Helper is configured in a new Launcher 1.3 CashBox and then connected to the existing 1.2 CashBox.
+This guide describes how to use the local PosSystem API Helper when you already have a running Launcher with 1.2 CashBox. The Helper is configured in a new 1.3 CashBox and then connected to the existing 1.2 CashBox.
 
 The process consists of the following main steps:
 
 1. Add and configure the local PosSystem API Helper, following the same steps as described in [Local PosSystem API Helper](helper-possystemapi.md).
-2. Create a new Launcher 1.3 CashBox with the Helper assigned.
+2. Create a new 1.3 CashBox with the Helper assigned.
 
 ## Navigate to the existing 1.2 CashBox
 
@@ -62,7 +62,7 @@ Once saved, click `Edit by list` to configure the components of the new CashBox.
 
 ![new-cashbox-3.png](images/new-cashbox-3.png)
 
-At this point you have two CashBoxes: the original Launcher 1.2 CashBox and the new Launcher 1.3 CashBox with the PosSystem API Helper assigned. You can now proceed with connecting them.
+At this point you have two CashBoxes: the original 1.2 CashBox and the new 1.3 CashBox with the PosSystem API Helper assigned. You can now proceed with connecting them.
 
 ## Connect the Helper to the existing 1.2 CashBox
 
@@ -72,7 +72,7 @@ To open the Helper configuration, navigate to `Configuration` / `CashBox` and fo
 
 | steps | description |
 |:---------------------:|-------------|
-| ![Number 1](../../images/numbers/circle-1o.png) | Navigate to `Configuration` / `CashBox` and locate the new Launcher 1.3 CashBox. |
+| ![Number 1](../../images/numbers/circle-1o.png) | Navigate to `Configuration` / `CashBox` and locate the new 1.3 CashBox. |
 | ![Number 2](../../images/numbers/circle-2o.png) | Click the expand arrow to reveal the CashBox configuration inline. |
 | ![Number 3](../../images/numbers/circle-3o.png) | Locate the PosSystem API Helper in the expanded view and click the gear icon next to it. |
 | ![Number 4](../../images/numbers/circle-4o.png) | The Helper configuration window will open. |
@@ -99,20 +99,45 @@ Scroll down to confirm the settings and click `Save`.
 
 Both CashBoxes are now connected.
 
-## Download Launcher 1.2
+## Download the Launcher for the 1.3 CashBox
 
-Locate the existing 1.2 CashBox in the `Configuration` / `CashBox` view.
+To download the Launcher for the new 1.3 CashBox, navigate to `Configuration` / `CashBox`.
 
 ![download-launcher-12.png](images/download-launcher-12.png)
+
+| steps | description |
+|:---------------------:|-------------|
+| ![Number 1](../../images/numbers/circle-1o.png) | Locate the 1.3 CashBox and click `Rebuild configuration`. Wait for the success confirmation. |
+| ![Number 2](../../images/numbers/circle-2o.png) | Click `Download` and select the correct Version 1 Launcher architecture for your system. |
+
+### Using Launcher Version 2
+
+Instead of Launcher Version 1, you can also use Launcher Version 2. The download steps are the same as shown in the screenshot above.
+
+| steps | description |
+|:---------------------:|-------------|
+| ![Number 1](../../images/numbers/circle-1o.png) | Locate the 1.3 CashBox and click `Rebuild configuration`. Wait for the success confirmation. |
+| ![Number 2](../../images/numbers/circle-2o.png) | Click `Download` and select the correct **Version 2** Launcher architecture for your system. |
+
+## Run the Launcher for the 1.3 CashBox
+
+Once the Launcher package is downloaded, extract it and run `test.cmd` (or `test.sh` on Unix-based systems) to start the Middleware. For detailed instructions on starting the Launcher and installing it as a service, see [Launcher for Windows, Linux & macOS](launchers/desktop.md).
+
+If you chose Launcher Version 2, run `launcher-test.cmd` (or `launcher-test.sh` on Unix-based systems) instead. For detailed instructions see [Launcher 2.0 Getting Started](https://github.com/fiskaltrust/middleware-launcher?tab=readme-ov-file#getting-started).
+
+## Download the Launcher for the 1.2 CashBox
+
+Locate the existing 1.2 CashBox in the `Configuration` / `CashBox` view.
 
 | steps | description |
 |:---------------------:|-------------|
 | ![Number 1](../../images/numbers/circle-1o.png) | Click `Rebuild configuration` and wait for the success confirmation. |
 | ![Number 2](../../images/numbers/circle-2o.png) | Click `Download` and select the correct Launcher 1.2 architecture for your system. |
 
-## Run the Launcher 1.2
+## Run the Launcher for the 1.2 CashBox
 
-Once the Launcher package is downloaded, extract it and run `test.cmd` (or `test.sh` on Unix-based systems) to start the Middleware. For detailed instructions on starting the Launcher and installing it as a service, see [Launcher for Windows, Linux & macOS](launchers/desktop.md).
+Run `test.cmd` (or `test.sh` on Unix-based systems) to start the Middleware.
+If you also downloaded Launcher Version 2 for this CashBox, use `launcher-test.cmd` instead; the [Launcher 2.0 Getting Started](https://github.com/fiskaltrust/middleware-launcher?tab=readme-ov-file#getting-started) guide covers starting it as a service.
 
 ## Find the Helper URL
 
@@ -122,9 +147,8 @@ To get the Helper URL used for sending requests, navigate to `Configuration` / `
 
 | steps | description |
 |:---------------------:|-------------|
-| ![Number 1](../../images/numbers/circle-1o.png) | Locate the Launcher 1.3 CashBox and click `Rebuild configuration`. Wait for the success confirmation. |
-| ![Number 2](../../images/numbers/circle-2o.png) | Click the expand arrow to reveal the CashBox configuration inline. |
-| ![Number 3](../../images/numbers/circle-3o.png) | The Helper URL is displayed below the PosSystem API Helper entry. Use this URL to send requests to the Middleware. |
+| ![Number 1](../../images/numbers/circle-1o.png) | Locate the 1.3 CashBox and click the expand arrow to reveal the CashBox configuration inline. |
+| ![Number 2](../../images/numbers/circle-2o.png) | The Helper URL is displayed below the PosSystem API Helper entry. Use this URL to send requests to the Middleware. |
 
 ## Test the PosSystem API Helper
 
@@ -138,12 +162,16 @@ Select **POS System API** from the available options.
 
 Select your market and then click **Settings** in the top-right corner.
 
+![settings_fr.png](images/settings_fr.png)
+
+A settings panel opens where you can configure the connection to the local Middleware.
+
 ![fiskaltrustfordev_setsettings_fr.png](images/fiskaltrustfordev_setsettings_fr.png)
 
 | steps | description |
 |:---------------------:|-------------|
 | ![Number 1](../../images/numbers/circle-1o.png) | In the `Environment` section, select `Local Middleware`. |
-| ![Number 2](../../images/numbers/circle-2o.png) | In the `Middleware Endpoint` field, enter the Helper URL from the Launcher 1.3 CashBox found in the previous step. |
+| ![Number 2](../../images/numbers/circle-2o.png) | In the `Middleware Endpoint` field, enter the Helper URL from the 1.3 CashBox found in the previous step. |
 | ![Number 3](../../images/numbers/circle-3o.png) | Copy the PIN from the `Configuration` / `CashBox` page, enter it in the field below, then click `Pair`. A confirmation message should appear as shown below. |
 
 ![pairedpin.png](images/pairedpin.png)
