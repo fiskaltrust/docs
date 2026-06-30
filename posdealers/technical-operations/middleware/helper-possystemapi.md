@@ -56,6 +56,13 @@ Once saved, a **success** notification will appear confirming that the Helper ha
 |![Number 1](../../images/numbers/circle-1o.png) | Click `http` to generate a URL through which the POS-System can access the Helper. You may also rename the URL to one of your own choosing.                                                                |
 |![Number 2](../../images/numbers/circle-2o.png) | `Save` your changes to return to `Configuration`/ `Helper`.                                                                                            |
 
+
+:::info
+
+Note down the URL you configured for the PosSystem API Helper as you will use it to connect to the cashbox.
+
+:::
+
 ## Use a PosSystem API Helper
 
 ![assignposysstemapi.png](images/assignposysstemapi.png)
@@ -126,7 +133,7 @@ Click **Settings** in the top-right corner.
 | steps | description                                                                                                                                                              |
 |:----------------------:|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 |![Number 1](../../images/numbers/circle-1o.png) | In the `Environment` section, select `Local Middleware`.                                                                                                                 |
-|![Number 2](../../images/numbers/circle-2o.png) | In the `Middleware Endpoint` field, enter the Helper URL found on the `Configuration` / `CashBox` page.                                                                  |
+|![Number 2](../../images/numbers/circle-2o.png) | In the `Middleware Endpoint` field, enter the **Helper URL** of the LocalPosSystemApi Helper found on the `Configuration` / `CashBox` page.                                                                  |
 |![Number 3](../../images/numbers/circle-3o.png) | Copy the PIN from the `Configuration` / `CashBox` page, enter it in the field below, then click `Pair`. A confirmation message should appear as shown below. |
 
 ![pairedpin.png](images/pairedpin.png)
