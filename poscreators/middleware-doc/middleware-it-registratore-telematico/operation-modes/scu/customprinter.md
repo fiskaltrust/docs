@@ -20,6 +20,8 @@ The _fiskaltrust.Middleware.SCU.IT.CustomRTPrinter_ package connects the middlew
 | Name | Description | Optional |
 | ---- | ------------ |--------- |
 | DeviceUrl| The URL or IP address of the RT Printer or Server | mandatory |
+| Username| The deviceId (Matricola fiscale) | mandatory |
+| Password| The deviceId (Matricola fiscale) | mandatory |
 | ClientTimeoutMs | The HTTP client timeout used when communicating with the RT Printer or Server. | `15000`<br />optional |
 
 Please pay attention to the case-sensitive use of the parameters.
