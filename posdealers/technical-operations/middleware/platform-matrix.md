@@ -13,21 +13,21 @@ Relevant for **AT and FR** only.
 
 | | AT | FR |
 |---|---|---|
-| **Local** | [1.2 CashBox](./manual-configuration.md) | [1.2 CashBox](./manual-configuration.md) |
+| **Local** | [1.2 CashBox](https://docs.fiskaltrust.cloud/docs/posdealers/technical-operations/middleware/cashbox) | [1.2 CashBox](https://docs.fiskaltrust.cloud/docs/posdealers/technical-operations/middleware/cashbox) |
 | **Android** | Not available | Not available |
-| **Cloud** | [CloudCashbox](./launchers/cloudcashbox.md) | [CloudCashbox](./launchers/cloudcashbox.md) |
+| **Cloud** | [CloudCashbox](https://docs.fiskaltrust.cloud/docs/posdealers/technical-operations/middleware/launchers/cloudcashbox#introduction) | [CloudCashbox](https://docs.fiskaltrust.cloud/docs/posdealers/technical-operations/middleware/launchers/cloudcashbox#introduction) |
 
 ## New CashBox
 
 | | AT | FR | DE | IT | GR, PT, ES, BE |
 |---|---|---|---|---|---|
-| **Local** | [1.3 CashBox](./manual-configuration.md) | [1.2 CashBox](./manual-configuration.md) | [1.3 CashBox](./manual-configuration.md) | [1.3 CashBox](./manual-configuration.md) | Not available |
-| **Android** | [Android](../../../poscreators/middleware-doc/possystem-api/android-intent.md) | Not available | [Android](../../../poscreators/middleware-doc/possystem-api/android-intent.md) | [Android](../../../poscreators/middleware-doc/possystem-api/android-intent.md) | Not available |
-| **Cloud** | [CloudCashbox](./launchers/cloudcashbox.md) | [CloudCashbox](./launchers/cloudcashbox.md) | [CloudCashbox](./launchers/cloudcashbox.md) | [CloudCashbox](./launchers/cloudcashbox.md) | [CloudCashbox](./launchers/cloudcashbox.md) |
+| **Local** | [1.3 CashBox](https://docs.fiskaltrust.cloud/docs/posdealers/technical-operations/middleware/cashbox) | [1.2 CashBox](https://docs.fiskaltrust.cloud/docs/posdealers/technical-operations/middleware/cashbox) | [1.3 CashBox](https://docs.fiskaltrust.cloud/docs/posdealers/technical-operations/middleware/cashbox) | [1.3 CashBox](https://docs.fiskaltrust.cloud/docs/posdealers/technical-operations/middleware/cashbox) | Not available |
+| **Android** | [Android](https://docs.fiskaltrust.cloud/docs/poscreators/possystem-api/android-intent) | Not available | [Android](https://docs.fiskaltrust.cloud/docs/poscreators/possystem-api/android-intent) | [Android](https://docs.fiskaltrust.cloud/docs/poscreators/possystem-api/android-intent) | Not available |
+| **Cloud** | [CloudCashbox](https://docs.fiskaltrust.cloud/docs/posdealers/technical-operations/middleware/launchers/cloudcashbox#introduction) | [CloudCashbox](https://docs.fiskaltrust.cloud/docs/posdealers/technical-operations/middleware/launchers/cloudcashbox#introduction) | [CloudCashbox](https://docs.fiskaltrust.cloud/docs/posdealers/technical-operations/middleware/launchers/cloudcashbox#introduction) | [CloudCashbox](https://docs.fiskaltrust.cloud/docs/posdealers/technical-operations/middleware/launchers/cloudcashbox#introduction) | [CloudCashbox](https://docs.fiskaltrust.cloud/docs/posdealers/technical-operations/middleware/launchers/cloudcashbox#introduction) |
 
 ## Guides
 
-- [1.2 CashBox](./manual-configuration.md)
-- [1.3 CashBox](./manual-configuration.md)
-- [Android](../../../poscreators/middleware-doc/possystem-api/android-intent.md)
-- [CloudCashbox](./launchers/cloudcashbox.md)
+- [1.2 CashBox](https://docs.fiskaltrust.cloud/docs/posdealers/technical-operations/middleware/cashbox)
+- [1.3 CashBox](https://docs.fiskaltrust.cloud/docs/posdealers/technical-operations/middleware/cashbox)
+- [Android](https://docs.fiskaltrust.cloud/docs/poscreators/possystem-api/android-intent)
+- [CloudCashbox](https://docs.fiskaltrust.cloud/docs/posdealers/technical-operations/middleware/launchers/cloudcashbox#introduction)
