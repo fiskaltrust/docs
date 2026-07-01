@@ -11,7 +11,7 @@ title: Custom-Printer
 
 **Alpha from version:** 1.3.45
 
-**Stable from version:** TBD
+**Stable from version:** 1.3.85
 
 The _fiskaltrust.Middleware.SCU.IT.CustomRTPrinter_ package connects the middleware with a Custom-Printer.
 
