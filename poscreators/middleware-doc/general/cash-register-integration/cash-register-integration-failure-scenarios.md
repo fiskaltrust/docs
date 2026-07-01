@@ -4,77 +4,80 @@ title: Failure Scenarios
 ---
 # Failure Scenarios
 
-This Chapter describes the different scenarios of failure when using the fiskaltrust.Middleware and how to handle them.
+This section describes failure scenarios when using the fiskaltrust.Middleware and how to handle them.
 
-On a high level, there are three different failure scenarios that should be considered that are described in more detail in the following sections:
-1. **Signature Creation Unit not reachable or failing:** When the SCU is either not reachable or returns an error (e.g. because of an outage of the wrapped signing device or service), the Middleware switches to the _failed mode_, i.e. a circuit breaker mode that doesn't execute further calls towards the SCU, which _must_ be reset by sending a _zero receipt_.
-2. **Middleware not reachable or failing**: When the cash register doesn't receive any response from the Middleware (e.g. because of a network or server outage), receipts _must_ be re-sent as soon as the Middleware is reachable again, using the flag `0x0000000000010000` to switch to the _late-signing mode_. If required in the respective country, the Middleware will automatically take care of late-signing the receipts then. When the receipts have been successfully re-sent, failure-mode _must_ be left by sending a _zero receipt_.
-3. **Cash register outage**: When the whole cash register/POS system is not working anymore (e.g. because of a power outage or a system failure) and the local fiscalization laws require the tracking of handwritten receipts (like e.g. in Germany) in that case, receipts _may_ be re-sent to the Middleware after the systems are back online with the _handwritten ftReceiptCaseFlag_ `0x0000000000080000`. 
+On a high level, three types of failure scenarios must be considered. These are described in detail in the following sections:
+
+1. **Signature Creation Unit not reachable or failing:** If the SCU is not reachable or returns an error (e.g. due to an outage of the wrapped signing device or service), the Middleware enters failed mode (circuit-breaker state). In this state, no further SCU calls are executed. Failed mode must be reset by sending a zero receipt.
+2. **Middleware not reachable or failing:** If the cash register does not receive a response from the Middleware (e.g. due to a network or server outage), receipts must be re-sent once the Middleware becomes reachable again. The flag `0x0000000000010000` must be used to activate late-signing mode. If required by local regulations, the Middleware will automatically perform late signing of receipts. After all receipts have been successfully re-sent, failure mode must be exited by sending a zero receipt.
+3. **Cash register outage:** If the entire cash register/POS system is unavailable (e.g. due to a power outage or system failure) and local fiscalization laws require tracking of handwritten receipts (e.g. in Germany), receipts may be re-sent to the Middleware after the system is restored. In this case, the handwritten `ftReceiptCaseFlag` `0x0000000000080000` must be used.
 
 ## Signature Creation Unit not reachable or failing
-If the communication between the Middleware and the SCU fails (e.g. when the secure Signature Creation Device is not reachable), the POS System can continue to operate until the SCU is accessible again, and the Middleware will handle all legally required steps (e.g. re-signing receipts, if required in the respective market). Receipts created in a state where no communication is possible with the SCU are still secured by the security mechanism of fiskaltrust. The fiskaltrust.Middleware will respond with the ftState = `0xXXXX000000000002` "SCU communication failed" (with `XXXX` being the local market code, see the reference tables in the appendices for more details). The POS-System receives the response and processes the data it contains. For following Requests no more communication attempts are done to avoid long waiting times for each Receipt request/Receipt response sequence.
-<p>
-We are using the "circuit breaker" design pattern for our failed mode. As we are not trying to communicate with the SCU once a call failed, the logic is preventing the failure from constantly recurring during a temporary failure. With this approach the PosOperators are not blocked in their daily business, as the middleware is avoiding long timeouts which would occur for every request to the SCU.
-</p>
 
-![no-scu-connection](./images/10-no-scu-connection.png)
+If the communication between the Middleware and the SCU fails (e.g. when the secure Signature Creation Device is not reachable), the POS System can continue to operate until the SCU is accessible again, and the Middleware will handle all legally required steps (e.g. re-signing receipts, if required in the respective market). Receipts created in a state where no communication is possible with the SCU are still secured by the security mechanism of fiskaltrust. The fiskaltrust.Middleware will respond with the `ftState` = `0xXXXX000000000002` ("SCU communication failed"), where `XXXX` represents the local market code (see the reference tables in the appendices for more details). The POS system receives this response and processes the contained data. For subsequent Requests, no more communication attempts are done in order to avoid long waiting times for each Receipt request/Receipt response sequence.
+
+The Middleware uses a circuit breaker pattern for this failure mode. After a communication failure is detected, further SCU calls are suppressed until recovery. This prevents repeated failures during temporary outages and ensures that POS operations can continue without blocking due to SCU timeouts.
+
+![no-scu-connection](./images/10-no-scu-connection.svg)
   
-When the SCU is reachable again, a Zero-Receipt must be sent, which forces a communication retry towards the SSCD. If the fiskaltrust.Middleware is able to connect to the SCU again, the ftState = `0xXXXX000000000000` (ok) is returned to the POS system via the response and the fiskaltrust.Middleware is ready for normal operation again. Furthermore, the response contains a listing of the requests that were not signed by the SSCD. The requests affected by the failure of the communication with the SCU do not have to be sent to the Queue again after the problem has been resolved.
+When the SCU becomes reachable again, a Zero-Receipt must be sent. This triggers a communication retry towards the SSCD. If the fiskaltrust.Middleware is able to connect to the SCU again, the `ftState` = `0xXXXX000000000000` (ok) is returned to the POS system via the response and the fiskaltrust.Middleware is ready for normal operation again. Furthermore, the response contains a listing of the requests that were not signed by the SSCD. The requests affected by the failure of the communication with the SCU do not have to be sent to the Queue again after the problem has been resolved.
 
 :::tip
 
-We recommend to make the ZeroReceipt after a failure a manual operation, and not automatically send it via the POS system as soon as a failure state is returned. In most scenarios, only Operators can determine if the connection to the SSCD can be re-established, e.g. when the internet or the device is reconnected. Automatically sending zero-receipts might lead to unnecessary wait times if the connection can't be established at this point in time.
+We recommend to make the Zero-Receipt after a failure a manual operation, and not automatically send it via the POS system as soon as a failure state is returned. In most scenarios, only Operators can determine if the connection to the SSCD can be re-established, e.g. when the internet or the device is reconnected. Automatically sending a Zero-Receipt may result in unnecessary delays if the connection is still unavailable at that point in time.
 
 :::
 
 :::tip
 
-We recommend to not manually print the text _SCU communication failed_, but to print the content of the SignatureItem returned in the Middleware's response when operating in failed mode (as the text in there will fulfill local requirements, e.g. for the language of the text).
+We recommend to not manually print the text "SCU communication failed", but to print the content of the SignatureItem returned in the Middleware's response when operating in failed mode (as the text in there will fulfill local requirements, e.g. for the language of the text).
 
 :::
 
-![reestablished-scu-connection](./images/11-reestablished-connection.png)
+![reestablished-scu-connection](./images/11-reestablished-connection.svg)
 
 
 ## Middleware not reachable or failing
 
-If a cash register cannot communicate with the fiskaltrust.Middleware it is most likely due to a failure of the network connection, the Middleware host, or the Middleware itself. Such a failure means that the electronic recording system is not operational and there is no access to the appropriate journal.
+If a cash register cannot communicate with the fiskaltrust.Middleware, the cause is typically a failure of the network connection, the Middleware host, or the Middleware itself. In this state, the electronic recording system is not operational, and access to the journal is not available.
 
-![no-middleware-connection](./images/07-no-middleware-connection.png)
+![no-middleware-connection](./images/07-no-middleware-connection.svg)
 
 In this case, the following steps must be taken:
 
   - The cash register or input station must automatically produce a receipt and its copy.
-  - The receipt must be marked with the identification "electronic recording system failed" and with the current failure counter.
-  - This copy needs to be kept until the failure is resolved. The creation and storing of the receipt copy can also be done electronically by the cash register or terminal.
-  - After re-establishing the communication to fiskaltrust.Middleware, the cash register or the input station must send all receipts marked with the identification "receipt copy, electronic recording system failed" to fiskaltrust.Middleware. The ReceiptCase must be flagged with the code "failed receipt" in order to indicate the failure to fiskaltrust.Middleware, which will then issue a receipt response with the ftState "Late Signing Mode".
+  - The receipt must be marked with the identification "electronic recording system failed" and include the current failure counter.
+  - This copy needs to be kept until the failure is resolved. The creation and storage of the receipt copy can also be done electronically by the cash register or terminal.
+  - After communication with the fiskaltrust.Middleware is restored, the cash register or the input station must send all receipts marked with the identification "receipt copy, electronic recording system failed" to fiskaltrust.Middleware. The ReceiptCase must be flagged with the code "failed receipt" to indicate the failure state to fiskaltrust.Middleware, which will then issue a receipt response with the `ftState` "Late Signing Mode".
 
-![late-signing-mode](./images/08-late-signing-mode.png)
+![late-signing-mode](./images/08-late-signing-mode.svg)
 
-After fiskaltrust.Middleware has received an "end of failure receipt" (i.e. a zero receipt), the status of failure is terminated by receiving a response with normal state code.
+After the fiskaltrust.Middleware has received an "end of failure receipt" (i.e. a Zero-Receipt), the failure status is terminated by receiving a response with normal state code.
 
-![end-late-signing-mode](./images/09-end-late-signing-mode.png)
+![end-late-signing-mode](./images/09-end-late-signing-mode.svg)
 
 :::tip
 
-We recommend to send re-send the first failed receipt with the _receipt request_ flag `0x0000800000000000`, which checks if a receipt was already sent and returns it in that case (to cover the case when the Middleware received and processed a receipt, but the answer was lost e.g. due to a network outage). More details about this flag can be found [here](../reference-tables/reference-tables.md#ftreceiptcaseflag)
+We recommend resending the first failed receipt using the "receipt request" flag `0x0000000080000000`, which checks if a receipt was already sent and returns it in that case (to cover the case when the Middleware received and processed a receipt, but the answer was lost, e.g. due to a network outage). More details about this flag can be found [here](../reference-tables/reference-tables.md#ftreceiptcaseflag)
 
 :::
 
 ## Cash register outage
 
-In case of a complete outage of the cash register, most fiscalization laws require to track the data on handwritten receipts or specific notebooks. For POS Systems that support tracking these receipts after the cash register comes back online, we recommend sending them to the Middleware as well to ensure a consistent receipt trace (e.g. in exports).
+In case of a complete outage of the cash register, most fiscalization laws require to track the data on handwritten receipts or specific notebooks. For POS systems that support tracking these receipts after the cash register comes back online, we recommend sending them to the Middleware as well to ensure a consistent receipt trace (e.g. in exports).
 
 In this case, the following steps _may_ be taken:
-- While the cash register is offline (e.g. due to a power outage, system failure, etc.) handwritten receipts should be created, and the receipts should be tracked (e.g. in a notebook) - depending on the local requirements.
-- When the cash register is operational again, the receipts may be tracked in the cash-register.
-- When this happens, the receipts should be sent to the Middleware as well, including the _ftReceiptCaseFlag_ `0x0000000000080000` to mark that this is a handwritten receipt.
+
+- While the cash register is offline (e.g. due to a power outage, system failure, etc.) handwritten receipts should be created, and the receipts should be tracked (e.g. in a notebook), depending on the local requirements.
+- Once the cash register is operational again, the receipts may be tracked in the cash register.
+- When this happens, the receipts should be sent to the Middleware as well, including the `ftReceiptCaseFlag` `0x0000000000080000` to mark that this is a handwritten receipt.
 
 :::warning
 
-In case of re-signing failed receipts, these must be signed in the same order they were originally created in. Particularly this means that values sent under the **cbReceiptMoment** field in the individual sign requests must be sequential (ascending order). 
+When re-signing failed receipts, they must be signed in the same order in which they were originally created. Particularly this means that values sent under the `cbReceiptMoment` field in the individual sign requests must be sequential (ascending order). 
 
-Wrong re-signing example:
+Incorrect re-signing example:
+
 1. Receipt Nr.1: cbReceiptMoment: "2026-01-01T12:00:05Z"
 2. Receipt Nr.2: cbReceiptMoment: "2026-01-01T12:00:00Z"
 
