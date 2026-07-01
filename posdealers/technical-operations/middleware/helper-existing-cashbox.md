@@ -101,18 +101,9 @@ Both CashBoxes are now connected.
 
 ## Download the Launcher for the 1.3 CashBox
 
-To download the Launcher for the new 1.3 CashBox, navigate to `Configuration` / `CashBox`.
+The 1.3 CashBox requires Launcher 2.0. To download it, navigate to `Configuration` / `CashBox`.
 
 ![download-launcher-12.png](images/download-launcher-12.png)
-
-| steps | description |
-|:---------------------:|-------------|
-| ![Number 1](../../images/numbers/circle-1o.png) | Locate the 1.3 CashBox and click `Rebuild configuration`. Wait for the success confirmation. |
-| ![Number 2](../../images/numbers/circle-2o.png) | Click `Download` and select the correct Version 1 Launcher architecture for your system. |
-
-### Using Launcher Version 2
-
-Instead of Launcher Version 1, you can also use Launcher Version 2. The download steps are the same as shown in the screenshot above.
 
 | steps | description |
 |:---------------------:|-------------|
@@ -121,23 +112,20 @@ Instead of Launcher Version 1, you can also use Launcher Version 2. The download
 
 ## Run the Launcher for the 1.3 CashBox
 
-Once the Launcher package is downloaded, extract it and run `test.cmd` (or `test.sh` on Unix-based systems) to start the Middleware. For detailed instructions on starting the Launcher and installing it as a service, see [Launcher for Windows, Linux & macOS](launchers/desktop.md).
-
-If you chose Launcher Version 2, run `launcher-test.cmd` (or `launcher-test.sh` on Unix-based systems) instead. For detailed instructions see [Launcher 2.0 Getting Started](https://github.com/fiskaltrust/middleware-launcher?tab=readme-ov-file#getting-started).
+Once the Launcher package is downloaded, extract it and run `launcher-test.cmd` (or `launcher-test.sh` on Unix-based systems) to start the Middleware. For detailed instructions on starting the Launcher and installing it as a service, see [Launcher 2.0 Getting Started](https://github.com/fiskaltrust/middleware-launcher?tab=readme-ov-file#getting-started).
 
 ## Download the Launcher for the 1.2 CashBox
 
-Locate the existing 1.2 CashBox in the `Configuration` / `CashBox` view.
+The 1.2 CashBox supports Launcher 1.2 and Launcher 1.3. To download it, locate the existing 1.2 CashBox in the `Configuration` / `CashBox` view.
 
 | steps | description |
 |:---------------------:|-------------|
 | ![Number 1](../../images/numbers/circle-1o.png) | Click `Rebuild configuration` and wait for the success confirmation. |
-| ![Number 2](../../images/numbers/circle-2o.png) | Click `Download` and select the correct Launcher 1.2 architecture for your system. |
+| ![Number 2](../../images/numbers/circle-2o.png) | Click `Download` and select the correct Launcher 1.2 or 1.3 architecture for your system. |
 
 ## Run the Launcher for the 1.2 CashBox
 
-Run `test.cmd` (or `test.sh` on Unix-based systems) to start the Middleware.
-If you also downloaded Launcher Version 2 for this CashBox, use `launcher-test.cmd` instead; the [Launcher 2.0 Getting Started](https://github.com/fiskaltrust/middleware-launcher?tab=readme-ov-file#getting-started) guide covers starting it as a service.
+Extract and run `test.cmd` (or `test.sh` on Unix-based systems) to start the Middleware. For detailed instructions on starting the Launcher and installing it as a service, see [Launcher for Windows, Linux & macOS](launchers/desktop.md).
 
 ## Find the Helper URL
 
