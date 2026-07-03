@@ -38,6 +38,8 @@ This error indicates an inconsistency between Net, VAT, and Gross amounts on a r
 #### Example
 Position 1 in receipt ftD#IT14: Net (76,52400) + calculated VAT (12,24384) at 16,00% = 88,76784 does not match Gross (91,10000). Difference: -2,33216.
 
+![receipt-validation-E5010](images/receiptvalidationE5010.png)
+
 <p align="center">
   <img src="../../images/receiptvalidationE5010.png"
        alt="Receipt validation error"
