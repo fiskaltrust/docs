@@ -10,6 +10,12 @@ After reading this, you can configure the LocalPosSystemApi Helper and use it wi
 
 :::
 
+:::caution
+
+For markets other than AT and FR please refer to the [guide on setting up the Local PosSystem API Helper with the Launcher 2.0](./localpossystemapi-helper.md).
+
+:::
+
 ## Introduction
 
 This guide describes how to use the LocalPosSystemApi Helper when you already have a running Middleware 1.2 CashBox.
