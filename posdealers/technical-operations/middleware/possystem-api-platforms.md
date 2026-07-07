@@ -14,7 +14,7 @@ Each option has it's own usecases.
 The Cloud hosted PosSystem API currently only works with the CloudCashbox.
 It provides a fully manages solution and supports the full range of features the PosSystem API has to offer.
 
-*This works with a normal CloudCashbox. No special setup is needed. The cloud possystem api is reachable at http://possystem-api-sandbox.fiskaltrust.eu for sandbox or http://possystem-api.fiskaltrust.eu for production.*
+*This works with a normal CloudCashbox. No special setup is needed. The cloud possystem api is reachable at https://possystem-api-sandbox.fiskaltrust.eu for sandbox or https://possystem-api.fiskaltrust.eu for production.*
 
 ## Local PosSystem API
 

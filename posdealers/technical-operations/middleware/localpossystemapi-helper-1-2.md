@@ -1,5 +1,5 @@
 ---
-slug: /posdealers/technical-operations/middleware/helper-existing-cashbox
+slug: /posdealers/technical-operations/middleware/localpossystemapi-helper-1-2
 title: Local PosSystem API Helper with Existing 1.2 CashBox
 ---
 # How to use LocalPosSystemApi helper with an existing 1.2 cashbox
@@ -78,9 +78,9 @@ Once saved, a **success** notification will appear confirming that the Helper ha
 ![configureresthelper.png](images/configureresthelper.png)
 
 | steps                                           | description                                                                                                                              |
-|-------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+|-------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | ![Number 1](../../images/numbers/circle-1o.png) | Click `http (SOAP)` to generate a URL through which the Helper can be accessed. You may also rename the URL to one of your own choosing. |
-| ![Number 2](../../images/numbers/circle-2o.png) | `Save` your changes to return to `Configuration` / `Helper`.                                                                              |
+| ![Number 2](../../images/numbers/circle-2o.png) | `Save` your changes to return to `Configuration` / `Helper`.                                                                             |
 
 ### Use the rest Helper in the 1.2 CashBox
 

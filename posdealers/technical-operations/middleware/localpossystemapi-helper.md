@@ -1,5 +1,5 @@
 ---
-slug: /posdealers/technical-operations/middleware/helper-possystemapi
+slug: /posdealers/technical-operations/middleware/localpossystemapi-helper
 title: Local PosSystem API Helper
 ---
 # How to Configure the Local PosSystem API Helper with Launcher 2.0
@@ -28,7 +28,7 @@ The LocalPosSystemApi Helper must be part of the **same [CashBox](cashbox.md)** 
 :::caution
 
 As the LocalPosSystemApi Helper is currently only supported on the Launcher 2.0 this setup does not work for France.
-Refer to the guide [../localpossystemapi-helper-existing.md] on how to setup the LocalPosSystemApi helper for the Middleware 1.2.
+Refer to the guide [./localpossystemapi-helper-1-2.md] on how to setup the LocalPosSystemApi helper for the Middleware 1.2.
 
 If you're interested in running this in Austria reach out to us as the launcher 2.0 is not enabled per default there.
 

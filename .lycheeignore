@@ -1,7 +1,7 @@
 .*%7B.*%7D
 
 https?://receipts(-sandbox)?\.fiskaltrust\.cloud/.*
-https?://possystem-api(-sandbox)?\.fiskaltrust\.cloud/.*
+https?://possystem-api(-sandbox)?\.fiskaltrust\.eu/.*
 https?://pos-api(-sandbox)?\.fiskaltrust\.cloud/.*
 https?://helipad(-sandbox)?\.fiskaltrust\.cloud/.*
 https?://packages(-sandbox)?\.fiskaltrust\.cloud/.*
