@@ -19,6 +19,8 @@ After reading this, you can set up and configure the LocalPosSystemApi Helper wi
 The LocalPosSystemApi Helper is a Middleware component that exposes a local endpoint through which the POS System communicates with the fiskaltrust Middleware.
 It acts as a bridge between the POS System and the underlying Queue.
 
+:::
+
 :::caution
 
 The LocalPosSystemApi Helper must be part of the **same [CashBox](cashbox.md)** as the Queue it is intended to serve.
@@ -28,7 +30,7 @@ The LocalPosSystemApi Helper must be part of the **same [CashBox](cashbox.md)** 
 :::caution
 
 As the LocalPosSystemApi Helper is currently only supported on the Launcher 2.0 this setup does not work for France.
-Refer to the guide [./localpossystemapi-helper-1-2.md] on how to setup the LocalPosSystemApi helper for the Middleware 1.2.
+Refer to the [guide on how to setup the LocalPosSystemApi helper for the Middleware 1.2](./localpossystemapi-helper-1-2.md).
 
 If you're interested in running this in Austria reach out to us as the launcher 2.0 is not enabled per default there.
 
