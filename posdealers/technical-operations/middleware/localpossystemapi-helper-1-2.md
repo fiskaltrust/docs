@@ -59,8 +59,7 @@ You can skip this step if a rest helper is already present in the 1.2 CashBox.
 To add the local rest Helper, navigate to `Configuration` / `Helper` in the fiskaltrust Portal and follow the steps below. 
 Note that the following figures and steps are exemplary.
 
-<!-- TODO change this to a screenshot of the rest helper setup instead of possystemapi helper -->
-![possystemapihelper1.png](images/possystemapihelper1.png)
+![createnewrestapifr.png](images/createnewrestapifr.png)
 
 | steps                                           | description                                                                                                                           |
 |-------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
@@ -74,26 +73,33 @@ Note that the following figures and steps are exemplary.
 
 Once saved, a **success** notification will appear confirming that the Helper has been created. The configuration window for the new Helper will then open automatically, allowing you to proceed with the setup.
 
+### Configure the Rest Helper
+
+![configureresthelper.png](images/configureresthelper.png)
+
+| steps                                           | description                                                                                                                              |
+|-------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| ![Number 1](../../images/numbers/circle-1o.png) | Click `http (SOAP)` to generate a URL through which the Helper can be accessed. You may also rename the URL to one of your own choosing. |
+| ![Number 2](../../images/numbers/circle-2o.png) | `Save` your changes to return to `Configuration` / `Helper`.                                                                              |
+
 ### Use the rest Helper in the 1.2 CashBox
 
-<!-- TODO change this to a screenshot of the rest helper setup instead of possystemapi helper -->
-![assignposysstemapi.png](images/assignposysstemapi.png)
+![assignhelpercashboxview.png](images/assignhelpercashboxview.png)
 
 | steps                                           | description                                                             |
 |-------------------------------------------------|-------------------------------------------------------------------------|
 | ![Number 1](../../images/numbers/circle-1o.png) | Navigate to `Configuration` / `CashBox` and search for the 1.2 CashBox. |
 | ![Number 2](../../images/numbers/circle-2o.png) | Click `Edit` to open the CashBox configuration.                         |
 
-<!-- TODO change this to a screenshot of the rest helper setup instead of possystemapi helper -->
 ![selecthelper.png](images/selecthelper.png)
+
 
 | steps                                           | description                                                                     |
 |-------------------------------------------------|---------------------------------------------------------------------------------|
 | ![Number 3](../../images/numbers/circle-3o.png) | Scroll down to the **Helpers** section and locate the just created rest Helper. |
 | ![Number 4](../../images/numbers/circle-4o.png) | Activate the Helper by selecting its checkbox.                                  |
 
-<!-- TODO change this to a screenshot of the rest helper setup instead of possystemapi helper -->
-![savecashboxconfig.png](images/savecashboxconfig.png)
+![saveselecthelper.png](images/saveselecthelper.png)
 
 | steps                                           | description                         |
 |-------------------------------------------------|-------------------------------------|
@@ -122,7 +128,7 @@ Once saved, a **success** notification will appear confirming that the Helper ha
 
 ## Configure the LocalPosSystemApi Helper
 
-<!-- TODO add the numbers in screenshot -->
+![addcustomconfig.png](images/addcustomconfig.png)
 ![connect-helper-5.png](images/connect-helper-5.png)
 
 | steps                                           | description                                                                                                                                 |
