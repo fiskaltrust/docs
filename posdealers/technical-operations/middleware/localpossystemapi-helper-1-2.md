@@ -110,7 +110,7 @@ Once saved, a **success** notification will appear confirming that the Helper ha
 ## Add a LocalPosSystemApi Helper
 
 To add the LocalPosSystemApi Helper, navigate to `Configuration` / `Helper` in the fiskaltrust Portal and follow the steps below. 
-Note that the following figures and steps are exemplary.
+Note that the following figures and steps are exemplary. At this point the Helper is only created as a standalone resource. It will be assigned to the new 1.3 CashBox later on.
 
 ![possystemapihelper1.png](images/possystemapihelper1.png)
 
@@ -127,6 +127,8 @@ Note that the following figures and steps are exemplary.
 Once saved, a **success** notification will appear confirming that the Helper has been created. The configuration window for the new Helper will then open automatically, allowing you to proceed with the setup.
 
 ## Configure the LocalPosSystemApi Helper
+
+These settings configure the Helper itself, before it is assigned to the new 1.3 CashBox, so that it points to the queue of the existing 1.2 CashBox.
 
 ![addcustomconfig.png](images/addcustomconfig.png)
 ![connect-helper-5.png](images/connect-helper-5.png)
