@@ -205,7 +205,7 @@ The 1.2 CashBox supports Launcher version 1. To download it, locate the existing
 
 ## Run the Launcher for the 1.2 CashBox
 
-Extract the downloaded package and run `test.cmd` (or `test.sh` on Unix-based systems) to start the Middleware. For detailed instructions on starting the Launcher and installing it as a service, see [Launcher for Windows, Linux & macOS](launchers/desktop.md).
+Extract the downloaded package and run `test.cmd` (or `test.sh` on Unix-based systems) to start the Middleware. For detailed instructions on starting the Launcher and installing it as a service, see [Launcher for Windows, Linux & macOS](https://github.com/fiskaltrust/middleware-launcher?tab=readme-ov-file#getting-started).
 
 ## Find the Helper URL
 
