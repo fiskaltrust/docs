@@ -114,6 +114,15 @@ module.exports = [
       },
       {
         type: "category",
+        label: "PosSystem API Platforms",
+        items: [
+          "posdealers/technical-operations/possystem-api-platforms/overview",
+          "posdealers/technical-operations/possystem-api-platforms/localpossystemapi-helper",
+          "posdealers/technical-operations/possystem-api-platforms/localpossystemapi-helper-1-2",
+        ],
+      },
+      {
+        type: "category",
         label: "Rollout Automation",
         items: [
           "posdealers/technical-operations/rollout-automation/templates",
