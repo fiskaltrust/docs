@@ -323,6 +323,7 @@ module.exports = [
                 key: "it-signature-creation-devices",
                 items: [
                   "poscreators/middleware-doc/middleware-it-registratore-telematico/operation-modes/scu/epsonprinter",
+                  "poscreators/middleware-doc/middleware-it-registratore-telematico/operation-modes/scu/epsonserver",
                   "poscreators/middleware-doc/middleware-it-registratore-telematico/operation-modes/scu/customprinter",
                   "poscreators/middleware-doc/middleware-it-registratore-telematico/operation-modes/scu/customserver",
                   "poscreators/middleware-doc/middleware-it-registratore-telematico/operation-modes/scu/ivaservizi",

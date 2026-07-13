@@ -38,6 +38,7 @@ For the Italian market, depending on the platform, following communication servi
 |                               | Type,Form factor | Windows       | Linux, macOS  | Android       |
 |-------------------------------|------------------|---------------|---------------|---------------|
 | [Epson RT Printer](scu/epsonprinter.md) | Hardware printer | **supported** | **supported** | **supported** |
+| [Epson RT Server](scu/epsonserver.md) | Hardware server | **supported** | **supported** | **supported** |
 | [Custom RT Printer](scu/customprinter.md) | Hardware printer | **supported** | **supported** | **supported** |
 | [Custom RT Server](scu/customserver.md) | Hardware server | **supported** | **supported** | **supported** |
 | [IVA Servizi](scu/ivaservizi.md) | Government web | **supported  via CloudCashBox** | **supported via CloudCashBox** | ** supported  via CloudCashBox** |
