@@ -9,6 +9,8 @@ title: Epson-Server
 
 ### Support
 
+**Stable from version:** TBD
+
 The _fiskaltrust.Middleware.SCU.IT.EpsonRTServer_ package connects the middleware with an Epson RT Server.
 
 ### Parameters
