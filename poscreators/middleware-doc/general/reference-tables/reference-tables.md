@@ -106,7 +106,7 @@ The fiskaltrust receipt case field (`ftReceiptCase`) is of utmost importance for
 
 | Value | Description |
 |-------|-----------------|
-| `0010` | Request additional information from SCU (TseInfo in Germany, RTInfo in Italy, SignatureCertificate in Austria and France). |
+| `0010` | **Request additional information (hardware / device details) from the SCU**<br />Returns information about the SCU/security device in the response's `ftStateData` field — for example serial number, memory usage, remaining signatures, and certificate details. The returned object is market-specific: `TseInfo` in Germany, `RTInfo` in Italy, and `SignatureCertificate` in Austria and France. |
 | `0020` | Request Force Connection/Download from SCU. |
 | `0040` | Request Bypass Connection/Download from SCU. |
 | `0080` | Request Self-Test from SCU. |
