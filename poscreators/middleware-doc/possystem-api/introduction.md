@@ -75,7 +75,7 @@ When `/pay` is part of the flow, the `ftPayItems` array returned by `/pay` can b
 
 ## Availability
 
-The POS System API is available in every supported fiskaltrust deployment scenario: as a **cloud-hosted endpoint** and as part of the **Local Middleware on Windows, Linux, and Android**. The same v2 request format works across all of them, so a single POS integration runs unchanged regardless of where the Middleware is deployed.
+The POS System API is available in every supported fiskaltrust deployment scenario: as a **cloud-hosted endpoint** and as part of the **Local Middleware on Windows, Linux, and Android**. The same v2 request format works across all of them, so a single POS integration runs unchanged regardless of where the Middleware is deployed. For more information about hosting options and per-market setup, see [PosSystem API Platforms](../../../posdealers/technical-operations/possystem-api-platforms/overview.md#setup-guides).
 
 ## Versioning and Compatibility
 

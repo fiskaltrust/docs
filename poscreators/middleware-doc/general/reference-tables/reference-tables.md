@@ -257,24 +257,24 @@ version 2
 
 #### PP - Payment type
 
-| Value | Description | GR           |
-|-------|-----------------|-------------------|
-| `00` | Unknown | |
-| `01` | Cash | GR: Cash |
-| `02` | NonCash | |
-| `03` | Crossed Cheque | GR: Cheque |
-| `04` | Debit Card | GR: POS/e-POS |
-| `05` | Credit Card | GR: POS/e-POS |
-| `06` | Voucher | GR: Cheque |
-| `07` | Online | |
-| `08` | Loyalty Program/Customer Card | |
-| `09` | Accounts Receivable | GR: On Credit |
-| `0A` | SEPA Transfer (Wire Transfer) | GR: Default maps to Domestic payments.<br />GR: **Description == “IRIS”** maps to **IRIS**<br />GR: **Description == "RF code payment (Web banking)"** maps to **Web banking**. |
-| `0B` | Other Bank Transfer | GR: maps to **International Business Payment Account** |
+| Value | Description |
+|-------|-----------------|
+| `00` | Unknown |
+| `01` | Cash |
+| `02` | NonCash |
+| `03` | Crossed Cheque |
+| `04` | Debit Card |
+| `05` | Credit Card |
+| `06` | Voucher |
+| `07` | Online |
+| `08` | Loyalty Program/Customer Card |
+| `09` | Accounts Receivable |
+| `0A` | SEPA Transfer (Wire Transfer) |
+| `0B` | Other Bank Transfer |
 | `0C` | Transfer to Cashbook/Vault/ Owner/Employee.<br />Positive (`+`) amount increases cashbook/vault.<br />Negative (`-`) amount decreases cashbook/vault. |
-| `0D` | Internal/Material Consumption | |
-| `0E` | Grant | |
-| `0F` | Ticket Restaurant (Sodexo, Edenred, etc.) | |
+| `0D` | Internal/Material Consumption |
+| `0E` | Grant |
+| `0F` | Ticket Restaurant (Sodexo, Edenred, etc.) |
 
 #### gggg - Global tagging/flags
 

@@ -5,6 +5,12 @@ title: Communication
 
 # Communication
 
+:::info PosSystem API (v2) Migration
+
+If you are an Austria (AT), Germany (DE), or France (FR) customer currently using the v0 WCF or REST interface and planning to move to the new PosSystem API, see the [Migrating from API v0 to PosSystem API (v2)](../../possystem-api/migration-guide.md) guide.
+
+:::
+
 The fiskaltrust.Middleware supports different communication protocols, effectively giving our users the possibility to use it on all currently available platforms and implement the interface in all state-of-the-art programming languages. This enables our users to choose the communication type that suits their scenario best.
 
 The communication protocol is specified by setting the respective URL in the package configuration of the fiskaltrust.Portal. The buttons to the right of the URL field can be used to quickly insert the respective URL:

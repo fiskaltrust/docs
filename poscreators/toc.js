@@ -25,6 +25,7 @@ module.exports = [
     items: [
       "poscreators/middleware-doc/possystem-api/introduction",
       "poscreators/middleware-doc/possystem-api/android-intent",
+      "poscreators/middleware-doc/possystem-api/migration-guide",
     ],
 },
   {
@@ -322,6 +323,7 @@ module.exports = [
                 key: "it-signature-creation-devices",
                 items: [
                   "poscreators/middleware-doc/middleware-it-registratore-telematico/operation-modes/scu/epsonprinter",
+                  "poscreators/middleware-doc/middleware-it-registratore-telematico/operation-modes/scu/epsonserver",
                   "poscreators/middleware-doc/middleware-it-registratore-telematico/operation-modes/scu/customprinter",
                   "poscreators/middleware-doc/middleware-it-registratore-telematico/operation-modes/scu/customserver",
                   "poscreators/middleware-doc/middleware-it-registratore-telematico/operation-modes/scu/ivaservizi",
@@ -377,7 +379,7 @@ module.exports = [
       },
     ],
   },
-    ],
+  ],
   },
   {
   type: "category",
