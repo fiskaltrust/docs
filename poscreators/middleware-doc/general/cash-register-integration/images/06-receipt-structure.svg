@@ -1,0 +1,616 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="1400"
+   height="1187"
+   viewBox="0 0 1400 1187"
+   version="1.1"
+   id="svg60"
+   sodipodi:docname="06-receipt-structure.svg"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs60" />
+  <sodipodi:namedview
+     id="namedview60"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.89501026"
+     inkscape:cx="565.9153"
+     inkscape:cy="102.23346"
+     inkscape:window-width="1465"
+     inkscape:window-height="812"
+     inkscape:window-x="0"
+     inkscape:window-y="33"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg60" />
+  <style
+     id="style1">
+text{font-family:Arial,sans-serif}
+.title{font-size:28px;font-weight:bold}
+.section{font-size:20px;font-weight:bold}
+.normal{font-size:16px}
+.small{font-size:13px}
+.panel{fill:white;stroke:black;stroke-width:3}
+.pos{fill:none;stroke:#f28c28;stroke-width:4}
+.ft{fill:none;stroke:#19b5d8;stroke-width:4}
+.issue{fill:none;stroke:#74a84a;stroke-width:4}
+.opt{fill:none;stroke:#f28c28;stroke-width:3;stroke-dasharray:8 6}
+.meta{fill:#f5fbfe;stroke:#b7dff0;stroke-width:2}
+.issuebox{fill:#f6fbf2;stroke:#c9dfba;stroke-width:2}
+.legend{font-size:14px}
+</style>
+  <!-- panels -->
+  <rect
+     x="10"
+     y="25"
+     width="440"
+     height="1080"
+     class="panel"
+     id="rect2"
+     style="stroke-width:1.3;stroke-dasharray:none" />
+  <rect
+     x="480"
+     y="25"
+     width="440"
+     height="1080"
+     class="panel"
+     id="rect3"
+     style="stroke-width:1.3;stroke-dasharray:none" />
+  <rect
+     x="950"
+     y="25"
+     width="440"
+     height="1080"
+     class="panel"
+     id="rect4"
+     style="stroke-width:1.3;stroke-dasharray:none" />
+  <!-- headers -->
+  <text
+     x="230"
+     y="70"
+     text-anchor="middle"
+     class="title"
+     id="text4">POS → fiskaltrust (/sign)</text>
+  <text
+     x="700"
+     y="70"
+     text-anchor="middle"
+     class="title"
+     id="text5">fiskaltrust → POS (/sign)</text>
+  <text
+     x="1170"
+     y="70"
+     text-anchor="middle"
+     class="title"
+     id="text6">POS → Output (/issue)</text>
+  <text
+     x="230"
+     y="120"
+     text-anchor="middle"
+     fill="#f28c28"
+     class="section"
+     id="text7">receipt request</text>
+  <text
+     x="700"
+     y="120"
+     text-anchor="middle"
+     fill="#1976d2"
+     class="section"
+     id="text8">receipt response (fiscal data)</text>
+  <text
+     x="1170"
+     y="120"
+     text-anchor="middle"
+     fill="#5b8f3a"
+     class="section"
+     id="text9">issued receipt (customer output)</text>
+  <!-- left -->
+  <rect
+     x="30"
+     y="150"
+     width="390"
+     height="50"
+     rx="3"
+     class="pos"
+     id="rect9" />
+  <text
+     x="225"
+     y="182"
+     text-anchor="middle"
+     class="section"
+     id="text10">receipt header</text>
+  <text
+     x="225"
+     y="262"
+     text-anchor="middle"
+     class="section"
+     id="text11">receipt number</text>
+  <text
+     x="225"
+     y="297"
+     text-anchor="middle"
+     class="section"
+     id="text12">receipt date</text>
+  <rect
+     x="30"
+     y="340"
+     width="390"
+     height="80"
+     rx="3"
+     class="pos"
+     id="rect12" />
+  <text
+     x="225"
+     y="378"
+     text-anchor="middle"
+     class="section"
+     id="text13">charge items block</text>
+  <text
+     x="225"
+     y="401"
+     text-anchor="middle"
+     id="text14">(ftChargeItem)</text>
+  <rect
+     x="50"
+     y="445"
+     width="350"
+     height="95"
+     class="opt"
+     id="rect14" />
+  <text
+     x="225"
+     y="470"
+     text-anchor="middle"
+     class="normal"
+     id="text15">value-added tax table</text>
+  <text
+     x="225"
+     y="500"
+     text-anchor="middle"
+     class="normal"
+     id="text16">industry-specific data</text>
+  <text
+     x="225"
+     y="530"
+     text-anchor="middle"
+     class="normal"
+     id="text17">sector-specific data (optional)</text>
+  <text
+     x="225"
+     y="610"
+     text-anchor="middle"
+     class="section"
+     id="text18">receipt total amount</text>
+  <rect
+     x="30"
+     y="660"
+     width="390"
+     height="80"
+     rx="3"
+     class="pos"
+     id="rect18" />
+  <text
+     x="225"
+     y="696"
+     text-anchor="middle"
+     class="section"
+     id="text19">pay item block</text>
+  <text
+     x="225"
+     y="719"
+     text-anchor="middle"
+     id="text20">(ftPayItem)</text>
+  <rect
+     x="50"
+     y="790"
+     width="350"
+     height="45"
+     class="opt"
+     id="rect20" />
+  <text
+     x="225"
+     y="820"
+     text-anchor="middle"
+     class="normal"
+     id="text21">customer / buyer data (optional)</text>
+  <rect
+     x="30"
+     y="950"
+     width="390"
+     height="60"
+     rx="3"
+     class="pos"
+     id="rect21" />
+  <text
+     x="225"
+     y="990"
+     text-anchor="middle"
+     class="section"
+     id="text22">receipt footer</text>
+  <!-- middle -->
+  <rect
+     x="515"
+     y="150"
+     width="360"
+     height="50"
+     rx="3"
+     class="ft"
+     id="rect22" />
+  <text
+     x="695"
+     y="182"
+     text-anchor="middle"
+     class="section"
+     id="text23">receipt header</text>
+  <rect
+     x="515"
+     y="260"
+     width="360"
+     height="50"
+     rx="3"
+     class="ft"
+     id="rect23" />
+  <text
+     x="695"
+     y="292"
+     text-anchor="middle"
+     class="section"
+     id="text24">charge items block</text>
+  <rect
+     x="515"
+     y="400"
+     width="360"
+     height="50"
+     rx="3"
+     class="ft"
+     id="rect24" />
+  <text
+     x="695"
+     y="432"
+     text-anchor="middle"
+     class="section"
+     id="text25">pay item block</text>
+  <rect
+     x="515"
+     y="500"
+     width="360"
+     height="50"
+     rx="3"
+     class="ft"
+     id="rect25" />
+  <text
+     x="695"
+     y="532"
+     text-anchor="middle"
+     class="section"
+     id="text26">signature block</text>
+  <rect
+     x="515"
+     y="565"
+     width="360"
+     height="150"
+     rx="6"
+     class="meta"
+     id="rect26" />
+  <text
+     x="540"
+     y="589"
+     class="normal"
+     id="text27">• signature / seal</text>
+  <text
+     x="540"
+     y="617"
+     class="normal"
+     id="text28">• queue item ID</text>
+  <text
+     x="540"
+     y="647"
+     class="normal"
+     id="text29">• timestamp</text>
+  <text
+     x="540"
+     y="677"
+     class="normal"
+     id="text30">• certificate information</text>
+  <text
+     x="540"
+     y="705"
+     class="normal"
+     id="text31">• signature algorithm</text>
+  <text
+     x="515"
+     y="770"
+     fill="#1976d2"
+     class="section"
+     id="text32">fiscal metadata</text>
+  <rect
+     x="515"
+     y="785"
+     width="360"
+     height="120"
+     rx="6"
+     class="meta"
+     id="rect32" />
+  <text
+     x="540"
+     y="809"
+     class="normal"
+     id="text33">• receipt number (fiscal)</text>
+  <text
+     x="540"
+     y="839"
+     class="normal"
+     id="text34">• fiscalization time</text>
+  <text
+     x="540"
+     y="867"
+     class="normal"
+     id="text35">• country / system-specific data</text>
+  <text
+     x="540"
+     y="895"
+     class="normal"
+     id="text36">• hash chain / previous signature</text>
+  <rect
+     x="515"
+     y="960"
+     width="360"
+     height="60"
+     rx="3"
+     class="ft"
+     id="rect36" />
+  <text
+     x="695"
+     y="998"
+     text-anchor="middle"
+     class="section"
+     id="text37">receipt footer</text>
+  <!-- right -->
+  <rect
+     x="970"
+     y="150"
+     width="360"
+     height="50"
+     rx="3"
+     class="pos"
+     id="rect37" />
+  <text
+     x="1150"
+     y="182"
+     text-anchor="middle"
+     class="section"
+     id="text38">receipt header</text>
+  <rect
+     x="970"
+     y="210"
+     width="360"
+     height="40"
+     rx="3"
+     class="ft"
+     id="rect38" />
+  <text
+     x="1150"
+     y="237"
+     text-anchor="middle"
+     class="normal"
+     id="text39">receipt header (fiscal)</text>
+  <text
+     x="1150"
+     y="300"
+     text-anchor="middle"
+     class="section"
+     id="text40">receipt number</text>
+  <text
+     x="1150"
+     y="330"
+     text-anchor="middle"
+     class="section"
+     id="text41">receipt date</text>
+  <rect
+     x="970"
+     y="350"
+     width="360"
+     height="60"
+     rx="3"
+     class="pos"
+     id="rect41" />
+  <text
+     x="1150"
+     y="388"
+     text-anchor="middle"
+     class="section"
+     id="text42">charge items block</text>
+  <rect
+     x="970"
+     y="420"
+     width="360"
+     height="40"
+     rx="3"
+     class="ft"
+     id="rect42" />
+  <text
+     x="1150"
+     y="447"
+     text-anchor="middle"
+     class="normal"
+     id="text43">charge items block</text>
+  <rect
+     x="990"
+     y="470"
+     width="320"
+     height="70"
+     class="opt"
+     id="rect43" />
+  <text
+     x="1150"
+     y="495"
+     text-anchor="middle"
+     class="normal"
+     id="text44">value-added tax table</text>
+  <text
+     x="1150"
+     y="520"
+     text-anchor="middle"
+     class="normal"
+     id="text45">sector-specific data (optional)</text>
+  <text
+     x="1150"
+     y="570"
+     text-anchor="middle"
+     class="section"
+     id="text46">receipt total amount</text>
+  <rect
+     x="970"
+     y="590"
+     width="360"
+     height="50"
+     rx="3"
+     class="pos"
+     id="rect46" />
+  <text
+     x="1150"
+     y="623"
+     text-anchor="middle"
+     class="section"
+     id="text47">pay item block</text>
+  <rect
+     x="970"
+     y="650"
+     width="360"
+     height="40"
+     rx="3"
+     class="ft"
+     id="rect47" />
+  <text
+     x="1150"
+     y="677"
+     text-anchor="middle"
+     class="normal"
+     id="text48">pay item block</text>
+  <rect
+     x="970"
+     y="700"
+     width="360"
+     height="50"
+     rx="3"
+     class="ft"
+     id="rect48" />
+  <text
+     x="1150"
+     y="733"
+     text-anchor="middle"
+     class="section"
+     id="text49">signature block</text>
+  <rect
+     x="970"
+     y="770"
+     width="360"
+     height="50"
+     rx="3"
+     class="pos"
+     id="rect49" />
+  <text
+     x="1150"
+     y="803"
+     text-anchor="middle"
+     class="section"
+     id="text50">receipt footer</text>
+  <rect
+     x="970"
+     y="830"
+     width="360"
+     height="40"
+     rx="3"
+     class="ft"
+     id="rect50" />
+  <text
+     x="1150"
+     y="857"
+     text-anchor="middle"
+     class="normal"
+     id="text51">receipt footer</text>
+  <text
+     x="970"
+     y="915"
+     fill="#5b8f3a"
+     class="section"
+     id="text52">issue / digital receipt data</text>
+  <rect
+     x="970"
+     y="925"
+     width="380"
+     height="170"
+     rx="6"
+     class="issuebox"
+     id="rect52" />
+  <text
+     x="990"
+     y="955"
+     class="normal"
+     id="text53">• Digital receipt reference / ID</text>
+  <text
+     x="990"
+     y="985"
+     class="normal"
+     id="text54">• Receipt URL (retrieval link)</text>
+  <text
+     x="990"
+     y="1015"
+     class="normal"
+     id="text55">• Delivery channel (email, SMS, app)</text>
+  <text
+     x="990"
+     y="1045"
+     class="normal"
+     id="text56">• Issue timestamp</text>
+  <text
+     x="990"
+     y="1075"
+     class="normal"
+     id="text57">• Status (issued / delivered / failed)</text>
+  <!-- legend -->
+  <rect
+     x="104"
+     y="1128"
+     width="30"
+     height="24"
+     class="pos"
+     id="rect57" />
+  <text
+     x="149"
+     y="1146"
+     class="legend"
+     id="text58">POS content (provided by POS)</text>
+  <rect
+     x="546"
+     y="1128"
+     width="30"
+     height="24"
+     class="ft"
+     id="rect58" />
+  <text
+     x="591"
+     y="1146"
+     class="legend"
+     id="text59">fiskaltrust fiscal data (added by fiskaltrust)</text>
+  <rect
+     x="996"
+     y="1128"
+     width="30"
+     height="24"
+     class="issue"
+     id="rect59" />
+  <text
+     x="1041"
+     y="1146"
+     class="legend"
+     id="text60">Issue / digital receipt data (POS System API v2)</text>
+</svg>
