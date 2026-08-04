@@ -14,6 +14,6 @@ The German Middleware natively supports REST, gRPC and WCF communication without
 
 gRPC uses protocol buffers (i.e. _.proto_ files), a platform-independent standard, to statically describe interfaces. The _.proto_ files of the fiskaltrust.Middleware can be downloaded [here](https://github.com/fiskaltrust/interface-doc/tree/master/dist/protos/).
 
-In case .NET is used to implement the Middleware's interface, we recommend using our open-source NuGet client package (available on [NuGet.org](https://www.nuget.org/packages/fiskaltrust.Middleware.Interface.Client.Grpc/)/[GitHub](https://www.nuget.org/packages/fiskaltrust.Middleware.Interface.Client.Grpc/)).
+In case .NET is used to implement the Middleware's interface, we recommend using our open-source NuGet client package (available on [NuGet.org](https://www.nuget.org/packages/fiskaltrust.Middleware.Interface.Client.Grpc/)).
 
  Please refer to our samples to see how the Middleware can be implemented via gRPC using other programming languages or specific platforms (e.g. [Java](https://github.com/fiskaltrust/middleware-demo-java), [Node.JS](https://github.com/fiskaltrust/middleware-demo-node), or [Android](https://github.com/fiskaltrust/middleware-demo-android)).

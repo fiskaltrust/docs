@@ -97,7 +97,7 @@ The main tasks of the launcher are:
 
 The executable file `fiskaltrust.exe` and the corresponding DLLs can be distributed via copy-paste and then configured and installed with the help of a command-line parameter. The launcher can be downloaded (incl. configuration) from the configuration page of the fiskaltrust.Portal, or found on [nuget.org](https://www.nuget.org/packages?q=fiskaltrust) and configured manually.
 
-Call parameter of the launcher are documented in the chapter [installation](../components/components-install-config.md).
+Call parameter of the launcher are documented in the chapter [installation](../installation/installation.md).
 
 ## Private cloud (operated by a third party) installed components
 

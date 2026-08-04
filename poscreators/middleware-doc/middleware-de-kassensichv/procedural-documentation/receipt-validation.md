@@ -38,7 +38,11 @@ This error indicates an inconsistency between Net, VAT, and Gross amounts on a r
 #### Example
 Position 1 in receipt ftD#IT14: Net (76,52400) + calculated VAT (12,24384) at 16,00% = 88,76784 does not match Gross (91,10000). Difference: -2,33216.
 
-![receipt-validation-E5010](images/receiptvalidationE5010.png)
+<p align="center">
+  <img src="images/receiptvalidationE5010.png"
+       alt="Receipt validation error"
+       width="40%" />
+</p>
 
 #### Background
 fiskaltrust applies the gross (brutto) calculation method.  
@@ -89,7 +93,11 @@ This error occurs when the VATRate specified on a charge item does not match the
 #### Example
 Position 1 in receipt ft19F#IT416: VATRate (20.00%) does not match the rate implied by ftChargeItemCase (0x4445000000000001, expected 19.00%).
 
-![receipt-validation-E5011](images/receiptvalidationE5011.png)
+<p align="center">
+  <img src="images/receiptvalidationE5011.png"
+       alt="Receipt validation error"
+       width="40%" />
+</p>
 
 #### Cause
 The POS system transmitted inconsistent VAT information for a charge item:
@@ -117,7 +125,11 @@ This error occurs when the sum of cash pay items across individual receipts does
 
 The sum of per-receipt cash payments (-149.00) differs from the total cash payment amount (-19.00) by -130.00.
 
-![receipt-validation-E5020](images/receiptvalidationE5020.png)
+<p align="center">
+  <img src="images/receiptvalidationE5020.png"
+       alt="Receipt validation error"
+       width="60%" />
+</p>
 
 #### Cause
 
@@ -158,7 +170,11 @@ Both values must be equal. Any difference indicates inconsistent aggregation or 
 Total payment amount (12.00) does not match the sum of per-receipt gross turnover (10.00).  
 Difference: 2.00.
 
-![receipt-validation-E5030](images/receiptvalidationE5030.png)
+<p align="center">
+  <img src="images/receiptvalidationE5030.png"
+       alt="Receipt validation error"
+       width="40%" />
+</p>
 
 #### Cause
 
@@ -202,7 +218,11 @@ Both values must be equal (within a tolerance of 0.01). Any deviation indicates 
 
 Position 0 in receipt ft5#IT41279: STK_BR (3.00000) * MENGE (2.000) = 6.00000 does not match POS_BRUTTO (10.00000).
 
-![receipt-validation-E5070](images/receiptvalidationE5070.png)
+<p align="center">
+  <img src="images/receiptvalidationE5070.png"
+       alt="Receipt validation error"
+       width="60%" />
+</p>
 
 #### Cause
 
@@ -244,7 +264,11 @@ Both places are checked. If neither is populated on a void receipt, the receipt 
 
 #### Example
 
-![receipt-validation-E5290](images/receiptvalidationE5290.png)
+<p align="center">
+  <img src="images/receiptvalidationE5290.png"
+       alt="Receipt validation error"
+       width="40%" />
+</p>
 
 #### Cause
 

@@ -20,7 +20,6 @@ The _fiskaltrust.Middleware.SCU.IT.EpsonRTPrinter_ package connects the middlewa
 | DeviceUrl| The URL or IP address of the RT Printer or Server | mandatory |
 | ClientTimeoutMs | The HTTP client timeout used when communicating with the RT Printer or Server. | `15000`<br />optional |
 | ServerTimeoutMs | The server/printer timeout for executing commands.                             |optional               |
-| ForceRebootAfterDailyClosing | The server/printer will automatically reboot if set to `true` after daily closure (z-report)| `true` or `false`, optional, default `false`|
 
 Please pay attention to the case-sensitive use of the parameters.
 
