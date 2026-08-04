@@ -33,6 +33,6 @@ Mark these receipts with the "failed receipt" code to indicate the issue. The Mi
 
 :::tip
 
-We recommend re-sending the first failed receipt with the receipt request flag 0x0000800000000000. This ensures that if the receipt was already sent but the response was lost (e.g., due to a network issue), the Middleware will retrieve and return the original receipt. More details about this flag can be found [here](../../general/reference-tables//reference-tables.md#ftreceiptcaseflag)
+We recommend re-sending the first failed receipt with the receipt request flag 0x0000800000000000. This ensures that if the receipt was already sent but the response was lost (e.g., due to a network issue), the Middleware will retrieve and return the original receipt. More details about this flag can be found [here](../../general/reference-tables/reference-tables.md#ftreceiptcaseflag)
 
 :::

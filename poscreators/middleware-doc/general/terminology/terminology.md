@@ -24,3 +24,5 @@ The table below contains descriptions and explanations of all general terms and 
 | CashBoxIdentification         | Value to identify the Queue. Can be found on the Queue Configuration page in the portal.                                                                                                                                                                 |
 
 *Table 2. Definition of Terms and Abbreviations (general)*
+
+<!-- sync-to-docs dry-run test trigger — remove before merge -->

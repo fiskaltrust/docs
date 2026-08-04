@@ -24,7 +24,7 @@ The _fiskaltrust.Middleware.SCU.IT.CustomRTServer_ package connects the middlewa
 | SendReceiptsSync | true: sends the receipts to the server - false: enqueues the receipts in the cache and sends them to the RT Server in the background | `true`<br />mandatory |
 | IgnoreRTServerErrors | true: ignores the errors, the status and the logs must be checked, false: the exceptions will be thrown | mandatory |
 | RTServerHttpTimeoutInMs | Timeout in milliseconds used in the communication with the RT Server | `5000`<br />mandatory |
-| DisabelSSLValidation | Disables the certificate verification in secured protocols | mandatory |
+| DisableSSLValidation | Disables the certificate verification in secured protocols | mandatory |
 | ServiceFolder | Local folder for services | optional |
 | CacheDirectory | Local folder for caching | optional |
 

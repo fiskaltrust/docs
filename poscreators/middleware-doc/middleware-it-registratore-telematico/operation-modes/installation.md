@@ -38,7 +38,6 @@ For the Italian market, depending on the platform, following communication servi
 |                               | Type,Form factor | Windows       | Linux, macOS  | Android       |
 |-------------------------------|------------------|---------------|---------------|---------------|
 | [Epson RT Printer](scu/epsonprinter.md) | Hardware printer | **supported** | **supported** | **supported** |
-| [Epson RT Server](scu/epsonserver.md) | Hardware server | **supported** | **supported** | **supported** |
 | [Custom RT Printer](scu/customprinter.md) | Hardware printer | **supported** | **supported** | **supported** |
 | [Custom RT Server](scu/customserver.md) | Hardware server | **supported** | **supported** | **supported** |
 | [IVA Servizi](scu/ivaservizi.md) | Government web | **supported  via CloudCashBox** | **supported via CloudCashBox** | ** supported  via CloudCashBox** |
@@ -70,4 +69,7 @@ For configuration scenarios for operating the fiskaltrust.Middleware, please ref
 
 ## Installation
 
-For the on- and off-premise installation of the fiskaltrust.Middleware please refer to the [installation chapter in the general part](../../general/components/components-install-config.md).
+For the on- and off-premise installation of the fiskaltrust.Middleware please refer to the [installation chapter in the general part](../../general/installation/installation.md).
+
+
+
