@@ -56,6 +56,17 @@ The matrix below shows which payment features are supported per vendor. Use it t
 | Global Payments<br />GPtom                      | 1.2.5+  | 1.3.0+ | ?                   | 1.3.0+ | 1.2.8+                   | 1.3.0+                           | ?                                | ?             | –                                    | ?                                                              |
 | Global Payments<br />GP Pay                     | 1.2.5+  | 1.3.0+ | ?                   | 1.3.0+ | ?                        | 1.3.0+                           | ?                                | ?             | ?                                    | ?                                                              |
 | Shift4                                          | 1.2.8+  | 1.2.8+ | n/a                 | 1.2.8+ | 1.3.0+                   | 1.3.0+                           | –                                | –             | n/a                                  | ?                                                              |
+| Sumup (PaymentSwitch) <sup>1)</sup>              | 1.3.2+  | 1.3.2+ | ?                   | 1.3.2+ | ?                        | ?                                | ?                                | ?             | ?                                    | ?                                                              |
+| Nexi SoftPOS<br />(MyPayments)                  | 1.3.2+  | 1.3.2+ | ?                   | 1.3.2+ | ?                        | ?                                | ?                                | ?             | ?                                    | ?                                                              |
+
+### Notes
+
+**1) Sumup notes**
+
+- `payment` is performed via the installed [Sumup Android app](https://play.google.com/store/apps/details?id=com.kaching.merchant) (see also [Sumup support pages](https://help.sumup.com/en-US/articles/7mfghXVvILv2QJW3RyJlF9-app-herunterladen)).
+- `refund` and `cancel` and extended receipt information mandatory in most contries are performed via the Sumup cloud API, which requires a configured API key (see [Sumup documentation](https://developer.sumup.com/tools/authorization/api-keys)). When no API key is configured, only the `payment` action is supported via the installed Sumup app.
+
+Suggestions for setup: Install the Sumup Andorid app and configure the merchants API key for full feature support. See Sumup documentation for further details.
 
 ### Legend
 
