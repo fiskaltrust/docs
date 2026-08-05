@@ -79,7 +79,7 @@ Suppose your network requires a proxy for outbound connections. In that case, yo
 
 ### Setting the proxy configuration
 
-Setting the configuration parameters can be done using the Launcher's [`-proxy` parameter](https://docs.fiskaltrust.cloud/docs/poscreators/middleware-doc/general/installation#launcher-configuration). This parameter takes a semicolon-separated connection string with **five arguments**, specifying the address of the proxy, an optional username and password for authentication, as well as two exception settings.
+Setting the configuration parameters can be done using the Launcher's [`-proxy` parameter](https://docs.fiskaltrust.cloud/docs/poscreators/middleware-doc/general/components/components-install-config#launcher-configuration). This parameter takes a semicolon-separated connection string with **five arguments**, specifying the address of the proxy, an optional username and password for authentication, as well as two exception settings.
 
 | Value           | Description                                                                                                                | Required |
 |-----------------|----------------------------------------------------------------------------------------------------------------------------|----------|
