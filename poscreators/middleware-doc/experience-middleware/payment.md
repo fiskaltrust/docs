@@ -46,34 +46,40 @@ Payment integration is primarily relevant for:
 
 The matrix below shows which payment features are supported per vendor. Use it to plan integrations and to spot gaps where fiskaltrust can help.
 
-| PSP                             | payment | refund | unreferenced-refund | cancel | Transaction Status Check | TIP<br />(pay-app → fiskaltrust) | TIP<br />(fiskaltrust → pay-app) | under-payment | batch processing<br />(close-batch) | merchant receipt support<br />(in addition to customer receipt) |
-|-------------------------------------------------|---------|--------|---------------------|--------|--------------------------|----------------------------------|----------------------------------|---------------|--------------------------------------|----------------------------------------------------------------|
-| Viva                                            | 1.2.5+  | 1.3.0+ | –                   | 1.3.0+ | ?                        | 1.3.0+                           | –                                | ?             | ?                                    | ?                                                              |
-| Hobex POSit                                     | 1.2.8+  | 1.3.0+ | –                   | 1.3.0+ | 1.3.0+                   | 1.3.0+                           | ?                                | ?             | yes (auto)                           | ?                                                              |
-| Hobex ECR                                       | 1.2.5+  | 1.3.0+ | –                   | 1.3.0+ | 1.3.0+                   | 1.3.0+                           | ?                                | ?             | ?                                    | ?                                                              |
-| Worldline / PayOne WPI<br />(TOM + SmartPOS)    | 1.2.5+  | 1.3.0+ | n/a                 | 1.3.0+ | 1.3.0+                   | 1.3.0+                           | –                                | ?             | n/a                                  | ?                                                              |
-| Softpay\.io                                     | 1.2.8+  | 1.3.0+ | –                   | 1.3.0+ | 1.3.0+                   | 1.3.0+                           | ?                                | ?             | yes (auto)                           | ?                                                              |
-| Global Payments<br />GPtom                      | 1.2.5+  | 1.3.0+ | ?                   | 1.3.0+ | 1.2.8+                   | 1.3.0+                           | ?                                | ?             | –                                    | ?                                                              |
-| Global Payments<br />GP Pay                     | 1.2.5+  | 1.3.0+ | ?                   | 1.3.0+ | ?                        | 1.3.0+                           | ?                                | ?             | ?                                    | ?                                                              |
-| Shift4                                          | 1.2.8+  | 1.2.8+ | n/a                 | 1.2.8+ | 1.3.0+                   | 1.3.0+                           | –                                | –             | n/a                                  | ?                                                              |
-| Sumup (PaymentSwitch) <sup>1)</sup>              | 1.3.2+  | 1.3.2+ | ?                   | 1.3.2+ | ?                        | ?                                | ?                                | ?             | ?                                    | ?                                                              |
-| Nexi SoftPOS<br />(MyPayments)                  | 1.3.2+  | 1.3.2+ | ?                   | 1.3.2+ | ?                        | ?                                | ?                                | ?             | ?                                    | ?                                                              |
+| PSP | payment | refund | unreferenced-refund | cancel | Transaction Status Check | TIP<br />(pay-app → fiskaltrust) | TIP<br />(fiskaltrust → pay-app) | under-payment | batch processing<br />(close-batch) | merchant receipt support<br />(in addition to customer receipt) |
+| --- | ------- | ------ | ------------------- | ------ | -------------------------- | ---------------------------------- | ---------------------------------- | --------------- | -------------------------------------- | ----------------------------- |
+| Viva | 1.2.5+ | 1.3.0+ | – | 1.3.0+ | ? | 1.3.0+ | – | ? | ? | ? |
+| Hobex POSit | 1.2.8+ | 1.3.0+ | – | 1.3.0+ | 1.3.0+ | 1.3.0+ | ? | ? | yes (auto) | ? |
+| Hobex ECR | 1.2.5+ | 1.3.0+ | – | 1.3.0+ | 1.3.0+ | 1.3.0+ | ? | ? | ? | ? |
+| Worldline / PayOne WPI<br />(TOM + SmartPOS) | 1.2.5+ | 1.3.0+ | n/a | 1.3.0+ | 1.3.0+ | 1.3.0+ | – | ? | n/a | ? |
+| Softpay\.io | 1.2.8+ | 1.3.0+ | – | 1.3.0+ | 1.3.0+ | 1.3.0+ | ? | ? | yes (auto) | ? |
+| Global Payments<br />GPtom | 1.2.5+ | 1.3.0+ | ? | 1.3.0+ | 1.2.8+ | 1.3.0+ | ? | ? | – | ? |
+| Global Payments<br />GP Pay | 1.2.5+ | 1.3.0+ | ? | 1.3.0+ | ? | 1.3.0+ | ? | ? | ? | ? |
+| Shift4 | 1.2.8+ | 1.2.8+ | n/a | 1.2.8+ | 1.3.0+ | 1.3.0+ | – | – | n/a | ? |
+| SumUp (PaymentSwitch) <sup>1)</sup> | 1.3.2+ | 1.3.2+ | ? | 1.3.2+ | ? | ? | ? | ? | ? | ? |
+| Nexi SoftPOS<br />(MyPayments) | 1.3.2+ | 1.3.2+ | ? | 1.3.2+ | ? | ? | ? | ? | ? | ? |
 
 ### Notes
 
-**1) Sumup notes**
+**1) SumUp**
 
-- `payment` is performed via the installed [Sumup Android app](https://play.google.com/store/apps/details?id=com.kaching.merchant) (see also [Sumup support pages](https://help.sumup.com/en-US/articles/7mfghXVvILv2QJW3RyJlF9-app-herunterladen)).
-- `refund` and `cancel` and extended receipt information mandatory in most contries are performed via the Sumup cloud API, which requires a configured API key (see [Sumup documentation](https://developer.sumup.com/tools/authorization/api-keys)). When no API key is configured, only the `payment` action is supported via the installed Sumup app.
+- `payment` is performed via the installed [SumUp Android app](https://play.google.com/store/apps/details?id=com.kaching.merchant) (see also [SumUp: download the app](https://help.sumup.com/en-US/articles/7mfghXVvILv2QJW3RyJlF9-app-herunterladen)).
+- `refund` and `cancel` are performed via the SumUp cloud API, which requires a configured API key (see [SumUp: API keys](https://developer.sumup.com/tools/authorization/api-keys)).
+- The extended receipt information required in most countries is also retrieved via the SumUp cloud API and therefore also requires an API key.
+- Without a configured API key, only the `payment` action is supported via the installed SumUp app.
 
-Suggestions for setup: Install the Sumup Andorid app and configure the merchants API key for full feature support. See Sumup documentation for further details.
+:::tip Recommended setup
+
+Install the SumUp Android app and configure the merchant's API key for the full feature support. See the [SumUp documentation](https://developer.sumup.com/) for further details.
+
+:::
 
 ### Legend
 
-| Value        | Meaning                                                                            |
-|--------------|------------------------------------------------------------------------------------|
-| `1.x.y+`     | Available from this InStore App release onwards.                                   |
-| `yes (auto)` | Is supported by the PSP in an automatic way. No intervention from our side needed. |
-| `–`          | Supported by the PSP but not on our roadmap (yet).                                 |
-| `?`          | We do not know whether it is supported by the PSP as of today.                     |
-| `n/a`        | Not supported by the PSP.                                                          |
+| Value | Meaning |
+| ----- | ------- |
+| `1.x.y+` | Available from this InStore App release onwards. |
+| `yes (auto)` | Supported and handled automatically by the PSP; no configuration in fiskaltrust required. |
+| `–` | Supported by the PSP, but not yet implemented by fiskaltrust and not currently planned. |
+| `?` | Not yet confirmed with the PSP. |
+| `n/a` | Not supported by the PSP. |
