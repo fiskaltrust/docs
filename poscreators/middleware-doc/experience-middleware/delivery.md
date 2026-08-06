@@ -25,7 +25,7 @@ The traditional paper receipt issued at the point of sale.
 
 An electronic version of the receipt delivered to the consumer through a digital channel after the transaction has been fiscalized.
 
-- Delivered via QR code, HTTPS link, SMS, email, or the [InStore App](https://docs.fiskaltrust.eu/docs/poscreators/middleware-doc/instore-app/introduction).
+- Delivered via QR code, HTTPS link, SMS, email, or the [InStore App](../instore-app/introduction/introduction.md).
 - Linked to the underlying fiscal receipt so that the digital and fiscal documents always correspond.
 - Reduces paper consumption and enables downstream interactions such as loyalty, returns, or feedback collection.
 
@@ -40,7 +40,7 @@ For implementation details, see the [Digital Receipt](../digital-receipt/introdu
 
 A machine-readable invoice containing standardized data fields in addition to the human-readable representation.
 
-A structured invoice (also known as e-invoice) describes data available in a structured form rather than just as a visual representation (e.g. PDF). All subsequent processing is simply a conversion of that data — the fiskaltrust.Middleware already outputs data in a [structured format](https://docs.fiskaltrust.eu/docs/poscreators/middleware-doc/general/data-structures).
+A structured invoice (also known as e-invoice) describes data available in a structured form rather than just as a visual representation (e.g. PDF). All subsequent processing is simply a conversion of that data — the fiskaltrust.Middleware already outputs data in a [structured format](../general/data-structures/data-structures.md).
 
 E-invoicing is the electronic exchange of invoices across **B2B**, **B2G**, and **B2C** transactions, and increasingly between businesses and tax authorities. It is built into the fiskaltrust.Middleware's core process — any merchant already integrated with `/sign` is ready to use it, with support available directly through the POS system API.
 

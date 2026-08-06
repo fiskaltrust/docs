@@ -26,7 +26,7 @@ The same applies if different electronic recording systems are used in the cours
 
 #### How to use
 
-Connect requests representing a business action with ['cbReceiptReference'](https://docs.fiskaltrust.cloud/docs/poscreators/middleware-doc/germany/data-structures#single-fields).
+Connect requests representing a business action with ['cbReceiptReference'](../data-structures/data-structures.md#single-fields).
 
 #### Workflow example
 
@@ -49,7 +49,7 @@ Code examples of receipt sequences can be found in our [Postman collection](http
 
 #### How to use
 
-Use ['cbReceiptPreviousReference'](https://docs.fiskaltrust.cloud/docs/poscreators/middleware-doc/germany/data-structures#single-fields) to point to a 'cbReceiptReference' of a previous request to split or void a receipt.
+Use ['cbReceiptPreviousReference'](../data-structures/data-structures.md#single-fields) to point to a 'cbReceiptReference' of a previous request to split or void a receipt.
 
 #### Workflow example
 
@@ -72,7 +72,7 @@ Code examples of splitting receipts can be found in our [Postman collection](htt
 
 #### How to use
 
-Merge receipts by combining ['cbReceiptReference' and 'cbReceiptPreviousReference'](https://docs.fiskaltrust.cloud/docs/poscreators/middleware-doc/germany/data-structures#single-fields). Use ftReceiptCase 'Info-internal' to create a new 'cbReceiptReference' and refer via 'cbPreviousReceiptReference' to the order you want to merge. Repeat this for each order you want to merge using the same 'cbReceiptReference' and using 'cbPreviousReceiptPreference' to point to the order to be merged.
+Merge receipts by combining ['cbReceiptReference' and 'cbReceiptPreviousReference'](../data-structures/data-structures.md#single-fields). Use ftReceiptCase 'Info-internal' to create a new 'cbReceiptReference' and refer via 'cbPreviousReceiptReference' to the order you want to merge. Repeat this for each order you want to merge using the same 'cbReceiptReference' and using 'cbPreviousReceiptPreference' to point to the order to be merged.
 
 #### Workflow example
 
@@ -136,7 +136,7 @@ A couple checks in to a hotel for one night. They have a beer at the hotel bar, 
 
 #### How to use
 
-Use 'info-internal' with ['ftReceiptCaseData' according to the requirements of the DSFinV-K-specification](https://docs.fiskaltrust.cloud/docs/poscreators/middleware-doc/germany/dsfinv-k#file-bon_referenzen-referencescsv) to reference to an business-action recorded by an external queue or POS-System which needs to be merged with your ongoing internal business-action. By creating a new 'cbReceiptReference', you create the precondition to merge the receipt the external system with your internal receipts of the ongoing business-action. Repeat this step to collect and reference to multiple external POS-Systems with related business-actions to be charged. The obligation to issue receipts arises at the POS-System where the POS receipt is being created.
+Use 'info-internal' with ['ftReceiptCaseData' according to the requirements of the DSFinV-K-specification](../procedural-documentation/dsfinv-k-generation.md#file-bon_referenzen-referencescsv) to reference to an business-action recorded by an external queue or POS-System which needs to be merged with your ongoing internal business-action. By creating a new 'cbReceiptReference', you create the precondition to merge the receipt the external system with your internal receipts of the ongoing business-action. Repeat this step to collect and reference to multiple external POS-Systems with related business-actions to be charged. The obligation to issue receipts arises at the POS-System where the POS receipt is being created.
 
 ##### Prerequisites
 

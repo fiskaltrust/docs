@@ -71,7 +71,7 @@ This high-level overview shows the steps required to implement and configure the
 
 ## Configuring Master Data
 
-For more information about the configuration steps for the master data, see [Digital Receipt Introduction](https://docs.fiskaltrust.cloud/docs/posdealers/buy-resell/products/digital-receipt#introduction).
+For more information about the configuration steps for the master data, see [Digital Receipt Introduction](../../../../posdealers/buy-resell/products/digital-receipt.md#introduction).
 
 ## Implementing InStore App 
 

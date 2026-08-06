@@ -37,7 +37,7 @@ This is the regular workflow of the fiskaltrust-SecurityMechanism in the German 
 
 ### How to use
 
-Sign-call with a [ftReceiptCase for implicit flow](https://docs.fiskaltrust.cloud/docs/poscreators/middleware-doc/germany/reference-tables/ftreceiptcase#type-of-receipt-ftreceiptcase) + ftReceiptCaseFlag `0x0000000100000000`.
+Sign-call with a [ftReceiptCase for implicit flow](../reference-tables/type-of-receipt-ftreceiptcase.md#type-of-receipt-ftreceiptcase) + ftReceiptCaseFlag `0x0000000100000000`.
 The up-counting transaction number defined in TR-03153 is responded behind the hash-tag in the property 'ftReceiptIdentification' of 'ReceiptResponse', prefixed by "IT".
 
 **For the implicit flow, ADDITIONALLY the start time of the first transaction of the business-action (e.g. start time of the first order) has to be printed on the receipt as the start-time of the action.**

@@ -5,7 +5,7 @@ title: Introduction
 
 # Appendix: France (BOI-TVA-DECLA 30-10-30)
 
-This appendix expands on the [General Part](https://docs.fiskaltrust.eu/docs/poscreators/middleware-doc)'s information by adding details specific to the French market. This additional information is provided only where applicable. The remaining chapters, for which there is no further information required, were omitted.
+This appendix expands on the [General Part](../general/general.md)'s information by adding details specific to the French market. This additional information is provided only where applicable. The remaining chapters, for which there is no further information required, were omitted.
 
 The link to the relevant paragraph in the French law regarding the secured cash desk software:
 
@@ -29,4 +29,4 @@ New features such as e-invoicing are available exclusively through the **PosSyst
 
 :::
 
-<div class="alert alert--warning" role="alert">Please note that this information is only complete when combined with the <a href="https://docs.fiskaltrust.eu/docs/poscreators/middleware-doc">General Part</a>.<br />To implement the Middleware, users should get themselves familiar with the general information first and then refer to the country-specific details listed here.</div>
+<div class="alert alert--warning" role="alert">Please note that this information is only complete when combined with the [General Part](../general/general.md).<br />To implement the Middleware, users should get themselves familiar with the general information first and then refer to the country-specific details listed here.</div>
