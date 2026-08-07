@@ -40,6 +40,8 @@ To enable notifications:
 
 ![Onboarding Email](./images/OnboardingEmail_DE.png)
 
+*Figure 1. Onboarding email sent to the Operator to start the notifications data form.*
+
 The onboarding email includes:
 
 - A brief explanation of the notifications process
@@ -81,6 +83,8 @@ Dealers can also:
 If the notification was successful, the operator receives a **confirmation email** with the ELSTER-Übermittlungsprotokoll attached:
 
 ![Confirmation Email](./images/ConfirmationEmail_DE.png)
+
+*Figure 2. Confirmation email with the ELSTER transmission protocol attached.*
 
 ## Troubleshooting & Support  
 
@@ -127,7 +131,11 @@ If notifications are disabled and later re-enabled:
 | 5\. Notification Sending & Status Tracking | \- Track notification status (scheduled, sent, failed, blocked).<br/>  \- Enable/disable or trigger notifications manually.<br/>  \- Use filters to prioritize Operators.<br/>  \- Keep records for compliance and support.<br/> | \- Monitor confirmation or follow-up emails.<br/>  \- Stay informed if notifications are paused or disabled. |
 | 6\. Ongoing Support | \- Maintain communication with Operators.<br/>  \- Contact fiskaltrust support for technical issues. | \- Reach out to Dealer with questions or for assistance. |
 
+*Table 1. Dealer and Operator responsibilities across the notification onboarding steps.*
+
 ![Notification Flow](./images/NotificationFlow_DE.png)
+
+*Figure 3. Overview of the notification workflow between Dealer, Operator, and fiskaltrust.*
 
 ## Legal Baseline
 Law: [§ 146a Abs. 4 AO](https://www.gesetze-im-internet.de/ao_1977/__146a.html)
@@ -170,6 +178,8 @@ Since we use data from the fiskaltrust.Middleware and fiskaltrust.Portal to gene
 | POSOperator-Account | Company info / Outlets | Postal code | The postal code is mandatory.|
 | POSOperator-Account | Company info / Outlets | City | The city is mandatory.|
 
+*Table 2. Master data values required in the POSOperator account for the notification.*
+
 ### Preriquities for POSCreators
 The fiskaltrust.Notification product won't require a new implementation. However there are processes, receipts and data that have already been part of the fiskaltrust.Middleware that are now mandatory for the notification. 
 
@@ -196,9 +206,13 @@ After opening the form link, the steps to be performed are displayed.
 You can return to previous steps in the form at any time. Closing and reopening the form via the same link is also possible without issues. The steps are saved, and progress is preserved.  
 ![Form Opening](./images/1_Opening_Page_Form_DE.png)
 
+*Figure 4. Opening page of the operator form showing the steps to complete.*
+
 ### 2. Verify Company Data
 Check and, if necessary, correct the displayed data. This concerns the master data of the company's headquarters, i.e., the address for which the tax office has assigned the tax number to the company. If the displayed information is incorrect, it must be corrected in the form.  
 ![HQ Masterdata](./images/2_HQ_masterdata_DE.png)
+
+*Figure 5. Company headquarters master data step of the operator form.*
 
 #### Fields to Complete
 | Field                        | Explanation                                                                                                                                                            |
@@ -209,9 +223,13 @@ Check and, if necessary, correct the displayed data. This concerns the master da
 | Postal Code (Company Headquarters) | Enter the address registered for the above-mentioned tax number. Individual branch locations, if applicable, will be addressed later in the form. |
 | City (Company Headquarters) | Enter the address registered for the above-mentioned tax number. Individual branch locations, if applicable, will be addressed later in the form. |
 
+*Table 3. Fields to complete for the company headquarters in the operator form.*
+
 #### Tax Number
 Example tax notice:  
 ![Steuernummer](./images/2_steuerbescheid_DE.jpg)
+
+*Figure 6. Example tax notice showing where to find the tax number.*
 
 ### 3. Review Existing Data
 The information already available at fiskaltrust regarding branch locations and cash registers is displayed. Missing or invalid data is marked in red.
@@ -219,12 +237,18 @@ The information already available at fiskaltrust regarding branch locations and 
 Data for each branch location is listed in a separate row.  
 ![Outlet to Review](./images/3_Outlet_Data_DE.png)
 
+*Figure 7. Review of existing branch location data, with missing or invalid entries marked in red.*
+
 #### Verify and Edit Location Data
 First, review the displayed address of the location. If the information is incorrect, it can be edited via the **Edit** button.  
 ![Outlet Edit](./images/3_Outlet_Edit_DE.png)
 
+*Figure 8. Edit button used to correct a location's address.*
+
 Data for the location can now be adjusted and saved in the edit menu.  
 ![Outlet Window](./images/3_Outlet_Edit_windows_DE.png)
+
+*Figure 9. Edit menu for adjusting and saving location data.*
 
 #### Edit Cash Register Data
 Missing mandatory information for cash registers is displayed in red. The individual cash registers of a location can be listed by selecting the **>** button next to the location name.
@@ -232,8 +256,12 @@ Missing mandatory information for cash registers is displayed in red. The indivi
 If more cash registers are listed than actually exist at the location, they must be deactivated via the cash register software or in the fiskaltrust.Portal. If in doubt, contact your cash register provider.  
 ![POS Edit](./images/3_pos_Edit_DE.png)
 
+*Figure 10. Cash registers listed for a location, expanded via the > button.*
+
 Missing information can be added using the **Edit** button.  
 ![POS Edit Window](./images/3_pos_Edit_windows_DE.png)
+
+*Figure 11. Edit window for completing missing cash register information.*
 
 ##### Possible Fields
 | Field                                 | Explanation                                                                                                                        |
@@ -241,15 +269,21 @@ Missing information can be added using the **Edit** button.
 | Purchase Date of the Cash Register       | Enter the purchase date (invoice date) or the lease date of the cash register.                          |
 | Date of Cash Register Activation | Enter the date the cash register was activated. This is the point at which the cash register could be used for business transactions. **Note:** TSE activation is not relevant here. |
 
+*Table 4. Cash register fields available in the edit window.*
+
 #### Completion of Review
 Once all data has been supplemented or corrected, all locations and cash registers are marked in green.  
 ![Green Fields](./images/3_Outlet_green_DE.png)
+
+*Figure 12. All locations and cash registers marked green once data is complete.*
 
 ### 4. Add External Cash Registers
 If there are additional cash registers at the locations that are not listed on the [3. Review Existing Data](#3-review-existing-data) page, these are so-called **external cash registers**. This usually occurs when there are cash registers from various manufacturers at a location that are not all connected via the fiskaltrust.Middleware.
 
 The law requires that all cash registers at a branch location must be reported according to §146a Paragraph 4 AO. Thus, it is mandatory to add all cash registers not shown on the [3. Review Existing Data](#3-review-existing-data) page to the report.  
 ![External POS](./images/4_external_pos_DE.png)
+
+*Figure 13. Adding external cash registers not connected via the Middleware.*
 
 For adding external cash registers, the form provides two options:
 
@@ -261,18 +295,28 @@ The DSFinV-K export is a mandatory feature of every cash register. If a DSFinV-K
 Select **Choose File** to upload the DSFinV-K in ZIP format.  
 ![DSFinV-K Upload](./images/4_dsfinvk_DE.png)
 
+*Figure 14. Choosing a DSFinV-K ZIP file to upload.*
+
 The DSFinV-K is imported into the form by clicking **Import File**.  
 ![DSFinV-K Import](./images/4_dsfinvk_importr.png)
+
+*Figure 15. Importing the uploaded DSFinV-K file into the form.*
 
 You must now select the location the DSFinV-K originates from. Click **Import** to import the cash registers.  
 ![Outlet Select](./images/4_select_outlet_DE.png)
 
+*Figure 16. Selecting the location the DSFinV-K originates from before import.*
+
 The list now shows imported cash registers by location. The import process can be repeated as often as necessary.  
 ![List](./images/4_pos_list_DE.png)
+
+*Figure 17. Imported cash registers listed by location.*
 
 #### Manually Add Cash Register
 If a DSFinV-K export is not possible or import errors occur, you can manually add the cash register using the **Manually Add Cash Register** button.  
 ![Manual Third Party POS](./images/4_manual_DE.png)
+
+*Figure 18. Manually adding a cash register.*
 
 ##### Fields
 | Field                | Description                                                                                                                      |
@@ -288,6 +332,8 @@ If a DSFinV-K export is not possible or import errors occur, you can manually ad
 | Purchase Date           | Enter the purchase date (invoice date) or the lease date of the cash register.                           |
 | Activation Date | Enter the date the cash register was activated. This is the point at which it was usable for business transactions. |
 
+*Table 5. Fields for manually adding an external cash register.*
+
 ##### Verify and Complete Data
 If data is still missing after importing the DSFinV-K or manually adding the cash register, it can be completed or corrected as described in [Edit Cash Register Data](#edit-cash-register-data). Possible fields are described in [Manually Add Cash Register](#fields).
 
@@ -295,12 +341,18 @@ If data is still missing after importing the DSFinV-K or manually adding the cas
 If incorrect cash registers were imported or the wrong location was selected, they can be removed via the _trash icon_.  
 ![Delete](./images/4_delete_DE.png)
 
+*Figure 19. Removing an incorrect location or cash register via the trash icon.*
+
 ### 5. Completion
 All steps performed are displayed. If information is missing or invalid in any step, it will also be displayed in this overview. A report can only be made if all steps are error-free.  
 ![Overview](./images/5_overview_DE.png)
 
+*Figure 20. Completion overview listing all performed steps and any remaining errors.*
+
 Click **Submit** to open the mandatory confirmation regarding the accuracy and completeness of the data.  
 ![Confirm](./images/5_confirm_DE.png)
+
+*Figure 21. Confirmation dialog on the accuracy and completeness of the data.*
 
 After confirming, the cash register operator will receive an email informing them about the data update. The data will be transmitted to the tax office the following Sunday. The cash register operator will then receive the ELSTER transmission protocol, which we recommend storing in the procedural documentation.
 
@@ -332,6 +384,8 @@ If the manual entry of data into the ELSTER form is preferred over the convenien
 | AngabenAufzeichnungssystem/BSIID                                            | tse                 | TSE_ZERTIFIKAT       | Configuration.Signature Creation Unit.Details.CertificationIdentification | Configuration/Signature Creation Unit/Details/CertificationIdentification |
 | AngabenAufzeichnungssystem/AnschaffungAS                                    |                     |                      | Not provided by fiskaltrust               | Date of cash register acquisition          |
 | AngabenAufzeichnungssystem/InbetriebnahmeAS                                 |                     |                      | Not provided by fiskaltrust               | Date of cash register commissioning        |
+
+*Table 6. Mapping of ELSTER form fields to DSFinV-K fields and where to find the data.*
 
 Guidelines from the Ministry of Finance: [PDF](https://www.bundesfinanzministerium.de/Content/DE/Downloads/Steuern/FAQ-Ausfuellanleitung.pdf?__blob=publicationFile&v=2)
 

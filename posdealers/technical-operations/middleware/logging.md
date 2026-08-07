@@ -42,6 +42,8 @@ The Middleware distinguishes between seven different log levels.
 | ![](../../images/numbers/circle-6o.png) | `debug`       | Debug messages are logged                                      |
 | ![](../../images/numbers/circle-7o.png) | `trace`       | The most detailed log level, with additional trace information |
 
+*Table 1. Log levels supported by the Middleware.*
+
 Each log level builds upon the previous ones and includes all their information. So, for example, if you configure `warning`, the log will also include the information for the levels `critical` and `error`.
 
 ## Configuring the log level and log file

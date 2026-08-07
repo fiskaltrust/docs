@@ -27,6 +27,8 @@ The [Configuration](./configuration.md) of a CashBox follows these steps:
 | ![Number 6](../../images/numbers/circle-6o.png) | You must select an Outlet at `Outlet`.                                                                                                                                                                               |
 | ![Number 7](../../images/numbers/circle-8o.png) | After you have selected `Save`, you will be directed to `Configuration` / `Signature Creation Unit` / `Configuration`. Add the necessary details for the type of SCU you have made and add a URL for your SCU there. |
 
+*Table 1. Steps to create a Signature Creation Unit.*
+
 ### Queue
 
 A Queue is defined [here](../../business-basics/architecture.md#queue), find more details at our [interface description](https://github.com/fiskaltrust/interface-doc).  
@@ -44,6 +46,8 @@ A Queue is defined [here](../../business-basics/architecture.md#queue), find mor
 | ![Number 9](../../images/numbers/circle-9o.png)   | At `Outlet`, you can choose the desired option but note that this value cannot be changed again after saving your Queue.                                                                                                          |
 | ![Number 10](../../images/numbers/circle-10o.png) |                                                                                                                                                                                                                                  |
 
+*Table 2. Steps to create a Queue.*
+
 ### Assign the SCU to the Queue
 
 The SCU must be assigned to the Queue. Therefore go to `Configuration` / `Queue` and in the row with the created Queue, click on the button `Assign Signature Creation Unit`. A new dialog will open, select the desired SCU and click `Save`.
@@ -59,6 +63,8 @@ The SCU must be assigned to the Queue. Therefore go to `Configuration` / `Queue`
 | ![Number 5](../../images/numbers/circle-5o.png) | At `Outlet`, you can choose the desired outlet but note that this value cannot be changed again after saving your Queue. |
 | ![Number 6](../../images/numbers/circle-6o.png) |                                                                                                                        |
 | ![Number 7](../../images/numbers/circle-7o.png) | Click the button `edit by list` to add the Queue, SCU and optionally a helper.                                         |
+
+*Table 3. Steps to create a CashBox.*
 
 
 ### Helper

@@ -18,6 +18,8 @@ The distribution of fiskaltrust's _products_ and _product bundles_ is done in pa
 
 ![Business Model](images/business-model.png)
 
+*Figure 1. Overview of fiskaltrust's partner-based business model connecting PosCreators, PosDealers and PosOperators.*
+
 In this model, the PosOperator remains the direct customer of the PosDealer. Attractive volume discounts on fiskaltrust's products enable PosDealers to integrate these products into their portfolio and pricing model on their terms.
 
 Support for the PosOperators is provided by the PosDealer, which in turn is supported by fiskaltrust.

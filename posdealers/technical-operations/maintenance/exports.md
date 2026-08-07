@@ -43,6 +43,8 @@ import ReactPlayer from "react-player"
 |![Number 11](../../images/numbers/circle-11o.png)|Open the report data with a tick at `Status`. `export.zip` gives you access to the previously selected data, and `journal.json` gives you technical status information of the export job. |
 |![Number 12](../../images/numbers/circle-12o.png)| Tick `Switch to your account` or repeat these steps with another queue. |
 
+*Table 1. Steps to create and download an export in the fiskaltrust.Portal.*
+
 ## Country-specific exports
 Most countries require specific export formats in their fiscalization laws and regulations. The fiskaltrust.Middleware and the Portal generally support all exports needed in each market we operate in so that cash registers using it are automatically compliant with these requirements.
 

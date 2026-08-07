@@ -26,6 +26,8 @@ Pros and cons describe the scenarios. The term _POS-System fails_ means that the
 | ![Main POS-System](images/main-POS-System.png ) | **Main POS-System** | ![Subsidiary POS-System](images/POS-System.png ) | Subsidiary POS-System |
 |   ![Handheld](images/handheld.png "Handheld")   | Terminal, Handheld  |      ![Server](images/server.png "Server")       | Server                |
 
+*Table 1. Graphic symbols used in the rollout scenario diagrams.*
+
 ## Scenarios
 
 :::tip
@@ -41,16 +43,22 @@ A single SCU for each POS-System is the simplest - and often the most reliable -
 
 ![One SCU for each POS-System](images/scenario-1-RR.png "One SCU for each POS-System")
 
+*Figure 1. Architecture with one SCU dedicated to each POS-System.*
+
 | Facts | Description                                                          |
 | :---: | :------------------------------------------------------------------- |
 |   ➕   | The most simple architectural setup                                  |
 |   ➕   | High performance, because you find all components located on the same device   |
 |   ➖   | Consistent costs for each POS-System without regard to varying needs |
 
+*Table 2. Pros and cons of one SCU for each POS-System.*
+
 ### One SCU at server for multiple POS-Systems
 By placing a single SCU in a separate CashBox and providing access from multiple queues/POS systems, you create a more efficient solution for networked systems, such as in stores with various POS systems and an on-site back office.
 
 ![SCU on a local Server](images/scenario-2-RR.png "SCU on a local Server")
+
+*Figure 2. Single SCU on a local server shared by multiple POS-Systems.*
 
 | Facts | Description                                                                                     |
 | :---: | :---------------------------------------------------------------------------------------------- |
@@ -59,10 +67,14 @@ By placing a single SCU in a separate CashBox and providing access from multiple
 |   ➖   | Possibly higher installation effort, as networking also needs to be set up and maintained        |
 |   ➖   | The server or the signing devices can be a performance or reliability bottleneck                |
 
+*Table 3. Pros and cons of one SCU on a server for multiple POS-Systems.*
+
 ### One SCU in the main POS-System, used by other POS-Systems
 Hosting a single SCU for multiple Queues in the CashBox of the _main_ POS-System can be a more efficient solution for interconnected systems, e.g., in stores with various POS-Systems and **no** on-site back office.
 
 ![Main POS-System for multiple POS-Systems](images/scenario-3-RR.png "Main POS-System for multiple POS-Systems")
+
+*Figure 3. Single SCU hosted in the main POS-System and used by other POS-Systems.*
 
 | Facts | Description                                                                                     |
 | :---: | :---------------------------------------------------------------------------------------------- |
@@ -71,16 +83,22 @@ Hosting a single SCU for multiple Queues in the CashBox of the _main_ POS-System
 |   ➖   | Lower reliability - if the main POS-System is out of operation, all POS-Systems fail            |
 |   ➖   | The main POS-System or the signing devices can be a performance or reliability bottleneck       |
 
+*Table 4. Pros and cons of one SCU in the main POS-System used by other POS-Systems.*
+
 ### Multiple POS-Systems share one external signature service
 In scenarios where the external signing provider supports multi-place usage, this architecture helps reducing local network complexity by re-using the same SCU in multiple CashBoxes.
 
 ![One external signature service](images/scenario-4-RR.png "One external signature service")
+
+*Figure 4. Multiple POS-Systems sharing one external signature service.*
 
 | Facts | Description                                                                                                                       |
 | :---: | :-------------------------------------------------------------------------------------------------------------------------------- |
 |   ➕   | Low complexity, as there are few components used                                                                                  |
 |   ➕   | By sharing the signing entity, you achieve lower costs.                                                      |
 |   ➖   | The cloud signing device can be a performance or reliability bottleneck (as, e.g., requests are handled sequentially by cloud TSSs) |
+
+*Table 5. Pros and cons of sharing one external signature service.*
 
 #### Country-specific limitations
 This setup is only available with cloud signing in Austria or when using the fiskaly cloud TSS in Germany.
@@ -90,6 +108,8 @@ You, as a PosDealer, can recommend this scenario for interconnected POS-Systems.
 
 ![Main POS-System for multiple Terminals](images/scenario-5-RR.png "Main POS-System for multiple Terminals")
 
+*Figure 5. Main POS-System serving multiple terminals without standalone functionality.*
+
 | Facts | Description                                                                             |
 | :---: | :-------------------------------------------------------------------------------------- |
 |   ➕   | Flexibility with changing workloads by adjusting the number of terminals                |
@@ -97,6 +117,8 @@ You, as a PosDealer, can recommend this scenario for interconnected POS-Systems.
 |   ➕   | Lower costs because no server is needed                                                |
 |   ➖   | Low reliability - if the SCU is out of operation, all Terminals and the POS-System fail |
 |   ➖   | Main POS-System can be a performance bottleneck                                         |
+
+*Table 6. Pros and cons of a main POS-System serving multiple terminals.*
 
 :::tip
 
@@ -106,11 +128,14 @@ Our partners' experiences showed that in exceptional cases, terminals become def
 
 ![Main POS-System for multiple Terminals](images/scenario-5B-RR.png "Main POS-System for multiple Terminals")
 
+*Figure 6. Separate queue per terminal hosted in the same CashBox for higher reliability.*
+
 ### Hosted Middleware & custom data centers
 This scenario works best in centralized system architectures. You connect many POS Systems or terminals to the hosted version of the fiskaltrust.Middleware. The Middleware operates either in the user's data center or our cloud (a SaaS product called SignatureCloud). This solution is recommended in countries where remote signing is allowed (Austria and France), as it does not require any locally installed Middleware instances.
 
 ![Main POS-System for multiple Terminals](images/scenario-6-RR.png "Main POS-System for multiple Terminals")
 
+*Figure 7. Hosted Middleware operating in a custom data center or the SignatureCloud.*
 
 | Facts | Description                                                                                                         |
 | :---: | :------------------------------------------------------------------------------------------------------------------ |
@@ -120,3 +145,5 @@ This scenario works best in centralized system architectures. You connect many P
 |   ➕   | Lower operating costs and effort, as no local hardware is needed                                                  |
 |   ➖   | Depending on country-specific conditions, the reliability may be limited if the remote POS-System is unavailable. |
 |   ➖   | Permanent, stable internet connection is required                                                                   |
+
+*Table 7. Pros and cons of hosted Middleware in custom data centers.*

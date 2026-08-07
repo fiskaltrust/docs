@@ -29,15 +29,21 @@ The `Latest Update` button generally assigns the latest available version; the c
 
 ![Bulk Update](./images/update-23-01-12-1.png "https://portal-sandbox.fiskaltrust.TLD/UpdateConfiguration")
 
+*Figure 1. Bulk update view for CashBoxes in the fiskaltrust.Portal under Configuration / Update.*
+
 | Steps | Description                                                                                                                |
 |:----------------------:|-------------------------------------------------------------------------------------------------------------------------------------|
 |![Number 1](../../images/numbers/circle-1o.png) |Go to `Configuration` / `Update`.  |
 |![Number 2](../../images/numbers/circle-2o.png) |Reduce the number of records with filter criteria such as package or version name |
 |![Number 3](../../images/numbers/circle-3o.png) |You can further limit the number of records by selecting individual PosOperators. |
 
+*Table 1. Steps to select CashBoxes for a bulk update.*
+
 After selecting the desired records, choose between updating to the latest version and new configuration or manually selecting the version and rebuilding the chosen configuration.
 
 ![Bulk Update](./images/update-23-01-12-2.png "https://portal-sandbox.fiskaltrust.TLD/UpdateConfiguration")
+
+*Figure 2. Selecting the update version and configuration options for CashBoxes.*
 
 | Steps | Description                                                                                                                |
 |:----------------------:|-------------------------------------------------------------------------------------------------------------------------------------|
@@ -47,6 +53,8 @@ After selecting the desired records, choose between updating to the latest versi
 |![Number 7](../../images/numbers/circle-7o.png) |Note the information about the number of connected CashBoxes. |
 |![Number 8](../../images/numbers/circle-8o.png) |Note the information about the number of updates for your or your PosOperators accounts. |
 |![Number 9](../../images/numbers/circle-9o.png) |Click the `Calculate CashBoxUpdates` button to submit your selection for review. |
+
+*Table 2. Steps for choosing the update version and rebuilding the configuration.*
 
 :::caution Rebuild Configuration
 
@@ -58,11 +66,15 @@ You will find an overview of the calculation result for CashBoxUpdates at `Confi
 
 ![Update Confirmation](./images/update-23-01-12-3.png)
 
+*Figure 3. Summary of the calculated CashBox updates before confirmation.*
+
 | Steps | Description                                                                                                                |
 |:----------------------:|-------------------------------------------------------------------------------------------------------------------------------------|
 |![Number 1](../../images/numbers/circle-1o.png) |With `Remove CashBox from Update`, you reduce the selection to the desired CashBoxes.|
 |![Number 2](../../images/numbers/circle-2o.png) |With `Remove PosOperator from Update`, you reduce the selection to the desired PosOperators. |
 |![Number 3](../../images/numbers/circle-3o.png) |If you are satisfied with the selection, press the `Confirm Update` button to execute the update. |
+
+*Table 3. Steps to refine the selection and confirm the update.*
 
 
 ## Control updates
@@ -72,11 +84,15 @@ After executing the updates, `Configuration`/ `Update`/ `Summary` offers you an 
 
 ![Update Confirmation](./images/update-23-01-12-4.png)
 
+*Figure 4. Overview of update results after execution.*
+
 | Steps | Description                                                                                                                |
 |:----------------------:|-------------------------------------------------------------------------------------------------------------------------------------|
 |![Number 1](../../images/numbers/circle-1o.png) |A success bar shows the progress during the update process with percentages. After completion, the success of all updates is displayed in green; yellow indicates failed updates.|
 |![Number 2](../../images/numbers/circle-2o.png) |The icons display successful or failed updates in the `Status` column. |
 |![Number 3](../../images/numbers/circle-3o.png) |For further investigation, you can `filter` CashBoxes by the results of the updates.|
+
+*Table 4. Steps to review the status of executed updates.*
 
 ## Restart the fiskaltrust.Middleware
 

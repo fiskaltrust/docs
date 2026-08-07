@@ -24,6 +24,8 @@ fiskaltrust offers free webinars. We aim primarily at PosCreators. For PosDealer
 |![Number 4](../images/numbers/circle-4o.png)|Check microphone, speakers and camera, if desired.  |
 |![Number 5](../images/numbers/circle-5o.png)|Deposit questions in the chat area, and the presenters will answer them either live or in writing.  |
 
+*Table 1. Steps for joining and participating in a webinar.*
+
 ## Country-specific information
 
 import Tabs from '@theme/Tabs';

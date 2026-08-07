@@ -20,6 +20,8 @@ As a PosDealer, you thus offer a state-of-the-art PosSystem.
 
 ![receipt-chaining](../images/buy_resell-digital-receipt-3.png)
 
+*Figure 1. Example of a digital receipt as shown to the customer.*
+
 Please note that the visualization in the sandbox may look different than in the productive system.
 Please also note that different regulations or requirements may apply depending on the country where your PosSystem is used. Please refer to the country-specific regulations. Please understand that we can only describe these details without claiming to be complete.
 
@@ -137,3 +139,5 @@ The structure of the records is built up as follows:
 |**ftDeliveredMoment**|**Time** (UTC +2) at which the QR code was retrieved by the consumer.	|04/14/2023 11:21:09|
 |**ftDeliveredStatus**|Output or retrieval **status** of the Receipt: `printed`: _Receipt was printed_, `accepted`: _Receipt was received elsewhere_, `submitted`: _Receipt was provided by the taxpayer_, `delivered`: _Receipt was received by the consumer_	|`Printed`|
 |**ftDeliveredStatusData**|**Outputs** additional parameters, such as model number of the terminal. _Function currently not yet active_	|Hobex ViA Pro |
+
+*Table 1. Fields in the digital receipt export file.*
