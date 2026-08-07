@@ -17,6 +17,8 @@ The integration workflow focuses on the technical implementation of **fiskaltrus
 
 ![integration phases](images/pos-creator-integration-phases.svg)
 
+*Figure 1. Stages of the fiskaltrust.Middleware integration workflow for PosCreators.*
+
 :::info
 
 The [Onboarding Process](./onboarding-process.md) is described separately and is not part of the middleware integration itself.
