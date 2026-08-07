@@ -76,7 +76,7 @@ Additional implicit- and explicit flow examples can be found in our [Postman col
   <p>
 
 <details>
-  <summary>Scenario description and graphical illustration (click to expand)</summary>
+  <summary>Scenario description and graphical illustration</summary>
   <p>
 
 In this example, a customer wants to pay and no more orders are expected. A ftReceiptCase `0x4445000000000001` (POS receipt) + ftReceiptCaseFlag `0x0000000100000000` (Implicit Flag) is being sent to the middleware. The call includes all collected charge- and payitems of the business action (in this example: Soda Zitrone and Kaffee Haag, including cash payment).
@@ -89,7 +89,7 @@ The response's signature block includes all information needed to be printed on 
 </details>
 
 <details>
-  <summary>Request code (click to expand)</summary>
+  <summary>Request code</summary>
   <p>
 
 ```json
@@ -136,7 +136,7 @@ The response's signature block includes all information needed to be printed on 
 </details>
 
 <details>
-  <summary>Response code (click to expand)</summary>
+  <summary>Response code</summary>
   <p>
 
 ```json
@@ -265,7 +265,7 @@ The response's signature block includes all information needed to be printed on 
 </details>
 
 <details>
-  <summary>Receipt details to be printed (click to expand)</summary>
+  <summary>Receipt details to be printed</summary>
   <p>
 
 1. time of receipt creation (DE: Datum der Belegausgabe):  `2020-05-22T11:33:00.260Z"` from `cbReceiptMoment` of the pos-receipt request
@@ -285,7 +285,7 @@ The response's signature block includes all information needed to be printed on 
   <p>
 
 <details>
-  <summary>Scenario description and graphical illustration (click to expand)</summary>
+  <summary>Scenario description and graphical illustration</summary>
   <p>
 
 In this example, ongoing orders are expected over a longer period of time before a payment is made. Therefore, a ftReceiptCase `0x44450000000000010` (Info-order without pay-items) + ftReceiptCaseFlag `0x0000000100000000` (Implicit Flag) is being sent to the middleware to document the long-lasting business-action. This is being repeated for every new order, using 'cbReceiptReference' to connect the new order with the previous corresponding one.
@@ -302,7 +302,7 @@ The response's signature block of the POS receipt includes all information neede
 ###### Day 1 - first order
 
 <details>
-  <summary>Request code (click to expand)</summary>
+  <summary>Request code</summary>
   <p>
 
   ```json
@@ -335,7 +335,7 @@ The response's signature block of the POS receipt includes all information neede
 </details>
 
 <details>
-  <summary>Response code (click to expand)</summary>
+  <summary>Response code</summary>
   <p>
 
   ```json
@@ -387,7 +387,7 @@ nothing to print here
 ###### Day 2 - second order
 
 <details>
-  <summary>Request code (click to expand)</summary>
+  <summary>Request code</summary>
   <p>
 
   ```json
@@ -419,7 +419,7 @@ nothing to print here
 </details>
 
 <details>
-  <summary>Response code (click to expand)</summary>
+  <summary>Response code</summary>
   <p>
 
   ```json
@@ -470,7 +470,7 @@ nothing to print here.
 ###### Day 3 - payment (POS receipt)
 
 <details>
-  <summary>Request code (click to expand)</summary>
+  <summary>Request code</summary>
   <p>
 
   ```json
@@ -519,7 +519,7 @@ nothing to print here.
 </details>
 
 <details>
-  <summary>Response code (click to expand)</summary>
+  <summary>Response code</summary>
   <p>
 
   ```json
@@ -650,7 +650,7 @@ nothing to print here.
 ###### Receipt details
 
 <details>
-  <summary>Receipt items to be printed (click to expand)</summary>
+  <summary>Receipt items to be printed</summary>
   <p>
 
 1. time of receipt creation (DE: Datum der Belegausgabe):  `2020-05-28T14:11:22.233Z` from `cbReceiptMoment` of the pos-receipt request
@@ -678,11 +678,11 @@ The explicit workflow of the fiskaltrust-SecurityMechanism in the German market 
 To document a business action from the start until the end, at least a Start- and an End-Transaction is needed. Long-lasting actions may be updated by using an Update- or a Delta-Transaction.
 
 <details>
-  <summary><b>Integration Details (click to expand)</b></summary>
+  <summary><b>Integration Details</b></summary>
   <p>
 
 <details>
-  <summary>Graphical Illustration (click to expand)</summary>
+  <summary>Graphical Illustration</summary>
   <p>
 
 ![explicit-flow-multiple-sign-calls](media/explicit-flow-multiple-sign-calls.svg)
@@ -693,7 +693,7 @@ To document a business action from the start until the end, at least a Start- an
 </details>
 
 <details>
-  <summary>Start-Transaction (click to expand)</summary>
+  <summary>Start-Transaction</summary>
   <p>
 Already before you know how your action will complete, you have to create and reserve a transaction number, to be able to track when the action started. This is done by a special call to the 'Sign' method using the 'ReceiptCase' "Start-Transaction". Details of this 'ReceiptRequest' have to match a Zero-Receipt, so no 'ChargeItems' and no 'PayItems' are allowed. In addition to the Zero-Receipt requirements, it is required to add a unique identification to the property 'cbReceiptReference'. This unique identifier can only be used once (at least between each daily closing) in a system. It creates a bracket around an ongoing action. For all further 'Sign' method calls which belong to the same action, it is mandatory to use the same unique identifier in the property 'cbReceiptReference'. Only one ongoing action/transaction per unique identifier is allowed. Calling two times the 'Sign' method using 'ReceiptCase' "Start-Transaction" with the same unique identifier ends up in an exception. If there are communication errors, use the 'ReceiptCaseFlag' "ReceiptRequest" to check if an action/transaction was already created.  
 According to the German law and BSI TR-03153, a call to the 'Sign' method using the 'ReceiptCase' "Start-Transaction" takes care of starting a transaction inside the TSE. The up-counting transaction number, defined in TR-03153, is responded by the fiskaltrust.Middleware behind the hash-tag in the property 'ftReceiptIdentification' of 'ReceiptResponse', prefixed by "ST". For example "ftReceiptIdentification": "ft[queue-receiptnumerator-hex]#ST[tse-transaction]".
@@ -706,7 +706,7 @@ According to the German law and BSI TR-03153, a call to the 'Sign' method using 
 </details>
 
 <details>
-  <summary>Update-Transaction (click to expand)</summary>
+  <summary>Update-Transaction</summary>
   <p>
 Changes in ongoing actions have to be tracked. This is done by a special call to the 'Sign' method using the 'ReceiptCase' "Update-Transaction". Details of the 'ReceiptRequest' should show up the current overall 'ChargeItems' and 'PayItems' of the ongoing action. To identify the action/transaction, the unique identifier used in "Start-Transaction", handed over by the property 'cbReceiptReference', is utilised. Calling the 'Sign' method using a unique identifier that wasn't used to create a transaction, or was already used to finalise a transaction, will end up in an exception. According to the German law and BSI TR-03153, a call to the 'Sign' method using the 'ReceiptCase' "Update-Transaction" handles the updating a transaction inside the TSE. The same transaction number as responded at the call of "Start-Transaction" is responded behind the hash-tag in the property 'ftReceiptIdentification' of 'ReceiptResponse', prefixed by "UT".  
 It is not mandatory to call 'Sign' using 'ReceiptCase' "Update-Transaction" before finalising a transaction. It is also possible to call 'Sign' using 'ReceiptCase' "Update-Transaction" multiple times for a single unique identifier/for a single transaction.
@@ -719,7 +719,7 @@ It is not mandatory to call 'Sign' using 'ReceiptCase' "Update-Transaction" befo
 </details>
 
 <details>
-  <summary>Delta Transaction (click to expand)</summary>
+  <summary>Delta Transaction</summary>
   <p>
 
 The main functionality is the same as when calling the 'Sign' method using 'ReceiptCase' "Update-Transaction". The differences are the details used in 'ChargeItems' and 'PayItems'; they depict exactly the same delta that occurred since the last call using 'Start-Transaction' or the last call using 'Delta-Transaction'. There should be a system-wide decision for the implementation to use only one of the 'ReceiptCases' - 'Update-Transaction' or 'Delta-Transaction'.  
@@ -734,7 +734,7 @@ It is not mandatory to call 'Sign' using 'ReceiptCase' "Delta-Transaction" befor
 </details>
 
 <details>
-  <summary>End Transaction (click to expand)</summary>
+  <summary>End Transaction</summary>
   <p>
 According to German law and BSI TR-03153, each call to the 'Sign' method using other 'ReceiptCase' than "Start-Transaction", "Update-Transaction", "Delta-Transaction" and any 'Zero-Receipts', causes the end of a transaction inside the TSE.  
 To identify the action/transaction that should be finalised the unique identifier in the property 'cbReceiptReference' inside the 'ReceiptRequest' is used. No matter if you used "Update-Transaction", "Delta-Transaction" or none of them, the 'ChargeItems' and 'PayItems' have to include the complete final state of all items involved.  
@@ -755,11 +755,11 @@ The transaction number, defined in TR-03153, is responded behind the hash-tag in
 For a better understanding how to implement the explicit flow, we prepared a use cases for a short- lasting action. For better understanding, the request- and response workflow has been illustrated. The comments provided in the code examples should help to determine the start-end end times of the actions printed on the receipt.
 
 <details>
-  <summary><b>Short lasting actions, e.g. Retail (click to expand)</b></summary>
+  <summary><b>Short lasting actions, e.g. Retail</b></summary>
   <p>
 
 <details>
-  <summary>Scenario description (click to expand)</summary>
+  <summary>Scenario description</summary>
   <p>
 
 In this example, a customer wants to pay in a retail store at a scanner cash register. A ftReceiptCase `0x4445000000000008` (Start Transaction) is being sent to the middleware. The chargeItems are collected (e.g. the products are scanned) and the business action is being closed by sending a sign-request using the ftReceiptCase '0x4445000000000001' (POS receipt) including all collected charge- and payitems of the business action (in this example: Feuerzeug BigRed and Kaffee Hag, including cash payment).
@@ -774,7 +774,7 @@ The response's signature block includes all information needed to be printed on 
 </details>
 
 <details>
-  <summary>Start-Transaction request code (click to expand)</summary>
+  <summary>Start-Transaction request code</summary>
   <p>
 
 ```json
@@ -796,7 +796,7 @@ The response's signature block includes all information needed to be printed on 
 </details>
 
 <details>
-  <summary>Response code (click to expand)</summary>
+  <summary>Response code</summary>
   <p>
 
 ```json
@@ -827,7 +827,7 @@ nothing to print here.
 </details>
 
 <details>
-  <summary>Finish-Transaction/POS receipt code (click to expand)</summary>
+  <summary>Finish-Transaction/POS receipt code</summary>
   <p>
 
 ```json
@@ -875,7 +875,7 @@ nothing to print here.
 </details>
 
 <details>
-  <summary>Response (click to expand)</summary>
+  <summary>Response</summary>
   <p>
 
 ```json
@@ -1004,7 +1004,7 @@ nothing to print here.
 </details>
 
 <details>
-  <summary>Receipt Info to be printed (click to expand)</summary>
+  <summary>Receipt Info to be printed</summary>
   <p>
 
 1. time of receipt creation (DE: Datum der Belegausgabe):  `2020-05-22T10:48:15.260Z"` from `cbReceiptMoment` of the pos-receipt request
