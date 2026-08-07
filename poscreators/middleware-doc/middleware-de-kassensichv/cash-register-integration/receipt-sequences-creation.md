@@ -31,7 +31,6 @@ Connect requests representing a business action with ['cbReceiptReference'](http
 #### Workflow example
 
 ![referencing-previous-receipts](media/referencing-previous-receipts.svg)
-([click to expand](media/referencing-previous-receipts.svg))
 
 *Figure 1. Workflow for referencing previous receipts within a queue.*
 
@@ -57,7 +56,6 @@ Use ['cbReceiptPreviousReference'](https://docs.fiskaltrust.cloud/docs/poscreato
 
 ![splitting-receipts](media/splitting-receipts.svg)
 
-([click to expand](media/splitting-receipts.svg))
 
 *Figure 2. Workflow for splitting a receipt among multiple payers.*
 
@@ -82,7 +80,6 @@ Merge receipts by combining ['cbReceiptReference' and 'cbReceiptPreviousReferenc
 
 ![merging-receipts](media/merging-receipts.svg)
 
-([click to expand](media/merging-receipts.svg))
 
 *Figure 3. Workflow for merging receipts of separate business actions.*
 
@@ -110,7 +107,6 @@ Document the field/section in which the receipt is created with [cbArea](../../g
 
 ![switching-cbarea](media/switching-cbarea.svg)
 
-([click to expand](media/switching-cbarea.svg))
 
 *Figure 4. Workflow for changing the area (cbArea) in which a receipt is created.*
 
@@ -136,7 +132,6 @@ ChargeItems are collected via ftReceiptCase 'Info-internal' or 'Info-order'. 'cb
 
 ![chargeitem-internal-payment-external](media/chargeitem-internal-payment-external.svg)
 
-([click to expand](media/chargeitem-internal-payment-external.svg))
 
 *Figure 5. Workflow where charge items collected via an internal queue are paid at an external system.*
 
@@ -161,7 +156,6 @@ For this workflow, the combination of following receipt-sequences is needed:
 
 ![chargeitem-external-payment-internal](media/chargeitem-external-payment-internal.svg) 
 
-([click to expand](media/chargeitem-external-payment-internal.svg))
 
 *Figure 6. Workflow where charge items collected at an external system are paid at the internal queue.*
 
@@ -194,7 +188,6 @@ Issuing and redeeming a multi-purpose voucher can be achieved with charge- and p
 
 ![multi-purpose-voucher](media/multi-purpose-voucher.svg)
 
-([click to expand](media/multi-purpose-voucher.svg))
 
 *Figure 7. Workflow for issuing and redeeming a multi-purpose voucher across POS-Systems.*
 
