@@ -19,6 +19,8 @@ This table describes fields of the receipt request applicable to the French mark
 | `cbReceiptAmount`         |`Decimal`?    | null<br />mandatory           | Total receipt amount incl. taxes (gross receipt amount).                                                 | 1.2     |
 | `ftPosSystemId`           |`guid/string` | mandatory                     | This field identifies and documents the type and software version of the PosSystem sending the request. It is used for audits and as a base for commission calculation. The PosSystem itself has to be created in the portal and its ID can be implemented as a constant value by the PosCreator. | 1.2      |
 
+*Table 1. General receipt request fields for France.*
+
 ### Bill / Note
 
 The Bill (in French called _Note_ or _Addition_) is a receipt usually used in the hospitality sector. Usually this receipt is given to the guest before the payment process to show the consumption and the outstanding amount. This receipt must not contain VAT data (net/tax amounts or tax rates) and means of payment.
@@ -28,6 +30,8 @@ If the order can be directly assigned to a table, seat or room in a catering est
 |------------------------------|----------------------|-------------------------------|----------------------------------------------------------------------------------------------------------|---------|
 | `cbArea`                     |`string`<br/>max 1k   | empty-string<br />mandatory   | The number/identification of the table, room or place connected to a consumption<br />Although all string values are supported, we suggest using data structures serialized into JSON format. | 1.2     |
 | `cbPreviousReceiptReference` | `string`<br />max 1k | empty-string<br />optional<br />mandatory on value changed in `cbArea` | `cbReceiptReference` of the original receipt. Has to be used if the value in `cbArea` for the preceding receipt changes. | 1.2      |
+
+*Table 2. Bill / Note (Note or Addition) fields for France.*
 
 #### Change of table or room
 
@@ -62,6 +66,8 @@ By using the ReceiptCase `0x4652000000000016` the following fields are mandatory
 | `ftReceiptCaseData`          | `string`<br />max 1k | empty-string<br />optional<br />mandatory for copy | Information about the reason of creating a duplicate. | 1.2         |
 | `cbPreviousReceiptReference` | `string`<br />max 1k | empty-string<br />optional<br />mandatory for copy | `cbReceiptReference` of the original receipt. Used to create a counter for the number of copies issued for the original receipt. | 1.2      |
 
+*Table 3. Copy receipt fields for France.*
+
 #### Example
 
 ```...
@@ -79,6 +85,8 @@ For French law fulfilment, a `ManagerId` is required, if the receipt is sent as 
 |-----------------|----------------------|-----------------------------------|-----------------------------------------------------------------------|-------------|
 | `ManagerId`     | `string`<br />max 1k | empty-string<br />optional<br />mandatory in training mode | Identification of the user, who started the training mode. | 1.2      |
 
+*Table 4. Training mode fields for France.*
+
 #### Example
 
 ```...
@@ -95,6 +103,8 @@ This table describes additional fields of the receipt response applicable to the
 | `ftCashBoxIdentification` | `string`  | mandatory                     | Cash register identification.                                                                             | 1.2     |
 | `ftReceiptIdentification` | `string`  | mandatory                     | Allocated through fiskaltrust.SecurityMechanism up counting receipt number depending on the receipt type. | 1.2     |
 
+*Table 5. Additional receipt response fields for France.*
+
 ### ChargeItems Entry
 
 The ChargeItems entry is defined according to the French law. This entry determines which counter will be used, to sum up the value of the sales tax field (normal, discounted-1, discounted-2, zero or special) for the individual services. It is required for signature creation.
@@ -110,6 +120,8 @@ This table describes additional fields of the ChargeItems Entry applicable to th
 | `Unit`                 | `string`<br />Max 1k  | mandatory          | Unit of measurement, e. g. pièce, kg, litre, room, nuit, ...                         | 1.2         |
 | `UnitPrice`            | `Decimal`             | mandatory          | Gross price per indicated unit.                                                      | 1.2         |
 
+*Table 6. Additional ChargeItems entry fields for France.*
+
 #### ChargeItemCaseData Entry
 
 `ChargeItemCaseData` Entry is used to hand over additional required information to a data line for a receipt in JSON format.
@@ -118,6 +130,8 @@ For French law fulfilment, a net-amount by line is required. This is added by a 
 | **Field Name** | **Data Type** | **Default Value Mandatory Field** | **Description**                                        | **Version** |
 |----------------|---------------|-----------------------------------|--------------------------------------------------------|-------------|
 | `NetAmount`    | `Decimal`     | 0.0<br /> mandatory               | POS-device given net-amount, by line, to be processed. | 1.2         |
+
+*Table 7. ChargeItemCaseData entry fields for France.*
 
 ##### Example
 
@@ -141,3 +155,5 @@ This table describes additional fields of the Signature Entry applicable to the 
 |---------------------|---------------|--------------------------------------------|----------------------------------------------------------------------------------------|-------------|
 | `ftSignatureFormat` | `Int64`       | 0<br />mandatory                           | Format for displaying signature data according to the reference table in the appendix. | 1.2         |
 | `ftSignatureType`   | `Int64`       | 0<br />mandatory                           | Type of signature according to the reference table in the appendix.                    | 1.2         |
+
+*Table 8. Additional Signature entry fields for France.*

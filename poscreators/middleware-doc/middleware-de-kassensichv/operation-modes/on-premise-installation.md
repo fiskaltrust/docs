@@ -9,6 +9,8 @@ The illustration below shows the components available for the premise installati
 
 ![middleware-en](images/middleware-en-market-de.svg)
 
+*Figure 1. Components of the on-premise fiskaltrust.Middleware installation for the German market.*
+
 ## Supported software platforms
 
 - [Windows](on-premise-platforms/windows.md)
@@ -25,6 +27,8 @@ For the German market, depending on the platform, following communication servic
 | **REST** | **supported** | **supported** | **supported** |
 | **WCF**  | **supported** | not supported | not supported |
 
+*Table 1. Communication services available per platform for the German market.*
+
 ## SCU/characteristics & platform support matrix
 
 |                                                              | Type,<br />Form factor | State of certification | Environmental protection    | Max. nr. of registered clients (queues) | Windows                                | Linux, macOS                                                 | Android                                |
@@ -37,6 +41,8 @@ For the German market, depending on the platform, following communication servic
 | [fiskaly Cloud-TSE](scu/fiskaly.md) | Software | **certified**     | unknown | technically unlimited | **supported**                    | **supported**                                          | **supported** |
 | [Swissbit Cloud-TSE](scu/swissbit-cloud.md) | Software | **certified** | required<br />*currently exposed* | 1 | **supported** | **supported**<br />*Ubuntu LTS 20.04 only* | not supported |
 | [Swissbit Hardware-TSE](scu/swissbit.md) | Hardware<br />USB Type A, SD, microSD | **certified** | **not required** | 100 | **supported**                          | **supported**                                                | **supported**                          |
+
+*Table 2. SCU characteristics, certification state and platform support for the German market.*
 
 ## Hardware requirements
 
@@ -52,6 +58,8 @@ Following local data storage options can be configured in the queue:
 | **In-memory storage**                                      |               |               |               |
 | **[MySQL-storage](on-premise-databases/mysql.md)**         | **supported** | **supported** | **supported** |
 | **[SQLite-storage](on-premise-databases/sqlite.md)**       | **supported** | **supported** | **supported** |
+
+*Table 3. Local data storage options and their platform support.*
 
 ## Local data export
 

@@ -34,6 +34,8 @@ This table expands on the values provided in the [Type of Payment: ftPayItemCase
 | `0x4445000000000016` | Cash transfer from/to cash book <br />not taxable <br />DSFinV-K transformation required. Negative amount gets converted to GV_TYP=Einzahlung. Positive amount gets converted to GV_TYP=Auszahlung. amount=-amount.  In case of void-receipt everything is returned | Keine | 1.3- |
 | `0x4445000000000017` | Cash amount difference from/to till<br />not taxable<br />DSFinV-K transformation required. UST_Schluessel=5. GV_TYP=DifferenzSollIst. amount=-amount. Cash transfer from till is positive amount, cash transfer to till is negative amount. | Keine | 1.3- |
 
+*Table 1. ftPayItemCase values and their DSFinV-K payment type (ZAHLART_TYP) mapping for the German market.*
+
 ## ftPayItemCaseFlag
 
 This table shows flags that can be added to each `ftPayItemCase` with values applicable to the German market. 
@@ -41,5 +43,7 @@ This table shows flags that can be added to each `ftPayItemCase` with values app
 | **Value** | **Description** | **Middleware Version** |
 | --------- | --------------- | ---------------------- |
 | 0x0000000000200000<sup>1</sup> | **Position cancellation flag** <br />When this flag is sent: Only the amount is used for calculating the sums in the Middleware, the DSFinV-K and the DFKA (instead of our common approach with the Quantity-based calculation). Sets the STORNO field in the DSFinV-K and the DFKA | 1.3.1- |
+
+*Table 2. ftPayItemCaseFlag values that can be added to an ftPayItemCase for the German market.*
 
 <sup>1</sup> Previous documentation contained a typo regarding this flag. The documentation has been corrected to align with the [middleware implementation](https://docs.fiskaltrust.eu/changelog/middleware/1.3.66#-feature-support-line-cancellations).

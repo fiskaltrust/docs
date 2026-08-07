@@ -24,4 +24,6 @@ The _fiskaltrust.Middleware.SCU.IT.CustomRTPrinter_ package connects the middlew
 | Password| The deviceId (Matricola fiscale) | mandatory |
 | ClientTimeoutMs | The HTTP client timeout used when communicating with the RT Printer or Server. | `15000`<br />optional |
 
+*Table 1. Configuration parameters for the Custom-Printer SCU package.*
+
 Please pay attention to the case-sensitive use of the parameters.

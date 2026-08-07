@@ -23,4 +23,4 @@ The table below contains descriptions and explanations of all general terms and 
 | CashBox AccessToken           | API access credential Token for the CashBox. Can be found on the CashBox Configuration page in the portal.                                                                                                                                               |
 | CashBoxIdentification         | Value to identify the Queue. Can be found on the Queue Configuration page in the portal.                                                                                                                                                                 |
 
-*Table 2. Definition of Terms and Abbreviations (general)*
+*Table 1. Definition of Terms and Abbreviations (general)*

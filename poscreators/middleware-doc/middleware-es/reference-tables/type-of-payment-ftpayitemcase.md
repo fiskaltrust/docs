@@ -35,6 +35,8 @@ version 2
 | `0E` | **Grant**<br />| 1.3.45 |
 | `0F` | **Ticket Restaurant / (Sodexo, Edenred, USW)**<br />| 1.3.45 |
 
+*Table 1. ftPayItemCase payment type (PP) values for the Spanish market.*
+
 #### v - version
 version 2
 
@@ -52,3 +54,5 @@ version 2
 | `0080` | **IsDigital/IsElectronic**<br />Electronic money, digital money | 1.3.45 |
 | `0100` | **IsInterface/AmountVerified**<br />Was verified by interface, automated amount transfer | 1.3.45 |
 | `8000` | **ShowInChargeItems**<br />Visualize the item before Total Amount. This inverts amount and does include the amount into the visualized total amount on the receipt. | 1.3.45 |
+
+*Table 2. ftPayItemCase global tagging and flag values for the Spanish market.*

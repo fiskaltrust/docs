@@ -19,6 +19,8 @@ Certification-ID of TSE according to chapter 9.2.2 of Anwendungserlass zu § 146
 | [BSI-K-TR-0457-2021](https://www.bsi.bund.de/SharedDocs/Zertifikate_TR/Technische_Sicherheitseinrichtungen/BSI-K-TR-0457-2021.html) | D-TRUST TSE Web Version 2.0 | D-TRUST GmbH | 18.02.2021 |
 | [BSI-K-TR-0369-2020](https://www.bsi.bund.de/SharedDocs/Zertifikate_TR/Technische_Sicherheitseinrichtungen/BSI-K-TR-0369-2020.html) | D-TRUST TSE Web Version 1.0 | D-TRUST GmbH | 30.09.2020 |
 
+*Table 1. BSI certification details of the Swissbit Cloud-TSE.*
+
 #### Certification identification
 
 "BSI-K-TR-0456-2021 [USK ausgesetzt]" ("Environmental protection exposed") is returned for 'ftSignatureType' `0x4445000000000022` (certification identification). 
@@ -66,9 +68,13 @@ The _fiskaltrust.Middleware.SCU.DE.SwissbitCloud_-package handles updates for FC
 | _FCCversion_               |             If the currently installed FCC version is lower than this, the Middleware will automatically download and update the newer FCC. This should enable users that have already installed previous versions to profit from the latest improvements in this external dependency.          | `4.0.8`<br />optional                                   |
 | _EnableFccMetrics_ | Enables FCC Metrics |  `false`<br />optional    |
 
+*Table 2. Configuration parameters for the Swissbit Cloud SCU.*
+
 ## Troubleshooting
 
 | Problem                                                                      | Possible cause                                                                                                                         | Solution                                                                                                                                                                                  |
 |------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **The Fiskal Cloud Connector cannot establish a connection to the Internet** | The middleware is not started as administrator.                                                                                        | Start the middleware with administrator rights.                                                                                                                                           |
 |                                                                              | The automatic generation of the firewall exception via the parameter described above is deactivated, or a particular firewall is used. | An exception rule in the firewall for the `java.exe` in the subdirectory` bin \ jre \ bin` of the _FccDirectory_ (see above) (access to fiskal.cloud, port 443) has to be added manually. |
+
+*Table 3. Troubleshooting Internet connection problems with the Fiskal Cloud Connector.*

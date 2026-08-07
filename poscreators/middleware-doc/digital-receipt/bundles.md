@@ -22,6 +22,9 @@ The prerequisite for use as a PosOperator is an activate user contract and the c
 | Carefree  | QR-Code + InStore App  | 7 years AT 10 years DE  | Included  | Included  | Not included  | Included  | Included  |
 | Give-Away / QR-Label  | Give-Away / QR-Label  | 3 months  | Included  | Not included  | Included  | Not included  | Included  |
 | POS Archive  | QR-Code + InStore App  | 7 years AT 10 years DE  | Included  | Not included  | Not included  | Not included  | Included  |
+
+*Table 1. Feature comparison of the four digital receipt bundle types.*
+
 * Digital receipt delivery for merchants | ReceiptHero (getreceipthero.com)
 * Share fiskaltrust receipt to ReceiptHero app – Share button to ReceiptHero app can be toggled off in fiskaltrust.Portal. Default = activated. 
 

@@ -10,3 +10,5 @@ This table expands on the values provided in the [Type of Journal: ftJournalType
 | **Value** | **Description** | **Middleware Version** |
 | --------- | --------------- | ---------------------- |
 | `000` | Status Information QueueBE | 1.3.45 |
+
+*Table 1. ftJournalType values for the Belgian market.*

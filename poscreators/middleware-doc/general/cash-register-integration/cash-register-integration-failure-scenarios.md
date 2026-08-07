@@ -19,6 +19,8 @@ If the communication between the Middleware and the SCU fails (e.g. when the sec
 The Middleware uses a circuit breaker pattern for this failure mode. After a communication failure is detected, further SCU calls are suppressed until recovery. This prevents repeated failures during temporary outages and ensures that POS operations can continue without blocking due to SCU timeouts.
 
 ![no-scu-connection](./images/10-no-scu-connection.svg)
+
+*Figure 1. Receipt flow when the Signature Creation Unit is not reachable and the Middleware enters failed mode.*
   
 When the SCU becomes reachable again, a Zero-Receipt must be sent. This triggers a communication retry towards the SSCD. If the fiskaltrust.Middleware is able to connect to the SCU again, the `ftState` = `0xXXXX000000000000` (ok) is returned to the POS system via the response and the fiskaltrust.Middleware is ready for normal operation again. Furthermore, the response contains a listing of the requests that were not signed by the SSCD. The requests affected by the failure of the communication with the SCU do not have to be sent to the Queue again after the problem has been resolved.
 
@@ -36,12 +38,16 @@ We recommend to not manually print the text "SCU communication failed", but to p
 
 ![reestablished-scu-connection](./images/11-reestablished-connection.svg)
 
+*Figure 2. Recovery flow after the SCU connection is re-established via a Zero-Receipt.*
+
 
 ## Middleware not reachable or failing
 
 If a cash register cannot communicate with the fiskaltrust.Middleware, the cause is typically a failure of the network connection, the Middleware host, or the Middleware itself. In this state, the electronic recording system is not operational, and access to the journal is not available.
 
 ![no-middleware-connection](./images/07-no-middleware-connection.svg)
+
+*Figure 3. Receipt flow when the cash register cannot communicate with the fiskaltrust.Middleware.*
 
 In this case, the following steps must be taken:
 
@@ -52,9 +58,13 @@ In this case, the following steps must be taken:
 
 ![late-signing-mode](./images/08-late-signing-mode.svg)
 
+*Figure 4. Late-signing mode used to re-send receipts once the Middleware is reachable again.*
+
 After the fiskaltrust.Middleware has received an "end of failure receipt" (i.e. a Zero-Receipt), the failure status is terminated by receiving a response with normal state code.
 
 ![end-late-signing-mode](./images/09-end-late-signing-mode.svg)
+
+*Figure 5. Ending late-signing mode by sending a Zero-Receipt to return to normal operation.*
 
 :::tip
 

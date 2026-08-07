@@ -80,7 +80,7 @@ This chapter describes the receipt structure applicable to the French market.
 
 ![](./images/24.png)
 
-<span id="_Toc527986824" class="anchor"></span>*Illustration* *24. Receipt Structure (FR); cash register- receipt data (header, charge items, pay items, footer) and fiskaltrust-receipt data (header, charge items, pay items, signature, footer)*
+*Figure 1. Receipt structure (FR); cash register-receipt data (header, charge items, pay items, footer) and fiskaltrust-receipt data (header, charge items, pay items, signature, footer).*
 
 ### Receipt Header
 

@@ -21,6 +21,8 @@ The following rules apply:
 | POS has no Terminal ID, one device has Terminal ID “A1” (others have none) | All devices without a Terminal ID display the receipt; the device with “A1” does not |
 | POS has no Terminal ID, all devices have Terminal IDs (e.g., “A1”, “B1”) | No device displays the receipt |
 
+*Table 1. Terminal ID filter rules determining which connected devices display the receipt.*
+
 ---
 
 **Use Cases**

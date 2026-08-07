@@ -14,6 +14,8 @@ If a cash register cannot communicate with the fiskaltrust.Middleware it is most
 
 ![no-middleware-connection](./images/07-no-middleware-connection.png)
 
+*Figure 1. Cash register unable to connect to the fiskaltrust.Middleware.*
+
 
 If the cash register doesn’t receive a response from the Middleware (e.g., due to a network or server outage), the following steps should be taken:
 
@@ -27,9 +29,13 @@ If the cash register doesn’t receive a response from the Middleware (e.g., due
 
 ![late-signing-mode](./images/08-late-signing-mode.png)
 
+*Figure 2. Middleware responding with the Late Signing Mode status.*
+
 Mark these receipts with the "failed receipt" code to indicate the issue. The Middleware will respond with a "Late Signing Mode" status.
 
 ![end-late-signing-mode](./images/09-end-late-signing-mode.png)
+
+*Figure 3. End of Late Signing Mode after the failed receipts are re-sent.*
 
 :::tip
 

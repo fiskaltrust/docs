@@ -18,3 +18,5 @@ This storage provider is particularly suitable for the simple construction of sm
 | --------------------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------ |
 | _TarFileExportMode_         | `All` Enables the automatic TAR File export from the TSE on the Queue level. `None` Disables the automatic TAR File export from the TSE on the Queue level. `Erased` TAR files are only exported and saved when they could be deleted from the TSE. (Values: `All` / `None` / `Erased`)                           | optional (default: `All`)  |
 | _StoreTemporaryExportFiles_ | Enables storage of temporary export files in the `fiskaltrust/service/Exports` folder (Values: `true` / `false`) | `false` <br /> optional                      |
+
+*Table 1. Configuration parameters for the SQLite storage provider.*

@@ -58,6 +58,8 @@ This chapter lists the data fields that are mandatory and have to be provided by
 | `ZAHLWAEH_CODE`    | Single recordings | Foreign currency code. Only mandatory if foreign currency was used for the payment.                                                                                  |
 | `ZAHLWAEH_BETRAG`  | Single recordings | Amount in foreign currency. Only mandatory if foreign currency was used for the payment.                                                                             |
 
+*Table 1. Mandatory DSFinV-K data fields that must be provided by the cashpoint.*
+
 The following chapters give you an overview of all DSFinV-K fields, provide you information on how they are filled by fiskaltrust and how you can send additional data to fill mandatory (listed above) and optional fields that can not be filled by fiskaltrust.
 
 ### Single recordings module (DE: Einzelaufzeichnungsmodul)
@@ -95,6 +97,8 @@ In addition to these two files, there are further detail files which are listed 
 | `EINHEIT`         | Unit of measurement, e.g. kg, litres or pieces | String                    | Mandatory, please send via `ftChargeItem.Unit`                                                                                                                                                                                                                                                                                                                                                                        |
 | `STK_BR`          | Price per unit incl. VAT                       | Decimal (5)               | Mandatory, please send via `ftChargeItem.UnitPrice`                                                                                                                                                                                                                                                                                                                                                                   |
 
+*Table 2. Fields of the Bonpos (lines.csv) file and their fiskaltrust input mapping.*
+
 #### File: Bonpos_USt (lines_vat.csv)
 
 | **Fieldname**    | **Description**               | **Format**                | **fiskaltrust input**                                                                                            |
@@ -108,6 +112,8 @@ In addition to these two files, there are further detail files which are listed 
 | `POS_BRUTTO`     | Gross sales                   | Decimal (5)               | Automatically filled by fiskaltrust from `ftChargeItemCase.Amount`                                               |
 | `POS_NETTO`      | Net sales                     | Decimal (5)               | Automatically calculated and filled by fiskaltrust depending on `ftChargeItemCase` and `ftChargeItemCase.Amount` |
 | `POS_UST`        | VAT                           | Decimal (5)               | Automatically calculated and filled by fiskaltrust depending on `ftChargeItemCase`                               |
+
+*Table 3. Fields of the Bonpos_USt (lines_vat.csv) file and their fiskaltrust input mapping.*
 
 
 #### File: Bonpos_Preisfindung (itemamounts.csv)
@@ -159,6 +165,8 @@ Each subitem is described in the table below:
 | `ZI_BASISPREIS_NETTO`  | Net basis price                                | Decimal (5)               | Automatically calculated by fiskaltrust from  `ftSubChargeItemCase` and (subitem) `Amount`                                                                                                                                                                                                                                                                                                                                                 |
 | `ZI_BASISPREIS_UST`    | Basis VAT                                      | Decimal (5)               | Automatically filled by fiskaltrust depending on `ftSubChargeItemCase`                                                                                                                                                                                                                                                                                                                                                                     |
 
+*Table 4. Fields of a subitem in the Bonpos_Zusatzinfo (subitems.csv) file.*
+
 
 #### File: Bonkopf (transactions.csv)
 
@@ -188,6 +196,8 @@ Each subitem is described in the table below:
 | `KUNDE_USTID`   | VAT-ID of the beneficiary customer                                 | String (15)                   | Mandatory if available. See also AEAO to § 146. Send via `cbCustomer` in JSON format by adding the key value pair `CustomerVATId` e.g. `"cbCustomer":"{..., "CustomerVATId":"DE123456789", ...}"`                                               |
 | `BON_NOTIZ`     | Additional information on the receipt header                       | String (255)                  | Optional, can be sent via `ftReceiptCaseData` in JSON format. To send, add the key value pair `ReceiptNote ` e.g. `"ftReceiptCaseData":"{ ..., "ReceiptNote":"123, ich bin dabei!", ... }"`                                                     |
 
+*Table 5. Fields of the Bonkopf (transactions.csv) file and their fiskaltrust input mapping.*
+
 #### File: Bonkopf_USt  (transactions_vat.csv)
 
 | **Fieldname**    | **Description**               | **Format**                | **fiskaltrust input**                                                                   |
@@ -202,6 +212,8 @@ Each subitem is described in the table below:
 | `BON_NETTO`      | Net sales                     | Decimal (5)               | Automatically filled by fiskaltrust                                                     |
 | `BON_UST`        | VAT                           | Decimal (5)               | Automatically filled by fiskaltrust                                                     |
 
+*Table 6. Fields of the Bonkopf_USt (transactions_vat.csv) file and their fiskaltrust input mapping.*
+
 #### File: Bonkopf_AbrKreis (allocation_groups.csv)
 
 | **Fieldname**      | **Description**                        | **Format**                | **fiskaltrust input**                                                                                                   |
@@ -211,6 +223,8 @@ Each subitem is described in the table below:
 | `Z_NR`             | Nr. of the cashpoint closing           | Integer                   | Automatically created and filled by fiskaltrust                                                                         |
 | `BON_ID`           | Action-ID                              | String (40)               | Automatically created and filled by fiskaltrust (`ftReceiptIdentification`)                                             |
 | `ABRECHNUNGSKREIS` | Connection criterion of the assignment | String (50)               | Mandatory, filled by fiskaltrust. by using `cbReceiptReference` and `cbPreviousReceiptReference` to determine the value. |
+
+*Table 7. Fields of the Bonkopf_AbrKreis (allocation_groups.csv) file and their fiskaltrust input mapping.*
 
 #### File: Bonkopf_Zahlarten (datapayment.csv)
 
@@ -225,6 +239,8 @@ Each subitem is described in the table below:
 | `ZAHLWAEH_CODE`    | ISO 4217 currency code                 | String (3)                | Only mandatory if foreign currency was used for the payment, can be sent via `ftPayItemCaseData` in JSON format. To send, add the key value pair `CurrencyCode` e.g. `"ftPayItemCaseData":"{ ..., "CurrencyCode":"USD", ... }"`. Only ISO 4217 currency codes are allowed. |
 | `ZAHLWAEH_BETRAG`  | Amount in foreign currency             | Decimal (2)               | Only mandatory if foreign currency was used for the payment, can be sent via `ftPayItemCaseData` in JSON format. To send, add the key value pair `ForeignCurrencyAmount` e.g. `"ftPayItemCaseData":"{ ..., "ForeignCurrencyAmount":23.00, ... }"`.                         |
 | `BASISWAEH_BETRAG` | Amount in basis currency (usually EUR) | Decimal (2)               | Only mandatory if foreign currency was used for the payment, can be sent via `ftPayItemData` in JSON format. To send, add the key value pair `BaseCurrencyAmount` e.g. `"ftPayItemCaseData":"{ ..., "BaseCurrencyAmount":20.99, ... }"`                                    |
+
+*Table 8. Fields of the Bonkopf_Zahlarten (datapayment.csv) file and their fiskaltrust input mapping.*
 
 #### File: Bon_Referenzen (references.csv)
 
@@ -250,6 +266,8 @@ If you optionally want to add additional references (from other systems or other
 | `REF_Z_NR`       | No. of the cashpoint closing             | Integer                                                                           | If the reference you want to add refers to another cashpoint and therefore is of type (`RefType`) "Transaktion", you must provide data for the field `REF_Z_NR`. Please send it via `ftReceiptCaseData` in JSON format by adding the key value pair `RefClosingNr` e.g. `"ftReceiptCaseData":"{ ..., "RefClosingNr":1091029, ... }"`.                                       |
 | `REF_BON_ID`     | Action-ID                                | String (40)                                                                       | If the reference you want to add refers to another cashpoint and therefore is of type (`RefType`) "Transaktion", you must provide data for the field `REF_BON_ID`. Please send it via `ftReceiptCaseData` in JSON format by adding the key value pair `RefReceiptId` e.g. `"ftReceiptCaseData":"{ ..., "RefReceiptId":"UAUUA1112#20200211-112430", ... }"`.                 |
 
+*Table 9. Fields of the Bon_Referenzen (references.csv) file and their fiskaltrust input mapping.*
+
 #### File: TSE_Transaktionen (transactions_tse.csv)
 
 | **Fieldname**        | **Description**                                      | **Format**                | **fiskaltrust input**                                                                   |
@@ -267,6 +285,8 @@ If you optionally want to add additional references (from other systems or other
 | `TSE_TA_SIG`         | Signature of the FinishTransaction operation         | String (512)              | Automatically filled by fiskaltrust                                                     |
 | `TSE_TA_FEHLER`      | Where appropriate, indications of TSE errors         | String (200)              | Automatically filled by fiskaltrust                                                     |
 | `TSE_VORGANGSDATEN`  | Data of the operation (optional)                     | String                    | Automatically filled by fiskaltrust                                                     |
+
+*Table 10. Fields of the TSE_Transaktionen (transactions_tse.csv) file and their fiskaltrust input mapping.*
 
 ### Cashpoint closing module (DE: Kassenabschlussmodul)
 
@@ -291,6 +311,8 @@ The export takes place into the following three files:
 | `Z_UMS_NETTO`    | Net sales                        | Decimal (5)               | Automatically filled by fiskaltrust                                                     |
 | `Z_UST`          | VAT                              | Decimal (5)               | Automatically filled by fiskaltrust                                                     |
 
+*Table 11. Fields of the Z_Zahlart Z_GV_TYP (businesscases.csv) file and their fiskaltrust input mapping.*
+
 #### File: Z_Zahlart (payment.csv)
 
 | **Fieldname**      | **Description**               | **Format**                | **fiskaltrust input**                                                                   |
@@ -302,6 +324,8 @@ The export takes place into the following three files:
 | `ZAHLART_NAME`     | Name of the payment method    | String (60)               | Automatically filled by fiskaltrust                                                     |
 | `Z_ZAHLART_BETRAG` | business action type          | Decimal (2)               | Automatically filled by fiskaltrust                                                     |
 
+*Table 12. Fields of the Z_Zahlart (payment.csv) file and their fiskaltrust input mapping.*
+
 #### File: Z_Waehrungen (cash_per_currency.csv)
 
 | **Fieldname**         | **Description**               | **Format**                | **fiskaltrust input**                                                                   |
@@ -311,3 +335,5 @@ The export takes place into the following three files:
 | `Z_NR`                | Nr. of the cashpoint closing  | Integer                   | Automatically created and filled by fiskaltrust                                         |
 | `ZAHLART_WAEH`        | Currency                      | ISO 4217 currency code    | Automatically filled by fiskaltrust                                                     |
 | `ZAHLART_BETRAG_WAEH` | Amount                        | Decimal (2)               | Automatically filled by fiskaltrust                                                     |
+
+*Table 13. Fields of the Z_Waehrungen (cash_per_currency.csv) file and their fiskaltrust input mapping.*

@@ -9,6 +9,8 @@ The fiskaltrust.Middleware can be operated in following operational environments
 
 ![operational-environments](images/operational-environments.svg)
 
+*Figure 1. Operational environments in which the fiskaltrust.Middleware can be operated.*
+
 Identification of the operational environment from the perspective of a POS operator:
 
 | Hosted in-house | Hosted in a different building | Dedicated hardware resource | Privately shared (hardware) resource | Operational environment |
@@ -17,6 +19,8 @@ Identification of the operational environment from the perspective of a POS oper
 | No | **Yes**<br />*(e.g. in a data center)* | **Yes**<br />*(e.g. dedicated server)* | No | **Off-premise** |
 | No | **Yes** | No | **Yes**<br />*(e.g. virtualised resources)* | **Private Cloud** |
 
+*Table 1. Identification of the operational environment from the perspective of a POS operator.*
+
 The availability of supported operational environments depends on the market, as shown in the following table:
 
 | Operation mode | AT | DE | FR | IT |
@@ -24,3 +28,5 @@ The availability of supported operational environments depends on the market, as
 | **On- & off-premise** | **Available** | **Available** | **Available** | **Available** |
 | **Private Cloud**<br />*operated by a third party* | **Available** | **Available** | Not available<br />*generally supported, but not offered* | **Available** |
 | **Private Cloud**<br />*operated by fiskaltrust* | **Available**<br />*(by the fiskaltrust product CloudCashbox)* | **Available**<br />*(by the fiskaltrust product CloudCashbox)*  | **Available**<br />*(by the fiskaltrust product CloudCashbox)* | **Available** |
+
+*Table 2. Availability of supported operational environments per market.*

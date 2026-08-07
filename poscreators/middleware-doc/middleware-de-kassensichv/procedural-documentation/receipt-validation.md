@@ -40,6 +40,8 @@ Position 1 in receipt ftD#IT14: Net (76,52400) + calculated VAT (12,24384) at 16
 
 ![receipt-validation-E5010](images/receiptvalidationE5010.png)
 
+*Figure 1. Receipt Validation reporting error 5010 for a Net, VAT, and Gross amount mismatch on a receipt line item.*
+
 #### Background
 fiskaltrust applies the gross (brutto) calculation method.  
 In this method, the net amount and VAT are derived from the gross amount using the applicable VAT rate.
@@ -91,6 +93,8 @@ Position 1 in receipt ft19F#IT416: VATRate (20.00%) does not match the rate impl
 
 ![receipt-validation-E5011](images/receiptvalidationE5011.png)
 
+*Figure 2. Receipt Validation reporting error 5011 where the VATRate does not match the rate implied by the ftChargeItemCase.*
+
 #### Cause
 The POS system transmitted inconsistent VAT information for a charge item:
 - The ftChargeItemCase implies a fixed VAT rate.
@@ -118,6 +122,8 @@ This error occurs when the sum of cash pay items across individual receipts does
 The sum of per-receipt cash payments (-149.00) differs from the total cash payment amount (-19.00) by -130.00.
 
 ![receipt-validation-E5020](images/receiptvalidationE5020.png)
+
+*Figure 3. Receipt Validation reporting error 5020 for a cash payment total mismatch between the individual receipts and the cashpoint closing.*
 
 #### Cause
 
@@ -159,6 +165,8 @@ Total payment amount (12.00) does not match the sum of per-receipt gross turnove
 Difference: 2.00.
 
 ![receipt-validation-E5030](images/receiptvalidationE5030.png)
+
+*Figure 4. Receipt Validation reporting error 5035 where the total payment amount does not match the sum of per-receipt gross turnover.*
 
 #### Cause
 
@@ -204,6 +212,8 @@ Position 0 in receipt ft5#IT41279: STK_BR (3.00000) * MENGE (2.000) = 6.00000 do
 
 ![receipt-validation-E5070](images/receiptvalidationE5070.png)
 
+*Figure 5. Receipt Validation reporting error 5070 where the position quantity and unit price do not match the position gross amount.*
+
 #### Cause
 
 The position's unit pricing data does not reconcile with its gross amount:
@@ -245,6 +255,8 @@ Both places are checked. If neither is populated on a void receipt, the receipt 
 #### Example
 
 ![receipt-validation-E5290](images/receiptvalidationE5290.png)
+
+*Figure 6. Receipt Validation reporting error 5290 for a storno receipt without a reference to the original transaction.*
 
 #### Cause
 

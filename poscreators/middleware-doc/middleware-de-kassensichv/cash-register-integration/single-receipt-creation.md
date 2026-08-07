@@ -16,7 +16,7 @@ The "**flow**" describes the communication between the POS-System and the fiskal
 
 ![flow-vs-transaction](media/flow-vs-transaction.svg)
 
-*Flow and Transaction (DE - KassenSichV)*
+*Figure 1. Flow and transaction concepts in the German KassenSichV Middleware.*
 
 ## Characteristics
 
@@ -26,6 +26,8 @@ The "**flow**" describes the communication between the POS-System and the fiskal
 | Reduced complexity of business-process handling                             | Enhanced complexity of business-process handling                    |
 | Each sign-request uses two TSE signatures                                   | Less TSE-signatures are used                                        |
 | The TSE signing process could potentially lead faster to performance issues | The risk of performance issues for the TSE signing process is lower |
+
+*Table 1. Characteristics of the implicit and explicit flow.*
 
 Implicit- and explicit flow can be combined, dependent on the actual needs.
 

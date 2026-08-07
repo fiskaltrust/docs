@@ -17,6 +17,8 @@ The table below describes supported statuses for the ftState field. Those codes 
 | `0xXXXX000000000008` | Late Signing Mode<br />End of Fail Receipt required                                                 | 1.0                    |
 
 
+*Table 1. Supported statuses signalled through the ftState field.*
+
 Example of reading ftState parameter
 
 The following example shows how to extract the value of a flag into the ftState property.
@@ -46,6 +48,8 @@ The ftReceiptCase indicates the receipt type and defines how it should be proces
 |----------------------|------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------|
 | `0x0000000000000000` | "default value"<br />Unknown type of receipt.<br />Automatic processing through the localization setting of the fiskaltrust.Middleware is attempted. | 1.1                    |
 
+*Table 2. Default value of the ftReceiptCase field.*
+
 ### ftReceiptCaseFlag
 
 Business transactions can result in combinations of receipt types, which would be indicated using codes in bytes 6, 5, 4 and 3. These codes can be combined using the logic operator `OR`.
@@ -59,6 +63,8 @@ Business transactions can result in combinations of receipt types, which would b
 | `0x0000800000000000` | "receipt request".<br />Used to retrieve an already processed receipt from the fiskaltrust.Middleware using the cbReceiptReference field. The cbTerminalID can also be included in this request. Chargeitems and payitems have to be exactly the same as in the requested receipt. If a matching receipt is found, its content will be returned. If nothing is found a null value is returned. This can be necessary if a communication problem occurs while fiskaltrust.Middleware processes a request.                                                                                                                                                                                                                                                                                                            | 1.1                    |
 |                      | To prevent a duplication of requested receipt, the cash register terminal can place an additional parameter inside the queue to influence the behavior of this "receipt request" when no receipt is found.<br />Parameter name: "receiptrequestmode"<br />Parameter values:<br />0 (default) … null is returned<br />1 … request is handled in the same way as new request. If processing is successful, the created ReceiptResponse is returned.                                                                                                                                                                                                                                                                                                                                                                    | 1.2                    |
 
+*Table 3. Receipt-type flags that can be combined in the ftReceiptCase field.*
+
 These flags are based on national laws and regulations, for further information please refer to the appropriate country specific appendix.
 
 ## Type of Service: ftChargeItemCase
@@ -71,6 +77,8 @@ For definitions regarding national laws, please refer to the appropriate country
 |----------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|------------------------|
 | `0xXXXX000000000000` | "default value"<br />Unknown type of service: Automatic processing through the localization setting of the fiskaltrust.Middleware is attempted. | 1.0                    |
 
+*Table 4. Default value of the ftChargeItemCase field.*
+
 ## Type of Payment: ftPayItemCase
 
 The ftPayItemCase indicates the type of payment within the pay items block and defines how the fiskaltrust.SecurityMechanism processes the individual payment in terms of the receipt. The data type is `Int64` and contains a country specific code which is a value following the ISO-3166-1-ALPHA-2 standard, converted from ASCII into hex and used as byte 8 and 7.
@@ -80,6 +88,8 @@ For definitions regarding national laws, please refer to the appropriate appendi
 | **Value**            | **Description**                                                                                                                              | **Middleware Version** |
 |----------------------|----------------------------------------------------------------------------------------------------------------------------------------------|------------------------|
 | `0xXXXX000000000000` | "default value"<br />unknown payment type: Automatic processing through the localization setting of the fiskaltrust.Middleware is attempted. | 1.0                    |
+
+*Table 5. Default value of the ftPayItemCase field.*
 
 ## Format of Signature: ftSignatureFormat
 
@@ -103,6 +113,8 @@ The ftSignatureFormat tells the cash register or input station which display for
 | `0x0D`    | Base64                                                          | 1.3                    |
 
 
+*Table 6. Display formats for the signature block defined by ftSignatureFormat.*
+
 ## Type of Signature: ftSignatureType
 
 The ftSignatureType indicates type and origin of the signature. The data type is `Int64` and can contain a country specific code which is a value following the ISO-3166-1-ALPHA-2 standard, converted from ASCII into hex and used as byte 8 and 7.
@@ -116,6 +128,8 @@ For definitions regarding national laws, please refer to the appropriate appendi
 | `0x0000000000002000` | alert notification       | 1.0                    |
 | `0x0000000000003000` | failure notification     | 1.0                    |
 
+*Table 7. Signature types and origins defined by ftSignatureType.*
+
 ## <span id="c-type-of-journal-ftjournaltype-129">Type of Journal: ftJournalType</span>
 
 The ftJournalType is used with the journal function and specifies the content and format of the returned journal stream. The data type is `Int64` and contains a country specific code which is a value following the ISO-3166-1-ALPHA-2 standard, converted from ASCII into hex and used as byte 8 and 7.
@@ -128,6 +142,8 @@ For definitions regarding national laws, please refer to the appropriate appendi
 | `0x0000000000000001` | **[fiskaltrust.ActionJournal](https://docs.fiskaltrust.cloud/docs/poscreators/middleware-doc/general/cash-register-integration#fiskaltrustactionjournal)** in internal format <br /> <br /> The fiskaltrust.ActionJournal collects all operational incidents. This can be the date and time of start or failure of the service, as well as any other information related to the fiskaltrust.Middleware and fiskaltrust.SecurityMechanism.| 1.1                    |
 | `0x0000000000000002` | **[ReceiptJournal](https://docs.fiskaltrust.cloud/docs/poscreators/middleware-doc/general/cash-register-integration#fiskaltrustreceiptjournal)** in internal format <br /> <br /> The fiskaltrust.ReceiptJournal is used to record, hash, and chain all requests to the fiskaltrust.Middleware and the resulting responses. The first part of the returned ReceiptIdentification is an upcounting number generated by ReceiptJournal.           | 1.1                    |
 | `0x0000000000000003` | **QueueItemJournal in internal format** <br /> <br /> QueueItemJournal shows every information related to the fiskaltrust.Middleware and fiskaltrust.SecurityMechanism, as well as all  receipts sent to the fiskaltrust.Middleware and all resulting responses. This is useful for archiving purposes.         | 1.1                    |
+
+*Table 8. Journal content and format options defined by ftJournalType.*
 
 **Example** for version information :
 

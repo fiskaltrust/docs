@@ -19,3 +19,5 @@ The following call parameters are available with the launcher `fiskaltrust.exe` 
 |-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | &#x2011;verbosity=Debug | Shows additional debug information. Can be used in `test.cmd` as well.                                                                                       |
 | &#x2011;info            | Info shows information of Disc space, operating system and ram space. For launcher 1.x this only works for windows as Mono is not providing the information. |
+
+*Table 1. fiskaltrust.exe launcher call parameters for the German market.*
