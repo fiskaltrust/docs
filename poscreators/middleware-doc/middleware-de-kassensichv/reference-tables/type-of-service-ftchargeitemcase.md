@@ -130,6 +130,7 @@ This table expands on the values provided in the [Type of Service: ftChargeItemC
 | `0x44450000000000A1` | Reverse charge | 5 | Umsatz | 1.3- |
 | `0x44450000000000A2` | Not own sales | 5 | Umsatz | 1.3- |
 
+*Table 1. ftChargeItemCase values with their DSFinV-K tax key (UST_SCHLUESSEL) and business case type (GV_TYP) for the German market.*
 
 ## ftChargeItemCaseFlag
 
@@ -139,6 +140,8 @@ This table shows flags that can be added to each `ftChargeItemCase` with values 
 | --------- | --------------- | ---------------------- |
 | `0x0000000000010000` | **Take away marker** <br />For some cases, it is necessary to differ for the same good from in-house-consumption and take away. This flag signals a take away situation or in other words, a not-in-house-consumption if it is set. | 1.3.1- |
 | `0x0000000000200000`<sup>1</sup> | **Position cancellation flag** <br />When this flag is sent: Only the amount is used for calculating the sums in the Middleware, the DSFinV-K and the DFKA (instead of our common approach with the Quantity-based calculation). Sets the STORNO field in the DSFinV-K and the DFKA | 1.3.1- |
+
+*Table 2. ftChargeItemCaseFlag values that can be added to an ftChargeItemCase for the German market.*
 
 <sup>1</sup> Previous documentation contained a typo regarding this flag. The documentation has been corrected to align with the [middleware implementation](https://docs.fiskaltrust.eu/changelog/middleware/1.3.66#-feature-support-line-cancellations).
 
@@ -157,3 +160,5 @@ This table will be removed in the future and replaced by a reference.
 | 7 | 0,00% | UmsatzsteuerNichtErmittelbar |
 | 8-999 |  | Reserviert für Änderungen der DFKA-Taxonomie/DSFinV-K |
 | ab 1000 |  | Individuelle Sachverhalte (Altsteuersätze, § 13b UStG, o.ä.) |
+
+*Table 3. VAT rate reference numbers (UST_SCHLUESSEL) defined in the DSFinV-K.*

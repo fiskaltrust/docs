@@ -10,3 +10,5 @@ This table expands on the values provided in the [Type of Journal: ftJournalType
 | **Value** | **Description** | **Version** |
 | --------- | --------------- | ----------- |
 | `000` | Status Information QueuePT | 1.3.45 |
+
+*Table 1. Portugal-specific ftJournalType values.*

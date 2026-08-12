@@ -13,3 +13,5 @@ The Middleware uses the same ftSignatureFormat in Spain as in all other countrie
 | **Value** | **Description** | **Middleware Version** | 
 | --------- | --------------- | ---------------------- |
 | TBD | TBD | TBD |
+
+*Table 1. ftSignatureFormat flag values for Spain.*

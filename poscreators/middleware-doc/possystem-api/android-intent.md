@@ -71,6 +71,8 @@ All API calls use the following intent extras:
 | `HeaderJsonObjectBase64Url` | String | Yes | Base64URL-encoded JSON headers object (includes authentication, content-type, etc.) |
 | `BodyBase64Url` | String | No* | Base64URL-encoded request body |
 
+*Table 1. Intent extras used for all PosSystemAPI calls.*
+
 * Empty strings in `BodyBase64Url` indicate no body content for methods like GET or DELETE.
 
 **Note on Base64URL encoding**: All data is Base64URL-encoded to avoid character encoding issues and handle binary data safely. Use standard Base64URL encoding (RFC 4648 §5) which replaces `+` with `-` and `/` with `_`, with no padding.
@@ -325,6 +327,8 @@ The middleware responds via a result intent with these extras:
 | `ContentTypeBase64Url` | String | Base64URL-encoded content type (e.g., "application/json") |
 | `HeaderJsonObjectBase64Url` | String | Base64URL-encoded JSON headers object (optional, for response headers) |
 
+*Table 2. Extras returned by the middleware in the result intent.*
+
 ## Available Endpoints
 
 ### 1. Echo - Connectivity Testing
@@ -413,6 +417,8 @@ The middleware responds via a result intent with these extras:
 | 409 | Conflict | Operation ID conflict (duplicate with different payload) |
 | 500 | Internal Server Error | Processing error |
 | 502 | Bad Gateway | Middleware communication error |
+
+*Table 3. HTTP status codes returned by the PosSystemAPI.*
 
 ### Error Response Structure
 

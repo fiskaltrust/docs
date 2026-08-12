@@ -40,3 +40,5 @@ For definitions regarding national laws, refer to the appropriate appendix.
 | `0x4445000000000021` | Update-transaction-result | 1.3.16 |
 | `0x4445000000000022` | Certification identification (e.g. BSI-K-TR-1234-5678). Also contains information about the certification state (for non certified TSEs) and the state of the environmental protection. | 1.3.16 |
 | `0x4445000000000023` | TSE Serial Number | 1.3.49 |
+
+*Table 1. ftSignatureType values and their meaning for the German market.*

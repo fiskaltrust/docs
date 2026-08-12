@@ -25,6 +25,8 @@ version 2
 | `2` | Alert (notification), high priority | 1.3.45 |
 | `3` | Failure (notification), high priority | 1.3.45 |
 
+*Table 1. Type/Category (t) values of ftSignatureType for Portugal.*
+
 #### gggg - global flags
 
 | **Value** | **Description** | **Middleware Version** |
@@ -35,8 +37,12 @@ version 2
 | `0040` | Printed receipt only. | 1.3.45 |
 | `0080` | Digital receipt only. | 1.3.45 |
 
+*Table 2. Global flag (gggg) values of ftSignatureType for Portugal.*
+
 #### sss - SignatureCase
 
 | **Value** | **Description** | **Caption** | **Middleware Version** |
 | --------- | --------------- | ----------- | ---------------------- |
 | TBD | TBD | TBD | TBD |
+
+*Table 3. SignatureCase (sss) values of ftSignatureType for Portugal (to be defined).*

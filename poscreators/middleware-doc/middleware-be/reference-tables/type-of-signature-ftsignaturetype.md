@@ -25,6 +25,8 @@ version 2
 | `2` | Alert (notification), high priority | 1.3.45 |
 | `3` | Failure (notification), high priority | 1.3.45 |
 
+*Table 1. ftSignatureType type/category values for the Belgian market.*
+
 #### gggg - global flags
 
 | **Value** | **Description** | **Middleware Version** |
@@ -35,7 +37,11 @@ version 2
 | `0040` | Printed receipt only. | 1.3.45 |
 | `0080` | Digital receipt only. | 1.3.45 |
 
+*Table 2. ftSignatureType global flag values for the Belgian market.*
+
 #### sss - SignatureCase 
 | **Value** | **Description** | **Caption** | **Middleware Version** |
 | --------- | --------------- | ----------- | ---------------------- |
 | TBD | TBD | TBD | TBD |
+
+*Table 3. ftSignatureType SignatureCase values for the Belgian market (to be defined).*

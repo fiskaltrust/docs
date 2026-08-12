@@ -13,6 +13,8 @@ The on-premise solution of the fiskaltrust.Middleware requires [configuration an
 
 ![middleware-en](images/middleware-en.svg)
 
+*Figure 1. Overview of the main components of the on-premise fiskaltrust.Middleware.*
+
 ### iPOS Interface
 
 The iPOS interface is part of the queue, a component of the fiskaltrust.Middleware. It enables the communication between the cash register and the fiskaltrust.Middleware and is identical for all supported countries (cross national).
@@ -58,6 +60,8 @@ For the operation of the installed components of the fiskaltrust.Middleware foll
 | **Hardware connectivity**         | For the German market: USB, SD, Micro-SD or COM port for a local hardware-based security device (Technische Sicherheitseinrichtung, TSE).<br />For the Austrian market: USB port<br /> | For the French market: not required |
 | **Internet connectivity**         | Optional, but strongly recommended: (WIFI)modem for Internet connectivity to use software-security-, data as a service-, backup,- or configuration-/update services.                   |                                     |
 
+*Table 1. Minimum hardware requirements for operating the installed Middleware components.*
+
 ### Supported software platforms
 
 For detailed information on supported platforms and its restrictions, please refer to the linked appendices of the applicable markets in the table below:
@@ -67,6 +71,8 @@ For detailed information on supported platforms and its restrictions, please ref
 | **Android**     | not supported | [**supported**](../../middleware-de-kassensichv/operation-modes/on-premise-platforms/android.md) | not supported | [**supported**](../../middleware-it-registratore-telematico/operation-modes/on-premise-platforms/android.md) |
 | **Linux/macOS** | **supported** | [**supported**](../../middleware-de-kassensichv/operation-modes/on-premise-platforms/linux.md)   | **supported** | [**supported**](../../middleware-it-registratore-telematico/operation-modes/on-premise-platforms/linux.md)   |
 | **Windows**     | **supported** | [**supported**](../../middleware-de-kassensichv/operation-modes/on-premise-platforms/windows.md) | **supported** | [**supported**](../../middleware-it-registratore-telematico/operation-modes/on-premise-platforms/windows.md) |
+
+*Table 2. Supported software platforms for the Middleware per country.*
 
 ### ARM Processor
 
@@ -82,6 +88,8 @@ From version 1.3.39 it is now possible to run the fiskaltrust.Middleware on ARM 
 | **fiskaly Cloud-TSE**             | supported but not tested                                     | supported but not tested                                     |
 | **Swissbit Cloud-TSE**            | supported and tested                                         | supported and tested                                         |
 | **Swissbit Hardware-TSE**         | unsupported                                                  | supported and tested                                         |
+
+*Table 3. Support status of Signature Creation Units on 64-bit and 32-bit ARM processors.*
 
 ### Launcher
 

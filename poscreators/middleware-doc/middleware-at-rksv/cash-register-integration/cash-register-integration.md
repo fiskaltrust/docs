@@ -25,7 +25,7 @@ The regular workflow of the fiskaltrust.SecurityMechanism in the Austrian market
 
 ![](./images/12.png)
 
-<span id="_Toc527986813" class="anchor"></span>*Illustration* *12. Process of the cash register integration (AT) with fiskaltrust.SecurityMechanism (AT - RKSVO)*
+*Figure 1. Process of the cash register integration (AT) with the fiskaltrust.SecurityMechanism (AT - RKSVO).*
 
 ### Workflow - regular operation
 
@@ -33,7 +33,7 @@ The following diagram illustrates the regular creation of a receipt with fiskalt
 
 ![](./images/13.png)
 
-<span id="_Toc527986814" class="anchor"></span>*Illustration 13. Workflow - regular operation (AT - RKSVO)*
+*Figure 2. Workflow of the regular receipt creation operation (AT - RKSVO).*
 
 ### Workflow - special receipts
 
@@ -41,7 +41,7 @@ The following diagram illustrates the creation of a special receipt with fiskalt
 
 ![](./images/14.png)
 
-<span id="_Toc52798681511111" class="anchor"></span>*Illustration 14. Workflow - special receipts (AT) (initial-, zero-, collective- , closing-receipt, shift-, daily-, monthly-, yearly-tally) (AT - RKSVO)*
+*Figure 3. Workflow of special receipts (AT): initial-, zero-, collective-, closing-, shift-, daily-, monthly- and yearly-tally receipts (AT - RKSVO).*
 
 ### Workflow - failure of the signature creation unit (queue timeout)
 
@@ -49,15 +49,15 @@ The following diagram illustrates the workflow of a failure of the signature cre
 
 ![](./images/15.png)
 
-<span id="_Toc527986815" class="anchor"></span>*Illustration 15. Workflow - failure of the SCD (queue timeout) (AT - RKSVO)*
+*Figure 4. Workflow of a signature creation device failure (queue timeout) (AT - RKSVO).*
 
 ![](./images/16.png)
 
-<span id="_Toc527986816" class="anchor"></span>*Illustration 16. Workflow - failure of the SCD (wrong state) (AT - RKSVO)*
+*Figure 5. Workflow of a signature creation device failure (wrong state) (AT - RKSVO).*
 
 ![](./images/17.png)
 
-<span id="_Toc527986817" class="anchor"></span>*Illustration 17. Workflow - failure of the SCD (SCD timeout) (AT - RKSVO)*
+*Figure 6. Workflow of a signature creation device failure (SCD timeout) (AT - RKSVO).*
 
 ### Workflow - failure of the fiskaltrust.SecurityMechanism (network error)
 
@@ -65,11 +65,11 @@ The following diagram illustrates the workflow of a failure of the fiskaltrust.S
 
 ![](./images/18.png)
 
-<span id="_Toc527986818" class="anchor"></span>*Illustration 18. Workflow - failure of the fiskaltrust.SecurityMechanism (network error) (AT - RKSVO)*
+*Figure 7. Workflow of a fiskaltrust.SecurityMechanism failure (network error) (AT - RKSVO).*
 
 ![](./images/19.png)
 
-<span id="_Toc527986819" class="anchor"></span>*Illustration 19. Workflow - failure of the fiskaltrust.Middleware (recover after more than 48 hours) (AT - RKSVO)*
+*Figure 8. Workflow of a fiskaltrust.Middleware failure (recovery after more than 48 hours) (AT - RKSVO).*
 
 ## Receipt for special functions
 
@@ -129,7 +129,7 @@ This chapter describes the receipt structure applicable to the Austrian market.
 
 ![](./images/20.png)
 
-<span id="_Toc527986820" class="anchor"></span>*Illustration* *20. Receipt Structure (AT); cash register- receipt data (header, charge items, pay items, footer) and fiskaltrust-receipt data (header, charge items, pay items, signature, footer) (AT - RKSVO)*
+*Figure 9. Receipt structure (AT): cash register receipt data (header, charge items, pay items, footer) and fiskaltrust receipt data (header, charge items, pay items, signature, footer) (AT - RKSVO).*
 
 ### Receipt Header
 
