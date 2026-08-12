@@ -24,12 +24,16 @@ Before starting, ensure you have:
 
 ![Dashboard – Sunmi Partner Portal](./images/sunmi1.png)
 
+*Figure 1. Main dashboard of the Sunmi Partner Portal after sign-in.*
+
 ## Step 2: Navigate to App Management
 
 1. In the left (or top) navigation, open **App Store**.
 2. Choose **Publish/Remove Apps**.
 
 ![Dashboard – Sunmi Partner Portal](./images/sunmi2.png)
+
+*Figure 2. Opening Publish/Remove Apps under the App Store in the Sunmi Partner Portal.*
 
 ## Step 3: Locate the InStore App Entry
 
@@ -39,10 +43,14 @@ Before starting, ensure you have:
 
 ![Dashboard – Sunmi Partner Portal](./images/sunmi3.png)
 
+*Figure 3. Locating the InStore App entry and opening its configuration panel.*
+
 
 ## Step 4: Fill in App Settings
 
 ![Dashboard – Sunmi Partner Portal](./images/sunmi4.png)
+
+*Figure 4. Filling in the app settings for the InStore App.*
 
 :::caution
 
@@ -56,6 +64,8 @@ After adjusting settings or device model assignments, always press "Save" before
 2. Select the appropriate device models as shown in the image (e.g., "V2_PRO").
 
 ![Dashboard – Sunmi Partner Portal](./images/sunmi5.png)
+
+*Figure 5. Selecting the supported Sunmi device models (for example V2_PRO).*
 
 :::caution
 

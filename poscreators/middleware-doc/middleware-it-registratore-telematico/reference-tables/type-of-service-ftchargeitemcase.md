@@ -29,6 +29,7 @@ For more information, see [VAT rules and rates](https://europa.eu/youreurope/bus
 | `7` | **Zero VAT rate**<br />In the data, a VAT-rate can be indicated. | 1.3.45 |
 | `8` | **Not Taxable**<br />For processing, see (`0x4954000000000001`) | 1.3.45 |
 
+*Table 1. VAT (V) values of ftChargeItemCase for the Italian market.*
 
 #### S - Type of Service
 
@@ -46,6 +47,8 @@ For more information, see [VAT rules and rates](https://europa.eu/youreurope/bus
 | `9` | **Receivable**<br />Receivable creation is negative (-) amount.<br />Receivable reduction is positive (+) amount.<br />IsVoid can be applied to reverse amounts.<br />Avoid using this; use PayItem instead. | 1.3.45 |
 | `A` | **Cash Transfer**<br />Cash Transfer to till is positive (+) amount.<br />Cash Transfer from till is negative (-) amount.<br />Only usable with V=8, Not Taxable.<br />IsVoid can be applied to reverse amounts. | 1.3.45 |
 
+*Table 2. Type of Service (S) values of ftChargeItemCase for the Italian market.*
+
 #### NN - nature of VAT
 
 | **Value** | **Description** | **Spec. for Italian reg.** | **Middleware Version** |
@@ -60,6 +63,7 @@ For more information, see [VAT rules and rates](https://europa.eu/youreurope/bus
 | `70` | **VAT distribution**<br />7x | *VI (VI) is a fiscal VAT (IVA) regime that certain retailers can adopt. It allows the global registration of the daily takings amount without distinguishing the individual VAT rates. It only ever applies to goods. | 1.3.45 |
 | `80` | **Excluded**<br />8x| *EE (N1) marker mandatory<br />[80] excluded pursuant to art. 15 of Presidential Decree 633/72 | 1.3.45 |
 
+*Table 3. Nature of VAT (NN) values of ftChargeItemCase for the Italian market.*
 
 #### lll - local tagging/flag
 
@@ -67,6 +71,8 @@ For more information, see [VAT rules and rates](https://europa.eu/youreurope/bus
 | --------- | --------------- | ---------------------- |
 | `001` | **Subtotal discounts** | 1.3.45 |
 | `002` | **Subtotal surcharges** | 1.3.45 |
+
+*Table 4. Local tagging/flag (lll) values of ftChargeItemCase for the Italian market.*
 
 #### gggg - global tagging/flag
 
@@ -79,6 +85,8 @@ For more information, see [VAT rules and rates](https://europa.eu/youreurope/bus
 | `0010` | **Returnable**<br />Marks ChargeItem as a returnable.<br />Positive (+) amount/quantity is handout.<br />Negative (-) amount/quantity is reverse.<br />IsVoid or IsReturn/IsRefund will invert this behavior. | 1.3.45 |
 | `0020` | **TakeAway**<br />Marks ChargeItem as TakeAway item to prove special VAT application | 1.3.45 |
 | `8000` | **ShowInPayments**<br />Visualize the item after Total Amount. This inverts amount and does not include the amount into the visualized total amount on the receipt. | 1.3.45 |
+
+*Table 5. Global tagging/flag (gggg) values of ftChargeItemCase for the Italian market.*
 
 ## ftChargeItemCaseFlag
 

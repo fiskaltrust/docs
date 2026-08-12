@@ -18,6 +18,8 @@ At `Configuration` / `Template`, you can see the existing templates, clone and e
 
 ![Template List](./images/template-shop-list.png)
 
+*Figure 1. The template list in the fiskaltrust.Portal; elements are listed in Table 1.*
+
 | elements | description                                                                                                                |
 |:----------------------:|-------------------------------------------------------------------------------------------------------------------------------------|
 |![Number 1](../../images/numbers/circle-1o.png) |Expand a template to get more detailed information.  |
@@ -26,9 +28,13 @@ At `Configuration` / `Template`, you can see the existing templates, clone and e
 |![Number 4](../../images/numbers/circle-4o.png) |Edit an existing template. |
 |![Number 5](../../images/numbers/circle-5o.png) |Create a new template. |
 
+*Table 1. Elements of the template list shown in Figure 1.*
+
 When you create or edit a template, you must fill out the following form.
 
 ![Template Create/Edit](./images/template-shop-create.png "https://portal-sandbox.fiskaltrust.TLD/Template")
+
+*Figure 2. The template create and edit form in the fiskaltrust.Portal; elements are listed in Table 2.*
 
 | elements | description                                                                                                                |
 |:----------------------:|-------------------------------------------------------------------------------------------------------------------------------------|
@@ -37,6 +43,8 @@ When you create or edit a template, you must fill out the following form.
 |![Number 3](../../images/numbers/circle-3o.png) |Mode sets the visibility of the template: Private (owner only), Deactivated (not visible in shop),Public for (your) PosOperators, Public for (your) PosDealers.   |
 |![Number 4](../../images/numbers/circle-4o.png) |The JSON content of the template. |
 |![Number 5](../../images/numbers/circle-5o.png) |Save the template before leaving the page. |
+
+*Table 2. Elements of the template create and edit form shown in Figure 2.*
 
 ## Create CashBox from Shop Template
 

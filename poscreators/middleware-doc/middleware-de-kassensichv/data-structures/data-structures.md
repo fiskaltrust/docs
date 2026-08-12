@@ -22,6 +22,8 @@ Fields from the receipt request that need special handling for the German market
 | `cbPreviousReceiptReference` | `string`             | Optional                                              | Points to `cbReceiptReference` of a previous request. Used to connect requests representing a business action. E.g. split, merge or reference a receipt to be voided.                                                                                                                                                  | 1.3         |
 
 
+*Table 1. Receipt request fields requiring special handling for the German market.*
+
 Examples of using `cbReceiptReference` and `cbPreviousReceiptReference` to connect requests representing a business action can be found in our Postman collection.
 
 :::caution
@@ -45,6 +47,8 @@ If you need to provide customer data in your request, you can send it in via the
 | `CustomerCountry` | `ISO 3166 ALPHA-3 country code` | Optional                          | **Country of the beneficiary customer.** <br />Send via `cbCustomer` in JSON format by adding the key value pair `CustomerCountry` e.g. `"cbCustomer":"{..., "CustomerCountry":"DEU", ...}"`                                          | 1.3         |
 | `CustomerVATId`   | `string(15)`                    | Optional                          | **VAT-ID of the beneficiary customer.**<br />Send via `cbCustomer` in JSON format by adding the key value pair `CustomerVATId` e.g. `"cbCustomer":"{..., "CustomerVATId":"DE123456789", ...}"`                                        | 1.3         |
 
+*Table 2. Customer data fields sent via `cbCustomer`.*
+
 
 #### Receipt case data `ftReceiptCaseData`
 
@@ -59,6 +63,8 @@ For some cases, it is needed to transmit data within the field `ftReceiptCaseDat
 | `ReceiptNote`  | `string`      | optional                                                                                                        | Additional information on the receipt header. Can be sent via `ftReceiptCaseData` in JSON format. To send, add the key value pair `ReceiptNote` e.g. `"ftReceiptCaseData":"{ ..., "ReceiptNote":"123, ich bin dabei!", ... }"`                                        | 1.3         |
 | `ReceiptName`  | `string`      | Mandatory if your request maps to the DSFinV-K BON_TYPE "AVSonstige" (see `ftReceiptCase`), otherwise optional | Can be sent via `ftReceiptCaseData` in JSON format. To send, add the key value pair `ReceiptName` e.g. `"ftReceiptCaseData":"{ ..., "ReceiptName":"Sonstige Sonderwurst", ... }"`                                                                                     | 1.3         |
 
+*Table 3. `ftReceiptCaseData` fields for the German market.*
+
 If you need to provide a **reference** to another system or another cashpoint, you can add it via the field `ftReceiptCaseData` by providing its data as shown below:
 
 | **Field name**             | **Data type**                                                                     | **Default Value Mandatory Field**                                                                                                    | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                             | **Version** |
@@ -69,6 +75,8 @@ If you need to provide a **reference** to another system or another cashpoint, y
 | `RefCashBoxIdentification` | `string`                                                                          | If the reference you want to add is of type (RefType) "Transaktion", you must provide data for the field `RefCashBoxIdentification`. | It should contain the value of ´ftCashBoxIdentification´ from the referenced cashpoint. Please send it via `ftReceiptCaseData` in JSON format by adding the key value pair `RefCashBoxIdentification` e.g. `"ftReceiptCaseData":"{ ..., "RefCashBoxIdentification":"AHHAH1919919", ... }"`.                                                                                                                                                                 | 1.3         |
 | `RefClosingNr`             | `integer`                                                                         | If the reference you want to add is of type (RefType) "Transaktion", you must provide data for the field `RefClosingNr`.             | It should provide the referenced cashpoint daily closing number of the referenced object. Please send it via `ftReceiptCaseData` in JSON format by adding the key value pair `RefClosingNr` e.g. `"ftReceiptCaseData":"{ ..., "RefClosingNr":1091029, ... }"`. Starting from version 1.3.6, the closing numbers to reference can be obtained from the `ftStateData` field of daily closing receipts' responses (via the `DailyClosingNumber` JSON element). | 1.3         |
 | `RefReceiptId`             | `string`                                                                          | If the reference you want to add is of type (RefType) "Transaktion", you must provide data for the field `RefReceiptId`.             | It should contain the value of ´ftReceiptIdentification´ of the referenced object. Please send it via `ftReceiptCaseData` in JSON format by adding the key value pair `RefReceiptId` e.g. `"ftReceiptCaseData":"{ ..., "RefReceiptId":"UAUUA1112#20200211-112430", ... }"`.                                                                                                                                                                                 | 1.3         |
+
+*Table 4. `ftReceiptCaseData` fields for referencing another system or cashpoint.*
 
 ### Charge Items Entry
 
@@ -83,6 +91,8 @@ For some cases, it is needed to transmit data within the field `ftChargeItemCase
 | `AgencyId`       | `integer`     | mandatory if applicable           | Mandatory if agency business (DE: Agenturgeschäft). Send via `ftChargeItemCaseData` (if a ChargeItem represents the voucher) or `ftPayItemCaseData` (if a payitem represents the voucher). To send, use the key value pair `AgencyId` e.g. `"ftChargeItemCaseData":"{ ..., "AgencyId": "73c94a68-c329-4d82-a8e4-d48903791922", ... }"` (the ID can be taken from the Portal's _Agency management_ page). | 1.3         |
 | `ProductGroupId` | `string`      | optional                          | Send via `ftChargeItemCaseData` in JSON format. To send, please add the key value pair `ProductGroupId` e.g. `"ftChargeItemCaseData":"{ ..., "ProductGroupId":192, ... }"`. If not sent, the fiskaltrust.Middleware will automatically generate an ID (CRC32 hash) deducted from `ftChargeItem.ProductGroup`                                                                                             | 1.3         |
 
+
+*Table 5. `ftChargeItemCaseData` fields for the German market.*
 
 The following table highlights fields of the charge item that need special handling for the German market.
 
@@ -99,6 +109,8 @@ The following table highlights fields of the charge item that need special handl
 | `UnitPrice`               | `decimal (5)` | mandatory if available            | Price per unit incl. VAT                                                                                                                                                                                                                                                                                                                               | 1.3         |
 | `VATAmount`               | `decimal (5)` | mandatory for special cases       | In some special cases of taxation (e.g. car spare part in the car repair shop), the VAT is not a percentage of the net-price (NETTO) or the gross-price. For these cases, the field  `VATAmount` is mandatory and a `ftChargeItemCase` that maps to DSFinV-K UST_SCHLUESSEL 7 should be used. The value of the field `VATRate` should be set to `0.0`. | 1.3         |
 
+*Table 6. Charge item fields requiring special handling for the German market.*
+
 ### Payload and Export Amount Calculation
 To get a positive Amount: Amount and Quantity have to be positive. This is relevant e.g. for credit notes including a discount, which must be positive.
 
@@ -108,6 +120,8 @@ To get a positive Amount: Amount and Quantity have to be positive. This is relev
 | -  | - | + | 
 | -  | + | - | 
 | -  | - | - | 
+
+*Table 7. Amount and quantity sign combinations and the resulting calculated amount.*
 
 
 ### Pay Items Entry
@@ -125,3 +139,5 @@ For some cases, it is needed to transmit data within the field `ftPayItemCaseDat
 | `VoucherNr`             | `string`      | mandatory if applicable            | Send via `ftPayItemCaseData` in JSON format if the pay item represents the voucher. To send, please add the key value pair `VoucherNr` e.g. `"ftPayItemCaseData":"{ ..., "VoucherNr":"UAUA91829182HH", ... }"`.                                                                                                                                                                                                                                                             | 1.3         |
 | `MoneyGroupId`          | `string`      | optional                           | Send via `ftPayItemCaseData` in JSON format. To send, please add the key value pair `MoneyGroupId` e.g. `"ftPayItemCaseData":"{ ..., "MoneyGroupId":192, ... }"`. If not sent, the fiskaltrust.Middleware will automatically generate an ID (CRC32 hash) deducted from `ftPayItem.MoneyGroup`                                                                                                                                                                               | 1.3         |
 | `AgencyId`              | `integer`     | mandatory if applicable            | Mandatory if agency business (DE: Agenturgeschäft). Send via `ftPayItemCaseData` in JSON format. To send, please add the key value pair `AgencyId` e.g. `"ftPayItemCaseData":"{ ..., "AgencyId": "73c94a68-c329-4d82-a8e4-d48903791922", ... }"` (the ID can be taken from the Portal's _Agency management_ page). Should only be used in cases where PayItems will be transformed to `GV_TYP`es during DSFinV-K generation - otherwise, please use `ftChargeItemCaseData`. | 1.3         |
+
+*Table 8. `ftPayItemCaseData` fields for the German market.*

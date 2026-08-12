@@ -13,3 +13,5 @@ The Middleware uses the same ftSignatureFormat in Belgium as in all other countr
 | **Value** | **Description** | **Middleware Version** | 
 | --------- | --------------- | ---------------------- |
 | TBD | TBD | TBD |
+
+*Table 1. ftSignatureFormatFlag values for the Belgian market.*

@@ -23,6 +23,8 @@ The _fiskaltrust.Middleware.SCU.IT.IVAServizi_ package connects the middleware w
 | Sandbox | `true`: exercises the real AdE login/delegation flow on every request (useful as a login smoke-test) but returns a mocked document result — no fiscal document is ever created. `false`: submits real fiscal documents. | `false`<br />optional |
 | LoginMode | Selects how the SCU logs in and resolves the AdE delegation before signing. See *Configuration* below. | `Browser`<br />optional |
 
+*Table 1. Configuration parameters for the IvaServizi SCU.*
+
 Please pay attention to the case-sensitive use of the parameters.
 
 ### Configuration
@@ -36,6 +38,8 @@ AdE (Agenzia delle Entrate) exposes no official API for Documento Commerciale On
 | `Browser` (default) | Drives a headless browser through the actual AdE login and delegation pages, exactly as a human would. Most resilient to changes AdE makes to its internal API contract, since it follows the same UI a person uses; slower and heavier (a full browser session per login). |
 | `Api` | Logs in and resolves the delegation directly over HTTP, without a browser — faster and lighter, but depends on AdE's internal (unpublished, reverse-engineered) API contract, which can change without notice. |
 | `ApiWithBrowserFallback` | Tries `Api` first; if that login attempt fails for any reason other than the credentials/delegation themselves being wrong, falls back to `Browser` for that attempt. |
+
+*Table 2. LoginMode values and their login behavior.*
 
 Regardless of `LoginMode`, delegation is always resolved by matching `VATNumber` against the account's actual list of delegations returned by AdE — never assumed or guessed. If `VATNumber` isn't found among the account's delegations, the SCU fails the request rather than proceeding against a different company.
 

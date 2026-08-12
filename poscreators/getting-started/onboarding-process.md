@@ -20,25 +20,25 @@ The onboarding process is a phased progression. Each role completes a specific s
 
 ### Phase 1: Portal Registration and Middleware Integration (PosCreator)
 
-- Register the [PosCreator account](https://docs.fiskaltrust.eu/docs/poscreators/get-started/portal-registration) in the fiskaltrust.Portal.
-- Integrate the [fiskaltrust.Middleware](https://docs.fiskaltrust.eu/docs/poscreators/get-started/middleware-integration) with your POS system.
-- [Register your POS system](https://docs.fiskaltrust.eu/docs/poscreators/get-started/onboarding-posdealers#1-invite-posdealer-in-fiskaltrustportal) in the portal and invite a PosDealer to complete subsequent configurations and rollouts.
+- Register the [PosCreator account](./portal-registration.md) in the fiskaltrust.Portal.
+- Integrate the [fiskaltrust.Middleware](./middleware-integration.md) with your POS system.
+- [Register your POS system](./onboarding-posdealers.md#1-invite-posdealer-in-fiskaltrustportal) in the portal and invite a PosDealer to complete subsequent configurations and rollouts.
 
 ### Phase 2: Core System Configuration (PosDealer)
 
 - Confirm the existence of a PosCreator account and verify that the cash register system and POS system ID are created and stored in the portal.
-- Register the [PosDealer account](https://docs.fiskaltrust.cloud/docs/posdealers/getting-started/registration) in the portal.
+- Register the [PosDealer account](../../posdealers/getting-started/registration.md) in the portal.
 
 ### Phase 3: Team and Permissions (PosDealer)
 
-- Assign and sign off on [all required user roles](https://docs.fiskaltrust.cloud/docs/posdealers/getting-started/company-roles#how-to-activate-a-role) within the portal.
-- Create [employee profiles](https://docs.fiskaltrust.cloud/docs/posdealers/getting-started/company-roles) with specific, tiered permission levels.
+- Assign and sign off on [all required user roles](../../posdealers/getting-started/company-roles.md#how-to-activate-a-role) within the portal.
+- Create [employee profiles](../../posdealers/getting-started/company-roles.md) with specific, tiered permission levels.
 
 ### Phase 4: Data and Compliance Verification (PosDealer)
 
-- Audit [Master Data](https://docs.fiskaltrust.cloud/docs/posdealers/getting-started/operator-onboarding/master-data) to ensure 100% accuracy.
+- Audit [Master Data](../../posdealers/getting-started/operator-onboarding/master-data.md) to ensure 100% accuracy.
 - Verify that the Tax ID is correct and complies with the applicable tax ID schema.
-- Sign and file the [VPA (Partner Agreement)](https://docs.fiskaltrust.cloud/docs/posdealers/buy-resell/overview#volume-purchase-agreement).
+- Sign and file the [VPA (Partner Agreement)](../../posdealers/buy-resell/overview.md#volume-purchase-agreement).
 
 ### Phase 5: Knowledge Transfer (Intro Call) (PosCreator → PosDealer)
 
@@ -47,9 +47,9 @@ The onboarding process is a phased progression. Each role completes a specific s
 
 ### Phase 6: Deployment and Rollout (PosDealer)
 
-- Prepare and fully [set up the PosOperator](https://docs.fiskaltrust.cloud/docs/posdealers/getting-started/operator-onboarding/invitation-process).
-- Assess the need for rollout templates and [create](https://docs.fiskaltrust.cloud/docs/posdealers/technical-operations/rollout-automation/shop-templating#create--edit-template) them as required.
-- Purchase all necessary [products](https://docs.fiskaltrust.cloud/docs/posdealers/buy-resell/shop) via the shop.
+- Prepare and fully [set up the PosOperator](../../posdealers/getting-started/operator-onboarding/invitation-process.md).
+- Assess the need for rollout templates and [create](../../posdealers/technical-operations/rollout-automation/shop-templating.md#create--edit-template) them as required.
+- Purchase all necessary [products](../../posdealers/buy-resell/shop.md) via the shop.
 
 ### Phase 7: Long-Term Success and Adoption (PosDealer)
 

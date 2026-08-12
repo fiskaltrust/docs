@@ -18,3 +18,5 @@ This storage provider is particularly suitable for setting up fail-safe systems 
 | Name               | Description                                    | **Default Value**<br />**Mandatory Field** |
 |--------------------|------------------------------------------------|--------------------------------------------|
 | _connectionstring_ | MySQL connection string to the database system | mandatory                                  |
+
+*Table 1. MySQL storage provider parameters.*

@@ -18,3 +18,5 @@ This storage provider is particularly suitable for setting up fail-safe systems 
 | Name               | Description                                            | **Default Value**<br />**Mandatory Field** |
 |--------------------|--------------------------------------------------------|--------------------------------------------|
 | _connectionstring_ | EF-compatible connection string to the database system | mandatory                                  |
+
+*Table 1. Entity Framework storage provider parameters.*

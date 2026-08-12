@@ -12,3 +12,5 @@ title: Terminology
 | Business-action (DE: Geschäftsvorfall) | Business-actions are all legal and economic transactions that document, influence or change the profit or loss or the asset composition of an enterprise within a certain period of time.                                                                                                                                                                                                                                                      |
 | Flow                                   | The "flow" describes the communication between the POS-System and the fiskaltrust.Middleware to trigger transactions. This can be done either explicitly (each transaction has to be initiated "explicitly"; e.g. "Start" or "Finish") or implicitly (a "Start-Transaction" is done behind the scenes automatically - implicitly - upfront to the final call).                                                                                 |
 
+*Table 1. Key terms used in the German KassenSichV context.*
+

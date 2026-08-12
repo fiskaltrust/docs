@@ -71,6 +71,8 @@ The following table contains the list of all currently supported configuration p
 | telemetry-optout  | flag indicating whether the Middleware should disable telemetry. | `false`                                |
 | verbosity         | The level of logging the Middleware should use. Please [Logging](logging.md) for details. | `information`                          |
 
+*Table 1. Supported Middleware configuration parameters.*
+
 ## Changing parameters with the Launcher
 
 In addition to manually editing the configuration file `fiskaltrust.exe.config`, you can set parameters via the Launcher. Please see the chapter [Launcher](launchers/desktop.md#configuration-parameters) for more details on how to do that.

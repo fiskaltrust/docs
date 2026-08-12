@@ -37,6 +37,8 @@ If you want to try how the shop works, you should do this in the [Sandbox](../ge
 
 ![Products](./images/products.png)
 
+*Figure 1. The Products page in the fiskaltrust.Portal shop.*
+
 |             Step             | Description                                                  |
 | :--------------------------: | ------------------------------------------------------------ |
 | ![](../images/numbers/1.png) | Go to `Shop` / `Products` in the left-hand navigation menu to buy a product or entitlement. |
@@ -45,6 +47,8 @@ If you want to try how the shop works, you should do this in the [Sandbox](../ge
 | ![](../images/numbers/4.png) | Click on the shopping cart in the top right of the window and click the `Checkout` button.  | 
 | ![](../images/numbers/5.png) | **Check** the products, the amount, price and outlet if applicable before clicking the `binding order` button.| 
 | ![](../images/numbers/6.png) | Clicking the `binding order` button shows a confirmation of your order, you get a copy via E-Mail.  | 
+
+*Table 1. Steps to buy a product or entitlement in the shop.*
 
 ## Transfer Entitlements to PosOperators Outlet
 To transfer the entitlements to the PosOperator, you have to [surrogate](../getting-started/operator-onboarding/surrogating.md) into that account by clicking the PosOperators name at `PosOperator` / `Overview`. 
@@ -64,6 +68,8 @@ import ReactPlayer from "react-player"
 | ![](../images/numbers/7.png) | The transfer and activation of existing entitlements should be free. **Check** the order, the PosOperator and the outlet before you click the `binding order` button.| 
 | ![](../images/numbers/8.png) |Clicking the `binding order` button shows a confirmation of your order, you get a copy via E-Mail.  | 
 
+*Table 2. Steps to transfer entitlements to a PosOperator outlet.*
+
 :::tip 
 
 Always make sure you perform the transfer for the desired PosOperator and outlet and place the transfer entitlements products before they create entitlements products into the shopping cart.
@@ -77,12 +83,18 @@ After transferring the entitlements, you check at `Shop` / `Entitlements` the re
 You can check the status of all your orders at `Shop` / `Orders`:
 ![Orders](./images/orders.png)
 
+*Figure 2. The Orders page showing the status of placed orders.*
+
 ## Invoices
 You can find the corresponding invoices at `Shop` / `Invoices`:
 
 ![Invoices](./images/invoices.png)
 
+*Figure 3. The Invoices page listing the corresponding invoices.*
+
 ## Entitlements
 Once the order is processed successfully, you will find the entitlements you purchased at `Shop` / `Entitlements`. If you want to see the history of your single purchases, you can click on the button `History`. There you also can search for a single order number.
 
 ![Entitlements](./images/entitlements.png)
+
+*Figure 4. The Entitlements page listing purchased entitlements.*

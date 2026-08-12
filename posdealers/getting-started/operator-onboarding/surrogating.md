@@ -30,6 +30,8 @@ We use the example of checking the master data of a PosOperator to describe Surr
 
 ![surrogating accounts](images/2-surrogating-accounts.png "surrogating accounts")
 
+*Figure 1. Searching for and selecting a PosOperator in the fiskaltrust.Portal PosOperator overview; steps are listed in Table 1.*
+
 | Steps | Description                                                                                                                |
 |:----------------------:|-------------------------------------------------------------------------------------------------------------------------------------|
 |![Number 1](images/Numbers/circle-1o.png) |Choose `PosOperator` / `Overview`  |
@@ -37,7 +39,11 @@ We use the example of checking the master data of a PosOperator to describe Surr
 |![Number 3](images/Numbers/circle-3o.png) |Use `Enter` or the Symbol for `Search` and get the datasets of those PosOperators, whose names or E-Mail addresses match your criteria. Without a search term, you get all PosOperators.  |
 |![Number 4](images/Numbers/circle-4o.png) |If the name of the PosOperator is an active link, the account is active. Choose that link to switch to the PosOperators account.  |
 
+*Table 1. Steps for finding and switching to a PosOperator account, shown in Figure 1.*
+
 ![surrogating accounts](images/3-surrogating-accounts.png "https://portal-sandbox.fiskaltrust.TLD/PosOperator")
+
+*Figure 2. The fiskaltrust.Portal after surrogating into a PosOperator account; steps are listed in Table 2.*
 
 | Steps | Description                                                                                                                |
 |:----------------------:|-------------------------------------------------------------------------------------------------------------------------------------|
@@ -47,16 +53,24 @@ We use the example of checking the master data of a PosOperator to describe Surr
 |![Number 4](images/Numbers/circle-4o.png) |You switch to your account with the `Switch to your account`- button on the right upper corner.   |
 |![Number 5](images/Numbers/circle-5.png) |Avoid leaving the account of a PosOperator by signing out because your **shopping cart** would get lost.   |
 
+*Table 2. Steps for working within and leaving a surrogated PosOperator account, shown in Figure 2.*
+
 ### Check PosOperators Master data
 
 ![surrogating accounts](images/5-surrogating-accounts.png "https://portal-sandbox.fiskaltrust.TLD/AccountProfile")
+
+*Figure 3. The PosOperator account profile overview used to verify activated roles; steps are listed in Table 3.*
 
 | Steps | Description                                                                                                                |
 |:----------------------:|-------------------------------------------------------------------------------------------------------------------------------------|
 |![Number 1](images/Numbers/circle-1o.png) |After signing in (for PosOperators) or surrogating in the Account of a PosOperator (for PosDealers), choose `[COMPANY NAME]`/ `Overview`.  |
 |![Number 2](images/Numbers/circle-2o.png) |Determine if the role PosOperator has been activated as well as no other. Otherwise, cancel the undesired role. Please check [Company Roles](../company-roles.md) for further questions |
 
+*Table 3. Steps for checking the PosOperator's activated roles, shown in Figure 3.*
+
 ![surrogating accounts](images/6-surrogating-accounts.png "https://portal-sandbox.fiskaltrust.TLD/AccountProfile/Edit")
+
+*Figure 4. The PosOperator master data edit page; steps are listed in Table 4.*
 
 | Steps | Description                                                                                                                |
 |:----------------------:|-------------------------------------------------------------------------------------------------------------------------------------|
@@ -67,6 +81,8 @@ We use the example of checking the master data of a PosOperator to describe Surr
 |![Number 5](images/Numbers/circle-5o.png) |Do not yet return to your account as a PosDealer with `Switch to your own account` or sign out as a PosOperator. |
 |![Number 6](images/Numbers/circle-6o.png) |Choose `Outlets` to check these for completeness and correctness. |
 |  |Choose `Switch to your own account` to get back to your account and check other accounts of other PosOperators. |
+
+*Table 4. Steps for checking and validating the PosOperator's master data, shown in Figure 4.*
 
 :::caution No access to employee data for PosDealer
 

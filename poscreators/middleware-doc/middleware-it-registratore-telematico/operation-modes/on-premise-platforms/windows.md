@@ -25,3 +25,5 @@ The fiskaltrust.Middleware runs as a service on all 32-bit and 64-bit platforms 
 | Windows 10 IoT Enterprise 2016 LTSB | supported     |
 | Windows Server 2019                 | supported     |
 | Windows 10 IoT Enterprise 2019 LTSC | supported     |
+
+*Table 1. Windows operating system support for the fiskaltrust.Middleware.*

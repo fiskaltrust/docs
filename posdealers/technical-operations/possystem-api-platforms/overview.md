@@ -52,6 +52,8 @@ Depending on your market and mode of operation, choose the correct setup from th
 | **Android** | [Android](../../../poscreators/possystem-api/android-intent) | Currently not available | [Android](../../../poscreators/possystem-api/android-intent) | [Android](../../../poscreators/possystem-api/android-intent) | Currently not available |
 | **Cloud** | [CloudCashbox](../middleware/launchers/cloudcashbox.md#introduction) | [CloudCashbox](../middleware/launchers/cloudcashbox.md#introduction) | [CloudCashbox](../middleware/launchers/cloudcashbox.md#introduction) | [CloudCashbox](../middleware/launchers/cloudcashbox.md#introduction) | [CloudCashbox](../middleware/launchers/cloudcashbox.md#introduction) |
 
+*Table 1. Setup guides per market and mode of operation.*
+
 
 ### Middleware 1.2 Setups
 
@@ -76,3 +78,5 @@ When starting a new implementation in the AT market, you can already use Middlew
 | | AT, FR |
 |-|--------|
 | **Local** | [1.2 CashBox Setup](./localpossystemapi-helper-1-2.md) |
+
+*Table 2. Local setup guide for Middleware 1.2 in the AT and FR markets.*

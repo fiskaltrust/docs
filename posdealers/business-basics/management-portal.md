@@ -18,6 +18,8 @@ The *fiskaltrust.Portal* is the central **management dashboard** to control all 
 
 ![](./images/portal.png "https://portal-SANDBOX.fiskaltrust.TLD/Home/Dashboard")
 
+*Figure 1. The dashboard of the fiskaltrust.Portal.*
+
 The following paragraphs will briefly overview the general actions and tasks you can perform in the portal.
 
 :::tip surrogating

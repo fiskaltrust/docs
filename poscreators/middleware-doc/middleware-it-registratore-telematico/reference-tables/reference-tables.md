@@ -32,6 +32,8 @@ _CCCC_vIII_gggg_xxxx
 | gggg | (e.g. 0010): These items are used for flags. Flags can change the basic behavior of a given type, but will leave the overall semantical meaning of a type the same. (e.g. voiding of a receipt) |
 | xxxx | (e.g. 0001): The last category is usually case specific but always consists of 4 numbers. |
 
+*Table 1. Sections of the Italian market tagging format.*
+
  
 
  

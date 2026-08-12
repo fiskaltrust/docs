@@ -25,9 +25,9 @@ All components that belong to an on-premises Middleware installation are grouped
 Detailed information about market-specific configuration options can be found in the corresponding market appendices:
 
 - Austria
-- [Germany](https://docs.fiskaltrust.cloud/docs/posdealers/technical-operations/rollout-scenarios)
+- [Germany](../../../../posdealers/technical-operations/rollout-scenarios.md)
 - France
-- [Italy](https://docs.fiskaltrust.cloud/docs/posdealers/technical-operations/rollout-scenarios)
+- [Italy](../../../../posdealers/technical-operations/rollout-scenarios.md)
 
 After completing the CashBox configuration, download the Launcher package for the configured CashBox. The Launcher contains the information required to start the fiskaltrust.Middleware with the selected configuration.
 
@@ -49,6 +49,8 @@ The launcher variants and platform availability described below currently apply 
 | ![launcher-offline](images/launcher-offline.png) | .NET Offline Launcher | **For starting the Middleware on Windows without Internet connection.** <br />A static configuration and required packages for operation is included. The regular package update mechanisms are not supported with the offline launcher. | supported | supported | supported | supported |
 | ![launcher-mono](images/launcher-mono.png) | Mono Launcher | **For starting the Middleware on Linux/macOS with Internet connection.**<br />The launcher loads the configuration file and required packages from the fiskaltrust package server during startup. | supported | supported | supported | supported |
 | ![launcher-android](images/launcher-android.png) | Android Launcher | **For starting the Middleware on Android with Internet connection.**<br />Required packages for operation are already included. The launcher loads the configuration file from the fiskaltrust package server during startup.<br />The configuration options are limited to keep the package sizes small. | | supported* | | supported* |
+
+*Table 1. Launcher package variants and their availability per market (AT, DE, FR, IT).*
 
 *Availability depends on the selected CashBox configuration. For more information, see the [Android platform documentation](../../middleware-de-kassensichv/operation-modes/on-premise-platforms/android.md).
 
@@ -92,7 +94,7 @@ The following call parameters are available with the launcher `fiskaltrust.exe`:
 | `-proxy` | Sets the proxy server to be used to connect to the internet. The value can be used as follows: `"address=xxx.xxx.xxx.xxx;username=test;password=pwd123"`. `username` and `password` are optional values. See [Using a Proxy](https://link.fiskaltrust.cloud/rollout/proxy) | yes |
 | `-verbosity` | Sets the level of debug-information in the logfile. The value is a string. Possible values are: `Trace` \| `Debug` \| `Information` \| `Warning` \| `Error` \| `Critical`<br />**Supported in the German market only!** | yes. <br />Use in the static configuration the key `loglevel` |
 
-<span id="_Toc527986661" class="anchor"></span>*Table 2. fiskaltrust.exe launch parameters*
+*Table 2. Command-line parameters accepted by the fiskaltrust.exe launcher.*
 
 ### Starting the Launcher
 
@@ -105,6 +107,8 @@ Following  options are available for executing the `fiskaltrust.exe`:
 | `install-service.cmd` | Pre-configured command file which executes `fiskaltrust.exe` using the parameter `-i` for installing the fiskaltrust.Middleware as a service under Windows, recommended for permanent on-premise operation. | Run the command file `install-service.cmd` as administrator. <br />For details, see [Windows Service Installation](#windows-service-installation) | For installing the fiskaltrust.Middleware as a Daemon, see [Mono service installation](#mono-service-installation). |
 | `uninstall-service.cmd` | Pre-configured command file which executes `fiskaltrust.exe` using the parameter `-u` for un-installing the fiskaltrust.Middleware as a service under Windows. | Run the command file `uninstall-service.cmd` as administrator. | |
 | `test.cmd` | Pre-configured command file which executes `fiskaltrust.exe` using the parameter `-test` for starting the fiskaltrust.Middleware as a command line program under Windows, recommended for test and development purpose. | Run the command file `test.cmd` as administrator.<br />For details, see [Test Environment](#test-environment) | |
+
+*Table 3. Options for executing fiskaltrust.exe on Windows and Linux.*
 
 ### Applying the CashBox-configuration
 
@@ -120,6 +124,8 @@ For checking the configuration and downloading the needed packages the Launcher 
 | ---- | -------- | ---- | ------ |
 | https | TCP | 443 | packages-sandbox.fiskaltrust.cloud |
 | https | TCP | 443 | packages.fiskaltrust.cloud |
+
+*Table 4. Outbound connections the Launcher needs to reach the fiskaltrust package server.*
 
 ### Service folder
 
@@ -149,7 +155,7 @@ A static configuration can be enforced via the configuration.json file in the `f
 
 ![](./images/01-console-testmode.png)
 
-<span id="_Toc527986811" class="anchor"></span>*Illustration 10. Screenshot console in test mode*
+*Figure 1. Console output of the fiskaltrust.Middleware running in test mode.*
 
 ### Windows Service Installation
 
@@ -157,7 +163,7 @@ The Windows service can be installed and uninstalled via the call parameters -i 
 
 ![](./images/02-windows-services.png)
 
-<span id="_Toc527986812" class="anchor"></span>*Illustration 11. Screenshot Windows services fiskaltrust service*
+*Figure 2. The fiskaltrust service shown in the Windows Services console.*
 
 Once successfully completed, the service will appear in the list of running services.
 
@@ -221,7 +227,7 @@ esac
 exit 0
 ```
 
-<span id="_Toc527986837" class="anchor"></span>*Code 13. Initializing the mono service*
+*Code 13. Initializing the mono service*
 
 Next, the folders have to be created and assigned the required permissions. In order to do that, the following commands have to be executed via the SSH-console:
 
@@ -247,4 +253,4 @@ The fiskaltrust.Middleware for Android is currently available for the German mar
 
 ## Migration of the fiskaltrust.Middleware instance to a different hardware
 
-We do not recommend to migrate an active instance of the fiskaltrust.Middleware to another hardware. If possible, set the queue [out of operation](https://docs.fiskaltrust.cloud/docs/poscreators/middleware-doc/germany/reference-tables/ftreceiptcase), configure, and install a new Middleware instance on the new machine.
+We do not recommend to migrate an active instance of the fiskaltrust.Middleware to another hardware. If possible, set the queue [out of operation](../../middleware-de-kassensichv/reference-tables/type-of-receipt-ftreceiptcase.md), configure, and install a new Middleware instance on the new machine.

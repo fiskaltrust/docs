@@ -41,6 +41,8 @@ The visualization of the digital receipt varies from the markets legal requireme
 
 ![digital-receipt-sample-at](./images/digita_receipt_sample_at.png)
 
+*Figure 1. Sample digital receipt for Austria; the numbered elements are listed in Table 1.*
+
 | Number  | Description |
 | ------------- | ------------- |
 | 1  | Merchant Logo from fiskaltrust.Portal   |
@@ -53,6 +55,8 @@ The visualization of the digital receipt varies from the markets legal requireme
 | 8  | Share button (to 3rd party apps like ReceiptHero), button to Consumer Application (Download and send receipt via PDF, etc.)   |
 | 9  | National compliance requirements for Austria (QR-Code only)   |
 | 10  | Transaction details from card payment or voucher   |
+
+*Table 1. Elements of the Austrian digital receipt shown in Figure 1.*
 
 Digital receipt demo: <br/>
 https://receipts-sandbox.fiskaltrust.cloud/v0/1cb802fb-e694-4036-a857-6328842cb06f/8aecf05d-5d57-4905-9bef-458ad16d3ea9
@@ -61,6 +65,8 @@ https://receipts-sandbox.fiskaltrust.cloud/v0/1cb802fb-e694-4036-a857-6328842cb0
 
 ![digital-receipt-sample-de](./images/digita_receipt_sample_de.png)
 
+*Figure 2. Sample digital receipt for Germany; the numbered elements are listed in Table 2.*
+
 | Number  | Description |
 | ------------- | ------------- |
 | 1  | Merchant Logo from fiskaltrust.Portal   |
@@ -73,6 +79,8 @@ https://receipts-sandbox.fiskaltrust.cloud/v0/1cb802fb-e694-4036-a857-6328842cb0
 | 8  | Share button (to 3rd party apps like ReceiptHero), button to Consumer Application (Download and send receipt via PDF, etc.)   |
 | 9  | National compliance requirements for Austria (QR-Code only)   |
 | 10  | Transaction details from card payment or voucher   |
+
+*Table 2. Elements of the German digital receipt shown in Figure 2.*
 
 ## Consumer Application (*Preview) 
 
@@ -86,6 +94,8 @@ Once the consumer accepted the consent on the consumer application and sent a re
 
 ![consumer-application-preview](./images/consumer_application.png)
 
+*Figure 3. Preview of the consumer application for managing digital receipts; the numbered elements are listed in Table 3.*
+
 | Number  | Description |
 | ------------- | ------------- |
 | 1  | Receipt number, date and time, total amount of receipt   |
@@ -95,3 +105,5 @@ Once the consumer accepted the consent on the consumer application and sent a re
 | 5  | Receipt preview  |
 | 6  | Consumers collected receipts (Cookies needs to be accepted first to activate this feature)  |
 | 7  | Delete collected receipts from list/device  |
+
+*Table 3. Elements of the consumer application shown in Figure 3.*

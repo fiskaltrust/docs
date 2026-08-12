@@ -42,4 +42,6 @@ Any payment amount will return a SUCCESS response, except for the following defi
 | 30000,80 | SUCCESS after 6-minute delay |
 | 30000,90 | SUCCESS, but only 15000,50 will be approved |
 
+*Table 1. Special payment amounts that trigger defined result scenarios in the Dummy Payment Provider.*
+
 For more information, see the [fiskaltrust POS System API - Development Kit](https://github.com/fiskaltrust/possystemapi-devkit/blob/main/README.MD).

@@ -36,6 +36,8 @@ After deploying your Middleware package, you will find the following list of fil
 | `fiskaltrust*.dll`                                           | Package libraries of the different CashBox components        |
 | `*.dll`                                                      | General runtime libraries                                    |
 
+*Table 1. Files found in the Middleware installation directory.*
+
 
 
 ### Data directory

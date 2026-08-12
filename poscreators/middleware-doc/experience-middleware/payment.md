@@ -59,6 +59,8 @@ The matrix below shows which payment features are supported per vendor. Use it t
 | SumUp (PaymentSwitch) <sup>1)</sup> | 1.3.2+ | 1.3.2+ | ? | 1.3.2+ | ? | ? | ? | ? | ? | ? |
 | Nexi SoftPOS<br />(MyPayments) | 1.3.2+ | 1.3.2+ | ? | 1.3.2+ | ? | ? | ? | ? | ? | ? |
 
+*Table 1. Payment feature support per payment service provider, by InStore App release.*
+
 ### Notes
 
 **1) SumUp**
@@ -83,3 +85,5 @@ Install the SumUp Android app and configure the merchant's API key for the full 
 | `–` | Supported by the PSP, but not yet implemented by fiskaltrust and not currently planned. |
 | `?` | Not yet confirmed with the PSP. |
 | `n/a` | Not supported by the PSP. |
+
+*Table 2. Legend for the values used in the PSP feature matrix (Table 1).*

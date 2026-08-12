@@ -25,6 +25,8 @@ As the technical implementation of security, each request and response is hashed
 
 ![receipt-chaining](../images/receipt-chain.svg)
 
+*Figure 1. Receipt chaining mechanism used to ensure the immutability of receipts.*
+
 To limit the risk of attacks on the chain originating from the last unlinked hash value, fiskaltrust provides a mechanism that mirrors the current data to the fiskaltrust cloud. This data mirror can detect attacks that would not be visible at the cash register itself.
 
 As the final component of the security mechanism, the fiskaltrust.Middleware also provides direct implementations for all relevant market-related security mechanisms (e.g., smart cards and online signing in Austria, and **all** TSSs in Germany).
@@ -32,6 +34,8 @@ As the final component of the security mechanism, the fiskaltrust.Middleware als
 To remain open to different platforms and operating systems and to act as a stable interface to the POS system, the fiskaltrust.Middleware follows a strict architecture:
 
 ![mw-architecture](../images/mw-architecture.png)
+
+*Figure 2. Architecture of the fiskaltrust.Middleware.*
 
 The configuration container - identified by the unique `CashboxId` - can be integrated into various platforms and operating systems. The management of the configuration and status of these components is handled through the market-related fiskaltrust.Portal. The fiskaltrust security mechanism is provided by the Queue component and the SCU (Signature Creation Unit) component, which implements the market-related security mechanism requirements.
 

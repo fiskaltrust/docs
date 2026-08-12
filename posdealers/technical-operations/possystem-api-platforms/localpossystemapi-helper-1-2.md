@@ -44,6 +44,8 @@ To locate your existing Middleware 1.2 CashBox, navigate to `Configuration` / `C
 
 ![existing-cashbox-1.png](images/existing-cashbox-1.png)
 
+*Figure 1. Locating the existing Middleware 1.2 CashBox in the fiskaltrust Portal.*
+
 | Steps | Description |
 |-------|-------------|
 | ![Number 1](../../images/numbers/circle-1o.png) | Navigate to `Configuration` / `CashBox`.                                                              |
@@ -51,6 +53,8 @@ To locate your existing Middleware 1.2 CashBox, navigate to `Configuration` / `C
 | ![Number 3](../../images/numbers/circle-3o.png) | Identify the CashBox running Launcher 1.2 by checking the version displayed in the list.              |
 | ![Number 4](../../images/numbers/circle-4o.png) | Click the expand arrow to reveal the CashBox configuration inline.                                    |
 | ![Number 5](../../images/numbers/circle-5o.png) | Verify if a `fiskaltrust.service.helper.rest` is present. If it is present, you can skip the next step. |
+
+*Table 1. Steps to locate the existing 1.2 CashBox and check for a REST Helper.*
 
 You can verify that the packages are running version 1.2, for example. The Queue will show a package such as `fiskaltrust.service.sqlite` in version 1.2.
 
@@ -66,6 +70,8 @@ To add the local REST Helper, navigate to `Configuration` / `Helper` in the fisk
 
 ![createnewrestapifr.png](images/createnewrestapifr.png)
 
+*Figure 2. Creating a new REST Helper in the fiskaltrust Portal.*
+
 | Steps | Description |
 |-------|-------------|
 | ![Number 1](../../images/numbers/circle-1o.png) | Navigate to `Configuration`/ `Helper` to open the Helper configuration. |
@@ -76,39 +82,57 @@ To add the local REST Helper, navigate to `Configuration` / `Helper` in the fisk
 | ![Number 6](../../images/numbers/circle-6o.png) | Select one of the available outlets from the drop-down list. |
 | ![Number 7](../../images/numbers/circle-7o.png) | Click `Save` to save your changes. |
 
+*Table 2. Steps to create a new REST Helper.*
+
 After the Helper has been saved, a **success** notification confirms that it has been created. The configuration window for the new Helper then opens automatically, allowing you to proceed with the configuration.
 
 ### Configure the REST Helper
 
 ![configureresthelper.png](images/configureresthelper.png)
 
+*Figure 3. Configuring the REST Helper and generating its URL.*
+
 | Steps | Description |
 |-------|-------------|
 | ![Number 1](../../images/numbers/circle-1o.png) | Click `http (SOAP)` to generate a URL that can be used to access the Helper. You can also rename the URL if desired. |
 | ![Number 2](../../images/numbers/circle-2o.png) | Click `Save` to save your changes and return to `Configuration` / `Helper`. |
 
+*Table 3. Steps to configure the REST Helper.*
+
 ### Use the REST Helper in the 1.2 CashBox
 
 ![assignhelpercashboxview.png](images/assignhelpercashboxview.png)
+
+*Figure 4. Opening the 1.2 CashBox configuration to assign the REST Helper.*
 
 | Steps | Description |
 |-------|-------------|
 | ![Number 1](../../images/numbers/circle-1o.png) | Navigate to `Configuration` / `CashBox` and locate the 1.2 CashBox. |
 | ![Number 2](../../images/numbers/circle-2o.png) | Click `Edit` to open the CashBox configuration. |
 
+*Table 4. Steps to open the 1.2 CashBox configuration.*
+
 ![selecthelper.png](images/selecthelper.png)
+
+*Figure 5. Selecting the newly created REST Helper in the CashBox configuration.*
 
 | Steps | Description |
 |-------|-------------|
 | ![Number 3](../../images/numbers/circle-3o.png) | Scroll down to the **Helpers** section and locate the newly created REST Helper. |
 | ![Number 4](../../images/numbers/circle-4o.png) | Activate the Helper by selecting its checkbox. |
 
+*Table 5. Steps to activate the REST Helper in the 1.2 CashBox.*
+
 ![saveselecthelper.png](images/saveselecthelper.png)
+
+*Figure 6. Saving the CashBox configuration with the REST Helper enabled.*
 
 | Steps | Description |
 |-------|-------------|
 | ![Number 5](../../images/numbers/circle-5o.png) | Scroll back to the top of the page. |
 | ![Number 6](../../images/numbers/circle-6o.png) | Click `Save` to save your changes. |
+
+*Table 6. Steps to save the CashBox configuration.*
 
 ## Add a LocalPosSystemApi Helper
 
@@ -116,6 +140,8 @@ To add the LocalPosSystemApi Helper, navigate to `Configuration` / `Helper` in t
 The following images and steps are provided as examples. At this point, the Helper is created only as a standalone resource. It will be assigned to the new 1.3 CashBox later.
 
 ![possystemapihelper1.png](images/possystemapihelper1.png)
+
+*Figure 7. Creating a new LocalPosSystemApi Helper in the fiskaltrust Portal.*
 
 | Steps | Description |
 |-------|-------------|
@@ -127,6 +153,8 @@ The following images and steps are provided as examples. At this point, the Help
 | ![Number 6](../../images/numbers/circle-6o.png) | Select one of the available outlets from the drop-down list. |
 | ![Number 7](../../images/numbers/circle-7o.png) | Click `Save` to save your changes. |
 
+*Table 7. Steps to create the LocalPosSystemApi Helper.*
+
 After the Helper has been saved, a **success** notification confirms that it has been created. The configuration window for the new Helper then opens automatically, allowing you to proceed with the configuration.
 
 ## Configure the LocalPosSystemApi Helper
@@ -134,7 +162,12 @@ After the Helper has been saved, a **success** notification confirms that it has
 These settings configure the Helper itself, before it is assigned to the new 1.3 CashBox, so that it points to the queue of the existing 1.2 CashBox.
 
 ![addcustomconfig.png](images/addcustomconfig.png)
+
+*Figure 8. Adding custom configuration to the LocalPosSystemApi Helper.*
+
 ![connect-helper-5.png](images/connect-helper-5.png)
+
+*Figure 9. Custom configuration fields connecting the Helper to the 1.2 CashBox queue.*
 
 | Steps | Description |
 |-------|-------------|
@@ -143,11 +176,15 @@ These settings configure the Helper itself, before it is assigned to the new 1.3
 | ![Number 3](../../images/numbers/circle-3o.png) | Enter the parameters listed below, one at a time. Click the `+` button next to each row to add the next entry. |
 | ![Number 4](../../images/numbers/circle-4o.png) | Click `Save` to your changes and return to `Configuration`/ `Helper`. |
 
+*Table 8. Steps to configure the LocalPosSystemApi Helper.*
+
 | Key | Value |
 |-----|-------|
 | `middlewareaccesstoken` | The **AccessToken** of the existing 1.2 CashBox. |
 | `middlewarecashboxid` | The **CashBox ID** of the existing 1.2 CashBox. |
 | `middlewareservicefolder` | `C:/ProgramData/fiskaltrust` _(Optional. Required only if the service folder of the 1.2 CashBox has been changed from the default location. Set this value to the custom path so the Helper can locate the Middleware data.)_ |
+
+*Table 9. Custom configuration parameters that point the Helper to the 1.2 CashBox.*
 
 The LocalPosSystemApi Helper is now connected to the 1.2 CashBox.
 
@@ -157,6 +194,8 @@ To create a new CashBox, navigate to `Configuration` / `CashBox` and follow the 
 
 ![new-cashbox-1.png](images/new-cashbox-1.png)
 
+*Figure 10. Creating a new 1.3 CashBox in the fiskaltrust Portal.*
+
 | Steps | Description |
 |-------|-------------|
 | ![Number 1](../../images/numbers/circle-1o.png) | Navigate to `Configuration` / `CashBox`. |
@@ -165,9 +204,13 @@ To create a new CashBox, navigate to `Configuration` / `CashBox` and follow the 
 | ![Number 4](../../images/numbers/circle-4o.png) | Select the appropriate **outlet**. |
 | ![Number 5](../../images/numbers/circle-5o.png) | Click `Save` to save the new CashBox. |
 
+*Table 10. Steps to create the new 1.3 CashBox.*
+
 After saving, click `Edit by list` to configure the components of the new CashBox. Note that for this setup, only the LocalPosSystemApi Helper is added to this CashBox. No Queue or SCU is required.
 
 ![new-cashbox-2.png](images/new-cashbox-2.png)
+
+*Figure 11. Assigning the LocalPosSystemApi Helper to the new 1.3 CashBox.*
 
 | Steps | Description |
 |-------|-------------|
@@ -175,7 +218,11 @@ After saving, click `Edit by list` to configure the components of the new CashBo
 | ![Number 2](../../images/numbers/circle-2o.png) | Activate the Helper by selecting its checkbox. |
 | ![Number 3](../../images/numbers/circle-3o.png) | Click `Save` to save the CashBox configuration. |
 
+*Table 11. Steps to assign the Helper to the 1.3 CashBox.*
+
 ![new-cashbox-3.png](images/new-cashbox-3.png)
+
+*Figure 12. The two CashBoxes: the original 1.2 CashBox and the new 1.3 CashBox.*
 
 At this point, you have two CashBoxes: the original 1.2 CashBox and the new 1.3 CashBox with the PosSystem API Helper assigned.
 
@@ -185,10 +232,14 @@ The 1.3 CashBox requires Launcher 2.0. To download it, navigate to `Configuratio
 
 ![download-launcher-12.png](images/download-launcher-12.png)
 
+*Figure 13. Rebuilding the configuration and downloading the Launcher for the 1.3 CashBox.*
+
 | Steps | Description |
 |-------|-------------|
 | ![Number 1](../../images/numbers/circle-1o.png) | Locate the 1.3 CashBox and click `Rebuild configuration`. Wait for the success confirmation. |
 | ![Number 2](../../images/numbers/circle-2o.png) | Click `Download` and select the correct **Version 2** Launcher architecture for your system. |
+
+*Table 12. Steps to download the Launcher for the 1.3 CashBox.*
 
 ## Run the Launcher for the 1.3 CashBox
 
@@ -203,6 +254,8 @@ The 1.2 CashBox supports Launcher version 1. To download it, locate the existing
 | ![Number 1](../../images/numbers/circle-1o.png) | Click `Rebuild configuration` and wait for the success confirmation. |
 | ![Number 2](../../images/numbers/circle-2o.png) | Click `Download` and select the appropriate Launcher 1.2 or Launcher 1.3 architecture for your system. |
 
+*Table 13. Steps to download the Launcher for the 1.2 CashBox.*
+
 ## Run the Launcher for the 1.2 CashBox
 
 Extract the downloaded package and run `test.cmd` (or `test.sh` on Unix-based systems) to start the Middleware. For detailed instructions on starting the Launcher and installing it as a service, see [Launcher for Windows, Linux & macOS](https://github.com/fiskaltrust/middleware-launcher?tab=readme-ov-file#getting-started).
@@ -213,10 +266,14 @@ To find the Helper URL used to send requests, navigate to `Configuration` / `Cas
 
 ![helper-url-1.png](images/helper-url-1.png)
 
+*Figure 14. Finding the Helper URL in the 1.3 CashBox configuration.*
+
 | Steps | Description |
 |-------|-------------|
 | ![Number 1](../../images/numbers/circle-1o.png) | Locate the 1.3 CashBox and click the expand arrow to reveal the CashBox configuration inline. |
 | ![Number 2](../../images/numbers/circle-2o.png) | The Helper URL is displayed below the PosSystem API Helper entry. Use this URL to send requests to the Middleware. |
+
+*Table 14. Steps to find the Helper URL.*
 
 ## Test the LocalPosSystemApi Helper
 
@@ -224,17 +281,25 @@ Once the Middleware is running, verify that the LocalPosSystemApi Helper is work
 
 ![fiskaltrustfordevpage.png](images/fiskaltrustfordevpage.png)
 
+*Figure 15. The fiskaltrust Developer Portal landing page.*
+
 Select **POS System API** from the available options.
 
 ![fiskaltrustfordev_selectmarket.png](images/fiskaltrustfordev_selectmarket.png)
+
+*Figure 16. Selecting the market in the Developer Portal.*
 
 Select your market, then click **Settings** in the top-right corner.
 
 ![settings_fr.png](images/settings_fr.png)
 
+*Figure 17. Opening the Settings panel in the Developer Portal.*
+
 A settings panel opens where you can configure the connection to the local Middleware.
 
 ![fiskaltrustfordev_setsettings_fr.png](images/fiskaltrustfordev_setsettings_fr.png)
+
+*Figure 18. Configuring the connection to the local Middleware.*
 
 | Steps | Description |
 |-------|-------------|
@@ -242,11 +307,17 @@ A settings panel opens where you can configure the connection to the local Middl
 | ![Number 2](../../images/numbers/circle-2o.png) | In the `Middleware Endpoint` field, enter the Helper URL from the 1.3 CashBox found in the previous step. |
 | ![Number 3](../../images/numbers/circle-3o.png) | Copy the PIN from the `Configuration` / `CashBox` page, enter it in the field below, then click `Pair`. A confirmation message should appear as shown below. |
 
+*Table 15. Steps to configure the local Middleware connection and pair the CashBox.*
+
 ![pairedpin.png](images/pairedpin.png)
+
+*Figure 19. Confirmation that the CashBox ID and Access Token are populated after pairing.*
 
 | Steps | Description |
 |-------|-------------|
 | ![Number 4](../../images/numbers/circle-4o.png) | The **CashBox ID** and **Access Token** fields are populated with the values from the existing **1.2 CashBox**. |
 | ![Number 5](../../images/numbers/circle-5o.png) | Click `Test Connection`. A green **201** response confirms that the Helper is working correctly. |
+
+*Table 16. Steps to verify the Helper connection with a test request.*
 
 Close **Settings**. You can now use the available endpoints to send requests to the Middleware and verify the Helper functionality.

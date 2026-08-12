@@ -80,3 +80,5 @@ The following conversion formulas can be used to convert between unix time and .
 |------------------------|--------------------------------------------|
 | `unix time` -> `Ticks` | `621355968000000000 + unixtime * 10000000` |
 | `Ticks` -> `unix time` | `(ticks - 621355968000000000) / 10000000`  |
+
+*Table 1. Conversion formulas between Unix time and .NET Ticks for journal timestamps.*

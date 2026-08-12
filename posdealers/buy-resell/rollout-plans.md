@@ -22,6 +22,8 @@ This sketch shows the process :
 
 ![Rollout-management](./images/rollout-management.png)
 
+*Figure 1. Process of the business rollout for acquiring and activating entitlements.*
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

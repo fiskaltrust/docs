@@ -13,6 +13,8 @@ Certification-ID of TSE according to chapter 9.2.2 of Anwendungserlass zu § 146
 |:------------------------------------------------------------------------------------------------------------------------------------|:----------------------------|:-------------|:-----------|
 | [BSI-K-TR-0490-2021](https://www.bsi.bund.de/SharedDocs/Zertifikate_TR/Technische_Sicherheitseinrichtungen/BSI-K-TR-0490-2021.html) | fiskaly sign Cloud-TSE | fiskaly GmbH | 10.12.2021 |
 
+*Table 1. Certification details of the fiskaly Cloud-TSE.*
+
 #### Certification Identification
 
 "BSI-K-TR-0490-2021" is returned for 'ftSignatureType' `0x4445000000000022` (certification identification). 
@@ -42,3 +44,5 @@ The _fiskaltrust.Middleware.SCU.DE.FiskalyCertified_-package connects the middle
 | _ProxyPort_               |           If access to the Internet is established via a proxy server: The proxy server's HTTP-port.                  | empty string<br />optional>optional                                   |
 | _ProxyUsername_               |       If access to the Internet is established via an _authenticated_ proxy server: The proxy server's user name.                   |empty string/no proxy authentication<br />optional                                   |
 | _ProxyPassword_               |            If access to the Internet is enabled via an _authenticated_ proxy server: The proxy server's password.                   | empty string/no proxy authentication<br />optional                                   |
+
+*Table 2. Configuration parameters of the fiskaly Cloud-TSE SCU.*

@@ -14,18 +14,22 @@ After reading this, you can use the documentation effectively in your specific f
 
 ![fiskaltrust.Docs start](images/4-documentation-start.png "https://docs.fiskaltrust.cloud/")
 
+*Figure 1. Start page of the fiskaltrust.Docs documentation portal.*
+
 ## Usage of the documentation
 | links                                     | description                                                                                                                                                                                |
 |-------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | ![Number 1](images/Numbers/circle-1o.png) | Jump back to the [start](https://docs.fiskaltrust.cloud/)                                                                                                                                  |
 | ![Number 2](images/Numbers/circle-2o.png) | PosCreators start reading [here](../../poscreators/getting-started/get-started.md)                                                                                                         |
-| ![Number 3](images/Numbers/circle-3o.png) | PosDealers start reading [here](https://docs.fiskaltrust.cloud/docs/posdealers/introduction)                                                                                               |
+| ![Number 3](images/Numbers/circle-3o.png) | PosDealers start reading [here](../introduction.md)                                                                                               |
 | ![Number 4](images/Numbers/circle-4o.png) | Here you will find answers to frequently asked questions (FAQ), a description of [customer roles](../../faq/roles.md) like PosCreator, PosDealer and our [Terminology](../../faq/terms.md) |
 | ![Number 5](images/Numbers/circle-5o.png) | Jump to our [repositories](https://github.com/fiskaltrust) in GitHub                                                                                                                       |
 | ![Number 6](images/Numbers/circle-6o.png) | Jump to our [Release Notes](https://docs.fiskaltrust.cloud/docs/release-notes)                                                                                                             |
 | ![Number 7](images/Numbers/circle-7o.png) | Change between languages, if translations are available                                                                                                                                    |
 | ![Number 8](images/Numbers/circle-8o.png) | Switch between light mode and dark mode with this button                                                                                                                                   |
 | ![Number 9](images/Numbers/circle-9o.png) | Tick here or use `CTRL` & `K` to open the search window                                                                                                                                    |
+
+*Table 1. Navigation elements of the documentation start page.*
 
 
 ## Searching in the documentation
@@ -43,6 +47,8 @@ import ReactPlayer from "react-player"
 | ![Number 5](images/Numbers/circle-5o.png) | Tick on `See all XYZ results`                                                                                |
 | ![Number 6](images/Numbers/circle-6o.png) | Find more details about the context of your keyword                                                          |
 | ![Number 7](images/Numbers/circle-7o.png) | Get more overview by opening the found documents in several tabs                                             |
+
+*Table 2. Steps for searching within the documentation.*
 
 ## Copying expressions
 

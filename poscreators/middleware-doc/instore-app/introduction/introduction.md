@@ -36,6 +36,8 @@ The following diagram describes the process of generating a digital receipt with
 
 ![InStore App_sequence](../introduction/images/sequenze_diagramm_instore_app.png)
 
+*Figure 1. Sequence diagram of the digital receipt process between the merchant, fiskaltrust, the consumer, and the InStore App.*
+
 The InStore App offers five options: scanning the QR code to receive the digital receipt on a mobile phone, tapping the OK button to manually acknowledge receipt, printing the receipt on thermal paper, sending the receipt via email, or sending it via SMS.
 
 In-store, the merchant collects items and processes the payment or checkout. The merchant then sends a sign message to fiskaltrust for fiscalization purposes. 
@@ -54,6 +56,8 @@ In-store, the merchant collects items and processes the payment or checkout. The
 
 ![InStore_App_show_receipt](./images/InStore_App_show_receipt.png)
 
+*Figure 2. InStore App receipt display; the numbered elements are described in Table 1.*
+
 | Number | Description |
 |--------|-------------|
 | 1 | Receipt number (ft77#117), date, time, and total amount |
@@ -63,15 +67,19 @@ In-store, the merchant collects items and processes the payment or checkout. The
 | 5 | `Send by Email` button to send the receipt via email |
 | 6 | `Send by SMS` button to send the receipt via SMS |
 
+*Table 1. Interface elements shown on the InStore App receipt display in Figure 2.*
+
 ## Configuring InStore App
 
 This high-level overview shows the steps required to implement and configure the InStore App in your point-of-sale software.
 
 ![InStore_App_implementation_overview](./images/InStore_App_implementation_overview.png)
 
+*Figure 3. High-level overview of the steps to implement and configure the InStore App.*
+
 ## Configuring Master Data
 
-For more information about the configuration steps for the master data, see [Digital Receipt Introduction](https://docs.fiskaltrust.cloud/docs/posdealers/buy-resell/products/digital-receipt#introduction).
+For more information about the configuration steps for the master data, see [Digital Receipt Introduction](../../../../posdealers/buy-resell/products/digital-receipt.md#introduction).
 
 ## Implementing InStore App 
 
@@ -86,6 +94,8 @@ As most operations, especially `/print` requests, may take an extended amount of
 A general sample of this process flow is illustrated as follows:
 
 ![Screenshot 2023-11-07 152951](https://github.com/fiskaltrust/interface-doc/assets/124153755/bd976d8c-3119-47b1-852d-abb678aea01d)
+
+*Figure 4. Sample asynchronous flow for signing and printing a digital receipt through the POS API.*
 
 :::warning
 
@@ -441,5 +451,5 @@ After installing the InStore App on your Android device, establish a connection 
 1. Log in to your fiskaltrust.Portal account and navigate to **Configuration** > **CashBox**.
 2. Select the CashBox that you want to pair with the InStore App.
 3. Expand the CashBox overview.
-4. On **PIN for InStore App**, click the refresh button to generate a new temporary pairing PIN. The pairing PIN is valid for five minutes. After it expires, you must generate a new PIN by clicking the refresh button again.<br/>![fiskaltrust.Portal_pairing_pin](./images/fiskaltrust.Portal_pairing_pin.png)
-5. Enter the four-digit PIN into your InStore App and confirm the connection by clicking **Pair**. You can pair multiple InStore App installations with one CashBox. To open the pairing-to-CashBox screen or pair with a different CashBox, press and hold the touchscreen for one second.<br/>![InStore_App_pairing_pin](./images/InStore_App_pair_device.png)
+4. On **PIN for InStore App**, click the refresh button to generate a new temporary pairing PIN. The pairing PIN is valid for five minutes. After it expires, you must generate a new PIN by clicking the refresh button again.<br/>![fiskaltrust.Portal_pairing_pin](./images/fiskaltrust.Portal_pairing_pin.png)<br/>*Figure 5. Generating a temporary pairing PIN for the InStore App in the fiskaltrust.Portal.*
+5. Enter the four-digit PIN into your InStore App and confirm the connection by clicking **Pair**. You can pair multiple InStore App installations with one CashBox. To open the pairing-to-CashBox screen or pair with a different CashBox, press and hold the touchscreen for one second.<br/>![InStore_App_pairing_pin](./images/InStore_App_pair_device.png)<br/>*Figure 6. Entering the pairing PIN in the InStore App to connect it to a CashBox.*

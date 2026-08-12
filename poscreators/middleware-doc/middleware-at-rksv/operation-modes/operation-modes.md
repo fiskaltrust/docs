@@ -94,7 +94,7 @@ In the simplest scenario, a fiskaltrust.SecurityMechanism consists of a single s
 
 ![](./images/21.png)
 
-<span id="_Toc527986821" class="anchor"></span>*Illustration 21. Single queue scenario (AT)*
+*Figure 1. Single queue scenario (AT).*
 
 ### Scenario with several queues for performance improvement
 
@@ -104,7 +104,7 @@ The fiskaltrust.SecurityMechanism illustrated below hosts several queues. Each q
 
 ![](./images/22.png)
 
-<span id="_Toc527986822" class="anchor"></span>*Illustration 22. Scenario with several queues for performance improvement (AT)*
+*Figure 2. Scenario with several queues for performance improvement (AT).*
 
 ### Cash Register Network with Backup SSCD
 
@@ -112,4 +112,4 @@ As with the fiskaltrust.SecurityMechanism, the signature creation device is also
 
 ![](./images/23.png)
 
-<span id="_Toc527986823" class="anchor"></span>*Illustration 23. Several fiskaltrust.SecurityMechanisms use the SSCD via network*
+*Figure 3. Several fiskaltrust.SecurityMechanisms use the SSCD via network.*

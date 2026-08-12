@@ -32,6 +32,8 @@ The _fiskaltrust.Middleware.SCU.IT.EpsonRTServer_ package connects the middlewar
 | ServiceFolder | Local folder for the per-till state cache. Configuring it (or `CacheDirectory`) also provides the persistent location required for asynchronous mode. | optional |
 | CacheDirectory | Local folder for the background document queue. Configuring it (or `ServiceFolder`) enables asynchronous mode. | optional |
 
+*Table 1. Configuration parameters for the Epson RT Server SCU.*
+
 Please pay attention to the case-sensitive use of the parameters.
 
 ### Till identification
