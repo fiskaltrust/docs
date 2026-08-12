@@ -28,6 +28,8 @@ The following diagram illustrates the recommended POS System API workflow used b
 
 ![](./images/01-security-mechanism.svg)
 
+*Figure 1. Recommended POS System API (V2) fiscalization workflow of the fiskaltrust.SecurityMechanism.*
+
 In addition to the security mechanism workflow, the fiskaltrust.Middleware processes some of the most essential data fields on the receipt. Regardless of whether receipts are submitted directly through the Middleware or through the POS System API, the receipt number, serving as a unique identifier of a receipt processed by fiskaltrust, is created by the fiskaltrust.Middleware to ensure that each receipt is properly processed.
 
 Compliance is achieved through a combination of several methods and components.
@@ -38,6 +40,8 @@ As the technical implementation of security, each request and response is hashed
 
 ![receipt-chaining](./images/receipt-chain.svg)
 
+*Figure 2. Receipt chaining: each receipt's hash links to the previous one to guarantee immutability.*
+
 To limit the risk of attacks on the chain originating from the last unlinked hash value, fiskaltrust provides a mechanism that mirrors the current data to the fiskaltrust cloud. This data mirror can detect attacks that would not be visible at the cash register itself.
 
 As the final component of the security mechanism, the fiskaltrust.Middleware also provides direct implementations for all relevant market-related security mechanisms (e.g., smart cards and online signing in Austria, and **all** TSSs in Germany).
@@ -45,6 +49,8 @@ As the final component of the security mechanism, the fiskaltrust.Middleware als
 To remain open to different platforms and operating systems and to act as a stable interface to the POS system, the fiskaltrust.Middleware follows a strict architecture:
 
 ![mw-architecture](./images/mw-architecture.png)
+
+*Figure 3. Architecture of the fiskaltrust.Middleware — the CashBox container with its Queue and SCU components.*
 
 The configuration container - identified by the unique `CashboxId` - can be integrated into various platforms and operating systems. The management of the configuration and status of these components is handled through the market-related fiskaltrust.Portal. The fiskaltrust security mechanism is provided by the Queue component and the SCU (Signature Creation Unit) component, which implements the market-related security mechanism requirements.
 
@@ -56,11 +62,15 @@ The implementation of a fiskaltrust.SecurityMechanism may differ between countri
 
 ![](./images/02-regular-operation.svg)
 
+*Figure 4. Regular receipt creation and issuance workflow via the POS System API `/sign` and `/issue` endpoints.*
+
 ### Workflow - special receipts
 
 The following diagram illustrates the creation of a special receipt with fiskaltrust.Middleware. For a general description of special receipts, see [Receipt for special functions](#receipt-for-special-functions). For national laws on receipts, refer to the appropriate appendix.
 
 ![](./images/03-special-receipts.png)
+
+*Figure 5. Workflow for creating a special receipt with the fiskaltrust.Middleware.*
 
 ### Workflow - failure of communication or failure of the fiskaltrust.Middleware (timeout)
 
@@ -68,7 +78,11 @@ The following diagram illustrates the workflow of a failure of fiskaltrust.Middl
 
 ![](./images/04-service-failure-timeout.png)
 
+*Figure 6. Workflow when the fiskaltrust.Middleware call times out.*
+
 ![](./images/05-service-failure.png)
+
+*Figure 7. Workflow when the fiskaltrust.Middleware is unavailable (service failure).*
 
 ## Receipt for special functions
 
@@ -107,7 +121,7 @@ This section describes the structure of a receipt, including the main blocks pro
 
 ![](./images/06-receipt-structure.svg)
 
-*Figure 1. Receipt Structure – The POS receipt consists of header, charge items, pay items, and footer. fiskaltrust enriches the receipt during fiscalization by adding receipt number, tax-related data, signature, and fiscal metadata. The POSSystem API V2 further produces an issued receipt including digital receipt information.*
+*Figure 8. Receipt Structure – The POS receipt consists of header, charge items, pay items, and footer. fiskaltrust enriches the receipt during fiscalization by adding receipt number, tax-related data, signature, and fiscal metadata. The POSSystem API V2 further produces an issued receipt including digital receipt information.*
 
 ### Receipt Header
 
