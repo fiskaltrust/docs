@@ -25,9 +25,9 @@ All components that belong to an on-premises Middleware installation are grouped
 Detailed information about market-specific configuration options can be found in the corresponding market appendices:
 
 - Austria
-- [Germany](https://docs.fiskaltrust.cloud/docs/posdealers/technical-operations/rollout-scenarios)
+- [Germany](../../../../posdealers/technical-operations/rollout-scenarios.md)
 - France
-- [Italy](https://docs.fiskaltrust.cloud/docs/posdealers/technical-operations/rollout-scenarios)
+- [Italy](../../../../posdealers/technical-operations/rollout-scenarios.md)
 
 After completing the CashBox configuration, download the Launcher package for the configured CashBox. The Launcher contains the information required to start the fiskaltrust.Middleware with the selected configuration.
 
@@ -247,4 +247,4 @@ The fiskaltrust.Middleware for Android is currently available for the German mar
 
 ## Migration of the fiskaltrust.Middleware instance to a different hardware
 
-We do not recommend to migrate an active instance of the fiskaltrust.Middleware to another hardware. If possible, set the queue [out of operation](https://docs.fiskaltrust.cloud/docs/poscreators/middleware-doc/germany/reference-tables/ftreceiptcase), configure, and install a new Middleware instance on the new machine.
+We do not recommend to migrate an active instance of the fiskaltrust.Middleware to another hardware. If possible, set the queue [out of operation](../../middleware-de-kassensichv/reference-tables/type-of-receipt-ftreceiptcase.md), configure, and install a new Middleware instance on the new machine.

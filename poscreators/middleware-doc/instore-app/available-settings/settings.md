@@ -32,7 +32,7 @@ As merchante mode is usually used in an environment where the InStore App is not
 
 ### Terminal ID Filter
 Filters receipts and data for a specific terminal within the CashBox.  
-For advanced multi-terminal options, see [Multiterminal Settings](https://docs.fiskaltrust.eu/docs/poscreators/middleware-doc/instore-app/multiterminal-settings)
+For advanced multi-terminal options, see [Multiterminal Settings](../multiterminal-settings/multiterminal.md)
 
 ### Enable running in Background
 Runs the app as an **Android foreground service** also displaying a notification in the Android status bar (when notifications are enabled in Android settings) that shows "InStore App is running in the background". The service takes care that the app is run at all times.

@@ -117,7 +117,7 @@ After rebuild, you can now download the launcher by clicking the "Download" butt
 
 :::info Note
 
-The debug mode is not available in launcher version 1.2. For AT queues, a [debug launcher](https://docs.fiskaltrust.cloud/docs/poscreators/middleware-doc/france/installation#fiskaltrustmiddleware) is available, but it only provides additional logging for AT-specific scenarios.
+The debug mode is not available in launcher version 1.2. For AT queues, a [debug launcher](../middleware-doc/middleware-fr-boi-tva-decla-30-10-30/installation/installation.md#fiskaltrustmiddleware) is available, but it only provides additional logging for AT-specific scenarios.
 
 :::
 

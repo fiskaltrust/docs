@@ -107,4 +107,4 @@ The components for the SaaS solution are the same as for the local solution; exc
 
 ## Private cloud (operated by fiskaltrust) installed components
 
-No installation or configuration is required for the client and any platform can use this service. For more details, please refer to the [Product and service part](https://docs.fiskaltrust.cloud/docs/posdealers/buy-resell/products/middleware#country-specific-variants)
+No installation or configuration is required for the client and any platform can use this service. For more details, please refer to the [Product and service part](../../../../posdealers/buy-resell/products/middleware.md#country-specific-variants)
