@@ -130,8 +130,9 @@ Please note that the _DATEV MeinFiskal_ account is created automatically during 
 #### Setup after the purchase of a fiskaltrust.Carefree subscription
 
 :::info summary
-<!-- Find out if DATEV MeinFiskal Kassenarchiv online is offered as a standalone product. -->
-Explanations for the necessary requirements for setting up DATEV MeinFiskal you find at [Master data](#master-data). Whether the [fiskaltrust.Carefree subscription](https://portal.fiskaltrust.de/Shop/Product?productId=4445-021040) was purchased without or [with the additional product TSE-as-a-Service](https://portal.fiskaltrust.de/Shop/Product?productId=4445-021050) is irrelevant when setting up the connection. Furthermore, neither a queue nor a CashBox is necessary when setting up the connection. However, for successful data backup via DATEV MeinFiskal, Queue and CashBox must be set up and also activated if required. In case of problems, please check [Troubleshooting](#troubleshooting) below.
+In order for a PosOperator to use DATEV MeinFiskal, the PosDealer must purchase either at least one Carefree subscription or a standalone product [DATEV MeinFiskal Kassenarchiv online](https://portal.fiskaltrust.de/#/Shop/Product/4445-041040) for that PosOperator. 
+Whether the [fiskaltrust.Carefree subscription](https://portal.fiskaltrust.de/#/Shop/Product/4445-021040) was purchased without or with the additional product [TSE-as-a-Service](https://portal.fiskaltrust.de/#/Shop/Product/4445-021050) is irrelevant when setting up the connection with DATEV MeinFiskal.
+Furthermore, neither a queue nor a cashbox is necessary when setting up the connection. However, for a successful data backup via DATEV MeinFiskal, a queue and a cashbox must be set up and also activated if required. In case of problems, please check [Troubleshooting](#troubleshooting) below.
 
 :::
 
@@ -163,76 +164,7 @@ As a PosDealer, you should have also reveived a welcome email with further instr
 | ![Number 2](../../../images/numbers/circle-2o.png) | Then select `Company` / `Overview` again.                                         |
 | ![Number 3](../../../images/numbers/circle-3o.png) | Press `Perform DATEV MeinFiskal onboarding operations` for a retry.               |
 
-#### Setup after the purchase of a DATEV MeinFiskal standalone
 
-:::info summary
-
-After purchasing a fiskaltrust.Carefree subscription, a connection between the company and DATEV MeinFiskal is created in the background. After purchasing a standalone product [DATEV MeinFiskal Kassenarchiv online](https://portal.fiskaltrust.de/Shop/Product?productId=4445-041040), you must create this connection manually. This section explains the necessary steps. In case of problems, please check [Troubleshooting](#troubleshooting) below.
-
-:::
-
-
-1. The PosDealer activates the _DATEV MeinFiskal_ function in the [fiskaltrust.Portal](https://portal-sandbox.fiskaltrust.de/AccountProfile) on behalf of the PosOperator.
-
-  <details>
-  <summary>Screenshot function DATEV MeinFiskal</summary>. 
-
-  ![Rolle_Datev_MeinFiskal](../../images/Rolle_Datev_MeinFiskal.png)
-
-  </details>
-
-2. The PosDealer agrees on behalf of the PosOperator to the `T&C`, the `privacy policy` and the `processing agreement` (of or with fiskaltrust and, in particular, the service descriptions, which you can find in the [download area](https://portal.fiskaltrust.de/AccountProfile/Download) of the fiskaltrust.Portal). The PosOperator receives the **signed contract** by E-Mail.
-
-3. In the _DATEV MeinFiskal_ section, the **user contract** is now available for download. You will also find a button for carrying out the _DATEV MeinFiskal_ onboarding. Select `Perform DATEV MeinFiskal onboarding operations`. In addition, DATEV checks the master data; any errors are displayed, and, if successful, a _DATEV MeinFiskal_ user account is automatically created.
-
-  <details>
-  <summary>DATEV MeinFiskal-Onboarding </summary>  
-
-  ![Rolle_Datev_MeinFiskal](../../images/DATEV_Onboarding.png)
-
-  </details>
-
-4. The _DATEV MeinFiskal_ dialog box for changing the password is displayed. The PosDealer sets a new password and clicks **Save**.
-
-  <details>
-  <summary>Screenshot DATEV password change</summary>  
-
-  ![DATEV_Passwort_ändern](../../images/DATEV_PW_Change_Dialog.png)
-
-  </details>
-
-5. You, as a PosDealer, will get a confirmation of the password change and can select a login button.
-
-  <details>
-  <summary>Screenshot DATEV password change successful</summary>  
-
-  ![DATEV_Passwort_erfolgreich](../../images/DATEV_PW_Change_Success.png)
-
-  </details>
-
-6. You enter the _DATEV MeinFiskal_ login data in the login dialog, i.e., the same E-Mail address as in the fiskaltrust.Portal and the previously changed password. Confirm the connection between fiskaltrust and DATEV MeinFiskal. With this step, the fiskaltrust and Datev MeinFiskal accounts are connected. 
-
-  <details>
-  <summary>Screenshot DATEV login / connect accounts</summary>  
-
-  ![DATEV_Consent](../../images/DATEV_Login_Dialog.png)
-
-  </details>
-
-7. After successfully logging in to the _DATEV MeinFiskal_ platform, you are asked to confirm the data exchange between fiskaltrust and DATEV MeinFiskal. Tick the checkbox and select *Confirm*. The data transfer between fiskaltrust and _DATEV MeinFiskal_ is now active. 
-
-  <details>
-  <summary>Screenshot DATEV data exchange screenshot</summary>  
-
-  ![DATEV_Approval](../../images/DATEV_Data_exchange.png)
-
-  </details>
-
-
-8. The PosOperator receives a welcome E-Mail about an hour later with general information and a link to change the password.
-
-9. The PosOperator clicks on the link to change the password and changes his _DATEV MeinFiskal_ password (see screenshot under point 4). 
-The PosOperator can now use the services *DATEV Kassenarchiv online* and order the *DATEV Kassenbuch-Schnittstelle* on his own.
 
 ## Status check for a single PosOperator
 
