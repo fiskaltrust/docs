@@ -24,3 +24,5 @@ Another way to stay with us is to read our news.
 |Austria |https://www.fiskaltrust.at/news/ |
 |France |https://fiskaltrust.fr/en/ft-news/ |
 |Germany |https://fiskaltrust.de/allgemein/ |
+
+*Table 1. News channels and links by target group.*

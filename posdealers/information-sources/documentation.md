@@ -14,6 +14,8 @@ After reading this, you can use the documentation effectively in your specific f
 
 ![fiskaltrust.Docs start](images/4-documentation-start.png "https://docs.fiskaltrust.cloud/")
 
+*Figure 1. Start page of the fiskaltrust.Docs documentation portal.*
+
 ## Usage of the documentation
 | links                                     | description                                                                                                                                                                                |
 |-------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -26,6 +28,8 @@ After reading this, you can use the documentation effectively in your specific f
 | ![Number 7](images/Numbers/circle-7o.png) | Change between languages, if translations are available                                                                                                                                    |
 | ![Number 8](images/Numbers/circle-8o.png) | Switch between light mode and dark mode with this button                                                                                                                                   |
 | ![Number 9](images/Numbers/circle-9o.png) | Tick here or use `CTRL` & `K` to open the search window                                                                                                                                    |
+
+*Table 1. Navigation elements of the documentation start page.*
 
 
 ## Searching in the documentation
@@ -43,6 +47,8 @@ import ReactPlayer from "react-player"
 | ![Number 5](images/Numbers/circle-5o.png) | Tick on `See all XYZ results`                                                                                |
 | ![Number 6](images/Numbers/circle-6o.png) | Find more details about the context of your keyword                                                          |
 | ![Number 7](images/Numbers/circle-7o.png) | Get more overview by opening the found documents in several tabs                                             |
+
+*Table 2. Steps for searching within the documentation.*
 
 ## Copying expressions
 

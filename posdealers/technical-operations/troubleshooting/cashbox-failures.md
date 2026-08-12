@@ -21,6 +21,8 @@ Please keep in mind that this will prevent us from actively reacting to issues i
 
 ![CashBox Failures ](./images/cashbox-failures.png "https://portal-sandbox.fiskaltrust.TLD/MetricCashbox/ListCashboxes")
 
+*Figure 1. CashBox failures view in the fiskaltrust.Portal Metrics section; elements are listed in Table 1.*
+
 | element | description                                                                                                                |
 |:----------------------:|-------------------------------------------------------------------------------------------------------------------------------------|
 |![Number 1](../../images/numbers/circle-1o.png) |The initial view is filtered to view the failures of the last 24 hours. You can change the period shown here.  |
@@ -28,6 +30,11 @@ Please keep in mind that this will prevent us from actively reacting to issues i
 |![Number 3](../../images/numbers/circle-3o.png) |The number of exceptions for each single CashBox. |
 |![Number 4](../../images/numbers/circle-4o.png) |Click the icon in the column `Logs` to get the detailed CashBox failure log. |
 
+*Table 1. Interface elements shown in Figure 1.*
+
 ![CashBox Failure Log ](./images/cashbox-failure-log.png "https://portal-sandbox.fiskaltrust.TLD/MetricCashbox/ListCashboxes")
+
+*Figure 2. Detailed CashBox failure log with exception details and stack trace access.*
+
 You will find more detailed information about the exceptions here and can even access the stack trace when clicking on the icon below `Details` to analyze the CashBox failure.
 

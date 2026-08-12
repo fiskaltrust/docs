@@ -32,3 +32,5 @@ Below, we've composed a list of specific reader groups and the recommended readi
 | **Procurement, Sales and Account Managers** | ✔️       | ---         | ✔️           | ---                  | ---                 |
 | **Legal department**                        | ✔️       | ---         | ✔️           | ---                  | ---                 |
 
+*Table 1. Recommended reading sections per PosDealer reader group.*
+

@@ -97,6 +97,8 @@ If you find any of the following error messages in the log output, it may sugges
 | The request was aborted: Could not create SSL/TLS secure channel | [SSL issues](#ssl)                                             |
 | Failed to connect to all addresses                               | [Connection issue between queue and SCU](#queuescu-connection) |
 
+*Table 1. Common error messages and the network issues they typically indicate.*
+
 
 
 ## Common errors

@@ -26,6 +26,8 @@ In case users run into issues or problems while using our products, we recommend
 |![Number 3](../../images/numbers/circle-3o.png) |Among other things, fiskaltrust.Portal also offers you an overview of the status of cashboxes, lists exception errors and provides detailed information for error analysis. Please note [CashBox failures](../troubleshooting/cashbox-failures.md) |
 |![Number 4](../../images/numbers/circle-4o.png) | If the steps mentioned above are not sufficient to solve the problem, please feel free to [reach out to fiskaltrust Customer Success Team](../../information-sources/contacting-support.md).<br/>In some cases, fiskaltrust.Support will ask for a [log file](../../technical-operations/middleware/logging.md) or a memory dump to investigate a problem in more detail. If required, our Customer Success Team can provide you with a link to where you can deposit the data and inform you what data you should collect. |
 
+*Table 1. Recommended troubleshooting steps in order.*
+
 
 ## Country-specific information
 Knowledge base articles and FAQs may differ per country, as users may run into problems that are often related to country-specific fiscalization regulations or specific products. Therefore, please refer to the information sources for the respective country listed below.

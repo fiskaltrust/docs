@@ -85,7 +85,7 @@ C:\>fiskaltrust.exe -?
 | -displayname=[DISPLAYNAME] | Defines the display name of the service                      |
 | -description=[DESCRIPTION] | Defines the description of the service                       |
 
-
+*Table 1. Launcher control parameters.*
 
 ### Configuration parameters
 

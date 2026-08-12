@@ -22,6 +22,8 @@ After reading this, you can prepare a system where the Middleware will run.
 |**CPU Architecture**                   | Multicore CPU recommended <br /> * x86 <br/> * x64 <br/> * ARM usable with restrictions - [more details here](../../../poscreators/middleware-doc/general/components/components.md#arm-processor) <br />The actual memory amount depends on the amount of receipts to process. |
 | **Local Storage**                     | At least 500 MB (200 MB for the Middleware + 200 MB reserved for update packages)<br />Optional: Storage for SQLite DB (~ 8-10Kb/receipt) |
 
+*Table 1. Supported operating systems, databases, and hardware for the Middleware.*
+
 :::info SQLite Database
 
 SQLite databases work well for a single CashBox on a system. With increasing number of CashBoxes on one hardware, we recommend to use a central database instead of SQLite, both for reliability and performance reasons due to high I/O load on the disk caused by the multiple SQLite databases.

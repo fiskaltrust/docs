@@ -27,6 +27,8 @@ The Android Launcher is available for download as an app for both the HTTP varia
 | ------------------------------------------- | ----------------------------------------- |
 | [![http](../images/google-play-badge.png)](https://play.google.com/store/apps/details?id=eu.fiskaltrust.androidlauncher.http) | [![grpc](../images/google-play-badge.png)](https://play.google.com/store/apps/details?id=eu.fiskaltrust.androidlauncher.grpc)       |
 
+*Table 1. Google Play Store download links for the HTTP and gRPC variants of the Android Launcher.*
+
 
 ## Updates
 Unlike to the Desktop Launcher (which downloads packages on-demand when new Queue or SCU versions are selected in the Portal), the Android Launcher is a pre-bundled package with hardwired package versions. This is due to Google's Play Store regulations, which prohibit loading large parts of an App's code at runtime. 

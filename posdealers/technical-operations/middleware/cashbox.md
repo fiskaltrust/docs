@@ -103,6 +103,8 @@ You log in as PosDealer and switch to the desired account (`PosOperators` / `Ove
 
 ![](../../images/cashbox_portal-2023-08-25.png "https://portal-sandbox.fiskaltrust.TLD/CashBox#/")
 
+*Figure 1. Overview of the CashBoxes of an account in the fiskaltrust.Portal.*
+
 | steps | description                                                                                                                |
 |:----------------------:|-------------------------------------------------------------------------------------------------------------------------------------|
 |![Number 1](../../images/numbers/circle-1o.png) |Select `Configuration` / `CashBox`.|
@@ -116,6 +118,8 @@ You log in as PosDealer and switch to the desired account (`PosOperators` / `Ove
 |![Number 9](../../images/numbers/circle-9o.png) | [Rebuilding](#rebuilding) offers you further details.  |
 |![Number 10](../../images/numbers/circle-10o.png) |Please see [Launcher for...](../../technical-operations/middleware/launchers/desktop.md) for more details on this subject.  |
 |![Number 11](../../images/numbers/circle-11o.png) |[Configuring a CashBox](#configuring-a-cashbox) offers you further details.|
+
+*Table 1. Elements of the CashBox overview screen in the fiskaltrust.Portal.*
 
 ### Creating a CashBox
 
