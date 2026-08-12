@@ -92,7 +92,7 @@ The following table lists the maximum character lengths allowed for the DATEV on
 |-------------|--------------------------|--------------------|
 | AccountName | 32                       | ^\[^\s\].*\[^\s\]$ |
 | City        | 42                       | ^\[^\s\].*\[^\s\]$ |
-| Mail        | 250                      | standard mail      |
+| Mail        | 32                       | standard mail      |
 | Firstname   | 32                       | ^\[^\s\].*\[^\s\]$ |
 | PostalCode  | max 5 min 5              | ^\d{5}$            |
 | Street      | 32                       | ^\[^\s\].*\[^\s\]$ |
@@ -172,9 +172,9 @@ As a PosDealer, you should have also reveived a welcome email with further instr
 
 | Steps                                              | Description                                                                                                                     |
 |----------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|
-| ![Number 1](../../../images/numbers/circle-1o.png) | Tick `[COMPANY]`                                                                                                                |
+| ![Number 1](../../../images/numbers/circle-1o.png) | Open the `Company` accordion in the sidebar                                                                                     |
 | ![Number 2](../../../images/numbers/circle-2o.png) | Choose `Overview`                                                                                                               |
-| ![Number 3](../../../images/numbers/circle-3o.png) | Scroll down until `Here you can enable connections to third-party partners`                                                     |
+| ![Number 3](../../../images/numbers/circle-3o.png) | Scroll down until `Connections to 3rd party partners` / `DATEV MeinFiskal`                                                      |
 | ![Number 4](../../../images/numbers/circle-4o.png) | Details about the connection and status are given here.                                                                         |
 | ![Number 5](../../../images/numbers/circle-5o.png) | The contract can be downloaded using this link again. It was sent to your E-Mail address when the contact was signed or changed |
 
@@ -183,13 +183,10 @@ As a PosDealer, you should have also reveived a welcome email with further instr
 - The **PosDealer** cannot sign the _DATEV MeinFiskal_ user agreement for the PosOperator, as he is not authorized to do so. The **PosDealer** must contact the PosOperator to obtain the necessary authorization.
 
 - The **PosDealer** does not succeed on onboarding and receives messages like "Prüfen Sie die Stammdaten". Switch to `Company` / `Master data` and check, if the **E-mail Address** contains no "+". Check further if the **name fields** do not contain a ".". Both would interrupt the onboarding. Also, check that **no blanks** have been entered before or after the values.
-Please note that the fiskaltrust.Portal supports up to 100 characters in the fields for **names**, but DATEV MeinFiskal accepts a maximum of 32 characters. 
+Please note that the fiskaltrust.Portal supports up to 100 characters in the fields for **names**, but DATEV MeinFiskal accepts a maximum of 32 characters.
 
-- The **PosDealer** does not change the password in step 3 and can no longer log on to _DATEV MeinFiskal_ as a PosDealer. After four days at the latest, the welcome E-Mail is sent to the PosOperator. To continue the process with step 4, the **PosDealer** must contact the **PosOperator** to obtain the current password.
-
-- The **PosDealer** can no longer log on to _DATEV MeinFiskal_ because he no longer has the login data. Therefore, he cannot request another E-Mail for a password change on the _DATEV MeinFiskal_ website on his own. This is only possible via the PosOperator once he has received the welcome E-Mail with the link to change the password on the _DATEV MeinFiskal_ website.
-
-- The **PosDealer** cannot complete the linking process between fiskaltrust and _DATEV MeinFiskal_ because the wrong user name (not the same E-Mail address as for the fiskaltrust.Portal) was entered at _DATEV MeinFiskal_ in step 6. Therefore, the PosDealer must contact fiskaltrust support to delete the incorrect link.
+- The **PosDealer** can no longer log into _DATEV MeinFiskal_, because they no longer have the login data. Therefore, they cannot request another email for a password change on the _DATEV MeinFiskal_ website on their own. 
+This is only possible via the PosOperator once they have received the welcome email with the link to change the password on the _DATEV MeinFiskal_ website.
 
 ## Import troubleshooting
 There are common mistakes that prevent us from being able to upload the data to DATEV MeinFiskal or the data having errors in the MeinFiskal overview.
