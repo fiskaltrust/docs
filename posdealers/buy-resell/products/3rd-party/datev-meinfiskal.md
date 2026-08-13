@@ -225,8 +225,8 @@ There are common mistakes that prevent the data from being uploaded to DATEV Mei
 
 | Error | Solution |
 |-------|----------|
-| No data visible in DATEV MeinFiskal | This is usually caused by the DFKA not being valid. See [How To: DFKA-Export & validation report](#howto-dfka-export--validation-report) for common errors and help. |
-| Data from one daily-closing is missing in DATEV MeinFiskal | This is usually caused by the DFKA not being valid. See [How To: DFKA-Export & validation report](#howto-dfka-export--validation-report) for common errors and help. If a single daily-closing is affected then a rarely occurring receiptCase might be responsible. |
+| No data visible in DATEV MeinFiskal | This is usually caused by the DFKA not being valid. See [How To: DFKA-Export & validation report](#how-to-dfka-export--validation-report) for common errors and help. |
+| Data from one daily-closing is missing in DATEV MeinFiskal | This is usually caused by the DFKA not being valid. See [How To: DFKA-Export & validation report](#how-to-dfka-export--validation-report) for common errors and help. If a single daily-closing is affected then a rarely occurring receiptCase might be responsible. |
 | Errors in the DATEV MeinFiskal overview regarding mismatches in the revenue sums | If the sums don't match then the error is most of the time caused by the ChargeItems and PayItems not matching in some receipts. Verify that your ChargeItem sums match the PayItem sums in all receipts. The middleware throws errors if the sums don't match and the receipt validation in the fiskaltrust.Portal shows errors. You can use the receipt check button in the fiskaltrust.Portal to identify affected receipts. |
 
 *Table 6. Common data import issues in DATEV MeinFiskal and their solutions.*
