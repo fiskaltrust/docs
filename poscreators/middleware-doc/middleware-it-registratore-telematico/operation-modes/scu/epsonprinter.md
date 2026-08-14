@@ -22,5 +22,7 @@ The _fiskaltrust.Middleware.SCU.IT.EpsonRTPrinter_ package connects the middlewa
 | ServerTimeoutMs | The server/printer timeout for executing commands.                             |optional               |
 | ForceRebootAfterDailyClosing | The server/printer will automatically reboot if set to `true` after daily closure (z-report)| `true` or `false`, optional, default `false`|
 
+*Table 1. Configuration parameters for the Epson RT Printer SCU.*
+
 Please pay attention to the case-sensitive use of the parameters.
 

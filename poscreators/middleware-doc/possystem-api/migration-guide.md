@@ -52,6 +52,8 @@ If your integration targets a **Cloud CashBox** (for example, your POS system ca
 | Production | `https://signaturcloud.fiskaltrust.at` (AT) | `https://possystem-api.fiskaltrust.eu/v2` |
 | Production | `https://signaturcloud.fiskaltrust.de` (DE) | `https://possystem-api.fiskaltrust.eu/v2` |
 
+*Table 1. v0 and v2 cloud CashBox base URLs per environment and market.*
+
 :::info
 
 The v2 cloud endpoint uses a single, market-agnostic base URL for all markets (AT, FR, DE), with the actual market determined by values such as the `ftCashBoxID`, `ftReceiptCase` and your **CashBox and queue configuration**, not by the URL or host.
@@ -153,6 +155,8 @@ A systematic approach to updating case values:
 | `0x2000_0000_4021` | `0x4154_0000_0000_0002` | Start-migration lifecycle type => no implementation in v0, using zeroreceipt |
 | `0x2000_0000_4022` | `0x4154_0000_0000_0002` | Stop-migration lifecycle type => no implementation in v0, using zeroreceipt |
 
+*Table 2. Austria (AT) ftReceiptCase fixed mappings between v2 and v0 values.*
+
 **Dynamics Mappings**
 
 | **v2 (in)** | **v0 (out)** | **Description** |
@@ -181,6 +185,8 @@ A systematic approach to updating case values:
 | `0x2ooo_o1oo_oooo` | `0xoooo_oooo_oooo_oooo` | v2 IsReturn/IsRefund => v0 no action required, <br/>optional verify cbPreviouseReceiptReference set; <br/>optional verify ChargeItem(Amount) == (-1)xcbPreviouseReceiptReference(ChargeItem(Amount)); <br/>optional verify ChargeItem(Quantity) == (-1)xcbPreviouseReceiptReference(ChargeItem(Quantity)); (type0,1) |
 | `0x2ooo_o8oo_oooo` | `0xoooo_oooo_oooo_oooo` | v2 Group by Position-Number => v0 not supported |
 | `0x2ooo_8ooo_oooo` | `0xoooo_8ooo_oooo_oooo` | v2 ReceiptRequest => v0 general receipt request |
+
+*Table 3. Austria (AT) ftReceiptCase dynamic mappings between v2 and v0 values.*
 
 </details>
 
@@ -244,6 +250,8 @@ A systematic approach to updating case values:
 | `0x2ooo_o1oo_oooo` | `0xoooo_oooo_oooo_oooo` | v2 IsReturn/IsRefund => v0 no action required, <br/>optional verify cbPreviouseReceiptReference set; <br/>optional verify ChargeItem(Amount) == (-1)xcbPreviouseReceiptReference(ChargeItem(Amount)); <br/>optional verify ChargeItem(Quantity) == (-1)xcbPreviouseReceiptReference(ChargeItem(Quantity)); (type0,1), no implementation in v0 |
 | `0x2ooo_o8oo_oooo` | `0xoooo_oooo_oooo_oooo` | v2 Group by Position-Number => v0 not supported |
 | `0x2ooo_8ooo_oooo` | `0xoooo_8ooo_oooo_oooo` | v2 ReceiptRequest => v0 general receipt request |
+
+*Table 4. France (FR) ftReceiptCase mappings between v2 and v0 values.*
 
 </details>
 
@@ -317,6 +325,8 @@ A systematic approach to updating case values:
 | `0x2ooo_o1oo_oooo` | `0xoooo_oooo_oooo_oooo` | v2 IsReturn/IsRefund => v0 no action required, <br/>optional verify cbPreviouseReceiptReference set; <br/>optional verify ChargeItem(Amount) == (-1)xcbPreviouseReceiptReference(ChargeItem(Amount)); <br/>optional verify ChargeItem(Quantity) == (-1)xcbPreviouseReceiptReference(ChargeItem(Quantity)); (type0,1) |
 | `0x2ooo_o8oo_oooo` | `0xoooo_oooo_oooo_oooo` | v2 Group by Position-Number => v0 not supported |
 | `0x2ooo_8ooo_oooo` | `0xoooo_8ooo_oooo_oooo` | v2 ReceiptRequest => v0 general receipt request |
+
+*Table 5. Germany (DE) ftReceiptCase mappings between v2 and v0 values.*
 
 </details>
 
@@ -434,6 +444,8 @@ A systematic approach to updating case values:
 | `0x2ooo_oo10_oooo` | `0xoooo_oooo_oooo_oooo` | v2 Returnable => v0 general returnable => no implementation in v0 |
 | `0x2ooo_oo20_oooo` | `0xoooo_oooo_oooo_oooo` | v2 Take Away => v0 take away => no implementation in v0 |
 
+*Table 6. Austria (AT) ftChargeItemCase mappings between v2 and v0 values.*
+
 </details>
 
 <details>
@@ -547,6 +559,8 @@ A systematic approach to updating case values:
 | `0x2ooo_ooo4_oooo` | `0xoooo_oooo_oooo_oooo` | v2 Discount => v0 general discount => no implementation in v0 |
 | `0x2ooo_oo10_oooo` | `0xoooo_oooo_oooo_oooo` | v2 Returnable => v0 general returnable => no implementation in v0 |
 | `0x2ooo_oo20_oooo` | `0xoooo_oooo_oooo_oooo` | v2 Take Away => v0 take away => no implementation in v0 |
+
+*Table 7. France (FR) ftChargeItemCase mappings between v2 and v0 values.*
 
 </details>
 
@@ -707,6 +721,8 @@ A systematic approach to updating case values:
 | `0x2ooo_ooo4_oooo` | `0xoooo_oooo_oooo_oooo` | v2 Discount => v0 general discount => no implementation in v0 |
 | `0x2ooo_oo10_oooo` | `0xoooo_oooo_oooo_oooo` | v2 Returnable => v0 general returnable => no implementation in v0 |
 
+*Table 8. Germany (DE) ftChargeItemCase mappings between v2 and v0 values.*
+
 </details>
 
 ### ftPayItemCase
@@ -738,6 +754,8 @@ A systematic approach to updating case values:
 | `0x2000_oo2o_oo01` | `0x4154_0000_0000_0012` | Cash payment, change flag => v0 change / tip |
 | `0x2000_oo4o_oo01` | `0x4154_0000_0040_0012` | Cash payment, tip flag => v0 change / tip |
 
+*Table 9. Austria (AT) ftPayItemCase mappings between v2 and v0 values.*
+
 </details>
 
 <details>
@@ -766,6 +784,8 @@ A systematic approach to updating case values:
 | `0x2000_ooo8_oo09` | `0x4652_0000_0000_0010` | Accounts receiveable, downpayment flag => v0 levy / downpayment |
 | `0x2000_oo2o_oo01` | `0x4652_0000_0000_0012` | Cash payment, change flag => v0 change / tip |
 | `0x2000_oo4o_oo01` | `0x4652_0000_0040_0012` | Cash payment, tip flag => v0 change / tip |
+
+*Table 10. France (FR) ftPayItemCase mappings between v2 and v0 values.*
 
 </details>
 
@@ -800,6 +820,8 @@ A systematic approach to updating case values:
 | `0x2000_oo2o_oo01` | `0x4445_0000_0000_000B` | Cash payment, change flag => v0 change |
 | `0x2000_oo3o_oo01` | `0x4445_0000_0000_000C` | Cash payment, in foreign currency, change flag => v0 change in foreign currency |
 | `0x2000_oo4o_oo01` | `0x4445_0000_0040_0012` | Cash payment, tip flag => v0 tip to employee |
+
+*Table 11. Germany (DE) ftPayItemCase mappings between v2 and v0 values.*
 
 </details>
 
@@ -898,6 +920,8 @@ The v2 `ReceiptRequest` is a superset of the v0 model. Most existing fields are 
 | `Currency` | Not present | Added — ISO 4217 currency code (default: `EUR`) |
 | `DecimalPrecisionMultiplier` | Not present | Added — controls integer vs. floating-point amounts (default: `1`, i.e. floating-point) |
 | `ftPosSystemID` | Optional | Recommended — identifies your POS software |
+
+*Table 12. Key ReceiptRequest field differences between v0 and v2.*
 
 All other fields (`ftCashBoxID`, `cbTerminalID`, `cbReceiptMoment`, `cbChargeItems`, `cbPayItems`, `ftReceiptCase`, etc.) carry over unchanged.
 

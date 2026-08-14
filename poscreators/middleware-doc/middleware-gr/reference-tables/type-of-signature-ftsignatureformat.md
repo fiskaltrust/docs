@@ -12,3 +12,5 @@ The Middleware uses the same ftSignatureFormat in Greece as in all other countri
 | **Value** | **Description** | **Middleware Version** | 
 | --------- | --------------- | -----------------------|
 | TBD | TBD | TBD |
+
+*Table 1. ftSignatureFormatFlag values for the Greek market.*

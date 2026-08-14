@@ -36,6 +36,8 @@ import ReactPlayer from "react-player"
 |![Number 3](images/Numbers/circle-3o.png) |Check the active `Roles`   |
 |![Number 4](images/Numbers/circle-4o.png)|Tick `Contract` to start the download of the chosen document  |
 
+*Table 1. Steps to find and download contracts in the fiskaltrust.Portal.*
+
 ### Find general information
 
 
@@ -49,6 +51,8 @@ import ReactPlayer from "react-player"
 |![Number 3](images/Numbers/circle-3o.png) |Tick to start the download of the chosen document, repeat your selection, if wanted.   |
 |![Number 4](images/Numbers/circle-4o.png)|Tick `Back to overview` to switch back to `[Company]` / `Overview`  |
 
+*Table 2. Steps to find and download general information.*
+
 ### Find exports
 
 
@@ -61,6 +65,8 @@ import ReactPlayer from "react-player"
 |![Number 2](images/Numbers/circle-2o.png) |Depending on the configurations and exports before, the `List of queue exports` will show export data |
 |![Number 3](images/Numbers/circle-3o.png) |Tick the arrow - symbol to open the available files.   |
 |![Number 4](images/Numbers/circle-4o.png)|Tick `export.zip` to start the download of the chosen data  |
+
+*Table 3. Steps to find and download queue exports.*
 
 
 ### Create Exports

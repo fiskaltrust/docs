@@ -107,8 +107,7 @@ This section describes the structure of a receipt, including the main blocks pro
 
 ![](./images/06-receipt-structure.svg)
 
-<span id="_Toc527986807" class="anchor"></span>
-*Figure 8. Receipt Structure – The POS receipt consists of header, charge items, pay items, and footer. fiskaltrust enriches the receipt during fiscalization by adding receipt number, tax-related data, signature, and fiscal metadata. The POSSystem API V2 further produces an issued receipt including digital receipt information.*
+*Figure 1. Receipt Structure – The POS receipt consists of header, charge items, pay items, and footer. fiskaltrust enriches the receipt during fiscalization by adding receipt number, tax-related data, signature, and fiscal metadata. The POSSystem API V2 further produces an issued receipt including digital receipt information.*
 
 ### Receipt Header
 

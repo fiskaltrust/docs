@@ -24,6 +24,8 @@ version 2
 | `EEEE_EEEE` | **Error**<br />Something went wrong while processing the last request. QueueItem exists but didn’t reach the state of a ReceiptItem and didn’t consume a ftReceiptNumber within the chain. Error reason is shown within the responded ftSignatureItems.<br />This happens, for example, if the ReceiptCase is not recognized or is wrong. | 1.3.45 |
 | `FFFF_FFFF` | **Fail**<br />Something went wrong while processing the last request, and nothing persisted within the Queue. Fail reason is shown within the responded ftSignatureItems.<br />This happens, for example, when the flag ReceiptRequest is used after a communication outage, and no properly processed item is found. | 1.3.45 |
 
+*Table 1. ftState global tagging/flag values for the Belgian market.*
+
 
 #### llll - local flags
 
@@ -32,3 +34,5 @@ cba c=reserved; b=reporting; a=scu related
 | **Value** | **Description** | **Middleware Version** |
 | --------- | --------------- | ---------------------- |
 | TBD | TBD | TBD |
+
+*Table 2. ftState local flag values for the Belgian market (to be defined).*

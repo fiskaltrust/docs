@@ -34,6 +34,8 @@ The `ftReceiptCase` **fiskaltrust** field is of critical importance for the corr
 | `Currency` | CurrencyEnumCurrencyEnumstring | EUR | false | This field is used as currency code for money numbers along ISO 4217 (https://en.wikipedia.org/wiki/ISO_4217). Enum: [EUR, CHF, CZK, HUF, BAM, DKK, RON, NOK, PLN, RSD, SEK, UAH, USD, AED, AFN, ALL, AMD, ANG, AOA, ARS, AUD, AWG, AZN, BBD, BDT, BGN, BHD, BIF, BMD, BND, BOB, BOV, BRL, BSD, BTN, BWP, BYN, BZD, CAD, CDF, CHE, CHW, CLF, CLP, CNY, COP, COU, CRC, CUP, CVE, DJF, DOP, DZD, EGP, ERN, ETB, FJD, FKP, GBP, GEL, GHS, GIP, GMD, GNF, GTQ, GYD, HKD, HNL, HTG, IDR, ILS, INR, IQD, IRR, ISK, JMD, JOD, JPY, KES, KGS, KHR, KMF, KPW, KRW, KWD, KYD, KZT, LAK, LBP, LKR, LRD, LSL, LYD, MAD, MDL, MGA, MKD, MMK, MNT, MOP, MRU, MUR, MVR, MWK, MXN, MXV, MYR, MZN, NAD, NGN, NIO, NPR, NZD, OMR, PAB, PEN, PGK, PHP, PKR, PYG, QAR, RUB, RWF, SAR, SBD, SCR, SDG, SGD, SHP, SLE, SLL, SOS, SRD, SSP, STN, SVC, SYP, SZL, THB, TJS, TMT, TND, TOP, TRY, TTD, TWD, TZS, UGX, USN, UYI, UYU, UYW, UZS, VED, VES, VND, VUV, WST, XAF, XAG, XAU, XBA, XBB, XBC, XBD, XCD, XDR, XOF, XPD, XPF, XPT, XSU, XTS, XUA, XXX, YER, ZAR, ZMW, ZWL] |
 | `DecimalPrecisionMultiplier` | `DecimalPrecisionMultiplierEnumDecimalPrecisionMulti-plierEnuminteger($int32)` | 1 | false | This field is used as a multiplier for decimal numbers. When the value is **1**, the relevant numbers are interpreted as floating-point numbers. For all other values, the relevant numbers are interpreted as integers and must be divided by the Multiplier to obtain the decimal representation. Enum: [1, 100, 10000, 1000000, 100000000] |
 
+*Table 1. Fields of the ReceiptRequest data structure sent by the cash register to the Middleware.*
+
 ## ReceiptResponse
 
 **fiskaltrust.Middleware** sends the processed data back to the cash register through the `ReceiptResponse`. The data included in the request, such as header, service, pay items, and footer, will not be sent back. The returned data is added to the receipt as supplement to the data of the receipt request.
@@ -58,6 +60,8 @@ The `ftReceiptCase` **fiskaltrust** field is of critical importance for the corr
 | `ftPayItems` | | | | List of line items added by **fiskaltrust.Middleware** during request processing, related to payments. These items must be printed on the receipt. |
 | `ftPayLines` | | | | Additional text for line items related to payments. This must be printed on the receipt. |
 | `ftReceiptFooter` | | | | Additional footer lines that must be printed on the receipt. |
+
+*Table 2. Fields of the ReceiptResponse data structure returned by the Middleware to the cash register.*
 
 ## ChargeItem
 
@@ -86,6 +90,8 @@ Represents an item related to a service or a product that is taxable.
 | `Currency` | `CurrencyEnumCurrencyEnumstring` | EUR | false | This field is used as currency code for money numbers along ISO 4217 (https://en.wikipedia.org/wiki/ISO_4217). Enum: [EUR, CHF, CZK, HUF, BAM, DKK, RON, NOK, PLN, RSD, SEK, UAH, USD, AED, AFN, ALL, AMD, ANG, AOA, ARS, AUD, AWG, AZN, BBD, BDT, BGN, BHD, BIF, BMD, BND, BOB, BOV, BRL, BSD, BTN, BWP, BYN, BZD, CAD, CDF, CHE, CHW, CLF, CLP, CNY, COP, COU, CRC, CUP, CVE, DJF, DOP, DZD, EGP, ERN, ETB, FJD, FKP, GBP, GEL, GHS, GIP, GMD, GNF, GTQ, GYD, HKD, HNL, HTG, IDR, ILS, INR, IQD, IRR, ISK, JMD, JOD, JPY, KES, KGS, KHR, KMF, KPW, KRW, KWD, KYD, KZT, LAK, LBP, LKR, LRD, LSL, LYD, MAD, MDL, MGA, MKD, MMK, MNT, MOP, MRU, MUR, MVR, MWK, MXN, MXV, MYR, MZN, NAD, NGN, NIO, NPR, NZD, OMR, PAB, PEN, PGK, PHP, PKR, PYG, QAR, RUB, RWF, SAR, SBD, SCR, SDG, SGD, SHP, SLE, SLL, SOS, SRD, SSP, STN, SVC, SYP, SZL, THB, TJS, TMT, TND, TOP, TRY, TTD, TWD, TZS, UGX, USN, UYI, UYU, UYW, UZS, VED, VES, VND, VUV, WST, XAF, XAG, XAU, XBA, XBB, XBC, XBD, XCD, XDR, XOF, XPD, XPF, XPT, XSU, XTS, XUA, XXX, YER, ZAR, ZMW, ZWL] |
 | `DecimalPrecisionMultiplier` | `DecimalPrecisionMultiplierEnumDecimalPrecisionMulti-plierEnuminteger($int32)` | 1 | false | This field is used as a multiplier for decimal numbers. When the value is **1**, the relevant numbers are interpreted as floating-point numbers. For all other values, the relevant numbers are interpreted as integers and must be divided by the Multiplier to obtain the decimal representation. Enum: [1, 100, 10000, 1000000, 100000000] |
 
+*Table 3. Fields of the ChargeItem data structure representing a taxable service or product.*
+
 ## PayItem
 
 Represents an item related to a payment.
@@ -108,16 +114,20 @@ Represents an item related to a payment.
 | `Currency` | `CurrencyEnumCurrencyEnumstring` | EUR | false | This field is used as currency code for money numbers along ISO 4217 (https://en.wikipedia.org/wiki/ISO_4217). Enum: [EUR, CHF, CZK, HUF, BAM, DKK, RON, NOK, PLN, RSD, SEK, UAH, USD, AED, AFN, ALL, AMD, ANG, AOA, ARS, AUD, AWG, AZN, BBD, BDT, BGN, BHD, BIF, BMD, BND, BOB, BOV, BRL, BSD, BTN, BWP, BYN, BZD, CAD, CDF, CHE, CHW, CLF, CLP, CNY, COP, COU, CRC, CUP, CVE, DJF, DOP, DZD, EGP, ERN, ETB, FJD, FKP, GBP, GEL, GHS, GIP, GMD, GNF, GTQ, GYD, HKD, HNL, HTG, IDR, ILS, INR, IQD, IRR, ISK, JMD, JOD, JPY, KES, KGS, KHR, KMF, KPW, KRW, KWD, KYD, KZT, LAK, LBP, LKR, LRD, LSL, LYD, MAD, MDL, MGA, MKD, MMK, MNT, MOP, MRU, MUR, MVR, MWK, MXN, MXV, MYR, MZN, NAD, NGN, NIO, NPR, NZD, OMR, PAB, PEN, PGK, PHP, PKR, PYG, QAR, RUB, RWF, SAR, SBD, SCR, SDG, SGD, SHP, SLE, SLL, SOS, SRD, SSP, STN, SVC, SYP, SZL, THB, TJS, TMT, TND, TOP, TRY, TTD, TWD, TZS, UGX, USN, UYI, UYU, UYW, UZS, VED, VES, VND, VUV, WST, XAF, XAG, XAU, XBA, XBB, XBC, XBD, XCD, XDR, XOF, XPD, XPF, XPT, XSU, XTS, XUA, XXX, YER, ZAR, ZMW, ZWL] |
 | `DecimalPrecisionMultiplier` | `DecimalPrecisionMultiplierEnumDecimalPrecisionMulti-plierEnuminteger($int32)` | 1 | false | This field is used as a multiplier for decimal numbers. When the value is **1**, the relevant numbers are interpreted as floating-point numbers. For all other values, the relevant numbers are interpreted as integers and must be divided by the Multiplier to obtain the decimal representation. Enum: [1, 100, 10000, 1000000, 100000000] |
 
+*Table 4. Fields of the PayItem data structure representing a payment.*
+
 ## SignatureItem
 
 The signature of the receipt must comply with national law. The signature data returned in the response must be visualized on the receipt according to the format instructions and the **fiskaltrust** reference.
 
 The signature entries can also be used to visualize hints and messages related to the `fiskaltrust.SecurityMechanism`.
 
-| Field Name | Data Type | Default Value | Nullable | Description |
-| ---------- | --------- | ------------- | -------- | ----------- |
-| `ftSignatureItemID` | `string($uuid)` | null | true | Optional. This field is used as an identifier of a `signatureitem` when reading data. |
-| `ftSignatureFormat` | `integer($uint64)` | 0 | false | Format for displaying signature data according to **fiskaltrust** reference. For more information, see [ftSignatureFormat](../../general/reference-tables/reference-tables.md#format-of-signature-ftsignatureformat). |
-| `ftSignatureType` | `integer($uint64)` | 0 | | Type of signature according to **fiskaltrust** reference. For more information, see [ftSignatureType](../../general/reference-tables/reference-tables.md#type-of-signature-ftsignaturetype). |
-| `Caption` | `String`<br />Max 1023 | null | true | Optional heading displayed as text above the signature data. |
-| `Data*` | `String`<br />Max 1023 | null | false | Optional signature content displayed in the specified format. |
+| Field Name              | Data Type                 | Default Value     | Nullable    | Description                                                                                                                                               |
+|-------------------------|---------------------------|-------------------|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `ftSignatureItemID`     | `string($uuid)`           | null              | true        | Optional. This field is used as an identifier of a `signatureitem` when reading data. |
+| `ftSignatureFormat`     | `integer($uint64)`        | 0                 | false       | Format for displaying signature data according to **fiskaltrust** reference. For more information, see [ftSignatureFormat](../../general/reference-tables/reference-tables.md#format-of-signature-ftsignatureformat). |
+| `ftSignatureType`       | `integer($uint64)`        | 0                 |             | Type of signature according to **fiskaltrust** reference. For more information, see [ftSignatureType](../../general/reference-tables/reference-tables.md#type-of-signature-ftsignaturetype). |
+| `Caption`               | `String`<br />Max 1023    | null              | true        | Optional heading displayed as text above the signature data. |
+| `Data*`                  | `String`<br />Max 1023   | null              | false       | Optional signature content displayed in the specified format. |
+
+*Table 5. Fields of the SignatureItem data structure describing receipt signature data.*

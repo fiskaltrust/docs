@@ -22,6 +22,8 @@ Depending on the Helper type, it might be necessary to enter values for paramete
 
 ![Types of Helpers](images/54446-1-Types-of-Helpers.png "Types of Helpers")
 
+*Figure 1. The different types of Helpers available in the fiskaltrust.Portal.*
+
 ### POS-API Helper (Example)
 
 The POS-API Helper speeds up the smooth process from the creation of a document to its display at the PosOperator.
@@ -56,6 +58,8 @@ If you have further questions or need clarification, please contact your fiskalt
 |![Number 6](../../images/numbers/circle-6o.png) |**Germany & France only:** Change `grpc port` to the next free port and add the suffix "/I_queue" to the URL (_placeholder_ can be chosen freely). If the designated port is free there is no need to go up to the next free port.  |
 |![Number 7](../../images/numbers/circle-7o.png) |`Save` your changes.  |
 
+*Table 1. Steps to prepare the Queue in the fiskaltrust.Portal.*
+
 ###### Preparation Helper
 
 
@@ -73,6 +77,8 @@ If you have further questions or need clarification, please contact your fiskalt
 |![Number 10](../../images/numbers/circle-10o.png) |**Germany & France only**: Add also `GRPC URL` with next free port and add the suffix / _placeholder_ to the URL (analogue to the naming in `Preparation Queue`).|
 |![Number 11](../../images/numbers/circle-11o.png) |`Save` your changes.  |
 
+*Table 2. Steps to create and configure the POS-API Helper.*
+
 ##### Preparation CashBox 
 | steps | description                                                                                                                |
 |:----------------------:|-------------------------------------------------------------------------------------------------------------------------------------|
@@ -82,6 +88,8 @@ If you have further questions or need clarification, please contact your fiskalt
 |![Number 4](../../images/numbers/circle-4o.png) |Activate the `POS-API Helper`|
 |![Number 5](../../images/numbers/circle-5o.png) |`Save` your configuration.  |
 |![Number 6](../../images/numbers/circle-6o.png) |Select the `Rebuild` of your configuration|
+
+*Table 3. Steps to activate the POS-API Helper on the CashBox.*
 
 ##### Restart
 
@@ -144,6 +152,8 @@ import HelperDE from '../../_markets/de/technical-operations/middleware/overview
 
 ![Overview Helpers](images/54446-2-Overview-Helpers.png "Overview")
 
+*Figure 2. Helper overview page in the fiskaltrust.Portal.*
+
 | steps | description                                                                                                                |
 |:----------------------:|-------------------------------------------------------------------------------------------------------------------------------------|
 |![Number 1](../../images/numbers/circle-1o.png) |Choose `Configuration`/ `Helper` to get to the Helper configuration.  |
@@ -153,6 +163,9 @@ import HelperDE from '../../_markets/de/technical-operations/middleware/overview
 |![Number 5](../../images/numbers/circle-5o.png) |By clicking on `Edit`, you may edit things like the description, package name and version of the Helper. |
 |![Number 6](../../images/numbers/circle-6o.png) | The button `Trash` is inactive: _You cannot delete Helpers as they are an integral part of the CashBox and contain important audit data that you must preserve._ |
 |![Number 7](../../images/numbers/circle-7o.png) |Click on `+Add` for creating a new Helper. |
+
+*Table 4. Controls available on the Helper overview page.*
+
 See [Add a Helper](#add-a-helper) below for further details.
 
 ## Add a Helper
@@ -160,6 +173,8 @@ See [Add a Helper](#add-a-helper) below for further details.
 Note that the following figures and steps are exemplary. Other Helpers may require further configuration. 
 
 ![Configuration / Helper / +Add or Edit](images/54446-3-create-Helper.png "Add a Helper")
+
+*Figure 3. The Create Helper dialog in the fiskaltrust.Portal.*
 
 | steps | description                                                                                                                |
 |:----------------------:|-------------------------------------------------------------------------------------------------------------------------------------|
@@ -171,11 +186,15 @@ Note that the following figures and steps are exemplary. Other Helpers may requi
 |![Number 6](../../images/numbers/circle-6o.png) | You can select one of the available outlets with the drop-down menu. |
 |![Number 7](../../images/numbers/circle-7o.png) |`Save` your changes; note that **you cannot change your selection of Helper type** at `Package name`. |
 
+*Table 5. Fields for adding a new Helper.*
+
 See **Configure a Helper** below for further details of configuration.
 
 ## Configure a Helper
 
 ![Configuration / Helper / Configuration ](images/54446-5-configure-Helper.png "Configuration / Helper / Configuration")
+
+*Figure 4. The Helper configuration page in the fiskaltrust.Portal.*
 
 | steps | description                                                                                                                |
 |:----------------------:|-------------------------------------------------------------------------------------------------------------------------------------|
@@ -188,9 +207,13 @@ See **Configure a Helper** below for further details of configuration.
 |![Number 7](../../images/numbers/circle-7o.png) |You can enter a URL for your Helper. With `net.pipe`you get a URL suitable for local use without an internet connection because no firewall settings are required. With `http`, the system generates a URL for you with which the POS-System can access the Helper. You can rename the URL yourself. For example, this URL can look like this: http://localhost:1200/fiskaltrust.Helper. |
 |![Number 8](../../images/numbers/circle-8o.png) |`Save` your changes or use `Save and close` to return to `Configuration`/ `Helper`. |
 
+*Table 6. Settings available when configuring a Helper.*
+
 ## Assign a Helper
 
 ![Configuration / Helper / Configuration ](images/54446-6-configure-Helper.png "Configuration / Helper / Configuration")
+
+*Figure 5. Assigning a Helper to a CashBox in the fiskaltrust.Portal.*
 
 | steps | description                                                                                                                |
 |:----------------------:|-------------------------------------------------------------------------------------------------------------------------------------|
@@ -199,3 +222,5 @@ See **Configure a Helper** below for further details of configuration.
 |![Number 3](../../images/numbers/circle-3o.png)| Drag the desired Helper from the menu on the right side and drop it on the left side  |
 |![Number 4](../../images/numbers/circle-4o.png) |Save your changes with `Save`. |
 |... |![Number 5](../../images/numbers/circle-5o.png)Back at `Configuration`/ `CashBox`, select `Rebuild configuration` and restart the CashBox. Note the [formerly mentioned warning](helper.md#helipadhelper-example)|
+
+*Table 7. Steps to assign a Helper to a CashBox.*

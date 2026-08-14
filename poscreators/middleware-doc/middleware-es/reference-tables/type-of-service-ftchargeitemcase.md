@@ -29,6 +29,8 @@ For more information, see [VAT rules and rates](https://europa.eu/youreurope/bus
 | `7` | **Zero VAT rate**<br />In the data, a VAT-rate can be indicated. | 1.3.67 |
 | `8` | **Not Taxable**<br />For processing, see (`0x4553000000000001`) | 1.3.67 |
 
+*Table 1. VAT rate values (V) for Spain.*
+
 
 #### S - Type of Service
 
@@ -46,6 +48,8 @@ For more information, see [VAT rules and rates](https://europa.eu/youreurope/bus
 | `9` | **Receivable**<br />Receivable creation is negative (-) amount<br />Receivable reduction is positive (+) amount.<br />IsVoid can be applied to reverse amounts.<br />Avoid to use this, use PayItem instead. | 1.3.67 |
 | `A` | **Cash Transfer**<br />Cash Transfer to till is positive (+) amount<br />Cash Transfer from till is negative (-) amount.<br />Only useable with V=8, Not Taxable.<br />IsVoid can be applied to reverse amounts | 1.3.67 |
 
+*Table 2. Type of service values (S) for Spain.*
+
 #### NN - nature of VAT
 
 | **Value** | **Description** | **Spec. for Spanish reg.** | **Middleware Version** |
@@ -54,6 +58,8 @@ For more information, see [VAT rules and rates](https://europa.eu/youreurope/bus
 | `20` | **Not Subject**<br />2x can be used to specify more country specific details. | *NS (N2) marker mandatory<br />[20] not subject by articles 7 and 14<br />[21] not subject, location rules | 1.3.67 |
 | `30` | **Exempt**<br />3x | *ES (N4) marker mandatory<br />[30] Exempt by article 20<br />[31] Exempt by article 21<br />[32] Exempt by article 22<br />[33] Exempt by article 23 and 24<br />[34] Exempt by article 25<br />[35] Exempt, other cases | 1.3.67 |
 | `50` | **Reverse charge**<br />5x | *AL (N6) marker mandatory<br />[50] reverse charge | 1.3.67 |
+
+*Table 3. Nature of VAT values (NN) for Spain.*
 
 #### lll - local tagging/flag
 
@@ -70,6 +76,8 @@ TBD
 | `0010` | **Returnable**<br />Marks ChargeItem as a returnable.<br />Positive (+) amount/quantity is handout.<br />Negative (-) amount/quantity is reverse.<br />IsVoid or IsReturn/IsRefund will invert this behavior. | 1.3.67 |
 | `0020` | **TakeAway**<br />Marks ChargeItem as TakeAway item to prove special VAT application | 1.3.67 |
 | `8000` | **ShowInPayments**<br />Visualize the item after Total Amount. This inverts amount and does not include the amount into the visualized total amount on the receipt. | 1.3.67 |
+
+*Table 4. Global tagging/flag values (gggg) for Spain.*
 
 ## ftChargeItemCaseFlag
 

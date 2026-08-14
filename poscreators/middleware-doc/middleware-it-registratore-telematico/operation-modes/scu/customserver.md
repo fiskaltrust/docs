@@ -28,6 +28,8 @@ The _fiskaltrust.Middleware.SCU.IT.CustomRTServer_ package connects the middlewa
 | ServiceFolder | Local folder for services | optional |
 | CacheDirectory | Local folder for caching | optional |
 
+*Table 1. Configuration parameters of the Custom RT Server SCU package.*
+
 #### AccountMasterData
 
 | Name | Description | Optional |
@@ -40,6 +42,8 @@ The _fiskaltrust.Middleware.SCU.IT.CustomRTServer_ package connects the middlewa
 | Country | Account address country | optional |
 | TaxId | Account Tax identification number | optional |
 | VatId | Account Vat identification number | optional |
+
+*Table 2. Fields of the AccountMasterData structure.*
 
 
 Please pay attention to the case-sensitive use of the parameters.

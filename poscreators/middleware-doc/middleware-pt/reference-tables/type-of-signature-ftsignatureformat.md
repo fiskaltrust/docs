@@ -12,3 +12,5 @@ The Middleware uses the same ftSignatureFormat in Portugal as in all other count
 | **Value** | **Description** | **Middleware Version** | 
 | --------- | --------------- | ---------------------- |
 | TBD | TBD | TBD |
+
+*Table 1. ftSignatureFormatFlag values for the Portuguese market.*

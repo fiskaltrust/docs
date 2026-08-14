@@ -23,6 +23,8 @@ This sequence diagram describes the process of generating a digital receipt with
 
 ![pos_api_helper_sequence](./images/POS_API_Helper_sequence.png)
 
+*Figure 1. Sequence diagram of generating a digital receipt with the sign endpoint and the POS API Helper.*
+
 The Point of Sale software calls the Middleware's sign endpoint with a regular receipt request - the request will be processed by the fiskaltrust.Middleware. After this step, the POS software receives the receipt response from the fiskaltrust.Middleware (which also contains the data for creating a printed receipt). The Point of Sale software extracts the ftQueueId and ftQueueItemId properties from the receipt response and generates the link for the QR-Code out of this dataset. Final step is the visualization of the QR-Code containing the URL to the digital receipt on the customer display, handheld, self-checkout or any other suitable devices.
 
 The consumer accesses the receipt by scanning the QR-Code displayed on the customer-facing display/device with their mobile phone. The consumer requests the receipt from fiskaltrust and receives an HTML document as the receipt. 
@@ -65,6 +67,8 @@ To proceed with the configuration, login to your fiskaltrust.Portal account firs
 | 5  | Germany & France only: Change grpc port to the next free port (if port is free no need to go up to the next free port) and add the suffix "/name_queue" to the URL ("name" can be freely chosen)  |
 | 6  | Save changes  |
 
+*Table 1. Queue configuration steps for the POS API Helper.*
+
 ### Helper 
 
 | Step  | Description |
@@ -80,6 +84,8 @@ To proceed with the configuration, login to your fiskaltrust.Portal account firs
 | 9  | All Countries: Insert the previously saved Queue URLs to the Helper URLs and add the suffix "/name" to the URL (analogue to the naming in queue configuration). Germany & France only: Add also GRPC URL with next free port and add the suffix "/name" to the URL (analogue to the naming in queue configuration).   |
 | 10  | Save configuration and close   |
 
+*Table 2. Helper configuration steps for the POS API Helper.*
+
 ### CashBox 
 
 | Step  | Description |
@@ -90,6 +96,8 @@ To proceed with the configuration, login to your fiskaltrust.Portal account firs
 | 4  | Activate the POS API Helper  |
 | 5  | Save configuration  |
 | 6  | Click rebuild configuration  |
+
+*Table 3. CashBox configuration steps for activating the POS API Helper.*
 
 ### Restart
 
@@ -106,6 +114,8 @@ As most operations especially /print requests may take an extended amount of tim
 A general sample of this process flow is illustrated in the picture below:
 
 ![Screenshot 2023-11-07 152951](https://github.com/fiskaltrust/interface-doc/assets/124153755/bd976d8c-3119-47b1-852d-abb678aea01d)
+
+*Figure 2. General process flow of the asynchronous POS API (sign, print, and response).*
 
 
 ## Availability
@@ -616,6 +626,8 @@ The country-specific code is made of the country's code value following the ISO-
 | 0x4154000000000001  | "out of service" No RKSV signatures are generated or sent back. No RKSV-DEP is written, as nothing is being signed. The E131-DEP records requests and responses.  | 1.0  |
 | 0x4154000000000004  | "SSCD permanently out of service" The status "SSCD temporary out of service" was activated more than 48h ago. Thus a FinanzOnline notification has been generated. For conduct and termination of this mode, see "SSCD temporary out of service".  | 1.0  |
 
+*Table 4. Austrian ftState values indicating out-of-service conditions.*
+
 <details>
 <summary>The following example shows how to extract the value of a flag into the ftState property.</summary>
 
@@ -641,6 +653,8 @@ In the event of a failure or disruption of the internet connection, we recommend
 | ------------- | ------------- | ------------- |
 | 0x4445000000000002  | The security mechanism was not able to communicate with the TSE device for at least one cycle. If this is the case, no more communication attempts are done to avoid long waiting times for each Receipt request/Receipt response sequence. To leave this state, a Zero-Receipt must be sent, which forces a communication retry towards the TSE device. Receipts created in a state where no communication is possible with the TSE device are protected by the security mechanism of fiskaltrust.  | 1.0  |
 | 0x4445000000000100  | The Middleware is in the process of switching SCUs. This state is returned in case any receipts are processed between the initialize-switch receipt and the finish-switch receipt. These receipts are protected by the fiskaltrust.SecurityMechanism, but not sent to any TSE, as no SCU is connected at this point.  | 1.3.19  |
+
+*Table 5. German ftState values indicating TSE communication and SCU-switching conditions.*
 
 The following example shows how to extract the value of a flag into the ftState property.
 
@@ -672,6 +686,8 @@ This chart shows the required data fields to visualize the whole dataset of the 
 | cbReceiptReference  | 7657a361-ffe1-4633-86d8-500ee4d1cb0a  | mandatory  | no  | Reference number send by the cash register  |
 | cbReceiptMoment  | 2023-08-01T08:17:32.003Z  | mandatory  | yes  | The time of receipt creation. Must be provided in UTC  |
 
+*Table 6. Receipt-level fields required to visualize the digital receipt.*
+
 ### cbChargeItems (List of services or items sold)
 
 | Field name  | Sample data | Mandatory field | Visualized on receipt | Description |
@@ -693,6 +709,8 @@ This chart shows the required data fields to visualize the whole dataset of the 
 | UnitPrice  | 2.56  | optional  | no  | Gross price per indicated unit  |
 | Moment  | 2023-08-01T07:47:53.68Z  | mandatory  | no  | Time of service (year, month, day, hour, minute, second). Must be provided in UTC  |
 
+*Table 7. cbChargeItems fields for services or items sold.*
+
 ### cbPayItems (List of payment received)
 
 | Field name  | Sample data | Mandatory field | Visualized on receipt | Description |
@@ -708,5 +726,7 @@ This chart shows the required data fields to visualize the whole dataset of the 
 | ftReceiptCase  | 0x4154000000000001  | mandatory  | no  | The ftReceiptCase indicates the receipt type and defines how it should be processed by the fiskaltrust.SecurityMechanism in accordance with the local law  |
 | cbReceiptAmount  | 3.2  | optional  | yes  | Total receipt amount incl. taxes (gross receipt amount). If it is not provided, it can be calculated with the sum of the amounts of the cbChargeItems. It can be useful and important for systems working with net amounts, as it helps to apply different methods of calculation and rounding  |
 | cbUser  | Hr. Müller  | optional  | currently not*  | Identification of the user, who creates the receipt. Although all string values are supported, we suggest using data structures serialized into JSON format  |
+
+*Table 8. cbPayItems fields for payments received.*
 
 *Implementation for visualization on the digital receipt planned, but not yet available  

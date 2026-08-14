@@ -29,6 +29,8 @@ For more information, see [VAT rules and rates](https://europa.eu/youreurope/bus
 | `7` | **Zero VAT rate** |
 | `8` | **Not Taxable** |
 
+*Table 1. VAT rate values (V) for Greece.*
+
 #### S - Type of Service  
 
 | **Value** | **Description** | 
@@ -44,6 +46,8 @@ For more information, see [VAT rules and rates](https://europa.eu/youreurope/bus
 | `8` | **Grant**<br />For Unreal Grant use V=0 to 7<br />For Real Grant use V=8  | 
 | `9` | **Receivable**<br />Receivable creation is negative (-) amount<br />Receivable reduction is positive (+) amount.<br />IsVoid can be applied to reverse amounts.<br />Avoid to use this, use PayItem instead.  |1.3.67|   
 | `A` | **Cash Transfer**<br />Cash Transfer to till is positive (+) amount<br />Cash Transfer from till is negative (-) amount.<br />Only useable with V=8, Not Taxable. <br />IsVoid can be applied to reverse amounts|1.3.67|    
+
+*Table 2. Type of service values (S) for Greece.*
 
 #### NN - nature of VAT  
 
@@ -64,6 +68,8 @@ TBD
 | `0010` | **Returnable**<br /> Marks ChargeItem as a returnable.<br />Positive (+) amount/quantity is handout.<br />Negative (-) amount/quantity is reverse.<br />IsVoid or IsReturn/IsRefund will invert this behavior.| 
 | `0020` | **TakeAway** <br />Marks ChargeItem as TakeAway item to prove special VAT application | 
 | `8000` | **ShowInPayments**<br />Visualize the item after Total Amount. This inverts amount and does not include the amount into the visualized total amount on the receipt.  | 
+
+*Table 3. Global tagging/flag values (gggg) for Greece.*
 
 ## ftChargeItemCaseFlag
 

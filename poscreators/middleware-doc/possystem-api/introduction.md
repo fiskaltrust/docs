@@ -59,6 +59,8 @@ The API exposes a compact, consistent set of endpoints that cover the full fisca
 | `/issue`   | Generate and manage receipt output, and update its delivery state (digital or printable).            | Hand the signed receipt over to the customer.             |
 | `/journal` | Retrieve audit-relevant journal data and ranges for closings, exports and inspections.              | Daily/monthly closings, audit exports, archive snapshots. |
 
+*Table 1. Core POS System API endpoints and their typical use cases.*
+
 Not every integration needs all five groups. The minimum is `/echo` (connectivity check on startup) plus `/sign` (every transaction, including the daily closing). `/pay` is used only when electronic payments are processed through the Middleware — cash transactions skip it. `/issue` is optional and used for digital receipt distribution. `/journal` is used for audit exports and closings.
 
 For the full request/response models, payload schemas and per-endpoint error codes, see the [POS System API reference (v2.1)](https://docs.fiskaltrust.cloud/apis/pos-system-api).
@@ -68,6 +70,8 @@ For the full request/response models, payload schemas and per-endpoint error cod
 The diagram below illustrates a typical fiscal transaction lifecycle, showing how a POS system interacts with the fiskaltrust.Middleware through the POS System API and how the Middleware in turn communicates with country-specific signing components and the fiskaltrust.Cloud.
 
 ![POS System API end-to-end request flow](./images/pos-system-api-request-flow.svg)
+
+*Figure 1. End-to-end flow of a fiscal transaction between the POS system, the fiskaltrust.Middleware, signing components, and the fiskaltrust.Cloud.*
 
 Every request carries the same identification and authentication headers (`x-cashbox-id`, `x-cashbox-accesstoken`, `x-possystem-id`) plus a per-operation `x-operation-id`. The `x-operation-id` is what makes each step safe to retry without producing duplicate fiscal actions.
 

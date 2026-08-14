@@ -68,6 +68,8 @@ We recommend handling an account as PosCreator and as PosDealer separated.
 
 ![PosSystem Creation](images/PosSystem-creation-001.png "PosSystem / Add")
 
+*Figure 1. Creating a new PosSystem in the fiskaltrust.Portal; steps are described in Table 1.*
+
 | steps | description                                                                                                                |
 |:----------------------:|-------------------------------------------------------------------------------------------------------------------------------------|
 |![Number 1](./images/Numbers/circle-1o.png) |Log in to the fiskaltrust.Portal as a PosCreator, select `PosSystems` and `Add` to create new ones.   |
@@ -75,9 +77,13 @@ We recommend handling an account as PosCreator and as PosDealer separated.
 |![Number 3](./images/Numbers/circle-3o.png) |Make your selection at `Cash type`.  |
 |![Number 4](./images/Numbers/circle-4o.png) |With `Create new`, you will find the new PosSystem in the list of your available systems.  |
 
+*Table 1. Steps to create a PosSystem, shown in Figure 1.*
+
 ### Editing of a PosSystem
 
 ![PosSystem Creation](images/PosSystem-creation-002.png "PosSystem / List")
+
+*Figure 2. Editing a PosSystem in the fiskaltrust.Portal; steps are described in Table 2.*
 
 | steps | description                                                                                                                |
 |:----------------------:|-------------------------------------------------------------------------------------------------------------------------------------|
@@ -86,9 +92,13 @@ We recommend handling an account as PosCreator and as PosDealer separated.
 |![Number 3](./images/Numbers/circle-3o.png) |With `PosDealer`, you open the list of assigned PosDealers; read below for further details. |
 |![Number 4](./images/Numbers/circle-4o.png) |You can change the data of the PosSystem with `Edit`.  |
 
+*Table 2. Steps to edit a PosSystem, shown in Figure 2.*
+
 ### Assignment of a PosSystem
 
 ![PosSystem Creation](images/PosSystem-creation-003.png "PosSystem / assignment")
+
+*Figure 3. Assigning a PosSystem to PosDealers in the fiskaltrust.Portal; steps are described in Table 3.*
 
 | steps | description                                                                                                                |
 |:----------------------:|-------------------------------------------------------------------------------------------------------------------------------------|
@@ -96,6 +106,8 @@ We recommend handling an account as PosCreator and as PosDealer separated.
 |![Number 2](./images/Numbers/circle-2o.png) |You find a list of all PosDealers assigned to your chosen PosSystem. Use the link of the `contact person` to send an E-Mail.  |
 |![Number 3](./images/Numbers/circle-3o.png) |With `Remove assignment`, you cut the connection between the selected PosDealer and the actual PosSystem.  |
 |![Number 3](./images/Numbers/circle-3o.png) |To assign or invite more PosDealers, select `Add`. |
+
+*Table 3. Steps to assign a PosSystem to PosDealers, shown in Figure 3.*
 
 To add a PosDealer to a selected PosSystem, enter his E-Mail address and  
 select `Search`. If the desired PosDealer is already registered in the  
@@ -120,11 +132,15 @@ As a PosDealer, you get either the invitation by a PosCreator to receive the ass
 
 ![PosSystem Creation](images/PosSystem-creation-004.png "PosSystem / Request")
 
+*Figure 4. Requesting a PosSystem as a PosDealer in the fiskaltrust.Portal; steps are described in Table 4.*
+
 | steps | description                                                                                                                |
 |:----------------------:|-------------------------------------------------------------------------------------------------------------------------------------|
 |![Number 1](./images/Numbers/circle-1o.png) |Log in to the fiskaltrust.Portal as a PosDealer, select `PosSystems` and `Add` to start your request for new ones.   |
 |![Number 2](./images/Numbers/circle-2o.png) |Enter data like `Name`, `Brand`, `Type` or `Manufacturer` of your desired PosSystem and press `Search`.   |
 |![Number 3](./images/Numbers/circle-3o.png) |With `Request Assignment`, your request is sent to the PosCreator.  |
+
+*Table 4. Steps to request a PosSystem as a PosDealer, shown in Figure 4.*
 
 If the PosCreator accepts the assignment, the connection between the PosDealer`s account and the manufacturer's POS-System is established.
 
@@ -134,13 +150,13 @@ If the PosCreator accepts the assignment, the connection between the PosDealer`s
 
 As the approach to the rollout highly depends on the implementation, the components, and the capabilities of your POS-System, you should select the appropriate rollout scenario and discuss it with your POS Dealers, to ensure their sufficient levels of knowledge and understanding required for the successful execution of the rollout process.
 
-The rollout has 2 separate areas, the [buy- and resell part](https://docs.fiskaltrust.cloud/docs/posdealers/buy-resell/overview), and [the technical rollout](https://docs.fiskaltrust.cloud/docs/posdealers/buy-resell/rollout-plans), which are both covered in the PosDealer area of this documentation.
+The rollout has 2 separate areas, the [buy- and resell part](../../posdealers/buy-resell/overview.md), and [the technical rollout](../../posdealers/buy-resell/rollout-plans.md), which are both covered in the PosDealer area of this documentation.
 
-The technical stage requires a close collaboration of the technical experts from both sides: yours and the POS Dealer`s. You will discuss the details of the implementation, agree on the approach for rollout automation and templating, and select the best strategy for the rollout based on the appropriate rollout scenario. We have documented examples of different [rollout scenarios](https://docs.fiskaltrust.cloud/docs/posdealers/technical-operations/rollout-scenarios) in our documentation portal.
+The technical stage requires a close collaboration of the technical experts from both sides: yours and the POS Dealer`s. You will discuss the details of the implementation, agree on the approach for rollout automation and templating, and select the best strategy for the rollout based on the appropriate rollout scenario. We have documented examples of different [rollout scenarios](../../posdealers/technical-operations/rollout-scenarios.md) in our documentation portal.
 
 ## 3. Rollout Automation
 
-You should help the POS Dealer to automate the rollout process as much as possible for example by preparing a configuration `Template` and discussing its details with the POS Dealer. A `Template`, which can be added in the fiskaltrust.Portal or executed via API, contains the details of a pre-configured CashBox with all its components. It is used to automatically create similar CashBoxes for the PosOperators. Such templates can be used among other fiskaltrust tools and features to automate, and therefore to significantly speed-up the rollout process. You can find the [details of the automation options and templating](https://docs.fiskaltrust.cloud/docs/posdealers/technical-operations/rollout-automation/templates) in our documentation portal.
+You should help the POS Dealer to automate the rollout process as much as possible for example by preparing a configuration `Template` and discussing its details with the POS Dealer. A `Template`, which can be added in the fiskaltrust.Portal or executed via API, contains the details of a pre-configured CashBox with all its components. It is used to automatically create similar CashBoxes for the PosOperators. Such templates can be used among other fiskaltrust tools and features to automate, and therefore to significantly speed-up the rollout process. You can find the [details of the automation options and templating](../../posdealers/technical-operations/rollout-automation/templates.md) in our documentation portal.
 
 ## 4. Complex Business Case Analysis
 

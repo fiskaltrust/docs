@@ -16,6 +16,8 @@ After reading, you can activate or deactivate appropriate roles for customers an
 
 ![](./images/company-roles/roles.png)
 
+*Figure 1. Overview of the four principal company roles in the fiskaltrust.Portal.*
+
 Each role's specific audience has a distinct set of features and permissions.
 
 
@@ -26,6 +28,8 @@ Each role's specific audience has a distinct set of features and permissions.
 | ![](./images/company-roles/twofive.png) | **PosDealer auto-invitation** (Germany-only)<br />This is an *optional* add-on role for **German POS System distributors** who wish to automate the onboarding of their customers/operators as much as possible.<br /><br />*Accounts with this role will have an extended onboarding user interface, allowing them to fully and legally activate an operator's account, as opposed to a regular invitation the operator first has to accept.*<br /><br />**Please note that this role is only available on the German market and may require particular attention to legal aspects on your side.** |
 |      ![](../images/numbers/3.png)       | **PosCreator**<br />This role is intended for manufacturers who develop PosSystems. They are not involved in the rollout at PosOperators but focus on the technical integration of the middleware.<br /><br />PosCreators use the fiskaltrust.Portal primarily to enter their PosSystems and invite PosDealers to use them. In addition to information about business areas and properties of the PosSystems, a PosSystemID is created as a unique identifier. <br /><br />**This PosSystemID is currently not mandatory in every country, but its use in the fiskaltrust.Portal is crucial for our compliance service.** |
 |      ![](../images/numbers/4.png)       | **Consultant**<br />This role is for **tax consultants** who advise *PosOperators* on related topics.<br /><br />*Accounts with this role use the portal primarily to access fiscal data of the associated (and authorized) operator accounts.* |
+
+*Table 1. Company roles and their descriptions.*
 
 <br />
 
@@ -47,15 +51,20 @@ The following steps will activate a new role for your account.
 
 ![](./images/company-roles/role-activate.png "https://portal-sandbox.fiskaltrust.TLD/AccountProfile")
 
+*Figure 2. Company profile page in the fiskaltrust.Portal used to activate a role.*
+
 |             Step             | Description                                                  |
 | :--------------------------: | ------------------------------------------------------------ |
 | ![](../images/numbers/1.png) | Open your **company profile page** from `[COMPANYNAME]` / `Overview` in the left-hand navigation menu |
 | ![](../images/numbers/2.png) | **Set the slider** of the role you'd like to activate from right ![](./images/company-roles/slider-off.png) to left ![](./images/company-roles/slider-on.png) |
 
+*Table 2. Steps to activate a role.*
 
 After enabling the switch, a new page will load where you need to sign the respective agreement.
 
 ![](./images/company-roles/sign-contract.png "https://portal-sandbox.fiskaltrust.TLD/AccountProfile")
+
+*Figure 3. Agreement signing page shown after enabling a role.*
 
 |             Step             | Description                                                  |
 | :--------------------------: | ------------------------------------------------------------ |
@@ -63,6 +72,8 @@ After enabling the switch, a new page will load where you need to sign the respe
 | ![](../images/numbers/4.png) | Enter your **legal name** in the signature field at the bottom of the page |
 | ![](../images/numbers/5.png) | Check the box that you read and accepted the **terms and conditions** |
 | ![](../images/numbers/6.png) | **Click** the `Sign` button                                  |
+
+*Table 3. Steps to sign the role agreement.*
 
 **Done**, the selected role is active for your account. You'll also receive an additional E-Mail confirming the activation of that role.<br /><br />
 
@@ -74,20 +85,26 @@ The following steps will deactivate an existing role of your account.
 
 ![](./images/company-roles/role-deactivate.png "https://portal-sandbox.fiskaltrust.TLD/AccountProfile")
 
+*Figure 4. Company profile page used to deactivate a role.*
 
 |             Step             | Description                                                  |
 | :--------------------------: | ------------------------------------------------------------ |
 | ![](../images/numbers/1.png) | Open your **company profile page** from `[COMPANYNAME]` / `Overview` in the left-hand navigation menu |
 | ![](../images/numbers/2.png) | **Switch the slider** of the role you'd like to deactivate from left ![](./images/company-roles/slider-on.png) to right ![](./images/company-roles/slider-off.png) |
 
+*Table 4. Steps to deactivate a role.*
 
 After disabling the switch, a new page will load where you must confirm the step.
 
 ![](./images/company-roles/cancel-contract.png)
 
+*Figure 5. Confirmation page shown when deactivating a role.*
+
 |             Step             | Description                                                  |
 | :--------------------------: | ------------------------------------------------------------ |
 | ![](../images/numbers/3.png) | Enter your **legal name** in the signature box at the bottom of the page |
 | ![](../images/numbers/4.png) | **Click** the `Sign` button                                  |
+
+*Table 5. Steps to confirm role deactivation.*
 
 **Done**, the selected role is inactive for your account. You'll also receive an additional E-Mail confirming the deactivation of that role.

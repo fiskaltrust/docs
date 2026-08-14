@@ -24,4 +24,4 @@ These terms relate to customer-facing features such as Digital Receipt, InStore 
 | Terminal Identification | A configuration value used to associate receipts from a specific CashBox or terminal with an InStore App instance. |
 | Unified Payment Endpoint | A standardized interface provided by fiskaltrust to initiate and process payments while remaining independent of specific payment service providers. |
 
-*Table 1: Experience Middleware Terminology*
+*Table 1. Experience Middleware terminology.*

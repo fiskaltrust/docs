@@ -61,7 +61,7 @@ The country-specific code is made of the country's code value following the ISO-
 | `0x4652000000000015` | **Archive**<br />Has to be Signed<br />Sign: Yes<br />Chain and national numbering: A<br />Details: Will trigger a daily closing automatically.<br />Creates an archive starting with the first receipt of the queue (or the last archive receipt) until the last receipt before this request. It must not contain more than 365 days.<br />To retrieve the export as a zip-file (containing the certificate, ReceiptJournals and QueueItems), a normal `/journal`request has to be sent to the `ftJournalType`: `0x4652000000010010`. The value of `ftQueueRow` in the response of this ReceiptCase has to be sent in the `from`-parameter.<br />The content of the retrieved zip-file can be verified with the _ExportTool_ for France. It can be downloaded [here](https://github.com/fiskaltrust/interface-doc/files/10928504/fiskaltrust.TaxAuditorTool.zip) | 1.2 |
 | `0x4652000000000016` | **Copy**<br />Has to be Signed<br />Sign: Yes<br />Chain and national numbering: C<br />Details: in a request the `cbPreviousReceiptReference` is mandatory. It contains the receipt number which was handed out as a copy, issued by the original cash register. When a copy of a receipt is requested, the phrase "duplicata" is returned with the fiskaltrust signature and must be printed on the receipt. Every time the receipt is reprinted, an up-counting number denoting how many times the receipt has been printed, is returned. It must be printed on the receipt and is then recorded in the journal.The layout and the information contained shall be the same as in the original document. | 1.2 |
 
-<span id="_Toc527986685" class="anchor"></span>*Table 2. Type of Receipt: ftReceiptCase (FR – BOI-TVA-DECLA 30-10-30)*
+*Table 2. Type of Receipt: ftReceiptCase (FR – BOI-TVA-DECLA 30-10-30)*
 
 ### ftReceiptCaseFlag
 
@@ -69,13 +69,11 @@ According to French law and regulations, various business transactions can resul
 
 | **Value** | **Description** | **Middleware Version** |
 | --------- | --------------- | ---------------------- |
-| `0x0000000000010000` | **Failed receipt**<br />If a ReceiptRequest includes this flag, the fiskaltrust.Middleware is set to "late signing mode." To exit this mode, an "end-of-failure" ReceiptRequest must be issued by the cash register terminal using a Zero Receipt. This may be necessary, for example, after a power or server outage.<br /> For more information, see [Zero Receipt](https://docs.fiskaltrust.cloud/docs/poscreators/middleware-doc/general/cash-register-integration#zero-receipt). | 1.2 |
+| `0x0000000000010000` | **Failed receipt**<br />If a ReceiptRequest includes this flag, the fiskaltrust.Middleware is set to "late signing mode." To exit this mode, an "end-of-failure" ReceiptRequest must be issued by the cash register terminal using a Zero Receipt. This may be necessary, for example, after a power or server outage.<br /> For more information, see [Zero Receipt](../../general/cash-register-integration/cash-register-integration-regular-workflow.md#zero-receipt). | 1.2 |
 | `0x0000000000020000` | **Training receipt**<br />All requests issued with this flag are chained and signed in a separate chain. The phrase "mode école" is printed on any artefact that is printed while the flag is being used. For national numbering "X" is used.<br />GT counters are not raised. | 1.2 |
 | `0x0000000000040000` | **Reverse/voided receipt**<br />Used to distinguish regular receipts from receipts that have been voided by setting negative values for **both** Amount **and** Quantity in the ChargeItems and PayItems of the receipt. The `cbPreviousReceiptReference` should be set to the ReceiptReference of the receipt to be voided. |  |
 | `0x0000800000000000` | **Receipt request**<br />To prevent duplication of a requested receipt, the cash register terminal can include an additional parameter in the queue to influence the behavior of this "receipt request" when no receipt is found.<br />Parameter name: "receiptrequestmode"<br />Parameter values:<br />0 (default) … null is returned<br />1 … the request is handled in the same way as a new request. If processing is successful, the created ReceiptResponse is returned. | 1.2 |
 |  | Used to retrieve an already processed receipt from the fiskaltrust.Middleware using the `cbReceiptReference` field. The `cbTerminalID` can also be included in this request. ChargeItems and PayItems must be exactly the same as in the requested receipt. If a matching receipt is found, its content will be returned. If no matching receipt is found, a null value is returned. This may be necessary if a communication problem occurs while the fiskaltrust.Middleware processes a request. | 1.1 |
-
-<span id="_Toc527986686" class="anchor"></span>
 
 *Table 3. Type of Receipt: ftReceiptCase Flags (FR – BOI-TVA-DECLA 30-10-30)*
 
@@ -123,8 +121,6 @@ For France (FR), the country code is 0x4652. Thus, the value for an unknown `ftC
 | `0x4652000000000021` | **Account of a third party/ third party name/ collection**<br />For processing, see (`0x4652000000000007`) | 1.2 |
 | `0x4652000000000022` | **Obligation** | 1.2 |
 
-<span id="_Toc527986687" class="anchor"></span>
-
 *Table 4. Type of Service: ftChargeItemCase (FR – BOI-TVA-DECLA 30-10-30)*
 
 In the following section there are further guidelines for using ftChargeItemCase.
@@ -156,8 +152,6 @@ The `ftPayItemCase` defines the type of payment within the pay items block and h
 | `0x4652000000000011` | **Internal/ material consumption**<br />Can be used for bill<br />internal | 1.2 |
 | `0x4652000000000012` | **Change**<br />tip<br />cash | 1.2 |
 
-<span id="_Toc527986688" class="anchor"></span>
-
 *Table 5. Type of Payment: ftPayItemCase (FR - BOI-TVA-DECLA 30-10-30)*
 
 ## Type of Signature: ftSignatureType
@@ -174,8 +168,6 @@ The `ftSignatureType` indicates the type and origin of the signature.
 | `0x4652000000000005` | Year Closing Sum | 1.2 |
 | `0x4652000000000006` | Archive Totals Sum | 1.2 |
 | `0x4652000000000007` | Perpetual Total Sum | 1.2 |
-
-<span id="_Toc527986689" class="anchor"></span>
 
 *Table 6. Type of Signature: ftSignatureType (FR - BOI-TVA-DECLA 30-10-30)*
 

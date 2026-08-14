@@ -11,11 +11,15 @@ The illustration below shows the components available for the premise installati
 
 ![middleware-en](images/middleware-onpremise-en-market-it.png)
 
+*Figure 1. Components of the on-premise installation of the fiskaltrust.Middleware for the Italian market.*
+
 ## Cloud Solution
 
 The illustration below shows the components available for the cloud solution of the fiskaltrust.Middleware for the Italian market. For the operation modes available and the description of the components please refer to the [general part](../../general/operation-modes/operation-modes.md) .
 
 ![middleware-en](images/middleware-cloudsolution-en-market-it.png)
+
+*Figure 2. Components of the cloud solution of the fiskaltrust.Middleware for the Italian market.*
 
 ## Supported software platforms
 
@@ -33,6 +37,8 @@ For the Italian market, depending on the platform, following communication servi
 | **REST** | **supported** | **supported** |
 | **WCF**  | **supported** | not supported |
 
+*Table 1. Communication service support by platform for the Italian market.*
+
 ## SCU/characteristics & platform support matrix
 
 |                               | Type,Form factor | Windows       | Linux, macOS  | Android       |
@@ -42,6 +48,8 @@ For the Italian market, depending on the platform, following communication servi
 | [Custom RT Printer](scu/customprinter.md) | Hardware printer | **supported** | **supported** | **supported** |
 | [Custom RT Server](scu/customserver.md) | Hardware server | **supported** | **supported** | **supported** |
 | [IVA Servizi](scu/ivaservizi.md) | Government web | **supported  via CloudCashBox** | **supported via CloudCashBox** | ** supported  via CloudCashBox** |
+
+*Table 2. SCU characteristics and platform support for the Italian market.*
 
 ## Hardware requirements
 
@@ -57,6 +65,8 @@ Following local data storage options can be configured in the queue:
 | **[MySQL-storage](on-premise-databases/mysql.md)**         | **supported** | **supported** | **supported** |
 | **[EF-storage](on-premise-databases/entity-framework.md)** | **supported** | **supported** | not supported |
 
+*Table 3. Local data storage options and platform support for the Italian market.*
+
 ## Local data export
 
 -  Z-Report
@@ -66,7 +76,7 @@ Following local data storage options can be configured in the queue:
 ## Configuration Scenarios
 
 <!-- markdown-link-check-disable-next-line -->
-For configuration scenarios for operating the fiskaltrust.Middleware, please refer to the [Rollout documentation](https://docs.fiskaltrust.cloud/docs/posdealers/buy-resell/rollout-plans).
+For configuration scenarios for operating the fiskaltrust.Middleware, please refer to the [Rollout documentation](../../../../posdealers/buy-resell/rollout-plans.md).
 
 ## Installation
 

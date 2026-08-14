@@ -33,3 +33,5 @@ Please be aware that dependent on the TSE used there may be additional requireme
 | Windows 10 IoT Enterprise 2016 LTSB | supported     |
 | Windows Server 2019                 | supported     |
 | Windows 10 IoT Enterprise 2019 LTSC | supported     |
+
+*Table 1. Supported Windows operating systems for the fiskaltrust.Middleware.*

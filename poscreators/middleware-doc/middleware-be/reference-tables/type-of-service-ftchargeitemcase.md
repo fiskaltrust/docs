@@ -29,6 +29,8 @@ For more information, see [VAT rules and rates](https://europa.eu/youreurope/bus
 | `7` | **Zero VAT rate**<br />In the data, a VAT-rate can be indicated. | 1.3.45 |
 | `8` | **Not Taxable**<br />For processing, see (`0x4245000000000001`) | 1.3.45 |
 
+*Table 1. ftChargeItemCase VAT rate values for the Belgian market.*
+
 
 #### S - Type of Service  
 
@@ -46,6 +48,8 @@ For more information, see [VAT rules and rates](https://europa.eu/youreurope/bus
 | `9` | **Receivable**<br />Receivable creation is negative (-) amount<br />Receivable reduction is positive (+) amount.<br />IsVoid can be applied to reverse amounts.<br />Avoid to use this, use PayItem instead. | 1.3.45 |   
 | `A` | **Cash Transfer**<br />Cash Transfer to till is positive (+) amount<br />Cash Transfer from till is negative (-) amount.<br />Only useable with V=8, Not Taxable. <br />IsVoid can be applied to reverse amounts | 1.3.45 |    
 
+*Table 2. ftChargeItemCase type-of-service values for the Belgian market.*
+
 #### NN - nature of VAT  
 
 | **Value**  | **Description** | **Spec. for Belgian reg.** | **Middleware Version** |
@@ -59,6 +63,8 @@ For more information, see [VAT rules and rates](https://europa.eu/youreurope/bus
 | `60` | **VAT paid in other EU country** <br />6x| (N7) marker mandatory<br />[60] paid in another EU country (provision of telecommunications, broadcasting and electronic services pursuant to art. 7-octies, paragraph 1 letter a, b, art. 74-sexies of Presidential Decree 633/72) | 1.3.45 |
 | `70` | **VAT distribution**<br />7x | *VI (VI) is a fiscal VAT (IVA) regime that certain retailers can adopt. It allows the global registration of the daily takings amount without distinguishing the individual VAT rates. It only ever applies to goods. | 1.3.45 |
 | `80` | **Excluded**<br /> 8x| *EE (N1) marker mandatory<br />[80] excluded pursuant to art. 15 of Presidential Decree 633/72 | 1.3.45 |
+
+*Table 3. ftChargeItemCase nature-of-VAT values for the Belgian market.*
 
 
 #### lll - local tagging/flag
@@ -76,6 +82,8 @@ TBD
 | `0010` | **Returnable**<br /> Marks ChargeItem as a returnable.<br />Positive (+) amount/quantity is handout.<br />Negative (-) amount/quantity is reverse.<br />IsVoid or IsReturn/IsRefund will invert this behavior.| 1.3.45 |
 | `0020` | **TakeAway** <br />Marks ChargeItem as TakeAway item to prove special VAT application | 1.3.45 |
 | `8000` | **ShowInPayments**<br />Visualize the item after Total Amount. This inverts amount and does not include the amount into the visualized total amount on the receipt.  | 1.3.45 |
+
+*Table 4. ftChargeItemCase global tagging/flag values for the Belgian market.*
 
 ## ftChargeItemCaseFlag
 

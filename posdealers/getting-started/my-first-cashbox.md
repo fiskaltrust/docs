@@ -29,6 +29,8 @@ If you don't have one yet, please get in touch with your *PosCreator* for invita
 
 ![preview](./images/my-first-cashbox/first-CashBox-flow.png "My first CashBox")
 
+*Figure 1. Process flow for creating your first CashBox.*
+
 ## Prerequisites
 
 Before we roll out our Middleware instance, the following prerequisites must be in place:

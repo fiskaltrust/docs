@@ -32,6 +32,8 @@ All our learning in discussions, requests, or how-to`s result in knowledge base 
 |Gathering customer feedback|Please note the sections [knowledge base](../information-sources/knowledge-base.md). Further, please do not hesitate to [share your thoughts](mailto:feedback+portal@fiskaltrust.cloud.) about improvements and fixes, that are described in our release notes.  |
 |Updating customers|Check your inbox for the newsletters, that are sent to PosDealers and posCreators. Further note the section [News](../information-sources/news.md) and the FAQ. |
 
+*Table 1. Support request types and how to handle them.*
+
 ## Country-specific information
 
 import Tabs from '@theme/Tabs';

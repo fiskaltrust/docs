@@ -25,6 +25,8 @@ At the end of each article, you will find the option to leave feedback. In addit
 
 ![Help Section / knowledge base](images/1-knowledge-base.png "https://portal-sandbox.fiskaltrust.TLD/KBArticle#/")
 
+*Figure 1. Help Section of the fiskaltrust.Portal showing knowledge base articles; interface elements are listed in Table 1.*
+
 | options | description                                                                                                                |
 |:----------------------:|-------------------------------------------------------------------------------------------------------------------------------------|
 |![Number 1](../images/numbers/circle-1o.png)| `Help:` Tick to open the Help-Area.  |
@@ -35,3 +37,5 @@ At the end of each article, you will find the option to leave feedback. In addit
 |![Number 6](../images/numbers/circle-6o.png)| Background: Get more overview with background information.  |
 |![Number 7](../images/numbers/circle-7o.png)| Solution: Note that if prerequisites are necessary, you have to meet these before going through the solution steps.  |
 |![Number 8](../images/numbers/circle-8o.png)| `Was this article helpful?`: Your rating and comment will be transmitted with `Submit feedback`.  |
+
+*Table 1. Interface elements of the knowledge base shown in Figure 1.*

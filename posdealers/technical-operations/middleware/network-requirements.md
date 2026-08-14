@@ -25,6 +25,8 @@ A fully functioning Middleware setup requires a few **outbound** connections (e.
 | helipad.fiskaltrust.cloud    | TCP      | 443     | Provides the CashBox configuration and the archive service                                                                     |
 | dc.services.visualstudio.com | TCP      | 443     | Error reporting (Microsoft provides a [list of IP addresses](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses)) |
 
+*Table 1. Outbound hostnames the Middleware must be able to reach.*
+
 
 
 :::tip troubleshooting
@@ -88,6 +90,8 @@ Setting the configuration parameters can be done using the Launcher's [`-proxy` 
 | password        | The password of the proxy user                                                                                             | No       |
 | bypass          | A regular expression with host addresses and names that ought to be exempt from proxying<br />*Can be used more than once* | No       |
 | bypasslocalhost | Indicates whether local connections require proxying as well (`false` or `true`)                                           | No       |
+
+*Table 2. Arguments of the Launcher `-proxy` connection string.*
 
 #### Example Proxy Strings
 

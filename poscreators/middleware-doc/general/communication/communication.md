@@ -17,6 +17,8 @@ The communication protocol is specified by setting the respective URL in the pac
 
 ![queue-configuration](./images/url-configuration.png)
 
+*Figure 1. Package configuration page in the fiskaltrust.Portal where the communication protocol URL is set.*
+
 :::note
 
 Buttons for other URL options (e.g. gRPC) may be available depending on the selected country or market.
@@ -74,6 +76,8 @@ The following table provides an overview of which communication protocols are cu
 | **WCF**               | **supported**              | **supported** | **supported**              | **supported** |
 | **serial/TCP**        | **supported (via helper)** | not supported | not supported              | not supported |
 
+*Table 1. Communication protocols currently available in the Middleware per country.*
+
 As mentioned above, the Middleware versions will be unified in the upcoming version 2.0. 
 
 ## Sample implementations
@@ -83,5 +87,7 @@ The latest sample implementations, demonstrating the recommended communication p
 | C# | Java | Node.js | Android | Postman |
 |----|------|---------|---------|---------|
 | [![C#](./images/C_Sharp_wordmark.svg.png)](https://github.com/fiskaltrust/middleware-demo-dotnet) | [![Java](./images/Java_cup.svg.png)](https://github.com/fiskaltrust/middleware-demo-java) | [![Node.js](./images/Node.js_logo.svg.png)](https://github.com/fiskaltrust/middleware-demo-node) | [![Android](./images/Android_robot.svg.png)](https://github.com/fiskaltrust/middleware-demo-android) | [![Postman](./images/postman-logo.png)](https://github.com/fiskaltrust/middleware-demo-postman) |
+
+*Table 2. Links to sample implementations demonstrating the recommended communication protocols per programming language.*
 
 Additional sample implementations, including legacy examples, are available in our [demo repository](https://github.com/fiskaltrust/demo).

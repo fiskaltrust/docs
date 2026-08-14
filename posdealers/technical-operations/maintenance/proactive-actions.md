@@ -19,3 +19,5 @@ Our products keep several ways to support PosDealers in ensuring the functionali
 | **[Receipt Archive](../../buy-resell/products/revision-safe-archiving.md)** |To store your receipt data in a legally compliant and secure way, you can purchase a product, including a receipt archive.  |
 | **[Monitoring](../troubleshooting/cashbox-failures.md)** |As a PosOperator, you can check the health status of your CashBoxes in the fiskaltrust.Portal. |
 | **[Logging](../middleware/logging.md)** |You can activate logging for the Middleware to collect information about errors directly on your system. You should not exceed a log level of warning as long as you don't try to analyze a specific problem. |
+
+*Table 1. Proactive actions available to PosDealers to maintain their installations.*
