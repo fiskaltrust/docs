@@ -85,6 +85,8 @@ The `NN` byte identifies the legal reason a line is not taxed at the usual VAT r
 | `87` | **ΠΟΛ.1029/1995: Duty Free Shops (Καταστήματα Αφορολόγητων Ειδών).** Exemption on domestic purchases, imports and intra-EU acquisitions made by duty-free shops for goods intended for duty-free sale to eligible travellers, together with directly related services. | 25 |
 | `88` | **ΠΟΛ.1167/2015: goods destined for export or another Member State.** Goods, and directly related services, supplied to a business that will subsequently export the goods or dispatch them to another Member State. Exempted up front against an exemption certificate, so the customer does not have to pay VAT and reclaim it later. | 26 |
 
+*Table 3. NN (nature of VAT) values — the legal exemption basis and the corresponding myDATA exemption category for Greece.*
+
 :::note VAT-included regimes
 
 Natures `31`, `36`, `41` and `42` (myDATA categories 20, 21, 22, 23) are `ΦΠΑ εμπεριεχόμενος` — *VAT included* rather than *no VAT*. The VAT is due but embedded in the price, so it is not shown separately on the line. Send the price the customer actually pays as the charge item `Amount`.
@@ -111,4 +113,4 @@ Greece does not currently define local (`lll`) flags for `ftChargeItemCase`.
 | `0020` | **TakeAway** <br />Marks ChargeItem as TakeAway item to prove special VAT application | 
 | `8000` | **ShowInPayments**<br />Visualize the item after Total Amount. This inverts amount and does not include the amount into the visualized total amount on the receipt.  | 
 
-*Table 3. Global tagging/flag values (gggg) for Greece.*
+*Table 4. Global tagging/flag values (gggg) for Greece.*
