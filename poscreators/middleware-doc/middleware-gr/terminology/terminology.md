@@ -45,99 +45,59 @@ The most commonly used types are described below.
 
 ### 1.x — Invoices for Goods
 
-**1.1 Τιμολόγιο Πώλησης (Sales Invoice)**
-A standard B2B invoice used for the sale of goods within Greece.
-*Example:* a wholesaler sells 100 bottles of wine to a restaurant and issues a sales invoice for the goods delivered.
+**1.1 Τιμολόγιο Πώλησης (Sales Invoice)** — A standard B2B invoice used for the sale of goods within Greece. *Example:* a wholesaler sells 100 bottles of wine to a restaurant and issues a sales invoice for the goods delivered.
 
-**1.2 Τιμολόγιο Πώλησης / Ενδοκοινοτικές Παραδόσεις (Intra-EU Sales Invoice)**
-An invoice for the sale of goods to a customer located in another EU Member State.
-*Example:* a Greek company sells products to a company in Germany and issues an intra-EU sales invoice.
+**1.2 Τιμολόγιο Πώλησης / Ενδοκοινοτικές Παραδόσεις (Intra-EU Sales Invoice)** — An invoice for the sale of goods to a customer located in another EU Member State. *Example:* a Greek company sells products to a company in Germany and issues an intra-EU sales invoice.
 
-**1.3 Τιμολόγιο Πώλησης / Εξαγωγές Τρίτων Χωρών (Export Invoice)**
-An invoice issued for goods exported outside the European Union.
-*Example:* a Greek manufacturer exports olive oil to the United States and issues an export invoice.
+**1.3 Τιμολόγιο Πώλησης / Εξαγωγές Τρίτων Χωρών (Export Invoice)** — An invoice issued for goods exported outside the European Union. *Example:* a Greek manufacturer exports olive oil to the United States and issues an export invoice.
 
-**1.4 Τιμολόγιο Πώλησης για Λογαριασμό Τρίτων (Invoice on Behalf of Third Parties)**
-An invoice issued by one party on behalf of another business.
-*Example:* a marketplace operator issues invoices on behalf of merchants using the platform.
+**1.4 Τιμολόγιο Πώλησης για Λογαριασμό Τρίτων (Invoice on Behalf of Third Parties)** — An invoice issued by one party on behalf of another business. *Example:* a marketplace operator issues invoices on behalf of merchants using the platform.
 
 ### 2.x — Service Invoices
 
-**2.1 Τιμολόγιο Παροχής Υπηρεσιών (Service Invoice)**
-A B2B invoice for services rather than physical goods.
-*Example:* an accounting firm invoices a customer for monthly bookkeeping services.
+**2.1 Τιμολόγιο Παροχής Υπηρεσιών (Service Invoice)** — A B2B invoice for services rather than physical goods. *Example:* an accounting firm invoices a customer for monthly bookkeeping services.
 
-**2.2 Παροχή Υπηρεσιών Εντός Ε.Ε. (Services to EU Customers)**
-An invoice for services supplied to a customer in another EU Member State.
-*Example:* a Greek software company provides consulting services to a company in France.
+**2.2 Παροχή Υπηρεσιών Εντός Ε.Ε. (Services to EU Customers)** — An invoice for services supplied to a customer in another EU Member State. *Example:* a Greek software company provides consulting services to a company in France.
 
-**2.3 Παροχή Υπηρεσιών σε Τρίτη Χώρα (Services to Non-EU Countries)**
-An invoice for services supplied to customers outside the European Union.
-*Example:* a tourism consultancy in Greece provides marketing services to a company in the United Kingdom or the United States.
+**2.3 Παροχή Υπηρεσιών σε Τρίτη Χώρα (Services to Non-EU Countries)** — An invoice for services supplied to customers outside the European Union. *Example:* a tourism consultancy in Greece provides marketing services to a company in the United Kingdom or the United States.
 
 ### 5.x — Credit Notes
 
 Credit notes are used to reduce, reverse, or correct previously issued invoices.
 
-**5.1 Πιστωτικό Τιμολόγιο Συσχετιζόμενο (Correlated Credit Note)**
-A credit note linked to a specific original invoice.
-*Example:* a customer returns damaged goods and the supplier issues a credit note referring to the original sales invoice.
+**5.1 Πιστωτικό Τιμολόγιο Συσχετιζόμενο (Correlated Credit Note)** — A credit note linked to a specific original invoice. *Example:* a customer returns damaged goods and the supplier issues a credit note referring to the original sales invoice.
 
-**5.2 Πιστωτικό Τιμολόγιο Μη Συσχετιζόμενο (Non-Correlated Credit Note)**
-A credit note that is not directly linked to a single original invoice.
-*Example:* a supplier grants an annual volume discount covering many previous transactions.
+**5.2 Πιστωτικό Τιμολόγιο Μη Συσχετιζόμενο (Non-Correlated Credit Note)** — A credit note that is not directly linked to a single original invoice. *Example:* a supplier grants an annual volume discount covering many previous transactions.
 
 ### 6.x — Self-Supply / Own Use
 
-**6.1 Στοιχείο Αυτοπαράδοσης (Self-Delivery / Own Use)**
-A document used when business goods are withdrawn for internal consumption, personal use, or other non-sale purposes.
-*Example:* a restaurant owner uses inventory products for a private event rather than selling them.
+**6.1 Στοιχείο Αυτοπαράδοσης (Self-Delivery / Own Use)** — A document used when business goods are withdrawn for internal consumption, personal use, or other non-sale purposes. *Example:* a restaurant owner uses inventory products for a private event rather than selling them.
 
 ### 8.x — POS and Hospitality Documents
 
-**8.4 Απόδειξη Είσπραξης POS (POS Payment Receipt)**
-A document recording payment received through a POS terminal.
-*Example:* a customer pays a restaurant bill by card and a POS payment receipt is produced.
+**8.4 Απόδειξη Είσπραξης POS (POS Payment Receipt)** — A document recording payment received through a POS terminal. *Example:* a customer pays a restaurant bill by card and a POS payment receipt is produced.
 
-**8.5 Απόδειξη Επιστροφής (Refund Receipt)**
-A document issued when money is refunded to a customer.
-*Example:* a customer returns an item and receives a refund receipt showing the refunded amount.
+**8.5 Απόδειξη Επιστροφής (Refund Receipt)** — A document issued when money is refunded to a customer. *Example:* a customer returns an item and receives a refund receipt showing the refunded amount.
 
-**8.6 Δελτίο Παραγγελίας Εστίασης (Catering Order Slip)**
-A document used in hospitality and food-service environments to record an order before final billing.
-*Example:* a waiter records a table's food and drink order, generating a catering order slip before the final receipt is issued.
+**8.6 Δελτίο Παραγγελίας Εστίασης (Catering Order Slip)** — A document used in hospitality and food-service environments to record an order before final billing. *Example:* a waiter records a table's food and drink order, generating a catering order slip before the final receipt is issued.
 
 ### 9.x — Transport and Delivery Documents
 
-**9.2 ΣΔΑ / Συγκεντρωτικό Δελτίο Αποστολής (Collective Delivery Note)**
-A delivery document covering multiple shipments or goods movements.
-*Example:* a logistics company transports goods for several destinations using one collective movement document.
+**9.2 ΣΔΑ / Συγκεντρωτικό Δελτίο Αποστολής (Collective Delivery Note)** — A delivery document covering multiple shipments or goods movements. *Example:* a logistics company transports goods for several destinations using one collective movement document.
 
-**9.3 Δελτίο Αποστολής (Delivery Note)**
-A transport document accompanying goods while they are being moved.
-*Example:* a warehouse ships products to a retail store and issues a delivery note listing the transported goods.
+**9.3 Δελτίο Αποστολής (Delivery Note)** — A transport document accompanying goods while they are being moved. *Example:* a warehouse ships products to a retail store and issues a delivery note listing the transported goods.
 
 ### 11.x — Retail Receipts
 
-**11.1 ΑΛΠ / Απόδειξη Λιανικής Πώλησης (Retail Receipt for Goods)**
-A retail receipt issued to consumers for the sale of goods.
-*Example:* a customer purchases clothing from a shop and receives a retail sales receipt.
+**11.1 ΑΛΠ / Απόδειξη Λιανικής Πώλησης (Retail Receipt for Goods)** — A retail receipt issued to consumers for the sale of goods. *Example:* a customer purchases clothing from a shop and receives a retail sales receipt.
 
-**11.2 ΑΠΥ / Απόδειξη Παροχής Υπηρεσιών (Retail Service Receipt)**
-A receipt issued to consumers for services.
-*Example:* a hairdresser issues a receipt after providing a haircut.
+**11.2 ΑΠΥ / Απόδειξη Παροχής Υπηρεσιών (Retail Service Receipt)** — A receipt issued to consumers for services. *Example:* a hairdresser issues a receipt after providing a haircut.
 
-**11.3 Απλοποιημένο Παραστατικό (Simplified Retail Receipt)**
-A simplified retail document used for eligible low-value transactions.
-*Example:* a kiosk issues a simplified receipt for a small cash sale.
+**11.3 Απλοποιημένο Παραστατικό (Simplified Retail Receipt)** — A simplified retail document used for eligible low-value transactions. *Example:* a kiosk issues a simplified receipt for a small cash sale.
 
-**11.4 Πιστωτικό Στοιχείο Λιανικής (Retail Credit Receipt)**
-A retail credit document used to reverse or reduce a previous retail sale.
-*Example:* a customer returns a product purchased in a store and receives a retail credit receipt.
+**11.4 Πιστωτικό Στοιχείο Λιανικής (Retail Credit Receipt)** — A retail credit document used to reverse or reduce a previous retail sale. *Example:* a customer returns a product purchased in a store and receives a retail credit receipt.
 
-**11.5 Απόδειξη Λιανικής για Λογαριασμό Τρίτων (Retail Receipt on Behalf of Third Parties)**
-A retail receipt issued by one party on behalf of another.
-*Example:* a platform operator or agent issues a consumer receipt for a third-party seller.
+**11.5 Απόδειξη Λιανικής για Λογαριασμό Τρίτων (Retail Receipt on Behalf of Third Parties)** — A retail receipt issued by one party on behalf of another. *Example:* a platform operator or agent issues a consumer receipt for a third-party seller.
 
 ## Taxes Beyond VAT
 
