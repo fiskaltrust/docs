@@ -312,7 +312,7 @@ version 2
 |-------|-----------------|
 | `00` | Unknown |
 | `01` | Cash |
-| `02` | NonCash |
+| `02` | NonCash - Generic category for non-cash payments. **Note:** Use only when no more specific payment type (e.g. debit or credit card) can be determined; otherwise prefer the specific value. |
 | `03` | Crossed Cheque |
 | `04` | Debit Card |
 | `05` | Credit Card |
