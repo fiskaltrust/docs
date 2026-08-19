@@ -35,8 +35,4 @@ version 2
 
 cba c=reserved; b=reporting; a=scu related
 
-| **Value** | **Description** | **Middleware Version** |
-| --------- | --------------- | ---------------------- |
-| TBD | TBD | TBD |
-
-*Table 2. Local flag values (llll) for the Greek ftState.*
+Greece does not currently define local (`llll`) state flags of its own. The `b` (reporting) and `a` (scu related) bit positions above are reserved for future use and are not yet assigned in the Greek implementation.

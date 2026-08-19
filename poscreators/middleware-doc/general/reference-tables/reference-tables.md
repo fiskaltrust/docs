@@ -650,9 +650,21 @@ version 2
 
 | Case | Description | Caption |
 |----------|-----------------|-------------|
-| TBD | TBD | |
+| `001` | Primary compliance signature for a standard POS receipt/invoice. | |
+| `010` | MyDataXML — the full XML payload submitted to AADE myDATA. | |
+| `011` | ProviderSignature — the e-invoice provider's signature (e.g. Viva Fiscal). | |
+| `012` | UniqueDocumentIdentifier — human-readable `AFM \| Date \| Branch \| Type \| Series \| Serial`. | |
+| `013` | Uid — the `invoiceUid` returned by myDATA. | |
+| `014` | Mark — the `invoiceMark` (MARK) registration number. | [www.fiskaltrust.gr] |
+| `015` | AuthenticationCode — the authentication code returned by myDATA. | |
+| `016` | TransmissionFailure — the document could not be transmitted to myDATA. | |
+| `017` | MultipleConnectedMarks — correlates a retail credit receipt (11.4) to the original MARKs it refunds. | |
+| `018` | OrderReceiptSignature — informational signature for an Order (8.6) receipt. | |
+| `019` | GenericMyDataInfo — general informational metadata about the submission. | |
+| `01A` | QRCode — links to the digital receipt/document. | |
+| `01B` | HandwrittenSignature — for a handwritten (offline) receipt. | |
 
-*Table 38. Greece-specific SignatureCase codes of the ftSignatureType field (to be defined).*
+*Table 38. Greece-specific SignatureCase codes of the ftSignatureType field.*
 
 
 ### Type of Journal: ftJournalType
@@ -759,3 +771,11 @@ version 2
 
 *Table 46. Spain-specific JournalCase codes of the ftJournalType field.*
 
+
+##### GR (Greece)
+
+| Case | Description |
+|------|-----------------|
+| `000` | Status Information QueueGR |
+
+*Table 47. Greece-specific JournalCase codes of the ftJournalType field.*
