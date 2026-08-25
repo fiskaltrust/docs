@@ -5,7 +5,7 @@ title: Void vs. Refund/Return
 
 # Void vs. Refund/Return
 
-**Voiding** a transaction and **returning/refunding** goods or services both reverse a previous business case, but they model distinct events and are tagged with different case flags in the fiskaltrust.Middleware interface. A void corrects a receipt before the payment is settled; a return/refund reverses a sale whose payment has already been executed. Because the two operations are represented by separate flags (`IsVoid` and `IsReturn/IsRefund`), selecting the wrong one yields a receipt that passes validation but misrepresents the business case and produces incorrect fiscal and legal records.
+**Voiding** a transaction and **returning/refunding** goods or services are two distinct ways to reverse a previously recorded transaction, tagged with different case flags in the fiskaltrust.Middleware interface. A **void** corrects or cancels a **receipt** before its payment is settled, referencing the receipt it supersedes. A **return/refund** records a **new business case** that offsets an earlier, already-paid sale — the original receipt stays on record, since data sent to the Middleware cannot be deleted. The two operations use separate flags (IsVoid and IsReturn/IsRefund); selecting the wrong one yields a receipt that passes validation but misrepresents the business case and produces incorrect fiscal and legal records.
 
 This page explains the difference, when to use each, and how they map to the interface tagging system. Country-specific rules can further restrict or rename these operations. For more information, see [Market-specific considerations](#market-specific-considerations).
 
