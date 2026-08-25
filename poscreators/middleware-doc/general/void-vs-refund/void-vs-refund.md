@@ -54,7 +54,7 @@ To process a return/refund:
 For **pay items**, `IsReturn/IsRefund` is defined as: *"Used when the exchange of money **has already** been executed."*
 
 :::info Unreferenced refunds
-Some scenarios require refunding a customer **without** a reference to an original receipt (e.g. goodwill, or the original receipt is unknown). Support for and handling of *unreferenced* refunds is **market-specific** — do not assume it is allowed everywhere. See [Market-specific considerations](#market-specific-considerations).
+Some scenarios require refunding a customer **without** a reference to an original receipt (e.g. goodwill, or the original receipt is unknown). Support for and handling of *unreferenced* refunds is **market-specific** — do not assume it is allowed everywhere. For more information, see [Market-specific considerations](#market-specific-considerations).
 :::
 
 ## Decision flow
