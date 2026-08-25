@@ -7,7 +7,7 @@ title: Void vs. Refund/Return
 
 **Voiding** a transaction and **returning/refunding** goods or services both reverse a previous business case, but they model distinct events and are tagged with different case flags in the fiskaltrust.Middleware interface. A void corrects a receipt before the payment is settled; a return/refund reverses a sale whose payment has already been executed. Because the two operations are represented by separate flags (`IsVoid` and `IsReturn/IsRefund`), selecting the wrong one yields a receipt that passes validation but misrepresents the business case and produces incorrect fiscal and legal records.
 
-This page explains the difference, when to use each, and how they map to the interface tagging system. Country-specific rules can further restrict or rename these operations — see [Market-specific considerations](#market-specific-considerations).
+This page explains the difference, when to use each, and how they map to the interface tagging system. Country-specific rules can further restrict or rename these operations. For more information, see [Market-specific considerations](#market-specific-considerations).
 
 ## The core distinction
 
@@ -92,7 +92,7 @@ The general model above is the interface default. National fiscalization law can
 - **Document-type naming** on the printed receipt (e.g. Italy's *Reso* / *Annullo* document types), and required reference lines.
 - **Time limits or approval requirements** for voids vs. returns.
 
-> Country appendices: [Austria (RKSV)](../../middleware-at-rksv/appendix-at-rksv.md), [Germany (KassenSichV)](../../middleware-de-kassensichv/appendix-de-kassensichv.md), [Portugal](../../middleware-pt/appendix-pt.md), and the other market guides under **Country-Specific Guides**.
+> Country appendices: [Austria (RKSV)](../../middleware-at-rksv/appendix-at-rksv.md), [Germany (KassenSichV)](../../middleware-de-kassensichv/appendix-de-kassensichv.md), [France](../../middleware-pt/appendix-fr-boi-tva-decla-30-10-30.md), and the other market guides under **Country-Specific Guides**.
 
 ## Related pages
 
