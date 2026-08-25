@@ -92,7 +92,7 @@ The general model above is the interface default. National fiscalization law can
 - **Document-type naming** on the printed receipt (e.g. Italy's *Reso* / *Annullo* document types), and required reference lines.
 - **Time limits or approval requirements** for voids vs. returns.
 
-> Country appendices: [Austria (RKSV)](../../middleware-at-rksv/appendix-at-rksv.md), [Germany (KassenSichV)](../../middleware-de-kassensichv/appendix-de-kassensichv.md), [France](../../middleware-pt/appendix-fr-boi-tva-decla-30-10-30.md), and the other market guides under **Country-Specific Guides**.
+> Country appendices: [Austria (RKSV)](../../middleware-at-rksv/appendix-at-rksv.md), [Germany (KassenSichV)](../../middleware-de-kassensichv/appendix-de-kassensichv.md), [France](../../middleware-fr-boi-tva-decla-30-10-30/appendix-fr-boi-tva-decla-30-10-30.md), and the other market guides under **Country-Specific Guides**.
 
 ## Related pages
 
