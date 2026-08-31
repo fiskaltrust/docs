@@ -44,6 +44,80 @@ Validate the end-to-end flow against a sandbox-scoped CashBox — using non-prod
 E-invoicing-specific sandbox provisioning (and any starter guide or sample keys) is being verified. Confirm the exact provisioning path and any e-invoicing sample collection before publishing.
 :::
 
+### End-to-end example (expected Method C shape)
+
+:::caution Illustrative — pending Austria availability
+Method C (POS-driven API) is **not yet available for Austria**. The flow below shows the **expected shape** — the same `/sign` → `/issue` pattern already used in other markets — so you can see how an e-invoice will move through the API. The Austrian `ftReceiptCase` / `ftChargeItemCase` values, the delivery-target field, and other specifics (marked `TBC`) are confirmed when Method C ships. These are **not runnable Austria sandbox calls yet**.
+:::
+
+The API is request/response and **idempotent — there is no status webhook**. Each call returns its result synchronously in the response body; a retry reuses the same `x-operation-id` and returns the original result. Every request carries the standard headers (base URL comes from your sandbox provisioning; see the [POS System API reference](https://docs.fiskaltrust.cloud/apis/pos-system-api) for full schemas):
+
+```
+x-cashbox-id: <sandbox CashBox ID>
+x-cashbox-accesstoken: <sandbox access token>
+x-possystem-id: <registered POS system ID>
+x-operation-id: <fresh UUID per operation>
+```
+
+**Step 1 — Create and fiscalize the invoice (`/sign`)**
+
+Submit the B2B invoice with the buyer's master data. The Middleware fiscalizes it and returns the signed result.
+
+```json
+// POST {POS_SYSTEM_API}/sign
+{
+  "cbReceiptReference": "AT-EINV-SANDBOX-0001",
+  "cbReceiptMoment": "2026-01-01T10:00:00.000Z",
+  "ftReceiptCase": "<B2B e-invoice case — AT value TBC>",
+  "cbCustomer": {
+    "CustomerVATId": "ATU12345678",
+    "CustomerName": "Beispiel GmbH",
+    "CustomerStreet": "Beispielstrasse 1",
+    "CustomerZip": "1010",
+    "CustomerCity": "Wien",
+    "CustomerCountry": "AT"
+  },
+  "cbChargeItems": [
+    {
+      "Quantity": 1,
+      "Description": "Consulting services",
+      "Amount": 1200.00,
+      "VATRate": 20.0,
+      "ftChargeItemCase": "<standard-rate case — AT value TBC>"
+    }
+  ],
+  "cbPayItems": [
+    {
+      "Quantity": 1,
+      "Description": "Bank transfer",
+      "Amount": 1200.00,
+      "ftPayItemCase": "<non-cash case — AT value TBC>"
+    }
+  ]
+}
+```
+
+The response returns the fiscalization result (signature data, journal reference) — no webhook, the outcome is in the response body.
+
+**Step 2 — Issue and deliver the e-invoice (`/issue`)**
+
+Hand the signed invoice to a delivery target. For Austria that is Peppol or the national portal (e-Rechnung.gv.at via the USP).
+
+```json
+// POST {POS_SYSTEM_API}/issue
+{
+  "cbReceiptReference": "AT-EINV-SANDBOX-0001",
+  "ftReceiptCase": "<same B2B e-invoice case as Step 1>",
+  "ftReceiptCaseData": {
+    "AT": {
+      "<delivery-target-field — TBC>": "<peppol | national-portal>"
+    }
+  }
+}
+```
+
+The `/issue` response returns the **delivery state** (for example accepted, queued, or a transport identifier). To re-check it, replay the call with the same `x-operation-id` — the API returns the same result. There is no callback or status webhook.
+
 ## Related pages
 
 - [Overview](./overview.md) — scope, regulatory status, and the three delivery paths.
