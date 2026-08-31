@@ -5,7 +5,7 @@ title: Overview
 
 # E-Invoicing in Austria — Overview
 
-This page describes what e-invoicing means for a **PosCreator integrating in the Austrian (AT) market**: what is regulated today, what it changes in your integration today, and how the available delivery paths map onto your existing fiskaltrust setup.
+This page explains e-invoicing in the **Austrian (AT) market** from a PosCreator's perspective: what is regulated, how it affects your integration, and how the available delivery paths map onto your existing fiskaltrust setup.
 
 For the product-level concept — structured invoices, Peppol, e-Delivery across all markets — see [Delivery (`/issue` Endpoint)](../../experience-middleware/delivery.md). This page is the Austria-specific companion to it.
 
@@ -43,7 +43,7 @@ No code changes today. The two delivery paths available now — Portal back offi
 | Path | Definition |
 | --- | --- |
 | **Method A — Portal back office** | The merchant's receipts are already in the fiskaltrust Portal from your existing fiscalization integration. A user selects the transactions, attaches the buyer, and transmits the e-invoice. **No integration work.** |
-| **Method B — InStore App** | Configuration only, sometimes a small change to a local CashBox helper. **Not an API integration.** |
+| **Method B — [InStore App](../../instore-app/introduction/introduction.md)** | Configuration only — at most a minor change to the local CashBox helper config. **No endpoints or POS-side code.** |
 | **Method C — POS-driven (API)** | **Not built yet.** No endpoint exists today. See [Method C: the POS-driven workflow](#method-c-the-pos-driven-workflow). |
 
 ## Method A: the Portal workflow today

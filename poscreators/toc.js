@@ -87,6 +87,7 @@ module.exports = [
                 label: "E-Invoicing",
                 items: [
                   "poscreators/middleware-doc/middleware-at-rksv/e-invoicing/overview",
+                  "poscreators/middleware-doc/middleware-at-rksv/e-invoicing/setup",
                 ],
               },
               {
