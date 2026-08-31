@@ -76,7 +76,7 @@ This page will be updated with an **API delta** — in the same format as the ot
 
 ## Terminology
 
-| Term | Meaning |
+| Term | Description |
 | --- | --- |
 | **ebInterface** | Austria's national invoice XML, versions 4.3, 5 and 6. |
 | **e-Rechnung.gv.at** | The Austrian government e-invoice portal, reached through the USP. |
