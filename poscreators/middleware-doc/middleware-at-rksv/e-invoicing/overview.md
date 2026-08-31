@@ -85,6 +85,7 @@ This page will be updated with an **API delta** — in the same format as the ot
 
 ## Related pages
 
+- [Set up and test e-invoicing (Austria)](./setup.md) — prerequisites, Portal enablement, and the end-to-end sandbox example.
 - [Delivery (`/issue` Endpoint)](../../experience-middleware/delivery.md) — the product-level e-invoicing and e-Delivery concept across all markets.
 - [Migrating from API v0 to PosSystem API (v2)](../../possystem-api/migration-guide.md) — required before POS-driven e-invoicing (Method C).
 - [Appendix: AT (RKSV)](../appendix-at-rksv.md) — Austria fiscalization (RKSV) details.
