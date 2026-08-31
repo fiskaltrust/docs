@@ -5,9 +5,9 @@ title: Overview
 
 # E-Invoicing in Austria — Overview
 
-This page describes what e-invoicing means for a **PosCreator integrating in the Austrian (AT) market**: what is regulated today, what it changes in your integration (spoiler: nothing, yet), and how the delivery paths map onto your existing fiskaltrust integration.
+This page describes what e-invoicing means for a **PosCreator integrating in the Austrian (AT) market**: what is regulated today, what it changes in your integration today, and how the available delivery paths map onto your existing fiskaltrust setup.
 
-For the product-level concept — structured invoices, Peppol, e-Delivery across all markets — see [Delivery (`/issue` Endpoint)](../experience-middleware/delivery.md). This page is the Austria-specific companion to it.
+For the product-level concept — structured invoices, Peppol, e-Delivery across all markets — see [Delivery (`/issue` Endpoint)](../../experience-middleware/delivery.md). This page is the Austria-specific companion to it.
 
 :::info No code change required today
 E-invoicing for Austria runs through the **fiskaltrust Portal** back office or the **InStore App** — not through the `/sign` calls your POS already makes. If your integration is fiscalizing receipts today, it is already ready for the paths described below. There is nothing new to build.
@@ -15,7 +15,7 @@ E-invoicing for Austria runs through the **fiskaltrust Portal** back office or t
 
 ## Regulatory status
 
-| Aspect | Austria currently |
+| Aspect | Current status |
 | --- | --- |
 | Scope | **B2G only**, federally mandated. B2B is optional and partner-driven. |
 | Regulatory model | Exchange via the **Peppol** 4-corner network, or Austria's national portal. |
@@ -26,11 +26,11 @@ E-invoicing for Austria runs through the **fiskaltrust Portal** back office or t
 There is **no B2B e-invoicing deadline** in Austria today. Offering B2B e-invoicing is **early adoption, not compliance** — position it accordingly. If a B2B mandate is eventually set, it is expected to route through the same Peppol rails already used for B2G.
 :::
 
-## What changes in your integration
+## Integration impact
 
-Nothing today. There are two ways to offer e-invoicing to a merchant right now, and **neither touches your POS code**.
+No code changes today. The two delivery paths available now — Portal back office (Method A) and InStore App (Method B) — run **entirely outside the POS API**: no new endpoints, request headers, or `/sign` payload changes.
 
-### Your existing integration is unchanged
+### Existing integration
 
 | Element | Status |
 | --- | --- |
@@ -44,7 +44,7 @@ Nothing today. There are two ways to offer e-invoicing to a merchant right now, 
 | --- | --- |
 | **Method A — Portal back office** | The merchant's receipts are already in the fiskaltrust Portal from your existing fiscalization integration. A user selects the transactions, attaches the buyer, and transmits the e-invoice. **No integration work.** |
 | **Method B — InStore App** | Configuration only, sometimes a small change to a local CashBox helper. **Not an API integration.** |
-| **Method C — POS-driven (API)** | **Not built yet.** No endpoint exists today. See [When Method C ships](#when-method-c-ships). |
+| **Method C — POS-driven (API)** | **Not built yet.** No endpoint exists today. See [Method C: the POS-driven workflow](#method-c-the-pos-driven-workflow). |
 
 ## Method A: the Portal workflow today
 
@@ -61,14 +61,14 @@ No API call is involved — this is a Portal workflow. It is useful to understan
 Any merchant already integrated with `/sign` can use Method A with **no additional development**. It works on receipts that are already in the Portal.
 :::
 
-## When Method C ships
+## Method C: the POS-driven workflow
 
 Method C is the POS-driven, API-based path. It does not exist yet, but when it ships it is expected to follow **the same pattern as the other country packs** (Germany, France, Italy, Poland):
 
 - an **enrichment to `/sign`**, and
 - a **delivery target on `/issue`** — no webhook.
 
-E-invoicing features are delivered exclusively through the **PosSystem API (v2)**. If you are still on the v0 interface (WCF/REST), plan your migration first — see the [Migrating from API v0 to PosSystem API (v2)](../possystem-api/migration-guide.md) guide.
+E-invoicing features are delivered exclusively through the **PosSystem API (v2)**. If you are still on the v0 interface (WCF/REST), plan your migration first — see the [Migrating from API v0 to PosSystem API (v2)](../../possystem-api/migration-guide.md) guide.
 
 :::note Method C (POS-driven API) is not yet available
 This page will be updated with an **API delta** — in the same format as the other country packs — once Method C ships. Until then, there is nothing to build for POS-driven e-invoicing in Austria.
@@ -85,6 +85,6 @@ This page will be updated with an **API delta** — in the same format as the ot
 
 ## Related pages
 
-- [Delivery (`/issue` Endpoint)](../experience-middleware/delivery.md) — the product-level e-invoicing and e-Delivery concept across all markets.
-- [Migrating from API v0 to PosSystem API (v2)](../possystem-api/migration-guide.md) — required before POS-driven e-invoicing (Method C).
-- [Appendix: AT (RKSV)](../middleware-at-rksv/appendix-at-rksv.md) — Austria fiscalization (RKSV) details.
+- [Delivery (`/issue` Endpoint)](../../experience-middleware/delivery.md) — the product-level e-invoicing and e-Delivery concept across all markets.
+- [Migrating from API v0 to PosSystem API (v2)](../../possystem-api/migration-guide.md) — required before POS-driven e-invoicing (Method C).
+- [Appendix: AT (RKSV)](../appendix-at-rksv.md) — Austria fiscalization (RKSV) details.

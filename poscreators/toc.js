@@ -84,6 +84,14 @@ module.exports = [
               {
                 type: "category",
                 collapsed: true,
+                label: "E-Invoicing",
+                items: [
+                  "poscreators/middleware-doc/middleware-at-rksv/e-invoicing/overview",
+                ],
+              },
+              {
+                type: "category",
+                collapsed: true,
                 label: "Receipt signing APIs",
                 items: [
                   {
