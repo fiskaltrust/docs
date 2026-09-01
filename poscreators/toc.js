@@ -354,6 +354,21 @@ module.exports = [
       },
       {
         type: "category",
+        label: "Poland (PL)",
+        items: [
+          {
+            type: "category",
+            collapsed: true,
+            label: "E-Invoicing",
+            items: [
+              "poscreators/middleware-doc/middleware-pl-ksef/e-invoicing/overview",
+              "poscreators/middleware-doc/middleware-pl-ksef/e-invoicing/setup",
+            ],
+          },
+        ],
+      },
+      {
+        type: "category",
         label: "Portugal (PT)",
         items: [
           "poscreators/middleware-doc/middleware-pt/appendix-pt",
