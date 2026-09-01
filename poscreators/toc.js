@@ -350,6 +350,15 @@ module.exports = [
               "poscreators/middleware-doc/middleware-it-registratore-telematico/reference-tables/type-of-journal-ftjournaltype",
             ],
           },
+          {
+            type: "category",
+            collapsed: true,
+            label: "E-Invoicing",
+            items: [
+              "poscreators/middleware-doc/middleware-it-registratore-telematico/e-invoicing/overview",
+              "poscreators/middleware-doc/middleware-it-registratore-telematico/e-invoicing/setup",
+            ],
+          },
         ],
       },
       {
