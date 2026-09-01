@@ -57,7 +57,7 @@ No API call is involved — this is a Portal workflow. It is useful to understan
 | 3. Generate and send | The Portal generates the e-invoice and transmits it, via the national portal or Peppol. |
 | 4. Done | No status polling on your side — this is not part of your API integration. |
 
-:::tip Already integrated? You're ready
+:::tip No additional development required
 Any merchant already integrated with `/sign` can use Method A with **no additional development**. It works on receipts that are already in the Portal.
 :::
 
