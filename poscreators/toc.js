@@ -61,6 +61,8 @@ module.exports = [
       "poscreators/middleware-doc/general/receipt-case-definitions/receipt-case-definitions",
       "poscreators/middleware-doc/general/reference-tables/reference-tables",
 
+      "poscreators/middleware-doc/e-invoicing/overview",
+
       {
         type: "category",
         label: "Country-Specific Guides",
