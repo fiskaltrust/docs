@@ -211,6 +211,15 @@ module.exports = [
                 ],
               },
               "poscreators/middleware-doc/middleware-de-kassensichv/procedural-documentation/dsfinv-k-generation",
+              {
+                type: "category",
+                collapsed: true,
+                label: "E-Invoicing",
+                items: [
+                  "poscreators/middleware-doc/middleware-de-kassensichv/e-invoicing/overview",
+                  "poscreators/middleware-doc/middleware-de-kassensichv/e-invoicing/setup",
+                ],
+              },
             ],
       },
       {
