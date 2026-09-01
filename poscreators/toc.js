@@ -59,7 +59,6 @@ module.exports = [
       "poscreators/middleware-doc/general/function-structures/function-structures",
       "poscreators/middleware-doc/general/communication/communication",
       "poscreators/middleware-doc/general/receipt-case-definitions/receipt-case-definitions",
-      "poscreators/middleware-doc/general/void-vs-refund/void-vs-refund",
       "poscreators/middleware-doc/general/reference-tables/reference-tables",
 
       {
