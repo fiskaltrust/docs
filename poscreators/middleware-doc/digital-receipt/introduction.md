@@ -58,7 +58,7 @@ The visualization of the digital receipt varies from the markets legal requireme
 
 *Table 1. Elements of the Austrian digital receipt shown in Figure 1.*
 
-[Digital receipt demo](https://receipts-sandbox.fiskaltrust.cloud/v0/1cb802fb-e694-4036-a857-6328842cb06f/8aecf05d-5d57-4905-9bef-458ad16d3ea9)
+[Digital receipt demo](https://receipts-sandbox.fiskaltrust.eu/1cb802fb-e694-4036-a857-6328842cb06f/8aecf05d-5d57-4905-9bef-458ad16d3ea9)
 
 ## Germany 
 
