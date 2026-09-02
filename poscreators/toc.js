@@ -352,6 +352,33 @@ module.exports = [
           },
         ],
       },
+{
+        type: "category",
+        label: "Poland (PL)",
+        items: [
+          "poscreators/middleware-doc/middleware-pl/appendix-pl",
+          "poscreators/middleware-doc/middleware-pl/terminology/terminology",
+          "poscreators/middleware-doc/middleware-pl/cash-register-integration/cash-register-integration",
+          "poscreators/middleware-doc/middleware-pl/operation-modes/postnet",
+          "poscreators/middleware-doc/middleware-pl/data-structures/data-structures",
+          "poscreators/middleware-doc/middleware-pl/receipt-case-definitions/receipt-case-definitions",
+          {
+            type: "category",
+            label: "Reference Tables",
+            key: "pl-reference-tables",
+            items: [
+              "poscreators/middleware-doc/middleware-pl/reference-tables/reference-tables",
+              "poscreators/middleware-doc/middleware-pl/reference-tables/service-status-ftstate",
+              "poscreators/middleware-doc/middleware-pl/reference-tables/type-of-receipt-ftreceiptcase",
+              "poscreators/middleware-doc/middleware-pl/reference-tables/type-of-service-ftchargeitemcase",
+              "poscreators/middleware-doc/middleware-pl/reference-tables/type-of-payment-ftpayitemcase",
+              "poscreators/middleware-doc/middleware-pl/reference-tables/type-of-signature-ftsignaturetype",
+              "poscreators/middleware-doc/middleware-pl/reference-tables/type-of-signature-ftsignatureformat",
+              "poscreators/middleware-doc/middleware-pl/reference-tables/type-of-journal-ftjournaltype",
+            ],
+          },
+        ],
+      },
       {
         type: "category",
         label: "Portugal (PT)",
