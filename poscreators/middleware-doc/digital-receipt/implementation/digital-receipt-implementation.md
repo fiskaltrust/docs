@@ -120,7 +120,7 @@ A general sample of this process flow is illustrated in the picture below:
 
 ## Availability
 
-The [production API](https://pos-api.fiskaltrust.cloud) can be reached as for all fiskaltrust services, the [sandbox instance](https://pos-api-sandbox.fiskaltrust.cloud) should be used for development and testing.
+The [production API](https://possystem-api-sandbox.fiskaltrust.eu/v2/) can be reached as for all fiskaltrust services, the [sandbox instance](https://possystem-api.fiskaltrust.eu/v2/) should be used for development and testing.
 
 The exact same endpoints will also be added to the on-premise Launcher (natively in version 2.0, and via additional Helper packages for the versions below).
 
