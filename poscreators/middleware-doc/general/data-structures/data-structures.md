@@ -7,7 +7,7 @@ title: Data Structures
 
 This chapter outlines several data structures, which are used in the communication with the fiskaltrust.Middleware.
 
-The tables below mirror the reference implementation of the `fiskaltrust.ifPOS` v2 interface, which is published in the [middleware-interface-dotnet](https://github.com/fiskaltrust/middleware-interface-dotnet/tree/master/src/fiskaltrust.ifPOS/v2/Models) repository. The following conventions apply to all tables:
+The following conventions apply to all tables in this chapter:
 
 - Field names are the JSON property names and are case-sensitive.
 - Fields marked with `*` are required and are always serialized, even when they hold their default value. All other fields are optional and are omitted from the JSON payload when they are `null` or hold their default value.
