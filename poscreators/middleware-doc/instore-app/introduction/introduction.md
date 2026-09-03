@@ -105,7 +105,7 @@ The fiskaltrust InStore App requires a permanent and stable internet connection.
 
 ## Availability
 
-The [production API](https://pos-api.fiskaltrust.cloud) is available as for all fiskaltrust services, the [sandbox instance](https://pos-api-sandbox.fiskaltrust.cloud) should be used for development and testing.
+The [production API](https://possystem-api.fiskaltrust.eu/v2/) is available as for all fiskaltrust services, the [sandbox instance](https://possystem-api-sandbox.fiskaltrust.eu/v2/) should be used for development and testing.
 
 The same endpoints will also be added to the on-premise Launcher (natively in version 2.0, and via additional Helper packages for earlier versions).
 
