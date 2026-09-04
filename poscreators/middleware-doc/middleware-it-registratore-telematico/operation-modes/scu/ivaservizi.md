@@ -45,7 +45,20 @@ Regardless of `LoginMode`, delegation is always resolved by matching `VATNumber`
 
 A login failure due to wrong credentials or an undelegated `VATNumber` is never retried automatically (regardless of `LoginMode`) — retrying the exact same rejected login would only risk AdE temporarily locking the account after repeated failed attempts.
 
+**Setting LoginMode on a cloud-hosted cashbox**
+
+For cloud-hosted cashboxes the SCU runs in a fiskaltrust service rather than in your launcher, so the value is read from the Signature Creation Unit's configuration in the Portal. Set `LoginMode` there, on the SCU itself.
+
+Three steps are needed before the value takes effect, and skipping either of the last two leaves the setting saved but inactive:
+
+1. Set `LoginMode` in the SCU configuration in the Portal.
+2. Make sure that the SCU is linked to the cashbox. Configuring an SCU does not attach it. An unlinked SCU is left out of the configuration the service receives.
+3. Rebuild the cashbox. The service is served a built configuration, so a Portal change is not visible until a rebuild regenerates it.
+
+If an SCU sets no `LoginMode`, the hosting service applies its own default. Different cashboxes on the same service can therefore run different login modes.
+
 ### Troubleshooting
 
 - **Receipts fail immediately with an authentication error, with no retries observed in the logs**: this is expected — a rejected login (wrong `UserName`/`Password`/`Pin`, or `VATNumber` not delegated to `UserName`) is treated as non-retryable so the same bad login attempt isn't repeated against AdE. Verify the credentials and the delegation on the AdE portal directly.
 - **Receipts fail with "no delega found for P.IVA ..."**: `VATNumber` is not among the account's current AdE delegations. Check the delegations under the professional account's AdE portal.
+- **`LoginMode` saved in the Portal has no effect on a cloud-hosted cashbox**: the value is saved on the SCU, but the service never receives it. Check that the SCU is linked to the cashbox, then rebuild the cashbox. Both steps are separate from saving the configuration.

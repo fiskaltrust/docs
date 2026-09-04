@@ -14,7 +14,9 @@ Refer to the [installation guides](../installation-guides/installation-guides.md
 ## Step 2: Start the app and grant permissions
 
 * Once installed, launch the app.
-* If prompted, enable the **Display over other apps** option (this allows the app to stay in the foreground while you work in other apps).<br/>![DisplayOverApps](./images/DisplayOverApps.png)<br/>*Figure 1. Enabling the Display over other apps permission for the InStore App.*
+* If prompted, enable the **Display over other apps** option (this allows the app to stay in the foreground while you work in other apps).<br/>![DisplayOverApps](./images/DisplayOverApps.png)<br/>
+
+*Figure 1. Enabling the Display over other apps permission for the InStore App.*
 
 :::tip
 
@@ -48,7 +50,9 @@ In the CashBox overview, you will find your **PIN for InStore App**. This PIN is
 ## Step 6: Enter the PIN code in the app
 
 * Open the InStore App on your device and enter the previously copied pairing PIN into the designated field.
-* Click **Pair** to connect the app to your CashBox.<br/>![PairDevice](./images/PairDevice.png)<br/>*Figure 4. Entering the pairing PIN in the InStore App to connect it to the CashBox.*
+* Click **Pair** to connect the app to your CashBox.<br/>![PairDevice](./images/PairDevice.png)<br/>*
+
+Figure 4. Entering the pairing PIN in the InStore App to connect it to the CashBox.*
 
 Once the pairing is successful, your app is connected to your CashBox and ready to use.
 
