@@ -105,7 +105,7 @@ The fiskaltrust InStore App requires a permanent and stable internet connection.
 
 ## Availability
 
-The production API is available at https://pos-api.fiskaltrust.cloud as for all fiskaltrust services, the sandbox instance should be used for development and testing and is available at https://pos-api-sandbox.fiskaltrust.cloud.
+The production API is available at https://possystem-api.fiskaltrust.eu/v2/ as for all fiskaltrust services. The sandbox instance should be used for development and testing and is available at https://possystem-api-sandbox.fiskaltrust.eu/v2/.
 
 The same endpoints will also be added to the on-premise Launcher (natively in version 2.0, and via additional Helper packages for earlier versions).
 
@@ -135,9 +135,9 @@ The format of the receipt request is documented in the Middleware API documentat
 
 **POST:**
 
-https://pos-api.fiskaltrust.cloud/v0/sign (Production)
+https://possystem-api.fiskaltrust.eu/v2/sign (Production)
 
-https://pos-api-sandbox.fiskaltrust.cloud/v0/sign (Sandbox) 
+https://possystem-api-sandbox.fiskaltrust.eu/v2/sign (Sandbox)
 
 **Header parameters:**
 
@@ -234,9 +234,9 @@ This method is used to "print" a digital receipt, based on the receipt request a
 
 **POST:**
 
-https://pos-api.fiskaltrust.cloud/v0/print (Production)
+https://possystem-api.fiskaltrust.eu/v2/print (Production)
 
-https://pos-api-sandbox.fiskaltrust.cloud/v0/print (Sandbox)
+https://possystem-api-sandbox.fiskaltrust.eu/v2/print (Sandbox)
 
 **Header parameters:**
 

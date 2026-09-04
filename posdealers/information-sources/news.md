@@ -20,9 +20,9 @@ Another way to stay with us is to read our news.
 
 | Target group | Link                                                                                                                |
 |:----------------------:|-------------------------------------------------------------------------------------------------------------------------------------|
-|general |https://www.linkedin.com/  |
-|Austria |https://www.fiskaltrust.at/news/ |
-|France |https://fiskaltrust.fr/en/ft-news/ |
-|Germany |https://fiskaltrust.de/allgemein/ |
+|general |[LinkedIn](https://www.linkedin.com/) |
+|Austria |[fiskaltrust.at News](https://www.fiskaltrust.at/news/) |
+|France |[fiskaltrust.fr News](https://fiskaltrust.fr/en/ft-news/) |
+|Germany |[fiskaltrust.de News](https://fiskaltrust.de/allgemein/) |
 
 *Table 1. News channels and links by target group.*

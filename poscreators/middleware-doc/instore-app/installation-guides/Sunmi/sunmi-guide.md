@@ -18,7 +18,7 @@ Before starting, ensure you have:
 
 ## Step 1: Sign in to the Sunmi Partner Portal
 
-1. Open: https://partner.sunmi.com/
+1. Open the [Sunmi Partner Portal](https://partner.sunmi.com/).
 2. Sign in with your Partner credentials.
 3. Confirm you see the main dashboard.
 

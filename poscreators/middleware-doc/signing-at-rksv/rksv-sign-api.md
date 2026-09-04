@@ -13,15 +13,15 @@ The API is hosted with REST and WCF/SOAP endpoints, users can decide which one t
 
 ### Endpoints
 The REST API is hosted at the following endpoints:
-- **Sandbox**: http://rksv-sandbox.fiskaltrust.at/
-- **Production**: http://rksv.fiskaltrust.at/
+- **[Sandbox](http://rksv-sandbox.fiskaltrust.at/)**
+- **[Production](http://rksv.fiskaltrust.at/)**
 
 :::info
 
 Both of these endpoints offer a fully featured API documentation via Swagger, which also allows automatic client generation. The Swagger documentation is available at the following endpoints: 
 
-- **Sandbox**: https://rksv-sandbox.fiskaltrust.at/swagger/index.html
-- **Production**: https://rksv.fiskaltrust.at/swagger/index.html
+- **[Sandbox](https://rksv-sandbox.fiskaltrust.at/swagger/index.html)**
+- **[Production](https://rksv.fiskaltrust.at/swagger/index.html)**
 
 For C# users, we've also prepared a sample implementation of the API in the [RKSV.Sign demo repository](https://github.com/fiskaltrust/signing-demo-rksv) on GitHub.
 
@@ -100,5 +100,5 @@ The WCF API uses the same methods as described above. For easier usage, we've pr
 
 ### Endpoints
 The WCF API is hosted at the following endpoints:
-- **Sandbox**: http://signing-sandbox.fiskaltrust.at/rksv
-- **Production**: http://signing.fiskaltrust.at/rksv
+- **[Sandbox](http://signing-sandbox.fiskaltrust.at/rksv)**
+- **[Production](http://signing.fiskaltrust.at/rksv)**
