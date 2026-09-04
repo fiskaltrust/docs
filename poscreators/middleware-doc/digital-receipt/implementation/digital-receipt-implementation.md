@@ -120,7 +120,7 @@ A general sample of this process flow is illustrated in the picture below:
 
 ## Availability
 
-The production API can be reached at https://possystem-api.fiskaltrust.eu/v2/ as for all fiskaltrust services, the sandbox instance should be used for development and testing: https://possystem-api-sandbox.fiskaltrust.eu/v2/.
+The production API is available at https://possystem-api.fiskaltrust.eu/v2/ as for all fiskaltrust services. The sandbox instance should be used for development and testing and is available at https://possystem-api-sandbox.fiskaltrust.eu/v2/.
 
 The exact same endpoints will also be added to the on-premise Launcher (natively in version 2.0, and via additional Helper packages for the versions below).
 
@@ -151,9 +151,9 @@ This method can be used to sign different types of receipts according to the loc
 
 **POST:**
 
-https://pos-api.fiskaltrust.cloud/v0/sign (Production)
+https://possystem-api.fiskaltrust.eu/v2/sign (Production)
 
-https://pos-api-sandbox.fiskaltrust.cloud/v0/sign (Sandbox) 
+https://possystem-api-sandbox.fiskaltrust.eu/v2/sign (Sandbox)
 
 **Header parameters:**
 
@@ -250,9 +250,9 @@ This method is used to "print" a digital receipt, based on the receipt request a
 
 **POST:**
 
-https://pos-api.fiskaltrust.cloud/v0/print (Production)
+https://possystem-api.fiskaltrust.eu/v2/print (Production)
 
-https://pos-api-sandbox.fiskaltrust.cloud/v0/print (Sandbox)
+https://possystem-api-sandbox.fiskaltrust.eu/v2/print (Sandbox)
 
 **Header parameters:**
 
