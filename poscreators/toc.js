@@ -61,6 +61,8 @@ module.exports = [
       "poscreators/middleware-doc/general/receipt-case-definitions/receipt-case-definitions",
       "poscreators/middleware-doc/general/reference-tables/reference-tables",
 
+      "poscreators/middleware-doc/e-invoicing/overview",
+
       {
         type: "category",
         label: "Country-Specific Guides",
@@ -81,6 +83,15 @@ module.exports = [
               "poscreators/middleware-doc/middleware-at-rksv/communication/communication",
               "poscreators/middleware-doc/middleware-at-rksv/receipt-case-definitions/receipt-case-definitions",
               "poscreators/middleware-doc/middleware-at-rksv/reference-tables/reference-tables",
+              {
+                type: "category",
+                collapsed: true,
+                label: "E-Invoicing",
+                items: [
+                  "poscreators/middleware-doc/middleware-at-rksv/e-invoicing/overview",
+                  "poscreators/middleware-doc/middleware-at-rksv/e-invoicing/setup",
+                ],
+              },
               {
                 type: "category",
                 collapsed: true,
@@ -209,6 +220,15 @@ module.exports = [
                 ],
               },
               "poscreators/middleware-doc/middleware-de-kassensichv/procedural-documentation/dsfinv-k-generation",
+              {
+                type: "category",
+                collapsed: true,
+                label: "E-Invoicing",
+                items: [
+                  "poscreators/middleware-doc/middleware-de-kassensichv/e-invoicing/overview",
+                  "poscreators/middleware-doc/middleware-de-kassensichv/e-invoicing/setup",
+                ],
+              },
             ],
       },
       {
@@ -258,6 +278,15 @@ module.exports = [
           "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/communication/communication",
           "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/receipt-case-definitions/receipt-case-definitions",
           "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/reference-tables/reference-tables",
+          {
+            type: "category",
+            collapsed: true,
+            label: "E-Invoicing",
+            items: [
+              "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/e-invoicing/overview",
+              "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/e-invoicing/setup",
+            ],
+          },
         ],
       },
       {
@@ -348,6 +377,30 @@ module.exports = [
               "poscreators/middleware-doc/middleware-it-registratore-telematico/reference-tables/type-of-signature-ftsignaturetype",
               "poscreators/middleware-doc/middleware-it-registratore-telematico/reference-tables/type-of-signature-ftsignatureformat",
               "poscreators/middleware-doc/middleware-it-registratore-telematico/reference-tables/type-of-journal-ftjournaltype",
+            ],
+          },
+          {
+            type: "category",
+            collapsed: true,
+            label: "E-Invoicing",
+            items: [
+              "poscreators/middleware-doc/middleware-it-registratore-telematico/e-invoicing/overview",
+              "poscreators/middleware-doc/middleware-it-registratore-telematico/e-invoicing/setup",
+            ],
+          },
+        ],
+      },
+      {
+        type: "category",
+        label: "Poland (PL)",
+        items: [
+          {
+            type: "category",
+            collapsed: true,
+            label: "E-Invoicing",
+            items: [
+              "poscreators/middleware-doc/middleware-pl-ksef/e-invoicing/overview",
+              "poscreators/middleware-doc/middleware-pl-ksef/e-invoicing/setup",
             ],
           },
         ],
