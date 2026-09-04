@@ -84,6 +84,15 @@ module.exports = [
               {
                 type: "category",
                 collapsed: true,
+                label: "E-Invoicing",
+                items: [
+                  "poscreators/middleware-doc/middleware-at-rksv/e-invoicing/overview",
+                  "poscreators/middleware-doc/middleware-at-rksv/e-invoicing/setup",
+                ],
+              },
+              {
+                type: "category",
+                collapsed: true,
                 label: "Receipt signing APIs",
                 items: [
                   {
@@ -258,6 +267,15 @@ module.exports = [
           "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/communication/communication",
           "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/receipt-case-definitions/receipt-case-definitions",
           "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/reference-tables/reference-tables",
+          {
+            type: "category",
+            collapsed: true,
+            label: "E-Invoicing",
+            items: [
+              "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/e-invoicing/overview",
+              "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/e-invoicing/setup",
+            ],
+          },
         ],
       },
       {
