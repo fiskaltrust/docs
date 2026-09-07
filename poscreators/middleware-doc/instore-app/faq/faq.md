@@ -7,7 +7,7 @@ title: FAQ
 
 This page collects the questions that come up most often when partners evaluate, demo, or roll out the fiskaltrust InStore App. It is intended for PosCreators, PosDealers, and fiskaltrust customer success teams. For step-by-step instructions, follow the links to the detailed guides in each answer.
 
-API-level statements on this page follow the [POS System API reference](https://docs.fiskaltrust.cloud/apis/pos-system-api) and the business case examples published on the [fiskaltrust Development Platform](https://developer.fiskaltrust.eu/) and in the [businesscase repository](https://github.com/fiskaltrust/businesscase).
+API-level statements on this page follow the [POS System API reference](https://docs.fiskaltrust.cloud/apis/pos-system-api) and the business case examples published on the [fiskaltrust Development Platform](https://developer.fiskaltrust.eu/).
 
 ## Onboarding and Setup
 
@@ -109,7 +109,7 @@ Digital receipt bundles are ordered per CashBox in the fiskaltrust.Portal, see [
 
 A: There is no dedicated loyalty endpoint in the POS System API or the InStore App. Loyalty is treated as a business case on the receipt: the loyalty logic (verifying the program, earning or redeeming points) stays in the POS system or the loyalty provider's platform, and the result is reflected in the receipt data that the POS sends to fiskaltrust. The building blocks available today are:
 
-- **Receipt data**: The pay item type "Loyalty Program/Customer Card" (`ftPayItemCase`) and the voucher pay item types represent points redemptions and customer card payments, `cbCustomer` identifies the consumer, and provider-specific loyalty data returned by a payment provider is carried in `ftPayItemCaseData`. The [businesscase repository](https://github.com/fiskaltrust/businesscase) describes the loyalty process (earn or redeem points, issue a receipt showing the updated balance) and contains payment examples in which the provider response includes loyalty transactions.
+- **Receipt data**: The pay item type "Loyalty Program/Customer Card" (`ftPayItemCase`) and the voucher pay item types represent points redemptions and customer card payments, `cbCustomer` identifies the consumer, and provider-specific loyalty data returned by a payment provider is carried in `ftPayItemCaseData`. The business case catalogue on the [Development Platform](https://developer.fiskaltrust.eu/) describes the loyalty process (earn or redeem points, issue a receipt showing the updated balance) and contains payment examples in which the provider response includes loyalty transactions.
 - **Digital receipt**: The receipt page can be shared into third-party apps, and receipts can be retrieved programmatically by receipt identifier, so a loyalty platform can import purchase data. See [Delivery](../../experience-middleware/delivery.md).
 - **InStore App idle screen**: The app can show a merchant web page via the [webview URL](../available-settings/settings.md#enable-webview-url) setting, for example a loyalty sign-up page.
 
@@ -178,7 +178,7 @@ A: fiskaltrust acts as the receipt platform: it stores the receipt document tamp
 
 **Q: Which APIs must be integrated for the InStore App?**
 
-A: Only the [fiskaltrust POS System API](../../possystem-api/introduction.md) (v2). There is no separate InStore App SDK. The relevant endpoints are `/echo` for the connectivity check, `/pay` for payments, `/sign` for fiscalization, and `/issue` for receipt delivery. `/journal` is used for exports and closings and is not InStore App specific. The request and response models are documented in the [POS System API reference](https://docs.fiskaltrust.cloud/apis/pos-system-api); ready-to-run receipt examples per market and business case are published on the [Development Platform](https://developer.fiskaltrust.eu/) and maintained in the [businesscase repository](https://github.com/fiskaltrust/businesscase). For Android POS apps running next to the local Middleware, the same endpoints are also reachable via [Android Intents](../../possystem-api/android-intent.md).
+A: Only the [fiskaltrust POS System API](../../possystem-api/introduction.md) (v2). There is no separate InStore App SDK. The relevant endpoints are `/echo` for the connectivity check, `/pay` for payments, `/sign` for fiscalization, and `/issue` for receipt delivery. `/journal` is used for exports and closings and is not InStore App specific. The request and response models are documented in the [POS System API reference](https://docs.fiskaltrust.cloud/apis/pos-system-api); ready-to-run receipt examples per market and business case are published on the [Development Platform](https://developer.fiskaltrust.eu/). For Android POS apps running next to the local Middleware, the same endpoints are also reachable via [Android Intents](../../possystem-api/android-intent.md).
 
 **Q: Which endpoints are relevant for Payment, Receipt, and Loyalty?**
 
