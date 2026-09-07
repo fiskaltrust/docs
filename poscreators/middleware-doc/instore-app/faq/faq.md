@@ -7,6 +7,8 @@ title: FAQ
 
 This page collects the questions that come up most often when partners evaluate, demo, or roll out the fiskaltrust InStore App. It is intended for PosCreators, PosDealers, and fiskaltrust customer success teams. For step-by-step instructions, follow the links to the detailed guides in each answer.
 
+API-level statements on this page follow the [POS System API reference](https://docs.fiskaltrust.cloud/apis/pos-system-api) and the business case examples published on the [fiskaltrust Development Platform](https://developer.fiskaltrust.eu/) and in the [businesscase repository](https://github.com/fiskaltrust/businesscase).
+
 ## Onboarding and Setup
 
 **Q: How does the setup of the InStore App work, step by step?**
@@ -38,7 +40,7 @@ A: The InStore App runs on Android devices. It is designed for touch-enabled dev
 
 - **Sunmi** Android POS devices (deployable via the Sunmi Partner Portal).
 - **Orderman** Android devices such as the Orderman10 (deployable via Orderman SystemCenterNext).
-- **PAX** payment terminals such as the A920Pro or A800 (deployable via the PAX, Viva Wallet, or Global Payments stores).
+- **PAX** payment terminals (deployable via the PAX, Viva Wallet, or Global Payments stores).
 - Generic Android tablets and smartphones, for example as a customer display next to a stationary POS or as a waiter's handheld running both the POS app and the InStore App.
 
 Some payment providers also expose the terminal's integrated printer to the app (for example Shift4). On Android 15 and later, **Enable running in Background** must be switched on. If you plan to use a specific device model, contact fiskaltrust support to confirm printer and payment provider support for that model.
@@ -47,13 +49,13 @@ Some payment providers also expose the terminal's integrated printer to the app 
 
 **Q: Which requirements must a POS system meet to use the InStore App?**
 
-A: The POS system needs to be able to send HTTP/JSON requests to the [fiskaltrust POS System API](../../possystem-api/introduction.md) (v2). Every request carries the CashBox credentials from the fiskaltrust.Portal as headers (`x-cashbox-id`, `x-cashbox-accesstoken`, `x-possystem-id`) and a unique `x-operation-id` per operation so calls can be safely retried. The POS system should also be able to set a terminal identification (`cbTerminalID`) so that requests reach the right device in [multi-terminal setups](../multiterminal-settings/multiterminal.md).
+A: The POS system needs to be able to send HTTP/JSON requests to the [fiskaltrust POS System API](../../possystem-api/introduction.md) (v2). Every request carries the CashBox credentials from the fiskaltrust.Portal as headers (`x-cashbox-id`, `x-cashbox-accesstoken`, `x-possystem-id`) and a unique `x-operation-id` per operation so calls can be safely retried. The POS system should also be able to set a terminal identification (`cbTerminalID` in the request body, or the `x-terminal-id` header) so that requests reach the right device in [multi-terminal setups](../multiterminal-settings/multiterminal.md).
 
 No SDK, no device-side integration, and no direct network connection between the POS and the InStore App are needed. The app is paired with the CashBox and receives its actions from the fiskaltrust backend.
 
 **Q: Is a connection to the fiskaltrust POS System API sufficient?**
 
-A: Yes. All InStore App functionality is triggered through the POS System API: `/pay` starts a payment on the device, `/sign` fiscalizes the receipt, and `/issue` hands the signed receipt over to the InStore App for display, printing, or digital delivery. Which of these you use depends on the features you want (see [For Developers](#for-developers)).
+A: Yes. All InStore App functionality is triggered through the POS System API: `/pay` starts a payment on the device, `/sign` fiscalizes the receipt, and `/issue` hands the receipt over to the InStore App for display, printing, or digital delivery. Which of these you use depends on the features you want (see [For Developers](#for-developers)).
 
 For POS systems that are still integrated with the classic Middleware interface (`/sign` via IPOS v0 or the SignatureCloud API), receipts can also be shown in the InStore App without any POS change by activating the **POS API Helper** on the CashBox. See [Existing fiskaltrust Integrations](#existing-fiskaltrust-integrations) for the trade-offs.
 
@@ -62,14 +64,14 @@ For POS systems that are still integrated with the classic Middleware interface 
 A: It depends on the feature:
 
 - **Payment** can be used with or without fiskaltrust fiscalization. The `/pay` endpoint works independently of `/sign`, so a POS system can use the InStore App as its payment layer even in markets or setups where fiscalization is handled elsewhere. See [Payment](../../experience-middleware/payment.md).
-- **Receipt display and digital receipts** always require the receipt to pass through the fiskaltrust.Middleware. The `/issue` endpoint takes the request and response pair returned by `/sign`, and the receipt document is rendered from that data. A standalone digital receipt API without a Middleware receipt is not available. In markets or business cases without a fiscalization obligation, the POS system still sends the receipt through `/sign` using the corresponding non-fiscal receipt case so the Middleware journals it and can issue it.
+- **Receipt display and digital receipts** are driven by the `/issue` endpoint. In the standard flow, `/issue` takes the request and response pair returned by `/sign`, so the receipt is rendered from the fiscalized data. The API additionally defines a simple issue request in which the POS provides the receipt data itself, including the signature items produced by another fiscalization solution (see [Receipt and Fiscalization](#receipt-and-fiscalization)). In both variants the receipt passes through the fiskaltrust.Middleware; a digital receipt cannot be created outside of it.
 
 **Q: How much integration effort is required for a POS system that is already connected?**
 
 A: This depends on the current integration:
 
-- **Already on the POS System API (v2)**: Low effort. Add `/issue` after `/sign` to show receipts on the InStore App, and `/pay` before `/sign` to process payments. Pass the same `cbTerminalID` on all calls and reuse the `ftPayItems` returned by `/pay` as `cbPayItems` in `/sign`. The [Development Kit](https://github.com/fiskaltrust/possystemapi-devkit/blob/main/README.MD) provides C# samples for exactly this flow.
-- **On the classic IPOS v0 or SignatureCloud interface**: Two options. Either activate the POS API Helper in the fiskaltrust.Portal to show receipts without any code change (no payment, no delivery status logging), or migrate to the POS System API v2 following the [Migration Guide](../../possystem-api/migration-guide.md). The migration is mostly a change of base URL and headers plus a remapping of the `ftReceiptCase`, `ftChargeItemCase`, and `ftPayItemCase` values.
+- **Already on the POS System API (v2)**: Low effort. Add `/issue` after `/sign` to show receipts on the InStore App, and `/pay` before `/sign` to process payments. Pass the same `cbTerminalID` on all calls and reuse the `ftPayItems` returned by `/pay` as `cbPayItems` in `/sign`. The business case examples on the [Development Platform](https://developer.fiskaltrust.eu/) show the receipt requests for the individual scenarios (sale, refund, card payment, tips, and so on).
+- **On the classic IPOS v0 or SignatureCloud interface**: Two options. Either activate the POS API Helper in the fiskaltrust.Portal to show receipts without any code change (no payment, no delivery status logging), or migrate to the POS System API v2 following the [Migration Guide](../../possystem-api/migration-guide.md). The migration is mostly a change of base URL and headers plus a remapping of the `ftReceiptCase`, `ftChargeItemCase`, and `ftPayItemCase` values to the v2 values shown in the business case examples.
 
 ## Existing fiskaltrust Integrations
 
@@ -85,9 +87,9 @@ A: For a full integration on the POS System API v2, the typical changes are:
 
 - Switch the base URL to the v2 endpoint and send the `x-cashbox-id`, `x-cashbox-accesstoken`, `x-possystem-id`, and `x-operation-id` headers.
 - Call `/issue` with the `/sign` request and response pair after each signed receipt, and optionally poll the delivery status.
-- Call `/pay` for electronic payments and take over the returned `ftPayItems` into `cbPayItems`, including the handling of tips (a tip is reported as a second, negative pay item).
+- Call `/pay` for electronic payments and take over the returned `ftPayItems` into `cbPayItems`. The returned pay items already carry the provider's transaction data in `ftPayItemCaseData`.
 - Send a consistent `cbTerminalID` so that each request reaches the intended device.
-- Implement idempotent retries: on a timeout, resend the same request with the same `x-operation-id` (for `/pay`, query `/PayResponse` with the original operation ID).
+- Implement idempotent retries: on a timeout, resend the same request with the same `x-operation-id`. For `/pay`, the result of an already started payment can be fetched via `/PayResponse` with the original operation ID.
 - Respect the `ftState` flags of the receipt response. If the security mechanism is out of service, print a paper receipt instead of issuing a digital one. See [Failure or disruption of internet connection](../../digital-receipt/implementation/digital-receipt-implementation.md#failure-or-disruption-of-internet-connection).
 
 **Q: Can existing merchants activate the InStore App without major changes?**
@@ -105,11 +107,11 @@ Digital receipt bundles are ordered per CashBox in the fiskaltrust.Portal, see [
 
 **Q: Can existing loyalty programs be connected?**
 
-A: There is currently no dedicated loyalty endpoint in the POS System API or the InStore App. The loyalty logic remains in the POS system or the loyalty provider's platform. What fiskaltrust provides today are touch points that a loyalty solution can build on:
+A: There is no dedicated loyalty endpoint in the POS System API or the InStore App. Loyalty is treated as a business case on the receipt: the loyalty logic (verifying the program, earning or redeeming points) stays in the POS system or the loyalty provider's platform, and the result is reflected in the receipt data that the POS sends to fiskaltrust. The building blocks available today are:
 
-- The **digital receipt** can be shared from the receipt page into third-party apps (for example ReceiptHero), and it can be retrieved programmatically by receipt identifier so a loyalty platform can import purchase data. See [Delivery](../../experience-middleware/delivery.md).
-- The receipt request carries **customer and payment data**: `cbCustomer` for a customer reference, the pay item type "Loyalty Program/Customer Card", and voucher handling for redemptions. These are shown on the receipt where applicable.
-- The InStore App can show a **merchant web page on its idle screen** via the [webview URL](../available-settings/settings.md#enable-webview-url) setting, for example a loyalty sign-up page.
+- **Receipt data**: The pay item type "Loyalty Program/Customer Card" (`ftPayItemCase`) and the voucher pay item types represent points redemptions and customer card payments, `cbCustomer` identifies the consumer, and provider-specific loyalty data returned by a payment provider is carried in `ftPayItemCaseData`. The [businesscase repository](https://github.com/fiskaltrust/businesscase) describes the loyalty process (earn or redeem points, issue a receipt showing the updated balance) and contains payment examples in which the provider response includes loyalty transactions.
+- **Digital receipt**: The receipt page can be shared into third-party apps, and receipts can be retrieved programmatically by receipt identifier, so a loyalty platform can import purchase data. See [Delivery](../../experience-middleware/delivery.md).
+- **InStore App idle screen**: The app can show a merchant web page via the [webview URL](../available-settings/settings.md#enable-webview-url) setting, for example a loyalty sign-up page.
 
 If you need a specific loyalty integration, contact fiskaltrust to discuss the roadmap.
 
@@ -119,7 +121,7 @@ A: No. Because fiskaltrust does not integrate a specific loyalty provider, the c
 
 **Q: Which interfaces are available for integrating loyalty solutions?**
 
-A: The interfaces available today are the POS System API receipt data (`/sign` and `/issue`, including `cbCustomer` and the pay item types), the digital receipt's share function and retrieval by receipt identifier, and the InStore App webview URL for merchant content. A dedicated loyalty API is not available yet.
+A: The interfaces available today are the POS System API receipt data (`/sign` and `/issue`, including `cbCustomer`, the loyalty and voucher pay item types, and `ftPayItemCaseData`), the digital receipt's share function and retrieval by receipt identifier, and the InStore App webview URL for merchant content. A dedicated loyalty API is not available.
 
 ## Payment
 
@@ -129,11 +131,19 @@ A: Yes. fiskaltrust's payment integration is delivered through the InStore App. 
 
 **Q: Can payments be processed independently of the InStore App?**
 
-A: Not through fiskaltrust. A POS system can of course keep its own direct payment provider integration and pass the payment result as `cbPayItems` (with the transaction data in `ftPayItemCaseData`) into `/sign`. Fiscalization and digital receipts work in the same way in that case. Only the unified `/pay` endpoint and the provider independence it brings require the InStore App.
+A: Not through fiskaltrust. A POS system can of course keep its own direct payment provider integration and pass the payment result as `cbPayItems` (with the transaction data in `ftPayItemCaseData`) into `/sign`. Fiscalization and digital receipts work in the same way in that case; the business case examples for card payments on the [Development Platform](https://developer.fiskaltrust.eu/) show the expected structure. Only the unified `/pay` endpoint and the provider independence it brings require the InStore App.
 
 **Q: Is there a central or single payment endpoint for the integration?**
 
-A: Yes. The `/pay` endpoint of the POS System API is the single entry point for all payment providers. A request contains the `action` (`payment`, `refund`, or `cancel`), the `protocol` (`use_auto` to accept whichever provider is configured on the device, or a specific provider protocol), the `cbPayItem` with amount and description, and the `cbTerminalID`. The result of a payment that could not be received (for example after a connection loss) is retrieved via `/PayResponse` with the same `x-operation-id`. The sandbox base URL is `https://possystem-api-sandbox.fiskaltrust.eu/v2`, the production base URL is `https://possystem-api.fiskaltrust.eu/v2`.
+A: Yes. The `/pay` endpoint of the POS System API is the single entry point for all payment providers. A request contains:
+
+- `Action`: `payment`, `refund`, `cancel`, or `pre_authorization` (not every provider supports every action).
+- `Protocol`: `use_auto` to let fiskaltrust select the provider configured on the target device, `use_first`, `use_all`, `use_none` (asks the customer to select), or a provider-specific protocol.
+- `cbPayItem`: the amount and a description.
+- `cbTerminalID`: the device that should execute the payment.
+- Optionally `AcceptUnderPayment` and `AcceptOverPayment`.
+
+The response contains the selected `Protocol`, the `ftQueueID`, and the `ftPayItems` that were actually paid, including the provider's request and response data and the card receipt lines in `ftPayItemCaseData`. A running payment can be stopped with `DELETE /pay`, its state can be queried with `/PeekPayRequestState`, and its result can be fetched with `/PayResponse` using the original `x-operation-id`. The sandbox base URL is `https://possystem-api-sandbox.fiskaltrust.eu/v2`, the production base URL is `https://possystem-api.fiskaltrust.eu/v2`.
 
 **Q: What advantages does the InStore App offer in addition to a pure payment integration?**
 
@@ -141,7 +151,7 @@ A: The main benefits are:
 
 - **Provider independence**: The POS integrates `/pay` once. The payment provider is selected in the InStore App settings and can be changed without touching the POS software.
 - **One device for payment, customer display, and printing**: Receipt display, QR code, email, SMS, and paper printing run on the same device as the payment, which reduces hardware at the POS.
-- **Linked payment and receipt data**: The `ftPayItems` returned by `/pay` (including tips) go straight into `/sign`, so the fiscal receipt and the digital receipt carry the payment details without manual mapping.
+- **Linked payment and receipt data**: The `ftPayItems` returned by `/pay` go straight into `/sign`, so the fiscal receipt and the digital receipt carry the payment details without manual mapping.
 - **Multi-terminal routing**: Payments and receipts are routed to the right device via `cbTerminalID`, which supports mobile ordering, queue busting, and multiple checkouts on one CashBox.
 - **Compliance logging**: Delivery statuses of digital receipts are logged, which is required in Austria and useful in Germany.
 - **Easy demos and testing**: The Dummy Payment Provider in the sandbox lets you demonstrate and test the complete flow, including declines, timeouts, and tips, without a real payment provider.
@@ -150,25 +160,25 @@ A: The main benefits are:
 
 **Q: Where does the data for the digital receipt come from if no fiskaltrust fiscalization is used?**
 
-A: The receipt data always comes from the POS system through the POS System API. The InStore App has no receipt data source of its own. The receipt document is rendered by fiskaltrust from the `/sign` request and response pair that the POS passes to `/issue`. Where no fiscal signature is legally required, the POS still sends the receipt through `/sign` with the applicable non-fiscal receipt case so that a receipt entry exists in the Middleware. A digital receipt without a Middleware receipt is not available (see [Getting Started](../../digital-receipt/implementation/getting-started.md)).
+A: The receipt data always comes from the POS system through the POS System API. The InStore App has no receipt data source of its own. In the standard flow, fiskaltrust renders the receipt from the `/sign` request and response pair that the POS passes to `/issue`. For receipts that were fiscalized by another solution, the API defines a simple issue request: the POS sends the receipt itself (terminal ID, receipt reference, receipt moment, charge items, pay items, and the signature items from its own fiscalization, optionally header and footer lines) to `/issue`. The receipt is then stored and rendered by fiskaltrust like any other digital receipt. Contact fiskaltrust to confirm the availability of this variant for your market before relying on it.
 
 **Q: How is fiscalized receipt data provided for the receipt?**
 
-A: After `/sign` returns the signed receipt, the POS calls `/issue` with the receipt request and receipt response. fiskaltrust stores the receipt document in the fiskaltrust.Cloud, returns the document URL to the POS, and pushes the receipt to the InStore App instances paired with the CashBox that match the `cbTerminalID`. The app then shows the receipt number, amount, and QR code and offers OK, Print, Email, and SMS. Every consumer action is logged. The POS can check whether the receipt was delivered via `GET /issue/{queueId}/{queueItemId}/delivered`, which returns `200` when delivered and `204` while still pending. Legacy POS API v0 integrations use the `/print` endpoint with the same request and response pair, as documented in the [Introduction](../introduction/introduction.md).
+A: After `/sign` returns the signed receipt, the POS calls `/issue` with the receipt request and receipt response. Alternatively, `/issue` accepts the `QueueId` and `QueueItemId` of a receipt that was already signed. fiskaltrust stores the receipt document in the fiskaltrust.Cloud, returns `ftQueueID`, `ftQueueItemID`, and the `DocumentURL` to the POS, and pushes the receipt to the InStore App instances paired with the CashBox that match the terminal ID. The app then shows the receipt number, amount, and QR code and offers OK, Print, Email, and SMS. Every consumer action is logged. The POS can check whether the receipt was delivered via `GET /issue/{QueueId}/{QueueItemId}/delivered`, which returns `200` when delivered and `204` while still pending, or wait for the delivery with `GET /BlockIssueRequest/{QueueId}/{QueueItemId}/WhileDelivered`. Legacy POS API v0 integrations use the `/print` endpoint with the same request and response pair, as documented in the [Introduction](../introduction/introduction.md).
 
 **Q: Which data must the POS system provide?**
 
-A: At minimum, the receipt request must contain `cbTerminalID`, `cbReceiptReference`, `cbReceiptMoment` (in UTC), `ftReceiptCase`, the charge items (`Quantity`, `Description`, `Amount`, `VATRate`, `ftChargeItemCase`, `Moment`), and the pay items (`Quantity`, `Description`, `Amount`, `ftPayItemCase`). Card transaction details from the payment provider should be passed in `ftPayItemCaseData` so they appear on the receipt. Optional fields such as `cbReceiptAmount`, `cbCustomer`, additional receipt lines, and item lines improve the receipt. The merchant's address and logo come from the outlet master data in the fiskaltrust.Portal. See the [mandatory fields for digital receipt visualization](../../digital-receipt/implementation/digital-receipt-implementation.md#mandatory-fields-for-digital-receipt-visualization).
+A: At minimum, the receipt request must contain `cbTerminalID`, `cbReceiptReference`, `cbReceiptMoment` (in UTC), `ftReceiptCase`, the charge items (`Quantity`, `Description`, `Amount`, `VATRate`, `ftChargeItemCase`, `Moment`), and the pay items (`Quantity`, `Description`, `Amount`, `ftPayItemCase`). Card transaction details from the payment provider should be passed in `ftPayItemCaseData` so they appear on the receipt. Optional fields such as `cbReceiptAmount`, `cbCustomer`, `cbUser`, `cbArea`, additional receipt lines, and item lines improve the receipt. The merchant's address and logo come from the outlet master data in the fiskaltrust.Portal. See the [mandatory fields for digital receipt visualization](../../digital-receipt/implementation/digital-receipt-implementation.md#mandatory-fields-for-digital-receipt-visualization) and the market-specific business case examples on the [Development Platform](https://developer.fiskaltrust.eu/) for the correct case values.
 
 **Q: What role does fiskaltrust play in the receipt process without active fiscalization?**
 
-A: fiskaltrust acts as the receipt platform: it stores the receipt document tamper-proof in the fiskaltrust.Cloud, renders it as a tracking-free HTML page behind a unique HTTPS link, delivers it through the selected channel (QR code, print, email, SMS), logs the delivery status, and orchestrates the payment through the InStore App. The receipt still passes through the fiskaltrust.Middleware so that it can be issued, even when no signature is legally required.
+A: fiskaltrust acts as the receipt platform: it stores the receipt document tamper-proof in the fiskaltrust.Cloud, renders it as a tracking-free HTML page behind a unique HTTPS link, delivers it through the selected channel (QR code, print, email, SMS), logs the delivery status, and orchestrates the payment through the InStore App. The receipt still passes through the fiskaltrust.Middleware via `/issue` so that it can be delivered, even when the fiscal signature was created elsewhere or no signature is legally required.
 
 ## For Developers
 
 **Q: Which APIs must be integrated for the InStore App?**
 
-A: Only the [fiskaltrust POS System API](../../possystem-api/introduction.md) (v2). There is no separate InStore App SDK. The relevant endpoints are `/echo` for the connectivity check, `/pay` for payments, `/sign` for fiscalization, and `/issue` for receipt delivery. `/journal` is used for exports and closings and is not InStore App specific. The [POS System API Development Kit](https://github.com/fiskaltrust/possystemapi-devkit/blob/main/README.MD) on GitHub contains C# how-tos for payment, signing, and the combined pay-sign-issue flow, plus a reusable client library and instructions for inspecting the traffic with mitmproxy. For Android POS apps running next to the local Middleware, the same endpoints are also reachable via [Android Intents](../../possystem-api/android-intent.md).
+A: Only the [fiskaltrust POS System API](../../possystem-api/introduction.md) (v2). There is no separate InStore App SDK. The relevant endpoints are `/echo` for the connectivity check, `/pay` for payments, `/sign` for fiscalization, and `/issue` for receipt delivery. `/journal` is used for exports and closings and is not InStore App specific. The request and response models are documented in the [POS System API reference](https://docs.fiskaltrust.cloud/apis/pos-system-api); ready-to-run receipt examples per market and business case are published on the [Development Platform](https://developer.fiskaltrust.eu/) and maintained in the [businesscase repository](https://github.com/fiskaltrust/businesscase). For Android POS apps running next to the local Middleware, the same endpoints are also reachable via [Android Intents](../../possystem-api/android-intent.md).
 
 **Q: Which endpoints are relevant for Payment, Receipt, and Loyalty?**
 
@@ -176,23 +186,21 @@ A:
 
 | Area | Endpoints | Notes |
 |------|-----------|-------|
-| Payment | `POST /pay`, `POST /PayResponse` | `action`: `payment`, `refund`, `cancel`. `protocol`: `use_auto` or a provider-specific value. `/PayResponse` returns the result of a `/pay` call by `x-operation-id`. |
-| Receipt | `POST /sign`, `POST /issue`, `GET /issue/{queueId}/{queueItemId}/delivered`, `GET /issue/{queueId}/{queueItemId}/link/qrcode` | `/issue` takes the `/sign` request and response pair and returns the document URL. The delivered call returns `200` once the consumer received the receipt. |
-| Loyalty | No dedicated endpoint | Use `cbCustomer` and pay item types in `/sign`, the digital receipt share function, and retrieval by receipt identifier. |
+| Payment | `POST /pay`, `DELETE /pay`, `GET /PeekPayRequestState`, `POST /PayResponse` | `Action`: `payment`, `refund`, `cancel`, `pre_authorization`. `Protocol`: `use_auto` or a provider-specific value. `/PayResponse` returns the result of a `/pay` call by `x-operation-id`. |
+| Receipt | `POST /sign`, `POST /issue`, `PUT /issue/{QueueId}/{QueueItemId}`, `GET /issue/{QueueId}/{QueueItemId}`, `GET /issue/{QueueId}/{QueueItemId}/link/qrcode`, `GET /issue/{QueueId}/{QueueItemId}/delivered` | `/issue` takes the `/sign` request and response pair (or the queue item IDs) and returns the document URL. The `PUT` variant updates the delivery state with the actions `accept`, `view`, `download`, `print`, `link`, `send` (email, SMS, WhatsApp), or `upload`. The QR code call returns a PNG. The delivered call returns `200` once the consumer received the receipt. |
+| Loyalty | No dedicated endpoint | Use `cbCustomer`, the loyalty and voucher pay item types, and `ftPayItemCaseData` in `/sign`, the digital receipt share function, and retrieval by receipt identifier. |
 
 *Table 1. POS System API endpoints relevant for the InStore App.*
-
-For request and response models, see the [POS System API reference](https://docs.fiskaltrust.cloud/apis/pos-system-api).
 
 **Q: Which data flows exist between the POS system, the InStore App, and fiskaltrust?**
 
 A: A complete checkout consists of three flows:
 
-1. **Payment**: The POS sends `/pay` with amount, protocol, and `cbTerminalID` to the POS System API. fiskaltrust pushes the payment action to the InStore App on the matching device, which starts the payment app or terminal. The result, including tips, is returned to the POS as `ftPayItems`. If the POS loses the response, it queries `/PayResponse` with the same operation ID.
+1. **Payment**: The POS sends `/pay` with amount, protocol, and `cbTerminalID` to the POS System API. fiskaltrust pushes the payment action to the InStore App on the matching device, which starts the payment app or terminal. The result is returned to the POS as `ftPayItems`. If the POS loses the response, it queries `/PayResponse` with the same operation ID.
 2. **Fiscalization**: The POS sends `/sign` with charge items and the pay items from step 1. The Middleware fiscalizes the receipt according to the market rules and returns the receipt response.
 3. **Issuing**: The POS sends `/issue` with the request and response pair. fiskaltrust stores the receipt, returns the document URL, and pushes the receipt to the InStore App, which displays QR code, OK, Print, Email, and SMS. Consumer interactions are logged in the fiskaltrust backend, and the POS can poll the delivered status.
 
-The InStore App never communicates with the POS directly. All communication runs through the fiskaltrust backend, and the `cbTerminalID` determines which device reacts. The architecture diagrams in the [Development Kit](https://github.com/fiskaltrust/possystemapi-devkit/blob/main/README.MD) illustrate the mobile-ordering and customer-display deployments.
+The InStore App never communicates with the POS directly. All communication runs through the fiskaltrust backend, and the terminal ID determines which device reacts.
 
 **Q: How can an existing integration be extended to support the InStore App?**
 
