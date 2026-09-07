@@ -46,11 +46,20 @@ The registration steps are the same for both the Live and Sandbox Portals:
 
 After completing portal registration, you are prompted to select your role. Select **PosCreator** and sign the cooperation agreement by entering your name in the input field provided. If you also act as a PosDealer, select that role as well.
 
-Registering in the Live **fiskaltrust.Portal** and digitally signing the cooperation agreement entitles you to free support for setup and onboarding questions. For assistance, contact our Support Team at the address for your country:
+Registering in the Live **fiskaltrust.Portal** and digitally signing the cooperation agreement entitles you to free support for setup and onboarding questions.
 
-| Country | Support |
-| --- | --- |
-| Austria | <a href="mailto:support@fiskaltrust.at">support@fiskaltrust.at</a> |
-| France | <a href="mailto:support@fiskaltrust.fr">support@fiskaltrust.fr</a> |
-| Germany | <a href="mailto:support@fiskaltrust.de">support@fiskaltrust.de</a> |
-| Other markets | <a href="mailto:support@fiskaltrust.eu">support@fiskaltrust.eu</a> |
+## Getting Support
+
+fiskaltrust provides support per market, through the local Customer Success Team for each country where fiskaltrust operates. There is no central international support address.
+
+To find the support contact for your country:
+
+1. Open the [fiskaltrust contact page](https://fiskaltrust.eu/en-eu/contact/).
+2. Select your market from the country selector in the top-right corner. It shows **European Union** by default.
+3. Use the address listed under **Get Support** on your market's page.
+
+:::note
+Support is tied to the portal contract you signed. You are eligible for support in the role you registered for in the Live Portal — as a PosCreator, as a PosDealer, or both.
+:::
+
+For a broader overview of support channels, response handling and what to include in a support request, see [Contacting support](../../posdealers/information-sources/contacting-support.md).
