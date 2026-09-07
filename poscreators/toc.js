@@ -464,6 +464,7 @@ module.exports = [
         },
         "poscreators/middleware-doc/instore-app/printer-guide/printer",
         "poscreators/middleware-doc/instore-app/multiterminal-settings/multiterminal",
+        "poscreators/middleware-doc/instore-app/faq/faq",
       ],
     },
   ],
