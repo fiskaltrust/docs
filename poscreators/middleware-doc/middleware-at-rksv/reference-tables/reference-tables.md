@@ -1,7 +1,6 @@
 ---
 slug: /poscreators/middleware-doc/austria/reference-tables
-title: Reference tables v2
-title: Reference tables v2
+title: Reference tables
 ---
 
 # Reference tables
