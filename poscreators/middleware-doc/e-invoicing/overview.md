@@ -10,7 +10,7 @@ This page describes how eInvoicing works across fiskaltrust markets from a PosCr
 For the product-level concept — structured invoices, Peppol, e-Delivery — see [Delivery (`/issue` Endpoint)](../experience-middleware/delivery.md). This page is the integration-focused companion to it.
 
 :::info One integration, many markets
-eInvoicing is produced and delivered through the `/sign` and `/issue` calls your POS already uses — **same account, same fiskaltrust.Middleware, same credentials**. It is enabled by **configuration** per market, not by a new integration. Where a market is live via the API, the new behaviour is additive inside calls you already make.
+eInvoicing is produced and delivered through the `/sign` and `/issue` calls your POS already uses — **same account, same fiskaltrust.Middleware, same credentials**. It is enabled by **configuration** per market, not by a new integration. Where a market is live via the API, the new behaviour is additive inside calls you already make. Producing a valid eInvoice is new behaviour enabled by configuration; **fiscalizing a receipt does not by itself make it a valid eInvoice**.
 :::
 
 ## The shared model
