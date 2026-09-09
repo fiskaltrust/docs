@@ -19,7 +19,7 @@ The sign function meets the RKSV requirements when the fiskaltrust.SecurityMecha
 
 ### Journal Function
 
-A list with possible values for the request parameter ftJournalType for the Austrian market is provided in the reference table ["Type of Journal: ftJournalType (AT - RKSVO)"](../reference-tables/reference-tables.md#type-of-journal-ftjournaltype).
+A list with possible values for the request parameter ftJournalType for the Austrian market is provided in the reference table ["Type of Journal: ftJournalType (AT - RKSVO)"](../reference-tables/type-of-journal-ftjournaltype.md).
 
 ## RKSV-DEP Export
 
