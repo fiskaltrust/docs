@@ -11,8 +11,8 @@ The Portal is compatible with standard Internet browsers. However, if certain co
 
 There are two separate instances of the fiskaltrust.Portal:
 
-- Live: [https://portal.fiskaltrust.de](https://portal.fiskaltrust.de/) - Production environment
-- Sandbox: [https://portal-sandbox.fiskaltrust.de](https://portal-sandbox.fiskaltrust.de/) - Testing and development environment
+- [Live](https://portal.fiskaltrust.de/) - Production environment
+- [Sandbox](https://portal-sandbox.fiskaltrust.de/) - Testing and development environment
 
 **Important Notes:**
 

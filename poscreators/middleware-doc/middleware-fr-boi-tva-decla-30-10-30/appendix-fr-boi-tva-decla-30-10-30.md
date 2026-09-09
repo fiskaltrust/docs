@@ -21,7 +21,7 @@ The technical specification of the data interface described in this document pro
 5. Types of communication with fiskaltrust.Service
 6. Operating category
 
-The interface specification is provided by fiskaltrust.Interface NuGet package, which can be found at https://www.nuget.org/packages/fiskaltrust.interface.
+The interface specification is provided by the [fiskaltrust.Interface NuGet package](https://www.nuget.org/packages/fiskaltrust.interface).
 
 :::info Upgrading to PosSystem API (v2)
 
