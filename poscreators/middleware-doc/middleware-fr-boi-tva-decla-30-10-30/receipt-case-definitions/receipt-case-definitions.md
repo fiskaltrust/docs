@@ -19,12 +19,6 @@ An agency business can be displayed with the ftChargeItemCase (`0x46520000000000
 
 ## Delivery Note
 
-## Returns and cancellations
-
-A return, a cancellation or any other negative sale is a business transaction in its own right, and a receipt must be produced for it and handed to the customer. Issuing the receipt is mandatory; printing it is not the only acceptable form, and an electronic receipt satisfies the obligation in the same way as a printed one.
-
-Treating a return as a silent correction of the original transaction is not sufficient, because the original receipt has already been issued and recorded.
-
 ## Tips
 
 Tips are defined in the [General part](../../general/receipt-case-definitions/receipt-case-definitions.md#tips)

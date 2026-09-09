@@ -79,6 +79,14 @@ A start that fails immediately with `Error launching service, retry in 15s with 
 
 **An incompatible Mono version.** Mono 6.10 changed how the base directory is determined in a service context (`mono-service`). Version 1 of the launcher is not compatible with that change, so on Mono you need **6.8 or older**. Binaries are available from the [Mono project](https://www.mono-project.com/docs/getting-started/install/linux/). Under .NET Framework 4.8 on Windows the issue does not occur.
 
+## The instance runs but returns no signatures
+
+A cloud CashBox that answers requests but returns an empty `ftSignatures` collection has not had its signature creation unit activated yet. The signature chain only becomes operational once the point-of-sale system has been put into operation.
+
+Send a start receipt. That activates the point-of-sale system and, with it, the SCU, and signatures are returned from then on.
+
+For a local installation the equivalent prerequisites are that the CashBox exists in the fiskaltrust.Portal, that a queue and an SCU have been created and the SCU assigned to the queue, that the configuration has been [rebuilt](../middleware/cashbox.md#rebuilding), and that the installation scripts were run with administrative rights before the point-of-sale system was restarted.
+
 ## SQLite database problems
 
 The standard on-premise installation stores its queue data in a SQLite database under `C:\ProgramData\fiskaltrust\service`, named after the queue it belongs to: `[00000000-0000-0000-0000-000000000000].sqlite`. If several queues run on one machine, there is one database per queue. The queue ID is printed in the console output at startup and can be looked up in the fiskaltrust.Portal.

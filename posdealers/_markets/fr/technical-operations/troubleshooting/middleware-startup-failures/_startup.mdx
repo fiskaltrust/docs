@@ -1,13 +1,4 @@
 
-#### Empty `ftSignatures` in the ChaîneCloud sandbox
-
-If the `Sign` function returns a response whose `ftSignatures` are empty, the SCU has not been activated yet. The signature chain only becomes operational once the point-of-sale system has been put into operation.
-
-Send a start receipt to activate the point-of-sale system, and with it the SCU. Signatures are returned from that point onwards.
-
-For a local ChaîneLocale the equivalent prerequisites are that the CashBox exists in the fiskaltrust.Portal, that an SCU and a queue have been created and the SCU assigned to the queue, that the configuration has been rebuilt, and that the installation scripts were run with administrative rights before the point-of-sale system was restarted.
-
-
 #### `PopulateFtJournalFRCopyPayloadTable did not return correct number of copyreceipts`
 
 The full message reads `Exception-PopulateFtJournalFRCopyPayloadTable did not return correct number of copyreceipts. correct XXXX, actual 0`.
