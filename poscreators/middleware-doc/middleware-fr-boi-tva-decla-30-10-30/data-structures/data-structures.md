@@ -154,7 +154,7 @@ All SignatureItems Data and Caption returned to the POS system must be printed o
 :::
 
 The signature excerpt (ftSignatureType 0x4652000000000008) is only mandatory for NF525 compliance, and the caption "-----" must not be printed. It consists of four characters extracted from the JWT signature part, following the NF525 specification (characters 3, 7, 13, and 19).
-NF525 requires that the signature excerpt must to be printed after the product number shown on the NF525 certificate.
+NF525 requires that the signature excerpt must be printed after the product number shown on the NF525 certificate.
 
 Example with signature excerpt "Wxi2" and product number "1234": `(NF525) B 1234 Wxi2 HAPPYPOS v1.1`.
 
