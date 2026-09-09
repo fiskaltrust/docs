@@ -9,8 +9,4 @@ The Middleware uses the same ftSignatureFormat in Greece as in all other countri
 
 ## ftSignatureFormatFlag
 
-| **Value** | **Description** | **Middleware Version** | 
-| --------- | --------------- | -----------------------|
-| TBD | TBD | TBD |
-
-*Table 1. ftSignatureFormatFlag values for the Greek market.*
+Greece does not currently define additional signature-format flags beyond the shared set described in the Compliance Middleware reference table above. In practice, the Greek implementation uses `Text`, `Link`, and `QRCode` from that shared set.

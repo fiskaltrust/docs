@@ -31,3 +31,6 @@ https://www\.bundesfinanzministerium\.de/Content/DE/Downloads/BMF_Schreiben/Weit
 https?://www\.fiskaltrust\.at/rechtsgrundlagen.*
 https?://www\.fiskaltrust\.at/products/.*
 https?://www\.fiskaltrust\.at/news/.*
+
+https?://(www\.)?meinfiskal\.de
+https?://(www\.)?aade\.gr/.*
