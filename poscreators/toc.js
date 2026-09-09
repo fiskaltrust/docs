@@ -91,7 +91,7 @@ module.exports = [
                   "poscreators/middleware-doc/middleware-at-rksv/reference-tables/type-of-receipt-ftreceiptcase",
                   "poscreators/middleware-doc/middleware-at-rksv/reference-tables/type-of-service-ftchargeitemcase",
                   "poscreators/middleware-doc/middleware-at-rksv/reference-tables/type-of-payment-ftpayitemcase",
-                  "poscreators/middleware-doc/middleware-at-rksv/reference-tables/type-of-signature-ftsignaturetype",
+                  "poscreators/middleware-doc/middleware-at-rksv/reference-tables/type-of-signature-ftsignatureformat",
                   "poscreators/middleware-doc/middleware-at-rksv/reference-tables/type-of-journal-ftjournaltype",
                 ],
               },
