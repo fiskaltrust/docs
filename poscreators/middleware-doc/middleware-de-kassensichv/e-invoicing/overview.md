@@ -62,9 +62,7 @@ Same shape as your existing fiscalization flow, with one added step.
 | 2. Issue for delivery (optional) | Call `/issue` to deliver the document to a recipient — for example over Peppol, email, or print. |
 | 3. Poll for status | Poll `/issue` for the delivery status until it reports **delivered**. No webhook. |
 
-:::caution Endpoint details pending final sign-off
-The overall flow is confirmed, but the exact delivery-target parameter on `/issue` is being finalised with product. Confirm it before scoping a go-live date.
-:::
+See [Set up and test eInvoicing (Germany)](./setup.md#end-to-end-example) for a runnable end-to-end example.
 
 ## Terminology
 

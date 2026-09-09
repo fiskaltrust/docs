@@ -42,17 +42,9 @@ Validate the end-to-end flow against a sandbox-scoped fiskaltrust.Middleware —
 Validate test documents against the **XRechnung specification**, not only EN 16931 — XRechnung adds **200+ national rules** of its own. A document can be EN 16931-valid and still fail XRechnung validation.
 :::
 
-:::caution Draft — sandbox specifics to be confirmed
-eInvoicing-specific sandbox provisioning (and any starter guide or sample keys) is being verified. Confirm the exact provisioning path and any eInvoicing sample collection before publishing.
-:::
-
 ### End-to-end example
 
-:::caution Illustrative — endpoint names pending final sign-off
-The **flow below is confirmed**, but the exact delivery-target parameter on `/issue` and the Germany-specific case codes are pending final sign-off with product. Treat every value marked `TBC` as a placeholder — confirm before building against it.
-:::
-
-The API is request/response and **idempotent — there is no status webhook**. Each call returns its result synchronously in the response body; a retry reuses the same `x-operation-id` and returns the original result. Every request carries the standard headers (base URL comes from your sandbox provisioning; see the [POS System API reference](https://docs.fiskaltrust.cloud/apis/pos-system-api) for full schemas):
+Run it against the sandbox at `https://possystem-api-sandbox.fiskaltrust.eu/v2`. The API is request/response and **idempotent — there is no status webhook**; a retry reuses the same `x-operation-id` and returns the original result. Every request carries the standard headers:
 
 ```
 x-cashbox-id: <sandbox fiskaltrust.Middleware ID>
@@ -61,16 +53,16 @@ x-possystem-id: <registered POS system ID>
 x-operation-id: <fresh UUID per operation>
 ```
 
-**Step 1 — Sign (`/sign`)**
+**Step 1 — Sign (`/sign`)** — produces the eInvoice
 
-Call `/sign` as you do today, including the buyer's master data. The response now **also carries the EN 16931 document** (XRechnung or ZUGFeRD, per your fiskaltrust.Middleware configuration).
+Call `/sign` as you do today, with the buyer's master data, using the **B2B invoice** receipt case. The response carries the fiscalized receipt and the EN 16931 document (XRechnung or ZUGFeRD, per your fiskaltrust.Middleware configuration).
 
 ```json
-// POST {POS_SYSTEM_API}/sign
+// POST https://possystem-api-sandbox.fiskaltrust.eu/v2/sign
 {
+  "ftReceiptCase": 35184372092930,
   "cbReceiptReference": "DE-EINV-SANDBOX-0001",
-  "cbReceiptMoment": "2027-01-01T10:00:00.000Z",
-  "ftReceiptCase": "<B2B eInvoice case — DE value TBC>",
+  "cbReceiptMoment": "2027-01-01T10:00:00Z",
   "cbCustomer": {
     "CustomerVATId": "DE123456789",
     "CustomerName": "Beispiel GmbH",
@@ -80,47 +72,37 @@ Call `/sign` as you do today, including the buyer's master data. The response no
     "CustomerCountry": "DE"
   },
   "cbChargeItems": [
-    {
-      "Quantity": 1,
-      "Description": "Consulting services",
-      "Amount": 1190.00,
-      "VATRate": 19.0,
-      "ftChargeItemCase": "<standard-rate case — DE value TBC>"
-    }
+    { "Quantity": 1, "Description": "Consulting services", "Amount": 1190.00, "VATRate": 19, "ftChargeItemCase": 35184372088851 }
   ],
   "cbPayItems": [
-    {
-      "Quantity": 1,
-      "Description": "Bank transfer",
-      "Amount": 1190.00,
-      "ftPayItemCase": "<non-cash case — DE value TBC>"
-    }
+    { "Description": "Bank transfer", "Amount": 1190.00, "ftPayItemCase": 35184372088842 }
   ]
 }
 ```
 
-The output format (XRechnung / ZUGFeRD) comes from the fiskaltrust.Middleware configuration, not this payload — see [Enable eInvoicing in the Portal](#enable-eInvoicing-in-the-portal). For B2G buyers, include the buyer's **Leitweg-ID** in the invoice data.
+> **Try it:** [developer.fiskaltrust.eu → DE → sign → B2BInvoice](https://developer.fiskaltrust.eu/#/pos-system/DE?endpoint=sign&businesscase=SignRequestReceipt_B2BInvoice_1). The output format (XRechnung / ZUGFeRD) comes from the fiskaltrust.Middleware configuration, not this payload — see [Enable eInvoicing in the Portal](#enable-einvoicing-in-the-portal). For B2G buyers, include the buyer's **Leitweg-ID**.
 
-**Step 2 — Issue for delivery (`/issue`)**
+**Step 2 — Issue (`/issue`)** — optional, register for delivery
 
-Call `/issue` with the network delivery target — the one new parameter. This routes the document to the buyer over Peppol.
+To make the receipt available for delivery, call `/issue` with the **original `/sign` request and its response** (`ReceiptRequest` + `ReceiptResponse`). The response returns the `ftQueueID` / `ftQueueItemID` used by the delivery and status calls.
 
 ```json
-// POST {POS_SYSTEM_API}/issue
+// POST https://possystem-api-sandbox.fiskaltrust.eu/v2/issue
 {
-  "cbReceiptReference": "DE-EINV-SANDBOX-0001",
-  "ftReceiptCase": "<same B2B eInvoice case as Step 1>",
-  "ftReceiptCaseData": {
-    "DE": {
-      "<delivery-target-field — TBC>": "peppol"
-    }
-  }
+  "ReceiptRequest":  { "...": "the /sign request from Step 1" },
+  "ReceiptResponse": { "...": "the /sign response from Step 1" }
 }
 ```
 
-**Step 3 — Poll for status**
+**Step 3 — Deliver to a channel** — optional
 
-Call `/issue` status until it reports **delivered**. Replay with the same `x-operation-id` to re-check — the API returns the same result. There is **no callback or status webhook**.
+Deliver the document with `PUT /issue/{ftQueueID}/{ftQueueItemID}`, choosing a delivery method: `IssueUpdateSend` (email/SMS), `IssueUpdatePrint`, `IssueUpdateDownload`, `IssueUpdateUpload`, or `IssueUpdateLink`. Peppol delivery uses one of the upload/send methods — confirm the exact one for Peppol with product.
+
+**Step 4 — Check delivery status**
+
+Poll `GET /issue/{ftQueueID}/{ftQueueItemID}/delivered` to check whether the document was delivered. There is **no callback or webhook**.
+
+See the [POS System API reference](https://docs.fiskaltrust.cloud/apis/pos-system-api) for the full `/issue` request/response schemas.
 
 ## Related pages
 
