@@ -25,7 +25,7 @@ In Germany, e-invoicing is produced and delivered through the `/sign` and `/issu
 | Formats | **XRechnung** (UBL 2.1) or **ZUGFeRD / Factur-X** (hybrid PDF/A-3 with CII) — both EN 16931 profiles. |
 
 :::warning Receiving is already mandatory
-Since **1 January 2025**, every German business must be able to **receive** e-invoices. Issuing is phased in — from **1 January 2027** for prior-year turnover above €800,000, and from **1 January 2028** for everyone else. Penalties run up to €5,000.
+Since **1 January 2025**, every German business must be able to **receive** eInvoices. Issuing is phased in — from **1 January 2027** for prior-year turnover above €800,000, and from **1 January 2028** for everyone else. Penalties run up to €5,000.
 :::
 
 ## Integration impact
