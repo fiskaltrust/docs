@@ -11,9 +11,10 @@ This appendix expands on the General Part's information by adding details specif
 
 Greek fiscalization runs through **myDATA** (*my Digital Accounting and Tax Application*), the platform of the Greek tax authority **AADE**. Every invoice and receipt is transmitted to myDATA, which validates it, registers it, and returns a unique registration number — the **MARK**.
 
-Two consequences shape an integration in Greece:
+The following points shape an integration in Greece:
 
-- **There is no fiscal device.** Unlike Germany or Austria, no signature card, box, or TSE is involved. The Signature Creation Unit is a connector to the myDATA REST API, so fiscalization depends on an online call to AADE rather than on local hardware.
+- **Two issuance models coexist in Greece.** Retail has traditionally used hardware fiscal devices (ΦΗΜ — fiscal printers / tax mechanisms), which remain in use and must interconnect with POS card terminals. On top of this, myDATA is the mandatory reporting layer: whether a document originates from a hardware fiscal printer or from a software solution, it is transmitted to AADE and stamped with a MARK.
+- **The fiskaltrust Middleware follows the software model.** Our Signature Creation Unit is a connector to the myDATA REST API — no signature card, box, or TSE is involved, unlike Germany or Austria. Fiscalization therefore depends on an online call to AADE rather than on local hardware. See [Cash Register Integration](cash-register-integration/cash-register-integration.md) for how this relates to fiscal printers and the POS-interconnection mandate.
 - **Every document has a type and, where no VAT is charged, a reason.** myDATA expects a document type (a sales invoice, a retail receipt, a delivery note, and so on) and, on lines without VAT, the legal ground for the exemption. Both are derived from the tagging system described in the [Reference Tables](reference-tables/reference-tables.md).
 
 ## Where to start
