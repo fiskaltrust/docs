@@ -1,4 +1,24 @@
 
-## country-specific details in progress
+## Where fiskaltrust stores French data
 
----
+Configurations created with services ending in `fiskaltrust.fr` are processed in **Azure France-Central**, and the customer-related mass data belonging to them is stored there as well.
+
+### Categories of data
+
+| Category | Examples |
+| -------- | -------- |
+| Customer data | Name, address, contact details, VAT identification number and orders of PosCreators, PosDealers and PosOperators |
+| Configuration and state data | ClientId, queue state |
+| Mass data | `ReceiptRequest` and `ReceiptResponse` |
+| Revision-secured mass data | Archives |
+| Revision-secured general customer data | Invoices, contracts, and anything else stored manually against the customer record |
+
+*Table 1. Categories of data processed for the French market.*
+
+### Processing and storage
+
+Customer data is held in a separate Dynamics 365 instance per country, in the EMEA region. General workloads are processed in Western Europe; CPU-intensive workloads run in Northern Europe and in the Austrian data centre.
+
+The French exception to that pattern is the important one: **every service ending in `fiskaltrust.fr` is processed with Azure France-Central**, and the customer-related mass data for configurations created through those services stays in Azure France-Central.
+
+Across the group, processing takes place in Azure West Europe, Azure Germany West Central, Azure France Central, the [Equinix data centre in Amsterdam](https://www.equinix.com/data-centers/europe-colocation/netherlands-colocation/amsterdam-data-centers) and the [RRZ data centre in Raaba near Graz](https://www.rrz.co.at/).

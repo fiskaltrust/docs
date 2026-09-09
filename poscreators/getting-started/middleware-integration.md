@@ -170,6 +170,16 @@ After the Postman collection loads, it must still be configured to send requests
 
 Once both variables are configured, click `Update` to save your changes.
 
+##### Pointing the collection at a cloud CashBox
+
+The same collection can be used against a cloud CashBox instead of a local Middleware, which is a practical way to compare the two before deciding which one to deploy. For the French ChaîneCloud in the sandbox, set the variables as follows.
+
+- **base_url** — `https://signaturcloud-sandbox.fiskaltrust.fr`
+- **cashbox_id** — the CashBoxId of the cloud CashBox
+- **access_token** — the access token of that CashBox
+
+Save the values with `Update`. Then, on each request you send — `Echo` is the simplest one to start with — add `cashboxid` and `accesstoken` as **headers**. A local Middleware is addressed by its endpoint URL alone, whereas the cloud service identifies the CashBox from these two headers, so they are required on every call.
+
 #### 3.1.2 Send a request with the initial operation receipt
 
 In our Postman collection, locate an entry with the name `Initial Operation Receipt`.  Click on it and select the `Body` tab to view its contents. You can now send the request by clicking `Send`. The request will be sent to the local Middleware, and the response will be displayed in Postman. You can view the corresponding log messages in the terminal. The ft.SecurityMechanism of the Middleware and the TSE are now initialized and ready to process further requests.

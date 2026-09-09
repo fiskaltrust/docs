@@ -1,0 +1,22 @@
+
+#### Empty `ftSignatures` in the ChaîneCloud sandbox
+
+If the `Sign` function returns a response whose `ftSignatures` are empty, the SCU has not been activated yet. The signature chain only becomes operational once the point-of-sale system has been put into operation.
+
+Send a start receipt to activate the point-of-sale system, and with it the SCU. Signatures are returned from that point onwards.
+
+For a local ChaîneLocale the equivalent prerequisites are that the CashBox exists in the fiskaltrust.Portal, that an SCU and a queue have been created and the SCU assigned to the queue, that the configuration has been rebuilt, and that the installation scripts were run with administrative rights before the point-of-sale system was restarted.
+
+
+#### `PopulateFtJournalFRCopyPayloadTable did not return correct number of copyreceipts`
+
+The full message reads `Exception-PopulateFtJournalFRCopyPayloadTable did not return correct number of copyreceipts. correct XXXX, actual 0`.
+
+The `ftJournalFRCopyPayload` table speeds up the processing of copy receipts, and it is filled from the copy receipts already present in the database when the queue starts. The queue compares the number of rows it wrote against the `CNumerator` value from its configuration, and refuses to start if the two disagree.
+
+The mismatch appears when a queue is started against a database that does not hold the history the configuration expects — typically when a queue configured elsewhere is started on a different machine, or after the local database has been deleted. The configuration still carries a `CNumerator` from the original installation, while the fresh database contains no journal entries at all, so the count comes out as zero.
+
+Either of the following resolves it.
+
+* Delete the local `.sqlite` file of the queue and set `CNumerator` to `0` in the downloaded configuration under `C:\ProgramData\fiskaltrust\service\Configuration-<cashboxid>.json`.
+* If the original database is available, copy it into the service directory, so that the journal entries match the `CNumerator` the configuration expects.
