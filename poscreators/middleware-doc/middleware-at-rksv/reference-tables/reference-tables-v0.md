@@ -1,5 +1,5 @@
 ---
-slug: /poscreators/middleware-doc/austria/reference-tables
+slug: /poscreators/middleware-doc/austria/reference-tables-v0
 title: Reference Tables v0
 ---
 
