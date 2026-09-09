@@ -30,7 +30,7 @@ Since **1 January 2025**, every German business must be able to **receive** e-in
 
 ## Integration impact
 
-The connection, authentication, and endpoint surface are **unchanged**. E-invoicing is **additive** — the new behaviour is layered inside the `/sign` and `/issue` calls you already make, with no new endpoints, request headers, or credentials.
+The connection, authentication, and endpoint surface are **unchanged**. eInvoicing is **additive** — the new behaviour is layered inside the `/sign` and `/issue` calls you already make, with no new endpoints, request headers, or credentials.
 
 ### Unchanged interfaces
 
