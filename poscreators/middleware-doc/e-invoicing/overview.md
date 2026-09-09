@@ -1,27 +1,27 @@
 ---
 slug: /poscreators/middleware-doc/e-invoicing/overview
-title: E-Invoicing
+title: eInvoicing
 ---
 
-# E-Invoicing — Overview
+# eInvoicing — Overview
 
-This page describes how e-invoicing works across fiskaltrust markets from a PosCreator's perspective: the **shared integration model** that every market follows, and what changes from one market to the next. For a specific market, follow its country page (see [Availability by market](#availability-by-market)).
+This page describes how eInvoicing works across fiskaltrust markets from a PosCreator's perspective: the **shared integration model** that every market follows, and what changes from one market to the next. For a specific market, follow its country page (see [Availability by market](#availability-by-market)).
 
 For the product-level concept — structured invoices, Peppol, e-Delivery — see [Delivery (`/issue` Endpoint)](../experience-middleware/delivery.md). This page is the integration-focused companion to it.
 
 :::info One integration, many markets
-E-invoicing is produced and delivered through the `/sign` and `/issue` calls your POS already uses — **same account, same CashBox, same credentials**. It is enabled by **configuration** per market, not by a new integration. Where a market is live via the API, the new behaviour is additive inside calls you already make.
+eInvoicing is produced and delivered through the `/sign` and `/issue` calls your POS already uses — **same account, same fiskaltrust.Middleware, same credentials**. It is enabled by **configuration** per market, not by a new integration. Where a market is live via the API, the new behaviour is additive inside calls you already make.
 :::
 
 ## The shared model
 
-Across markets, e-invoicing is layered onto the existing fiscalization flow through three endpoints you already have:
+Across markets, eInvoicing is layered onto the existing fiscalization flow through three endpoints you already have:
 
-| Element | Role in e-invoicing |
+| Element | Role in eInvoicing |
 | --- | --- |
-| `/sign` | Produces the structured e-invoice document (an EN 16931 profile, or a national schema) **alongside** the existing fiscalized receipt. |
-| `/issue` | Delivers the document to the market's network or target, and returns the delivery/clearance status. |
-| `/journal` | Holds the e-invoice archive copy. No separate archive call to add. |
+| `/sign` | Produces the structured eInvoice document (an EN 16931 profile, or a national schema) **alongside** the existing fiscalized receipt. |
+| `/issue` | **Optional.** Registers the receipt (`ReceiptRequest` + `ReceiptResponse`) and delivers it to a recipient — a channel such as email/SMS, print, download, or a network. |
+| `/journal` | Exports the operation data you sent, for audit and closings. It does **not** archive the eInvoice — revision-safe archiving is a separate concern. |
 
 The connection, authentication, and endpoint surface do **not** change — no new endpoints, request headers, or credentials.
 
@@ -35,10 +35,9 @@ Where the API path is available, the flow is the same shape everywhere — your 
 
 | Step | What happens |
 | --- | --- |
-| 1. Sign | Call `/sign` as you do today. The response also carries the e-invoice document. |
-| 2. Issue for delivery | Call `/issue` with the market's delivery target — the one new parameter. |
-| 3. Poll for status | Call `/issue` status until it reports delivered / cleared. No webhook. |
-| 4. Archive | Already handled — the document sits in `/journal`. |
+| 1. Sign | Call `/sign` as you do today. The response also carries the eInvoice document. |
+| 2. Issue for delivery (optional) | Register the receipt via `/issue`, then deliver it to a channel. |
+| 3. Poll for status | Poll `GET /issue/{QueueId}/{QueueItemId}/delivered` until delivered / cleared. No webhook. |
 
 ## What varies by market
 
@@ -50,7 +49,7 @@ The model is constant; the specifics are market-driven:
 - **Availability** — some markets are live via the API, one runs through the Portal / InStore App, and one is a build in progress.
 - **Signatures & identifiers** — e.g. an XAdES signature (Italy) or routing identifiers (Leitweg-ID, CodiceDestinatario, KSeF number).
 
-Exact case codes, delivery-target parameters, and go-live status live on each **country page** and may be marked `TBC` until confirmed with product.
+Exact case codes, delivery targets, and go-live status live on each **country page**.
 
 ## Availability by market
 
@@ -68,14 +67,25 @@ Each market's **Overview** and **Setup & testing** pages live under its entry in
 
 | Requirement | Detail |
 | --- | --- |
-| fiskaltrust account + CashBox | An active account with a configured CashBox. See [Portal registration](../../getting-started/portal-registration.md). |
+| fiskaltrust account + fiskaltrust.Middleware | An active account with a configured fiskaltrust.Middleware. See [Portal registration](../../getting-started/portal-registration.md). |
 | Existing fiscalization integration | Your POS already fiscalizes via `/sign` in the target market. |
-| CashBox country configuration | Set to the market's locale — this drives the output format. |
-| PosSystem API (v2) | E-invoicing is exposed through the **PosSystem API (v2)**. If you are on the v0 interface, plan your [migration](../possystem-api/migration-guide.md) first. |
-| Sandbox validation | Run one document end to end against a sandbox CashBox before the first live document. |
+| fiskaltrust.Middleware country configuration | Set to the market's locale — this drives the output format. |
+| PosSystem API (v2) | eInvoicing is exposed through the **PosSystem API (v2)**. If you are on the v0 interface, plan your [migration](../possystem-api/migration-guide.md) first. |
+| Sandbox validation | Run one document end to end against a sandbox fiskaltrust.Middleware before the first live document. |
+
+## Terminology
+
+| Term | Meaning |
+| --- | --- |
+| **EN 16931** | The European semantic standard the national eInvoice formats are profiles of. |
+| **Peppol** | A network eInvoices can be delivered over; fiskaltrust holds the access point. |
+| **Receive mandate** | The date from which a business must be able to accept an incoming eInvoice. |
+| **Issue mandate** | The date from which a business must send its invoices as eInvoices. |
+
+Market-specific terms (XRechnung, ZUGFeRD, FatturaPA, XAdES, SDI, `CodiceDestinatario`, KSeF, Leitweg-ID, …) are defined on each country page.
 
 ## Related pages
 
-- [Delivery (`/issue` Endpoint)](../experience-middleware/delivery.md) — the product-level e-invoicing and e-Delivery concept.
-- [Migrating from API v0 to PosSystem API (v2)](../possystem-api/migration-guide.md) — e-invoicing is a PosSystem API (v2) feature.
+- [Delivery (`/issue` Endpoint)](../experience-middleware/delivery.md) — the product-level eInvoicing and e-Delivery concept.
+- [Migrating from API v0 to PosSystem API (v2)](../possystem-api/migration-guide.md) — eInvoicing is a PosSystem API (v2) feature.
 - Country pages — see [Availability by market](#availability-by-market).
