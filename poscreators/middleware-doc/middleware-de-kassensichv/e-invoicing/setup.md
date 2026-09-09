@@ -94,6 +94,8 @@ To make the receipt available for delivery, call `/issue` with the **original `/
 }
 ```
 
+> **Try it:** [developer.fiskaltrust.eu → DE → issue](https://developer.fiskaltrust.eu/#/pos-system/DE?endpoint=issue).
+
 **Step 3 — Deliver to a channel** — optional
 
 Deliver the document with `PUT /issue/{ftQueueID}/{ftQueueItemID}`, choosing a delivery method: `IssueUpdateSend` (email/SMS), `IssueUpdatePrint`, `IssueUpdateDownload`, `IssueUpdateUpload`, or `IssueUpdateLink`. Peppol delivery uses one of the upload/send methods — confirm the exact one for Peppol with product.
