@@ -21,7 +21,7 @@ The certificate number assigned by the AT (`3535`) is part of every fiscal docum
 - in field `R` of the QR code (`R:3535`, *Portaria n.º 195/2020*), and
 - in the `SoftwareCertificateNumber` element of the SAF-T (PT) header.
 
-PosCreators must print these values exactly as returned by the Middleware and must not replace them with their own values.
+PosCreators must print these values exactly as returned by the Middleware and must not replace them with their own values. See [Receipt Printing](../receipt-printing/receipt-printing.md) for all mandatory elements of the printed document.
 
 :::
 
