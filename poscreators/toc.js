@@ -385,6 +385,16 @@ module.exports = [
         items: [
           "poscreators/middleware-doc/middleware-pt/appendix-pt",
           "poscreators/middleware-doc/middleware-pt/certification/certification",
+          {
+            type: "category",
+            label: "Going to Market",
+            key: "pt-going-to-market",
+            items: [
+              "poscreators/middleware-doc/middleware-pt/going-to-market/going-to-market",
+              "poscreators/middleware-doc/middleware-pt/going-to-market/route-1-fiskaltrust-certificate",
+              "poscreators/middleware-doc/middleware-pt/going-to-market/route-2-own-certificate",
+            ],
+          },
           "poscreators/middleware-doc/middleware-pt/terminology/terminology",
           "poscreators/middleware-doc/middleware-pt/cash-register-integration/cash-register-integration",
           "poscreators/middleware-doc/middleware-pt/receipt-printing/receipt-printing",
