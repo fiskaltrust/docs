@@ -11,14 +11,14 @@ The official list of certified programs is published by the AT and can be consul
 
 **[Consulta de programas certificados (Modelo 24) – Portal das Finanças](https://www.portaldasfinancas.gov.pt/pt/consultaProgCertificadosM24.action)**
 
-The entry is registered by *FISKALTRUST CONSULTING GMBH - Sucursal em Portugal* (NIF 980833310). The product is identified in the SAF-T (PT) header as `fiskaltrust.CloudCashBox/FISKALTRUST CONSULTING GMBH - Sucursal em Portugal`, product version `2.0`.
+The fiskaltrust.CloudCashBox is certified under **certificate number 3535**. The entry is registered by *FISKALTRUST CONSULTING GMBH - Sucursal em Portugal* (NIF 980833310). The product is identified in the SAF-T (PT) header as `fiskaltrust.CloudCashBox/FISKALTRUST CONSULTING GMBH - Sucursal em Portugal`, product version `2.0`.
 
 :::info Where the certificate number appears
 
-The certificate number assigned by the AT is part of every fiscal document the Middleware produces:
+The certificate number assigned by the AT (`3535`) is part of every fiscal document the Middleware produces:
 
-- in the mandatory print line `<4 hash characters> - Processado por programa certificado n.º <number>/AT` (returned as a signature item),
-- in field `R` of the QR code (*Portaria n.º 195/2020*), and
+- in the mandatory print line `<4 hash characters> - Processado por programa certificado n.º 3535/AT` (returned as a signature item),
+- in field `R` of the QR code (`R:3535`, *Portaria n.º 195/2020*), and
 - in the `SoftwareCertificateNumber` element of the SAF-T (PT) header.
 
 PosCreators must print these values exactly as returned by the Middleware and must not replace them with their own values.
