@@ -12,3 +12,7 @@ This appendix expands on the General Part's information by adding details specif
 Please note that this information is only complete when combined with the **General** part. To implement the Middleware, users should get themselves familiar with the general information first and then refer to the country-specific details listed here.
 
 :::
+
+## Certified invoicing program
+
+The fiskaltrust.Middleware, operated as the fiskaltrust.CloudCashBox, is certified by the Portuguese Tax and Customs Authority (AT) as an invoicing program under certificate number 3535. The [Certification](./certification/certification.md) chapter describes what the certificate covers, which document types are issued, and where the boundaries of the certified scope are. The AT's list of certified programs can be consulted on the [Portal das Finanças](https://www.portaldasfinancas.gov.pt/pt/consultaProgCertificadosM24.action).

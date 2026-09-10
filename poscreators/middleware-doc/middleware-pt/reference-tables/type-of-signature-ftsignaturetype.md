@@ -41,8 +41,18 @@ version 2
 
 #### sss - SignatureCase
 
-| **Value** | **Description** | **Caption** | **Middleware Version** |
-| --------- | --------------- | ----------- | ---------------------- |
-| TBD | TBD | TBD | TBD |
+| **Value** | **Description** | **Caption** |
+| --------- | --------------- | ----------- |
+| `001` | **PosReceipt (QR code)**<br />QR code content according to *Portaria n.º 195/2020*. Format: QR code. The caption contains the URL of the digital receipt. Must be printed. | Digital receipt URL |
+| `010` | **ATCUD**<br />`ATCUD: <validation code>-<number>`. Must be printed on every page. | *(empty)* |
+| `012` | **Hash**<br />Full document hash. Flagged *Do not print*; kept for audit purposes. | `Hash` |
+| `013` | **HashPrint**<br />Reserved for the four hash characters (positions 1, 11, 21, 31). Currently returned as part of `014`. | |
+| `014` | **CertificationNo**<br />`<4 hash characters> - Processado por programa certificado n.º 3535/AT`. Must be printed exactly as returned. | `-----` |
+| `015` | **ReferenceForCreditNote**<br />Reference to the source document: `Referencia: <document>` on invoices created from working documents, and `Razão: Devolução` with caption `Referencia <document>` on credit notes. Must be printed when returned. | *(empty)* or `Referencia <document>` |
+| `016` | **PTAdditional**<br />Additional mandatory texts: `IVA incluido`, `Consumidor final`, `Origem: <document>`, `Este documento não serve de fatura` (working documents), `Cópia do documento original - FTM <series>/<number>` (manual documents). Must be printed when returned. | *(empty)* |
+| `1 001` | **InitialOperationReceipt** (t = 1, flag `0001` archiving required)<br />Returned for the queue-start receipt. | `Initial-operation receipt` |
+| `1 002` | **OutOfOperationReceipt** (t = 1, flag `0001` archiving required)<br />Returned for the queue-stop receipt. | `Out-of-operation receipt` |
 
-*Table 3. SignatureCase (sss) values of ftSignatureType for Portugal (to be defined).*
+*Table 3. SignatureCase (sss) values of ftSignatureType for Portugal.*
+
+See [Receipt Printing](../receipt-printing/receipt-printing.md) for the print requirements of each signature item.
