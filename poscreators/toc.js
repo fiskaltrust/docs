@@ -384,7 +384,6 @@ module.exports = [
         label: "Portugal (PT)",
         items: [
           "poscreators/middleware-doc/middleware-pt/appendix-pt",
-          "poscreators/middleware-doc/middleware-pt/certification/certification",
           {
             type: "category",
             label: "Go-to-Market",
@@ -395,6 +394,7 @@ module.exports = [
               "poscreators/middleware-doc/middleware-pt/go-to-market/route-2-own-certificate",
             ],
           },
+          "poscreators/middleware-doc/middleware-pt/certification/certification",
           "poscreators/middleware-doc/middleware-pt/terminology/terminology",
           "poscreators/middleware-doc/middleware-pt/cash-register-integration/cash-register-integration",
           "poscreators/middleware-doc/middleware-pt/receipt-printing/receipt-printing",
