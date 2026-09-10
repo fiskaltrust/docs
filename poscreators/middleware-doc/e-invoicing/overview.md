@@ -26,7 +26,7 @@ Across markets, eInvoicing is layered onto the existing fiscalization flow throu
 The connection, authentication, and endpoint surface do **not** change — no new endpoints, request headers, or credentials.
 
 :::note Status is polled, not pushed
-The PosSystem API is request/response and idempotent. **There is no status webhook** in any market — you poll `/issue` for delivery/clearance status, reusing the same `x-operation-id` to re-check. This is the one invariant across every market.
+The PosSystem API is request/response and idempotent. **There is no status webhook** in any market — you re-check delivery/clearance status by calling the issue endpoint again (`GET /issue/{queueId}/{queueItemId}`). The `x-operation-id` header is the **idempotency key** that makes retries safe (reused unchanged on a retry, it re-returns the original result instead of re-executing) — it is not itself a status channel. This is the one invariant across every market.
 :::
 
 ## The integration flow
@@ -37,7 +37,11 @@ Where the API path is available, the flow is the same shape everywhere — your 
 | --- | --- |
 | 1. Sign | Call `/sign` as you do today. The response also carries the eInvoice document. |
 | 2. Issue for delivery (optional) | Register the receipt via `/issue`, then deliver it to a channel. |
-| 3. Poll for status | Poll `GET /issue/{QueueId}/{QueueItemId}/delivered` until delivered / cleared. No webhook. |
+| 3. Poll for status | Poll `GET /issue/{queueId}/{queueItemId}` until delivered / cleared. No webhook. |
+
+:::caution TBC
+The exact status sub-resource is not yet finalised: the API also exposes `GET /issue/{queueId}/{queueItemId}/delivered`, currently documented as *"mark as delivered"* rather than a status read. Confirm the polling target before publish.
+:::
 
 ## What varies by market
 
