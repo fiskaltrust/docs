@@ -5,19 +5,25 @@ title: Receipt Printing
 
 # Receipt Printing
 
-In Portugal, the printed or electronically delivered document **is** the fiscal document. The Middleware does not print; it numbers and signs the document and returns everything that must appear on it in the `ftSignatures` of the response. The POS system is responsible for rendering a layout that contains all mandatory elements, or for handing out the digital receipt rendered by fiskaltrust.
+In Portugal, the printed or electronically delivered document **is** the fiscal document, and its layout is part of what the AT certified. The Middleware numbers and signs the document and returns everything that must appear on it, together with print instructions, in the `ftSignatures` of the response. The fiskaltrust.Middleware for Experience renders this into the certified document: a PDF or HTML digital receipt through the receipt service, or an ESC-POS print stream through the `/issue` endpoint.
 
-The requirements below follow *Portaria n.º 363/2010* (art. 6), *Despacho n.º 8632/2014*, and *Portaria n.º 195/2020* (QR code). They were verified during the [certification](../certification/certification.md) of the fiskaltrust.CloudCashBox and apply to every document type the Middleware issues.
+This page describes what that certified rendering contains, so that PosCreators know which elements they will see on the document and which values they must never alter when displaying or reprinting them. The requirements follow *Portaria n.º 363/2010* (art. 6), *Despacho n.º 8632/2014*, and *Portaria n.º 195/2020* (QR code). They were verified during the [certification](../certification/certification.md) of the fiskaltrust.CloudCashBox and apply to every document type the Middleware issues.
 
-:::tip Digital receipt
+:::tip Use the certified document
 
-The QR code signature item carries in its `Caption` the URL of the digital receipt rendered by fiskaltrust (`https://receipts.fiskaltrust.eu/{ftQueueID}/{ftQueueItemID}`, or the `receipts-sandbox` host in the sandbox). This rendering already contains all mandatory elements, including copy and void markers. PosCreators who print their own layout must follow the rules on this page.
+The QR code signature item carries in its `Caption` the URL of the digital receipt rendered by fiskaltrust (`https://receipts.fiskaltrust.eu/{ftQueueID}/{ftQueueItemID}`, or the `receipts-sandbox` host in the sandbox). This rendering contains all mandatory elements, including copy and void markers, and is the document covered by certificate 3535. Hand this document (or the ESC-POS stream from `/issue`) to the customer.
+
+:::
+
+:::caution Self-rendered layouts
+
+A layout drawn by the POS system itself from the returned data has not been reviewed by the AT and is not covered by the certificate. fiskaltrust is clarifying with its fiscal consultant under which conditions such layouts can be used; see [Certified document layout](../certification/certification.md#certified-document-layout). Until then, treat the rules below as a description of the certified rendering, not as a licence to build your own.
 
 :::
 
 ## Mandatory content of a document
 
-Every fiscal document (FS, FT, NC, RG, PF, OR, CM) must contain the following elements. Values must be exactly the same as those exported to the SAF-T (PT); the Middleware exports what it received in the request, so print what you sent.
+Every fiscal document (FS, FT, NC, RG, PF, OR, CM) contains the following elements. Values are exactly the same as those exported to the SAF-T (PT); the Middleware renders and exports what it received in the request, so the data you send is the data on the document.
 
 | Element | Source | Notes |
 | ------- | ------ | ----- |
