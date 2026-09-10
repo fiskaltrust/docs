@@ -49,7 +49,7 @@ The AT asks for a single package with:
 2. The public key as a text file, identical to the one declared in Modelo 24.
 3. A statement of the type of application and of the document types it issues (invoices, transport documents, working documents, receipts), and whether it is open source.
 4. Sample documents in PDF, issued in **two different months**, each signed and showing the four hash characters and the certificate line with the placeholder number `9999`.
-5. One SAF-T (PT) file in structure 1.04_01 containing all sample documents, with the hash control fields filled in, validated beforehand with the AT's validation tool. The tool is linked from the AT's [software certification page](https://info.portaldasfinancas.gov.pt/pt/apoio_contribuinte/Faturacao/Paginas/certificacao-de-software.aspx).
+5. One SAF-T (PT) file in structure 1.04_01 containing all sample documents, with the hash control fields filled in, validated beforehand with the AT's SAF-T (PT) validation tool, which the AT provides in the software certification section of the Portal das Finanças (*Certificação de Software de Faturação*).
 6. A cover letter that maps every requested sample to a file, or states *não aplicável* with a short justification when the program does not issue that document.
 
 The requested samples, with the receipt case that produces each of them in the fiskaltrust.Middleware:
