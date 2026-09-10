@@ -56,10 +56,11 @@ Exact case codes, delivery targets, and go-live status live on each **country pa
 | Market | Regulatory model | Delivery path |
 | --- | --- | --- |
 | **Austria (AT)** | B2G mandated; B2B optional | Portal back office / InStore App today (POS-driven API pending) |
-| **France (FR)** | B2B, decentralised (PDP) | API — `/sign` + `/issue` over the Plateforme Agréée |
-| **Germany (DE)** | B2B, post-audit | API — `/sign` + `/issue` over Peppol |
-| **Italy (IT)** | B2G/B2B/B2C, centralised clearance | API — `/sign` + `/issue` over SDI |
+| **France (FR)** | B2B, decentralised (PDP) | API — `/sign` + `/issue` via the Plateforme Agréée |
+| **Germany (DE)** | B2B, post-audit | API — `/sign` + `/issue` via Peppol |
+| **Italy (IT)** | B2G/B2B/B2C, centralised clearance | API — `/sign` + `/issue` via SDI |
 | **Poland (PL)** | B2B, centralised clearance | Build in progress — adapter not yet shipped |
+| **EU (cross-border)** | Voluntary — no national mandate | API — `/sign` + `/issue` via Peppol |
 
 Each market's **Overview** and **Setup & testing** pages live under its entry in **Country-Specific Guides** (in the sidebar).
 
@@ -70,7 +71,7 @@ Each market's **Overview** and **Setup & testing** pages live under its entry in
 | fiskaltrust account + fiskaltrust.Middleware | An active account with a configured fiskaltrust.Middleware. See [Portal registration](../../getting-started/portal-registration.md). |
 | Existing fiscalization integration | Your POS already fiscalizes via `/sign` in the target market. |
 | fiskaltrust.Middleware country configuration | Set to the market's locale — this drives the output format. |
-| PosSystem API (v2) | eInvoicing is exposed through the **PosSystem API (v2)**. If you are on the v0 interface, plan your [migration](../possystem-api/migration-guide.md) first. |
+| PosSystem API (v2) | eInvoicing is exposed through the **PosSystem API (v2)**. If you don't integrate with it yet, start with the [PosSystem API introduction](../possystem-api/introduction.md). |
 | Sandbox validation | Run one document end to end against a sandbox fiskaltrust.Middleware before the first live document. |
 
 ## Terminology
