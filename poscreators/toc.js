@@ -387,12 +387,12 @@ module.exports = [
           "poscreators/middleware-doc/middleware-pt/certification/certification",
           {
             type: "category",
-            label: "Going to Market",
-            key: "pt-going-to-market",
+            label: "Go-to-Market",
+            key: "pt-go-to-market",
             items: [
-              "poscreators/middleware-doc/middleware-pt/going-to-market/going-to-market",
-              "poscreators/middleware-doc/middleware-pt/going-to-market/route-1-fiskaltrust-certificate",
-              "poscreators/middleware-doc/middleware-pt/going-to-market/route-2-own-certificate",
+              "poscreators/middleware-doc/middleware-pt/go-to-market/go-to-market",
+              "poscreators/middleware-doc/middleware-pt/go-to-market/route-1-fiskaltrust-certificate",
+              "poscreators/middleware-doc/middleware-pt/go-to-market/route-2-own-certificate",
             ],
           },
           "poscreators/middleware-doc/middleware-pt/terminology/terminology",

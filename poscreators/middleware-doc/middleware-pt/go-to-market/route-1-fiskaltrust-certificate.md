@@ -1,5 +1,5 @@
 ---
-slug: /poscreators/middleware-doc/portugal/going-to-market/fiskaltrust-certificate
+slug: /poscreators/middleware-doc/portugal/go-to-market/fiskaltrust-certificate
 title: 'Route 1: Using the fiskaltrust certificate'
 ---
 
