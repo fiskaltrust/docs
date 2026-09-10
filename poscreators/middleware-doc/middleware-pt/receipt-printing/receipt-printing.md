@@ -38,7 +38,7 @@ Every fiscal document (FS, FT, NC, RG, PF, OR, CM) must contain the following el
 | Payments | `cbPayItems` | Payment method and amount. Simplified invoices always contain a payment; working documents never do. |
 | Reference to source document | Signature items `ReferenceForCreditNote` / `PTAdditional` | *Referencia:* or *Origem:* followed by the referenced document number, and *Razão: Devolução* on credit notes. Must be printed whenever returned. |
 | Working-document notice | Signature item `PTAdditional` | *Este documento não serve de fatura* on PF, OR, and CM. Must be printed. |
-| Manual-document notice | Signature item `PTAdditional` | *Cópia do documento original - FTM <series>/<number>* on recovered handwritten invoices. |
+| Manual-document notice | Signature item `PTAdditional` | `Cópia do documento original - FTM <series>/<number>` on recovered handwritten invoices. |
 | Hash and certificate line | Signature item `CertificationNo` | `<4 hash characters> - Processado por programa certificado n.º 3535/AT`. The four characters are positions 1, 11, 21, and 31 of the document hash. Print exactly as returned. |
 | QR code | Signature item `PosReceipt` (format QR code) | Render the `Data` as a QR code, readable within the body of the document. |
 
@@ -47,7 +47,7 @@ Additional layout rules:
 - **Language.** Documents for domestic operations must be in Portuguese. A bilingual layout is allowed; a layout exclusively in a foreign language is not.
 - **No negative amounts.** Quantities, prices, discounts, and totals are printed as absolute values, also on credit notes and returns.
 - **Footer.** None of the mandatory elements may be the last item on the document; print a footer (e.g. a thank-you line) after them. Free text is allowed as long as it cannot be mistaken for a mandatory element.
-- **Multi-page documents.** Every page must show the document type, the document number, the ATCUD, and `Página n de N`. The first and middle pages end with *A transportar: <amount>*, the following pages start with *Transportado: <amount>*. Totals and the VAT summary appear on the last page only.
+- **Multi-page documents.** Every page must show the document type, the document number, the ATCUD, and `Página n de N`. The first and middle pages end with `A transportar: <amount>`, the following pages start with `Transportado: <amount>`. Totals and the VAT summary appear on the last page only.
 - **Simplified invoice.** In addition to the elements above, a simplified invoice shows the customer NIF only if provided. It may not exceed a net amount of 100 EUR (see [Certification](../certification/certification.md#boundaries-of-the-certification)).
 
 ## Signature items returned by the Middleware
@@ -72,7 +72,7 @@ The recommended print order is: header, document type and number, date/time, ope
 - **Copy of an existing document.** Send `ftReceiptCase` `0x3010` with `cbPreviousReceiptReference` set to the original. Print the original content unchanged and mark the document *Duplicado*. Copies are supported for FS, FT, RG, PF, OR, and CM.
 - **Void.** A void (`IsVoid` flag `0x0004`) does not create a new document number. If the voided document is printed again, it must state *Documento anulado* and still contain the original ATCUD, QR code, and certificate line.
 - **Credit notes.** The credit note references the original document (*Referencia* / *Razão: Devolução*). All amounts are printed as absolute values; only the document type *Nota de crédito* indicates the direction.
-- **Recovered handwritten documents.** An invoice sent with the `Handwritten` flag (`0x0008`) is issued in the dedicated manual series and carries the *Cópia do documento original - FTM <series>/<number>* notice, which must be printed together with the regular elements.
+- **Recovered handwritten documents.** An invoice sent with the `Handwritten` flag (`0x0008`) is issued in the dedicated manual series and carries the `Cópia do documento original - FTM <series>/<number>` notice, which must be printed together with the regular elements.
 
 ## Checklist for PosCreators
 
