@@ -1,9 +1,9 @@
 ---
-slug: /poscreators/middleware-doc/portugal/going-to-market
-title: Going to Market
+slug: /poscreators/middleware-doc/portugal/go-to-market
+title: Go-to-Market
 ---
 
-# Going to Market in Portugal
+# Go-to-Market in Portugal
 
 In Portugal only a **certified invoicing program** may issue invoices and other fiscally relevant documents (*Portaria n.º 363/2010*). A POS system therefore cannot simply be installed and switched on; before the first document is issued, the software that creates, numbers, signs, and exports the documents must be listed in the AT's register of certified programs.
 

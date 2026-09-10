@@ -1,5 +1,5 @@
 ---
-slug: /poscreators/middleware-doc/portugal/going-to-market/own-certificate
+slug: /poscreators/middleware-doc/portugal/go-to-market/own-certificate
 title: 'Route 2: Certifying your own solution'
 ---
 
