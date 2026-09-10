@@ -35,13 +35,30 @@ The certification covers the fiskaltrust.Middleware as a **cloud-hosted invoicin
 - **SAF-T (PT) export.** The Middleware produces the SAF-T (PT) audit file in structure 1.04_01 (*Portaria n.º 302/2016*) containing all documents, customers, products, tax table, and working documents. It is exported through the journal endpoint with the Portuguese SAF-T journal type `0x5054000000000001` (see [Type of Journal: ftJournalType](../reference-tables/type-of-journal-ftjournaltype.md)).
 - **Validation rules.** The Middleware enforces the AT's business rules before signing (see [Boundaries](#boundaries-of-the-certification)), so that non-compliant requests are rejected instead of being turned into invalid fiscal documents.
 - **Document copies and voids.** Reprints are marked as copies (*Duplicado*), voided documents are exported with status `A` and their copies are marked *Documento anulado*.
-- **Digital receipt.** The rendered receipt (HTML/PDF) available through the receipt service contains all mandatory elements listed above.
+- **Document layout.** The rendering of the document (PDF, digital receipt, ESC-POS) produced by the fiskaltrust.Middleware for Experience is part of the certified program; see [Certified document layout](#certified-document-layout).
 
 The certification was carried out with the fiskaltrust.CloudCashBox environment operated by fiskaltrust in the Microsoft Azure cloud. POS systems that integrate through the [PosSystem API](../../possystem-api/introduction.md) act as the front end of this certified program; the fiscal document itself is created and secured by the Middleware.
 
 :::caution Scope of the certificate
 
 The certificate applies to the fiskaltrust.Middleware as operated by fiskaltrust (CloudCashBox). Self-hosted or on-device installations of the Middleware (e.g. the Android launcher) are not covered by this certificate. PosCreators who need such a deployment must go through their own certification.
+
+:::
+
+### Certified document layout
+
+In Portugal the certification does not stop at the data. The AT reviews the documents as they are handed to the customer, and the layout is part of the certified program. For the fiskaltrust.CloudCashBox this means:
+
+- The Middleware returns, together with the signed data, the **print instructions** for every mandatory element (hash extract and certificate line, ATCUD, QR code content, *IVA incluído*, references, working-document notice) as signature items with a defined format and position.
+- The **fiskaltrust.Middleware for Experience** renders these into the document: as PDF and HTML digital receipt through the receipt service (`https://receipts.fiskaltrust.eu/{ftQueueID}/{ftQueueItemID}`) and as ESC-POS print stream through the `/issue` endpoint. Every sample reviewed by the AT during the certification, and every layout correction the AT requested (designation of working documents, ATCUD and QR code on working documents, *IVA incluído*, *Documento anulado* on voided copies, the multi-page rule), was produced and resolved in this rendering.
+- The **print format is maintained by fiskaltrust**. Neither the merchant nor the POS system can change the layout, the mandatory texts, or their position. This is a requirement of the AT (*print format protection*) and part of what was audited.
+- The rendering also tracks **delivery**: when and how a document was handed out, and whether a print is the original or a copy (*Duplicado*).
+
+A document layout rendered by other software, for example by the POS system itself from the data returned by the Middleware, has not been reviewed by the AT and is therefore **not covered by certificate 3535**. PosCreators should hand out the document produced by the Middleware (PDF, digital receipt link, or ESC-POS stream).
+
+:::note Clarification in progress
+
+fiskaltrust is clarifying with its fiscal consultant under which conditions a layout rendered by a partner's POS software from the Middleware's print instructions can be used, and whether such a partner needs its own certification. Until this is settled, treat self-rendered layouts as outside the certified scope. The [Receipt Printing](../receipt-printing/receipt-printing.md) chapter describes what the certified rendering contains.
 
 :::
 
@@ -106,3 +123,23 @@ The certificate covers the functionality described above and nothing beyond it. 
 - Down payments, multi-use vouchers, and payments under the cash VAT regime are not covered.
 
 Requests that violate one of these rules are not signed. The response carries the error state `EEEE_EEEE` (see [Service Status: ftState](../reference-tables/service-status-ftstate.md)) and the validation code and message in the `ftSignatures`, so the POS can show the reason to the operator and correct the request.
+
+## What this means for PosCreators
+
+- **You integrate a certified program; you do not become one.** Your POS sends the business case to the fiskaltrust.CloudCashBox through the [PosSystem API](../../possystem-api/introduction.md). The Middleware numbers, signs, and exports the document under certificate 3535. Your software must not create, number, or sign fiscal documents itself.
+- **Use the certified document.** Hand the customer the document rendered by fiskaltrust: the PDF or digital receipt reachable through the link in the QR code signature item, or the ESC-POS stream from the `/issue` endpoint. A layout drawn by your own software is not covered by the certificate (see [Certified document layout](#certified-document-layout)).
+- **Print what you receive, unchanged.** If you display or print any returned element (document number, ATCUD, certificate line, QR code, mandatory texts), reproduce it exactly as returned. Never replace the certificate number, the hash characters, or the document number with your own values.
+- **Send complete and valid requests.** The Middleware rejects requests that would produce a non-compliant document (see [Boundaries](#boundaries-of-the-certification)). Show the returned error to the operator and correct the request; do not retry with altered fiscal data.
+- **Respect the document flow.** Refunds, voids, copies, and payments reference the original document via `cbPreviousReceiptReference`. Working documents (pro forma, budget, table check) carry no payment and are invoiced by reference. Series and ATCUD are assigned by the Middleware; there is no way to choose them.
+- **Sandbox is not production.** Sandbox queues emit the placeholder certificate number `9999` and sandbox documents are never valid invoices. Use the sandbox for integration tests only; productive documents must be created on a production queue.
+- **Self-hosted deployments need their own certification.** Running the Middleware on your own infrastructure or on a device (e.g. the Android launcher) is outside certificate 3535.
+
+## What this means for PosOperators
+
+- **You remain the taxpayer.** The fiskaltrust.CloudCashBox is the certified invoicing program you use; the documents are issued in your name, with your NIF, and you are responsible for handing them to your customers and for keeping them for the statutory retention period.
+- **Series are registered for you.** fiskaltrust registers the document series with the AT and obtains the ATCUD validation codes on your behalf. You cannot create manual series or numbers; the recovery of handwritten documents issued during an outage is done through the Middleware's manual series.
+- **SAF-T (PT) is your monthly obligation.** The Middleware produces the SAF-T (PT) file for your queue; submitting it to the AT within the legal deadline remains your responsibility (or your accountant's).
+- **Corrections go through the program.** A wrong document is voided or credited through the POS, which creates the corresponding void or credit note; documents cannot be edited or deleted. A reprint is always marked as a copy.
+- **The certificate number on your documents is 3535.** Documents that show `9999` were created in the sandbox and are not valid invoices.
+- **Electronic delivery.** Documents you send as PDF are accepted as electronic invoices until 31 December 2026. From 1 January 2027 a qualified electronic signature or seal is required for PDF invoices sent electronically; fiskaltrust does not currently apply one.
+- **Limits you will encounter.** Simplified invoices are limited to 100 EUR net, cash payments to 3 000 EUR per payment, only EUR is supported, and only the mainland tax region is available. Ask your POS provider to issue an invoice (FT) when a simplified invoice is not permitted.
