@@ -17,7 +17,7 @@ The QR code signature item carries in its `Caption` the URL of the digital recei
 
 :::caution Self-rendered layouts
 
-A layout drawn by the POS system itself from the returned data has not been reviewed by the AT and is not covered by the certificate. fiskaltrust is clarifying with its fiscal consultant under which conditions such layouts can be used; see [Certified document layout](../certification/certification.md#certified-document-layout). Until then, treat the rules below as a description of the certified rendering, not as a licence to build your own.
+A layout drawn by the POS system itself from the returned data has not been reviewed by the AT and is not covered by the certificate. The conditions for such layouts are being clarified; see [Certified document layout](../certification/certification.md#certified-document-layout). Until they are published, treat the rules below as a description of the certified rendering, not as a licence to build your own. PosCreators who require their own layout should contact fiskaltrust before going live.
 
 :::
 
