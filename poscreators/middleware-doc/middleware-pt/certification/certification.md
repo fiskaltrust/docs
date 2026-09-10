@@ -56,9 +56,9 @@ In Portugal the certification does not stop at the data. The AT reviews the docu
 
 A document layout rendered by other software, for example by the POS system itself from the data returned by the Middleware, has not been reviewed by the AT and is therefore **not covered by certificate 3535**. PosCreators should hand out the document produced by the Middleware (PDF, digital receipt link, or ESC-POS stream).
 
-:::note Clarification in progress
+:::note Layouts rendered by the POS system
 
-fiskaltrust is clarifying with its fiscal consultant under which conditions a layout rendered by a partner's POS software from the Middleware's print instructions can be used, and whether such a partner needs its own certification. Until this is settled, treat self-rendered layouts as outside the certified scope. The [Receipt Printing](../receipt-printing/receipt-printing.md) chapter describes what the certified rendering contains.
+The conditions under which a POS system may render the document itself from the Middleware's print instructions, and whether this requires a certification of the POS system, are currently being clarified. Until fiskaltrust publishes these conditions, a self-rendered layout is outside the certified scope. PosCreators who require their own layout should contact fiskaltrust before going live. The [Receipt Printing](../receipt-printing/receipt-printing.md) chapter describes what the certified rendering contains.
 
 :::
 
