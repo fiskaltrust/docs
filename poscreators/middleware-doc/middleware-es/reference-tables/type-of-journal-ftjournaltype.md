@@ -16,6 +16,6 @@ This table expands on the values provided in the [Type of Journal: ftJournalType
 
 :::note Current status
 
-The queue stores the request and response of every transmitted record, but in the current implementation the stored entries are not yet tagged as VERI\*FACTU entries, so the export above returns an empty array. The complete request and response of every document are available to the POS in `ftStateData` (`ES.GovernmentAPI`) of the receipt response, and exports for tax audits are provided through the fiskaltrust.Portal. The completion of the journal export, and a corresponding export of TicketBAI files, are being clarified with the Spanish market team.
+The queue stores the request and response of every transmitted record, but in the current implementation the stored entries are not yet tagged as VERI\*FACTU entries, so the export above returns an empty array. The complete request and response of every document are available to the POS in `ftStateData` (`ES.GovernmentAPI`) of the receipt response, and exports for tax audits are provided through the fiskaltrust.Portal.
 
 :::

@@ -42,7 +42,7 @@ Only the types of service `0`, `1`, `2`, `3`, `5` and `9` are accepted by the Mi
 | `1` | **Delivery (supply of goods)** | 1.3.67 |
 | `2` | **Other service (supply of service)** | 1.3.67 |
 | `3` | **Tip**<br />Handled as a service. | 1.3.67 |
-| `4` | **Voucher**<br />Not supported in Spain; rejected. Single- and multi-purpose vouchers are being specified with the Spanish market team. | 1.3.81 |
+| `4` | **Voucher**<br />Not supported in Spain; rejected. | 1.3.81 |
 | `5` | **Catalog service**<br />Handled as delivery of goods. | 1.3.67 |
 | `6` | **Not own sales / Agency business**<br />Not supported in Spain; rejected. | 1.3.81 |
 | `7` | **Own Consumption**<br />Not supported in Spain; rejected. | 1.3.81 |

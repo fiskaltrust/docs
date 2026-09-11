@@ -24,7 +24,7 @@ If you declare or register your own solution built on top of the fiskaltrust.Mid
 
 ### VERI\*FACTU: declaración responsable of the producer
 
-fiskaltrust has prepared the responsible declaration of the *Sistema Informático de Facturación* for the fiskaltrust.Middleware in accordance with chapter IV of *Orden HAC/1177/2024*. The draft was sent to the AEAT for review in spring 2025; the AEAT answered that the declaration "appears to be correct" apart from one wording on the hash (*huella*), which was corrected. The declaration was then signed by fiskaltrust's managing director and resubmitted. The declaration identifies:
+fiskaltrust has prepared the responsible declaration of the *Sistema Informático de Facturación* for the fiskaltrust.Middleware in accordance with chapter IV of *Orden HAC/1177/2024*. The declaration identifies:
 
 | Field | Value |
 | ----- | ----- |
@@ -34,7 +34,7 @@ fiskaltrust has prepared the responsible declaration of the *Sistema Informátic
 | System version (*versión*) | `2.0` |
 | Operating mode | VERI\*FACTU (verifiable invoices, transmitted to the AEAT) |
 
-Because the AEAT keeps no register of declared systems, the declaration itself is the proof of compliance. It has to be available to the merchant who uses the system and to the AEAT on request. How the signed PDF is made available to PosCreators and merchants (download in the fiskaltrust.Portal or on request from fiskaltrust) is being clarified; until then, ask [sales@fiskaltrust.eu](mailto:sales@fiskaltrust.eu) for a copy.
+Because the AEAT keeps no register of declared systems, the declaration itself is the proof of compliance. It has to be available to the merchant who uses the system and to the AEAT on request. Ask [sales@fiskaltrust.eu](mailto:sales@fiskaltrust.eu) for a copy of the signed declaration.
 
 :::caution Your POS is a component of the SIF
 
@@ -53,7 +53,7 @@ For the Basque provinces fiskaltrust has prepared the *memoria descriptiva técn
 | Software version | `2.0` |
 | Licence code (*LicenciaTBAI*) | One licence code per province, configured in the fiskaltrust cloud signing service. The values are not published on this page. |
 
-The three provincial tax authorities publish the registered software in their registers of *software garante*: [Araba](https://web.araba.eus/es/hacienda/ticketbai/listado-de-software), [Bizkaia](https://www.batuz.eus/es/registro-de-software) and [Gipuzkoa](https://www.gipuzkoa.eus/es/web/ogasuna/ticketbai/listado-software). Registration in **one** province is sufficient for all three provinces; fiskaltrust submitted the registration to the *Hacienda Foral de Bizkaia* in December 2025. The first submission was answered with findings, and the *memoria descriptiva* was revised until April 2026. The current status of the registration, the final licence codes and the entry of the fiskaltrust.Middleware in the register are being confirmed with the Spanish market team; until they are published here, ask [sales@fiskaltrust.eu](mailto:sales@fiskaltrust.eu) before your first productive TicketBAI document.
+The three provincial tax authorities publish the registered software in their registers of *software garante*: [Araba](https://web.araba.eus/es/hacienda/ticketbai/listado-de-software), [Bizkaia](https://www.batuz.eus/es/registro-de-software) and [Gipuzkoa](https://www.gipuzkoa.eus/es/web/ogasuna/ticketbai/listado-software). Registration in **one** province is sufficient for all three provinces; fiskaltrust's registration is filed with the *Hacienda Foral de Bizkaia*. The register entry of the fiskaltrust.Middleware will be linked here once it is published; until then, ask [sales@fiskaltrust.eu](mailto:sales@fiskaltrust.eu) before your first productive TicketBAI document.
 
 ## Where the identifiers appear on documents
 
@@ -64,7 +64,7 @@ The Middleware returns everything that must appear on the document as signature 
 - The **QR code** (*QR tributario*) with the AEAT verification URL, containing the issuer NIF, the series and number, the issue date and the total amount of the invoice.
 - The legend **`Factura verificable en la Sede electrónica de la AEAT`**, which identifies the document as issued by a VERI\*FACTU system.
 - The **huella** (SHA-256 hash of the invoice record) and the **issuer NIF** (*IDEmisorFactura*) as text items.
-- Inside the transmitted record, the `SistemaInformatico` block identifies the system (`fiskaltrust.Middleware`, code `00`) and the installation (*NumeroInstalacion* = the cash box identification of the queue). The alignment of the version and producer fields in this block with the signed declaration is being finalised.
+- Inside the transmitted record, the `SistemaInformatico` block identifies the system (`fiskaltrust.Middleware`, code `00`) and the installation (*NumeroInstalacion* = the cash box identification of the queue).
 
 **TicketBAI (Basque Country)**
 
@@ -104,8 +104,8 @@ The certificates, the licence codes and the endpoints of the tax authorities are
 
 ### What has been verified with the tax authorities
 
-- **AEAT.** The responsible declaration was reviewed by the AEAT's customer service (see above). The transmission of VERI\*FACTU records was developed against the AEAT pre-production environment; the acceptance tests of the Middleware replay standard sales, exempt, not-subject, reverse-charge, export, IPSI and IGIC cases against it. The AEAT does not certify or audit SIF producers; there is therefore no approval beyond the declaration.
-- **Basque provinces.** The Middleware was developed against the TicketBAI test environments of Araba, Bizkaia and Gipuzkoa with the test licence codes and test certificates of the provinces; the acceptance tests submit invoices to all three environments and compare the generated XML with the reference samples of the provinces for every exemption and not-subject case. The review of the *memoria descriptiva* by the Hacienda Foral de Bizkaia is the registration procedure described above.
+- **AEAT.** The transmission of VERI\*FACTU records was developed against the AEAT pre-production environment; the acceptance tests of the Middleware replay standard sales, exempt, not-subject, reverse-charge, export, IPSI and IGIC cases against it. The AEAT does not certify or audit SIF producers; there is therefore no approval beyond the declaration.
+- **Basque provinces.** The Middleware was developed against the TicketBAI test environments of Araba, Bizkaia and Gipuzkoa with the test licence codes and test certificates of the provinces; the acceptance tests submit invoices to all three environments and compare the generated XML with the reference samples of the provinces for every exemption and not-subject case.
 
 ## Supported document types
 
@@ -114,7 +114,7 @@ The following document types are produced by the Middleware from the `ftReceiptC
 | Document | `ftReceiptCase` (txcc) | VERI\*FACTU record | TicketBAI file | Notes |
 | -------- | ---------------------- | ------------------ | -------------- | ----- |
 | Simplified invoice (*factura simplificada*) | `0x0001` POS receipt (`0x0000` is treated the same) | *Registro de alta*, `TipoFactura` `F2` | *Alta*, `FacturaSimplificada` = `S` | Numbered in the simplified-invoice sequence. A customer is optional. |
-| Complete invoice (*factura completa*) | `0x1000`, `0x1001`, `0x1002`, `0x1003` | *Registro de alta*, currently `TipoFactura` `F2` without recipient data | *Alta*, `FacturaSimplificada` = `N`, with *Destinatarios* from `cbCustomer` | Numbered in the invoice sequence. Pass the recipient in `cbCustomer` with name, street and postcode; Spanish customers need a NIF in a valid format, foreign customers are identified by VAT ID, tax ID or passport. TicketBAI files carry the recipient; the VERI\*FACTU record is currently transmitted as `F2` without *Destinatarios*. The mapping of complete invoices to `TipoFactura` `F1` with recipient data is being completed. |
+| Complete invoice (*factura completa*) | `0x1000`, `0x1001`, `0x1002`, `0x1003` | *Registro de alta*, currently `TipoFactura` `F2` without recipient data | *Alta*, `FacturaSimplificada` = `N`, with *Destinatarios* from `cbCustomer` | Numbered in the invoice sequence. Pass the recipient in `cbCustomer` with name, street and postcode; Spanish customers need a NIF in a valid format, foreign customers are identified by VAT ID, tax ID or passport. TicketBAI files carry the recipient; the VERI\*FACTU record is currently transmitted as `F2` without *Destinatarios*. |
 | Cancellation (*anulación*) | Any of the above with flag `0x0004` (IsVoid) and `cbPreviousReceiptReference` | *Registro de anulación* referencing the original record | Not yet available (see [Boundaries](#boundaries)) | The void must repeat the original document exactly; only one void per document. |
 | Refund / return (*devolución*) | Any of the above with flag `0x0100` (IsRefund) and `cbPreviousReceiptReference` | *Registro de alta* with negative amounts | *Alta* with negative amounts | The refund references the original document; send the returned lines with negative quantities and amounts (all lines for a full refund, the affected lines with the charge-item refund flag for a partial refund). Corrective invoice types (`R1` to `R5`, *factura rectificativa*) are not emitted yet; see [Boundaries](#boundaries). |
 
@@ -136,7 +136,7 @@ The Middleware actively rejects requests that fall outside the supported scope o
 
 - Only simplified invoices (`0x0001`) and complete invoices (`0x1xxx`) are fiscal documents. All other receipt cases are stored without transmission.
 - Cancellations (`IsVoid`) are transmitted to the AEAT as *registro de anulación*. For TicketBAI the cancellation file (*anulación*) is not yet implemented; a void on a TicketBAI queue is rejected by the provincial web service.
-- Refunds are transmitted as ordinary records with negative amounts. The corrective invoice types of VERI\*FACTU (`R1` to `R5`, *rectificativa por sustitución o por diferencias*) and the TicketBAI *factura rectificativa* are not emitted yet. Whether refunds have to be issued as *facturas rectificativas* for your use case is being clarified with the Spanish market team; ask fiskaltrust before you go live with returns.
+- Refunds are transmitted as ordinary records with negative amounts. The corrective invoice types of VERI\*FACTU (`R1` to `R5`, *rectificativa por sustitución o por diferencias*) and the TicketBAI *factura rectificativa* are not emitted yet. Ask fiskaltrust before you go live with returns whether refunds have to be issued as *facturas rectificativas* for your use case.
 - Invoices issued by a third party or by the recipient (*EmitidaPorTercerosODestinatario* `T` / `D`) and invoices with several recipients are not supported.
 
 **Amounts, currency and tax**
@@ -151,7 +151,7 @@ The Middleware actively rejects requests that fall outside the supported scope o
 **Data quality rules**
 
 - All charge items need a description, a VAT amount and a non-zero amount.
-- A `cbCustomer`, when provided, must carry name, street and postcode. A Spanish customer (country `ES` or no country) must carry a NIF in a valid format (for example `B12345678`, `12345678A` or `X1234567A`). Foreign customers are identified by `CustomerVATId`, `CustomerTaxId` or `CustomerIdentifier`. The presence of a customer on complete invoices is checked by the extended validation and reported as a warning; making it a hard requirement is being clarified.
+- A `cbCustomer`, when provided, must carry name, street and postcode. A Spanish customer (country `ES` or no country) must carry a NIF in a valid format (for example `B12345678`, `12345678A` or `X1234567A`). Foreign customers are identified by `CustomerVATId`, `CustomerTaxId` or `CustomerIdentifier`. The presence of a customer on complete invoices is checked by the extended validation and reported as a warning.
 - Refunds and voids require exactly one `cbPreviousReceiptReference`; grouped references are not supported. A document that has been voided cannot be referenced again, and a second void of the same document is rejected. A void must repeat the charge items and pay items of the original exactly (same lines, quantities, amounts, VAT rates and positions). The lines of a refund are not yet compared with the original document.
 - All `ftReceiptCase`, `ftChargeItemCase` and `ftPayItemCase` values must carry the Spanish country code `0x4553`.
 
@@ -178,8 +178,8 @@ The Middleware actively rejects requests that fall outside the supported scope o
 ## What this means for PosOperators
 
 - **You remain the taxpayer.** The documents are issued in your name, with your NIF, and transmitted to the AEAT or to your provincial tax authority. You are responsible for handing them to your customers and for keeping them for the statutory retention period.
-- **You need an electronic certificate.** The transmission to the AEAT and the signature of TicketBAI files require a qualified electronic certificate: a company seal certificate, a legal-representative certificate or, for TicketBAI, a device certificate issued by Izenpe. The certificate is uploaded to the fiskaltrust.Portal during onboarding. Whether fiskaltrust can transmit on your behalf as *colaborador social* or by power of attorney is being clarified.
+- **You need an electronic certificate.** The transmission to the AEAT and the signature of TicketBAI files require a qualified electronic certificate: a company seal certificate, a legal-representative certificate or, for TicketBAI, a device certificate issued by Izenpe. The certificate is uploaded to the fiskaltrust.Portal during onboarding. Transmission on your behalf as *colaborador social* or by power of attorney is not available today.
 - **Keep the declarations.** You must be able to show the responsible declarations of your invoicing system (fiskaltrust's declaration and the supplement of your POS provider) to the AEAT on request.
 - **Corrections go through the POS.** A wrong document is voided or refunded through the POS, which creates the corresponding record referencing the original. Documents cannot be edited or deleted.
-- **Bizkaia has additional obligations.** Under Batuz, the TicketBAI files are transmitted as part of the *LROE* (*Libro Registro de Operaciones Económicas*, modelo 240). Whether fiskaltrust also files the remaining LROE chapters for you, or provides exports for your accountant, is being clarified.
+- **Bizkaia has additional obligations.** Under Batuz, the TicketBAI files are transmitted as part of the *LROE* (*Libro Registro de Operaciones Económicas*, modelo 240). The remaining LROE chapters are not filed by the Middleware; ask fiskaltrust about the available exports for your accountant.
 - **Limits you will encounter.** Only EUR, only the standard VAT regimes, no vouchers, no equivalence surcharge, no corrective invoices yet, no TicketBAI cancellations yet. Ask your POS provider before relying on one of these features.
