@@ -22,6 +22,6 @@ The Polish legal terms below appear throughout this appendix. The Polish term is
 | numer unikatowy | unique number | The register's unique number assigned from the central numbering pool. |
 | numer ewidencyjny | record/registration number | The number assigned to the register upon registration with the tax office. |
 | numer fabryczny | factory (serial) number | The manufacturer's serial number of a hardware register. Software registers (WKF) do not have one. |
-| KSeF — Krajowy System e-Faktur | National e-Invoicing System | The mandatory structured e-invoicing system. Invoices are fiscalized via KSeF, not via the cash register. |
+| KSeF — Krajowy System e-Faktur | National eInvoicing System | The mandatory structured eInvoicing system. Invoices are fiscalized via KSeF, not via the cash register. |
 | JPK — Jednolity Plik Kontrolny | SAF-T | Poland's standard audit files (e.g. JPK_V7M/V7K) for VAT reporting. |
 | serwis (serwisant) | certified service (technician) | Fiscalizing a register is a certified-technician act performed at the merchant; it is not an API operation of the Middleware. |

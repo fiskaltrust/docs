@@ -652,7 +652,7 @@ version 2
 |----------|-----------------|-------------|
 | `001` | Primary compliance signature for a standard POS receipt/invoice. | |
 | `010` | MyDataXML — the full XML payload submitted to AADE myDATA. | |
-| `011` | ProviderSignature — the e-invoice provider's signature (e.g. Viva Fiscal). | |
+| `011` | ProviderSignature — the eInvoice provider's signature (e.g. Viva Fiscal). | |
 | `012` | UniqueDocumentIdentifier — human-readable `AFM \| Date \| Branch \| Type \| Series \| Serial`. | |
 | `013` | Uid — the `invoiceUid` returned by myDATA. | |
 | `014` | Mark — the `invoiceMark` (MARK) registration number. | [www.fiskaltrust.gr] |
