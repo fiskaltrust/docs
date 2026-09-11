@@ -38,3 +38,4 @@ Italy's eInvoicing has been mandatory since **2019**, and SDI clearance covers B
 - [Delivery (`/issue` Endpoint)](../../experience-middleware/delivery.md) — the product-level eInvoicing and e-Delivery concept across all markets.
 - [Migrating from API v0 to PosSystem API (v2)](../../possystem-api/migration-guide.md) — eInvoicing is a PosSystem API (v2) feature.
 - [Appendix: IT (Registratore Telematico)](../appendix-it-registratore-telematico.md) — Italy fiscalization details.
+- [eInvoicing in Italy (European Commission)](https://ec.europa.eu/digital-building-blocks/sites/spaces/DIGITAL/pages/467108890/eInvoicing+in+Italy) — the EU Digital Building Blocks country factsheet.
