@@ -58,7 +58,7 @@ Additional layout rules:
 
 ## Output formats, configuration, and extension points
 
-The certified document can be retrieved as HTML digital receipt, PDF, PNG at the printer's width, or ESC/POS stream, and handed over through the `/issue` endpoint. The elements a merchant can configure (logo, header, footer text) and the request fields that add information to the document (`cbReceiptLines`, `cbChargeItemLines`, `cbPayItemLines`, customer, operator) are described in [Receipt options, configuration, and extension points](../certification/certification.md#receipt-options-configuration-and-extension-points).
+The certified document can be retrieved as digital receipt or as PDF and handed over through the `/issue` endpoint. The elements a merchant can configure (logo, header, footer text) and the request fields that add information to the document (`cbReceiptLines`, `cbChargeItemLines`, `cbPayItemLines`, customer, operator) are described in [Receipt options, configuration, and extension points](../certification/certification.md#receipt-options-configuration-and-extension-points).
 
 ## Signature items returned by the Middleware
 

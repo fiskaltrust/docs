@@ -119,18 +119,12 @@ This section lists the output formats that are available for the document, what 
 
 ### Rendering options
 
-All formats are produced from the same data and the same layout; they differ only in the medium. Select the format either with a path suffix, with the `format` query parameter, or with the HTTP `Accept` header.
+Both formats are produced from the same data and the same certified layout; they differ only in the medium. Select the format with a path suffix, with the `format` query parameter, or with the HTTP `Accept` header.
 
 | Format | How to request it | Use it for | Notes |
 | ------ | ----------------- | ---------- | ----- |
-| **HTML digital receipt** | URL without suffix | The customer opens the link behind the QR code on a phone or a browser. | Interactive: download as PDF, send by e-mail, share with partner apps. Rendered with the Portuguese layout, labels, and the *Original* / *Duplicado* / *Documento anulado* markers. |
-| **PDF** | `/pdf`, `?format=pdf`, or `Accept: application/pdf` | Sending the document by e-mail, archiving, the merchant copy. | Same layout as the HTML receipt, rendered server-side. An A4 multi-page invoice layout exists and is currently enabled per POS system by fiskaltrust; contact fiskaltrust if you need it. |
-| **PNG** | `/png`, `?format=png`, or `Accept: image/png` | Printing on a thermal printer as a raster image, showing the document on a customer display, embedding it in your own UI. | Reproduces the certified layout pixel for pixel. The printable width is passed as media-type parameter (`Accept: image/png;width=48mm`) or as request header `x-print-width: 48mm`. Widths up to 48 mm use the narrow layout for 58 mm paper; anything wider uses the standard 80 mm layout. The image is rendered at 8 dots per millimetre (203 dpi), so a 48 mm request yields a 384 px wide image. The response header `x-print-width` states the width that was applied. |
-| **ESC/POS** | `?format=text/vnd.esc-pos` or `Accept: text/vnd.esc-pos;width=80mm` (legacy `application/esc-pos-80mm`) | Direct text output to an ESC/POS printer. | Width is mapped to 48 columns (80 mm), 42 columns (72 mm), or 32 columns (48 mm). The ESC/POS output is a generic text rendering with the same content; it is not the pixel-exact certified layout. For thermal printers prefer the PNG at the printer's width. |
-| **JSON** | `?format=json` or `Accept: application/json` | Retrieving the stored request and response pair, e.g. for a reprint from your own archive. | Contains the data, not a rendering. |
-| **QR code of the link** | `/link/qrcode` | Showing a scannable link to the digital receipt on a screen or a give-away label. | This QR code contains only the URL. It is **not** the fiscal QR code of *Portaria n.º 195/2020*; that one is the `Data` of the QR code signature item and is part of the document itself. |
-
-The e-invoice formats of the receipt service (EN 16931 XML, ZUGFeRD / Factur-X hybrid PDF) can be tried in the sandbox with the suffixes `/en16931` and `/zugferd`; they are not part of the certified scope in Portugal, see [Boundaries](#boundaries-of-the-certification).
+| **Digital receipt** | URL without suffix | The customer opens the link behind the QR code on a phone or a browser; the POS shows it on a customer display. | Interactive: download as PDF, send by e-mail, share with partner apps. Rendered with the Portuguese layout, labels, and the *Original* / *Duplicado* / *Documento anulado* markers. |
+| **PDF** | `/pdf`, `?format=pdf`, or `Accept: application/pdf` | Sending the document by e-mail, archiving, the merchant copy, printing on an office printer. | Same content and layout as the digital receipt, rendered server-side. An A4 multi-page invoice layout exists and is currently enabled per POS system by fiskaltrust; contact fiskaltrust if you need it. |
 
 ### Original, duplicate, and voided renderings
 
@@ -138,7 +132,7 @@ The receipt service tracks how a document was delivered and adapts the rendering
 
 - The first rendering carries the marker **Original**.
 - Once the POS has reported the document as printed or as accepted by the customer through the `/issue` endpoint (see below), every further rendering carries **Duplicado**.
-- Appending `?copy=true` to any of the URLs above forces the **Duplicado** marker, e.g. for the merchant copy that is printed together with the original.
+- Appending `?copy=true` to either URL forces the **Duplicado** marker, e.g. for the merchant copy that is printed together with the original.
 - A copy request sent to the Middleware (`ftReceiptCase` `0x3010`) has a URL of its own but renders the content of the referenced original with the **Duplicado** marker.
 - After a void (`IsVoid` flag `0x0004`) has been issued, the rendering of the original document carries **Documento anulado** and keeps its ATCUD, QR code, and certificate line.
 
@@ -152,7 +146,7 @@ The certified layout itself is fixed. Within it, the following elements are take
 | Logo | Image uploaded on the outlet in the fiskaltrust.Portal (*Select Image File*) | Upload or replace the image on the outlet. Width and height of the logo can be set in the receipt settings (`logowidth`, `logoheight`). |
 | Website link on the logo | Receipt settings `website` | The logo links to this URL on the digital receipt. |
 | Footer text | Receipt settings `footertext` | Free text printed after the last mandatory element, e.g. a thank-you line or return conditions. Line breaks are preserved. This is the place for the footer the AT requires after the mandatory elements; it must not look like one of them. |
-| Feedback and sharing on the digital receipt | Receipt settings `showFeedback`, `shareButtonAppIds`, `enableConsumerApp` | Digital receipt only; these features do not appear on PDF, PNG, or ESC/POS output. |
+| Feedback and sharing on the digital receipt | Receipt settings `showFeedback`, `shareButtonAppIds`, `enableConsumerApp` | Digital receipt only; these features do not appear on the PDF. |
 
 Receipt settings other than the master data are stored per queue through the receipt settings endpoint of the receipt service, authenticated with the same `cashboxid` and `accesstoken` headers as the PosSystem API:
 
@@ -197,7 +191,7 @@ After `/sign`, the POS hands the signed request and response pair to `/issue`. T
 | `accept` | Records that the customer accepted the digital receipt (e.g. scanned the QR code). Further renderings are marked *Duplicado*. |
 | `send` with `Target.Scheme` `email`, `sms`, or `peppol` and `Target.Address` | Sends the document to the given address: by e-mail with the PDF attached, by SMS with the link, or as e-invoice through the Peppol network (Peppol is not part of the certified scope). |
 | `link` with `Target.Alias` or `Target.Scheme` + `Target.Address` | Binds the document to a give-away QR label or another alias. |
-| `download` with `Format` | Returns the document in the given format through the POS connection instead of the public URL. |
+| `download` with `Format` | Returns the document (e.g. `Format`: `pdf`) through the POS connection instead of the public URL. |
 
 `GET /v2/issue/{ftQueueID}/{ftQueueItemID}` returns the delivery state (`None`, `Submitted`, `Printed` with the delivery method). The [Delivery](../../experience-middleware/delivery.md) chapter describes the delivery concept; the request and response models are in the PosSystem API reference.
 
@@ -205,9 +199,9 @@ After `/sign`, the POS hands the signed request and response pair to `/issue`. T
 
 The following documents were rendered by the receipt service in the sandbox environment; they therefore carry the placeholder certificate number `9999` instead of `3535`. Production documents are identical apart from the number.
 
-![Sample document rendered by the receipt service (PNG, 80 mm)](https://receipts-sandbox.fiskaltrust.eu/1def4d45-ae9f-4562-a548-b8f5e84b88fb/f186b146-9bf7-44c6-86e8-fb3322e87e22/png)
+![Sample document rendered by the receipt service in the sandbox](https://receipts-sandbox.fiskaltrust.eu/1def4d45-ae9f-4562-a548-b8f5e84b88fb/f186b146-9bf7-44c6-86e8-fb3322e87e22/png)
 
-*Figure 1. Sample document rendered as PNG in the sandbox. Open the [digital receipt](https://receipts-sandbox.fiskaltrust.eu/1def4d45-ae9f-4562-a548-b8f5e84b88fb/f186b146-9bf7-44c6-86e8-fb3322e87e22) or the [PDF](https://receipts-sandbox.fiskaltrust.eu/1def4d45-ae9f-4562-a548-b8f5e84b88fb/f186b146-9bf7-44c6-86e8-fb3322e87e22/pdf) of the same document.*
+*Figure 1. Sample document as rendered in the sandbox. Open the [digital receipt](https://receipts-sandbox.fiskaltrust.eu/1def4d45-ae9f-4562-a548-b8f5e84b88fb/f186b146-9bf7-44c6-86e8-fb3322e87e22) or the [PDF](https://receipts-sandbox.fiskaltrust.eu/1def4d45-ae9f-4562-a548-b8f5e84b88fb/f186b146-9bf7-44c6-86e8-fb3322e87e22/pdf) of the same document.*
 
 ## Certified document types
 
