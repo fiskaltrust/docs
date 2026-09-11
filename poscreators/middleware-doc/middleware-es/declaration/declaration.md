@@ -53,7 +53,7 @@ For the Basque provinces fiskaltrust has prepared the *memoria descriptiva técn
 | Software version | `2.0` |
 | Licence code (*LicenciaTBAI*) | One licence code per province, configured in the fiskaltrust cloud signing service. The values are not published on this page. |
 
-Registration in **one** province is sufficient for all three provinces; fiskaltrust submitted the registration to the *Hacienda Foral de Bizkaia* in December 2025. The first submission was answered with findings, and the *memoria descriptiva* was revised until April 2026. The current status of the registration and the final licence codes are being confirmed with the Spanish market team; until they are published here, ask [sales@fiskaltrust.eu](mailto:sales@fiskaltrust.eu) before your first productive TicketBAI document.
+The three provincial tax authorities publish the registered software in their registers of *software garante*: [Araba](https://web.araba.eus/es/hacienda/ticketbai/listado-de-software), [Bizkaia](https://www.batuz.eus/es/registro-de-software) and [Gipuzkoa](https://www.gipuzkoa.eus/es/web/ogasuna/ticketbai/listado-software). Registration in **one** province is sufficient for all three provinces; fiskaltrust submitted the registration to the *Hacienda Foral de Bizkaia* in December 2025. The first submission was answered with findings, and the *memoria descriptiva* was revised until April 2026. The current status of the registration, the final licence codes and the entry of the fiskaltrust.Middleware in the register are being confirmed with the Spanish market team; until they are published here, ask [sales@fiskaltrust.eu](mailto:sales@fiskaltrust.eu) before your first productive TicketBAI document.
 
 ## Where the identifiers appear on documents
 
