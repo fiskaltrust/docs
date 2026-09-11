@@ -382,7 +382,7 @@ module.exports = [
           {
             type: "category",
             collapsed: true,
-            label: "E-Invoicing",
+            label: "eInvoicing",
             items: [
               "poscreators/middleware-doc/middleware-it-registratore-telematico/e-invoicing/overview",
               "poscreators/middleware-doc/middleware-it-registratore-telematico/e-invoicing/setup",
