@@ -19,6 +19,10 @@ module.exports = [
     ],
 },
   {
+    type: "html",
+    value: "<hr class='sidebar-divider' />",
+  },
+  {
     type: "category",
     label: "POS System API",
     collapsed: true,
@@ -537,6 +541,10 @@ module.exports = [
     items: [
       "poscreators/middleware-doc/e-invoicing/overview",
     ],
+  },
+  {
+    type: "html",
+    value: "<hr class='sidebar-divider' />",
   },
   {
     type: "link",
