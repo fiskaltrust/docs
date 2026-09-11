@@ -106,8 +106,7 @@ The Middleware actively rejects requests that fall outside the supported scope o
 
 - POS receipt without fiscalization obligation (`0x0003`), table check (`0x0006`), pro forma (`0x0007`) and internal usage / material consumption (`0x3003`) are rejected. Use an order (`0x3004`) for restaurant order slips and own-consumption charge items for self-supply.
 - A delivery note (`0x0005`) without the `HasTransportInformation` flag is rejected.
-- Voids (flag `0x0004`) are only supported for restaurant orders (8.6) and delivery notes (9.3). Every other correction is a refund (flag `0x0100`) that creates a credit document referencing the original; issued documents cannot be edited or deleted.
-- The generic myDATA `CancelInvoice` call is not wired into the Middleware; MARK-based cancellation exists for delivery notes only.
+- Voids (flag `0x0004`) are only supported for restaurant orders (8.6) and delivery notes (9.3). This is an AADE rule, not a limitation of the Middleware: the myDATA API for providers offers cancellation only for these two non-fiscal documents, while the generic `CancelInvoice` call is reserved for ERP users transmitting their own books. Every other correction is a refund (flag `0x0100`) that creates a credit document referencing the original; issued documents cannot be edited or deleted.
 
 **Amounts, currency and tax**
 
@@ -150,7 +149,7 @@ The Middleware actively rejects requests that fall outside the supported scope o
 ## What this means for PosOperators
 
 - **You remain the taxpayer.** The documents are issued in your name, with your VAT number, and transmitted to your myDATA books. You are responsible for handing them to your customers and for keeping them for the statutory retention period.
-- **You must declare the provider.** A business that issues its documents through a licensed provider must submit the corresponding statement to AADE within ten days of starting (*Α.1112/2025*, art. 6). Whether this statement is submitted by fiskaltrust on your behalf or by you through myDATA is being clarified; ask your PosDealer.
+- **You must declare the provider.** A business that issues its documents through a licensed provider must submit the corresponding statement to AADE within ten days of starting (*Α.1112/2025*, art. 6; myDATA call `SendStatement`). fiskaltrust intends to submit this statement on your behalf as part of the onboarding; until this is live, the statement has to be submitted through myDATA, so ask your PosDealer before the first productive document.
 - **Your master data must be complete.** Your VAT number and, where applicable, the branch number must be configured in the fiskaltrust.Portal before the first document is issued.
 - **Corrections go through the POS.** A wrong document is refunded or credited through the POS, which creates the corresponding credit document referencing the original. Documents cannot be edited or deleted.
 - **Card payments need an interconnected terminal.** The payment signature and the unique payment ID of the terminal are part of your receipts and are transmitted to myDATA.

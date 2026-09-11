@@ -42,8 +42,8 @@ The following are part of the provider platform and must stay with the Middlewar
 
 ## Onboarding steps
 
-1. **Register in the fiskaltrust portal** for the sandbox and, when ready, for production, as described in [Portal Registration](../../../getting-started/portal-registration.md). The account master data must contain the merchant's VAT number.
-2. **Integrate against the sandbox.** Sandbox queues transmit to the myDATA test environment and return the raw myDATA request and response in `ftStateData`. Verify one sample of every document type you issue, a refund, an order and its cancellation, a card payment with terminal data, a late-signing receipt and a handwritten receipt.
+1. **Register in the fiskaltrust portal** for the sandbox and, when ready, for production, as described in [Portal Registration](../../../getting-started/portal-registration.md). The Greek contracts are available in the portal. The account master data must contain the merchant's VAT number.
+2. **Integrate against the sandbox.** Create the CashBox from the Greek sandbox template offered in the portal (currently *Viva-Fiscal-Sandbox*). Sandbox queues transmit to the myDATA test environment and return the raw myDATA request and response in `ftStateData`. Verify one sample of every document type you issue, a refund, an order and its cancellation, a card payment with terminal data, a late-signing receipt and a handwritten receipt.
 3. **Run through the [Integration Checklist](../../../getting-started/integration-checklist.md)** and the Greek specifics: initial-operation receipt, every document type, the receipt layout against the [Receipt Printing](../receipt-printing/receipt-printing.md) checklist.
 4. **Go live.** Production queues transmit to the productive myDATA environment. The merchant's provider statement to AADE and the onboarding steps AADE expects from the merchant are being clarified; ask fiskaltrust before the first productive document.
 

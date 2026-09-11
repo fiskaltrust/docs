@@ -78,6 +78,9 @@ No. The licence covers the document and its transmission, not your user interfac
 **Do I need a fiscal device (ΦΗΜ) in addition?**
 No. Documents issued through a licensed provider replace the fiscal device. Merchants who still operate a ΦΗΜ for other reasons must not issue the same document twice.
 
+**Can a receipt or invoice be cancelled after it was issued?**
+No. The myDATA API for providers allows cancellation only of restaurant order slips (8.6) and delivery notes (9.3). A wrong receipt or invoice is corrected with a credit document (11.4, 5.1 or 5.2) that references the original MARK.
+
 **Who does the merchant deal with?**
 On both routes the merchant is the taxpayer and remains responsible for the documents, for declaring the provider and for keeping the records. See [What this means for PosOperators](../licensing/licensing.md#what-this-means-for-posoperators).
 
