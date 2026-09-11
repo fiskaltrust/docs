@@ -212,7 +212,8 @@ module.exports = [
               {
                 type: "category",
                 collapsed: true,
-                label: "E-Invoicing",
+                label: "eInvoicing",
+                key: "de-e-invoicing",
                 items: [
                   "poscreators/middleware-doc/middleware-de-kassensichv/e-invoicing/overview",
                   "poscreators/middleware-doc/middleware-de-kassensichv/e-invoicing/setup",
