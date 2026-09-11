@@ -19,6 +19,10 @@ module.exports = [
     ],
 },
   {
+    type: "html",
+    value: "<hr class='sidebar-divider' />",
+  },
+  {
     type: "category",
     label: "POS System API",
     collapsed: true,
@@ -60,8 +64,6 @@ module.exports = [
       "poscreators/middleware-doc/general/communication/communication",
       "poscreators/middleware-doc/general/receipt-case-definitions/receipt-case-definitions",
       "poscreators/middleware-doc/general/reference-tables/reference-tables",
-
-      "poscreators/middleware-doc/e-invoicing/overview",
 
       {
         type: "category",
@@ -528,6 +530,22 @@ module.exports = [
     },
   ],
 },
+  {
+    type: "html",
+    value: "<hr class='sidebar-divider' />",
+  },
+  {
+    type: "category",
+    label: "eInvoicing",
+    collapsed: true,
+    items: [
+      "poscreators/middleware-doc/e-invoicing/overview",
+    ],
+  },
+  {
+    type: "html",
+    value: "<hr class='sidebar-divider' />",
+  },
   {
     type: "link",
     label: "Development Kit",

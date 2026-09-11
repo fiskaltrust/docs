@@ -1,6 +1,7 @@
 ---
 slug: /poscreators/middleware-doc/e-invoicing/overview
 title: eInvoicing
+sidebar_label: "eInvoicing — Overview"
 ---
 
 # eInvoicing — Overview
