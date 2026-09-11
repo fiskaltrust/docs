@@ -133,27 +133,10 @@ The certified layout itself is fixed. Within it, the following elements are take
 | Element | Source | How to change it |
 | ------- | ------ | ---------------- |
 | Merchant header: name, street, postal code, city, NIF | Outlet master data of the PosOperator in the fiskaltrust.Portal | Edit the outlet in the portal; the receipt service picks the data up for every queue of the outlet. |
-| Logo | Image uploaded on the outlet in the fiskaltrust.Portal (*Select Image File*) | Upload or replace the image on the outlet. Width and height of the logo can be set in the receipt settings (`logowidth`, `logoheight`). |
-| Website link on the logo | Receipt settings `website` | The logo links to this URL on the digital receipt. |
-| Footer text | Receipt settings `footertext` | Free text printed after the last mandatory element, e.g. a thank-you line or return conditions. Line breaks are preserved. This is the place for the footer the AT requires after the mandatory elements; it must not look like one of them. |
-| Feedback and sharing on the digital receipt | Receipt settings `showFeedback`, `shareButtonAppIds`, `enableConsumerApp` | Digital receipt only; these features do not appear on the PDF. |
-
-Receipt settings other than the master data are stored per queue through the receipt settings endpoint of the receipt service, authenticated with the same `cashboxid` and `accesstoken` headers as the PosSystem API:
-
-```
-POST https://receipts.fiskaltrust.eu/v1/configuration/{ftQueueID}/receiptsettings
-{
-  "footertext": "Obrigado pela sua visita\nTrocas até 30 dias com este documento",
-  "website": "https://www.example.pt",
-  "logowidth": "200"
-}
-```
-
-:::caution Custom templates
-
-The receipt settings also accept a custom HTML template (`layout_html`). A custom template replaces the certified layout and is therefore outside certificate 3535 for Portuguese documents unless it has been reviewed and released by fiskaltrust. Do not set it on Portuguese queues without prior agreement.
-
-:::
+| Logo | Image uploaded on the outlet in the fiskaltrust.Portal (*Select Image File*) | Upload or replace the image on the outlet. |
+| Website link on the logo | Receipt settings of the queue | Configured by fiskaltrust on request. |
+| Footer text | Receipt settings of the queue | Free text printed after the last mandatory element, e.g. a thank-you line or return conditions. Configured by fiskaltrust on request. This is the place for the footer the AT requires after the mandatory elements; it must not look like one of them. |
+| Feedback and sharing on the digital receipt | Receipt settings of the queue | Digital receipt only; these features do not appear on the PDF. Configured by fiskaltrust on request. |
 
 ### Extension points in the request
 
