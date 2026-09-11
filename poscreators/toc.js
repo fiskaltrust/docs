@@ -63,16 +63,6 @@ module.exports = [
 
       {
         type: "category",
-        collapsed: true,
-        label: "eInvoicing",
-        key: "general-e-invoicing",
-        items: [
-          "poscreators/middleware-doc/e-invoicing/overview",
-        ],
-      },
-
-      {
-        type: "category",
         label: "Country-Specific Guides",
         collapsed: true,
         key: "country-specific-guides",
@@ -438,6 +428,14 @@ module.exports = [
     ],
   },
   ],
+  },
+  {
+    type: "category",
+    label: "eInvoicing",
+    collapsed: true,
+    items: [
+      "poscreators/middleware-doc/e-invoicing/overview",
+    ],
   },
   {
   type: "category",
