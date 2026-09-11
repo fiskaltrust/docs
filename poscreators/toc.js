@@ -466,14 +466,6 @@ module.exports = [
   ],
   },
   {
-    type: "category",
-    label: "eInvoicing",
-    collapsed: true,
-    items: [
-      "poscreators/middleware-doc/e-invoicing/overview",
-    ],
-  },
-  {
   type: "category",
   label: "Experience Middleware",
   collapsed: true,
@@ -534,6 +526,14 @@ module.exports = [
     },
   ],
 },
+  {
+    type: "category",
+    label: "eInvoicing",
+    collapsed: true,
+    items: [
+      "poscreators/middleware-doc/e-invoicing/overview",
+    ],
+  },
   {
     type: "link",
     label: "Development Kit",
