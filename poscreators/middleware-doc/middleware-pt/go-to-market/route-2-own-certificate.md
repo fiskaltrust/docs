@@ -25,6 +25,8 @@ Several settings that are fixed in the fiskaltrust.CloudCashBox must be set up f
 
 ## Division of responsibilities
 
+The left column corresponds to the components that are [always provided by the fiskaltrust.Middleware](../certification/certification.md#always-provided-by-the-fiskaltrustmiddleware); the right column is what fiskaltrust provides as operator on Route 1 and what becomes yours on this route.
+
 | Area | Provided by the fiskaltrust.Middleware | Provided by you |
 | ---- | -------------------------------------- | --------------- |
 | Document numbering | Series with ATCUD, sequential numbering per series, chronology check | Nothing; series are registered through the Middleware |

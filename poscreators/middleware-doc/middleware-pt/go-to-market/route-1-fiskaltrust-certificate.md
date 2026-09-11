@@ -17,7 +17,7 @@ This is the fastest way into the Portuguese market and the right choice whenever
 - The certified document rendering (PDF, digital receipt, ESC-POS) through the receipt service and the `/issue` endpoint.
 - Updates to the program when the regulation changes, without a new certification on your side.
 
-The complete list of components fiskaltrust provides and operates on this route, from the registration with the AT to the handling of customer and product master data, is in [What fiskaltrust takes care of](../certification/certification.md#what-fiskaltrust-takes-care-of).
+The Certification chapter lists the components that are [always provided by the fiskaltrust.Middleware](../certification/certification.md#always-provided-by-the-fiskaltrustmiddleware) and those that fiskaltrust additionally [provides as operator of the certified program](../certification/certification.md#provided-by-fiskaltrust-as-operator-of-the-certified-program) on this route.
 
 ## What you build
 

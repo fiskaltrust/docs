@@ -26,7 +26,7 @@ With the fiskaltrust.Middleware there are two ways to get there. Choosing the ro
 - [Route 1: Using the fiskaltrust certificate](./route-1-fiskaltrust-certificate.md)
 - [Route 2: Certifying your own solution](./route-2-own-certificate.md)
 
-The [Certification](../certification/certification.md) chapter of this appendix describes Route 1: it documents certificate 3535, the certified scope, and the components fiskaltrust takes care of. On Route 2 the certificate, its scope, and the responsibility towards the AT are yours.
+The [Certification](../certification/certification.md) chapter of this appendix describes Route 1: it documents certificate 3535, the certified scope, the components that are always provided by the Middleware, and those fiskaltrust additionally provides as operator. On Route 2 the certificate, its scope, and the responsibility towards the AT are yours.
 
 :::note Route 2 is open for a first partner
 
@@ -36,7 +36,7 @@ fiskaltrust has gone through the certification for its own program but has not y
 
 ## What is the same on both routes
 
-Whichever route you take, the fiskaltrust.Middleware does the fiscal heavy lifting: it validates the request against the Portuguese business rules, assigns the document number in a registered series with its ATCUD, signs the document and chains it to the previous one, generates the QR code content, and produces the SAF-T (PT) export. The [Portugal appendix](../appendix-pt.md) describes these mechanisms; they do not differ between the routes.
+Whichever route you take, the fiskaltrust.Middleware does the fiscal heavy lifting: it validates the request against the Portuguese business rules, assigns the document number in a registered series with its ATCUD, signs the document and chains it to the previous one, generates the QR code content and the mandatory texts, derives customer and product master data and the tax table, tracks the document lifecycle, and produces the SAF-T (PT) export. The complete list is in [Always provided by the fiskaltrust.Middleware](../certification/certification.md#always-provided-by-the-fiskaltrustmiddleware); these components do not differ between the routes.
 
 What differs is **who is responsible for the certified program as a whole**, and therefore who has to answer to the AT for the parts around the Middleware: the rendered document, the protection of master data and print format, user management, and operational measures such as backups.
 
