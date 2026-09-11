@@ -61,6 +61,8 @@ module.exports = [
       "poscreators/middleware-doc/general/receipt-case-definitions/receipt-case-definitions",
       "poscreators/middleware-doc/general/reference-tables/reference-tables",
 
+      "poscreators/middleware-doc/e-invoicing/overview",
+
       {
         type: "category",
         label: "Country-Specific Guides",
@@ -209,6 +211,15 @@ module.exports = [
                 ],
               },
               "poscreators/middleware-doc/middleware-de-kassensichv/procedural-documentation/dsfinv-k-generation",
+              {
+                type: "category",
+                collapsed: true,
+                label: "E-Invoicing",
+                items: [
+                  "poscreators/middleware-doc/middleware-de-kassensichv/e-invoicing/overview",
+                  "poscreators/middleware-doc/middleware-de-kassensichv/e-invoicing/setup",
+                ],
+              },
             ],
       },
       {
