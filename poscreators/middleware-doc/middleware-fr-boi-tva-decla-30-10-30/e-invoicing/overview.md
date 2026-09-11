@@ -38,3 +38,4 @@ Issuance is phased (large/mid-size businesses from 1 September 2026, SMEs and mi
 - [Delivery (`/issue` Endpoint)](../../experience-middleware/delivery.md) — the product-level eInvoicing and e-Delivery concept across all markets.
 - [Migrating from API v0 to PosSystem API (v2)](../../possystem-api/migration-guide.md) — eInvoicing is a PosSystem API (v2) feature.
 - [Appendix: FR](../appendix-fr-boi-tva-decla-30-10-30.md) — France fiscalization details.
+- [eInvoicing in France (European Commission)](https://ec.europa.eu/digital-building-blocks/sites/spaces/DIGITAL/pages/467108885/eInvoicing+in+France) — the EU Digital Building Blocks country factsheet.
