@@ -5,7 +5,7 @@ title: Go-to-Market
 
 # Go-to-Market in Greece
 
-Greece has no fiscal printer or certified cash-register software in the sense of other markets, but it is one of the most tightly regulated markets in Europe when it comes to **real-time reporting**. Every receipt and invoice must be transmitted to the **myDATA** platform of the tax authority AADE and receive a registration number (**MARK**) before it is handed to the customer. A business has two lawful ways to do this for retail documents: a certified fiscal device (ΦΗΜ) or a **licensed electronic invoicing provider** (ΥΠΑΗΕΣ). A cloud POS that wants to avoid fiscal hardware therefore has to work with a provider.
+Greece is one of the most tightly regulated markets in Europe when it comes to **real-time reporting**. Every receipt and invoice must be transmitted to the **myDATA** platform of the tax authority AADE and receive a registration number (**MARK**) before it is handed to the customer. A business has two lawful ways to do this for retail documents: a **certified fiscal device** (ΦΗΜ: fiscal cash registers, fiscal signing devices and fiscal printers, which are certified by AADE and interconnected with myDATA and the payment terminals) or a **licensed electronic invoicing provider** (ΥΠΑΗΕΣ). The fiskaltrust.Middleware implements the provider route: a cloud POS that wants to issue documents without fiscal hardware has to work with a provider, and the documents it issues replace the fiscal device.
 
 With the fiskaltrust.Middleware there are two ways to get there. Choosing the route is the first decision a PosCreator makes for the Greek market, because it determines what has to be built, who is registered with AADE, and how the product can be deployed.
 
