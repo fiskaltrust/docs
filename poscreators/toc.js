@@ -388,6 +388,15 @@ module.exports = [
               "poscreators/middleware-doc/middleware-pl/reference-tables/type-of-journal-ftjournaltype",
             ],
           },
+          {
+            type: "category",
+            collapsed: true,
+            label: "E-Invoicing",
+            items: [
+              "poscreators/middleware-doc/middleware-pl/e-invoicing/overview",
+              "poscreators/middleware-doc/middleware-pl/e-invoicing/setup",
+            ],
+          },
         ],
       },
       {
