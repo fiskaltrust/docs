@@ -61,6 +61,8 @@ module.exports = [
       "poscreators/middleware-doc/general/receipt-case-definitions/receipt-case-definitions",
       "poscreators/middleware-doc/general/reference-tables/reference-tables",
 
+      "poscreators/middleware-doc/e-invoicing/overview",
+
       {
         type: "category",
         label: "Country-Specific Guides",
@@ -209,6 +211,15 @@ module.exports = [
                 ],
               },
               "poscreators/middleware-doc/middleware-de-kassensichv/procedural-documentation/dsfinv-k-generation",
+              {
+                type: "category",
+                collapsed: true,
+                label: "E-Invoicing",
+                items: [
+                  "poscreators/middleware-doc/middleware-de-kassensichv/e-invoicing/overview",
+                  "poscreators/middleware-doc/middleware-de-kassensichv/e-invoicing/setup",
+                ],
+              },
             ],
       },
       {
@@ -396,6 +407,16 @@ module.exports = [
         label: "Portugal (PT)",
         items: [
           "poscreators/middleware-doc/middleware-pt/appendix-pt",
+          {
+            type: "category",
+            label: "Go-to-Market",
+            key: "pt-go-to-market",
+            items: [
+              "poscreators/middleware-doc/middleware-pt/go-to-market/go-to-market",
+              "poscreators/middleware-doc/middleware-pt/go-to-market/route-1-fiskaltrust-certificate",
+              "poscreators/middleware-doc/middleware-pt/go-to-market/route-2-own-certificate",
+            ],
+          },
           "poscreators/middleware-doc/middleware-pt/certification/certification",
           "poscreators/middleware-doc/middleware-pt/terminology/terminology",
           "poscreators/middleware-doc/middleware-pt/cash-register-integration/cash-register-integration",
