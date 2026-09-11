@@ -126,16 +126,6 @@ Both formats are produced from the same data and the same certified layout; they
 | **Digital receipt** | URL without suffix | The customer opens the link behind the QR code on a phone or a browser; the POS shows it on a customer display. | Interactive: download as PDF, send by e-mail, share with partner apps. Rendered with the Portuguese layout, labels, and the *Original* / *Duplicado* / *Documento anulado* markers. |
 | **PDF** | `/pdf`, `?format=pdf`, or `Accept: application/pdf` | Sending the document by e-mail, archiving, the merchant copy, printing on an office printer. | Same content and layout as the digital receipt, rendered server-side. An A4 multi-page invoice layout exists and is currently enabled per POS system by fiskaltrust; contact fiskaltrust if you need it. |
 
-### Original, duplicate, and voided renderings
-
-The receipt service tracks how a document was delivered and adapts the rendering accordingly, so that the AT's rules on copies are met without any logic in the POS:
-
-- The first rendering carries the marker **Original**.
-- Once the POS has reported the document as printed or as accepted by the customer through the `/issue` endpoint (see below), every further rendering carries **Duplicado**.
-- Appending `?copy=true` to either URL forces the **Duplicado** marker, e.g. for the merchant copy that is printed together with the original.
-- A copy request sent to the Middleware (`ftReceiptCase` `0x3010`) has a URL of its own but renders the content of the referenced original with the **Duplicado** marker.
-- After a void (`IsVoid` flag `0x0004`) has been issued, the rendering of the original document carries **Documento anulado** and keeps its ATCUD, QR code, and certificate line.
-
 ### What can be configured
 
 The certified layout itself is fixed. Within it, the following elements are taken from the queue's receipt settings and can be adapted per outlet without affecting the certificate:
@@ -187,8 +177,8 @@ After `/sign`, the POS hands the signed request and response pair to `/issue`. T
 
 | `Action` | Effect |
 | -------- | ------ |
-| `print` | Records that the document was printed physically. Further renderings are marked *Duplicado*. |
-| `accept` | Records that the customer accepted the digital receipt (e.g. scanned the QR code). Further renderings are marked *Duplicado*. |
+| `print` | Records that the document was printed physically. |
+| `accept` | Records that the customer accepted the digital receipt (e.g. scanned the QR code). |
 | `send` with `Target.Scheme` `email`, `sms`, or `peppol` and `Target.Address` | Sends the document to the given address: by e-mail with the PDF attached, by SMS with the link, or as e-invoice through the Peppol network (Peppol is not part of the certified scope). |
 | `link` with `Target.Alias` or `Target.Scheme` + `Target.Address` | Binds the document to a give-away QR label or another alias. |
 | `download` with `Format` | Returns the document (e.g. `Format`: `pdf`) through the POS connection instead of the public URL. |
