@@ -529,7 +529,6 @@ module.exports = [
   {
     type: "html",
     value: "<hr class='sidebar-divider' />",
-    defaultStyle: true,
   },
   {
     type: "category",
