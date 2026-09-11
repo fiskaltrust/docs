@@ -37,3 +37,4 @@ Both waves of the B2B mandate have passed (turnover above 200 million PLN from 1
 - [Delivery (`/issue` Endpoint)](../../experience-middleware/delivery.md) — the product-level eInvoicing and e-Delivery concept across all markets.
 - [Migrating from API v0 to PosSystem API (v2)](../../possystem-api/migration-guide.md) — eInvoicing is a PosSystem API (v2) feature.
 - [Appendix: PL](../appendix-pl.md) — Poland fiscalization details.
+- [eInvoicing in Poland (European Commission)](https://ec.europa.eu/digital-building-blocks/sites/spaces/DIGITAL/pages/467108896/eInvoicing+in+Poland) — the EU Digital Building Blocks country factsheet.
