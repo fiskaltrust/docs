@@ -26,6 +26,14 @@ With the fiskaltrust.Middleware there are two ways to get there. Choosing the ro
 - [Route 1: Using the fiskaltrust certificate](./route-1-fiskaltrust-certificate.md)
 - [Route 2: Certifying your own solution](./route-2-own-certificate.md)
 
+The [Certification](../certification/certification.md) chapter of this appendix describes Route 1: it documents certificate 3535, the certified scope, and the components fiskaltrust takes care of. On Route 2 the certificate, its scope, and the responsibility towards the AT are yours.
+
+:::note Route 2 is open for a first partner
+
+fiskaltrust has gone through the certification for its own program but has not yet accompanied a partner through a certification of their own solution. We are looking for partners who want to take Route 2; contact [sales@fiskaltrust.pt](mailto:sales@fiskaltrust.pt).
+
+:::
+
 ## What is the same on both routes
 
 Whichever route you take, the fiskaltrust.Middleware does the fiscal heavy lifting: it validates the request against the Portuguese business rules, assigns the document number in a registered series with its ATCUD, signs the document and chains it to the previous one, generates the QR code content, and produces the SAF-T (PT) export. The [Portugal appendix](../appendix-pt.md) describes these mechanisms; they do not differ between the routes.
@@ -42,6 +50,9 @@ No. Certificate 3535 covers the fiskaltrust.CloudCashBox as operated by fiskaltr
 
 **Does Route 1 restrict how my POS looks?**
 No. The certificate covers the fiscal document, not your user interface. Your POS can look and behave as you like; the document handed to the customer is the one rendered by fiskaltrust.
+
+**Has a partner already been certified on Route 2?**
+Not yet. fiskaltrust holds certificate 3535 for its own program and knows the procedure from that experience, but no partner has certified a solution built on the Middleware so far. We are looking for a first partner; contact [sales@fiskaltrust.pt](mailto:sales@fiskaltrust.pt).
 
 **Who does the merchant deal with?**
 On both routes the merchant is the taxpayer and remains responsible for issuing documents and submitting the SAF-T (PT). See [What this means for PosOperators](../certification/certification.md#what-this-means-for-posoperators).
