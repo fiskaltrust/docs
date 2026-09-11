@@ -90,3 +90,8 @@ Market-specific terms (XRechnung, ZUGFeRD, FatturaPA, XAdES, SDI, `CodiceDestina
 - [Delivery (`/issue` Endpoint)](../experience-middleware/delivery.md) — the product-level eInvoicing and e-Delivery concept.
 - [Migrating from API v0 to PosSystem API (v2)](../possystem-api/migration-guide.md) — eInvoicing is a PosSystem API (v2) feature.
 - Country pages — see [Availability by market](#availability-by-market).
+
+## External references
+
+- [eInvoicing HUB (European Commission)](https://ec.europa.eu/digital-building-blocks/sites/spaces/DIGITAL/pages/894304326/eInvoicing+HUB) — the EU Digital Building Blocks knowledge hub.
+- [eInvoicing Country Factsheets (European Commission)](https://ec.europa.eu/digital-building-blocks/sites/spaces/DIGITAL/pages/467108874/eInvoicing+Country+Factsheets+for+each+Member+State+and+other+countries) — regulatory factsheets per Member State and other countries.
