@@ -33,3 +33,6 @@ https?://www\.fiskaltrust\.at/products/.*
 https?://www\.fiskaltrust\.at/news/.*
 
 https?://(www\.)?meinfiskal\.de
+
+# The Bizkaia Batuz site uses an Izenpe certificate that the link checker does not trust
+https?://www\.batuz\.eus/es/registro-de-software
