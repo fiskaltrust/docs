@@ -55,11 +55,11 @@ Exact case codes, delivery targets, and go-live status live on each **country pa
 
 | Market | Regulatory model | Delivery path |
 | --- | --- | --- |
-| **Austria (AT)** | B2G mandated; B2B optional | Portal back office / InStore App today (POS-driven API pending) |
+| **Austria (AT)** | B2G mandated; B2B optional | API — `/sign` + `/issue` via Peppol / the national portal |
 | **France (FR)** | B2B, decentralised (PDP) | API — `/sign` + `/issue` via the Plateforme Agréée |
 | **Germany (DE)** | B2B, post-audit | API — `/sign` + `/issue` via Peppol |
 | **Italy (IT)** | B2G/B2B/B2C, centralised clearance | API — `/sign` + `/issue` via SDI |
-| **Poland (PL)** | B2B, centralised clearance | Build in progress — adapter not yet shipped |
+| **Poland (PL)** | B2B, centralised clearance | API (preview) — `/sign` + `/issue` via KSeF |
 | **EU (cross-border)** | Voluntary — no national mandate | API — `/sign` + `/issue` via Peppol |
 
 Each market's **Overview** and **Setup & testing** pages live under its entry in **Country-Specific Guides** (in the sidebar).
