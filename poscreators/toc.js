@@ -296,8 +296,20 @@ module.exports = [
         label: "Greece (GR)",
         items: [
           "poscreators/middleware-doc/middleware-gr/appendix-gr",
+          {
+            type: "category",
+            label: "Go-to-Market",
+            key: "gr-go-to-market",
+            items: [
+              "poscreators/middleware-doc/middleware-gr/go-to-market/go-to-market",
+              "poscreators/middleware-doc/middleware-gr/go-to-market/route-1-fiskaltrust-licence",
+              "poscreators/middleware-doc/middleware-gr/go-to-market/route-2-erp-api",
+            ],
+          },
+          "poscreators/middleware-doc/middleware-gr/licensing/licensing",
           "poscreators/middleware-doc/middleware-gr/terminology/terminology",
           "poscreators/middleware-doc/middleware-gr/cash-register-integration/cash-register-integration",
+          "poscreators/middleware-doc/middleware-gr/receipt-printing/receipt-printing",
           "poscreators/middleware-doc/middleware-gr/data-structures/data-structures",
           {
             type: "category",
