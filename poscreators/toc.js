@@ -84,6 +84,15 @@ module.exports = [
               {
                 type: "category",
                 collapsed: true,
+                label: "eInvoicing",
+                items: [
+                  "poscreators/middleware-doc/middleware-at-rksv/e-invoicing/overview",
+                  "poscreators/middleware-doc/middleware-at-rksv/e-invoicing/setup",
+                ],
+              },
+              {
+                type: "category",
+                collapsed: true,
                 label: "Receipt signing APIs",
                 items: [
                   {
@@ -213,7 +222,6 @@ module.exports = [
                 type: "category",
                 collapsed: true,
                 label: "eInvoicing",
-                key: "de-e-invoicing",
                 items: [
                   "poscreators/middleware-doc/middleware-de-kassensichv/e-invoicing/overview",
                   "poscreators/middleware-doc/middleware-de-kassensichv/e-invoicing/setup",
@@ -268,6 +276,15 @@ module.exports = [
           "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/communication/communication",
           "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/receipt-case-definitions/receipt-case-definitions",
           "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/reference-tables/reference-tables",
+          {
+            type: "category",
+            collapsed: true,
+            label: "eInvoicing",
+            items: [
+              "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/e-invoicing/overview",
+              "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/e-invoicing/setup",
+            ],
+          },
         ],
       },
       {
@@ -360,6 +377,15 @@ module.exports = [
               "poscreators/middleware-doc/middleware-it-registratore-telematico/reference-tables/type-of-journal-ftjournaltype",
             ],
           },
+          {
+            type: "category",
+            collapsed: true,
+            label: "eInvoicing",
+            items: [
+              "poscreators/middleware-doc/middleware-it-registratore-telematico/e-invoicing/overview",
+              "poscreators/middleware-doc/middleware-it-registratore-telematico/e-invoicing/setup",
+            ],
+          },
         ],
       },
 {
@@ -385,6 +411,15 @@ module.exports = [
               "poscreators/middleware-doc/middleware-pl/reference-tables/type-of-signature-ftsignaturetype",
               "poscreators/middleware-doc/middleware-pl/reference-tables/type-of-signature-ftsignatureformat",
               "poscreators/middleware-doc/middleware-pl/reference-tables/type-of-journal-ftjournaltype",
+            ],
+          },
+          {
+            type: "category",
+            collapsed: true,
+            label: "eInvoicing",
+            items: [
+              "poscreators/middleware-doc/middleware-pl/e-invoicing/overview",
+              "poscreators/middleware-doc/middleware-pl/e-invoicing/setup",
             ],
           },
         ],
