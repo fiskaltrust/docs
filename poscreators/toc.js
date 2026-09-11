@@ -86,7 +86,7 @@ module.exports = [
               {
                 type: "category",
                 collapsed: true,
-                label: "E-Invoicing",
+                label: "eInvoicing",
                 items: [
                   "poscreators/middleware-doc/middleware-at-rksv/e-invoicing/overview",
                   "poscreators/middleware-doc/middleware-at-rksv/e-invoicing/setup",
@@ -223,7 +223,7 @@ module.exports = [
               {
                 type: "category",
                 collapsed: true,
-                label: "E-Invoicing",
+                label: "eInvoicing",
                 items: [
                   "poscreators/middleware-doc/middleware-de-kassensichv/e-invoicing/overview",
                   "poscreators/middleware-doc/middleware-de-kassensichv/e-invoicing/setup",
@@ -281,7 +281,7 @@ module.exports = [
           {
             type: "category",
             collapsed: true,
-            label: "E-Invoicing",
+            label: "eInvoicing",
             items: [
               "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/e-invoicing/overview",
               "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/e-invoicing/setup",
