@@ -109,5 +109,5 @@ See the [POS System API reference](https://docs.fiskaltrust.cloud/apis/pos-syste
 ## Related pages
 
 - [Overview](./overview.md) — scope, regulatory status, and the integration flow.
-- [Delivery (`/issue` Endpoint)](../../experience-middleware/delivery.md) — the product-level eInvoicing and e-Delivery concept.
+- [Delivery (`/issue` Endpoint)](../../experience-middleware/delivery.md) — the product-level eInvoicing and eDelivery concept.
 - [Migrating from API v0 to PosSystem API (v2)](../../possystem-api/migration-guide.md) — eInvoicing is a PosSystem API (v2) feature.
