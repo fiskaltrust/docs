@@ -98,16 +98,16 @@ To make the receipt available for delivery, call `/issue` with the **original `/
 
 **Step 3 — Deliver to a channel** — optional
 
-Deliver the document with `PUT /issue/{ftQueueID}/{ftQueueItemID}`, choosing a delivery method: `IssueUpdateSend` (email/SMS), `IssueUpdatePrint`, `IssueUpdateDownload`, `IssueUpdateUpload`, or `IssueUpdateLink`. Peppol delivery uses one of the upload/send methods — confirm the exact one for Peppol with product.
+Deliver the document with `PUT /issue/{queueId}/{queueItemId}`, choosing a delivery method: `IssueUpdateSend` (email/SMS), `IssueUpdatePrint`, `IssueUpdateDownload`, `IssueUpdateUpload`, or `IssueUpdateLink`. Peppol delivery uses one of the upload/send methods — confirm the exact one for Peppol with product.
 
 **Step 4 — Check delivery status**
 
-Poll `GET /issue/{ftQueueID}/{ftQueueItemID}/delivered` to check whether the document was delivered. There is **no callback or webhook**.
+Poll `GET /issue/{queueId}/{queueItemId}` for the status until it reports **delivered**. There is **no callback or webhook**.
 
 See the [POS System API reference](https://docs.fiskaltrust.cloud/apis/pos-system-api) for the full `/issue` request/response schemas.
 
 ## Related pages
 
 - [Overview](./overview.md) — scope, regulatory status, and the integration flow.
-- [Delivery (`/issue` Endpoint)](../../experience-middleware/delivery.md) — the product-level eInvoicing and e-Delivery concept.
+- [Delivery (`/issue` Endpoint)](../../experience-middleware/delivery.md) — the product-level eInvoicing and eDelivery concept.
 - [Migrating from API v0 to PosSystem API (v2)](../../possystem-api/migration-guide.md) — eInvoicing is a PosSystem API (v2) feature.

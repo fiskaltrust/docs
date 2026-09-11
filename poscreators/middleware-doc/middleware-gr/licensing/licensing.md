@@ -17,7 +17,7 @@ fiskaltrust's **own** AADE provider licence for B2C/B2B documents, and a separat
 
 :::
 
-This page describes only the setup in which the PosCreator uses the licence that the fiskaltrust.Middleware for Cloud operates under. The alternative, obtaining a provider licence of your own on top of the Middleware, is described in [Route 2](../go-to-market/route-2-own-licence.md).
+This page describes only the setup in which the documents are transmitted under the licence that the fiskaltrust.Middleware for Cloud operates under. The alternative, transmitting under the merchant's own myDATA credentials through the ERP API, is described in [Route 2](../go-to-market/route-2-erp-api.md); it is planned for the Middleware but not available today. Obtaining a provider licence of your own is a matter between the applicant and AADE and is not a route fiskaltrust offers.
 
 ## Where the licence appears on documents
 
@@ -52,7 +52,7 @@ With the fiskaltrust.Middleware for Cloud, the whole provider flow happens insid
 
 :::caution Scope
 
-The provider credentials that authenticate against myDATA are held by fiskaltrust and are part of the cloud deployment. Self-hosted or on-device installations of the Middleware are therefore not available for Greece under this licence. PosCreators who need such a deployment must obtain their own provider licence (see [Route 2](../go-to-market/route-2-own-licence.md)).
+The provider credentials that authenticate against myDATA are held by fiskaltrust and are part of the cloud deployment. Self-hosted or on-device installations of the Middleware are therefore not available for Greece.
 
 :::
 

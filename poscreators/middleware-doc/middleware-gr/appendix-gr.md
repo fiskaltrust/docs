@@ -21,7 +21,7 @@ The following points shape an integration in Greece:
 
 The fiskaltrust.Middleware for Cloud implements the provider model and currently issues Greek documents under the AADE e-invoicing provider licence of its partner Viva (provider ID 126). The [Licensing](./licensing/licensing.md) chapter describes what this covers, which myDATA document types are issued, where the identifiers appear on the document and where the boundaries of the implementation are. The [Receipt Printing](./receipt-printing/receipt-printing.md) chapter lists the mandatory elements of the printed or digital receipt.
 
-PosCreators can enter the Greek market either through the fiskaltrust.Middleware for Cloud or by obtaining their own provider licence on top of the fiskaltrust.Middleware. The [Go-to-Market](./go-to-market/go-to-market.md) chapter compares the two routes and summarises the key factors of the market.
+Documents can reach myDATA on two routes: through a licensed provider, which is what the fiskaltrust.Middleware for Cloud does today, or through the myDATA ERP API under the merchant's own credentials, which is planned for the Middleware. The [Go-to-Market](./go-to-market/go-to-market.md) chapter compares the two routes and summarises the key factors of the market.
 
 ## Where to start
 

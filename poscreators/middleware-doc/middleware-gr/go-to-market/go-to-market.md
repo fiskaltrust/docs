@@ -5,32 +5,39 @@ title: Go-to-Market
 
 # Go-to-Market in Greece
 
-Greece is one of the most tightly regulated markets in Europe when it comes to **real-time reporting**. Every receipt and invoice must be transmitted to the **myDATA** platform of the tax authority AADE and receive a registration number (**MARK**) before it is handed to the customer. A business has two lawful ways to do this for retail documents: a **certified fiscal device** (ΦΗΜ: fiscal cash registers, fiscal signing devices and fiscal printers, which are certified by AADE and interconnected with myDATA and the payment terminals) or a **licensed electronic invoicing provider** (ΥΠΑΗΕΣ). The fiskaltrust.Middleware implements the provider route: a cloud POS that wants to issue documents without fiscal hardware has to work with a provider, and the documents it issues replace the fiscal device.
+Greece is one of the most tightly regulated markets in Europe when it comes to **real-time reporting**. Every receipt and invoice must be transmitted to the **myDATA** platform of the tax authority AADE and receive a registration number (**MARK**) before it is handed to the customer. A business has two lawful ways to do this for retail documents: a **certified fiscal device** (ΦΗΜ: fiscal cash registers, fiscal signing devices and fiscal printers, which are certified by AADE and interconnected with myDATA and the payment terminals) or a **licensed electronic invoicing provider** (ΥΠΑΗΕΣ). Alongside this, myDATA is the reporting layer for every business: an entity that issues documents from its own ERP transmits them to myDATA itself, through the **ERP API**, with its own credentials.
 
-With the fiskaltrust.Middleware there are two ways to get there. Choosing the route is the first decision a PosCreator makes for the Greek market, because it determines what has to be built, who is registered with AADE, and how the product can be deployed.
+The fiskaltrust.Middleware implements the provider route today, and the ERP API is planned. Which of the two a document travels on is the first decision a PosCreator makes for the Greek market, because it determines what appears on the receipt, which obligations fall on the merchant, and what is available today.
 
 ## The two routes
 
-| | **Route 1: fiskaltrust.Middleware for Cloud** | **Route 2: own provider licence** |
+Both routes use the fiskaltrust.Middleware and the same PosSystem API. What differs is **whose credentials the document is transmitted under**.
+
+| | **Route 1: through fiskaltrust as licensed provider** | **Route 2: through the myDATA ERP API** |
 | --- | --- | --- |
-| Licensed provider | The provider licence the fiskaltrust.Middleware for Cloud operates under (currently Viva's licence, provider ID **126**; see [Licensing](../licensing/licensing.md)) | You, licensed by AADE as ΥΠΑΗΕΣ, with your own provider ID |
-| Registered with AADE | The licensee; fiskaltrust operates the platform | You |
-| Who talks to AADE | fiskaltrust and the licensee | You, supported by fiskaltrust |
-| What you build | The POS front end that sends business cases through the PosSystem API, connects the payment terminal and hands out the digital or printed receipt | The POS plus everything AADE audits around the provider platform: provider credentials and infrastructure, receipt rendering, merchant onboarding, statements, monitoring of offline cases and open orders |
-| What you must not build | Own myDATA transmission, own MARK/QR handling, own provider texts | Nothing is excluded, but everything you add is audited |
-| Deployment | fiskaltrust cloud only | Cloud, self-hosted or on-device, as your licence allows |
-| Functional scope | The supported scope of the Middleware (see [Licensing](../licensing/licensing.md#supported-document-types)) | Extendable, e.g. B2G e-invoicing, Digital Shipping Note phase B, own rendering |
-| Time to market | Integration and onboarding only | Integration plus the AADE licensing procedure |
-| Choose it when | You want the fastest and lowest-risk entry and the supported scope covers your use case | You need a deployment or functionality outside the supported scope, or you want to hold the provider licence yourself |
+| Transmission | fiskaltrust transmits with the provider credentials of the AADE licence the fiskaltrust.Middleware for Cloud operates under (currently Viva's licence, provider ID **126**; see [Licensing](../licensing/licensing.md)) | fiskaltrust transmits with the **merchant's own myDATA credentials** (`aade-user-id` and subscription key from the myDATA REST portal) |
+| Who is registered with AADE | The licensee; fiskaltrust operates the platform | The merchant, as a business reporting from its own ERP |
+| On the document | Provider footer with the legal name, web address and licence identifier | No provider footer |
+| Merchant obligations | The merchant declares the provider to AADE within ten days (*Α.1112/2025*, art. 6) | No provider statement; the merchant manages its own myDATA credentials |
+| Cancellation | Only order slips (8.6) and delivery notes (9.3); the generic cancellation call is closed to providers | AADE's generic `CancelInvoice` is open to ERP users |
+| Retail receipts | Covered: a document issued through a licensed provider replaces the fiscal device | Being clarified — the retail obligation (ΦΗΜ or provider) is not lifted by reporting through the ERP API |
+| Availability in the Middleware | **Live** | **Planned**, not available today |
+| Choose it when | You need a working Greek retail flow now, with the digital receipt and the terminal interconnection as implemented | The merchant already reports to myDATA from its own ERP, or wants documents registered under its own credentials |
 
 - [Route 1: Using the fiskaltrust.Middleware for Cloud](./route-1-fiskaltrust-licence.md)
-- [Route 2: Obtaining your own provider licence](./route-2-own-licence.md)
+- [Route 2: Transmitting through the myDATA ERP API](./route-2-erp-api.md)
+
+:::info There is no route to your own provider licence through fiskaltrust
+
+An AADE provider licence (ΥΠΑΗΕΣ, *Α.1035/2020*) is granted to the company that operates the platform and is applied for with AADE directly. fiskaltrust does **not** offer a route in which a PosCreator is brought to market under its own provider licence on top of the fiskaltrust.Middleware. Greece therefore differs from Portugal, where a partner can certify its own solution: here the decision is between transmitting through a licensed provider and transmitting under the merchant's own myDATA credentials.
+
+:::
 
 ## Key factors for the Greek market
 
 Whichever route you take, these are the factors that shape a POS product for Greece. The [terminology](../terminology/terminology.md) chapter explains the vocabulary.
 
-**Licensed provider or fiscal device.** Retail documents must be issued either through a ΦΗΜ or through a licensed provider (*Α.1035/2020*). The provider route means there is no hardware, but every document depends on an online call to myDATA and on the provider's licence. Using a provider does not free the merchant from obligations: the merchant has to declare the provider to AADE within ten days of starting (*Α.1112/2025*, art. 6) and remains responsible for the documents.
+**Provider, fiscal device or own reporting.** Retail documents must be issued either through a ΦΗΜ or through a licensed provider (*Α.1035/2020*); reporting from an own ERP through the myDATA ERP API is the third channel, and whether it can carry retail on its own is being clarified. The provider route means there is no hardware, but every document depends on an online call to myDATA and on the provider's licence. Using a provider does not free the merchant from obligations: the merchant has to declare the provider to AADE within ten days of starting (*Α.1112/2025*, art. 6) and remains responsible for the documents.
 
 **Real-time transmission.** Every document is transmitted to myDATA at the moment it is issued; myDATA returns MARK, UID and authentication code synchronously, and the receipt must show them together with the QR code. The response time of myDATA is therefore part of the checkout time. The Middleware transmits synchronously and returns the identifiers in the same response.
 
@@ -62,15 +69,18 @@ Whichever route you take, these are the factors that shape a POS product for Gre
 
 Whichever route you take, the fiskaltrust.Middleware does the fiscal heavy lifting: it validates the request against the Greek rules, maps it to the myDATA invoice type and classifications, numbers the document in the queue's series, transmits it to myDATA, and returns MARK, UID, authentication code, QR code and the full myDATA XML. The [reference tables](../reference-tables/reference-tables.md) describe these mechanisms; they do not differ between the routes.
 
-What differs is **who holds the licence and the provider credentials**, and therefore who has to answer to AADE for everything around the Middleware: the provider texts on the receipt, the merchant statements, the handling of offline cases and open orders, data access for merchants and auditors, and the availability of the platform.
+What differs is **whose credentials the document is transmitted under**, and what follows from that: whether a provider footer is printed, whether the merchant has to declare a provider to AADE, which cancellation calls are open, and which obligations of a licensed provider (open-order monitoring, statements, provider-side data access) apply at all.
 
 ## Frequently asked questions
 
 **Can I start on Route 1 and move to Route 2 later?**
-Yes. The API integration is the same. Moving to Route 2 adds the licensing procedure with AADE and your own provider credentials; the provider texts on your receipts change to your licence. Documents already issued remain registered in myDATA under the licence they were issued with.
+That is the intention: the API integration is the same, and the switch changes the credentials the queue transmits with, not your requests. Documents already issued stay registered in myDATA as they were transmitted. Route 2 is not available yet, so plan the move rather than the start.
 
-**Can I run the Middleware on my own infrastructure under the current licence?**
-No. The provider credentials are part of the fiskaltrust cloud deployment. A self-hosted or on-device installation needs your own provider licence (Route 2).
+**Can I become a licensed provider myself through fiskaltrust?**
+No. A provider licence is obtained from AADE by the company that operates the platform; fiskaltrust does not take partners through that procedure. If your goal is to avoid a provider on the document, the ERP route is the path to discuss.
+
+**Can I run the Middleware on my own infrastructure?**
+Not in Greece today. The provider credentials are part of the fiskaltrust cloud deployment, and the ERP route is not available yet.
 
 **Does Route 1 restrict how my POS looks?**
 No. The licence covers the document and its transmission, not your user interface. Your POS can look and behave as you like; the identifiers and the provider footer on the receipt are the ones returned by the Middleware.
@@ -79,10 +89,10 @@ No. The licence covers the document and its transmission, not your user interfac
 No. Documents issued through a licensed provider replace the fiscal device. Merchants who still operate a ΦΗΜ for other reasons must not issue the same document twice.
 
 **Can a receipt or invoice be cancelled after it was issued?**
-No. The myDATA API for providers allows cancellation only of restaurant order slips (8.6) and delivery notes (9.3). A wrong receipt or invoice is corrected with a credit document (11.4, 5.1 or 5.2) that references the original MARK.
+Not on the provider route. The myDATA API for providers allows cancellation only of restaurant order slips (8.6) and delivery notes (9.3), so a wrong receipt or invoice is corrected with a credit document (11.4, 5.1 or 5.2) that references the original MARK. AADE's generic cancellation call is open to ERP users, which is one of the differences of Route 2.
 
 **Who does the merchant deal with?**
-On both routes the merchant is the taxpayer and remains responsible for the documents, for declaring the provider and for keeping the records. See [What this means for PosOperators](../licensing/licensing.md#what-this-means-for-posoperators).
+On both routes the merchant is the taxpayer and remains responsible for the documents and for keeping the records. On the provider route the merchant additionally declares the provider to AADE; on the ERP route the merchant owns the myDATA credentials the documents are transmitted with. See [What this means for PosOperators](../licensing/licensing.md#what-this-means-for-posoperators).
 
 **Where do I get help?**
 Contact [sales@fiskaltrust.eu](mailto:sales@fiskaltrust.eu) for the commercial setup in Greece.

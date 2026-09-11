@@ -49,7 +49,7 @@ The following are part of the provider platform and must stay with the Middlewar
 
 ## Boundaries of this route
 
-- **Cloud only.** The provider credentials are part of the fiskaltrust cloud deployment. If you need a self-hosted or on-device installation, see [Route 2](./route-2-own-licence.md).
+- **Cloud only.** The provider credentials are part of the fiskaltrust cloud deployment; self-hosted or on-device installations are not available for Greece.
 - **Supported scope only.** Receipt cases and features outside the supported scope, such as table checks, pro forma documents, voids of receipts, document-level discounts, B2G invoicing or foreign currency, are rejected by the Middleware. See [Boundaries](../licensing/licensing.md#boundaries).
 - **Licence of the licensee.** The provider footer on your receipts names the licensee under whose licence the Middleware operates, not fiskaltrust and not you. If this matters for your product, discuss the setup with fiskaltrust before you start.
 

@@ -1,13 +1,14 @@
 ---
 slug: /poscreators/middleware-doc/e-invoicing/overview
 title: eInvoicing
+sidebar_label: "eInvoicing — Overview"
 ---
 
 # eInvoicing — Overview
 
 This page describes how eInvoicing works across fiskaltrust markets from a PosCreator's perspective: the **shared integration model** that every market follows, and what changes from one market to the next. For a specific market, follow its country page (see [Availability by market](#availability-by-market)).
 
-For the product-level concept — structured invoices, Peppol, e-Delivery — see [Delivery (`/issue` Endpoint)](../experience-middleware/delivery.md). This page is the integration-focused companion to it.
+For the product-level concept — structured invoices, Peppol, eDelivery — see [Delivery (`/issue` Endpoint)](../experience-middleware/delivery.md). This page is the integration-focused companion to it.
 
 :::info One integration, many markets
 eInvoicing is produced and delivered through the `/sign` and `/issue` calls your POS already uses — **same account, same fiskaltrust.Middleware, same credentials**. It is enabled by **configuration** per market, not by a new integration. Where a market is live via the API, the new behaviour is additive inside calls you already make. Producing a valid eInvoice is new behaviour enabled by configuration; **fiscalizing a receipt does not by itself make it a valid eInvoice**.
@@ -55,11 +56,11 @@ Exact case codes, delivery targets, and go-live status live on each **country pa
 
 | Market | Regulatory model | Delivery path |
 | --- | --- | --- |
-| **Austria (AT)** | B2G mandated; B2B optional | Portal back office / InStore App today (POS-driven API pending) |
+| **Austria (AT)** | B2G mandated; B2B optional | API — `/sign` + `/issue` via Peppol / the national portal |
 | **France (FR)** | B2B, decentralised (PDP) | API — `/sign` + `/issue` via the Plateforme Agréée |
 | **Germany (DE)** | B2B, post-audit | API — `/sign` + `/issue` via Peppol |
 | **Italy (IT)** | B2G/B2B/B2C, centralised clearance | API — `/sign` + `/issue` via SDI |
-| **Poland (PL)** | B2B, centralised clearance | Build in progress — adapter not yet shipped |
+| **Poland (PL)** | B2B, centralised clearance | API (preview) — `/sign` + `/issue` via KSeF |
 | **EU (cross-border)** | Voluntary — no national mandate | API — `/sign` + `/issue` via Peppol |
 
 Each market's **Overview** and **Setup & testing** pages live under its entry in **Country-Specific Guides** (in the sidebar).
@@ -87,6 +88,11 @@ Market-specific terms (XRechnung, ZUGFeRD, FatturaPA, XAdES, SDI, `CodiceDestina
 
 ## Related pages
 
-- [Delivery (`/issue` Endpoint)](../experience-middleware/delivery.md) — the product-level eInvoicing and e-Delivery concept.
+- [Delivery (`/issue` Endpoint)](../experience-middleware/delivery.md) — the product-level eInvoicing and eDelivery concept.
 - [Migrating from API v0 to PosSystem API (v2)](../possystem-api/migration-guide.md) — eInvoicing is a PosSystem API (v2) feature.
 - Country pages — see [Availability by market](#availability-by-market).
+
+## External references
+
+- [eInvoicing HUB (European Commission)](https://ec.europa.eu/digital-building-blocks/sites/spaces/DIGITAL/pages/894304326/eInvoicing+HUB) — the EU Digital Building Blocks knowledge hub.
+- [eInvoicing Country Factsheets (European Commission)](https://ec.europa.eu/digital-building-blocks/sites/spaces/DIGITAL/pages/467108874/eInvoicing+Country+Factsheets+for+each+Member+State+and+other+countries) — regulatory factsheets per Member State and other countries.

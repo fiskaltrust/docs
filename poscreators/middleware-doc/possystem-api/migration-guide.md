@@ -5,11 +5,11 @@ title: Migration Guide (v0 to v2)
 
 # Migrating from API v0 to PosSystem API (v2)
 
-The legacy **v0 SignatureCloud API** (also referred to by its subdomain pattern `signaturcloud-sandbox.*`) and the original synchronous `ifPOS.v0` fiskaltrust.Middleware API — primarily used in Austria (AT) and France (FR) — remain functional but no longer receive new features. All current and future development, including e-invoicing support and upcoming compliance capabilities, is available exclusively through the **POSSystem API (v2)**, making migration strongly recommended.
+The legacy **v0 SignatureCloud API** (also referred to by its subdomain pattern `signaturcloud-sandbox.*`) and the original synchronous `ifPOS.v0` fiskaltrust.Middleware API — primarily used in Austria (AT) and France (FR) — remain functional but no longer receive new features. All current and future development, including eInvoicing support and upcoming compliance capabilities, is available exclusively through the **POSSystem API (v2)**, making migration strongly recommended.
 
 Migrating to v2 gives you:
 
-- **E-invoicing support** — Access to e-invoicing features and all future compliance capabilities.
+- **eInvoicing support** — Access to eInvoicing features and all future compliance capabilities.
 - **Alignment with fiskaltrust Middleware v2** — the POSSystemAPI interface is designed to remain largely stable when the middleware transitions from v1.2 to v2, making this migration valuable preparation.
 - **Long-term supportability** — v0 is considered deprecated; customers are encouraged to migrate as soon as possible.
 - **Simpler authentication** — PIN-based pairing for simpler, more secure authentication setup.
