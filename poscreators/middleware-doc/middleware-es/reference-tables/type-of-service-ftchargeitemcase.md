@@ -15,51 +15,65 @@ version 2
 
 #### V - VAT
 
-For more information, see [VAT rules and rates](https://europa.eu/youreurope/business/taxation/vat/vat-rules-rates/index_en.htm).
+For more information, see [VAT rules and rates](https://europa.eu/youreurope/business/taxation/vat/vat-rules-rates/index_en.htm). The Middleware checks that the `VATRate` of the charge item matches the rate of the category and that the `VATAmount` matches the rate within 0.01; mismatches are rejected.
 
 | **Value** | **Description** | **Middleware Version** |
 | --------- | -------------- | ---------------------- |
-| `0` | **Unknown type of service for ES**<br />With the help of the VAT-rates table saved within fiskaltrust.SecurityMechanisms. | 1.3.67 |
-| `1` | **Discounted-1 VAT rate**<br />(as of 1.1.2022, this is 10%). | 1.3.67 |
-| `2` | **Discounted 2 VAT rate**<br />(as of 1.1.2022, this is calculated with 5%). | 1.3.67 |
-| `3` | **Normal VAT rate**<br />(as of 1.1.2022, this is calculated with 22%). | 1.3.67 |
-| `4` | **Super reduced 1 VAT rate** | 1.3.67 |
-| `5` | **Super reduced 2 VAT rate** | 1.3.67 |
-| `6` | **Parking VAT rate**<br />Reversal of tax liability. | 1.3.67 |
-| `7` | **Zero VAT rate**<br />In the data, a VAT-rate can be indicated. | 1.3.67 |
-| `8` | **Not Taxable**<br />For processing, see (`0x4553000000000001`) | 1.3.67 |
+| `0` | **Unknown type of service for ES**<br />Not supported in Spain; charge items with this value are rejected (`EEEE_UnsupportedVatRate`). | 1.3.81 |
+| `1` | **Discounted-1 VAT rate**<br />Reduced rate (*tipo reducido*), 10 %. | 1.3.67 |
+| `2` | **Discounted 2 VAT rate**<br />Reduced rate, 10 % (same rate as `1`). | 1.3.67 |
+| `3` | **Normal VAT rate**<br />General rate (*tipo general*), 21 %. | 1.3.67 |
+| `4` | **Super reduced 1 VAT rate**<br />Super-reduced rate (*tipo superreducido*), 4 %. | 1.3.67 |
+| `5` | **Super reduced 2 VAT rate**<br />Super-reduced rate, 4 % (same rate as `4`). | 1.3.67 |
+| `6` | **Parking VAT rate**<br />Not supported in Spain; charge items with this value are rejected. | 1.3.81 |
+| `7` | **Zero VAT rate**<br />0 %. The nature-of-VAT segment (`NN`) must identify the exemption or not-subject reason. | 1.3.67 |
+| `8` | **Not Taxable**<br />0 %. The nature-of-VAT segment (`NN`) must identify the exemption or not-subject reason. | 1.3.67 |
 
 *Table 1. VAT rate values (V) for Spain.*
 
 
 #### S - Type of Service
 
+Only the types of service `0`, `1`, `2`, `3`, `5` and `9` are accepted by the Middleware in Spain; the other values are rejected with `EEEE_UnsupportedChargeItemServiceType`. For invoices to foreign customers the TicketBAI file distinguishes deliveries of goods (*Entrega*: `0`, `1`, `5`) from services (*PrestacionServicios*: `2`, `3`, `9`).
+
 | **Value** | **Description** | **Middleware Version** |
 | --------- | -------------- | ---------------------- |
-| `0` | **Unknown type of service**<br />With the help of the VAT-rates table saved within fiskaltrust.SecurityMechanisms. | 1.3.67 |
+| `0` | **Unknown type of service**<br />Handled as delivery of goods. | 1.3.67 |
 | `1` | **Delivery (supply of goods)** | 1.3.67 |
 | `2` | **Other service (supply of service)** | 1.3.67 |
-| `3` | **Tip**<br />For owner use V=0 to 7, related to total amount<br />For Employee use V=8, Not Taxable (as of 1.1.2022, this is calculated with 5%). | 1.3.67 |
-| `4` | **Voucher**<br />For Single-Use-Voucher use V=0 to 7<br />For Multi-Use-Voucher use V=8, Not Taxable<br />Voucher Sale is a positive (+) amount.<br />Voucher Redeem is a negative (-) amount.<br />IsVoid can be applied to reverse amounts.<br />Avoid to use this for Multi-Use-Voucher, use PayItem instead, with ShowInChargeItems flag. For Single-Use-Voucher, apply the ShowInPayItems flag to visualize it similar to payment and to keep the total amount unreduced. | 1.3.67 |
-| `5` | **Catalog service** | 1.3.67 |
-| `6` | **Not own sales / Agency business** | 1.3.67 |
-| `7` | **Own Consumption** | 1.3.67 |
-| `8` | **Grant**<br />For Unreal Grant use V=0 to 7<br />For Real Grant use V=8 | 1.3.67 |
-| `9` | **Receivable**<br />Receivable creation is negative (-) amount<br />Receivable reduction is positive (+) amount.<br />IsVoid can be applied to reverse amounts.<br />Avoid to use this, use PayItem instead. | 1.3.67 |
-| `A` | **Cash Transfer**<br />Cash Transfer to till is positive (+) amount<br />Cash Transfer from till is negative (-) amount.<br />Only useable with V=8, Not Taxable.<br />IsVoid can be applied to reverse amounts | 1.3.67 |
+| `3` | **Tip**<br />Handled as a service. | 1.3.67 |
+| `4` | **Voucher**<br />Not supported in Spain; rejected. | 1.3.81 |
+| `5` | **Catalog service**<br />Handled as delivery of goods. | 1.3.67 |
+| `6` | **Not own sales / Agency business**<br />Not supported in Spain; rejected. | 1.3.81 |
+| `7` | **Own Consumption**<br />Not supported in Spain; rejected. | 1.3.81 |
+| `8` | **Grant**<br />Not supported in Spain; rejected. | 1.3.81 |
+| `9` | **Receivable**<br />Receivable creation is negative (-) amount<br />Receivable reduction is positive (+) amount.<br />Handled as a service. | 1.3.67 |
+| `A` | **Cash Transfer**<br />Not supported in Spain; rejected. | 1.3.81 |
 
 *Table 2. Type of service values (S) for Spain.*
 
 #### NN - nature of VAT
 
-| **Value** | **Description** | **Spec. for Spanish reg.** | **Middleware Version** |
-| --------- | -------------- | ------------------------- | ---------------------- |
-| `00` | **Usual VAT applies** | | 1.3.67 |
-| `20` | **Not Subject**<br />2x can be used to specify more country specific details. | *NS (N2) marker mandatory<br />[20] not subject by articles 7 and 14<br />[21] not subject, location rules | 1.3.67 |
-| `30` | **Exempt**<br />3x | *ES (N4) marker mandatory<br />[30] Exempt by article 20<br />[31] Exempt by article 21<br />[32] Exempt by article 22<br />[33] Exempt by article 23 and 24<br />[34] Exempt by article 25<br />[35] Exempt, other cases | 1.3.67 |
-| `50` | **Reverse charge**<br />5x | *AL (N6) marker mandatory<br />[50] reverse charge | 1.3.67 |
+The nature of VAT identifies why a line carries no VAT or a special treatment. The values follow the key lists of the AEAT (VERI\*FACTU: *L8A ClaveRegimen*, *L9 CalificacionOperacion*, *L10 OperacionExenta*) and of the Basque provinces (TicketBAI: *L9 ClaveRegimenIvaOpTrascendencia*, *L10 CausaExencion*, *L11 TipoNoExenta*, *L13 Causa* of *NoSujeta*). Every 0 % line must carry one of the values below; a value that is not listed is rejected.
+
+| **Value** | **Description** | **VERI\*FACTU record** | **TicketBAI file** | **Middleware Version** |
+| --------- | -------------- | ---------------------- | ------------------ | ---------------------- |
+| `00` | **Usual VAT applies** | `CalificacionOperacion` `S1`, `ClaveRegimen` `01` | *Sujeta/NoExenta*, `TipoNoExenta` `S1`, clave `01` | 1.3.67 |
+| `10` | **Exempt: exports** (art. 21 LIVA) | `OperacionExenta` `E2`, `ClaveRegimen` `02` | *Sujeta/Exenta*, `CausaExencion` `E2`, clave `02` | 1.3.83 |
+| `11` | **Exempt: intra-Community delivery of goods** (art. 25 LIVA) | `E5`, clave `01` | *Exenta* `E5`, clave `01` | 1.3.83 |
+| `13` | **Exempt: transactions treated as exports** (art. 22 LIVA) | `E3`, clave `02` | *Exenta* `E3`, clave `02` | 1.3.83 |
+| `14` | **Exempt: customs and tax-warehouse regimes** (art. 23 and 24 LIVA) | `E4`, clave `02` | *Exenta* `E4`, clave `02` | 1.3.83 |
+| `20` | **Not subject: location rules** | `CalificacionOperacion` `N2`, clave `01` | *NoSujeta*, `Causa` `RL` | 1.3.67 |
+| `21` | **Not subject: art. 7 and 14 LIVA and others** | `N1`, clave `01` | *NoSujeta*, `Causa` `OT` | 1.3.67 |
+| `30` | **Exempt: domestic transactions** (art. 20 LIVA) | `E1`, clave `01` | *Exenta* `E1`, clave `01` | 1.3.67 |
+| `31` | **Exempt: other exemptions** | `E6`, clave `01` | *Exenta* `E6`, clave `01` | 1.3.83 |
+| `50` | **Reverse charge** (*inversión del sujeto pasivo*) | `CalificacionOperacion` `S2`, clave `01` | *Sujeta/NoExenta*, `TipoNoExenta` `S2`, clave `01` | 1.3.67 |
+| `60` | **Not subject: foreign tax applies** (IPSI/IGIC territories or another country) | `N1`, clave `01`; the applied tax (`Impuesto`) follows the tax regime configured for the queue | *NoSujeta*, `Causa` `IE`, clave `08` | 1.3.83 |
+| `80` | **Excluded: transactions on behalf of third parties** | `N1`, clave `01` | *NoSujeta*, `Causa` `VT`, clave `01` | 1.3.83 |
 
 *Table 3. Nature of VAT values (NN) for Spain.*
+
+The applied tax of a VERI\*FACTU record (*Impuesto*: `01` VAT, `02` IPSI for Ceuta and Melilla, `03` IGIC for the Canary Islands) is a property of the queue configuration, not of the charge item. The special regimes of *ClaveRegimen* beyond `01` (general) and `02` (exports) and the equivalence surcharge are not supported yet.
 
 #### lll - local tagging/flag
 
