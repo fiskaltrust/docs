@@ -17,6 +17,8 @@ This is the fastest way into the Portuguese market and the right choice whenever
 - The certified document rendering (PDF, digital receipt, ESC-POS) through the receipt service and the `/issue` endpoint.
 - Updates to the program when the regulation changes, without a new certification on your side.
 
+The complete list of components fiskaltrust provides and operates on this route, from the registration with the AT to the handling of customer and product master data, is in [What fiskaltrust takes care of](../certification/certification.md#what-fiskaltrust-takes-care-of).
+
 ## What you build
 
 Your integration consists of the same steps as in every other fiskaltrust market, described in [Integration Steps](../../../getting-started/middleware-integration.md) and the [Cash Register Integration](../../general/cash-register-integration/cash-register-integration-regular-workflow.md) chapter, with the Portuguese specifics from this appendix:

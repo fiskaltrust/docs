@@ -11,6 +11,12 @@ Choose this route when you need a self-hosted or on-device deployment, a documen
 
 This page describes the procedure as fiskaltrust went through it for the CloudCashBox in 2025 and early 2026. The AT may adapt its tests over time; treat the lists below as what to expect, not as the definitive test plan for your procedure.
 
+:::note We are looking for partners for this route
+
+fiskaltrust has not yet accompanied a partner through a certification of their own solution on top of the fiskaltrust.Middleware. The procedure below is what we experienced with our own program; the division of responsibilities and the support described on this page are what we offer to a first partner. If you are considering this route, contact [sales@fiskaltrust.pt](mailto:sales@fiskaltrust.pt) early so we can plan the procedure together.
+
+:::
+
 :::info Plan the procedure with fiskaltrust
 
 Several settings that are fixed in the fiskaltrust.CloudCashBox must be set up for your product before the first submission: the certificate number placeholder, the product identification and producer NIF in the SAF-T (PT) header, and the signing key pair whose public key you declare to the AT. Contact fiskaltrust before you register with the AT so these are in place.
@@ -122,4 +128,4 @@ The fiskaltrust.Middleware enforces most of these rules today (see [Boundaries o
 
 ## Effort
 
-Our own procedure took several submission rounds over about a year, from the first registration to the certificate, including the time needed to implement the findings. A partner that reuses the Middleware's validation, signing, and SAF-T export starts from a much better position, but should still plan for at least two submission rounds and the compliance session. fiskaltrust supports partners on this route with the documentation of the Middleware's behaviour, sample requests for every test, and the experience from its own procedure.
+Our own procedure took several submission rounds over about a year, from the first registration to the certificate, including the time needed to implement the findings. A partner that reuses the Middleware's validation, signing, and SAF-T export starts from a much better position, but should still plan for at least two submission rounds and the compliance session. As no partner has taken this route yet, there is no reference value for the effort on the partner's side. fiskaltrust supports partners on this route with the documentation of the Middleware's behaviour, sample requests for every test, and the experience from its own procedure; contact [sales@fiskaltrust.pt](mailto:sales@fiskaltrust.pt).
