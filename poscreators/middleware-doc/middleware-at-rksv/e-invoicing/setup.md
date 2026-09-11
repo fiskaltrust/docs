@@ -5,10 +5,10 @@ title: "Setup & testing"
 
 # Set up and test eInvoicing (Austria)
 
-This page covers the prerequisites for eInvoicing in the Austrian (AT) market, the delivery paths available today, and the expected POS-driven API shape once it ships. For scope and regulatory status, see the [Overview](./overview.md).
+This page covers the prerequisites for eInvoicing in the Austrian (AT) market, how to enable it in the fiskaltrust.Portal, and how to validate the flow against a sandbox before production. For scope, regulatory status, and the delivery flow, see the [Overview](./overview.md).
 
 :::note What setup means in Austria
-Today, Austrian eInvoicing is delivered through the **fiskaltrust.Portal** back office or the **InStore App** — configuration, not POS code. The POS-driven API path (`/sign` + `/issue`) described in the [generic overview](../../e-invoicing/overview.md) is **pending** for Austria; its expected shape is below.
+eInvoicing rides on calls you already make. Setup is about **configuration** — the output format (ebInterface) and the fiskaltrust.Middleware's Austrian locale. Delivery via `/issue` (Peppol or the national portal) is **optional**. There is **no new connection or credential**.
 :::
 
 ## Prerequisites
@@ -16,43 +16,92 @@ Today, Austrian eInvoicing is delivered through the **fiskaltrust.Portal** back 
 | Requirement | Detail |
 | --- | --- |
 | fiskaltrust account + fiskaltrust.Middleware | An active account with a configured fiskaltrust.Middleware. See [Portal registration](../../../getting-started/portal-registration.md). |
-| Existing fiscalization integration | Your POS already fiscalizes in Austria via `/sign` (receipts are already in the fiskaltrust.Portal). |
+| Existing fiscalization integration | Your POS already fiscalizes in Austria via `/sign`. |
 | fiskaltrust.Middleware country configuration | The fiskaltrust.Middleware's country configuration is set to the **Austrian locale**. |
-| PosSystem API (v2) — for the API path | The POS-driven path will be exposed through the **PosSystem API (v2)** once it ships. If you are on the v0 interface, plan your [migration](../../possystem-api/migration-guide.md) first. Not required for the Portal / InStore App paths. |
+| PosSystem API (v2) | eInvoicing features are exposed through the **PosSystem API (v2)**. If you are on the v0 interface, plan your [migration](../../possystem-api/migration-guide.md) first. |
 
 ## Enable eInvoicing in the Portal
 
+eInvoicing is enabled by **configuration**: the output format (ebInterface) and the fiskaltrust.Middleware's Austrian locale. No new integration is required on the POS side.
+
 :::caution Draft — Portal steps to be confirmed
-The exact steps to enable eInvoicing in the fiskaltrust.Portal are being verified and will be documented here. Do not treat this section as final until the flow has been confirmed.
+The exact steps to enable eInvoicing in the fiskaltrust.Portal (output-format configuration, Austrian locale) are being verified and will be documented here. Do not treat this section as final until the flow has been confirmed.
 :::
 
-## Delivery paths available today
+## Sandbox validation
 
-### Portal back office
+Validate the end-to-end flow against a sandbox-scoped fiskaltrust.Middleware — using non-production `x-cashbox-id` and `x-cashbox-accesstoken` credentials — before enabling it on a production fiskaltrust.Middleware. **Run one document through the sandbox end to end before the first live document.**
 
-No API call is involved — this is a fiskaltrust.Portal workflow. It is useful to understand so you can explain it to a merchant, but it is **not part of your API integration**.
+1. Provision a **sandbox fiskaltrust.Middleware** in the fiskaltrust.Portal — this yields the `x-cashbox-id` and `x-cashbox-accesstoken` used on every request. See [Portal registration](../../../getting-started/portal-registration.md).
+2. Confirm your integration against the [Integration checklist](../../../getting-started/integration-checklist.md).
+3. Run one invoice through the full flow below: `/sign` → (optionally) `/issue` → poll for delivery status.
 
-| Step | Portal-side action |
-| --- | --- |
-| 1. Receipt exists | The merchant's receipt is already in the fiskaltrust.Portal from your existing fiscalization integration. |
-| 2. Attach the buyer | A Portal user adds the buyer's details. |
-| 3. Generate and send | The Portal generates the eInvoice and transmits it, via the national portal or Peppol. |
-| 4. Done | No status polling on your side — this is not part of your API integration. |
+### End-to-end example
 
-### InStore App
+Run it against the sandbox at `https://possystem-api-sandbox.fiskaltrust.eu/v2`. The API is request/response and **idempotent — there is no status webhook**; the `x-operation-id` header is the idempotency key that makes retries safe. Every request carries the standard headers:
 
-Configuration only — at most a minor change to the local fiskaltrust.Middleware helper config. **No endpoints or POS-side code.** See the [InStore App Setup guide](../../instore-app/Setup-guide/setup.md).
+```
+x-cashbox-id: <sandbox fiskaltrust.Middleware ID>
+x-cashbox-accesstoken: <sandbox access token>
+x-possystem-id: <registered POS system ID>
+x-operation-id: <fresh UUID per operation>
+```
 
-## When the POS-driven API ships
+**Step 1 — Sign (`/sign`)** — produces the eInvoice
 
-Once available, Austria is expected to follow the same shape as the other markets — an enrichment to `/sign` plus a delivery step on `/issue`, polled for status (no webhook). See the [eInvoicing — Overview](../../e-invoicing/overview.md) for the shared model.
+Call `/sign` as you do today, with the buyer's master data, using the **B2B invoice** receipt case. The response carries the fiscalized receipt and the eInvoice document (ebInterface, per your fiskaltrust.Middleware configuration).
 
-:::caution Not yet available for Austria
-The POS-driven API path is **not yet live for Austria**. This page will be updated with a runnable end-to-end example — with real case codes and a developer-platform link, like the other markets — once it ships. Confirm availability with your fiskaltrust contact before scoping a go-live date.
-:::
+```json
+// POST https://possystem-api-sandbox.fiskaltrust.eu/v2/sign
+{
+  "ftReceiptCase": 35184372092930,
+  "cbReceiptReference": "AT-EINV-SANDBOX-0001",
+  "cbReceiptMoment": "2026-09-01T10:00:00Z",
+  "cbCustomer": {
+    "CustomerVATId": "ATU12345678",
+    "CustomerName": "Beispiel GmbH",
+    "CustomerStreet": "Beispielstraße 1",
+    "CustomerZip": "1010",
+    "CustomerCity": "Wien",
+    "CustomerCountry": "AT"
+  },
+  "cbChargeItems": [
+    { "Quantity": 1, "Description": "Consulting services", "Amount": 1200.00, "VATRate": 20, "ftChargeItemCase": 35184372088851 }
+  ],
+  "cbPayItems": [
+    { "Description": "Bank transfer", "Amount": 1200.00, "ftPayItemCase": 35184372088842 }
+  ]
+}
+```
+
+> **Try it:** [developer.fiskaltrust.eu → AT → sign → B2BInvoice](https://developer.fiskaltrust.eu/#/pos-system/AT?endpoint=sign&businesscase=SignRequestReceipt_B2BInvoice_1). The output format (ebInterface) comes from the fiskaltrust.Middleware configuration, not this payload — see [Enable eInvoicing in the Portal](#enable-einvoicing-in-the-portal).
+
+**Step 2 — Issue (`/issue`)** — optional, register for delivery
+
+To make the receipt available for delivery, call `/issue` with the **original `/sign` request and its response** (`ReceiptRequest` + `ReceiptResponse`). The response returns the `ftQueueID` / `ftQueueItemID` used by the delivery and status calls.
+
+```json
+// POST https://possystem-api-sandbox.fiskaltrust.eu/v2/issue
+{
+  "ReceiptRequest":  { "...": "the /sign request from Step 1" },
+  "ReceiptResponse": { "...": "the /sign response from Step 1" }
+}
+```
+
+> **Try it:** [developer.fiskaltrust.eu → AT → issue](https://developer.fiskaltrust.eu/#/pos-system/AT?endpoint=issue).
+
+**Step 3 — Deliver to a channel** — optional
+
+Deliver the document with `PUT /issue/{queueId}/{queueItemId}`, choosing a delivery method: `IssueUpdateSend` (email/SMS), `IssueUpdatePrint`, `IssueUpdateDownload`, `IssueUpdateUpload`, or `IssueUpdateLink`. Delivery over Peppol or to the national portal (e-Rechnung.gv.at) uses one of the upload/send methods — confirm the exact delivery target with product.
+
+**Step 4 — Check delivery status**
+
+Poll `GET /issue/{queueId}/{queueItemId}` for the status until it reports **delivered**. There is **no callback or webhook**.
+
+See the [POS System API reference](https://docs.fiskaltrust.cloud/apis/pos-system-api) for the full `/issue` request/response schemas.
 
 ## Related pages
 
-- [Overview](./overview.md) — scope and regulatory status.
+- [Overview](./overview.md) — scope, regulatory status, and the integration flow.
 - [Delivery (`/issue` Endpoint)](../../experience-middleware/delivery.md) — the product-level eInvoicing and e-Delivery concept.
 - [Migrating from API v0 to PosSystem API (v2)](../../possystem-api/migration-guide.md) — eInvoicing is a PosSystem API (v2) feature.
