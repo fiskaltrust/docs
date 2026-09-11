@@ -35,3 +35,4 @@ There is **no B2B eInvoicing deadline** in Austria today. Offering B2B eInvoicin
 - [Delivery (`/issue` Endpoint)](../../experience-middleware/delivery.md) — the product-level eInvoicing and e-Delivery concept across all markets.
 - [Migrating from API v0 to PosSystem API (v2)](../../possystem-api/migration-guide.md) — eInvoicing is a PosSystem API (v2) feature.
 - [Appendix: AT (RKSV)](../appendix-at-rksv.md) — Austria fiscalization details.
+- [eInvoicing in Austria (European Commission)](https://ec.europa.eu/digital-building-blocks/sites/spaces/DIGITAL/pages/467108876/eInvoicing+in+Austria) — the EU Digital Building Blocks country factsheet.
