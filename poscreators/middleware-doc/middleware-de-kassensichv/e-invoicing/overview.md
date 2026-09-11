@@ -37,3 +37,4 @@ Since **1 January 2025**, every German business must be able to **receive** eInv
 - [Delivery (`/issue` Endpoint)](../../experience-middleware/delivery.md) — the product-level eInvoicing and e-Delivery concept across all markets.
 - [Migrating from API v0 to PosSystem API (v2)](../../possystem-api/migration-guide.md) — eInvoicing is a PosSystem API (v2) feature.
 - [Appendix: DE (KassenSichV)](../appendix-de-kassensichv.md) — Germany fiscalization details.
+- [eInvoicing in Germany (European Commission)](https://ec.europa.eu/digital-building-blocks/sites/spaces/DIGITAL/pages/467108886/eInvoicing+in+Germany) — the EU Digital Building Blocks country factsheet.
