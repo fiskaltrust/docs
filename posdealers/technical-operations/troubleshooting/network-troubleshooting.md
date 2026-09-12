@@ -192,6 +192,23 @@ If your operating system is not supported or you have customized your certificat
 
 
 
+### Connection closed while sending
+
+Two related messages appear when the Middleware tries to send its pending requests on to the _fiskaltrust_ services:
+
+* `The underlying connection was closed: An unexpected error occurred on a send.`
+* `The underlying connection was closed: A connection that was expected to be kept alive was closed by the server.`
+
+These describe outbound communication only. Requests from the point-of-sale system to the Middleware can keep working normally while this happens, so the till may appear healthy while nothing reaches the Portal.
+
+Check the following, in order.
+
+1. The configuration of the CashBox itself, in particular the hostnames and ports of its components, as described under [Queue/SCU connection](#queuescu-connection).
+2. Whether a firewall blocks outbound traffic on the ports the Middleware is configured to use. See [Network Requirements](../middleware/network-requirements.md) for the services that must be reachable, and [Checking web services](#checking-web-services) for how to test one.
+3. Whether your SSL configuration is current, as described under [SSL](#ssl).
+
+If the installation keeps running into this on a network you do not control, consider a cloud CashBox instead. Cloud products do not perform outbound communication from the till at all, so the class of problem disappears. You can confirm the difference in the [sandbox](../../getting-started/sandbox.md) before changing a productive installation.
+
 ### Queue/SCU connection
 
 This issue typically indicates that the [queue](../middleware/overview.md#queue) lost its internal connection to an [SCU](../middleware/overview.md#scu-signature-creation-unit). This loss may occur after you shifted components within a CashBox or any of the involved machines got new IP addresses assigned.

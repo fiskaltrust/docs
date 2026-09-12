@@ -30,3 +30,34 @@ The availability of supported operational environments depends on the market, as
 | **Private Cloud**<br />*operated by fiskaltrust* | **Available**<br />*(by the fiskaltrust product CloudCashbox)* | **Available**<br />*(by the fiskaltrust product CloudCashbox)*  | **Available**<br />*(by the fiskaltrust product CloudCashbox)* | **Available** |
 
 *Table 2. Availability of supported operational environments per market.*
+
+## On-premise storage
+
+An on-premise queue keeps its data on the machine it runs on. By default that is a **SQLite** database, which needs no configuration and is created automatically on first start.
+
+Where a point-of-sale system already operates a database server, the queue can be pointed at that instead. This suits installations that already run a SQL Server and setups built for failover, since the queue data then lives wherever that server's own backup and redundancy arrangements put it.
+
+To use the **Entity Framework** storage provider, create the queue with the corresponding package instead of the SQLite one, and give it an EF-compatible connection string.
+
+For a standalone SQL Server:
+
+```
+Server=myServer\SQL2014;Database=Fiskaltrust1;User Id=sa;Password=sA123123123;
+```
+
+For a LocalDB instance from a standard installation:
+
+```
+Data Source=(localdb)\mssqllocaldb; Initial Catalog=fiskaltrust-|[queue0_id]|; Integrated Security=True;
+```
+
+Everything else — the rest of the queue configuration, the CashBox and the helpers — is unchanged.
+
+:::tip locating a LocalDB database
+
+On Windows, LocalDB keeps its instances under `C:\Users\<user>\AppData\Local\Microsoft\Microsoft SQL Server Local DB\Instances\MSSQLLocalDB`.
+
+:::
+
+Which storage providers are available, the exact package names, and any additional parameters they accept differ per market. See the operation modes chapter for the market you are integrating with.
+
