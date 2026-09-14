@@ -46,6 +46,8 @@ By clicking `Register`, you start registering a company and an associated user i
 
 The four steps — _Company identification_, _Company data_, _User data_ and _Confirmation_ — are shown in a step tracker at the top of the wizard. Each step has its own address, so you can move between steps with the browser's Back and Forward buttons, reload a step without losing your entries, and click any completed step in the tracker to jump back to it. Pressing `Enter` in a field advances to the next step whenever that step's data is complete.
 
+The wizard opens in your market's language; use the `DE`/`EN` toggle in the top corner to switch to English at any time.
+
 :::caution Login Security
 Whenever you enter your username and password for the fiskaltrust.Portal, make sure the URL is one of the above and look for the "lock" symbol in the browser. A secure site always has a closed padlock in the URL bar. That way, you can ensure you enter the data on the correct website and avoid becoming a website- or login-spoofing victim.
 :::
@@ -54,7 +56,7 @@ Whenever you enter your username and password for the fiskaltrust.Portal, make s
 
 ### Step 1: Company identification
 
-The first step is headed **Find your company**. Enter one of the identification numbers your market supports and select `Next` to have the Portal detect and prefill your company data automatically. You can also leave the field empty and enter all data manually on the next step.
+The first step is headed **Find your company** and is a single search field. Enter any identification number your market supports — you do not need to choose the number type first — and select `Next` to have the Portal detect it and prefill your company data automatically. You can also leave the field empty and select `Next` to go straight to manual entry on the next step.
 
 The numbers you can look a company up by depend on your market:
 
@@ -124,7 +126,7 @@ If the E-Mail address entered in _E-Mail_ is already in use in the fiskaltrust.P
 
 The last step shows a summary of the company and user data you entered. Read and accept the Terms & Conditions and Privacy Policy using the checkbox — the `Submit` button stays disabled until you do — then select `Submit` to create the registration.
 
-After you submit, you will receive a message about the successful registration. Additionally, the portal sends an E-Mail with all the necessary information to your Primary Contact's E-Mail.
+After you submit, you will receive a message about the successful registration, and the confirmation screen spells out your next two steps: confirm the E-Mail address, then assign the company's roles (PosCreator, PosDealer, PosOperator or Consultant). Additionally, the portal sends an E-Mail with all the necessary information to your Primary Contact's E-Mail.
 
 Open the mail in the Primary Contact's inbox and click on the confirmation link. If you don't find the E-Mail in your inbox, look at the spam folder of your E-Mail application. 
 You'll receive, depending on where you are registering, one of these  E-Mails: 
