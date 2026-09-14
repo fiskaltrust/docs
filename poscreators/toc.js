@@ -80,7 +80,6 @@ module.exports = [
               "poscreators/middleware-doc/middleware-at-rksv/function-structures/function-structures",
               "poscreators/middleware-doc/middleware-at-rksv/communication/communication",
               "poscreators/middleware-doc/middleware-at-rksv/receipt-case-definitions/receipt-case-definitions",
-              "poscreators/middleware-doc/middleware-at-rksv/reference-tables/reference-tables",
               {
                 type: "category",
                 label: "Reference Tables",
