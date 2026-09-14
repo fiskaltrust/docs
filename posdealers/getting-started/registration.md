@@ -88,6 +88,10 @@ Whenever you enter your username and password for the fiskaltrust.Portal, make s
 
 The first step is headed **Find your company** and is a single search field. Enter any identification number your market supports — you do not need to choose the number type first — and select `Next` to have the Portal detect it and prefill your company data automatically. You can also leave the field empty and select `Next` to go straight to manual entry on the next step.
 
+![Company identification](./images/registration/company_identification.png "Company identification")
+
+*Figure 1. Start of company data identification entry in the fiskaltrust.Portal registration.*
+
 The numbers you can look a company up by depend on your market:
 
 | Market   | Identification numbers |
@@ -108,23 +112,13 @@ Most markets look a company up by its VAT number only. Any additional market-spe
 
 In the productive Portal, a reCAPTCHA appears under the search box; confirm it by checking the checkbox before the lookup runs. Sometimes reCAPTCHA opens a popup where you have to solve a task (e.g., select all images with traffic lights) before it finishes the verification. You solve the captcha once, and the same confirmation covers the rest of the registration. (The sandbox skips this check.)
 
-import ReactPlayer from "react-player"
-
-{/* TODO: re-capture — this clip shows the previous registration form. */}
-<ReactPlayer controls url={require("./images/registration/captcha.mp4").default} /><br />
-
 ### Step 2: Company data
 
-Enter your company's master data here. If you used the lookup on the previous step, the fields are prefilled and the number you searched by is locked; otherwise, you enter everything yourself. You must fill in all fields marked with a red star.
+Enter your company's master data here. If you used the lookup on the previous step, the fields are prefilled and the number you searched by is locked; otherwise, you enter everything yourself. You must fill in all fields marked with a star.
 
-{/* TODO: re-capture — Figures 1 and 2 show the previous registration form. */}
-![Move to company data](./images/registration/company_data_1.png "Move to company data" )
+![Company data](./images/registration/company_data.png "Company data")
 
-*Figure 1. Start of company data entry in the fiskaltrust.Portal registration.*
-
-![Enter company data](./images/registration/company_data_2.png "Company data form")
-
-*Figure 2. Company data form with required fields marked by a red star.*
+*Figure 2. Start of company data entry in the fiskaltrust.Portal registration.*
 
 The form is grouped into company master data, company contact details and commercial numbers:
 
@@ -141,6 +135,10 @@ The form is grouped into company master data, company contact details and commer
 When you select `Next`, the Portal verifies every commercial number you entered that a register can check. If none of the registers recognises a number, a **Company not found** dialog names the number and lets you choose `Cancel` (stay on this step with your data intact and correct the number) or `Continue anyway` (keep the number as entered and move on to the user data).
 :::
 
+![Company data not found](./images/registration/company_data_not_found.png "Company data not found" )
+
+*Figure 3. Start of company data entry in the fiskaltrust.Portal registration.*
+
 :::tip  Company or e-mail already registered
 If a commercial number you entered already belongs to a registered company, the Portal tells you that a company with this number is already registered with _fiskaltrust_, together with the advice to have that company invite you or to log in. If the company E-Mail address is already in use, the Portal marks the E-Mail field and tells you that the address already belongs to a registered _fiskaltrust_ account — log in if the account is yours, or use a different company E-Mail address otherwise. To join an existing company, ask its Primary Contact to invite you as a new user.
 :::
@@ -151,7 +149,6 @@ The 3rd step of the registration process queries the personal data of the Primar
 This key user is the designated administrator of the newly registered company. You must enter a valid E-Mail address because this will serve for all messages from the fiskaltrust.Portal.
 In addition, with his authorization, this user can invite other company employees. You enter the `First name`, `Last name` and `Contact E-Mail address` (which you re-enter in `Confirm Email-address`); the `Mobile telephone` is optional.
 
-{/* TODO: re-capture — this screenshot shows the previous registration form. */}
 ![Enter user data](images/registration/user_data.png "User data form")
 
 *Figure 3. User data form for the Primary Contact of the company.*
@@ -164,7 +161,15 @@ If the E-Mail address entered in _E-Mail_ is already in use in the fiskaltrust.P
 
 The last step shows a summary of the company and user data you entered. Read and accept the Terms & Conditions and Privacy Policy using the checkbox — the `Submit` button stays disabled until you do — then select `Submit` to create the registration.
 
+![Confirmation](images/registration/confirmation.png "Confirmation")
+
+*Figure 4. User data form for the Primary Contact of the company.* 
+
 After you submit, you will receive a message about the successful registration, and the confirmation screen spells out your next two steps: confirm the E-Mail address, then assign the company's roles (PosCreator, PosDealer, PosOperator or Consultant). Additionally, the portal sends an E-Mail with all the necessary information to your Primary Contact's E-Mail.
+
+![Registration successful](images/registration/registration_success.png "Registration successful")
+
+*Figure 5. User data form for the Primary Contact of the company.* 
 
 Open the mail in the Primary Contact's inbox and click on the confirmation link. If you don't find the E-Mail in your inbox, look at the spam folder of your E-Mail application. 
 You'll receive, depending on where you are registering, one of these  E-Mails: 
