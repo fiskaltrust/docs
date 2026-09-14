@@ -16,6 +16,7 @@ https?://github\.com/fiskaltrust/service-possystem-api
 https?://localhost(:[0-9]+)?/.*
 
 https?://support\.fiskaly\.com/.*
+https?://ec\.europa\.eu/digital-building-blocks/sites/spaces/DIGITAL/pages/.*
 https://www.gs1.org/standards/id-keys/gln
 https?://google.com/search.*
 https://www.gesetze-im-internet.de/ao_1977/__146a.html
