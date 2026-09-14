@@ -4,7 +4,7 @@ title: Reference tables
 ---
 
 # Reference tables
-This chapter expands on the reference tables covered in [Reference Tables in General Part](../../general/reference-tables/reference-tables.md#reference-tables), with country-specific information applicable to the Austrian market. The respective tables can be found in the following sub-sections.
+This chapter expands on the reference tables covered in [Reference Tables in General Part](../../general/reference-tables/reference-tables.md), with country-specific information applicable to the Austrian market. The respective tables can be found in the following sub-sections.
 
 As the Middleware abstracts processes and data over multiple markets/countries, there is a specific mapping for Austrian market. This mapping is based upon the overall tagging system which gives the additional benefit of giving all receipts, chargeitems and payitems also a semantical value. The following section describes the overall format.
 
@@ -48,5 +48,4 @@ _CCCC_vIII_gggg_xxxx
    
 
  
-
 
