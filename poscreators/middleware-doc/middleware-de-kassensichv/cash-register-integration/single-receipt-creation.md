@@ -49,6 +49,8 @@ This value is returned by the `<vorgangsbeginn>` SignatureItem, and computed fro
 
 ![implicit-flow-start-finish-transaction](media/implicit-flow-start-finish-transaction.svg)
 
+*Figure 2. Implicit flow: a transaction implicitly started and finished by a single receipt.*
+
 *Implicit Flow - Start/Finish Transaction (DE - KassenSichV)*
 
 <details>
@@ -84,6 +86,8 @@ In this example, a customer wants to pay and no more orders are expected. A ftRe
 The response's signature block includes all information needed to be printed on the receipt (time of receipt creation - which is the returned value of cbReceiptMoment of the sign-request, start time of the action, and end time of the action). 
 
 ![implicit-flow-single-sign-call](media/implicit-flow-single-sign-call.svg)
+
+*Figure 3. Implicit flow for a short-lasting action (retail) completed with a single `/sign` call.*
 
 </p>
 </details>
@@ -295,6 +299,8 @@ For the payment (which may include a last order as well), a ftReceiptCase `0x444
 The response's signature block of the POS receipt includes all information needed to be printed on the receipt (time of receipt creation - which is the returned value of cbReceiptMoment of the first sign-request of cbReceiptReference-connected orders, start time of the action, and end time of the action). 
 
 ![implicit-flow-multiple-sign-calls](media/implicit-flow-multiple-sign-calls.svg)
+
+*Figure 4. Implicit flow for a long-lasting action (e.g. gastronomy) spanning multiple `/sign` calls.*
 
 </p>
 </details>
@@ -687,6 +693,8 @@ To document a business action from the start until the end, at least a Start- an
 
 ![explicit-flow-multiple-sign-calls](media/explicit-flow-multiple-sign-calls.svg)
 
+*Figure 5. Explicit flow spanning multiple `/sign` calls across a transaction.*
+
 *Explicit Flow - Multiple sign-calls (DE - KassenSichV)*
 
   </p>
@@ -700,6 +708,8 @@ According to the German law and BSI TR-03153, a call to the 'Sign' method using 
 
 ![explicit-flow-start-transaction](media/explicit-flow-start-transaction.svg)
 
+*Figure 6. Explicit flow: the start-transaction call that opens a transaction.*
+
 *Explicit Flow - Start Transaction (DE - KassenSichV)*
 
   </p>
@@ -712,6 +722,8 @@ Changes in ongoing actions have to be tracked. This is done by a special call to
 It is not mandatory to call 'Sign' using 'ReceiptCase' "Update-Transaction" before finalising a transaction. It is also possible to call 'Sign' using 'ReceiptCase' "Update-Transaction" multiple times for a single unique identifier/for a single transaction.
 
 ![explicit-flow-update-transaction](media/explicit-flow-update-transaction.svg)
+
+*Figure 7. Explicit flow: an update-transaction call that adds to an open transaction.*
 
 *Explicit Flow - Update Transaction (DE - KassenSichV)*
 
@@ -728,6 +740,8 @@ It is not mandatory to call 'Sign' using 'ReceiptCase' "Delta-Transaction" befor
 
 ![explicit-flow-delta-transaction](media/explicit-flow-delta-transaction.svg)
 
+*Figure 8. Explicit flow: a delta-transaction call recording incremental changes.*
+
 *Explicit Flow - Delta Transaction (DE - KassenSichV)*
 
   </p>
@@ -741,6 +755,8 @@ To identify the action/transaction that should be finalised the unique identifie
 The transaction number, defined in TR-03153, is responded behind the hash-tag in the property 'ftReceiptIdentification' of 'ReceiptResponse', prefixed by "T".
 
 ![explicit-flow-end-transaction](media/explicit-flow-end-transaction.svg)
+
+*Figure 9. Explicit flow: the end-transaction call that closes a transaction.*
 
 *Explicit Flow - End Transaction (DE - KassenSichV)*
 
@@ -767,6 +783,8 @@ In this example, a customer wants to pay in a retail store at a scanner cash reg
 The response's signature block includes all information needed to be printed on the receipt (time of receipt creation, start time of the action, and end time of the action). 
 
 ![explicit-flow-example-calls](media/explicit-flow-example-calls.svg)
+
+*Figure 10. Example call sequence for the explicit flow of a short-lasting retail action.*
 
 *Explicit Flow - Scenario example (DE - KassenSichV)*
 

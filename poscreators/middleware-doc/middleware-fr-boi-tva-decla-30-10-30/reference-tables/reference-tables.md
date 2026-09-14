@@ -5,13 +5,7 @@ title: Reference Tables
 
 # Reference Tables
 
-This page expands on the reference tables covered in the [Reference Tables](../../general/reference-tables/reference-tables-v1.md) of the Compliance Middleware, with country-specific information applicable to the French market.
-
-:::info POSSystem API v2 Reference
-
-The Compliance Middleware [Reference Tables](../../general/reference-tables/reference-tables.md) contain the core POSSystem API v2 tagging structure used across all markets and should be your primary reference.
-
-:::
+This page expands on the reference tables covered in the [Reference Tables](../../general/reference-tables/reference-tables.md) of the Compliance Middleware, with country-specific information applicable to the French market.
 
 As the Middleware abstracts processes and data over multiple markets/countries, there is a specific mapping for the French market. This mapping is based upon the overall tagging system which gives the additional benefit of giving all receipts, chargeitems and payitems also a semantical value. The following section describes the overall format.
 
@@ -168,6 +162,7 @@ The `ftSignatureType` indicates the type and origin of the signature.
 | `0x4652000000000005` | Year Closing Sum | 1.2 |
 | `0x4652000000000006` | Archive Totals Sum | 1.2 |
 | `0x4652000000000007` | Perpetual Total Sum | 1.2 |
+| `0x4652000000000008` | Signature Excerpt | 1.2 |
 
 *Table 6. Type of Signature: ftSignatureType (FR - BOI-TVA-DECLA 30-10-30)*
 

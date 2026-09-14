@@ -19,6 +19,10 @@ module.exports = [
     ],
 },
   {
+    type: "html",
+    value: "<hr class='sidebar-divider' />",
+  },
+  {
     type: "category",
     label: "POS System API",
     collapsed: true,
@@ -81,6 +85,15 @@ module.exports = [
               "poscreators/middleware-doc/middleware-at-rksv/communication/communication",
               "poscreators/middleware-doc/middleware-at-rksv/receipt-case-definitions/receipt-case-definitions",
               "poscreators/middleware-doc/middleware-at-rksv/reference-tables/reference-tables",
+              {
+                type: "category",
+                collapsed: true,
+                label: "eInvoicing",
+                items: [
+                  "poscreators/middleware-doc/middleware-at-rksv/e-invoicing/overview",
+                  "poscreators/middleware-doc/middleware-at-rksv/e-invoicing/setup",
+                ],
+              },
               {
                 type: "category",
                 collapsed: true,
@@ -209,6 +222,15 @@ module.exports = [
                 ],
               },
               "poscreators/middleware-doc/middleware-de-kassensichv/procedural-documentation/dsfinv-k-generation",
+              {
+                type: "category",
+                collapsed: true,
+                label: "eInvoicing",
+                items: [
+                  "poscreators/middleware-doc/middleware-de-kassensichv/e-invoicing/overview",
+                  "poscreators/middleware-doc/middleware-de-kassensichv/e-invoicing/setup",
+                ],
+              },
             ],
       },
       {
@@ -258,6 +280,15 @@ module.exports = [
           "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/communication/communication",
           "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/receipt-case-definitions/receipt-case-definitions",
           "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/reference-tables/reference-tables",
+          {
+            type: "category",
+            collapsed: true,
+            label: "eInvoicing",
+            items: [
+              "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/e-invoicing/overview",
+              "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/e-invoicing/setup",
+            ],
+          },
         ],
       },
       {
@@ -350,6 +381,51 @@ module.exports = [
               "poscreators/middleware-doc/middleware-it-registratore-telematico/reference-tables/type-of-journal-ftjournaltype",
             ],
           },
+          {
+            type: "category",
+            collapsed: true,
+            label: "eInvoicing",
+            items: [
+              "poscreators/middleware-doc/middleware-it-registratore-telematico/e-invoicing/overview",
+              "poscreators/middleware-doc/middleware-it-registratore-telematico/e-invoicing/setup",
+            ],
+          },
+        ],
+      },
+{
+        type: "category",
+        label: "Poland (PL)",
+        items: [
+          "poscreators/middleware-doc/middleware-pl/appendix-pl",
+          "poscreators/middleware-doc/middleware-pl/terminology/terminology",
+          "poscreators/middleware-doc/middleware-pl/cash-register-integration/cash-register-integration",
+          "poscreators/middleware-doc/middleware-pl/operation-modes/scu/posnet",
+          "poscreators/middleware-doc/middleware-pl/data-structures/data-structures",
+          "poscreators/middleware-doc/middleware-pl/receipt-case-definitions/receipt-case-definitions",
+          {
+            type: "category",
+            label: "Reference Tables",
+            key: "pl-reference-tables",
+            items: [
+              "poscreators/middleware-doc/middleware-pl/reference-tables/reference-tables",
+              "poscreators/middleware-doc/middleware-pl/reference-tables/service-status-ftstate",
+              "poscreators/middleware-doc/middleware-pl/reference-tables/type-of-receipt-ftreceiptcase",
+              "poscreators/middleware-doc/middleware-pl/reference-tables/type-of-service-ftchargeitemcase",
+              "poscreators/middleware-doc/middleware-pl/reference-tables/type-of-payment-ftpayitemcase",
+              "poscreators/middleware-doc/middleware-pl/reference-tables/type-of-signature-ftsignaturetype",
+              "poscreators/middleware-doc/middleware-pl/reference-tables/type-of-signature-ftsignatureformat",
+              "poscreators/middleware-doc/middleware-pl/reference-tables/type-of-journal-ftjournaltype",
+            ],
+          },
+          {
+            type: "category",
+            collapsed: true,
+            label: "eInvoicing",
+            items: [
+              "poscreators/middleware-doc/middleware-pl/e-invoicing/overview",
+              "poscreators/middleware-doc/middleware-pl/e-invoicing/setup",
+            ],
+          },
         ],
       },
       {
@@ -357,8 +433,20 @@ module.exports = [
         label: "Portugal (PT)",
         items: [
           "poscreators/middleware-doc/middleware-pt/appendix-pt",
+          {
+            type: "category",
+            label: "Go-to-Market",
+            key: "pt-go-to-market",
+            items: [
+              "poscreators/middleware-doc/middleware-pt/go-to-market/go-to-market",
+              "poscreators/middleware-doc/middleware-pt/go-to-market/route-1-fiskaltrust-certificate",
+              "poscreators/middleware-doc/middleware-pt/go-to-market/route-2-own-certificate",
+            ],
+          },
+          "poscreators/middleware-doc/middleware-pt/certification/certification",
           "poscreators/middleware-doc/middleware-pt/terminology/terminology",
           "poscreators/middleware-doc/middleware-pt/cash-register-integration/cash-register-integration",
+          "poscreators/middleware-doc/middleware-pt/receipt-printing/receipt-printing",
           "poscreators/middleware-doc/middleware-pt/data-structures/data-structures",
           {
             type: "category",
@@ -437,10 +525,27 @@ module.exports = [
         },
         "poscreators/middleware-doc/instore-app/printer-guide/printer",
         "poscreators/middleware-doc/instore-app/multiterminal-settings/multiterminal",
+        "poscreators/middleware-doc/instore-app/faq/faq",
       ],
     },
   ],
 },
+  {
+    type: "html",
+    value: "<hr class='sidebar-divider' />",
+  },
+  {
+    type: "category",
+    label: "eInvoicing",
+    collapsed: true,
+    items: [
+      "poscreators/middleware-doc/e-invoicing/overview",
+    ],
+  },
+  {
+    type: "html",
+    value: "<hr class='sidebar-divider' />",
+  },
   {
     type: "link",
     label: "Development Kit",

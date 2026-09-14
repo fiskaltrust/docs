@@ -226,7 +226,7 @@ You can also use the query string to override the values of system variables. An
 
 Postman is a popular HTTP client and is often used to run REST requests manually. You can use it to try out and fine-tune your requests to the template API.
 
-To download Postman, please go to https://www.postman.com/downloads and select the appropriate package for your system. _fiskaltrust_ also provides a [Postman collection](../../assets/template_postman.zip) with pre-configured request settings, which you can import and use as a foundation to customize your API requests.
+To download Postman, please go to the [Postman download page](https://www.postman.com/downloads) and select the appropriate package for your system. _fiskaltrust_ also provides a [Postman collection](../../assets/template_postman.zip) with pre-configured request settings, which you can import and use as a foundation to customize your API requests.
 
 
 
