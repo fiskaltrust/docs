@@ -11,8 +11,8 @@ The Portal works with all standard web browsers. If content does not display cor
 
 There are two separate instances of the fiskaltrust.Portal:
 
-- **Live** - Production environment
-- **Sandbox** - Testing and development environment
+- [Live](https://portal.fiskaltrust.de/) - Production environment
+- [Sandbox](https://portal-sandbox.fiskaltrust.de/) - Testing and development environment
 
 The Portal URL depends on the country you operate in. Use the instance that matches your market:
 

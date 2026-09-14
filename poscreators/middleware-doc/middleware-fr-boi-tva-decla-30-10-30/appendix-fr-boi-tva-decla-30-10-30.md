@@ -21,11 +21,11 @@ The technical specification of the data interface described in this document pro
 5. Types of communication with fiskaltrust.Service
 6. Operating category
 
-The interface specification is provided by fiskaltrust.Interface NuGet package, which can be found at https://www.nuget.org/packages/fiskaltrust.interface.
+The interface specification is provided by the [fiskaltrust.Interface NuGet package](https://www.nuget.org/packages/fiskaltrust.interface).
 
 :::info Upgrading to PosSystem API (v2)
 
-New features such as e-invoicing are available exclusively through the **PosSystem API (v2)**. If you are currently using the v0 interface (WCF/REST), see the [Migrating from API v0 to PosSystem API (v2)](../possystem-api/migration-guide.md) guide for instructions.
+New features such as eInvoicing are available exclusively through the **PosSystem API (v2)**. If you are currently using the v0 interface (WCF/REST), see the [Migrating from API v0 to PosSystem API (v2)](../possystem-api/migration-guide.md) guide for instructions.
 
 :::
 
