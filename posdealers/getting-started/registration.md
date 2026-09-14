@@ -44,56 +44,75 @@ import RegistrationDE from '../_markets/de/getting-started/registration/_registr
 
 By clicking `Register`, you start registering a company and an associated user in four steps. This process is independent of the company's future role (PosCreator, PosDealer, Consultant or PosOperator) in the fiskaltrust.Portal.
 
+The four steps — _Company identification_, _Company data_, _User data_ and _Confirmation_ — are shown in a step tracker at the top of the wizard. Each step has its own address, so you can move between steps with the browser's Back and Forward buttons, reload a step without losing your entries, and click any completed step in the tracker to jump back to it. Pressing `Enter` in a field advances to the next step whenever that step's data is complete.
+
 :::caution Login Security
 Whenever you enter your username and password for the fiskaltrust.Portal, make sure the URL is one of the above and look for the "lock" symbol in the browser. A secure site always has a closed padlock in the URL bar. That way, you can ensure you enter the data on the correct website and avoid becoming a website- or login-spoofing victim.
 :::
 
 ## Work steps for registration
 
-### Confirm CAPTCHA
+### Step 1: Company identification
 
-First, you have to confirm the captcha by checking the checkbox. Sometimes reCAPTCHA will open a new popup where you have to solve a task (e.g., select all images with traffic lights) before reCAPTCHA finishes the verification.
+The first step is headed **Find your company**. Enter one of the identification numbers your market supports and select `Next` to have the Portal detect and prefill your company data automatically. You can also leave the field empty and enter all data manually on the next step.
+
+The numbers you can look a company up by depend on your market:
+
+| Market  | Identification numbers |
+|:-------:|------------------------|
+| Austria | VAT number, Steuernummer, GLN, Firmenbuchnummer (company register number) |
+| France  | VAT number, TIN, GLN, SIREN |
+| Germany | VAT number (USt-IdNr) — because of regulatory limitations, this lookup only works for companies **outside** Germany |
+
+*Table 1. Identification numbers you can search a company by, per market.*
+
+In the productive Portal, a reCAPTCHA appears under the search box; confirm it by checking the checkbox before the lookup runs. Sometimes reCAPTCHA opens a popup where you have to solve a task (e.g., select all images with traffic lights) before it finishes the verification. You solve the captcha once, and the same confirmation covers the rest of the registration. (The sandbox skips this check.)
 
 import ReactPlayer from "react-player"
 
+{/* TODO: re-capture — this clip shows the previous registration form. */}
 <ReactPlayer controls url={require("./images/registration/captcha.mp4").default} /><br />
 
-### Company Data
+### Step 2: Company data
 
-You can now go directly to the company data by clicking on `Enter company data manually` or optionally enter one of the different commercial numbers and let the system prefill the company data.
+Enter your company's master data here. If you used the lookup on the previous step, the fields are prefilled and the number you searched by is locked; otherwise, you enter everything yourself. You must fill in all fields marked with a red star.
 
+{/* TODO: re-capture — Figures 1 and 2 show the previous registration form. */}
 ![Move to company data](./images/registration/company_data_1.png "Move to company data" )
 
 *Figure 1. Start of company data entry in the fiskaltrust.Portal registration.*
 
-You must enter correct data in all fields marked with a red star.
-
-![Enter company data](./images/registration/company_data_2.png "https://portal-sandbox.fiskaltrust.TLD/Account/Register")
+![Enter company data](./images/registration/company_data_2.png "Company data form")
 
 *Figure 2. Company data form with required fields marked by a red star.*
 
+The form is grouped into company master data, company contact details and commercial numbers:
+
 | Steps | Description                                                                                                                |
 |:----------------------:|-------------------------------------------------------------------------------------------------------------------------------------|
-|![Number 1](../images/numbers/circle-1o.png) |You must correctly enter the company's name. Later, you will verify the company's name against any entered commercial number. The company's name has to be the same as used in the commercial registers. The company's name may not already be in use for registration.  |
-|![Number 2](../images/numbers/circle-2o.png) |You must enter a valid E-Mail address in this field. You can only use this E-Mail address once for a company in the fiskaltrust.Portal. If your E-mail server supports the use of "+" in your E-Mail address (meaning username+tag@domain delivers username@domain), you can use such E-Mail addresses, especially for testing purposes, and the portal will treat each of them as a unique E-Mail address. |
-|![Number 3](../images/numbers/circle-3o.png) | You must add the address, zip code, and the name of the city of the company headquarters.  |
-|![Number 4](../images/numbers/circle-4o.png) |You can already enter some or all commercial numbers for the company. So the registration process and usage of the portal are facilitated. |
-|![Number 5](../images/numbers/circle-5o.png) |By clicking on `Next` you proceed to the 3rd step _User data_ of the registration process. |
+|![Number 1](../images/numbers/circle-1o.png) |**Company data** — `Company Name`, `Address line 1`, `Postal code`, `City` and `Country` are required; `Address line 2` is optional. The company name has to match the name in the commercial registers and may not already be in use for a registration. |
+|![Number 2](../images/numbers/circle-2o.png) |**Company contact details** — a valid `E-mail address` is required and can only be used once for a company in the fiskaltrust.Portal. If your E-mail server supports "+" in the address (so username+tag@domain is delivered to username@domain), each alias is treated as a unique address, which is handy for testing. `Website` and `Telephone number` are optional. |
+|![Number 3](../images/numbers/circle-3o.png) |**Commercial no.** — enter the commercial and tax numbers your market uses (for example, in Germany the `USt-IdNr` and the `Tax number`). Select `Search company` next to a number to verify it against the registers and optionally prefill from it. |
+|![Number 4](../images/numbers/circle-4o.png) |By clicking on `Next` you verify the entered numbers and proceed to the 3rd step, _User data_. |
 
-*Table 1. Company data fields shown in Figure 2.*
+*Table 2. Company data fields shown in Figure 2.*
 
-:::tip  Error message
-If you or somebody else already used the data entered in _Company name_ and/or _E-Mail address_ for registration, registration would jump to the last step. An informational page would be displayed.
-This page contains the information of the registered company. Click on the link with the Primary Contact's name to open your E-Mail application and ask this person to invite you into the company as a new user.
+:::note Company not found
+When you select `Next`, the Portal verifies every commercial number you entered that a register can check. If none of the registers recognises a number, a **Company not found** dialog names the number and lets you choose `Cancel` (stay on this step with your data intact and correct the number) or `Continue anyway` (keep the number as entered and move on to the user data).
 :::
 
-### User data
+:::tip  Company or e-mail already registered
+If a commercial number you entered already belongs to a registered company, the Portal tells you that a company with this number is already registered with _fiskaltrust_, together with the advice to have that company invite you or to log in. If the company E-Mail address is already in use, the Portal marks the E-Mail field and tells you that the address already belongs to a registered _fiskaltrust_ account — log in if the account is yours, or use a different company E-Mail address otherwise. To join an existing company, ask its Primary Contact to invite you as a new user.
+:::
+
+### Step 3: User data
 
 The 3rd step of the registration process queries the personal data of the Primary Contact. You must enter correct data in all fields marked with a red star. The Primary Contact is the key user used in the fiskaltrust.Portal.
 This key user is the designated administrator of the newly registered company. You must enter a valid E-Mail address because this will serve for all messages from the fiskaltrust.Portal.
-In addition, with his authorization, this user can invite other company employees. 
+In addition, with his authorization, this user can invite other company employees. You enter the `First name`, `Last name` and `Contact E-Mail address` (which you re-enter in `Confirm Email-address`); the `Mobile telephone` is optional.
 
-![Enter user data](images/registration/user_data.png "https://portal-sandbox.fiskaltrust.TLD/Account/Register")
+{/* TODO: re-capture — this screenshot shows the previous registration form. */}
+![Enter user data](images/registration/user_data.png "User data form")
 
 *Figure 3. User data form for the Primary Contact of the company.*
 
@@ -101,9 +120,11 @@ In addition, with his authorization, this user can invite other company employee
 If the E-Mail address entered in _E-Mail_ is already in use in the fiskaltrust.Portal, you will see a warning message. This message will show that a user with this E-Mail address already exists. By clicking the link in this information, you can initiate the password reset for this user.
 :::
 
-### Confirm registration
+### Step 4: Confirmation
 
-In the last step, you will receive a message about the successful registration. Additionally, the portal sends an E-Mail with all the necessary information to your Primary Contact's E-Mail.
+The last step shows a summary of the company and user data you entered. Read and accept the Terms & Conditions and Privacy Policy using the checkbox — the `Submit` button stays disabled until you do — then select `Submit` to create the registration.
+
+After you submit, you will receive a message about the successful registration. Additionally, the portal sends an E-Mail with all the necessary information to your Primary Contact's E-Mail.
 
 Open the mail in the Primary Contact's inbox and click on the confirmation link. If you don't find the E-Mail in your inbox, look at the spam folder of your E-Mail application. 
 You'll receive, depending on where you are registering, one of these  E-Mails: 
@@ -146,7 +167,7 @@ If the password for logging into the fiskaltrust.Portal is lost or forgotten; yo
 |![Number 5](../images/numbers/circle-5o.png) |Check after a few minutes the inbox of this E-Mail address. When you click the link in the E-Mail, a browser window will open and show the password reset page of the fiskaltrust.Portal.  |
 |![Number 6](../images/numbers/circle-6o.png) |Enter the E-Mail address of your _fiskaltrust_ account, the new password and confirm it by entering it a second time. Your click on `RESET` will save the new password; you see a confirmation page, and you can log in to the fiskaltrust.Portal again.  |
 
-*Table 2. Steps to reset a forgotten fiskaltrust.Portal password.*
+*Table 3. Steps to reset a forgotten fiskaltrust.Portal password.*
 
 ## Creation of new users
 
@@ -168,7 +189,7 @@ With the user rights shown in the screenshot, an employee could read and change 
 |![Number 4](../images/numbers/circle-4o.png) |Design the authorizations by enabling the desired access rights; at least `Read` must be enabled. To activate, slide the slider to the right; to deactivate, slide it to the left. A confirmation message appears at the top right.|
 |![Number 5](../images/numbers/circle-5o.png) |Your click on `Create new` generates an invitation to the new user's E-Mail address. Inform him about the next steps. SPAM folders should also be considered in case the invitation is sorted out. The new user must use this invitation to confirm his E-Mail address, set a password and link his account in the fiskaltrust.Portal with your company. |
 
-*Table 3. Steps to invite a new user, shown in Figure 4.*
+*Table 4. Steps to invite a new user, shown in Figure 4.*
 
 :::tip  Attention
 
@@ -184,7 +205,7 @@ Note that no access is possible with the default access rights; you must at leas
 |![Number 2](../images/numbers/circle-2o.png) |The usage of the confirmation link activates the invitation. Next, read and accept the T&C and Privacy Policy and add a password. |
 |![Number 3](../images/numbers/circle-3o.png) |The employee activates the new user by using the confirmation link and adding a password. |
 
-*Table 4. Steps a new user follows to activate the invitation.*
+*Table 5. Steps a new user follows to activate the invitation.*
 
 In the future, all users will use the login listed [above](registration.md#country-specific-information) or in the assignment message.
 
@@ -206,7 +227,7 @@ In the future, all users will use the login listed [above](registration.md#count
 |![Number 6](../images/numbers/circle-6o.png) |Choose `Set to new Primary Contact` **only if you want to hand over all** `Authorizations`. |
 |![Number 7](../images/numbers/circle-7o.png) |With `Remove assignment`, you delete the user's assignment. |
 
-*Table 5. Steps to expand user rights, shown in Figure 5.*
+*Table 6. Steps to expand user rights, shown in Figure 5.*
 
 ### Remove Access rights
 
@@ -215,7 +236,7 @@ In the future, all users will use the login listed [above](registration.md#count
 |`Remove assignment` |This action only removes the assignment of the E-Mail address to the company, but does not delete it for security reasons. |
 |`Set to new Primary Contact`| The previous access rights are **completely and at once withdrawn from the own contact** with this action. This action **immediately and completely** revokes the access rights of the previously privileged contact. After the next logout, the former Primary Contact cannot even log in to the fiskaltrust.Portal. The new Primary Contact must reassign access rights to his company to him. |
 
-*Table 6. Actions for removing access rights.*
+*Table 7. Actions for removing access rights.*
 
 ## Troubleshooting
 
@@ -294,7 +315,7 @@ Let's assume that you have received your company's first invitation to the fiska
 |![Number 10](../images/numbers/circle-10o.png) |Select `Primary Contact` and log out. |
 |![Number 11](../images/numbers/circle-11o.png) |The new user will be the Primary Contact when he logs in the next time. If desired, he can assign your user access rights; otherwise, you will have no further access or responsibilities. |
 
-*Table 7. Steps for a Primary Contact to reassign the role to another user.*
+*Table 8. Steps for a Primary Contact to reassign the role to another user.*
 
 #### Solution for PosDealers
 
@@ -310,4 +331,4 @@ Let's assume you have sent an invitation to a PosOperator using the wrong E-Mail
 |![Number 6](../images/numbers/circle-6o.png) |Change the E-Mail addresses, both at `E-mail address` and at `Contact E-mail address` and save your changes with `Save`.|
 |![Number 7](../images/numbers/circle-7o.png) |Use `Send invitation again` to resend the invitation E-Mail. |
 
-*Table 8. Steps for a PosDealer to redirect a misaddressed invitation.*
+*Table 9. Steps for a PosDealer to redirect a misaddressed invitation.*
