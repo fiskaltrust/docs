@@ -301,7 +301,7 @@ In the future, all users will use the login listed [above](registration.md#count
 
 ### Remove Access rights
 
-| action | description                                                                                                                |
+| Action | Description                                                                                                                |
 |:----------------------:|-------------------------------------------------------------------------------------------------------------------------------------|
 |`Remove assignment` |This action only removes the assignment of the E-Mail address to the company, but does not delete it for security reasons. |
 |`Set to new Primary Contact`| The previous access rights are **completely and at once withdrawn from the own contact** with this action. This action **immediately and completely** revokes the access rights of the previously privileged contact. After the next logout, the former Primary Contact cannot even log in to the fiskaltrust.Portal. The new Primary Contact must reassign access rights to his company to him. |
