@@ -95,7 +95,7 @@ The first step is headed **Find your company** and is a single search field. Ent
 The numbers you can look a company up by depend on your market:
 
 | Market   | Identification numbers |
-|:--------:|------------------------|
+|:---------|------------------------|
 | Austria  | VAT number, Steuernummer, GLN, Firmenbuchnummer (company register number) |
 | Belgium  | VAT number |
 | France   | VAT number, TIN, GLN, SIREN |
@@ -307,7 +307,7 @@ From then on, all users log in using the links listed [above](registration.md#co
 ### Remove Access rights
 
 | Action | Description                                                                                                                |
-|:----------------------:|-------------------------------------------------------------------------------------------------------------------------------------|
+|:-----------------------|-------------------------------------------------------------------------------------------------------------------------------------|
 |`Remove assignment` |This action only removes the assignment of the E-Mail address to the company, but does not delete it for security reasons. |
 |`Set to new Primary Contact`| The previous access rights are **completely and at once withdrawn from the own contact** with this action. This action **immediately and completely** revokes the access rights of the previously privileged contact. After the next logout, the former Primary Contact cannot even log in to the fiskaltrust.Portal. The new Primary Contact must grant the former contact access to the company again. |
 
