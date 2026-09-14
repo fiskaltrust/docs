@@ -90,7 +90,7 @@ The first step is headed **Find your company** and is a single search field. Ent
 
 ![Company identification](./images/registration/company_identification.png "Company identification")
 
-*Figure 1. Start of company data identification entry in the fiskaltrust.Portal registration.*
+*Figure 1. Company identification — the "Find your company" search step.*
 
 The numbers you can look a company up by depend on your market:
 
@@ -114,11 +114,11 @@ In the productive Portal, a reCAPTCHA appears under the search box; confirm it b
 
 ### Step 2: Company data
 
-Enter your company's master data here. If you used the lookup on the previous step, the fields are prefilled and the number you searched by is locked; otherwise, you enter everything yourself. You must fill in all fields marked with a star.
+Enter your company's master data here. If you used the lookup on the previous step, the fields are prefilled and the number you searched by is locked; otherwise, you enter everything yourself. You must fill in all fields marked with a red star.
 
 ![Company data](./images/registration/company_data.png "Company data")
 
-*Figure 2. Start of company data entry in the fiskaltrust.Portal registration.*
+*Figure 2. Company data step of the fiskaltrust.Portal registration.*
 
 The form is grouped into company master data, company contact details and commercial numbers:
 
@@ -137,7 +137,7 @@ When you select `Next`, the Portal verifies every commercial number you entered 
 
 ![Company data not found](./images/registration/company_data_not_found.png "Company data not found" )
 
-*Figure 3. Start of company data entry in the fiskaltrust.Portal registration.*
+*Figure 3. The "Company not found" dialog shown when a number is not recognised.*
 
 :::tip  Company or e-mail already registered
 If a commercial number you entered already belongs to a registered company, the Portal tells you that a company with this number is already registered with _fiskaltrust_, together with the advice to have that company invite you or to log in. If the company E-Mail address is already in use, the Portal marks the E-Mail field and tells you that the address already belongs to a registered _fiskaltrust_ account — log in if the account is yours, or use a different company E-Mail address otherwise. To join an existing company, ask its Primary Contact to invite you as a new user.
@@ -151,7 +151,7 @@ In addition, with his authorization, this user can invite other company employee
 
 ![Enter user data](images/registration/user_data.png "User data form")
 
-*Figure 3. User data form for the Primary Contact of the company.*
+*Figure 4. User data form for the Primary Contact of the company.*
 
 :::tip  Error message
 If the E-Mail address entered in _E-Mail_ is already in use in the fiskaltrust.Portal, you will see a warning message. This message will show that a user with this E-Mail address already exists. By clicking the link in this information, you can initiate the password reset for this user.
@@ -163,13 +163,13 @@ The last step shows a summary of the company and user data you entered. Read and
 
 ![Confirmation](images/registration/confirmation.png "Confirmation")
 
-*Figure 4. User data form for the Primary Contact of the company.* 
+*Figure 5. Confirmation step with the data summary and the Terms & Conditions checkbox.*
 
 After you submit, you will receive a message about the successful registration, and the confirmation screen spells out your next two steps: confirm the E-Mail address, then assign the company's roles (PosCreator, PosDealer, PosOperator or Consultant). Additionally, the portal sends an E-Mail with all the necessary information to your Primary Contact's E-Mail.
 
 ![Registration successful](images/registration/registration_success.png "Registration successful")
 
-*Figure 5. User data form for the Primary Contact of the company.* 
+*Figure 6. Successful registration message with the next steps.*
 
 Open the mail in the Primary Contact's inbox and click on the confirmation link. If you don't find the E-Mail in your inbox, look at the spam folder of your E-Mail application. 
 You'll receive, depending on where you are registering, one of these  E-Mails: 
@@ -254,7 +254,7 @@ With the user rights shown in the screenshot, an employee could read and change 
 
 ![Data employee](images/registration/user_data_employee-23-02-20.png "https://portal-sandbox.fiskaltrust.TLD/AccountProfile/Employee")
 
-*Figure 4. Employee master data and authorizations for a new user.*
+*Figure 7. Employee master data and authorizations for a new user.*
 
 | Steps | Description                                                                                                                |
 |:----------------------:|-------------------------------------------------------------------------------------------------------------------------------------|
@@ -264,7 +264,7 @@ With the user rights shown in the screenshot, an employee could read and change 
 |![Number 4](../images/numbers/circle-4o.png) |Design the authorizations by enabling the desired access rights; at least `Read` must be enabled. To activate, slide the slider to the right; to deactivate, slide it to the left. A confirmation message appears at the top right.|
 |![Number 5](../images/numbers/circle-5o.png) |Your click on `Create new` generates an invitation to the new user's E-Mail address. Inform him about the next steps. SPAM folders should also be considered in case the invitation is sorted out. The new user must use this invitation to confirm his E-Mail address, set a password and link his account in the fiskaltrust.Portal with your company. |
 
-*Table 5. Steps to invite a new user, shown in Figure 4.*
+*Table 5. Steps to invite a new user, shown in Figure 7.*
 
 :::tip  Attention
 
@@ -290,7 +290,7 @@ In the future, all users will use the login listed [above](registration.md#count
 
 ![Employees Authorizations](images/registration/user_management-23-02-20.png "Employees Authorizations at https://portal-sandbox.fiskaltrust.TLD/AccountProfile/Employee")
 
-*Figure 5. Employee authorizations management in the fiskaltrust.Portal.*
+*Figure 8. Employee authorizations management in the fiskaltrust.Portal.*
 
 | Steps | Description                                                                                                                |
 |:----------------------:|-------------------------------------------------------------------------------------------------------------------------------------|
@@ -302,7 +302,7 @@ In the future, all users will use the login listed [above](registration.md#count
 |![Number 6](../images/numbers/circle-6o.png) |Choose `Set to new Primary Contact` **only if you want to hand over all** `Authorizations`. |
 |![Number 7](../images/numbers/circle-7o.png) |With `Remove assignment`, you delete the user's assignment. |
 
-*Table 7. Steps to expand user rights, shown in Figure 5.*
+*Table 7. Steps to expand user rights, shown in Figure 8.*
 
 ### Remove Access rights
 
@@ -319,7 +319,7 @@ In the future, all users will use the login listed [above](registration.md#count
 
 ![Access employee](images/registration/user_rights_employee.png "Access employee")
 
-*Figure 6. Employee access rights view used to diagnose access complaints.*
+*Figure 9. Employee access rights view used to diagnose access complaints.*
 
 ### Employees of PosOperators complain about access
 
@@ -351,7 +351,7 @@ etc.
 
 ![Different companies](images/registration/user_companies_management-23-02-21.png "Different companies")
 
-*Figure 7. Switching between different companies from the user menu.*
+*Figure 10. Switching between different companies from the user menu.*
 
 **We strongly recommend to check this process at first in the sandbox!**
 
