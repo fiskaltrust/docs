@@ -23,13 +23,23 @@ You can reach the registration or login via a link on the _fiskaltrust_ website 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import RegistrationAT from '../_markets/at/getting-started/registration/_registration.mdx';
+import RegistrationBE from '../_markets/be/getting-started/registration/_registration.mdx';
 import RegistrationFR from '../_markets/fr/getting-started/registration/_registration.mdx';
 import RegistrationDE from '../_markets/de/getting-started/registration/_registration.mdx';
+import RegistrationGR from '../_markets/gr/getting-started/registration/_registration.mdx';
+import RegistrationIT from '../_markets/it/getting-started/registration/_registration.mdx';
+import RegistrationPL from '../_markets/pl/getting-started/registration/_registration.mdx';
+import RegistrationPT from '../_markets/pt/getting-started/registration/_registration.mdx';
+import RegistrationES from '../_markets/es/getting-started/registration/_registration.mdx';
 
 <Tabs groupId="market">
 
   <TabItem value="AT" label="Austria">
     <RegistrationAT />
+  </TabItem>
+
+  <TabItem value="BE" label="Belgium">
+    <RegistrationBE />
   </TabItem>
 
   <TabItem value="FR" label="France">
@@ -38,6 +48,26 @@ import RegistrationDE from '../_markets/de/getting-started/registration/_registr
 
   <TabItem value="DE" label="Germany">
    <RegistrationDE />
+  </TabItem>
+
+  <TabItem value="GR" label="Greece">
+    <RegistrationGR />
+  </TabItem>
+
+  <TabItem value="IT" label="Italy">
+    <RegistrationIT />
+  </TabItem>
+
+  <TabItem value="PL" label="Poland">
+    <RegistrationPL />
+  </TabItem>
+
+  <TabItem value="PT" label="Portugal">
+    <RegistrationPT />
+  </TabItem>
+
+  <TabItem value="ES" label="Spain">
+    <RegistrationES />
   </TabItem>
 
 </Tabs>
