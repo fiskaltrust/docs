@@ -165,7 +165,12 @@ You'll receive, depending on where you are registering, one of these  E-Mails:
 
   <TabItem value="AT" label="Austria">
      sandbox@fiskaltrust.at or portal@fiskaltrust.at
- 
+
+  </TabItem>
+
+  <TabItem value="BE" label="Belgium">
+     sandbox@fiskaltrust.be or portal@fiskaltrust.be
+
   </TabItem>
 
   <TabItem value="FR" label="France">
@@ -175,6 +180,31 @@ You'll receive, depending on where you are registering, one of these  E-Mails:
 
   <TabItem value="DE" label="Germany">
     sandbox@fiskaltrust.de or portal@fiskaltrust.de
+
+  </TabItem>
+
+  <TabItem value="GR" label="Greece">
+     sandbox@fiskaltrust.gr or portal@fiskaltrust.gr
+
+  </TabItem>
+
+  <TabItem value="IT" label="Italy">
+     sandbox@fiskaltrust.it or portal@fiskaltrust.it
+
+  </TabItem>
+
+  <TabItem value="PL" label="Poland">
+     sandbox@fiskaltrust.pl or portal@fiskaltrust.pl
+
+  </TabItem>
+
+  <TabItem value="PT" label="Portugal">
+     sandbox@fiskaltrust.pt or portal@fiskaltrust.pt
+
+  </TabItem>
+
+  <TabItem value="ES" label="Spain">
+     sandbox@fiskaltrust.es or portal@fiskaltrust.es
 
   </TabItem>
 
