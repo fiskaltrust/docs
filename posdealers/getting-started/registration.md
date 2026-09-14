@@ -90,13 +90,21 @@ The first step is headed **Find your company** and is a single search field. Ent
 
 The numbers you can look a company up by depend on your market:
 
-| Market  | Identification numbers |
-|:-------:|------------------------|
-| Austria | VAT number, Steuernummer, GLN, Firmenbuchnummer (company register number) |
-| France  | VAT number, TIN, GLN, SIREN |
-| Germany | VAT number (USt-IdNr) — because of regulatory limitations, this lookup only works for companies **outside** Germany |
+| Market   | Identification numbers |
+|:--------:|------------------------|
+| Austria  | VAT number, Steuernummer, GLN, Firmenbuchnummer (company register number) |
+| Belgium  | VAT number |
+| France   | VAT number, TIN, GLN, SIREN |
+| Germany  | VAT number (USt-IdNr) — because of regulatory limitations, this lookup only works for companies **outside** Germany |
+| Greece   | VAT number |
+| Italy    | VAT number |
+| Poland   | VAT number |
+| Portugal | VAT number |
+| Spain    | VAT number |
 
-*Table 1. Identification numbers you can search a company by, per market.*
+*Table 2. Identification numbers you can search a company by, per market.*
+
+Most markets look a company up by its VAT number only. Any additional market-specific commercial number — such as the German tax number or the Polish NIP — is entered on the company-data step and is not used for this lookup.
 
 In the productive Portal, a reCAPTCHA appears under the search box; confirm it by checking the checkbox before the lookup runs. Sometimes reCAPTCHA opens a popup where you have to solve a task (e.g., select all images with traffic lights) before it finishes the verification. You solve the captcha once, and the same confirmation covers the rest of the registration. (The sandbox skips this check.)
 
@@ -127,7 +135,7 @@ The form is grouped into company master data, company contact details and commer
 |![Number 3](../images/numbers/circle-3o.png) |**Commercial no.** — enter the commercial and tax numbers your market uses (for example, in Germany the `USt-IdNr` and the `Tax number`). Select `Search company` next to a number to verify it against the registers and optionally prefill from it. |
 |![Number 4](../images/numbers/circle-4o.png) |By clicking on `Next` you verify the entered numbers and proceed to the 3rd step, _User data_. |
 
-*Table 2. Company data fields shown in Figure 2.*
+*Table 3. Company data fields shown in Figure 2.*
 
 :::note Company not found
 When you select `Next`, the Portal verifies every commercial number you entered that a register can check. If none of the registers recognises a number, a **Company not found** dialog names the number and lets you choose `Cancel` (stay on this step with your data intact and correct the number) or `Continue anyway` (keep the number as entered and move on to the user data).
@@ -229,7 +237,7 @@ If the password for logging into the fiskaltrust.Portal is lost or forgotten; yo
 |![Number 5](../images/numbers/circle-5o.png) |Check after a few minutes the inbox of this E-Mail address. When you click the link in the E-Mail, a browser window will open and show the password reset page of the fiskaltrust.Portal.  |
 |![Number 6](../images/numbers/circle-6o.png) |Enter the E-Mail address of your _fiskaltrust_ account, the new password and confirm it by entering it a second time. Your click on `RESET` will save the new password; you see a confirmation page, and you can log in to the fiskaltrust.Portal again.  |
 
-*Table 3. Steps to reset a forgotten fiskaltrust.Portal password.*
+*Table 4. Steps to reset a forgotten fiskaltrust.Portal password.*
 
 ## Creation of new users
 
@@ -251,7 +259,7 @@ With the user rights shown in the screenshot, an employee could read and change 
 |![Number 4](../images/numbers/circle-4o.png) |Design the authorizations by enabling the desired access rights; at least `Read` must be enabled. To activate, slide the slider to the right; to deactivate, slide it to the left. A confirmation message appears at the top right.|
 |![Number 5](../images/numbers/circle-5o.png) |Your click on `Create new` generates an invitation to the new user's E-Mail address. Inform him about the next steps. SPAM folders should also be considered in case the invitation is sorted out. The new user must use this invitation to confirm his E-Mail address, set a password and link his account in the fiskaltrust.Portal with your company. |
 
-*Table 4. Steps to invite a new user, shown in Figure 4.*
+*Table 5. Steps to invite a new user, shown in Figure 4.*
 
 :::tip  Attention
 
@@ -267,7 +275,7 @@ Note that no access is possible with the default access rights; you must at leas
 |![Number 2](../images/numbers/circle-2o.png) |The usage of the confirmation link activates the invitation. Next, read and accept the T&C and Privacy Policy and add a password. |
 |![Number 3](../images/numbers/circle-3o.png) |The employee activates the new user by using the confirmation link and adding a password. |
 
-*Table 5. Steps a new user follows to activate the invitation.*
+*Table 6. Steps a new user follows to activate the invitation.*
 
 In the future, all users will use the login listed [above](registration.md#country-specific-information) or in the assignment message.
 
@@ -289,7 +297,7 @@ In the future, all users will use the login listed [above](registration.md#count
 |![Number 6](../images/numbers/circle-6o.png) |Choose `Set to new Primary Contact` **only if you want to hand over all** `Authorizations`. |
 |![Number 7](../images/numbers/circle-7o.png) |With `Remove assignment`, you delete the user's assignment. |
 
-*Table 6. Steps to expand user rights, shown in Figure 5.*
+*Table 7. Steps to expand user rights, shown in Figure 5.*
 
 ### Remove Access rights
 
@@ -298,7 +306,7 @@ In the future, all users will use the login listed [above](registration.md#count
 |`Remove assignment` |This action only removes the assignment of the E-Mail address to the company, but does not delete it for security reasons. |
 |`Set to new Primary Contact`| The previous access rights are **completely and at once withdrawn from the own contact** with this action. This action **immediately and completely** revokes the access rights of the previously privileged contact. After the next logout, the former Primary Contact cannot even log in to the fiskaltrust.Portal. The new Primary Contact must reassign access rights to his company to him. |
 
-*Table 7. Actions for removing access rights.*
+*Table 8. Actions for removing access rights.*
 
 ## Troubleshooting
 
@@ -377,7 +385,7 @@ Let's assume that you have received your company's first invitation to the fiska
 |![Number 10](../images/numbers/circle-10o.png) |Select `Primary Contact` and log out. |
 |![Number 11](../images/numbers/circle-11o.png) |The new user will be the Primary Contact when he logs in the next time. If desired, he can assign your user access rights; otherwise, you will have no further access or responsibilities. |
 
-*Table 8. Steps for a Primary Contact to reassign the role to another user.*
+*Table 9. Steps for a Primary Contact to reassign the role to another user.*
 
 #### Solution for PosDealers
 
@@ -393,4 +401,4 @@ Let's assume you have sent an invitation to a PosOperator using the wrong E-Mail
 |![Number 6](../images/numbers/circle-6o.png) |Change the E-Mail addresses, both at `E-mail address` and at `Contact E-mail address` and save your changes with `Save`.|
 |![Number 7](../images/numbers/circle-7o.png) |Use `Send invitation again` to resend the invitation E-Mail. |
 
-*Table 9. Steps for a PosDealer to redirect a misaddressed invitation.*
+*Table 10. Steps for a PosDealer to redirect a misaddressed invitation.*
