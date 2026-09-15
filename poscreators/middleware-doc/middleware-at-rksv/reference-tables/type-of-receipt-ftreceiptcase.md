@@ -41,7 +41,7 @@ version 2
 | `0000` | **Unknown type for country-code "AT"**<br /><br />This receipt case is handled like a "pos-receipt" (`0001 `). See below: | 1.3.45 |
 | `0001` | **POS receipt**<br /><br />Represents the main kind of receipt processed by a POS system. Creates a turnover and/or a change in the amount of cash in the till or similar operations. <br /><br />Use the `ftChargeItems` and `ftPayItems` to hand over details about goods, services and payments for processing. The `ftChargeItems` and `ftPayItems` should contain the full final state of the receipt. | 1.3.45 |
 | `0002` | **Payment transfer receipt type**<br /><br />| 1.3.45 |
-| `0003` | **Point-Of-Sale receipt without fiscalization**<br /><br />	Obligation or with exeption on fiscalization regulation | 1.3.45 |
+| `0003` | **Point-Of-Sale receipt without fiscalization**<br /><br />Obligation or with exemption from fiscalization regulation | 1.3.45 |
 | `0004` | **E-Commerce receipt type**<br /><br />| 1.3.45 |
 | `0005` | **Delivery Note**<br /><br />| 1.3.45 |
 | `1000` | **Unknown invoice type**<br /><br />| 1.3.45 |
