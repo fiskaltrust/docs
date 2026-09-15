@@ -84,7 +84,20 @@ module.exports = [
               "poscreators/middleware-doc/middleware-at-rksv/function-structures/function-structures",
               "poscreators/middleware-doc/middleware-at-rksv/communication/communication",
               "poscreators/middleware-doc/middleware-at-rksv/receipt-case-definitions/receipt-case-definitions",
-              "poscreators/middleware-doc/middleware-at-rksv/reference-tables/reference-tables",
+              {
+                type: "category",
+                label: "Reference Tables",
+                key: "at-reference-tables",
+                items: [
+                  "poscreators/middleware-doc/middleware-at-rksv/reference-tables/reference-tables",
+                  "poscreators/middleware-doc/middleware-at-rksv/reference-tables/service-status-ftstate",
+                  "poscreators/middleware-doc/middleware-at-rksv/reference-tables/type-of-receipt-ftreceiptcase",
+                  "poscreators/middleware-doc/middleware-at-rksv/reference-tables/type-of-service-ftchargeitemcase",
+                  "poscreators/middleware-doc/middleware-at-rksv/reference-tables/type-of-payment-ftpayitemcase",
+                  "poscreators/middleware-doc/middleware-at-rksv/reference-tables/type-of-signature-ftsignatureformat",
+                  "poscreators/middleware-doc/middleware-at-rksv/reference-tables/type-of-journal-ftjournaltype",
+                ],
+              },
               {
                 type: "category",
                 collapsed: true,
@@ -92,27 +105,6 @@ module.exports = [
                 items: [
                   "poscreators/middleware-doc/middleware-at-rksv/e-invoicing/overview",
                   "poscreators/middleware-doc/middleware-at-rksv/e-invoicing/setup",
-                ],
-              },
-              {
-                type: "category",
-                collapsed: true,
-                label: "Receipt signing APIs",
-                items: [
-                  {
-                    type: "category",
-                    collapsed: true,
-                    label: "RKSV.Sign (Austria)",
-                    items: [
-                      "poscreators/middleware-doc/signing-at-rksv/rksv-sign-intro",
-                      "poscreators/middleware-doc/signing-at-rksv/rksv-sign-api",
-                      {
-                        type: "link",
-                        label: "RKSV.Sign API samples",
-                        href: "https://rksvsign-samples.docs.fiskaltrust.cloud/",
-                      },
-                    ],
-                  },
                 ],
               },
             ],
