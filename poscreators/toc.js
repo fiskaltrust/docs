@@ -94,6 +94,15 @@ module.exports = [
                   "poscreators/middleware-doc/middleware-at-rksv/reference-tables/type-of-journal-ftjournaltype",
                 ],
               },
+              {
+                type: "category",
+                collapsed: true,
+                label: "eInvoicing",
+                items: [
+                  "poscreators/middleware-doc/middleware-at-rksv/e-invoicing/overview",
+                  "poscreators/middleware-doc/middleware-at-rksv/e-invoicing/setup",
+                ],
+              },
             ],
           },
 
