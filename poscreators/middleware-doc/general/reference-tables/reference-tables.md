@@ -15,7 +15,7 @@ The **_CCCC_vIII_gggg_xxxx** overall format consists of four sections and can be
 
 | Value           | Description                                                                                    |
 |----------------------|-----------------------------------------------------------------------------------------------------|
-| `CCCC` | (e.g., 4954) ASCII of a two-letter ISO country code (https://en.wikipedia.org/wiki/ISO_3166-1) (e.g., IT = 4954) |
+| `CCCC` | (e.g., 4954) ASCII of a two-letter ISO country code ([ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1)) (e.g., IT = 4954) |
 | `vIII` | (e.g., 2000) This section is for versioning the tagging system (currently v2) and for future use.  |
 | `gggg` | (e.g., 0010) These items are used for flags. Flags can change the basic behavior of a given type, but will leave the overall semantical meaning of a type the same. (e.g., voiding of a receipt).|
 | `xxxx` | (e.g., 0001) The last category is usually case-specific but always consists of 4 numbers. |
@@ -652,7 +652,7 @@ version 2
 |----------|-----------------|-------------|
 | `001` | Primary compliance signature for a standard POS receipt/invoice. | |
 | `010` | MyDataXML — the full XML payload submitted to AADE myDATA. | |
-| `011` | ProviderSignature — the e-invoice provider's signature (e.g. Viva Fiscal). | |
+| `011` | ProviderSignature — the eInvoice provider's signature (e.g. Viva Fiscal). | |
 | `012` | UniqueDocumentIdentifier — human-readable `AFM \| Date \| Branch \| Type \| Series \| Serial`. | |
 | `013` | Uid — the `invoiceUid` returned by myDATA. | |
 | `014` | Mark — the `invoiceMark` (MARK) registration number. | [www.fiskaltrust.gr] |

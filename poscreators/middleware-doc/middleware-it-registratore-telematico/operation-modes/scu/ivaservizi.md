@@ -9,7 +9,7 @@ title: IvaServizi
 
 ### Support
 
-The _fiskaltrust.Middleware.SCU.IT.IVAServizi_ package connects the middleware with the government service https://ivaservizi.agenziaentrate.gov.it/ ("Documento Commerciale Online"). It logs in as a delegate (incaricato) for the configured `VATNumber`, then creates the corresponding sale/void/refund fiscal document for every receipt.
+The _fiskaltrust.Middleware.SCU.IT.IVAServizi_ package connects the middleware with the [government service](https://ivaservizi.agenziaentrate.gov.it/) ("Documento Commerciale Online"). It logs in as a delegate (incaricato) for the configured `VATNumber`, then creates the corresponding sale/void/refund fiscal document for every receipt.
 
 ### Parameters
 

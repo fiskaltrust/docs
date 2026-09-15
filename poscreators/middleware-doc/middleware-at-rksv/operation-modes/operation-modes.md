@@ -28,7 +28,7 @@ The fiskaltrust.SignatureCloud for AT currently has two different versions:
  - 1.1
  - 1.2
 
-We differentiate between them by backend servers. So the external url is the same: https://signaturcloud.fiskaltrust.at for both versions. If you want to use a specific version of fiskaltrust.SignaturCloud, you will need to set the service-version field into the request header. HTTP header fields are components of the header section of request and response messages in the Hypertext Transfer Protocol (HTTP). They define the operating parameters of an HTTP transaction. If you want to read more about the HTTP headers, you can find details on the following link: https://en.wikipedia.org/wiki/List_of_HTTP_header_fields. As default the fiskaltrust.SignaturCloud 1.1 version is used.
+We differentiate between them by backend servers. So the external URL is the same [SignaturCloud endpoint](https://signaturcloud.fiskaltrust.at) for both versions. If you want to use a specific version of fiskaltrust.SignaturCloud, you will need to set the service-version field into the request header. HTTP header fields are components of the header section of request and response messages in the Hypertext Transfer Protocol (HTTP). They define the operating parameters of an HTTP transaction. If you want to read more about the HTTP headers, you can find details in the [List of HTTP header fields](https://en.wikipedia.org/wiki/List_of_HTTP_header_fields) article. As default the fiskaltrust.SignaturCloud 1.1 version is used.
 
 ```
 Example:
