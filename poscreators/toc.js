@@ -19,6 +19,10 @@ module.exports = [
     ],
 },
   {
+    type: "html",
+    value: "<hr class='sidebar-divider' />",
+  },
+  {
     type: "category",
     label: "POS System API",
     collapsed: true,
@@ -61,8 +65,6 @@ module.exports = [
       "poscreators/middleware-doc/general/receipt-case-definitions/receipt-case-definitions",
       "poscreators/middleware-doc/general/reference-tables/reference-tables",
 
-      "poscreators/middleware-doc/e-invoicing/overview",
-
       {
         type: "category",
         label: "Country-Specific Guides",
@@ -82,26 +84,27 @@ module.exports = [
               "poscreators/middleware-doc/middleware-at-rksv/function-structures/function-structures",
               "poscreators/middleware-doc/middleware-at-rksv/communication/communication",
               "poscreators/middleware-doc/middleware-at-rksv/receipt-case-definitions/receipt-case-definitions",
-              "poscreators/middleware-doc/middleware-at-rksv/reference-tables/reference-tables",
+              {
+                type: "category",
+                label: "Reference Tables",
+                key: "at-reference-tables",
+                items: [
+                  "poscreators/middleware-doc/middleware-at-rksv/reference-tables/reference-tables",
+                  "poscreators/middleware-doc/middleware-at-rksv/reference-tables/service-status-ftstate",
+                  "poscreators/middleware-doc/middleware-at-rksv/reference-tables/type-of-receipt-ftreceiptcase",
+                  "poscreators/middleware-doc/middleware-at-rksv/reference-tables/type-of-service-ftchargeitemcase",
+                  "poscreators/middleware-doc/middleware-at-rksv/reference-tables/type-of-payment-ftpayitemcase",
+                  "poscreators/middleware-doc/middleware-at-rksv/reference-tables/type-of-signature-ftsignatureformat",
+                  "poscreators/middleware-doc/middleware-at-rksv/reference-tables/type-of-journal-ftjournaltype",
+                ],
+              },
               {
                 type: "category",
                 collapsed: true,
-                label: "Receipt signing APIs",
+                label: "eInvoicing",
                 items: [
-                  {
-                    type: "category",
-                    collapsed: true,
-                    label: "RKSV.Sign (Austria)",
-                    items: [
-                      "poscreators/middleware-doc/signing-at-rksv/rksv-sign-intro",
-                      "poscreators/middleware-doc/signing-at-rksv/rksv-sign-api",
-                      {
-                        type: "link",
-                        label: "RKSV.Sign API samples",
-                        href: "https://rksvsign-samples.docs.fiskaltrust.cloud/",
-                      },
-                    ],
-                  },
+                  "poscreators/middleware-doc/middleware-at-rksv/e-invoicing/overview",
+                  "poscreators/middleware-doc/middleware-at-rksv/e-invoicing/setup",
                 ],
               },
             ],
@@ -214,7 +217,7 @@ module.exports = [
               {
                 type: "category",
                 collapsed: true,
-                label: "E-Invoicing",
+                label: "eInvoicing",
                 items: [
                   "poscreators/middleware-doc/middleware-de-kassensichv/e-invoicing/overview",
                   "poscreators/middleware-doc/middleware-de-kassensichv/e-invoicing/setup",
@@ -281,6 +284,15 @@ module.exports = [
           "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/communication/communication",
           "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/receipt-case-definitions/receipt-case-definitions",
           "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/reference-tables/reference-tables",
+          {
+            type: "category",
+            collapsed: true,
+            label: "eInvoicing",
+            items: [
+              "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/e-invoicing/overview",
+              "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/e-invoicing/setup",
+            ],
+          },
         ],
       },
       {
@@ -373,6 +385,15 @@ module.exports = [
               "poscreators/middleware-doc/middleware-it-registratore-telematico/reference-tables/type-of-journal-ftjournaltype",
             ],
           },
+          {
+            type: "category",
+            collapsed: true,
+            label: "eInvoicing",
+            items: [
+              "poscreators/middleware-doc/middleware-it-registratore-telematico/e-invoicing/overview",
+              "poscreators/middleware-doc/middleware-it-registratore-telematico/e-invoicing/setup",
+            ],
+          },
         ],
       },
 {
@@ -398,6 +419,15 @@ module.exports = [
               "poscreators/middleware-doc/middleware-pl/reference-tables/type-of-signature-ftsignaturetype",
               "poscreators/middleware-doc/middleware-pl/reference-tables/type-of-signature-ftsignatureformat",
               "poscreators/middleware-doc/middleware-pl/reference-tables/type-of-journal-ftjournaltype",
+            ],
+          },
+          {
+            type: "category",
+            collapsed: true,
+            label: "eInvoicing",
+            items: [
+              "poscreators/middleware-doc/middleware-pl/e-invoicing/overview",
+              "poscreators/middleware-doc/middleware-pl/e-invoicing/setup",
             ],
           },
         ],
@@ -504,6 +534,22 @@ module.exports = [
     },
   ],
 },
+  {
+    type: "html",
+    value: "<hr class='sidebar-divider' />",
+  },
+  {
+    type: "category",
+    label: "eInvoicing",
+    collapsed: true,
+    items: [
+      "poscreators/middleware-doc/e-invoicing/overview",
+    ],
+  },
+  {
+    type: "html",
+    value: "<hr class='sidebar-divider' />",
+  },
   {
     type: "link",
     label: "Development Kit",
