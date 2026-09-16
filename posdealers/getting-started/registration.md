@@ -177,47 +177,47 @@ Depending on where you are registering, you will receive an E-Mail from one of t
 <Tabs groupId="market">
 
   <TabItem value="AT" label="Austria">
-     sandbox@fiskaltrust.at or portal@fiskaltrust.at
+     no-reply-sandbox@fiskaltrust.at or no-reply@fiskaltrust.at
 
   </TabItem>
 
   <TabItem value="BE" label="Belgium">
-     sandbox@fiskaltrust.be or portal@fiskaltrust.be
+     no-reply-sandbox@fiskaltrust.be or no-reply@fiskaltrust.be
 
   </TabItem>
 
   <TabItem value="FR" label="France">
-     sandbox@fiskaltrust.fr or portal@fiskaltrust.fr
+     no-reply-sandbox@fiskaltrust.fr or no-reply@fiskaltrust.fr
 
   </TabItem>
 
   <TabItem value="DE" label="Germany">
-    sandbox@fiskaltrust.de or portal@fiskaltrust.de
+    no-reply-sandbox@fiskaltrust.de or no-reply@fiskaltrust.de
 
   </TabItem>
 
   <TabItem value="GR" label="Greece">
-     sandbox@fiskaltrust.gr or portal@fiskaltrust.gr
+     no-reply-sandbox@fiskaltrust.gr or no-reply@fiskaltrust.gr
 
   </TabItem>
 
   <TabItem value="IT" label="Italy">
-     sandbox@fiskaltrust.it or portal@fiskaltrust.it
+     no-reply-sandbox@fiskaltrust.it or no-reply@fiskaltrust.it
 
   </TabItem>
 
   <TabItem value="PL" label="Poland">
-     sandbox@fiskaltrust.pl or portal@fiskaltrust.pl
+     no-reply-sandbox@fiskaltrust.pl or no-reply@fiskaltrust.pl
 
   </TabItem>
 
   <TabItem value="PT" label="Portugal">
-     sandbox@fiskaltrust.pt or portal@fiskaltrust.pt
+     no-reply-sandbox@fiskaltrust.pt or no-reply@fiskaltrust.pt
 
   </TabItem>
 
   <TabItem value="ES" label="Spain">
-     sandbox@fiskaltrust.es or portal@fiskaltrust.es
+     no-reply-sandbox@fiskaltrust.es or no-reply@fiskaltrust.es
 
   </TabItem>
 
