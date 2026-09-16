@@ -12,6 +12,7 @@ https?://signing(-sandbox)?\.fiskaltrust\.at/.*
 
 https?://github\.com/fiskaltrust/fiskaltrust-instore-app
 https?://github\.com/fiskaltrust/service-possystem-api
+https?://github\.com/PowerShell/PowerShell/releases/.*
 
 https?://localhost(:[0-9]+)?/.*
 
