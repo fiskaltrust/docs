@@ -114,7 +114,7 @@ In the productive Portal, a reCAPTCHA appears under the search box; confirm it b
 
 ### Step 2: Company data
 
-Enter your company's master data here. If you used the lookup on the previous step, the fields are prefilled and the number you searched by is locked; otherwise, you enter everything yourself. You must fill in all fields marked with a red star.
+Enter your company's master data here. If you used the lookup on the previous step, the fields are prefilled and the number you searched by is locked; otherwise, you enter everything yourself. You must fill in all fields marked with an asterix.
 
 ![Company data](./images/registration/company_data.png "Company data")
 
