@@ -145,7 +145,7 @@ If a commercial number you entered already belongs to a registered company, the 
 
 ### Step 3: User data
 
-The third step collects the personal data of the Primary Contact. You must enter correct data in all fields marked with a red star. The Primary Contact is the key user of the fiskaltrust.Portal.
+The third step collects the personal data of the Primary Contact. You must enter correct data in all fields marked with an asterisk. The Primary Contact is the key user of the fiskaltrust.Portal.
 This key user is the designated administrator of the newly registered company. You must enter a valid E-Mail address because this will serve for all messages from the fiskaltrust.Portal.
 In addition, with their authorization, this user can invite other company employees. You enter the `First name`, `Last name` and `Contact E-Mail address` (which you re-enter in `Confirm Email-address`); the `Mobile telephone` is optional.
 
