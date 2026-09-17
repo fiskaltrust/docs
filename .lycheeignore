@@ -17,6 +17,7 @@ https?://github\.com/PowerShell/PowerShell/releases/.*
 https?://localhost(:[0-9]+)?/.*
 
 https?://support\.fiskaly\.com/.*
+https?://ec\.europa\.eu/digital-building-blocks/sites/spaces/DIGITAL/pages/.*
 https://www.gs1.org/standards/id-keys/gln
 https?://google.com/search.*
 https://www.gesetze-im-internet.de/ao_1977/__146a.html
@@ -35,3 +36,4 @@ https?://www\.fiskaltrust\.at/news/.*
 
 https?://(www\.)?meinfiskal\.de
 https?://(www\.)?aade\.gr/.*
+https?://bofip\.impots\.gouv\.fr/bofip/10693-PGP\?branch=2
