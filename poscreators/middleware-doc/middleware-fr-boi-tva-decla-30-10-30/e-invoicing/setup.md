@@ -35,10 +35,6 @@ This is the only Portal-side step. It sets the master data used to build the doc
 - **Company master data** — legal name, address, VAT ID, country, **SIRET**.
 - **Plateforme Agréée routing** — the merchant's certified platform and the identifiers it needs.
 
-:::caution Portal steps to be confirmed
-The exact fiskaltrust.Portal screens for these settings are still being verified and will be documented here. The French API path is **not yet available** (target state).
-:::
-
 ## Produce and deliver an eInvoice (per call)
 
 Everything about the eInvoice — that it is produced, in which format, and where it goes — is decided **per call** on the PosSystem API. Run the walkthrough against the sandbox at `https://possystem-api-sandbox.fiskaltrust.eu/v2`. The API is request/response and **idempotent — there is no status webhook**; `x-operation-id` is the idempotency key that makes retries safe. Every request carries:
