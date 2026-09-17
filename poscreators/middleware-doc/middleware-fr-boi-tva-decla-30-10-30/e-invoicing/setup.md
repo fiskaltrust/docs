@@ -55,7 +55,7 @@ x-operation-id: <fresh UUID per operation>
 Call `/sign` as you do today, with the buyer's master data, using the **B2B invoice** receipt case. The response fiscalizes the receipt and returns the `ftQueueID` / `ftQueueItemID` you need next.
 
 ```json
-// POST /v2/sign
+// POST https://possystem-api-sandbox.fiskaltrust.eu/v2/sign
 {
   "ftReceiptCase": 35184372092930,
   "cbReceiptReference": "FR-EINV-SANDBOX-0001",
@@ -64,7 +64,9 @@ Call `/sign` as you do today, with the buyer's master data, using the **B2B invo
     "CustomerVATId": "FR12345678901",
     "CustomerName": "Exemple SARL",
     "CustomerStreet": "1 Rue de l'Exemple",
-    "CustomerZip": "75001", "CustomerCity": "Paris", "CustomerCountry": "FR"
+    "CustomerZip": "75001",
+    "CustomerCity": "Paris",
+    "CustomerCountry": "FR"
   },
   "cbChargeItems": [
     { "Quantity": 1, "Description": "Consulting services", "Amount": 1200.00, "VATRate": 20, "ftChargeItemCase": 35184372088851 }
@@ -82,7 +84,7 @@ Call `/sign` as you do today, with the buyer's master data, using the **B2B invo
 Register the fiscalized receipt with the **original `/sign` request and its response** (`ReceiptRequest` + `ReceiptResponse`). The `ftQueueID` / `ftQueueItemID` come from the `/sign` response.
 
 ```json
-// POST /v2/issue
+// POST https://possystem-api-sandbox.fiskaltrust.eu/v2/issue
 {
   "ReceiptRequest":  { "...": "the /sign request from Step 1" },
   "ReceiptResponse": { "...": "the /sign response from Step 1" }

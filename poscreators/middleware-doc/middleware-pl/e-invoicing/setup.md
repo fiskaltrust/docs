@@ -55,7 +55,7 @@ x-operation-id: <fresh UUID per operation>
 Call `/sign` as you do today, with the buyer's master data, using the **B2B invoice** receipt case. Poland is not a euro market, so set `"Currency": "PLN"` explicitly. The response fiscalizes the receipt and returns the `ftQueueID` / `ftQueueItemID` you need next.
 
 ```json
-// POST /v2/sign
+// POST https://possystem-api-sandbox.fiskaltrust.eu/v2/sign
 {
   "ftReceiptCase": 35184372092930,
   "cbReceiptReference": "PL-EINV-SANDBOX-0001",
@@ -65,7 +65,9 @@ Call `/sign` as you do today, with the buyer's master data, using the **B2B invo
     "CustomerVATId": "PL1234567890",
     "CustomerName": "Przykład Sp. z o.o.",
     "CustomerStreet": "ul. Przykładowa 1",
-    "CustomerZip": "00-001", "CustomerCity": "Warszawa", "CustomerCountry": "PL"
+    "CustomerZip": "00-001",
+    "CustomerCity": "Warszawa",
+    "CustomerCountry": "PL"
   },
   "cbChargeItems": [
     { "Quantity": 1, "Description": "Consulting services", "Amount": 1230.00, "VATRate": 23, "ftChargeItemCase": 35184372088851, "Currency": "PLN" }
@@ -83,7 +85,7 @@ Call `/sign` as you do today, with the buyer's master data, using the **B2B invo
 Register the fiscalized receipt with the **original `/sign` request and its response** (`ReceiptRequest` + `ReceiptResponse`). The `ftQueueID` / `ftQueueItemID` come from the `/sign` response.
 
 ```json
-// POST /v2/issue
+// POST https://possystem-api-sandbox.fiskaltrust.eu/v2/issue
 {
   "ReceiptRequest":  { "...": "the /sign request from Step 1" },
   "ReceiptResponse": { "...": "the /sign response from Step 1" }
