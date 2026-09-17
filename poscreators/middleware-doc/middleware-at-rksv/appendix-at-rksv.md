@@ -46,5 +46,5 @@ New features such as eInvoicing are available exclusively through the **PosSyste
 
 - [Registrierkassensicherheitsverordnung (RKSV)](https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=20009390) - German version in the Austrian legal information system (RIS).
 - [Bundesabgabenordnung (BAO)](https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10003940) - German version in the RIS.
-- [Security device in cash registers](https://www.bmf.gv.at/en/topics/taxation/cash-register/security-device-in-cash-registers.html) - the Federal Ministry of Finance (BMF) overview, including the English version of the Cash Register Directive 2012 (KRL 2012).
+- [Security device in cash registers](https://www.bmf.gv.at/en/topics/taxation/cash-register/security-device-in-cash-registers.html) - the Federal Ministry of Finance (BMF) explanation, in English, of how the security device signs and chains cash transactions and how the machine-readable code on the receipt is formed.
 - Ritz/Koran/Kutschera/Knasmüller, [Handbuch Registrierkassen- und Belegerteilungspflicht](https://www.lindeverlag.at/onlineprodukt/handbuch-registrierkassen-und-belegerteilungspflicht-2989), 2. Auflage 2019, Linde Verlag Wien. ISBN: 9783707335910.
