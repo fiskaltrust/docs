@@ -52,20 +52,6 @@ Each field takes one kind of identifier only. A legal entity that uses its parti
 
 :::
 
-Both identifiers are optional, so a request without `cbCustomer`, or with empty identifiers, is valid. An identifier that is present but malformed fails the receipt with the error caption `it-customer-taxid-invalid`, before anything is sent to the RT device. Management receipts are excluded from this check on purpose: initial operation, out of operation, zero receipt, the daily, monthly and yearly closing, and the reprint are never blocked by a stale `cbCustomer`.
-
-```json
-// POST https://possystem-api-sandbox.fiskaltrust.eu/v2/sign
-{
-  "ftReceiptCase": 5283883447184523269,
-  "cbTerminalID": "00010001",
-  "cbReceiptReference": "0001-0002",
-  "cbCustomer": "{\"CustomerTaxId\":\"RSSMRA80A01H501U\",\"CustomerName\":\"Mario Rossi\",\"CustomerStreet\":\"Via Roma 1\",\"CustomerZip\":\"00100\",\"CustomerCity\":\"Roma\",\"CustomerCountry\":\"IT\"}",
-  "cbChargeItems": [ ],
-  "cbPayItems": [ ]
-}
-```
-
 :::note The lottery code is not part of `cbCustomer`
 
 The *codice lotteria* is sent in `ftReceiptCaseData`, as `{"servizi_lotteriadegliscontrini_gov_it":{"codicelotteria":"XXXXXXXX"}}`, and not in `cbCustomer`. On the *Documento Commerciale*, an identified customer and the lottery data are mutually exclusive: when the customer is identified, the lottery data is omitted.
