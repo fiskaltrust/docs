@@ -30,7 +30,7 @@ A fully functioning Middleware setup requires a few **outbound** connections (e.
 
 :::caution both helipad hostnames are required
 
-The Middleware uploads receipt data to `helipad.fiskaltrust.eu`. If this endpoint cannot be reached (e.g., DNS or connection errors, timeouts, or gateway errors), the upload automatically falls back to `helipad.fiskaltrust.cloud` and retries `helipad.fiskaltrust.eu` again in the next upload interval. Each fallback is logged as a warning (`Helipad endpoint https://helipad.fiskaltrust.eu/ is not available (...)`) in the Middleware log.
+The Middleware uploads receipt data to `helipad.fiskaltrust.eu`. If the device cannot reach this endpoint at all (DNS resolution fails, the connection is blocked or refused by a firewall, or the TLS handshake fails), the upload automatically falls back to `helipad.fiskaltrust.cloud` and retries `helipad.fiskaltrust.eu` again in the next upload interval. Each fallback is logged as a warning (`Helipad endpoint https://helipad.fiskaltrust.eu/ cannot be reached (...)`) in the Middleware log. Error responses and timeouts from `helipad.fiskaltrust.eu` do not trigger the fallback.
 
 Please allow **both** hostnames in your firewall and proxy configuration. If only `helipad.fiskaltrust.cloud` is allowed, every upload interval starts with a failed connection attempt before the fallback takes over; if only `helipad.fiskaltrust.eu` is allowed, the CashBox configuration cannot be downloaded.
 

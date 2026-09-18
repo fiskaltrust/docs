@@ -96,7 +96,7 @@ If you find any of the following error messages in the log output, it may sugges
 | Unable to connect to the remote server                           | [General network issues](#network) (e.g., ports blocked)       |
 | The request was aborted: Could not create SSL/TLS secure channel | [SSL issues](#ssl)                                             |
 | Failed to connect to all addresses                               | [Connection issue between queue and SCU](#queuescu-connection) |
-| Helipad endpoint https://helipad.fiskaltrust.eu/ is not available | `helipad.fiskaltrust.eu` is blocked; uploads fall back to `helipad.fiskaltrust.cloud` (see [Network Requirements](../middleware/network-requirements.md)) |
+| Helipad endpoint https://helipad.fiskaltrust.eu/ cannot be reached | `helipad.fiskaltrust.eu` is blocked; uploads fall back to `helipad.fiskaltrust.cloud` (see [Network Requirements](../middleware/network-requirements.md)) |
 
 *Table 1. Common error messages and the network issues they typically indicate.*
 
