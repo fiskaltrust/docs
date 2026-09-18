@@ -313,6 +313,12 @@ From then on, all users log in using the links listed [above](registration.md#co
 
 *Table 8. Actions for removing access rights.*
 
+:::tip changes take effect at the next login
+
+A user whose authorizations you have just changed keeps the rights of the current session. This is most visible after `Set to new Primary Contact`: the new Primary Contact does not gain administrator access until they log out and log back in.
+
+:::
+
 ## Troubleshooting
 
 ### Employees complain about access
@@ -320,6 +326,20 @@ From then on, all users log in using the links listed [above](registration.md#co
 ![Access employee](images/registration/user_rights_employee.png "Access employee")
 
 *Figure 9. Employee access rights view used to diagnose access complaints.*
+
+Check the user's authorizations under `Company` / `Employee` first. Inactive rights show a black symbol, active ones a blue symbol. Remember that no access at all is possible without `Read`, and that a change only applies from the user's next login.
+
+### Error 500 at login, or a PosOperator cannot be selected
+
+Two symptoms usually share one cause. A user receives an HTTP 500 error when logging in to the fiskaltrust.Portal; or the login succeeds but `PosOperator` / `Overview` offers no way to act on a PosOperator's behalf, which blocks onboarding of new outlets and CashBoxes.
+
+Both point at an account whose permissions are incomplete, so the session cannot initialise properly. On the affected account, check that:
+
+* `Read` and `Write` are both enabled;
+* the delegation permission that allows the user to act as a PosOperator is enabled — see [Surrogating](operator-onboarding/surrogating.md);
+* the user has the PosSystem access rights their work requires.
+
+Have the user log in again afterwards, and confirm they can select a PosOperator under `PosOperator` / `Overview`.
 
 ### Employees of PosOperators complain about access
 

@@ -120,6 +120,14 @@ You can escape the template with a [number of tools](https://google.com/search?q
 
 :::
 
+:::caution quotation marks in values
+
+The escaping above applies to the structure of the template. Quotation marks inside the **values** you pass are a different matter: they cause the parser to fail and the CashBox is not created. This affects both the API and the ordering application.
+
+Avoid quotation marks in the values you submit — in a CashBox description, for example. If a value legitimately contains one, remove it before sending the request and correct the entry in the fiskaltrust.Portal afterwards.
+
+:::
+
 #### Shell escaping
 
 If you run the request from the command line, please also pay attention to escape sequences required by your shell. For example, PowerShell requires `` ` `` as escape character for quotations marks and using `Invoke-WebRequest` for the template object `{"ftCashBoxId": "|[cashbox_id]|"}` would require the following parameter

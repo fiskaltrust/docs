@@ -1,0 +1,14 @@
+
+#### `UseNewCopyReceipt`
+
+| Parameter | Value | Description |
+| --------- | ----- | ----------- |
+| `UseNewCopyReceipt` | `true` | Makes the queue use the faster algorithm for handling duplicates. |
+
+*Table 4. Duplicate handling parameter for the French market.*
+
+Set this on the queue when sign requests time out, or when printing a ticket has become noticeably slow. Both symptoms come from the same cause: the way duplicates are managed has not been optimised, and the cost of that grows with the number of receipts the queue has already processed.
+
+Add the parameter as a custom configuration on the queue as described above, then rebuild the CashBox to initialise it.
+
+Improvements show over a period of days rather than immediately. If requests still time out afterwards, collect the logs covering the affected operations — three days' worth is usually enough — and [contact the Customer Success Team](../../../../../information-sources/contacting-support.md).

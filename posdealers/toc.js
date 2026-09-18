@@ -136,6 +136,7 @@ module.exports = [
         items: [
           "posdealers/technical-operations/troubleshooting/troubleshooting-guide",
           "posdealers/technical-operations/troubleshooting/cashbox-failures",
+          "posdealers/technical-operations/troubleshooting/middleware-startup-failures",
           "posdealers/technical-operations/troubleshooting/network-troubleshooting",
         ],
       },
