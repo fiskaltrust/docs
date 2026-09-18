@@ -23,9 +23,9 @@ Every cash register must keep a data collection log (RKSV-DEP, also referred to 
 
 See [Data Collection Log](cash-register-integration/cash-register-integration.md#data-collection-log) for the two logs kept in Austria (RKSV-DEP and E131-DEP) and [RKSV-DEP Export](function-structures/function-structures.md#rksv-dep-export) for the corresponding journal call. Records must be retained for seven years (§132 BAO); creating exports in the fiskaltrust.Portal is described in [Exports](../../../posdealers/technical-operations/maintenance/exports.md), and the cloud-based storage options in [Revision-safe archiving](../../../posdealers/buy-resell/products/revision-safe-archiving.md).
 
-### FinanzOnline registration
+### FinanzOnline notifications and validations
 
-The signature creation unit and the cash register must be registered with the tax authority through [FinanzOnline](https://finanzonline.bmf.gv.at/), together with the user key used to encrypt the cumulative sales counter (§16 RKSV), and immediately after the registration the start receipt must be used to check the signature creation and the encryption of the cumulative sales counter (§6 Abs 4 RKSV). This is done by the PosOperator or the PosDealer in the fiskaltrust.Portal, not by the POS system - see [FinanzOnline Management](../../../posdealers/buy-resell/products/3rd-party/finanzonline-management.md).
+The signature creation unit and the cash register must be registered with the tax authority through [FinanzOnline](https://finanzonline.bmf.gv.at/), together with the AES key used to encrypt the cumulative sales counter (§16 RKSV). After the registration, the start receipt must be created from the POS and the start receipt validated with Finanzonline to check the signature creation and the encryption of the cumulative sales counter (§6 Abs 4 RKSV). Yearly receipts must be validated, SCU outages > 48h and the deregistration of an SCU and a queue. This can be achieved by using the fiskaltrust.Carefree or Notification subscription or manually - see [FinanzOnline Management](../../../posdealers/buy-resell/products/3rd-party/finanzonline-management.md).
 
 ## Where to start
 
