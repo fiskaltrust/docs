@@ -196,6 +196,8 @@ The fiskaltrust.SecurityMechanism autonomously manages the RKSV-DEP. We recommen
 
 Data from the data collection log can also be provided in the form of a data stream, following the format specified by the RKSV.
 
+When using the fiskaltrust.Carefree package, the DEP-7 is stored legally compliant in a revision-safe archive and is available in the fiskaltrust.Portal for the required seven years.
+
 ### Data Collection Log according to §131 para. 1 Z 6 b BAO (E131-DEP)
 
-A E131-DEP, conducted by Cash Register, can be sent to the fiskaltrust.SecurityMechanism.
+With the fiskaltrust.Carefree package, the E131-DEP is stored in a revision-safe archive and is available for export in the fiskaltrust.Portal for the seven years required by §132 BAO.
