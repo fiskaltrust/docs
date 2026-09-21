@@ -37,7 +37,6 @@ The values below are the PosSystem API (v2) tagging values documented in [Type o
 | [Zero receipt](#zero-receipt) (Nullbeleg) | receipt case `2000` | to check operability, to collect a service status and to end a failure state | [Zero receipt](https://developer.fiskaltrust.eu/#/pos-system/AT?endpoint=sign&businesscase=SignRequestReceipt_ZeroReceipt_1) |
 | [Monthly receipt](#monthly-receipt) (Monatsbeleg) | receipt case `2012` | before the beginning of a new monthly period | [Monthly closing](https://developer.fiskaltrust.eu/#/pos-system/AT?endpoint=sign&businesscase=SignRequestReceipt_MonthlyClosing_1) |
 | [Annual receipt](#annual-receipt) (Jahresbeleg) | receipt case `2013` | at the end of the calendar year, replacing that month's monthly receipt | [Yearly closing](https://developer.fiskaltrust.eu/#/pos-system/AT?endpoint=sign&businesscase=SignRequestReceipt_YearlyClosing_1) |
-| [End of failure receipt](#end-of-failure-receipt-collective-failure-report) (Sammelbeleg) | zero receipt | once a failure of the signature creation device or of the fiskaltrust.SecurityMechanism has been resolved | - |
 | [Stop receipt](#stop-receipt-closing-receipt) (Schlussbeleg) | receipt case `4002` | on scheduled decommissioning of the cash register or the security mechanism | [Stop receipt](https://developer.fiskaltrust.eu/#/pos-system/AT?endpoint=sign&businesscase=SignRequestReceipt_StopReceipt_1) |
 
 *Table 2. Operational receipts required by the RKSV.*
@@ -122,7 +121,7 @@ In accordance with §131b para. 2 BAO and the RKSV, as per 1.1.2017 (now 1.4.201
 
 ### Zero Receipt
 
-A zero receipt is a cash transaction recorded with amount zero, described in general terms in ["Zero Receipt"](../../general/cash-register-integration/cash-register-integration-regular-workflow.md#zero-receipt) of the general part. In Austria, all receipts described in this section are zero receipts (Nullbelege): the start, monthly, annual, end of failure and stop receipt.
+A zero receipt is a cash transaction recorded with amount zero, described in general terms in ["Zero Receipt"](../../general/cash-register-integration/cash-register-integration-regular-workflow.md#zero-receipt) of the general part. In Austria, all receipts described in this section are zero receipts (Nullbelege): the start, monthly, annual, end of failure and stop receipt. All of these have specific ftReceiptCase IDs so they can be distinguished.
 
 ### Start Receipt (Initial Receipt)
 
@@ -134,7 +133,7 @@ The PosOperator must archive this receipt.
 
 In case of a scheduled decommissioning of a security mechanism or a cash register, the RKSV requires a generation of a closing receipt. The closing receipt concludes the data collection log (RKSV-DEP) and has to be archived.
 
-At the fiskaltrust.SecurityMechanism, a scheduled decommissioning triggers after returning the data to the cash register and discarding the currently used certificate (so that the signature creation device cannot issue any more valid signatures). Within the framework of the data collection log (RKSV-DEP), the certificate remains preserved. In the case of decommissioning, a FinanzOnline notification is required, which is also created through the fiskaltrust.SecurityMechanism.
+At the fiskaltrust.SecurityMechanism, a scheduled decommissioning triggers after returning the data to the cash register and discarding the currently used certificate (so that the signature creation device cannot issue any more valid signatures). Within the framework of the data collection log (RKSV-DEP), the certificate remains preserved. In the case of decommissioning, a FinanzOnline notification is required, which is also created through the fiskaltrust.SecurityMechanism. Only the decommissioning of the queue will be notified, if the SCU should be decomissioned too, this has to be done manually or via the remove SCU workflow in the ft.Portal. 
 
 Once the queue has been closed with a stop receipt, no hashing and signing of receipts will be done for that queue.
 
@@ -190,7 +189,7 @@ If a cryptographic signature is required by §131b para. 2 BAO the signature blo
 
 The RKSV defines the following logging features as obligatory for cash registers. The corresponding journal call is described in [RKSV-DEP Export](../function-structures/function-structures.md#rksv-dep-export); the records must be retained for seven years (§132 BAO), and how the PosOperator creates and stores those exports is described in [Exports](../../../../posdealers/technical-operations/maintenance/exports.md) and [Revision-safe archiving](../../../../posdealers/buy-resell/products/revision-safe-archiving.md).
 
-### Data Collection Log according to RKSV (RKSV-DEP)
+### Data Collection Log according to RKSV (DEP 7)
 
 The fiskaltrust.SecurityMechanism autonomously manages the RKSV-DEP. We recommend saving the values returned from the fiskaltrust.SecurityMechanism in the cash register's database. A connection between the return values and the receipt is established through the receipt reference of the cash register request and the receipt ID of the fiskaltrust.ReceiptResponse.
 
