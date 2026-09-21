@@ -17,6 +17,17 @@ The Launcher is a core component of every Middleware **on-premise** setup, it is
 
 Typically, you will not use the Launcher binary directly yourself, but you will use one of the **included scripts** to start the service in test mode or install it as a system-wide service.
 
+## Downloading the middleware launcher
+
+1. Open the fiskaltrust.Portal in the respective environment (production or sandbox) and navigate to the Configuration -> Cashboxes.
+In the tableview of the existing cashboxes, you will see a "Launcher" column displaying interactive buttons for each cashbox.
+Click on one of such buttons for the cashbox you wish to download the middleware for.
+![Step 1: Open the fiskaltrust.Portal and navigate to the Configuration -> Cashboxes](../../images/find_launcher_1.png)
+*Figure 1: Configuration -> Cashboxes overview with buttons to download a middleware launcher*
+2. A pop-up window will appear with multiple middleware download options. Choose the latest version of the launcher. 
+Consider the operating system **and** the underlying architecture of the machine on which you wish to install the middleware.
+![Step 2: Choose the right middleware launcher and download it](../../images/find_launcher_2.png)
+*Figure 2: Middleware launcher download options*
 
 ## Installing and uninstalling as a service
 
