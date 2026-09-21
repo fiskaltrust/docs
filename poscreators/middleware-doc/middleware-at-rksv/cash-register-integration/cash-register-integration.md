@@ -5,7 +5,50 @@ title: Cash Register Integration
 
 # Cash Register Integration
 
-This chapter describes the cash register integration following the Austrian law. The general rules for cash register integration are described in the Chapter [Cash Register Integration](../../general/cash-register-integration/cash-register-integration-regular-workflow.md) of the general part.
+This chapter describes the cash register integration for the Austrian market. It expands on the [Cash Register Integration](../../general/cash-register-integration/cash-register-integration-regular-workflow.md) chapter of the General Part and documents only what Austrian law (RKSV) adds to it.
+
+What Austria requires of a cash register as a whole - signing cash transactions, keeping and exporting the data collection log, and registering and notifying through FinanzOnline - is described in the [Introduction](../appendix-at-rksv.md). The Austrian terms used below are defined in [Terminology](../terminology/terminology.md). This page covers the part the POS system implements: which receipts it has to send, how the workflows behave, and how the receipt is structured.
+
+## What your POS system has to implement
+
+An Austrian integration consists of two groups of receipts: the **basic receipts** of everyday business, and the **operational receipts** the RKSV requires around them, which are all Nullbelege (zero receipts). Both groups are sent through the same sign call and are distinguished by their `ftReceiptCase`; zero receipts additionally require an empty charge items block and an empty pay items block.
+
+The values below are the PosSystem API (v2) tagging values documented in [Type of receipt: ftReceiptCase](../reference-tables/type-of-receipt-ftreceiptcase.md) for Austria, and the format they follow (`CCCC_vlll_gggg_txcc`) is explained in the [Reference Tables](../../general/reference-tables/reference-tables.md#type-of-receipt-ftreceiptcase) of the General Part. If your integration still uses the v0 interface, the [Migration guide](../../possystem-api/migration-guide.md) lists the corresponding v0 values for the Austrian market.
+
+### Basic receipts
+
+| Business case | `ftReceiptCase` | Sample |
+| --- | --- | --- |
+| Sale paid at the point of sale | receipt case `0001` (POS receipt) | [Cash sale](https://developer.fiskaltrust.eu/#/pos-system/AT?endpoint=sign&businesscase=SignRequestReceipt_CashSaleReceipt_1) |
+| Void of a receipt issued before | flag `0004` (IsVoid), with the line items marked as void as well; the receipt is annotated "STO" in the signature block | [Void](https://developer.fiskaltrust.eu/#/pos-system/AT?endpoint=sign&businesscase=SignRequestReceipt_VoidReceipt_1) |
+| Refund or return of goods and services | flag `0100` (IsReturn/IsRefund) | [Refund of an earlier receipt](https://developer.fiskaltrust.eu/#/pos-system/AT?endpoint=sign&businesscase=SignRequestReceipt_CashSaleRefund_1), [refund without reference](https://developer.fiskaltrust.eu/#/pos-system/AT?endpoint=sign&businesscase=SignRequestReceipt_CashSaleRefund_3) |
+| Training booking, annotated "TRA" and not counted towards the cumulative sales counter (Umsatzzähler) | flag `0002` (training receipt) | - |
+| Receipts recorded while the fiskaltrust.SecurityMechanism was unreachable | flag `0001` (late signing), closed with an [end of failure receipt](#end-of-failure-receipt-collective-failure-report) | - |
+| Handwritten receipt entered afterwards | flag `0008` (handwritten receipt) | - |
+| Delivery note, vouchers, agency business, tips | see [Receipt Case Definitions](../receipt-case-definitions/receipt-case-definitions.md) | - |
+
+*Table 1. Basic receipt cases an Austrian integration has to cover.*
+
+### Operational receipts
+
+| Receipt | `ftReceiptCase` | Issued | Sample |
+| --- | --- | --- | --- |
+| [Start receipt](#start-receipt-initial-receipt) (Startbeleg) | receipt case `4001` | when the signature creation unit and the cash register have been registered with FinanzOnline | [Start receipt](https://developer.fiskaltrust.eu/#/pos-system/AT?endpoint=sign&businesscase=SignRequestReceipt_StartReceipt_1) |
+| [Zero receipt](#zero-receipt) (Nullbeleg) | receipt case `2000` | to check operability, to collect a service status and to end a failure state | [Zero receipt](https://developer.fiskaltrust.eu/#/pos-system/AT?endpoint=sign&businesscase=SignRequestReceipt_ZeroReceipt_1) |
+| [Monthly receipt](#monthly-receipt) (Monatsbeleg) | receipt case `2012` | before the beginning of a new monthly period | [Monthly closing](https://developer.fiskaltrust.eu/#/pos-system/AT?endpoint=sign&businesscase=SignRequestReceipt_MonthlyClosing_1) |
+| [Annual receipt](#annual-receipt) (Jahresbeleg) | receipt case `2013` | at the end of the calendar year, replacing that month's monthly receipt | [Yearly closing](https://developer.fiskaltrust.eu/#/pos-system/AT?endpoint=sign&businesscase=SignRequestReceipt_YearlyClosing_1) |
+| [End of failure receipt](#end-of-failure-receipt-collective-failure-report) (Sammelbeleg) | zero receipt | once a failure of the signature creation device or of the fiskaltrust.SecurityMechanism has been resolved | - |
+| [Stop receipt](#stop-receipt-closing-receipt) (Schlussbeleg) | receipt case `4002` | on scheduled decommissioning of the cash register or the security mechanism | [Stop receipt](https://developer.fiskaltrust.eu/#/pos-system/AT?endpoint=sign&businesscase=SignRequestReceipt_StopReceipt_1) |
+
+*Table 2. Operational receipts required by the RKSV.*
+
+The start receipt and the annual receipt must also be validated with FinanzOnline, and a failure of the signature creation device lasting longer than 48 hours as well as the deregistration of a signature creation unit or a queue must be notified there. These validations and notifications are not sent by the POS system: they are handled in the fiskaltrust.Portal, automatically with a fiskaltrust.Carefree or Notification subscription, see [FinanzOnline Management](../../../../posdealers/buy-resell/products/3rd-party/finanzonline-management.md).
+
+:::tip Try the samples
+
+Every sample above opens in the [fiskaltrust Developer portal](https://developer.fiskaltrust.eu/#/pos-system/AT?endpoint=sign) with the Austrian market preselected, and can be sent against the sandbox from there. Demo implementations in several languages and a Postman collection are linked in [Communication](../../general/communication/communication.md) of the General Part.
+
+:::
 
 ## Receipt Creation Process
 
@@ -16,8 +59,8 @@ This chapter describes the general process of creating receipts with fiskaltrust
 The regular workflow of the fiskaltrust.SecurityMechanism in the Austrian market defines the steps required for the creation of a receipt as follows:
 
   - assign a sequential receipt number
-  - increase the cumulative sales counter according to the RKSV
-  - encrypt the cumulative sales counter
+  - increase the cumulative sales counter (Umsatzzähler) according to the RKSV
+  - encrypt the cumulative sales counter with the AES key
   - create a signature
   - create machine-readable code according to the RKSV and
   - create all other necessary receipts
@@ -43,9 +86,9 @@ The following diagram illustrates the creation of a special receipt with fiskalt
 
 *Figure 3. Workflow of special receipts (AT): initial-, zero-, collective-, closing-, shift-, daily-, monthly- and yearly-tally receipts (AT - RKSVO).*
 
-### Workflow - failure of the signature creation unit (queue timeout)
+### Workflow - failure of the signature creation device (queue timeout)
 
-The following diagram illustrates the workflow of a failure of the signature creation device following Austrian law.
+The following diagram illustrates the workflow of a failure of the signature creation device following Austrian law. How the Middleware behaves during such outages in general is described in [Failure Scenarios](../../general/cash-register-integration/cash-register-integration-failure-scenarios.md) of the General Part.
 
 ![](./images/15.png)
 
@@ -79,7 +122,7 @@ In accordance with §131b para. 2 BAO and the RKSV, as per 1.1.2017 (now 1.4.201
 
 ### Zero Receipt
 
-You can find examples of special cases of zero receipts applicable to the Austrian market in the following chapters.
+A zero receipt is a cash transaction recorded with amount zero, described in general terms in ["Zero Receipt"](../../general/cash-register-integration/cash-register-integration-regular-workflow.md#zero-receipt) of the general part. In Austria, all receipts described in this section are zero receipts (Nullbelege): the start, monthly, annual, end of failure and stop receipt.
 
 ### Start Receipt (Initial Receipt)
 
@@ -91,41 +134,39 @@ The PosOperator must archive this receipt.
 
 In case of a scheduled decommissioning of a security mechanism or a cash register, the RKSV requires a generation of a closing receipt. The closing receipt concludes the data collection log (RKSV-DEP) and has to be archived.
 
-At fiskaltrust.SecurityMechanisms, a scheduled decommissioning triggers after returning the data to the cash register and discarding the currently used certificate (so that the signature creation device (security mechanism) cannot issue any more valid signatures). Within the framework of the data collection log (RKSV-DEP), the certificate remains preserved. In the case of decommissioning, a "FinanzOnline" (finance online) notification is required (it will also be created through the fiskaltrust.SecurityMechanism).
+At the fiskaltrust.SecurityMechanism, a scheduled decommissioning triggers after returning the data to the cash register and discarding the currently used certificate (so that the signature creation device cannot issue any more valid signatures). Within the framework of the data collection log (RKSV-DEP), the certificate remains preserved. In the case of decommissioning, a FinanzOnline notification is required, which is also created through the fiskaltrust.SecurityMechanism.
 
 Once the queue has been closed with a stop receipt, no hashing and signing of receipts will be done for that queue.
 
 ### End of Failure Receipt (Collective Failure Report)
 
-If, for technical reasons, signatures cannot be created by fiskaltrust.SecurityMechanisms, receipts need to be issued (according to the RKSV) and marked with a comment "security mechanism failed". Once the technical failure has been resolved, a signed collective receipt must be issued to make up for the signature linking of all receipts issued during the technical failure.
+If, for technical reasons, signatures cannot be created by the fiskaltrust.SecurityMechanism, receipts need to be issued (according to the RKSV) and marked with a comment "security mechanism failed". Once the technical failure has been resolved, a signed collective receipt must be issued to make up for the signature linking of all receipts issued during the technical failure.
 
-Furthermore, you can find two fundamentally different types of failure distinguished by fiskaltrust.SecurityMechanisms:
+Furthermore, you can find two fundamentally different types of failure distinguished by the fiskaltrust.SecurityMechanism:
 
 ### Signature Creation Device Failure
 
-A signature creation device failure must be assumed if fiskaltrust.SecurityMechanisms cannot communicate with the signature creation device temporarily. This can happen when e.g. the chip-card reader is faulty.
+A signature creation device failure must be assumed if the fiskaltrust.SecurityMechanism cannot communicate with the signature creation device temporarily. This can happen when e.g. the chip-card reader is faulty.
 
-In case of a signature creation device failure, the machine-readable code from fiskaltrust.SecurityMechanisms (following the RKSV) is processed and sent back to the cash register. The status of the fiskaltrust.SecurityMechanism is communicated to the cash register input station with every response. The failure status can only be terminated through a zero receipt. Requesting the zero receipt can be done automatically through the input station or manually by the user.
+In case of a signature creation device failure, the machine-readable code from the fiskaltrust.SecurityMechanism (following the RKSV) is processed and sent back to the cash register. The status of the fiskaltrust.SecurityMechanism is communicated to the cash register input station with every response. The failure status can only be terminated through a zero receipt. Requesting the zero receipt can be done automatically through the input station or manually by the user.
 
-The PosOperator must report a non-temporary failure (longer than 48 hours) of the signature creation device through FinanzOnline without undue delay. Afterwards, the return to service also must be reported through FinanzOnline. These reports are automatically done through the extension of the fiskaltrust.Carefree package.
+The PosOperator must report a non-temporary failure (longer than 48 hours) of the signature creation device through FinanzOnline without undue delay. Afterwards, the return to service also must be reported through FinanzOnline. These reports are sent automatically with a fiskaltrust.Carefree or Notification subscription, see [FinanzOnline Management](../../../../posdealers/buy-resell/products/3rd-party/finanzonline-management.md).
 
 ### fiskaltrust.SecurityMechanism Failure
 
-A fiskaltrust.SecurityMechanism failure means that there is no access to the RKSV-DEP. If the failure lasts for more than 48 hours, the PosOperator must trigger a failure notification via FinanzOnline. When using fiskaltrust.Carefree, this notification is sent automatically. Otherwise, the notification regarding the reporting requirement is issued on the failure zero receipt.
+A fiskaltrust.SecurityMechanism failure means that there is no access to the RKSV-DEP. If the failure lasts for more than 48 hours, the PosOperator must trigger a failure notification via FinanzOnline. With a fiskaltrust.Carefree or Notification subscription, this notification is sent automatically. Otherwise, the notification regarding the reporting requirement is issued on the failure zero receipt.
 
 ### Monthly Receipt
 
-Before the beginning of a new monthly period, the preliminary result of the cumulative sales counter (monthly counter) has to be recorded accordingly to §8 Abs 2 RKSV. The cash register can request this monthly receipt via zero receipt from fiskaltrust.SecurityMechanisms for this purpose. The running sales counter is sent back to the cash register within the charge items block in an unencrypted format.
+Before the beginning of a new monthly period, the preliminary result of the cumulative sales counter (monthly counter) has to be recorded accordingly to §8 Abs 2 RKSV. The cash register can request this monthly receipt via zero receipt from the fiskaltrust.SecurityMechanism for this purpose. The running sales counter is sent back to the cash register within the charge items block in an unencrypted format.
 
 ### Annual Receipt
 
-Before the beginning of a new annual period, the PosOperator must note the counter reading in accordance with §8 para. 3 RKSV. This procedure replaces the monthly receipt at the end of the year. As an additional requirement, the signature's correctness on this annual receipt needs to be checked against the database through fiskaltrust.SecurityMechanisms. When using fiskaltrust.Carefree, the check is processed automatically. Otherwise, the PosOperator can do it manually through the BMF App, which is available at:
-
-https://www.bmf.gv.at/services/apps.html
+Before the beginning of a new annual period, the PosOperator must note the counter reading in accordance with §8 para. 3 RKSV. This procedure replaces the monthly receipt at the end of the year. As an additional requirement, the signature's correctness on this annual receipt needs to be checked against the database through the fiskaltrust.SecurityMechanism. With a fiskaltrust.Carefree or Notification subscription, the check is processed automatically. Otherwise, the PosOperator can do it manually through the [BMF apps](https://www.bmf.gv.at/services/apps.html).
 
 ## Receipt structure
 
-This chapter describes the receipt structure applicable to the Austrian market.
+This chapter describes the receipt structure applicable to the Austrian market. The blocks themselves are described in ["Receipt structure"](../../general/cash-register-integration/cash-register-integration-regular-workflow.md#receipt-structure) of the general part; in Austria only the receipt header, the charge items block and the signature block carry additional requirements, while the pay items block and the receipt footer are not extended.
 
 ![](./images/20.png)
 
@@ -141,21 +182,13 @@ The charge items block on the cash register receipt contains the services (quant
 
 As previously mentioned, a Charge Items block can be extended through the fiskaltrust.SecurityMechanism. An example of such an extension is the monthly receipt where the sum of current business transactions (cumulative sales counter) is listed as a charge item within the charge items block of a zero receipt at the end of the month.
 
-### Pay Items Block
-
-According to the RKSV, there are currently no specific applications where the pay items block should be extended.
-
 ### Signature Block
 
 If a cryptographic signature is required by §131b para. 2 BAO the signature block is generated by the fiskaltrust.SecurityMechanism. This includes receipt signature as required by RKSV, information about the signature format, and potential further details such as references to training or reverse posting, or an operational failure of the signature creation device. The cash register should contain the signature block between the Pay Items block and the Receipt Footer.
 
-### Receipt Footer
-
-According to the RKSV, there is currently no specific information where the footer should be extended.
-
 ## Data Collection Log
 
-The RKSV defines the following logging features as obligatory for cash registers.
+The RKSV defines the following logging features as obligatory for cash registers. The corresponding journal call is described in [RKSV-DEP Export](../function-structures/function-structures.md#rksv-dep-export); the records must be retained for seven years (§132 BAO), and how the PosOperator creates and stores those exports is described in [Exports](../../../../posdealers/technical-operations/maintenance/exports.md) and [Revision-safe archiving](../../../../posdealers/buy-resell/products/revision-safe-archiving.md).
 
 ### Data Collection Log according to RKSV (RKSV-DEP)
 
@@ -163,10 +196,6 @@ The fiskaltrust.SecurityMechanism autonomously manages the RKSV-DEP. We recommen
 
 Data from the data collection log can also be provided in the form of a data stream, following the format specified by the RKSV.
 
-When using the fiskaltrust.Carefree package, the RKSV-DEP is automated timely and saved in an external cloud, which is revision-safe and cannot be altered by the user.
-
 ### Data Collection Log according to §131 para. 1 Z 6 b BAO (E131-DEP)
 
-A E131-DEP, conducted by Cash Register, can be sent to fiskaltrust.SecurityMechanisms.
-
-When using the fiskaltrust.Carefree package, the E131-DEP is automated timely and saved in an external cloud, which is revision-safe and cannot be altered by the user.
+A E131-DEP, conducted by Cash Register, can be sent to the fiskaltrust.SecurityMechanism.
