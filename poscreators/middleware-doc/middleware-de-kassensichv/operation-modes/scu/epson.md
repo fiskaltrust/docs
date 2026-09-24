@@ -44,7 +44,7 @@ Please pay attention to the case-sensitive use of the parameters.
 
 ### Configuration
 
-![scu-de-epson-config](../images/scu-de-epson-config.png)
+![Portal Epson SCU configuration form with Host, Port, DeviceId, Description, Package version and endpoint URL fields](../images/scu-de-epson-config.png)
 
 *Figure 1. Configuration settings for the Epson SCU in the fiskaltrust.Portal.*
 

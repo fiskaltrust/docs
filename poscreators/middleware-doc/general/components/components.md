@@ -11,7 +11,7 @@ Regardless of the characteristics of the product, fiskaltrust.Middleware consist
 
 The on-premise solution of the fiskaltrust.Middleware requires [configuration and installation](../components/components-install-config.md) for the client. Below the most important components of the Middleware are illustrated:
 
-![middleware-en](images/middleware-en.svg)
+![Diagram: POS system sends echo, sign and journal calls to the Queue via the IPOS interface; the Queue security mechanism exchanges signatures with the country-specific SCU](images/middleware-en.svg)
 
 *Figure 1. Overview of the main components of the on-premise fiskaltrust.Middleware.*
 

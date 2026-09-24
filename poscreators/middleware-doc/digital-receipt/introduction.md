@@ -39,7 +39,7 @@ The visualization of the digital receipt varies from the markets legal requireme
 
 ## Austria 
 
-![digital-receipt-sample-at](./images/digita_receipt_sample_at.png)
+![Austrian digital receipt sample with numbered elements 1 to 10 from merchant logo to card payment details](./images/digita_receipt_sample_at.png)
 
 *Figure 1. Sample digital receipt for Austria; the numbered elements are listed in Table 1.*
 
@@ -62,7 +62,7 @@ The visualization of the digital receipt varies from the markets legal requireme
 
 ## Germany 
 
-![digital-receipt-sample-de](./images/digita_receipt_sample_de.png)
+![German digital receipt sample with numbered elements 1 to 10 from merchant logo to card payment details](./images/digita_receipt_sample_de.png)
 
 *Figure 2. Sample digital receipt for Germany; the numbered elements are listed in Table 2.*
 
@@ -91,7 +91,7 @@ Once the consumer accepted the consent on the consumer application and sent a re
 
 *Consumer Application in development. Currently only available in sandbox environment. 
 
-![consumer-application-preview](./images/consumer_application.png)
+![Consumer application screen with numbered elements 1 to 7, including PDF download, e-mail and WhatsApp sending and receipt preview](./images/consumer_application.png)
 
 *Figure 3. Preview of the consumer application for managing digital receipts; the numbered elements are listed in Table 3.*
 

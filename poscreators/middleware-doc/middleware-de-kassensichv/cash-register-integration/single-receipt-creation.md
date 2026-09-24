@@ -14,7 +14,7 @@ The "**flow**" describes the communication between the POS-System and the fiskal
 - **implicitly** (a "Start-Transaction" is done automatically - implicitly - behind the scenes upfront the final call), or
 - **explicitly** (every single transaction like "Start" and "Finish" are initiated by the user of the Middleware)
 
-![flow-vs-transaction](media/flow-vs-transaction.svg)
+![Diagram: the flow runs between the POS-System and the ft.Middleware, the transaction runs between the ft.Middleware and the TSE](media/flow-vs-transaction.svg)
 
 *Figure 1. Flow and transaction concepts in the German KassenSichV Middleware.*
 
@@ -47,7 +47,7 @@ The up-counting transaction number defined in TR-03153 is responded behind the h
 This value is returned by the `<vorgangsbeginn>` SignatureItem, and computed from the earliest chargeitem/payitem/cbReceiptMoment timestamp in the request.
 
 
-![implicit-flow-start-finish-transaction](media/implicit-flow-start-finish-transaction.svg)
+![Sequence diagram: POS-System sends a pos-receipt with the implicit flag, the Middleware starts and finishes TSE transaction 28 and returns ft2B#IT28](media/implicit-flow-start-finish-transaction.svg)
 
 *Figure 2. Implicit flow: a transaction implicitly started and finished by a single receipt.*
 
@@ -85,7 +85,7 @@ In this example, a customer wants to pay and no more orders are expected. A ftRe
 
 The response's signature block includes all information needed to be printed on the receipt (time of receipt creation - which is the returned value of cbReceiptMoment of the sign-request, start time of the action, and end time of the action). 
 
-![implicit-flow-single-sign-call](media/implicit-flow-single-sign-call.svg)
+![Diagram: POS-System sends one implicit sign call with charge and pay items, the Middleware returns the signature block with receipt, start and end times](media/implicit-flow-single-sign-call.svg)
 
 *Figure 3. Implicit flow for a short-lasting action (retail) completed with a single `/sign` call.*
 
@@ -298,7 +298,7 @@ For the payment (which may include a last order as well), a ftReceiptCase `0x444
 
 The response's signature block of the POS receipt includes all information needed to be printed on the receipt (time of receipt creation - which is the returned value of cbReceiptMoment of the first sign-request of cbReceiptReference-connected orders, start time of the action, and end time of the action). 
 
-![implicit-flow-multiple-sign-calls](media/implicit-flow-multiple-sign-calls.svg)
+![Diagram: POS-System sends several implicit sign calls with charge items, then a last call with all items; the receipt uses times from the first and last responses](media/implicit-flow-multiple-sign-calls.svg)
 
 *Figure 4. Implicit flow for a long-lasting action (e.g. gastronomy) spanning multiple `/sign` calls.*
 
@@ -691,7 +691,7 @@ To document a business action from the start until the end, at least a Start- an
   <summary>Graphical Illustration</summary>
   <p>
 
-![explicit-flow-multiple-sign-calls](media/explicit-flow-multiple-sign-calls.svg)
+![Diagram: POS-System sends start, update and end transaction sign calls to the Middleware; the receipt uses start and end times from the last signature block](media/explicit-flow-multiple-sign-calls.svg)
 
 *Figure 5. Explicit flow spanning multiple `/sign` calls across a transaction.*
 
@@ -706,7 +706,7 @@ To document a business action from the start until the end, at least a Start- an
 Already before you know how your action will complete, you have to create and reserve a transaction number, to be able to track when the action started. This is done by a special call to the 'Sign' method using the 'ReceiptCase' "Start-Transaction". Details of this 'ReceiptRequest' have to match a Zero-Receipt, so no 'ChargeItems' and no 'PayItems' are allowed. In addition to the Zero-Receipt requirements, it is required to add a unique identification to the property 'cbReceiptReference'. This unique identifier can only be used once (at least between each daily closing) in a system. It creates a bracket around an ongoing action. For all further 'Sign' method calls which belong to the same action, it is mandatory to use the same unique identifier in the property 'cbReceiptReference'. Only one ongoing action/transaction per unique identifier is allowed. Calling two times the 'Sign' method using 'ReceiptCase' "Start-Transaction" with the same unique identifier ends up in an exception. If there are communication errors, use the 'ReceiptCaseFlag' "ReceiptRequest" to check if an action/transaction was already created.  
 According to the German law and BSI TR-03153, a call to the 'Sign' method using the 'ReceiptCase' "Start-Transaction" takes care of starting a transaction inside the TSE. The up-counting transaction number, defined in TR-03153, is responded by the fiskaltrust.Middleware behind the hash-tag in the property 'ftReceiptIdentification' of 'ReceiptResponse', prefixed by "ST". For example "ftReceiptIdentification": "ft[queue-receiptnumerator-hex]#ST[tse-transaction]".
 
-![explicit-flow-start-transaction](media/explicit-flow-start-transaction.svg)
+![Sequence diagram: POS-System sends start-transaction with cbReceiptReference A72, the Middleware starts TSE transaction 28 and returns ft2B#ST28](media/explicit-flow-start-transaction.svg)
 
 *Figure 6. Explicit flow: the start-transaction call that opens a transaction.*
 
@@ -721,7 +721,7 @@ According to the German law and BSI TR-03153, a call to the 'Sign' method using 
 Changes in ongoing actions have to be tracked. This is done by a special call to the 'Sign' method using the 'ReceiptCase' "Update-Transaction". Details of the 'ReceiptRequest' should show up the current overall 'ChargeItems' and 'PayItems' of the ongoing action. To identify the action/transaction, the unique identifier used in "Start-Transaction", handed over by the property 'cbReceiptReference', is utilised. Calling the 'Sign' method using a unique identifier that wasn't used to create a transaction, or was already used to finalise a transaction, will end up in an exception. According to the German law and BSI TR-03153, a call to the 'Sign' method using the 'ReceiptCase' "Update-Transaction" handles the updating a transaction inside the TSE. The same transaction number as responded at the call of "Start-Transaction" is responded behind the hash-tag in the property 'ftReceiptIdentification' of 'ReceiptResponse', prefixed by "UT".  
 It is not mandatory to call 'Sign' using 'ReceiptCase' "Update-Transaction" before finalising a transaction. It is also possible to call 'Sign' using 'ReceiptCase' "Update-Transaction" multiple times for a single unique identifier/for a single transaction.
 
-![explicit-flow-update-transaction](media/explicit-flow-update-transaction.svg)
+![Sequence diagram: POS-System sends update-transaction for A72, the Middleware updates TSE transaction 28 and returns ft2B#UT28](media/explicit-flow-update-transaction.svg)
 
 *Figure 7. Explicit flow: an update-transaction call that adds to an open transaction.*
 
@@ -738,7 +738,7 @@ The main functionality is the same as when calling the 'Sign' method using 'Rece
 According to the German law and BSI TR-03153, a call to the 'Sign' method using the 'ReceiptCase' "Delta-Transaction" handles the updating of a transaction inside the TSE. The same transaction number as responded at the call of "Start-Transaction" is responded behind the hash-tag in the property 'ftReceiptIdentification' of 'ReceiptResponse', prefixed by "DT".  
 It is not mandatory to call 'Sign' using 'ReceiptCase' "Delta-Transaction" before finalising a transaction. It is also possible to call 'Sign' using 'ReceiptCase' "Delta-Transaction" multiple times for a single unique identifier/for a single transaction.
 
-![explicit-flow-delta-transaction](media/explicit-flow-delta-transaction.svg)
+![Sequence diagram: POS-System sends delta-transaction for A72, the Middleware updates TSE transaction 28 and returns ft2B#DT28](media/explicit-flow-delta-transaction.svg)
 
 *Figure 8. Explicit flow: a delta-transaction call recording incremental changes.*
 
@@ -754,7 +754,7 @@ According to German law and BSI TR-03153, each call to the 'Sign' method using o
 To identify the action/transaction that should be finalised the unique identifier in the property 'cbReceiptReference' inside the 'ReceiptRequest' is used. No matter if you used "Update-Transaction", "Delta-Transaction" or none of them, the 'ChargeItems' and 'PayItems' have to include the complete final state of all items involved.  
 The transaction number, defined in TR-03153, is responded behind the hash-tag in the property 'ftReceiptIdentification' of 'ReceiptResponse', prefixed by "T".
 
-![explicit-flow-end-transaction](media/explicit-flow-end-transaction.svg)
+![Sequence diagram: POS-System sends a pos-receipt for A72, the Middleware finishes TSE transaction 28 and returns ft2B#T28](media/explicit-flow-end-transaction.svg)
 
 *Figure 9. Explicit flow: the end-transaction call that closes a transaction.*
 
@@ -782,7 +782,7 @@ In this example, a customer wants to pay in a retail store at a scanner cash reg
 
 The response's signature block includes all information needed to be printed on the receipt (time of receipt creation, start time of the action, and end time of the action). 
 
-![explicit-flow-example-calls](media/explicit-flow-example-calls.svg)
+![Diagram: POS-System sends a start transaction sign call and an end transaction sign call; the receipt prints start and end times from the last signature block](media/explicit-flow-example-calls.svg)
 
 *Figure 10. Example call sequence for the explicit flow of a short-lasting retail action.*
 

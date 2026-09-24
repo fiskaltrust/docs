@@ -101,7 +101,7 @@ The following sample is a trimmed-down CashBox skeleton outlining the overall st
 The fiskaltrust.Portal is the starting point for each CashBox, where you create and maintain all your CashBoxes. There, you will find an overview of the CashBoxes of an account.  
 You log in as PosDealer and switch to the desired account (`PosOperators` / `Overview`).
 
-![](../../images/cashbox_portal-2023-08-25.png "https://portal-sandbox.fiskaltrust.TLD/CashBox#/")
+![Portal Configuration CashBox list with an expanded cashbox showing CashBoxID, AccessToken, Queues, Helpers, SCUs and Download button](../../images/cashbox_portal-2023-08-25.png "https://portal-sandbox.fiskaltrust.TLD/CashBox#/")
 
 *Figure 1. Overview of the CashBoxes of an account in the fiskaltrust.Portal.*
 

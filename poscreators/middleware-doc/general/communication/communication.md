@@ -15,7 +15,7 @@ The fiskaltrust.Middleware supports different communication protocols, effective
 
 The communication protocol is specified by setting the respective URL in the package configuration of the fiskaltrust.Portal. The buttons to the right of the URL field can be used to quickly insert the respective URL:
 
-![queue-configuration](./images/url-configuration.png)
+![Portal Queue package configuration with the URL field and gRPC, http (REST), http (SOAP) and net.pipe (SOAP) buttons](./images/url-configuration.png)
 
 *Figure 1. Package configuration page in the fiskaltrust.Portal where the communication protocol URL is set.*
 

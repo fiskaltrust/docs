@@ -9,7 +9,7 @@ There are various ways receipts are provided and transported towards the consume
 
 ## With customer facing display/device 
 
-![qr-code_on_display](./images/sequenz_diagramm_qr-code_display.png)
+![Sequence diagram: merchant fiscalizes the receipt via fiskaltrust and shows a QR code; the consumer scans it, gets the HTML receipt and sends feedback](./images/sequenz_diagramm_qr-code_display.png)
 
 *Figure 1. Sequence diagram of providing a digital receipt via a QR-Code on a customer-facing display or device.*
 
@@ -23,7 +23,7 @@ Overall, this diagram illustrates the process of generating a digital receipt wi
 
 ## With Give-Away (QR-Label)
 
-![give-away](./images/sequenz_diagramm_give-awaypng.png)
+![Sequence diagram: merchant scans a give-away QR label at checkout, fiscalizes via fiskaltrust and hands it over; the consumer later scans it to get the receipt](./images/sequenz_diagramm_give-awaypng.png)
 
 *Figure 2. Sequence diagram of providing a digital receipt via Give-Away (QR-Label).*
 
@@ -39,7 +39,7 @@ The merchants PosDealer can participate by means of placing orders and intermedi
 
 ## With InStore App
 
-![give-away](./images/sequenze_diagramm_instore_app.png)
+![Sequence diagram: merchant fiscalizes via fiskaltrust, the InStore App shows a receipt QR code for the consumer to scan, with acknowledge and print receipt flows](./images/sequenze_diagramm_instore_app.png)
 
 *Figure 3. Sequence diagram of providing a digital receipt via the InStore App.*
 
