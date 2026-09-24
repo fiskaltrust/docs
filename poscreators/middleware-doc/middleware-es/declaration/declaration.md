@@ -29,7 +29,6 @@ fiskaltrust has prepared the responsible declaration of the *Sistema Informátic
 | Producer (*productor*) | fiskaltrust consulting GmbH, Alpenstraße 99a, 5020 Salzburg, Austria, VAT ID `ATU68541544` |
 | System name (*nombre del sistema informático*) | `fiskaltrust.Middleware` |
 | System identification code (*IdSistemaInformatico*) | `00` |
-| System version (*versión*) | `2.0` |
 | Operating mode | VERI\*FACTU (verifiable invoices, transmitted to the AEAT) |
 
 Because the AEAT keeps no register of declared systems, the declaration itself is the proof of compliance. It has to be available to the merchant who uses the system and to the AEAT on request. Ask [sales@fiskaltrust.eu](mailto:sales@fiskaltrust.eu) for a copy of the signed declaration.
@@ -42,7 +41,6 @@ For the Basque provinces fiskaltrust has prepared the *memoria descriptiva técn
 | ----- | ----- |
 | Developer (*entidad desarrolladora*) | fiskaltrust consulting GmbH, Spanish NIF `N0286342A` |
 | Software name (*nombre del software*) | `fiskaltrust.Middleware` |
-| Software version | `2.0` |
 | Licence code (*LicenciaTBAI*) | One licence code per province, configured in the fiskaltrust cloud signing service. See the registers of the provinces below. |
 
 The licence codes are not listed on this page. Each provincial tax authority publishes the registered software, with its licence code, in its register of *software garante*: [Araba](https://web.araba.eus/es/hacienda/ticketbai/listado-de-software), [Bizkaia](https://www.batuz.eus/es/registro-de-software) and [Gipuzkoa](https://www.gipuzkoa.eus/es/web/ogasuna/ticketbai/listado-software). To find the entry of the fiskaltrust.Middleware, look up the developer *fiskaltrust consulting GmbH* (NIF `N0286342A`) or the software name `fiskaltrust.Middleware` in these lists. Registration in **one** province is sufficient for all three provinces; fiskaltrust's registration is filed with the *Hacienda Foral de Bizkaia*.
