@@ -10,11 +10,11 @@ Spain has no single certification of invoicing programs. Two frameworks apply, d
 - In the **common territory** (all of Spain except the Basque Country and Navarre) every *Sistema Informático de Facturación* (SIF) must fulfil the requirements of *Real Decreto 1007/2023* (Reglamento SIF, based on art. 29.2.j of the *Ley General Tributaria*) and the technical specification *Orden HAC/1177/2024*. There is no register and no approval by the tax authority (*Agencia Estatal de Administración Tributaria*, AEAT). Instead, the **producer** of the SIF certifies its compliance in a **declaración responsable** (responsible declaration) that is handed to the merchant and shown to the AEAT on request. Invoice records can be transmitted to the AEAT in real time (**VERI\*FACTU**) or kept locally with an electronic signature (*No VERI\*FACTU*).
 - In the three provinces of the **Basque Country** (Araba/Álava, Bizkaia, Gipuzkoa) the **TicketBAI** system applies. The software developer registers the software in the register of *software garante* of one of the three provincial tax authorities (*Haciendas Forales*), submits a technical description (*memoria descriptiva*) and a responsible declaration, and receives a **TicketBAI licence code** (`LicenciaTBAI`) that is transmitted with every invoice.
 
-The fiskaltrust.Middleware implements both frameworks. This page describes what fiskaltrust holds and does today, which document types the Middleware issues, where the identifiers appear on documents, and where the boundaries of the implementation are.
+The fiskaltrust.Middleware implements both frameworks. This page describes what fiskaltrust holds and does today, which document types the fiskaltrust.Middleware issues, where the identifiers appear on documents, and where the boundaries of the implementation are.
 
 :::info Scope of this chapter
 
-Everything on this page applies when your POS system integrates with the **fiskaltrust.Middleware for Cloud** and issues documents under **fiskaltrust's declaración responsable** (VERI\*FACTU) and **fiskaltrust's TicketBAI software registration**. This is how PosCreators using the Middleware go to market in Spain; see [Go-to-Market](../go-to-market/go-to-market.md).
+Everything on this page applies when your POS system integrates with the **fiskaltrust.Middleware** and issues documents under **fiskaltrust's declaración responsable** (VERI\*FACTU) and **fiskaltrust's TicketBAI software registration**. This is how PosCreators using the fiskaltrust.Middleware go to market in Spain; see [Go-to-Market](../go-to-market/go-to-market.md).
 
 :::
 
@@ -49,7 +49,7 @@ The licence codes are not listed on this page. Each provincial tax authority pub
 
 ## Where the identifiers appear on documents
 
-The Middleware returns everything that must appear on the document as signature items (see [Type of Signature: ftSignatureType](../reference-tables/type-of-signature-ftsignaturetype.md) and [Receipt Printing](../receipt-printing/receipt-printing.md)):
+The fiskaltrust.Middleware returns everything that must appear on the document as signature items (see [Type of Signature: ftSignatureType](../reference-tables/type-of-signature-ftsignaturetype.md) and [Receipt Printing](../receipt-printing/receipt-printing.md)):
 
 **VERI\*FACTU (common territory)**
 
@@ -61,7 +61,7 @@ The Middleware returns everything that must appear on the document as signature 
 **TicketBAI (Basque Country)**
 
 - The **TBAI identifier** (*código identificativo TicketBAI*), a 39-character code of the form `TBAI-<issuer NIF>-<ddMMyy>-<13 signature characters>-<CRC>`.
-- The **TicketBAI QR code** with the verification URL containing the TBAI identifier, series, number, total amount and a CRC. The Middleware currently uses the Batuz verification address (`batuz.eus/QRTBAI/`) for all three provinces; the province-specific addresses of Araba and Gipuzkoa are being aligned.
+- The **TicketBAI QR code** with the verification URL containing the TBAI identifier, series, number, total amount and a CRC. The fiskaltrust.Middleware currently uses the Batuz verification address (`batuz.eus/QRTBAI/`) for all three provinces; the province-specific addresses of Araba and Gipuzkoa are being aligned.
 - Inside the signed XML file, the `Software` block carries the licence code, the developer NIF, the software name and version, and the device serial number (*NumSerieDispositivo* = the cash box identification).
 
 PosCreators must print these values exactly as returned and must not replace them with their own texts.
@@ -74,11 +74,11 @@ Sandbox queues transmit to the **test environments** of the AEAT and of the prov
 
 ## What fiskaltrust takes care of
 
-With the fiskaltrust.Middleware for Cloud, the whole fiscal flow happens inside the Middleware and the fiskaltrust cloud signing service (`signing.fiskaltrust.es`, sandbox `signing-sandbox.fiskaltrust.es`). Based on the existing implementation, fiskaltrust takes care of:
+The whole fiscal flow happens inside the fiskaltrust.Middleware and the fiskaltrust cloud signing service (`signing.fiskaltrust.es`, sandbox `signing-sandbox.fiskaltrust.es`). Based on the existing implementation, fiskaltrust takes care of:
 
 - **Validation.** Every request is checked against the Spanish rules before anything is signed or transmitted (see [Boundaries](#boundaries)); non-compliant requests are rejected with a validation code and message.
 - **Numbering and series.** Each queue owns two numbering sequences that are created with the initial-operation receipt: one for simplified invoices (POS receipts) and one for complete invoices. Every document receives the next number of its sequence; the series and number are appended to `ftReceiptIdentification` after the `#` (for example `ft2A#fktAbCdEfGhIjK0000-17`).
-- **Hash chain (VERI\*FACTU).** For every record the Middleware calculates the *huella* according to the AEAT specification (SHA-256 over issuer NIF, series and number, issue date, invoice type, total VAT, total amount, previous hash and generation timestamp) and chains it to the previous record of the sequence (*Encadenamiento*, with `PrimerRegistro` for the first record).
+- **Hash chain (VERI\*FACTU).** For every record the fiskaltrust.Middleware calculates the *huella* according to the AEAT specification (SHA-256 over issuer NIF, series and number, issue date, invoice type, total VAT, total amount, previous hash and generation timestamp) and chains it to the previous record of the sequence (*Encadenamiento*, with `PrimerRegistro` for the first record).
 - **Signature and chain (TicketBAI).** Every TicketBAI file (schema 1.2) is signed with an XAdES enveloped signature (SHA-256, the signature policy of the province) using the certificate configured for the merchant, and chained to the previous invoice (series, number, date and the first 100 characters of the previous signature value).
 - **Record generation.** POS receipts and invoices are converted into the *registro de facturación de alta* (VERI\*FACTU) or the TicketBAI *alta* file, including the VAT breakdown per rate, the exemption and not-subject reasons derived from the nature-of-VAT segment of the `ftChargeItemCase`, the tax regime key (*ClaveRegimen*), the applied tax (*Impuesto*: VAT, IPSI or IGIC, from the queue configuration) and the customer data of invoices.
 - **Transmission.** Records are transmitted synchronously: VERI\*FACTU records through the AEAT SOAP web service (*SistemaFacturacion*), TicketBAI files through the web services of Araba and Gipuzkoa or, for Bizkaia, wrapped in the *LROE modelo 240* message of the **Batuz** system. The response of the authority decides whether the document is issued; rejections are returned to the POS.
@@ -90,18 +90,18 @@ With the fiskaltrust.Middleware for Cloud, the whole fiscal flow happens inside 
 
 :::caution Scope
 
-The certificates, the licence codes and the endpoints of the tax authorities are part of the fiskaltrust cloud deployment. Self-hosted or on-device installations of the Middleware are not available for Spain.
+The certificates, the licence codes and the endpoints of the tax authorities are part of the fiskaltrust cloud deployment. Self-hosted or on-device installations of the fiskaltrust.Middleware are not available for Spain.
 
 :::
 
 ### What has been verified with the tax authorities
 
-- **AEAT.** The transmission of VERI\*FACTU records was developed against the AEAT pre-production environment; the acceptance tests of the Middleware replay standard sales, exempt, not-subject, reverse-charge, export, IPSI and IGIC cases against it. The AEAT does not certify or audit SIF producers; there is therefore no approval beyond the declaration.
-- **Basque provinces.** The Middleware was developed against the TicketBAI test environments of Araba, Bizkaia and Gipuzkoa with the test licence codes and test certificates of the provinces; the acceptance tests submit invoices to all three environments and compare the generated XML with the reference samples of the provinces for every exemption and not-subject case.
+- **AEAT.** The transmission of VERI\*FACTU records was developed against the AEAT pre-production environment; the acceptance tests of the fiskaltrust.Middleware replay standard sales, exempt, not-subject, reverse-charge, export, IPSI and IGIC cases against it. The AEAT does not certify or audit SIF producers; there is therefore no approval beyond the declaration.
+- **Basque provinces.** The fiskaltrust.Middleware was developed against the TicketBAI test environments of Araba, Bizkaia and Gipuzkoa with the test licence codes and test certificates of the provinces; the acceptance tests submit invoices to all three environments and compare the generated XML with the reference samples of the provinces for every exemption and not-subject case.
 
 ## Supported document types
 
-The following document types are produced by the Middleware from the `ftReceiptCase` values described in [Type of Receipt: ftReceiptCase](../reference-tables/type-of-receipt-ftreceiptcase.md).
+The following document types are produced by the fiskaltrust.Middleware from the `ftReceiptCase` values described in [Type of Receipt: ftReceiptCase](../reference-tables/type-of-receipt-ftreceiptcase.md).
 
 | Document | `ftReceiptCase` (txcc) | VERI\*FACTU record | TicketBAI file | Notes |
 | -------- | ---------------------- | ------------------ | -------------- | ----- |
@@ -122,7 +122,7 @@ The following operations are accepted but do not create a fiscal document:
 
 ## Boundaries
 
-The Middleware actively rejects requests that fall outside the supported scope or that the tax authority would reject. Requests that fail one of these checks are not transmitted; the response carries the error state `EEEE_EEEE` (see [Service Status: ftState](../reference-tables/service-status-ftstate.md)) and a `FAILURE` signature item with the validation code and message (`Validation error [<code>]: <message> (Field: <field>, Index: <item index>)`), or the error list returned by the AEAT or the provincial web service.
+The fiskaltrust.Middleware actively rejects requests that fall outside the supported scope or that the tax authority would reject. Requests that fail one of these checks are not transmitted; the response carries the error state `EEEE_EEEE` (see [Service Status: ftState](../reference-tables/service-status-ftstate.md)) and a `FAILURE` signature item with the validation code and message (`Validation error [<code>]: <message> (Field: <field>, Index: <item index>)`), or the error list returned by the AEAT or the provincial web service.
 
 **Document types and corrections**
 
@@ -149,19 +149,19 @@ The Middleware actively rejects requests that fall outside the supported scope o
 
 **Operational boundaries**
 
-- Series, numbers, certificates and licence codes are managed by fiskaltrust; there is no way for a PosCreator or merchant to set the document number or to sign records locally. The series currently generated by the Middleware contain lower-case letters; the AEAT recommends upper-case characters only, and the format is being reviewed.
+- Series, numbers, certificates and licence codes are managed by fiskaltrust; there is no way for a PosCreator or merchant to set the document number or to sign records locally. The series currently generated by the fiskaltrust.Middleware contain lower-case letters; the AEAT recommends upper-case characters only, and the format is being reviewed.
 - Training mode is not supported in Spain.
-- The Middleware operates in **VERI\*FACTU mode** only: every record is transmitted to the AEAT. The alternative *No VERI\*FACTU* mode (signed records kept locally, event log export) is not offered.
+- The fiskaltrust.Middleware operates in **VERI\*FACTU mode** only: every record is transmitted to the AEAT. The alternative *No VERI\*FACTU* mode (signed records kept locally, event log export) is not offered.
 - Sandbox queues transmit to the test environments of the authorities and must not be used for productive documents.
-- Documents can only be numbered while the Middleware is reachable. The handling of an outage between the POS and the Middleware is described under [Offline handling](../go-to-market/go-to-market.md#key-factors-for-the-spanish-market).
+- Documents can only be numbered while the fiskaltrust.Middleware is reachable. The handling of an outage between the POS and the fiskaltrust.Middleware is described under [Offline handling](../go-to-market/go-to-market.md#key-factors-for-the-spanish-market).
 - SII (*Suministro Inmediato de Información*), B2G e-invoicing (Facturae / FACe) and the upcoming mandatory B2B e-invoice are not part of the current scope.
 
 ## What this means for PosCreators
 
-- **You integrate a declared and registered system; you do not build one.** Your POS sends the business case to the fiskaltrust.Middleware for Cloud through the [PosSystem API](../../possystem-api/introduction.md). The Middleware numbers the document, calculates the hash or signature, transmits the record and returns the QR code, the legend or the TBAI identifier. Your software must not number, hash, sign or transmit invoices itself.
+- **You integrate a declared and registered system; you do not build one.** Your POS sends the business case to the fiskaltrust.Middleware through the [PosSystem API](../../possystem-api/introduction.md). The fiskaltrust.Middleware numbers the document, calculates the hash or signature, transmits the record and returns the QR code, the legend or the TBAI identifier. Your software must not number, hash, sign or transmit invoices itself.
 - **Print what you receive, unchanged.** The QR code, the VERI\*FACTU legend, the TBAI identifier and the series and number must be reproduced exactly as returned. See [Receipt Printing](../receipt-printing/receipt-printing.md).
-- **Send complete and valid requests.** The Middleware rejects requests that would produce a non-compliant record, and the tax authority rejects what the Middleware cannot catch. Show the returned error to the operator and correct the request; do not retry with altered fiscal data.
-- **Respect the document flow.** Refunds and voids reference the original document; issued documents cannot be edited or deleted. Series and numbers are assigned by the Middleware.
+- **Send complete and valid requests.** The fiskaltrust.Middleware rejects requests that would produce a non-compliant record, and the tax authority rejects what the fiskaltrust.Middleware cannot catch. Show the returned error to the operator and correct the request; do not retry with altered fiscal data.
+- **Respect the document flow.** Refunds and voids reference the original document; issued documents cannot be edited or deleted. Series and numbers are assigned by the fiskaltrust.Middleware.
 - **Know the territory of your merchant.** A merchant taxed in the common territory needs a VERI\*FACTU queue; a merchant with an establishment in Araba, Bizkaia or Gipuzkoa needs a TicketBAI queue of that province. The queue type is set up in the fiskaltrust.Portal and cannot be changed afterwards.
 - **Sandbox is not production.** Sandbox documents point to the test verification pages and are never valid invoices.
 - **Cloud only.** Self-hosted or on-device installations are not available under fiskaltrust's declaration and registration.
@@ -172,5 +172,5 @@ The Middleware actively rejects requests that fall outside the supported scope o
 - **You need an electronic certificate.** The transmission to the AEAT and the signature of TicketBAI files require a qualified electronic certificate: a company seal certificate, a legal-representative certificate or, for TicketBAI, a device certificate issued by Izenpe. The certificate is uploaded to the fiskaltrust.Portal during onboarding. Transmission on your behalf as *colaborador social* or by power of attorney is not available today.
 - **Keep the declaration.** You must be able to show the responsible declaration of your invoicing system (fiskaltrust's declaration) to the AEAT on request.
 - **Corrections go through the POS.** A wrong document is voided or refunded through the POS, which creates the corresponding record referencing the original. Documents cannot be edited or deleted.
-- **Bizkaia has additional obligations.** Under Batuz, the TicketBAI files are transmitted as part of the *LROE* (*Libro Registro de Operaciones Económicas*, modelo 240). The remaining LROE chapters are not filed by the Middleware; ask fiskaltrust about the available exports for your accountant.
+- **Bizkaia has additional obligations.** Under Batuz, the TicketBAI files are transmitted as part of the *LROE* (*Libro Registro de Operaciones Económicas*, modelo 240). The remaining LROE chapters are not filed by the fiskaltrust.Middleware; ask fiskaltrust about the available exports for your accountant.
 - **Limits you will encounter.** Only EUR, only the standard VAT regimes, no vouchers, no equivalence surcharge, no corrective invoices yet, no TicketBAI cancellations yet. Ask your POS provider before relying on one of these features.

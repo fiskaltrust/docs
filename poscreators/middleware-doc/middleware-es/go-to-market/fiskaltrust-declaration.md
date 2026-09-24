@@ -5,7 +5,7 @@ title: "Integrating under fiskaltrust's declaration and registration"
 
 # Integrating under fiskaltrust's declaration and registration
 
-Your POS system integrates with the **fiskaltrust.Middleware for Cloud**. The Middleware is the *Sistema Informático de Facturación* that fiskaltrust has declared towards the AEAT in its declaración responsable, and the *software garante* that fiskaltrust has registered with the Basque tax authorities (see [Declaration and Registration](../declaration/declaration.md)). Your POS acts as the front end of this system: it collects the business case and sends it to the Middleware, and the Middleware creates the fiscal record. You do not declare or register anything with the tax authorities yourself.
+Your POS system integrates with the **fiskaltrust.Middleware**. The fiskaltrust.Middleware is the *Sistema Informático de Facturación* that fiskaltrust has declared towards the AEAT in its declaración responsable, and the *software garante* that fiskaltrust has registered with the Basque tax authorities (see [Declaration and Registration](../declaration/declaration.md)). Your POS acts as the front end of this system: it collects the business case and sends it to the fiskaltrust.Middleware, and the fiskaltrust.Middleware creates the fiscal record. You do not declare or register anything with the tax authorities yourself.
 
 This is how every PosCreator that uses the fiskaltrust.Middleware enters the Spanish market. The functional scope is given by the [supported document types](../declaration/declaration.md#supported-document-types).
 
@@ -16,7 +16,7 @@ This is how every PosCreator that uses the fiskaltrust.Middleware enters the Spa
 - The VERI\*FACTU record with its hash chain and the signed TicketBAI file with its chaining, generated and transmitted automatically.
 - The QR code, the VERI\*FACTU legend, the hash, the TBAI identifier and the response of the authority returned as signature items.
 - The certificates of your merchants held in the fiskaltrust cloud; your POS never touches them.
-- Updates when the AEAT or provincial specifications change, without a new declaration on your side for the Middleware.
+- Updates when the AEAT or provincial specifications change, without any action on your side.
 
 ## What you build
 
@@ -27,34 +27,30 @@ Your integration consists of the same steps as in every other fiskaltrust market
 3. **Provide the recipient of an invoice.** Pass the recipient of a complete invoice in `cbCustomer` with name, street, postcode and, for Spanish customers, a NIF in a valid format; foreign customers are identified by VAT ID, tax ID or passport. The recipient is transmitted in TicketBAI files but not yet in VERI\*FACTU records.
 4. **Hand out the document.** Print or display the series and number, the QR code, the VERI\*FACTU legend or the TBAI identifier exactly as returned, together with the mandatory content of a Spanish invoice. See [Receipt Printing](../receipt-printing/receipt-printing.md).
 5. **Handle the document flow.** Cancellations and refunds reference the original document through `cbPreviousReceiptReference` and repeat its lines; partial refunds mark the returned lines with the charge-item refund flag.
-6. **Handle outages.** Your POS cannot issue a numbered invoice while the Middleware is unreachable. Implement the provisional-receipt procedure described under [Key factors](./go-to-market.md#key-factors-for-the-spanish-market) and issue the official invoice as soon as the connection is back.
-7. **Show validation errors to the operator.** The Middleware and the tax authority reject requests that would produce a non-compliant record and return the reason in the response. Surface it and let the operator correct the input; do not retry with altered fiscal data.
-8. **Show the software identification on request.** TicketBAI requires that the developer, the software name and the version can be displayed on one screen of the POS (*verificación in situ*). Display the values of the [Declaration and Registration](../declaration/declaration.md#what-fiskaltrust-holds) chapter; a Middleware endpoint that returns them is being prepared.
-
-## What you declare
-
-Nothing. fiskaltrust is the declared producer of the invoicing system (VERI\*FACTU) and the registered *software garante* (TicketBAI). You do not sign a declaración responsable and you do not register your POS with the Basque provinces. Ask [sales@fiskaltrust.eu](mailto:sales@fiskaltrust.eu) for a copy of fiskaltrust's signed declaration to hand to your merchants.
+6. **Handle outages.** Your POS cannot issue a numbered invoice while the fiskaltrust.Middleware is unreachable. Implement the provisional-receipt procedure described under [Key factors](./go-to-market.md#key-factors-for-the-spanish-market) and issue the official invoice as soon as the connection is back.
+7. **Show validation errors to the operator.** The fiskaltrust.Middleware and the tax authority reject requests that would produce a non-compliant record and return the reason in the response. Surface it and let the operator correct the input; do not retry with altered fiscal data.
+8. **Show the software identification on request.** TicketBAI requires that the developer, the software name and the version can be displayed on one screen of the POS (*verificación in situ*). Display the values of the [Declaration and Registration](../declaration/declaration.md#what-fiskaltrust-holds) chapter; a fiskaltrust.Middleware endpoint that returns them is being prepared.
 
 ## What you must not build
 
-The following are part of the declared system and must stay with the Middleware. Building them in the POS would take the document outside fiskaltrust's declaration:
+The following are part of the declared system and must stay with the fiskaltrust.Middleware. Building them in the POS would take the document outside fiskaltrust's declaration:
 
 - Own document numbers or series.
 - Own hashes, signatures, QR codes, TBAI identifiers or legends.
 - Own transmission to the AEAT or to the provincial web services, or own handling of the merchant's certificates.
-- Own handling of corrections that bypasses the Middleware (editing or deleting issued documents).
+- Own handling of corrections that bypasses the fiskaltrust.Middleware (editing or deleting issued documents).
 
 ## Onboarding steps
 
 1. **Register in the fiskaltrust portal** for the sandbox and, when ready, for production, as described in [Portal Registration](../../../getting-started/portal-registration.md). Spain uses its own portal (`portal.fiskaltrust.es`, sandbox `portal-sandbox.fiskaltrust.es`).
 2. **Integrate against the sandbox.** Create one queue per regime you want to support (VERI\*FACTU, TicketBAI Araba, Bizkaia or Gipuzkoa). Sandbox queues transmit to the AEAT pre-production environment and to the test environments of the provinces, using fiskaltrust's test certificates and test licence codes. Verify one sample of every document type you issue: a simplified invoice, a complete invoice with a Spanish and with a foreign customer, a 0 % line with an exemption reason, a void, a full and a partial refund.
 3. **Run through the [Integration Checklist](../../../getting-started/integration-checklist.md)** and the Spanish specifics: initial-operation receipt, every document type, the document layout against the [Receipt Printing](../receipt-printing/receipt-printing.md) checklist, the outage procedure, and the on-site verification screen.
-4. **Go live.** Production queues transmit to the productive endpoints. The merchant uploads its certificate in the portal before the first document; for TicketBAI the certificate must be registered with the province (device certificates through Izenpe). The registration of the Middleware and its licence code can be found in the registers of *software garante* of the provinces linked in [TicketBAI: software registration](../declaration/declaration.md#ticketbai-software-registration).
+4. **Go live.** Production queues transmit to the productive endpoints. The merchant uploads its certificate in the portal before the first document; for TicketBAI the certificate must be registered with the province (device certificates through Izenpe). The registration of the fiskaltrust.Middleware and its licence code can be found in the registers of *software garante* of the provinces linked in [TicketBAI: software registration](../declaration/declaration.md#ticketbai-software-registration).
 
 ## Boundaries
 
-- **Cloud only.** The declaration and registration cover the Middleware as operated by fiskaltrust. Self-hosted or on-device installations are not available for Spain.
-- **Supported scope only.** Document types and features outside the supported scope, such as corrective invoices, TicketBAI cancellations, vouchers, the equivalence surcharge, No VERI\*FACTU mode or SII, are rejected by the Middleware or not available. See [Boundaries](../declaration/declaration.md#boundaries).
+- **Cloud only.** The declaration and registration cover the fiskaltrust.Middleware as operated by fiskaltrust. Self-hosted or on-device installations are not available for Spain.
+- **Supported scope only.** Document types and features outside the supported scope, such as corrective invoices, TicketBAI cancellations, vouchers, the equivalence surcharge, No VERI\*FACTU mode or SII, are rejected by the fiskaltrust.Middleware or not available. See [Boundaries](../declaration/declaration.md#boundaries).
 - **fiskaltrust's identification.** The records name fiskaltrust as producer of the system and carry fiskaltrust's licence codes.
 
 For the obligations that remain with your customers, the merchants, see [What this means for PosOperators](../declaration/declaration.md#what-this-means-for-posoperators).

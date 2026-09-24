@@ -15,7 +15,7 @@ version 2
 
 #### V - VAT
 
-For more information, see [VAT rules and rates](https://europa.eu/youreurope/business/taxation/vat/vat-rules-rates/index_en.htm). The Middleware checks that the `VATRate` of the charge item matches the rate of the category and that the `VATAmount` matches the rate within 0.01; mismatches are rejected.
+For more information, see [VAT rules and rates](https://europa.eu/youreurope/business/taxation/vat/vat-rules-rates/index_en.htm). The fiskaltrust.Middleware checks that the `VATRate` of the charge item matches the rate of the category and that the `VATAmount` matches the rate within 0.01; mismatches are rejected.
 
 | **Value** | **Description** | **Middleware Version** |
 | --------- | -------------- | ---------------------- |
@@ -34,7 +34,7 @@ For more information, see [VAT rules and rates](https://europa.eu/youreurope/bus
 
 #### S - Type of Service
 
-Only the types of service `0`, `1`, `2`, `3`, `5` and `9` are accepted by the Middleware in Spain; the other values are rejected with `EEEE_UnsupportedChargeItemServiceType`. For invoices to foreign customers the TicketBAI file distinguishes deliveries of goods (*Entrega*: `0`, `1`, `5`) from services (*PrestacionServicios*: `2`, `3`, `9`).
+Only the types of service `0`, `1`, `2`, `3`, `5` and `9` are accepted by the fiskaltrust.Middleware in Spain; the other values are rejected with `EEEE_UnsupportedChargeItemServiceType`. For invoices to foreign customers the TicketBAI file distinguishes deliveries of goods (*Entrega*: `0`, `1`, `5`) from services (*PrestacionServicios*: `2`, `3`, `9`).
 
 | **Value** | **Description** | **Middleware Version** |
 | --------- | -------------- | ---------------------- |
