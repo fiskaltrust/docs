@@ -230,8 +230,19 @@ module.exports = [
         label: "Spain (ES)",
         items: [
           "poscreators/middleware-doc/middleware-es/appendix-es",
+          {
+            type: "category",
+            label: "Go-to-Market",
+            key: "es-go-to-market",
+            items: [
+              "poscreators/middleware-doc/middleware-es/go-to-market/go-to-market",
+              "poscreators/middleware-doc/middleware-es/go-to-market/fiskaltrust-declaration",
+            ],
+          },
+          "poscreators/middleware-doc/middleware-es/declaration/declaration",
           "poscreators/middleware-doc/middleware-es/terminology/terminology",
           "poscreators/middleware-doc/middleware-es/cash-register-integration/cash-register-integration",
+          "poscreators/middleware-doc/middleware-es/receipt-printing/receipt-printing",
           "poscreators/middleware-doc/middleware-es/data-structures/data-structures",
           {
             type: "category",
