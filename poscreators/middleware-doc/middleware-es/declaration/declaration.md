@@ -34,12 +34,6 @@ fiskaltrust has prepared the responsible declaration of the *Sistema Informátic
 
 Because the AEAT keeps no register of declared systems, the declaration itself is the proof of compliance. It has to be available to the merchant who uses the system and to the AEAT on request. Ask [sales@fiskaltrust.eu](mailto:sales@fiskaltrust.eu) for a copy of the signed declaration.
 
-:::caution Your POS is a component of the SIF
-
-*Orden HAC/1177/2024* treats an invoicing system that consists of components from different producers as one SIF with one declaration per component. fiskaltrust's declaration covers the fiskaltrust.Middleware (record generation, hash chain, transmission, storage and export). The POS software that captures the sale and prints the document is a component of its own. fiskaltrust provides a **supplement template** for PosCreators that describes the POS as the upstream component of the Middleware (user interface, data capture, secure transmission to the Middleware, printing of the returned data). PosCreators complete and sign this supplement for their product; see [What you declare](../go-to-market/fiskaltrust-declaration.md#what-you-declare).
-
-:::
-
 ### TicketBAI: software registration
 
 For the Basque provinces fiskaltrust has prepared the *memoria descriptiva técnica* and the responsible declaration of the *software garante* in accordance with articles 10 and 11 of the Bizkaia *Orden Foral 1482/2020* (the corresponding orders of Araba and Gipuzkoa contain the same requirements). It describes the fiskaltrust.Middleware as a **distributed-architecture application** hosted in the fiskaltrust cloud, the XAdES signature of the TicketBAI files, the chaining of invoices, the TBAI identifier and QR code, the on-site verification data and the storage of the files. The developer identification used in the registration and in every TicketBAI file is:
@@ -165,7 +159,6 @@ The Middleware actively rejects requests that fall outside the supported scope o
 ## What this means for PosCreators
 
 - **You integrate a declared and registered system; you do not build one.** Your POS sends the business case to the fiskaltrust.Middleware for Cloud through the [PosSystem API](../../possystem-api/introduction.md). The Middleware numbers the document, calculates the hash or signature, transmits the record and returns the QR code, the legend or the TBAI identifier. Your software must not number, hash, sign or transmit invoices itself.
-- **Declare your component.** Complete and sign the PosCreator supplement to fiskaltrust's declaración responsable for your product, and keep it available for your merchants and the AEAT. See [What you declare](../go-to-market/fiskaltrust-declaration.md#what-you-declare).
 - **Print what you receive, unchanged.** The QR code, the VERI\*FACTU legend, the TBAI identifier and the series and number must be reproduced exactly as returned. See [Receipt Printing](../receipt-printing/receipt-printing.md).
 - **Send complete and valid requests.** The Middleware rejects requests that would produce a non-compliant record, and the tax authority rejects what the Middleware cannot catch. Show the returned error to the operator and correct the request; do not retry with altered fiscal data.
 - **Respect the document flow.** Refunds and voids reference the original document; issued documents cannot be edited or deleted. Series and numbers are assigned by the Middleware.
@@ -177,7 +170,7 @@ The Middleware actively rejects requests that fall outside the supported scope o
 
 - **You remain the taxpayer.** The documents are issued in your name, with your NIF, and transmitted to the AEAT or to your provincial tax authority. You are responsible for handing them to your customers and for keeping them for the statutory retention period.
 - **You need an electronic certificate.** The transmission to the AEAT and the signature of TicketBAI files require a qualified electronic certificate: a company seal certificate, a legal-representative certificate or, for TicketBAI, a device certificate issued by Izenpe. The certificate is uploaded to the fiskaltrust.Portal during onboarding. Transmission on your behalf as *colaborador social* or by power of attorney is not available today.
-- **Keep the declarations.** You must be able to show the responsible declarations of your invoicing system (fiskaltrust's declaration and the supplement of your POS provider) to the AEAT on request.
+- **Keep the declaration.** You must be able to show the responsible declaration of your invoicing system (fiskaltrust's declaration) to the AEAT on request.
 - **Corrections go through the POS.** A wrong document is voided or refunded through the POS, which creates the corresponding record referencing the original. Documents cannot be edited or deleted.
 - **Bizkaia has additional obligations.** Under Batuz, the TicketBAI files are transmitted as part of the *LROE* (*Libro Registro de Operaciones Económicas*, modelo 240). The remaining LROE chapters are not filed by the Middleware; ask fiskaltrust about the available exports for your accountant.
 - **Limits you will encounter.** Only EUR, only the standard VAT regimes, no vouchers, no equivalence surcharge, no corrective invoices yet, no TicketBAI cancellations yet. Ask your POS provider before relying on one of these features.

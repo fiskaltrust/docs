@@ -5,7 +5,7 @@ title: "Integrating under fiskaltrust's declaration and registration"
 
 # Integrating under fiskaltrust's declaration and registration
 
-Your POS system integrates with the **fiskaltrust.Middleware for Cloud**. The Middleware is the *Sistema Informático de Facturación* that fiskaltrust has declared towards the AEAT in its declaración responsable, and the *software garante* that fiskaltrust has registered with the Basque tax authorities (see [Declaration and Registration](../declaration/declaration.md)). Your POS acts as the front end of this system: it collects the business case and sends it to the Middleware, and the Middleware creates the fiscal record. You do not register anything with the tax authorities yourself; you declare your POS as a component of the system.
+Your POS system integrates with the **fiskaltrust.Middleware for Cloud**. The Middleware is the *Sistema Informático de Facturación* that fiskaltrust has declared towards the AEAT in its declaración responsable, and the *software garante* that fiskaltrust has registered with the Basque tax authorities (see [Declaration and Registration](../declaration/declaration.md)). Your POS acts as the front end of this system: it collects the business case and sends it to the Middleware, and the Middleware creates the fiscal record. You do not declare or register anything with the tax authorities yourself.
 
 This is how every PosCreator that uses the fiskaltrust.Middleware enters the Spanish market. The functional scope is given by the [supported document types](../declaration/declaration.md#supported-document-types).
 
@@ -33,12 +33,7 @@ Your integration consists of the same steps as in every other fiskaltrust market
 
 ## What you declare
 
-*Orden HAC/1177/2024* requires a declaración responsable for every component of an invoicing system that is produced by a different producer:
-
-- **fiskaltrust** has declared the fiskaltrust.Middleware (record generation, hash chain, transmission, storage, export).
-- **You** declare your POS software as the upstream component: user interface, capture of the invoice data, secure transmission to the Middleware, reception of the returned data, and printing of the document with the data processed by the Middleware. fiskaltrust provides a supplement template for this purpose; it names your company, your product and version, and confirms that the data you transmit is complete, correct and cannot be altered on the way. You also describe how your POS behaves when the Middleware cannot be reached.
-
-Sign the supplement for every version of your product, keep it together with fiskaltrust's declaration, and make both available to your merchants (for example as a download in your product). Ask [sales@fiskaltrust.eu](mailto:sales@fiskaltrust.eu) for the current template and for fiskaltrust's signed declaration. For the Basque provinces no additional registration of your POS is required; the Middleware is the registered software.
+Nothing. fiskaltrust is the declared producer of the invoicing system (VERI\*FACTU) and the registered *software garante* (TicketBAI). You do not sign a declaración responsable and you do not register your POS with the Basque provinces. Ask [sales@fiskaltrust.eu](mailto:sales@fiskaltrust.eu) for a copy of fiskaltrust's signed declaration to hand to your merchants.
 
 ## What you must not build
 
@@ -54,8 +49,7 @@ The following are part of the declared system and must stay with the Middleware.
 1. **Register in the fiskaltrust portal** for the sandbox and, when ready, for production, as described in [Portal Registration](../../../getting-started/portal-registration.md). Spain uses its own portal (`portal.fiskaltrust.es`, sandbox `portal-sandbox.fiskaltrust.es`).
 2. **Integrate against the sandbox.** Create one queue per regime you want to support (VERI\*FACTU, TicketBAI Araba, Bizkaia or Gipuzkoa). Sandbox queues transmit to the AEAT pre-production environment and to the test environments of the provinces, using fiskaltrust's test certificates and test licence codes. Verify one sample of every document type you issue: a simplified invoice, a complete invoice with a Spanish and with a foreign customer, a 0 % line with an exemption reason, a void, a full and a partial refund.
 3. **Run through the [Integration Checklist](../../../getting-started/integration-checklist.md)** and the Spanish specifics: initial-operation receipt, every document type, the document layout against the [Receipt Printing](../receipt-printing/receipt-printing.md) checklist, the outage procedure, and the on-site verification screen.
-4. **Sign your component supplement** to the declaración responsable (see [What you declare](#what-you-declare)).
-5. **Go live.** Production queues transmit to the productive endpoints. The merchant uploads its certificate in the portal before the first document; for TicketBAI the certificate must be registered with the province (device certificates through Izenpe). Ask fiskaltrust for the current status of the TicketBAI registration before your first productive Basque document.
+4. **Go live.** Production queues transmit to the productive endpoints. The merchant uploads its certificate in the portal before the first document; for TicketBAI the certificate must be registered with the province (device certificates through Izenpe). Ask fiskaltrust for the current status of the TicketBAI registration before your first productive Basque document.
 
 ## Boundaries
 
