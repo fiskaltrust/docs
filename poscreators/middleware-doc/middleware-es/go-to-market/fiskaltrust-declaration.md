@@ -1,13 +1,13 @@
 ---
 slug: /poscreators/middleware-doc/spain/go-to-market/fiskaltrust-declaration
-title: "Route 1: Using fiskaltrust's declaration and registration"
+title: "Integrating under fiskaltrust's declaration and registration"
 ---
 
-# Route 1: Using fiskaltrust's declaration and registration
+# Integrating under fiskaltrust's declaration and registration
 
-On this route your POS system integrates with the **fiskaltrust.Middleware for Cloud**. The Middleware is the *Sistema Informático de Facturación* that fiskaltrust has declared towards the AEAT in its declaración responsable, and the *software garante* that fiskaltrust has registered with the Basque tax authorities (see [Declaration and Registration](../declaration/declaration.md)). Your POS acts as the front end of this system: it collects the business case and sends it to the Middleware, and the Middleware creates the fiscal record. You do not register anything with the tax authorities yourself; you declare your POS as a component of the system.
+Your POS system integrates with the **fiskaltrust.Middleware for Cloud**. The Middleware is the *Sistema Informático de Facturación* that fiskaltrust has declared towards the AEAT in its declaración responsable, and the *software garante* that fiskaltrust has registered with the Basque tax authorities (see [Declaration and Registration](../declaration/declaration.md)). Your POS acts as the front end of this system: it collects the business case and sends it to the Middleware, and the Middleware creates the fiscal record. You do not register anything with the tax authorities yourself; you declare your POS as a component of the system.
 
-This is the fastest way into the Spanish market and the right choice whenever the [supported document types](../declaration/declaration.md#supported-document-types) cover your use case.
+This is how every PosCreator that uses the fiskaltrust.Middleware enters the Spanish market. The functional scope is given by the [supported document types](../declaration/declaration.md#supported-document-types).
 
 ## What you get
 
@@ -33,12 +33,12 @@ Your integration consists of the same steps as in every other fiskaltrust market
 
 ## What you declare
 
-*Orden HAC/1177/2024* requires a declaración responsable for every component of an invoicing system that is produced by a different producer. On this route:
+*Orden HAC/1177/2024* requires a declaración responsable for every component of an invoicing system that is produced by a different producer:
 
 - **fiskaltrust** has declared the fiskaltrust.Middleware (record generation, hash chain, transmission, storage, export).
 - **You** declare your POS software as the upstream component: user interface, capture of the invoice data, secure transmission to the Middleware, reception of the returned data, and printing of the document with the data processed by the Middleware. fiskaltrust provides a supplement template for this purpose; it names your company, your product and version, and confirms that the data you transmit is complete, correct and cannot be altered on the way. You also describe how your POS behaves when the Middleware cannot be reached.
 
-Sign the supplement for every version of your product, keep it together with fiskaltrust's declaration, and make both available to your merchants (for example as a download in your product). Ask [sales@fiskaltrust.eu](mailto:sales@fiskaltrust.eu) for the current template and for fiskaltrust's signed declaration. For the Basque provinces no additional registration of your POS is required on this route; the Middleware is the registered software.
+Sign the supplement for every version of your product, keep it together with fiskaltrust's declaration, and make both available to your merchants (for example as a download in your product). Ask [sales@fiskaltrust.eu](mailto:sales@fiskaltrust.eu) for the current template and for fiskaltrust's signed declaration. For the Basque provinces no additional registration of your POS is required; the Middleware is the registered software.
 
 ## What you must not build
 
@@ -57,10 +57,10 @@ The following are part of the declared system and must stay with the Middleware.
 4. **Sign your component supplement** to the declaración responsable (see [What you declare](#what-you-declare)).
 5. **Go live.** Production queues transmit to the productive endpoints. The merchant uploads its certificate in the portal before the first document; for TicketBAI the certificate must be registered with the province (device certificates through Izenpe). Ask fiskaltrust for the current status of the TicketBAI registration before your first productive Basque document.
 
-## Boundaries of this route
+## Boundaries
 
-- **Cloud only.** The declaration and registration cover the Middleware as operated by fiskaltrust. If you need a self-hosted or on-device installation, see [Route 2](./route-2-own-declaration.md).
+- **Cloud only.** The declaration and registration cover the Middleware as operated by fiskaltrust. Self-hosted or on-device installations are not available for Spain.
 - **Supported scope only.** Document types and features outside the supported scope, such as corrective invoices, TicketBAI cancellations, vouchers, the equivalence surcharge, No VERI\*FACTU mode or SII, are rejected by the Middleware or not available. See [Boundaries](../declaration/declaration.md#boundaries).
-- **fiskaltrust's identification.** The records name fiskaltrust as producer of the system and carry fiskaltrust's licence codes. If your product must appear as the declared or registered software, take Route 2.
+- **fiskaltrust's identification.** The records name fiskaltrust as producer of the system and carry fiskaltrust's licence codes.
 
 For the obligations that remain with your customers, the merchants, see [What this means for PosOperators](../declaration/declaration.md#what-this-means-for-posoperators).

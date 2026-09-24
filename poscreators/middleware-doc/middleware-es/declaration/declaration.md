@@ -12,11 +12,9 @@ Spain has no single certification of invoicing programs. Two frameworks apply, d
 
 The fiskaltrust.Middleware implements both frameworks. This page describes what fiskaltrust holds and does today, which document types the Middleware issues, where the identifiers appear on documents, and where the boundaries of the implementation are.
 
-:::info This chapter describes Route 1 of the Go-to-Market
+:::info Scope of this chapter
 
-Everything on this page applies when your POS system integrates with the **fiskaltrust.Middleware for Cloud** and issues documents under **fiskaltrust's declaración responsable** (VERI\*FACTU) and **fiskaltrust's TicketBAI software registration**. This is [Route 1](../go-to-market/route-1-fiskaltrust-declaration.md) of the [Go-to-Market](../go-to-market/go-to-market.md) chapter.
-
-If you declare or register your own solution built on top of the fiskaltrust.Middleware ([Route 2](../go-to-market/route-2-own-declaration.md)), you sign your own declaration and hold your own TicketBAI licence. This page then only tells you what the Middleware brings into your procedure.
+Everything on this page applies when your POS system integrates with the **fiskaltrust.Middleware for Cloud** and issues documents under **fiskaltrust's declaración responsable** (VERI\*FACTU) and **fiskaltrust's TicketBAI software registration**. This is how PosCreators using the Middleware go to market in Spain; see [Go-to-Market](../go-to-market/go-to-market.md).
 
 :::
 
@@ -38,7 +36,7 @@ Because the AEAT keeps no register of declared systems, the declaration itself i
 
 :::caution Your POS is a component of the SIF
 
-*Orden HAC/1177/2024* treats an invoicing system that consists of components from different producers as one SIF with one declaration per component. fiskaltrust's declaration covers the fiskaltrust.Middleware (record generation, hash chain, transmission, storage and export). The POS software that captures the sale and prints the document is a component of its own. fiskaltrust provides a **supplement template** for PosCreators that describes the POS as the upstream component of the Middleware (user interface, data capture, secure transmission to the Middleware, printing of the returned data). PosCreators complete and sign this supplement for their product; see [Route 1](../go-to-market/route-1-fiskaltrust-declaration.md#what-you-declare).
+*Orden HAC/1177/2024* treats an invoicing system that consists of components from different producers as one SIF with one declaration per component. fiskaltrust's declaration covers the fiskaltrust.Middleware (record generation, hash chain, transmission, storage and export). The POS software that captures the sale and prints the document is a component of its own. fiskaltrust provides a **supplement template** for PosCreators that describes the POS as the upstream component of the Middleware (user interface, data capture, secure transmission to the Middleware, printing of the returned data). PosCreators complete and sign this supplement for their product; see [What you declare](../go-to-market/fiskaltrust-declaration.md#what-you-declare).
 
 :::
 
@@ -98,7 +96,7 @@ With the fiskaltrust.Middleware for Cloud, the whole fiscal flow happens inside 
 
 :::caution Scope
 
-The certificates, the licence codes and the endpoints of the tax authorities are part of the fiskaltrust cloud deployment. Self-hosted or on-device installations of the Middleware are not available for Spain under fiskaltrust's declaration and registration. PosCreators who need such a deployment must declare and register their own solution (see [Route 2](../go-to-market/route-2-own-declaration.md)).
+The certificates, the licence codes and the endpoints of the tax authorities are part of the fiskaltrust cloud deployment. Self-hosted or on-device installations of the Middleware are not available for Spain.
 
 :::
 
@@ -167,7 +165,7 @@ The Middleware actively rejects requests that fall outside the supported scope o
 ## What this means for PosCreators
 
 - **You integrate a declared and registered system; you do not build one.** Your POS sends the business case to the fiskaltrust.Middleware for Cloud through the [PosSystem API](../../possystem-api/introduction.md). The Middleware numbers the document, calculates the hash or signature, transmits the record and returns the QR code, the legend or the TBAI identifier. Your software must not number, hash, sign or transmit invoices itself.
-- **Declare your component.** Complete and sign the PosCreator supplement to fiskaltrust's declaración responsable for your product, and keep it available for your merchants and the AEAT. See [Route 1](../go-to-market/route-1-fiskaltrust-declaration.md#what-you-declare).
+- **Declare your component.** Complete and sign the PosCreator supplement to fiskaltrust's declaración responsable for your product, and keep it available for your merchants and the AEAT. See [What you declare](../go-to-market/fiskaltrust-declaration.md#what-you-declare).
 - **Print what you receive, unchanged.** The QR code, the VERI\*FACTU legend, the TBAI identifier and the series and number must be reproduced exactly as returned. See [Receipt Printing](../receipt-printing/receipt-printing.md).
 - **Send complete and valid requests.** The Middleware rejects requests that would produce a non-compliant record, and the tax authority rejects what the Middleware cannot catch. Show the returned error to the operator and correct the request; do not retry with altered fiscal data.
 - **Respect the document flow.** Refunds and voids reference the original document; issued documents cannot be edited or deleted. Series and numbers are assigned by the Middleware.

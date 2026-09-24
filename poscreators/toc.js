@@ -236,8 +236,7 @@ module.exports = [
             key: "es-go-to-market",
             items: [
               "poscreators/middleware-doc/middleware-es/go-to-market/go-to-market",
-              "poscreators/middleware-doc/middleware-es/go-to-market/route-1-fiskaltrust-declaration",
-              "poscreators/middleware-doc/middleware-es/go-to-market/route-2-own-declaration",
+              "poscreators/middleware-doc/middleware-es/go-to-market/fiskaltrust-declaration",
             ],
           },
           "poscreators/middleware-doc/middleware-es/declaration/declaration",

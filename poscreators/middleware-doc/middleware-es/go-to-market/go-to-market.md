@@ -7,34 +7,26 @@ title: Go-to-Market
 
 Spain is not one fiscal market but two. In the **common territory** the invoicing software of a business must comply with the *Reglamento de los sistemas informáticos de facturación* (*Real Decreto 1007/2023*, technical specification *Orden HAC/1177/2024*), commonly called **VERI\*FACTU**: every invoice record is hashed, chained, marked with a QR code and, in the VERI\*FACTU mode, transmitted to the tax authority AEAT at the moment of issue. In the **Basque Country** the three provincial tax authorities of Araba/Álava, Bizkaia and Gipuzkoa run **TicketBAI**: every invoice is preceded by a signed XML file that is transmitted to the province, and the document carries a TBAI identifier and QR code. **Navarre** has announced its own regime (*NaTicket*) without a confirmed date and is outside both systems today.
 
-The software producer, not the merchant, carries the compliance obligation: in the common territory through a signed **declaración responsable**, in the Basque Country through the **registration** of the software with a provincial tax authority. With the fiskaltrust.Middleware there are two ways to meet these obligations. Choosing the route is the first decision a PosCreator makes for the Spanish market, because it determines what has to be built, who signs towards the tax authorities, and how the product can be deployed.
+The software producer, not the merchant, carries the compliance obligation: in the common territory through a signed **declaración responsable**, in the Basque Country through the **registration** of the software with a provincial tax authority. fiskaltrust has taken on both obligations for the fiskaltrust.Middleware: a PosCreator that integrates with the Middleware issues documents under **fiskaltrust's declaración responsable** and **fiskaltrust's TicketBAI software registration**, and declares its POS as a component of that system.
 
-## The two routes
+## How PosCreators go to market
 
-| | **Route 1: fiskaltrust's declaration and registration** | **Route 2: own declaration and registration** |
-| --- | --- | --- |
-| Declared SIF (common territory) | fiskaltrust.Middleware, declared by fiskaltrust consulting GmbH (see [Declaration and Registration](../declaration/declaration.md)); your POS declares itself as a component | Your product, declared by you as producer |
-| TicketBAI software (Basque Country) | fiskaltrust.Middleware, registered by fiskaltrust with its licence codes | Your product, registered by you with your own licence code |
-| Who talks to the tax authorities | fiskaltrust; you provide the component supplement | You, supported by fiskaltrust |
-| What you build | The POS front end that sends business cases through the PosSystem API and prints the returned QR code, legend and identifiers | The POS plus everything the authorities expect from the producer: the declaration and *memoria descriptiva*, the on-site verification screen, the software identification in the records, the layout, the certificate handling |
-| What you must not build | Own numbering, hashing, signing, transmission, QR codes or texts | Nothing is excluded, but everything you add is declared by you |
-| Deployment | fiskaltrust cloud only | Cloud, self-hosted or on-device, as far as your declaration covers it |
-| Functional scope | The supported scope of the Middleware (see [Supported document types](../declaration/declaration.md#supported-document-types)) | Extendable, e.g. corrective invoices, No VERI\*FACTU mode, own layout |
-| Time to market | Integration, component supplement and onboarding | Integration plus your own declaration and, for the Basque Country, the registration procedure |
-| Choose it when | You want the fastest and lowest-risk entry and the supported scope covers your use case | You need a deployment or functionality outside the supported scope, or you want to be the declared producer yourself |
+| Aspect | With the fiskaltrust.Middleware |
+| --- | --- |
+| Declared SIF (common territory) | fiskaltrust.Middleware, declared by fiskaltrust consulting GmbH (see [Declaration and Registration](../declaration/declaration.md)); your POS declares itself as a component |
+| TicketBAI software (Basque Country) | fiskaltrust.Middleware, registered by fiskaltrust with its licence codes |
+| Who talks to the tax authorities | fiskaltrust; you provide the component supplement |
+| What you build | The POS front end that sends business cases through the PosSystem API and prints the returned QR code, legend and identifiers |
+| What you must not build | Own numbering, hashing, signing, transmission, QR codes or texts |
+| Deployment | fiskaltrust cloud |
+| Functional scope | The supported scope of the Middleware (see [Supported document types](../declaration/declaration.md#supported-document-types)) |
+| Time to market | Integration, component supplement and onboarding |
 
-- [Route 1: Using fiskaltrust's declaration and registration](./route-1-fiskaltrust-declaration.md)
-- [Route 2: Declaring and registering your own solution](./route-2-own-declaration.md)
-
-:::note Route 2 is open for a first partner
-
-fiskaltrust has declared and registered its own Middleware but has not yet accompanied a partner through a declaration or a TicketBAI registration of their own solution. We are looking for partners who want to take Route 2; contact [sales@fiskaltrust.eu](mailto:sales@fiskaltrust.eu).
-
-:::
+The integration, the component declaration and the onboarding steps are described in [Integrating under fiskaltrust's declaration and registration](./fiskaltrust-declaration.md).
 
 ## Key factors for the Spanish market
 
-Whichever route you take, these are the factors that shape a POS product for Spain.
+These are the factors that shape a POS product for Spain.
 
 **Two territories, one API.** Which system applies depends on where the merchant's establishment is taxed, not on the location of the head office: a company from Madrid with a shop in Bilbao issues the Bilbao invoices under TicketBAI (Bizkaia) and the Madrid invoices under VERI\*FACTU. In the fiskaltrust.Middleware this is a property of the queue: a queue is set up either for VERI\*FACTU or for TicketBAI of one province (Araba, Bizkaia or Gipuzkoa), and the choice cannot be changed afterwards. The requests your POS sends are the same in both cases; only the returned signature items differ. The Canary Islands, Ceuta and Melilla belong to the common territory and use VERI\*FACTU, but with their own indirect taxes (IGIC and IPSI) instead of VAT; the applied tax is a property of the queue configuration (*Impuesto* `01`, `02` or `03`), see [Type of Service: ftChargeItemCase](../reference-tables/type-of-service-ftchargeitemcase.md#nn---nature-of-vat).
 
@@ -69,24 +61,21 @@ Whichever route you take, these are the factors that shape a POS product for Spa
 
 The primary texts are published in the *Boletín Oficial del Estado*: [Real Decreto 1007/2023](https://www.boe.es/buscar/act.php?id=BOE-A-2023-24840), [Orden HAC/1177/2024](https://www.boe.es/diario_boe/txt.php?id=BOE-A-2024-22138), [Real Decreto-ley 15/2025](https://www.boe.es/diario_boe/txt.php?id=BOE-A-2025-24446) and [Real Decreto 238/2026](https://www.boe.es/buscar/act.php?id=BOE-A-2026-7295). Confirm the dates that apply to your customers with fiskaltrust before you plan the release; the AEAT has postponed the merchant deadlines once already.
 
-## What is the same on both routes
+## What the Middleware takes care of
 
-Whichever route you take, the fiskaltrust.Middleware does the fiscal heavy lifting: it validates the request against the Spanish rules, numbers the document in its sequence, generates the VERI\*FACTU record with its hash chain or the signed TicketBAI file with its chaining, transmits it to the AEAT or to the province, and returns the QR code, the legend, the TBAI identifier and the hash. The [Declaration and Registration](../declaration/declaration.md#what-fiskaltrust-takes-care-of) chapter lists these components; they do not differ between the routes.
+The fiskaltrust.Middleware does the fiscal heavy lifting: it validates the request against the Spanish rules, numbers the document in its sequence, generates the VERI\*FACTU record with its hash chain or the signed TicketBAI file with its chaining, transmits it to the AEAT or to the province, and returns the QR code, the legend, the TBAI identifier and the hash. The [Declaration and Registration](../declaration/declaration.md#what-fiskaltrust-takes-care-of) chapter lists these components.
 
-What differs is **who is the declared producer**, and therefore who signs the declaración responsable, who is listed in the Basque register with which licence code, whose identification appears in the records, and who has to answer to the tax authorities for everything around the Middleware: the printed document, the on-site verification screen, the certificate handling and the operation of the system.
+fiskaltrust is the **declared producer** of the system: it signs the declaración responsable, it is listed in the Basque register with its licence codes, and its identification appears in the records. Your part is the POS as a component of that system, declared in the PosCreator supplement.
 
 ## Frequently asked questions
 
-**Can I start on Route 1 and move to Route 2 later?**
-Yes. The API integration is the same. Moving to Route 2 adds your own declaration, your own TicketBAI registration and, if you self-host, the deployment work. Documents already issued under fiskaltrust's declaration remain valid.
+**Do I have to sign anything?**
+Yes. Your POS is a component of the invoicing system. You complete and sign the PosCreator supplement to fiskaltrust's declaración responsable for your product and make it available to your merchants. You do not register anything with the Basque provinces.
 
-**Do I have to sign anything on Route 1?**
-Yes. Your POS is a component of the invoicing system. You complete and sign the PosCreator supplement to fiskaltrust's declaración responsable for your product and make it available to your merchants. You do not register anything with the Basque provinces on Route 1.
+**Can I run the Middleware on my own infrastructure?**
+No. fiskaltrust's declaration and registration describe the Middleware as hosted in the fiskaltrust cloud, and the certificates and licence codes are part of that deployment. Self-hosted or on-device installations are not available for Spain.
 
-**Can I run the Middleware on my own infrastructure under fiskaltrust's declaration?**
-No. fiskaltrust's declaration and registration describe the Middleware as hosted in the fiskaltrust cloud, and the certificates and licence codes are part of that deployment. A self-hosted or on-device installation is a different system and needs your own declaration (Route 2).
-
-**Does Route 1 restrict how my POS looks?**
+**Does fiskaltrust's declaration restrict how my POS looks?**
 No. The declaration covers the invoice record and the mandatory elements of the document, not your user interface. Your POS can look and behave as you like; the QR code, the legend and the identifiers on the document are the ones returned by the Middleware.
 
 **Can an invoice be cancelled after it was issued?**
@@ -96,7 +85,7 @@ In the common territory a cancellation record is transmitted to the AEAT when yo
 Merchants with an establishment in Araba, Bizkaia or Gipuzkoa, for the invoices issued from that establishment. Merchants in the rest of Spain except Navarre use VERI\*FACTU. Merchants in SII are exempt from VERI\*FACTU and are not supported today.
 
 **Who does the merchant deal with?**
-On both routes the merchant is the taxpayer and remains responsible for the documents, for the certificate and for keeping the records. See [What this means for PosOperators](../declaration/declaration.md#what-this-means-for-posoperators).
+The merchant is the taxpayer and remains responsible for the documents, for the certificate and for keeping the records. See [What this means for PosOperators](../declaration/declaration.md#what-this-means-for-posoperators).
 
 **Where do I get help?**
 Contact [sales@fiskaltrust.eu](mailto:sales@fiskaltrust.eu) for the commercial setup in Spain.
