@@ -45,10 +45,10 @@ The launcher variants and platform availability described below currently apply 
 
 | Icon | Launcher | Description | AT | DE | FR | IT |
 | ---- | -------- | ----------- | -- | -- | -- | -- |
-| ![launcher-net](images/launcher-net.png) | .NET Launcher<br />(*default launcher*) | **For starting the Middleware on Windows with Internet connection.**<br />The launcher loads the configuration file and required packages from the fiskaltrust package server during startup. | supported | supported | supported | supported |
-| ![launcher-offline](images/launcher-offline.png) | .NET Offline Launcher | **For starting the Middleware on Windows without Internet connection.** <br />A static configuration and required packages for operation is included. The regular package update mechanisms are not supported with the offline launcher. | supported | supported | supported | supported |
-| ![launcher-mono](images/launcher-mono.png) | Mono Launcher | **For starting the Middleware on Linux/macOS with Internet connection.**<br />The launcher loads the configuration file and required packages from the fiskaltrust package server during startup. | supported | supported | supported | supported |
-| ![launcher-android](images/launcher-android.png) | Android Launcher | **For starting the Middleware on Android with Internet connection.**<br />Required packages for operation are already included. The launcher loads the configuration file from the fiskaltrust package server during startup.<br />The configuration options are limited to keep the package sizes small. | | supported* | | supported* |
+| ![.NET Launcher icon](images/launcher-net.png) | .NET Launcher<br />(*default launcher*) | **For starting the Middleware on Windows with Internet connection.**<br />The launcher loads the configuration file and required packages from the fiskaltrust package server during startup. | supported | supported | supported | supported |
+| ![.NET Offline Launcher icon](images/launcher-offline.png) | .NET Offline Launcher | **For starting the Middleware on Windows without Internet connection.** <br />A static configuration and required packages for operation is included. The regular package update mechanisms are not supported with the offline launcher. | supported | supported | supported | supported |
+| ![Mono Launcher icon](images/launcher-mono.png) | Mono Launcher | **For starting the Middleware on Linux/macOS with Internet connection.**<br />The launcher loads the configuration file and required packages from the fiskaltrust package server during startup. | supported | supported | supported | supported |
+| ![Android Launcher icon](images/launcher-android.png) | Android Launcher | **For starting the Middleware on Android with Internet connection.**<br />Required packages for operation are already included. The launcher loads the configuration file from the fiskaltrust package server during startup.<br />The configuration options are limited to keep the package sizes small. | | supported* | | supported* |
 
 *Table 1. Launcher package variants and their availability per market (AT, DE, FR, IT).*
 
@@ -153,7 +153,7 @@ In Linux, the following command should be used:
 
 A static configuration can be enforced via the configuration.json file in the `fiskaltrust.exe` folder in connection with `-useoffline=true`.
 
-![](./images/01-console-testmode.png)
+![Windows command prompt running fiskaltrust.exe with cashboxid, accesstoken, sandbox and test parameters, downloading packages](./images/01-console-testmode.png)
 
 *Figure 1. Console output of the fiskaltrust.Middleware running in test mode.*
 
@@ -161,7 +161,7 @@ A static configuration can be enforced via the configuration.json file in the `f
 
 The Windows service can be installed and uninstalled via the call parameters -i and –u.
 
-![](./images/02-windows-services.png)
+![Windows Services console listing the fiskaltrust service with status running and startup type automatic](./images/02-windows-services.png)
 
 *Figure 2. The fiskaltrust service shown in the Windows Services console.*
 

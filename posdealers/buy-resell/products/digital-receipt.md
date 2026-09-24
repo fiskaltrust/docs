@@ -18,7 +18,7 @@ With digital receipts, the PosOperator can reduce expenses for printouts and hel
 As a PosDealer, you thus offer a state-of-the-art PosSystem.  
 
 
-![receipt-chaining](../images/buy_resell-digital-receipt-3.png)
+![Flowchart: PosDealer opens the Portal, switches to the PosOperator, checks master data, then edits the outlet and adds an outlet logo](../images/buy_resell-digital-receipt-3.png)
 
 *Figure 1. Example of a digital receipt as shown to the customer.*
 

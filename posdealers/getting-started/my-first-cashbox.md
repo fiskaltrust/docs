@@ -27,7 +27,7 @@ If you don't have one yet, please get in touch with your *PosCreator* for invita
 
 :::
 
-![preview](./images/my-first-cashbox/first-CashBox-flow.png "My first CashBox")
+![Flowchart: after Prerequisites and Decision on creation, either Business and Technical Rollout or manual SCU, Helper, Queue and cashbox creation lead to CashBox rebuild, Launcher download and Middleware start](./images/my-first-cashbox/first-CashBox-flow.png "My first CashBox")
 
 *Figure 1. Process flow for creating your first CashBox.*
 

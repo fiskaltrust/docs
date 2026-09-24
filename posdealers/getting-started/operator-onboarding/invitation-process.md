@@ -187,7 +187,7 @@ There are several ways to help.
 
 #### status or error messages 
 
-![8-onboarding](images/8-onboarding-portal.png "https://portal-sandbox.fiskaltrust.TLD/PosOperator/PosOperators")
+![Portal PosOperator Assignments page with invitation status icons and Assign, Edit and Delete buttons marked 1 to 4](images/8-onboarding-portal.png "https://portal-sandbox.fiskaltrust.TLD/PosOperator/PosOperators")
 
 *Figure 6. PosOperator invitation list showing invitation status and error indicators.*
 
@@ -203,7 +203,7 @@ There are several ways to help.
 
 #### Assigning PosOperators in a bulk process
 
-![9-onboarding](images/9-onboarding-portal.png "https://portal-sandbox.fiskaltrust.TLD/PosOperator/PosOperators")
+![Portal PosOperator Assignments page with the Assign all PosOperators, Add and History buttons marked 1 to 3](images/9-onboarding-portal.png "https://portal-sandbox.fiskaltrust.TLD/PosOperator/PosOperators")
 
 *Figure 7. fiskaltrust.Portal screen for assigning PosOperators in a bulk process.*
 
@@ -217,7 +217,7 @@ There are several ways to help.
 
 #### Onboarding of existing PosOperators 
 
-![15-onboarding](images/15-onboarding-already-existing-PosOperators.png "https://portal-sandbox.fiskaltrust.TLD/PosOperator")
+![Flowchart: PosDealer invitation fails with E-mail address already exists, PosOperator searches the PosDealer and requests assignment, PosDealer accepts and can surrogate](images/15-onboarding-already-existing-PosOperators.png "https://portal-sandbox.fiskaltrust.TLD/PosOperator")
 
 *Figure 8. Onboarding an already existing PosOperator in the fiskaltrust.Portal.*
 
@@ -235,7 +235,7 @@ There are several ways to help.
 
 #### Options with invited PosOperators
 
-![10-onboarding](images/10-onboarding-portal.png "https://portal-sandbox.fiskaltrust.TLD/PosOperator/PosOperators")
+![Portal PosOperator Protocol page with the Limit period date fields and per-row info, resend, delete and copy buttons marked 1 to 6](images/10-onboarding-portal.png "https://portal-sandbox.fiskaltrust.TLD/PosOperator/PosOperators")
 
 *Figure 9. History protocol of PosOperator assignments in the fiskaltrust.Portal.*
 

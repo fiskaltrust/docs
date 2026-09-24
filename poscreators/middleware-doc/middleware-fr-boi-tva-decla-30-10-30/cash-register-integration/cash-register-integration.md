@@ -83,7 +83,7 @@ The action journal request call is of type 1 and returns a list of entries. If o
 
 This chapter describes the receipt structure applicable to the French market.
 
-![](./images/24.png)
+![Receipt structure: request blocks from POS to fiskaltrust, response blocks back to POS incl. signature block, and the merged printed receipt](./images/24.png)
 
 *Figure 1. Receipt structure (FR); cash register-receipt data (header, charge items, pay items, footer) and fiskaltrust-receipt data (header, charge items, pay items, signature, footer).*
 

@@ -54,7 +54,7 @@ In-store, the merchant collects items and processes the payment or checkout. The
 
 ## Displaying Receipts in the InStore App
 
-![InStore_App_show_receipt](./images/InStore_App_show_receipt.png)
+![InStore App receipt screen with numbered receipt header, QR code, and OK, Print, Send by Email and Send by SMS buttons](./images/InStore_App_show_receipt.png)
 
 *Figure 2. InStore App receipt display; the numbered elements are described in Table 1.*
 
@@ -73,7 +73,7 @@ In-store, the merchant collects items and processes the payment or checkout. The
 
 This high-level overview shows the steps required to implement and configure the InStore App in your point-of-sale software.
 
-![InStore_App_implementation_overview](./images/InStore_App_implementation_overview.png)
+![InStore App flow: POST to /sign, Middleware fiscalizes, POST the response to /print, then the InStore App shows the QR code and receipt options](./images/InStore_App_implementation_overview.png)
 
 *Figure 3. High-level overview of the steps to implement and configure the InStore App.*
 
@@ -451,5 +451,5 @@ After installing the InStore App on your Android device, establish a connection 
 1. Log in to your fiskaltrust.Portal account and navigate to **Configuration** > **CashBox**.
 2. Select the CashBox that you want to pair with the InStore App.
 3. Expand the CashBox overview.
-4. On **PIN for InStore App**, click the refresh button to generate a new temporary pairing PIN. The pairing PIN is valid for five minutes. After it expires, you must generate a new PIN by clicking the refresh button again.<br/>![fiskaltrust.Portal_pairing_pin](./images/fiskaltrust.Portal_pairing_pin.png)<br/>*Figure 5. Generating a temporary pairing PIN for the InStore App in the fiskaltrust.Portal.*
-5. Enter the four-digit PIN into your InStore App and confirm the connection by clicking **Pair**. You can pair multiple InStore App installations with one CashBox. To open the pairing-to-CashBox screen or pair with a different CashBox, press and hold the touchscreen for one second.<br/>![InStore_App_pairing_pin](./images/InStore_App_pair_device.png)<br/>*Figure 6. Entering the pairing PIN in the InStore App to connect it to a CashBox.*
+4. On **PIN for InStore App**, click the refresh button to generate a new temporary pairing PIN. The pairing PIN is valid for five minutes. After it expires, you must generate a new PIN by clicking the refresh button again.<br/>![Portal Configuration CashBox list with an expanded cashbox showing the PIN for InStore App field and its refresh button](./images/fiskaltrust.Portal_pairing_pin.png)<br/>*Figure 5. Generating a temporary pairing PIN for the InStore App in the fiskaltrust.Portal.*
+5. Enter the four-digit PIN into your InStore App and confirm the connection by clicking **Pair**. You can pair multiple InStore App installations with one CashBox. To open the pairing-to-CashBox screen or pair with a different CashBox, press and hold the touchscreen for one second.<br/>![InStore App Pair Device dialog asking for the 4-digit pairing code, with Cancel and Pair buttons](./images/InStore_App_pair_device.png)<br/>*Figure 6. Entering the pairing PIN in the InStore App to connect it to a CashBox.*

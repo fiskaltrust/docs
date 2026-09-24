@@ -92,7 +92,7 @@ Events are extracted from the notification-processing protocol. Special events h
 
 In the simplest scenario, a fiskaltrust.SecurityMechanism consists of a single signature creation device and a single queue with a data collection protocol (RKSV-DEP).
 
-![](./images/21.png)
+![Diagram: one fiskaltrust.SecurityMechanism service with a Queue using an SSCD and writing to a Journal, exposed via IPOS and IATSSCD, mirroring data to fiskaltrust.Helipad](./images/21.png)
 
 *Figure 1. Single queue scenario (AT).*
 
@@ -102,7 +102,7 @@ To handle scenarios of higher complexity, a fiskaltrust.SecurityMechanism can al
 
 The fiskaltrust.SecurityMechanism illustrated below hosts several queues. Each queue runs a RKSV-DEP and an E131-DEP. The queues can address a signature creation device available within a pool.
 
-![](./images/22.png)
+![Diagram: SecurityMechanism service with a Balancer distributing to Queues 1..n, each using a pool of SSCDs 1..m and writing Journals, mirrored to fiskaltrust.Helipad](./images/22.png)
 
 *Figure 2. Scenario with several queues for performance improvement (AT).*
 
@@ -110,6 +110,6 @@ The fiskaltrust.SecurityMechanism illustrated below hosts several queues. Each q
 
 As with the fiskaltrust.SecurityMechanism, the signature creation device is also available via network, and it is possible to use a signature creation device of a different cash register system in backup mode (indicated by the orange access line on the following illustration). Legal prerequisite for this is the registration of both signature creation devices with the same taxpayer.
 
-![](./images/23.png)
+![Diagram: two SecurityMechanism services, each with Queue, SSCD and Journal; orange lines show each Queue using the other service SSCD as network backup](./images/23.png)
 
 *Figure 3. Several fiskaltrust.SecurityMechanisms use the SSCD via network.*

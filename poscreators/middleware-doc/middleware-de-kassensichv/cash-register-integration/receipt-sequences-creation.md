@@ -30,7 +30,7 @@ Connect requests representing a business action with ['cbReceiptReference'](../d
 
 #### Workflow example
 
-![referencing-previous-receipts](media/referencing-previous-receipts.svg)
+![Workflow: two INFO-ORDER requests and a final POS-RECEIPT all reference the same cbReceiptReference for two friends ordering beer rounds](media/referencing-previous-receipts.svg)
 
 *Figure 1. Workflow for referencing previous receipts within a queue.*
 
@@ -54,7 +54,7 @@ Use ['cbReceiptPreviousReference'](../data-structures/data-structures.md#single-
 
 #### Workflow example
 
-![splitting-receipts](media/splitting-receipts.svg)
+![Workflow: one INFO-ORDER is split into two POS-RECEIPTs, each pointing back to the order via cbReceiptPreviousReference when friends pay separately](media/splitting-receipts.svg)
 
 
 *Figure 2. Workflow for splitting a receipt among multiple payers.*
@@ -78,7 +78,7 @@ Merge receipts by combining ['cbReceiptReference' and 'cbReceiptPreviousReferenc
 
 #### Workflow example
 
-![merging-receipts](media/merging-receipts.svg)
+![Workflow: two tables INFO-ORDERs are linked by INFO-INTERNAL requests via cbPreviousReceiptReference and merged into one POS-RECEIPT](media/merging-receipts.svg)
 
 
 *Figure 3. Workflow for merging receipts of separate business actions.*
@@ -105,7 +105,7 @@ Document the field/section in which the receipt is created with [cbArea](../../g
 
 #### Workflow example
 
-![switching-cbarea](media/switching-cbarea.svg)
+![Workflow: guests move from cbArea Table 21 to Table 22; the new INFO-ORDER keeps the reference to the first order while new guests start at Table 21](media/switching-cbarea.svg)
 
 
 *Figure 4. Workflow for changing the area (cbArea) in which a receipt is created.*
@@ -130,7 +130,7 @@ ChargeItems are collected via ftReceiptCase 'Info-internal' or 'Info-order'. 'cb
 
 #### Workflow example
 
-![chargeitem-internal-payment-external](media/chargeitem-internal-payment-external.svg)
+![Workflow: hotel guests order a beer on the internal POS-System as INFO-INTERNAL, referenced from check-in to checkout on the external POS-System that issues the receipt](media/chargeitem-internal-payment-external.svg)
 
 
 *Figure 5. Workflow where charge items collected via an internal queue are paid at an external system.*
@@ -154,7 +154,7 @@ For this workflow, the combination of following receipt-sequences is needed:
 
 #### Workflow example
 
-![chargeitem-external-payment-internal](media/chargeitem-external-payment-internal.svg) 
+![Workflow: charge items from an external queue or POS-System are referenced via INFO-INTERNAL and included in the final POS-RECEIPT on the internal POS-System at checkout](media/chargeitem-external-payment-internal.svg) 
 
 
 *Figure 6. Workflow where charge items collected at an external system are paid at the internal queue.*
@@ -186,7 +186,7 @@ Issuing and redeeming a multi-purpose voucher can be achieved with charge- and p
 
 #### Workflow
 
-![multi-purpose-voucher](media/multi-purpose-voucher.svg)
+![Workflow: sequence of four POS-RECEIPTs for a customer issuing, using and redeeming a multi-purpose card, with the voucher recorded in the pay items](media/multi-purpose-voucher.svg)
 
 
 *Figure 7. Workflow for issuing and redeeming a multi-purpose voucher across POS-Systems.*

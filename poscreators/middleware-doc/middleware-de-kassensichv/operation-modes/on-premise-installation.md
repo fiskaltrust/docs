@@ -7,7 +7,7 @@ title: On-Premise Installation
 
 The illustration below shows the components available for the premise installation of the fiskaltrust.Middleware for the German market. For the operation modes available and the description of the components please refer to the [general part](../../general/operation-modes/operation-modes.md) .
 
-![middleware-en](images/middleware-en-market-de.svg)
+![Diagram: POS system calls echo, sign, journal via REST, gRPC or WCF on the Queue IPOS interface; Queue gets signatures from the SCU, which uses a USB, micro-SD or cloud TSE](images/middleware-en-market-de.svg)
 
 *Figure 1. Components of the on-premise fiskaltrust.Middleware installation for the German market.*
 
