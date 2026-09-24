@@ -28,7 +28,7 @@ Currently only the `Echo`, `Sign` and `Journal` endpoints are supported when off
 
 The full Local PosSystem API experience is also provided on android through our android launcher (currently in preview).
 
-*No special configuration is needed. Communication works through [android intents](../../../poscreators/possystem-api/android-intent)*
+*No special configuration is needed. Communication works through [Android IPC](../../../poscreators/possystem-api/android-ipc)*
 
 
 ## Setup Guides
@@ -39,7 +39,7 @@ Depending on your market and mode of operation please choose the correct setup f
 |             | AT                                                           | FR                                                       | DE                                                           | IT                                                           | GR, PT, ES, BE                                            |
 |-------------|--------------------------------------------------------------|----------------------------------------------------------|--------------------------------------------------------------|--------------------------------------------------------------|-----------------------------------------------------------|
 | **Local**   | [1.3 CashBox Setup](./localpossystemapi-helper.md)           | [1.2 CashBox Setup](./localpossystemapi-helper-1-2.md)   | [1.3 CashBox Setup](./localpossystemapi-helper.md)           | [1.3 CashBox Setup](./localpossystemapi-helper.md)           | Currently not available                                   |
-| **Android** | [Android](../../../poscreators/possystem-api/android-intent) | Currently not available                                  | [Android](../../../poscreators/possystem-api/android-intent) | [Android](../../../poscreators/possystem-api/android-intent) | Currently not available                                   |
+| **Android** | [Android](../../../poscreators/possystem-api/android-ipc) | Currently not available                                  | [Android](../../../poscreators/possystem-api/android-ipc) | [Android](../../../poscreators/possystem-api/android-ipc) | Currently not available                                   |
 | **Cloud**   | [CloudCashbox](./launchers/cloudcashbox.md#introductionn)    | [CloudCashbox](./launchers/cloudcashbox.md#introduction) | [CloudCashbox](./launchers/cloudcashbox.md#introductionn)    | [CloudCashbox](./launchers/cloudcashbox.md#introductionn)    | [CloudCashbox](./launchers/cloudcashbox.md#introductionn) |
 
 

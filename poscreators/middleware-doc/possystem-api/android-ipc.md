@@ -235,6 +235,12 @@ class ReplyHandler : Java.Lang.Object, Handler.ICallback
 Stripped down to the essentials, with no reconnection or error handling, this
 is the whole mechanism in one bind + send + receive:
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs groupId="language">
+<TabItem value="csharp" label="C#">
+
 ```csharp
 var intent = new Intent();
 intent.SetClassName("eu.fiskaltrust.androidlauncher", "eu.fiskaltrust.androidlauncher.PosSystemAPIService");
@@ -259,16 +265,52 @@ var statusCode = msg.Data?.GetString("StatusCode");
 var contentBase64Url = msg.Data?.GetString("ContentBase64Url");
 ```
 
-**Java** _(TODO)_
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java
+Intent intent = new Intent();
+intent.setClassName("eu.fiskaltrust.androidlauncher", "eu.fiskaltrust.androidlauncher.PosSystemAPIService");
+boolean bound = context.bindService(intent, connection, Context.BIND_AUTO_CREATE);
+
+// once connection.onServiceConnected(name, binder) has fired:
+Messenger service = new Messenger(binder);
+Messenger reply = new Messenger(new Handler(Looper.getMainLooper(), incoming -> {
+    Bundle data = incoming.getData();
+    String statusCode = data.getString("StatusCode");
+    String contentBase64Url = data.getString("ContentBase64Url");
+    return true;
+}));
+
+Message message = Message.obtain();
+message.what = 1; // request
+message.replyTo = reply;
+Bundle data = new Bundle();
+data.putString("Method", "POST");
+data.putString("Path", "/v2/echo");
+data.putString("HeaderJsonObjectBase64Url", headersBase64Url);
+data.putString("BodyBase64Url", bodyBase64Url);
+message.setData(data);
+service.send(message);
+```
+
+</TabItem>
+</Tabs>
 
 For a complete, production-ready implementation (connection reuse, rebinding,
-error handling, async/await integration), see the [full reference
-implementation](#full-reference-implementation) below, or the maui demo repo
-(TODO: link to maui demo repo).
+error handling), see the [full reference
+implementation](#full-reference-implementation) below (C#), or the real,
+working Java client in the
+[middleware-demo-android](https://github.com/fiskaltrust/middleware-demo-android/tree/master/java/app/src/main/java/eu/fiskaltrust/middleware/demo/transport)
+repo (`BoundServiceTransport.java`).
 
 <a id="full-reference-implementation"></a>
 
 ### Full reference implementation
+
+_This matches the real, working MAUI client in the
+[middleware-demo-android](https://github.com/fiskaltrust/middleware-demo-android/tree/master/maui/Services)
+repo (`BoundServiceTransport.cs`, `IPosSystemTransport.cs`)._
 
 #### Transport
 
@@ -560,6 +602,9 @@ Build an `Intent` targeting the launcher's Activity, put the request fields as
 extras (same keys as the [request mapping](#request-fields)), and start
 it for a result:
 
+<Tabs groupId="language">
+<TabItem value="csharp" label="C#">
+
 ```csharp
 var intent = new Intent();
 intent.SetClassName("eu.fiskaltrust.androidlauncher", "eu.fiskaltrust.androidlauncher.PosSystemAPI");
@@ -572,7 +617,24 @@ if (bodyBase64Url != null)
 StartActivityForResult(intent, RequestCode);
 ```
 
-**Java** _(TODO)_
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java
+Intent intent = new Intent();
+intent.setClassName("eu.fiskaltrust.androidlauncher", "eu.fiskaltrust.androidlauncher.PosSystemAPI");
+intent.putExtra("Method", method);
+intent.putExtra("Path", path);
+intent.putExtra("HeaderJsonObjectBase64Url", headersBase64Url);
+if (bodyBase64Url != null) {
+    intent.putExtra("BodyBase64Url", bodyBase64Url);
+}
+
+activity.startActivityForResult(intent, requestCode);
+```
+
+</TabItem>
+</Tabs>
 
 ### Response
 
@@ -580,6 +642,9 @@ The result is delivered to `OnActivityResult` as extras on the result `Intent`,
 using the same field names as the [reply mapping](#reply-fields) above
 (`StatusCode`, `ContentBase64Url`, `ContentTypeBase64Url`,
 `HeaderJsonObjectBase64Url`):
+
+<Tabs groupId="language">
+<TabItem value="csharp" label="C#">
 
 ```csharp
 protected override void OnActivityResult(int requestCode, Result resultCode, Intent? data)
@@ -594,10 +659,28 @@ protected override void OnActivityResult(int requestCode, Result resultCode, Int
 }
 ```
 
-**Java** _(TODO)_
+</TabItem>
+<TabItem value="java" label="Java">
 
-For a complete, production-ready implementation, see the maui demo repo
-(TODO: link to maui demo repo).
+```java
+@Override
+protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    super.onActivityResult(requestCode, resultCode, data);
+    if (resultCode != Activity.RESULT_OK || data == null) return;
+
+    String statusCode = data.getStringExtra("StatusCode");
+    String contentBase64Url = data.getStringExtra("ContentBase64Url");
+    // decode base64url as in the mapping section, then process the content
+}
+```
+
+</TabItem>
+</Tabs>
+
+For a complete, production-ready implementation, see the real, working Java
+client in the
+[middleware-demo-android](https://github.com/fiskaltrust/middleware-demo-android/tree/master/java/app/src/main/java/eu/fiskaltrust/middleware/demo/transport)
+repo (`ActivityTransport.java`).
 
 ### Notes
 
@@ -608,5 +691,3 @@ For a complete, production-ready implementation, see the maui demo repo
   exactly one request in flight, resolved by exactly one `onActivityResult`.
 - Prefer the Bound Service transport (above) for anything that shouldn't
   interrupt the POS app's UI.
-
-<!-- TODO: link to this documentation from the android-launcher and demo repos, once published -->
