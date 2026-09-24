@@ -56,6 +56,10 @@ Additional layout rules:
 - **Multi-page documents.** Every page must show the document type, the document number, the ATCUD, and `Página n de N`. The first and middle pages end with `A transportar: <amount>`, the following pages start with `Transportado: <amount>`. Totals and the VAT summary appear on the last page only.
 - **Simplified invoice.** In addition to the elements above, a simplified invoice shows the customer NIF only if provided. It may not exceed a net amount of 100 EUR (see [Certification](../certification/certification.md#boundaries-of-the-certification)).
 
+## Output formats, configuration, and extension points
+
+The certified document can be retrieved as digital receipt or as PDF and handed over through the `/issue` endpoint. The elements a merchant can configure (logo, header, footer text) and the request fields that add information to the document (`cbReceiptLines`, `cbChargeItemLines`, `cbPayItemLines`, customer, operator) are described in [Receipt options, configuration, and extension points](../certification/certification.md#receipt-options-configuration-and-extension-points).
+
 ## Signature items returned by the Middleware
 
 The Middleware returns the following Portugal-specific signature items. The `ftSignatureType` values are listed in the [Type of Signature: ftSignatureType](../reference-tables/type-of-signature-ftsignaturetype.md) reference table.

@@ -22,10 +22,21 @@ A fully functioning Middleware setup requires a few **outbound** connections (e.
 | Hostname                     | Protocol | Port(s) | Description                                                                                                                    |
 |------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------|
 | packages.fiskaltrust.cloud   | TCP      | 443     | Provides the required binary packages of the CashBox components                                                                |
-| helipad.fiskaltrust.cloud    | TCP      | 443     | Provides the CashBox configuration and the archive service                                                                     |
+| helipad.fiskaltrust.eu       | TCP      | 443     | Archive service: the Middleware uploads receipt data to this endpoint                                                          |
+| helipad.fiskaltrust.cloud    | TCP      | 443     | Provides the CashBox configuration; fallback endpoint for the receipt data upload                                              |
 | dc.services.visualstudio.com | TCP      | 443     | Error reporting (Microsoft provides a [list of IP addresses](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses)) |
 
 *Table 1. Outbound hostnames the Middleware must be able to reach.*
+
+:::caution both helipad hostnames are required
+
+The Middleware uploads receipt data to `helipad.fiskaltrust.eu`. If the device cannot reach this endpoint at all (DNS resolution fails, the connection is blocked or refused by a firewall, or the TLS handshake fails), the upload automatically falls back to `helipad.fiskaltrust.cloud` and retries `helipad.fiskaltrust.eu` again in the next upload interval. Each fallback is logged as a warning (`Helipad endpoint https://helipad.fiskaltrust.eu/ cannot be reached (...)`) in the Middleware log. Error responses and timeouts from `helipad.fiskaltrust.eu` do not trigger the fallback.
+
+Please allow **both** hostnames in your firewall and proxy configuration. If only `helipad.fiskaltrust.cloud` is allowed, every upload interval starts with a failed connection attempt before the fallback takes over; if only `helipad.fiskaltrust.eu` is allowed, the CashBox configuration cannot be downloaded.
+
+The sandbox environment uses `helipad-sandbox.fiskaltrust.eu` and `helipad-sandbox.fiskaltrust.cloud` accordingly.
+
+:::
 
 
 

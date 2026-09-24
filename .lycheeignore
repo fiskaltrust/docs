@@ -12,10 +12,12 @@ https?://signing(-sandbox)?\.fiskaltrust\.at/.*
 
 https?://github\.com/fiskaltrust/fiskaltrust-instore-app
 https?://github\.com/fiskaltrust/service-possystem-api
+https?://github\.com/PowerShell/PowerShell/releases/.*
 
 https?://localhost(:[0-9]+)?/.*
 
 https?://support\.fiskaly\.com/.*
+https?://ec\.europa\.eu/digital-building-blocks/sites/spaces/DIGITAL/pages/.*
 https://www.gs1.org/standards/id-keys/gln
 https?://google.com/search.*
 https://www.gesetze-im-internet.de/ao_1977/__146a.html
@@ -34,6 +36,7 @@ https?://www\.fiskaltrust\.at/news/.*
 
 https?://(www\.)?meinfiskal\.de
 https?://(www\.)?aade\.gr/.*
+https?://bofip\.impots\.gouv\.fr/bofip/10693-PGP\?branch=2
 
 # The Bizkaia Batuz site uses an Izenpe certificate that the link checker does not trust
 https?://www\.batuz\.eus/es/registro-de-software

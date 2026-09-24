@@ -72,16 +72,18 @@ Full                             4.8.04084      528372
 Client                           4.0.0.0
 
 We're all good!
-Status: (SUCCESS) -- Purpose: ft cashbox download & upload receipt data
+Status: (SUCCESS) -- Purpose: ft upload receipt data
+Status: (SUCCESS) -- Purpose: ft cashbox download & upload receipt data (fallback)
 Status: (SUCCESS) -- Purpose: ft download packages
 Status: (SUCCESS) -- Purpose: ft error reporting
 Full Results below:
 
-Url                                        Purpose                                   Notes From
----                                        -------                                   ----- ----
-https://helipad.fiskaltrust.cloud/version  ft cashbox download & upload receipt data okay  COMPUTER-NAME
-https://packages.fiskaltrust.cloud/version ft download packages                      okay  COMPUTER-NAME
-https://dc.services.visualstudio.com/      ft error reporting                        okay  COMPUTER-NAME
+Url                                        Purpose                                              Notes From
+---                                        -------                                              ----- ----
+https://helipad.fiskaltrust.eu/version     ft upload receipt data                               okay  COMPUTER-NAME
+https://helipad.fiskaltrust.cloud/version  ft cashbox download & upload receipt data (fallback) okay  COMPUTER-NAME
+https://packages.fiskaltrust.cloud/version ft download packages                                 okay  COMPUTER-NAME
+https://dc.services.visualstudio.com/      ft error reporting                                   okay  COMPUTER-NAME
 ```
 
 The output's last table (with `Url`) is attractive, as it indicates which network connections succeeded. Analyzing the log
@@ -96,6 +98,7 @@ If you find any of the following error messages in the log output, it may sugges
 | Unable to connect to the remote server                           | [General network issues](#network) (e.g., ports blocked)       |
 | The request was aborted: Could not create SSL/TLS secure channel | [SSL issues](#ssl)                                             |
 | Failed to connect to all addresses                               | [Connection issue between queue and SCU](#queuescu-connection) |
+| `Helipad endpoint https://helipad.fiskaltrust.eu/ cannot be reached` | `helipad.fiskaltrust.eu` is blocked; uploads fall back to `helipad.fiskaltrust.cloud` (see [Network Requirements](../middleware/network-requirements.md)) |
 
 *Table 1. Common error messages and the network issues they typically indicate.*
 
