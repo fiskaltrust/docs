@@ -144,6 +144,29 @@ As a PosDealer, you get either the invitation by a PosCreator to receive the ass
 
 If the PosCreator accepts the assignment, the connection between the PosDealer`s account and the manufacturer's POS-System is established.
 
+### Certificates of a PosSystem
+
+Where a market certifies POS systems, the certificate — or the self-attestation, where that is the accepted form — can be stored on the PosSystem in the fiskaltrust.Portal. Doing so is worthwhile after passing a certification, after renewing one, or after issuing a self-attestation, because it puts the document where it is needed during an audit.
+
+**Only a PosCreator can add a certificate.**
+
+| steps | description |
+|:----------------------:|-------------------------------------------------------------------------------------------------------------------------------------|
+|![Number 1](./images/Numbers/circle-1o.png) |Log in to the fiskaltrust.Portal as a PosCreator and select `PosSystems` from the menu on the left. |
+|![Number 2](./images/Numbers/circle-2o.png) |Find the PosSystem in the list and select `Manage Certificates` on its right-hand side. |
+|![Number 3](./images/Numbers/circle-3o.png) |On the certificate management page, select `Choose file` and pick the document. |
+|![Number 4](./images/Numbers/circle-4o.png) |Complete the upload with `Import`. |
+
+*Table 5. Steps to add a certificate to a PosSystem.*
+
+:::caution the PosDealer assignment controls who sees the certificate
+
+Uploading the certificate is not enough on its own. A PosOperator only sees it once the PosSystem has been [assigned to their PosDealer](#assignment-of-a-possystem) — until then the certificate exists but reaches nobody.
+
+Note also that the PosDealer does not see the certificate in their own portal view. It stays visible to the PosCreator under `PosSystems`, and to the PosOperators linked to the assigned PosDealer.
+
+:::
+
 </details>
 
 ## 2. Rollout Scenarios

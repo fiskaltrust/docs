@@ -176,6 +176,18 @@ import FieldsDE from '../../_markets/de/getting-started/operator-onboarding/invi
 
 *Table 5. Import error messages for missing mandatory CSV fields.*
 
+#### Postal codes outside Austria, Germany and France
+
+Not every PosOperator you onboard is based in your own market, and postal codes elsewhere in the EU do not all look like the ones the entry fields expect. The import checks that a postal code is present, not that it matches a particular pattern, so **the CSV import and the PosDealerAPI are the reliable way to enter these**. Prefer them over typing the address by hand.
+
+Watch for the following.
+
+* **Leading zeros.** Italian postal codes around Rome begin with two zeros. Spreadsheet applications strip those when the cell is formatted as a number rather than as text. Prefix the cell content with an apostrophe (`'00123`) before saving the CSV, and check the saved file.
+* **Letters mixed with digits.** Some countries use formats such as `YY999ZZ`.
+* **Embedded spaces.** Formats such as `999 99` are common in Scandinavia.
+
+If a value still cannot be entered, complete the import with a placeholder postal code — the field is mandatory, so the record will not import without one — and ask the Customer Success Team to correct the value afterwards.
+
 ## Managing the invitations
 
 ### Explanation 
@@ -254,3 +266,17 @@ After choosing `PosOperator` / `Invitation`
 *Table 9. Features available in the invitation history protocol.*
 
 Return to the Invitation module with [Overview of PosOperator].
+
+#### Withdrawing an invitation
+
+You may need to withdraw an invitation because it was sent to a misspelled address, because the PosOperator declined or terminated the contract, or because the connection is simply no longer needed.
+
+:::caution what deleting an invitation does and does not do
+
+Deleting an invitation removes **only the invitation** issued by you as a PosDealer. It does not dissolve a connection that has already been established between a PosDealer and a PosOperator, and it does not delete a PosOperator account.
+
+:::
+
+Choose `PosOperator` / `Invitation`, find the record, and use `Delete` in its row.
+
+If the PosOperator does not appear in that list, the record has already moved to the protocol. Open `History`, find the record there, and use `Edit` in its row to move it back to the invitation list, where it can be corrected or deleted as above.

@@ -1,0 +1,13 @@
+
+#### `PopulateFtJournalFRCopyPayloadTable did not return correct number of copyreceipts`
+
+The full message reads `Exception-PopulateFtJournalFRCopyPayloadTable did not return correct number of copyreceipts. correct XXXX, actual 0`.
+
+The `ftJournalFRCopyPayload` table speeds up the processing of copy receipts, and it is filled from the copy receipts already present in the database when the queue starts. The queue compares the number of rows it wrote against the `CNumerator` value from its configuration, and refuses to start if the two disagree.
+
+The mismatch appears when a queue is started against a database that does not hold the history the configuration expects — typically when a queue configured elsewhere is started on a different machine, or after the local database has been deleted. The configuration still carries a `CNumerator` from the original installation, while the fresh database contains no journal entries at all, so the count comes out as zero.
+
+Either of the following resolves it.
+
+* Delete the local `.sqlite` file of the queue and set `CNumerator` to `0` in the downloaded configuration under `C:\ProgramData\fiskaltrust\service\Configuration-<cashboxid>.json`.
+* If the original database is available, copy it into the service directory, so that the journal entries match the `CNumerator` the configuration expects.
