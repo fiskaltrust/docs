@@ -43,9 +43,9 @@ For the Basque provinces fiskaltrust has prepared the *memoria descriptiva técn
 | Developer (*entidad desarrolladora*) | fiskaltrust consulting GmbH, Spanish NIF `N0286342A` |
 | Software name (*nombre del software*) | `fiskaltrust.Middleware` |
 | Software version | `2.0` |
-| Licence code (*LicenciaTBAI*) | One licence code per province, configured in the fiskaltrust cloud signing service. The values are not published on this page. |
+| Licence code (*LicenciaTBAI*) | One licence code per province, configured in the fiskaltrust cloud signing service. See the registers of the provinces below. |
 
-The three provincial tax authorities publish the registered software in their registers of *software garante*: [Araba](https://web.araba.eus/es/hacienda/ticketbai/listado-de-software), [Bizkaia](https://www.batuz.eus/es/registro-de-software) and [Gipuzkoa](https://www.gipuzkoa.eus/es/web/ogasuna/ticketbai/listado-software). Registration in **one** province is sufficient for all three provinces; fiskaltrust's registration is filed with the *Hacienda Foral de Bizkaia*. The register entry of the fiskaltrust.Middleware will be linked here once it is published; until then, ask [sales@fiskaltrust.eu](mailto:sales@fiskaltrust.eu) before your first productive TicketBAI document.
+The licence codes are not listed on this page. Each provincial tax authority publishes the registered software, with its licence code, in its register of *software garante*: [Araba](https://web.araba.eus/es/hacienda/ticketbai/listado-de-software), [Bizkaia](https://www.batuz.eus/es/registro-de-software) and [Gipuzkoa](https://www.gipuzkoa.eus/es/web/ogasuna/ticketbai/listado-software). To find the entry of the fiskaltrust.Middleware, look up the developer *fiskaltrust consulting GmbH* (NIF `N0286342A`) or the software name `fiskaltrust.Middleware` in these lists. Registration in **one** province is sufficient for all three provinces; fiskaltrust's registration is filed with the *Hacienda Foral de Bizkaia*.
 
 ## Where the identifiers appear on documents
 
