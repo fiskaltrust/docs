@@ -10,8 +10,8 @@ The fiskaltrust.Middleware uses the same ftSignatureFormat in Spain as in all ot
 
 ## ftSignatureFormatFlag
 
-| **Value** | **Description** | **Middleware Version** | 
-| --------- | --------------- | ---------------------- |
-| TBD | TBD | TBD |
+| **Value** | **Description** |
+| --------- | --------------- |
+| TBD | TBD |
 
 *Table 1. ftSignatureFormat flag values for Spain.*
