@@ -65,54 +65,6 @@ The regular workflow of the fiskaltrust.SecurityMechanism in the Austrian market
   - create all other necessary receipts
   - save all data
 
-![](./images/12.png)
-
-*Figure 1. Process of the cash register integration (AT) with the fiskaltrust.SecurityMechanism (AT - RKSVO).*
-
-### Workflow - regular operation
-
-The following diagram illustrates the regular creation of a receipt with fiskaltrust.Middleware following Austrian law.
-
-![](./images/13.png)
-
-*Figure 2. Workflow of the regular receipt creation operation (AT - RKSVO).*
-
-### Workflow - special receipts
-
-The following diagram illustrates the creation of a special receipt with fiskaltrust.Middleware following Austrian law.
-
-![](./images/14.png)
-
-*Figure 3. Workflow of special receipts (AT): initial-, zero-, collective-, closing-, shift-, daily-, monthly- and yearly-tally receipts (AT - RKSVO).*
-
-### Workflow - failure of the signature creation device (queue timeout)
-
-The following diagram illustrates the workflow of a failure of the signature creation device following Austrian law. How the Middleware behaves during such outages in general is described in [Failure Scenarios](../../general/cash-register-integration/cash-register-integration-failure-scenarios.md) of the General Part.
-
-![](./images/15.png)
-
-*Figure 4. Workflow of a signature creation device failure (queue timeout) (AT - RKSVO).*
-
-![](./images/16.png)
-
-*Figure 5. Workflow of a signature creation device failure (wrong state) (AT - RKSVO).*
-
-![](./images/17.png)
-
-*Figure 6. Workflow of a signature creation device failure (SCD timeout) (AT - RKSVO).*
-
-### Workflow - failure of the fiskaltrust.SecurityMechanism (network error)
-
-The following diagram illustrates the workflow of a failure of the fiskaltrust.SecurityMechanism following the Austrian law.
-
-![](./images/18.png)
-
-*Figure 7. Workflow of a fiskaltrust.SecurityMechanism failure (network error) (AT - RKSVO).*
-
-![](./images/19.png)
-
-*Figure 8. Workflow of a fiskaltrust.Middleware failure (recovery after more than 48 hours) (AT - RKSVO).*
-
 ## Receipt for special functions
 
 This section describes receipt types used for special functions on the Austrian market and expands on the descriptions from the Chapter ["Receipt for special functions"](../../general/cash-register-integration/cash-register-integration-regular-workflow.md#receipt-for-special-functions) of the general part.
@@ -143,18 +95,6 @@ If, for technical reasons, signatures cannot be created by the fiskaltrust.Secur
 
 Furthermore, you can find two fundamentally different types of failure distinguished by the fiskaltrust.SecurityMechanism:
 
-### Signature Creation Device Failure
-
-A signature creation device failure must be assumed if the fiskaltrust.SecurityMechanism cannot communicate with the signature creation device temporarily. This can happen when e.g. the chip-card reader is faulty.
-
-In case of a signature creation device failure, the machine-readable code from the fiskaltrust.SecurityMechanism (following the RKSV) is processed and sent back to the cash register. The status of the fiskaltrust.SecurityMechanism is communicated to the cash register input station with every response. The failure status can only be terminated through a zero receipt. Requesting the zero receipt can be done automatically through the input station or manually by the user.
-
-The PosOperator must report a non-temporary failure (longer than 48 hours) of the signature creation device through FinanzOnline without undue delay. Afterwards, the return to service also must be reported through FinanzOnline. These reports are sent automatically with a fiskaltrust.Carefree or Notification subscription, see [FinanzOnline Management](../../../../posdealers/buy-resell/products/3rd-party/finanzonline-management.md).
-
-### fiskaltrust.SecurityMechanism Failure
-
-A fiskaltrust.SecurityMechanism failure means that there is no access to the RKSV-DEP. If the failure lasts for more than 48 hours, the PosOperator must trigger a failure notification via FinanzOnline. With a fiskaltrust.Carefree or Notification subscription, this notification is sent automatically. Otherwise, the notification regarding the reporting requirement is issued on the failure zero receipt.
-
 ### Monthly Receipt
 
 Before the beginning of a new monthly period, the preliminary result of the cumulative sales counter (monthly counter) has to be recorded accordingly to §8 Abs 2 RKSV. The cash register can request this monthly receipt via zero receipt from the fiskaltrust.SecurityMechanism for this purpose. The running sales counter is sent back to the cash register within the charge items block in an unencrypted format.
@@ -162,24 +102,6 @@ Before the beginning of a new monthly period, the preliminary result of the cumu
 ### Annual Receipt
 
 Before the beginning of a new annual period, the PosOperator must note the counter reading in accordance with §8 para. 3 RKSV. This procedure replaces the monthly receipt at the end of the year. As an additional requirement, the signature's correctness on this annual receipt needs to be checked against the database through the fiskaltrust.SecurityMechanism. With a fiskaltrust.Carefree or Notification subscription, the check is processed automatically. Otherwise, the PosOperator can do it manually through the [BMF apps](https://www.bmf.gv.at/services/apps.html).
-
-## Receipt structure
-
-This chapter describes the receipt structure applicable to the Austrian market. The blocks themselves are described in ["Receipt structure"](../../general/cash-register-integration/cash-register-integration-regular-workflow.md#receipt-structure) of the general part; in Austria only the receipt header, the charge items block and the signature block carry additional requirements, while the pay items block and the receipt footer are not extended.
-
-![](./images/20.png)
-
-*Figure 9. Receipt structure (AT): cash register receipt data (header, charge items, pay items, footer) and fiskaltrust receipt data (header, charge items, pay items, signature, footer) (AT - RKSVO).*
-
-### Receipt Header
-
-Following §132a para. 3 BAO, the receipt header should receive a label or a logo of the issuing company (see figure above) already from the cash register. For example, it is necessary for annual receipts where the heading "Annual Receipt" is added to a zero receipt (receipt with a value of zero).
-
-### Charge Items Block
-
-The charge items block on the cash register receipt contains the services (quantity and customary description of the purchased goods or type and extent of other services following §132a para. 3 Z 4 BAO or else in the form of symbols, code numbers or reference displayed).
-
-As previously mentioned, a Charge Items block can be extended through the fiskaltrust.SecurityMechanism. An example of such an extension is the monthly receipt where the sum of current business transactions (cumulative sales counter) is listed as a charge item within the charge items block of a zero receipt at the end of the month.
 
 ### Signature Block
 
