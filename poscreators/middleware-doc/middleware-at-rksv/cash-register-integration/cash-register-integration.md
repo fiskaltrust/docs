@@ -23,7 +23,7 @@ The values below are the PosSystem API (v2) tagging values documented in [Type o
 | Void of a receipt issued before | flag `0004` (IsVoid), with the line items marked as void as well; the receipt is annotated "STO" in the signature block | [Void](https://developer.fiskaltrust.eu/#/pos-system/AT?endpoint=sign&businesscase=SignRequestReceipt_VoidReceipt_1) |
 | Refund or return of goods and services | flag `0100` (IsReturn/IsRefund) | [Refund of an earlier receipt](https://developer.fiskaltrust.eu/#/pos-system/AT?endpoint=sign&businesscase=SignRequestReceipt_CashSaleRefund_1), [refund without reference](https://developer.fiskaltrust.eu/#/pos-system/AT?endpoint=sign&businesscase=SignRequestReceipt_CashSaleRefund_3) |
 | Training booking, annotated "TRA" and not counted towards the cumulative sales counter (Umsatzzähler) | flag `0002` (training receipt) | - |
-| Receipts recorded while the fiskaltrust.SecurityMechanism was unreachable | flag `0001` (late signing), closed with an [end of failure receipt](#end-of-failure-receipt-collective-failure-report) | - |
+| Receipts recorded while the fiskaltrust.Middleware was unreachable and sent later | flag `0001` (late signing), closed with an [end of failure receipt](#end-of-failure-receipt-collective-failure-report) | - |
 | Handwritten receipt entered afterwards | flag `0008` (handwritten receipt) | - |
 | Delivery note, vouchers, agency business, tips | see [Receipt Case Definitions](../receipt-case-definitions/receipt-case-definitions.md) | - |
 
@@ -77,31 +77,32 @@ A zero receipt is a cash transaction recorded with amount zero, described in gen
 
 ### Start Receipt (Initial Receipt)
 
-There are many RKSV requirements for implementing a new, or a replaced security mechanism (RKSV-DEP). A new data collection log (RKSV-DEP) must be started, with the register ID used as a start value for the signature linking. An initial receipt must be issued after the implementation and must be checked for correctness. Such check is at fiskaltrust a verification if the certificate serial number of the data record corresponds with the number registered in the BMF security mechanisms database and if the signature matches the certificate's public key code.
+When a POS (more specifically: a new Queue) is put into operation, an initial receipt must be created and validated by Finanzonline. The Queue will only start signing, once an initial receipt is created. Such validation can be done automatically by fiskaltrust when the appropriate product is purchased and Finanzonline Access set up or directly with Finanzonline. The validation will check if the Queue (ftCashboxIdentification and AES Key) and SCU (Serial Number and VDA) used are registered with this data in the PosOperators Finanzonline account.
 
 The PosOperator must archive this receipt.
+When the receipts are uploaded to the fiskaltrust.Portal and an appropriate product has been purchased, the receipt will be available via the fiskaltrust.Portal for audits.
 
 ### Stop Receipt (Closing Receipt)
 
-In case of a scheduled decommissioning of a security mechanism or a cash register, the RKSV requires a generation of a closing receipt. The closing receipt concludes the data collection log (RKSV-DEP) and has to be archived.
+In case of a scheduled decommissioning of a POS (a Queue), the RKSV requires a generation of a closing receipt. The closing receipt concludes the data collection log (RKSV-DEP) and has to be archived.
 
-At the fiskaltrust.SecurityMechanism, a scheduled decommissioning triggers after returning the data to the cash register and discarding the currently used certificate (so that the signature creation device cannot issue any more valid signatures). Within the framework of the data collection log (RKSV-DEP), the certificate remains preserved. In the case of decommissioning, a FinanzOnline notification is required, which is also created through the fiskaltrust.SecurityMechanism. Only the decommissioning of the queue will be notified, if the SCU should be decomissioned too, this has to be done manually or via the remove SCU workflow in the ft.Portal. 
+After sending a closing receipt to the fiskaltrust.Middleware, the Queue will not sign any receipts anymore.The Queue must be deregistered in Finanzonline, a corresponding notification is created with the closing receipt and will be automatically sent to Finanzonline, if the appropriate product is purchased and Finanzonline Access set up. Only the decommissioning of the queue will be notified, if the SCU should be decomissioned too, this has to be done manually or via the remove SCU workflow in the ft.Portal. 
 
-Once the queue has been closed with a stop receipt, no hashing and signing of receipts will be done for that queue.
+Once the queue has been closed with a stop receipt, no hashing and signing of receipts will be done for that queue. This cannot be reversed.
 
 ### End of Failure Receipt (Collective Failure Report)
 
 If, for technical reasons, signatures cannot be created by the fiskaltrust.SecurityMechanism, receipts need to be issued (according to the RKSV) and marked with a comment "security mechanism failed". Once the technical failure has been resolved, a signed collective receipt must be issued to make up for the signature linking of all receipts issued during the technical failure.
 
-Furthermore, you can find two fundamentally different types of failure distinguished by the fiskaltrust.SecurityMechanism:
+Outages that exceed 48 hours must be notified to FinanzOnline. This can be done automatically with a fiskaltrust.Carefree or Notification subscription, see [FinanzOnline Management](http://localhost:3000/docs/posdealers/buy-resell/products/3rd-party/finanzonline-management). Find more details on possible Failure Scenarios and handling in the Chapter "[Failure Scenarios](https://docs.fiskaltrust.cloud/docs/poscreators/middleware-doc/general/cash-register-integration/failure-scenarios)" of the general part
 
 ### Monthly Receipt
 
-Before the beginning of a new monthly period, the preliminary result of the cumulative sales counter (monthly counter) has to be recorded accordingly to §8 Abs 2 RKSV. The cash register can request this monthly receipt via zero receipt from the fiskaltrust.SecurityMechanism for this purpose. The running sales counter is sent back to the cash register within the charge items block in an unencrypted format.
+Before the beginning of a new monthly period, the preliminary result of the cumulative sales counter (monthly counter) has to be recorded accordingly to §8 Abs 2 RKSV. The POS can request this by sending a monthly receipt request to the fiskaltrust.Middleware. The running sales counter is sent back to the POS within the signature items block in an unencrypted format.
 
 ### Annual Receipt
 
-Before the beginning of a new annual period, the PosOperator must note the counter reading in accordance with §8 para. 3 RKSV. This procedure replaces the monthly receipt at the end of the year. As an additional requirement, the signature's correctness on this annual receipt needs to be checked against the database through the fiskaltrust.SecurityMechanism. With a fiskaltrust.Carefree or Notification subscription, the check is processed automatically. Otherwise, the PosOperator can do it manually through the [BMF apps](https://www.bmf.gv.at/services/apps.html).
+Before the beginning of a new annual period, the PosOperator must note the counter reading in accordance with §8 para. 3 RKSV. This procedure replaces the monthly receipt at the end of the year. The annual receipt must be validated by FinanzOnline. With a fiskaltrust.Carefree or Notification subscription, the check is processed automatically. Otherwise, the PosOperator can do it manually through the [BMF apps](https://www.bmf.gv.at/services/apps.html).
 
 ### Signature Block
 
@@ -109,11 +110,11 @@ If a cryptographic signature is required by §131b para. 2 BAO the signature blo
 
 ## Data Collection Log
 
-The RKSV defines the following logging features as obligatory for cash registers. The corresponding journal call is described in [RKSV-DEP Export](../function-structures/function-structures.md#rksv-dep-export); the records must be retained for seven years (§132 BAO), and how the PosOperator creates and stores those exports is described in [Exports](../../../../posdealers/technical-operations/maintenance/exports.md) and [Revision-safe archiving](../../../../posdealers/buy-resell/products/revision-safe-archiving.md).
+The RKSV defines the following logging features as obligatory for cash registers. The corresponding journal call is described in [RKSV-DEP Export](../function-structures/function-structures.md#rksv-dep-export); the records must be retained for seven years (§132 BAO), and how the PosOperator creates those exports in case of an audit is described in [Exports](../../../../posdealers/technical-operations/maintenance/exports.md) and [Revision-safe archiving](../../../../posdealers/buy-resell/products/revision-safe-archiving.md).
 
 ### Data Collection Log according to RKSV (DEP 7)
 
-The fiskaltrust.SecurityMechanism autonomously manages the RKSV-DEP. We recommend saving the values returned from the fiskaltrust.SecurityMechanism in the cash register's database. A connection between the return values and the receipt is established through the receipt reference of the cash register request and the receipt ID of the fiskaltrust.ReceiptResponse.
+The fiskaltrust.Middleware autonomously manages the RKSV-DEP. We recommend saving the values returned from the fiskaltrust.Middleware in the cash register's database. 
 
 Data from the data collection log can also be provided in the form of a data stream, following the format specified by the RKSV.
 
