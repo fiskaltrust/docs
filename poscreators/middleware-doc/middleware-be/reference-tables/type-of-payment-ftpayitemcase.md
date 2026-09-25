@@ -5,7 +5,7 @@ title: 'Type of Payment: ftPayItemCase'
 
 # Type of Payment: ftPayItemCase
 
-This table expands on the values provided in the [Type of Payment: ftPayItemCase](../../general/reference-tables/reference-tables.md#type-of-payment-ftpayitemcase) reference table of the Compliance Middleware with values applicable to the Belgian market.
+This table expands on the values provided in the [Type of Payment: ftPayItemCase](../../general/reference-tables/reference-tables.md#type-of-payment-ftpayitemcase) reference table of the fiskaltrust.Middleware with values applicable to the Belgian market.
 
 ## Format
 
@@ -16,7 +16,7 @@ version 2
 
 #### PP - payment type
 
-| **Value** | **Description** | **Middleware version** |
+| **Value** | **Description** | **fiskaltrust.Middleware version** |
 | --- | --- | --- |
 | `00` | **Unknown payment type for BE**<br />This is handled like a cash payment in national currency. | 1.3.45 |
 | `01` | **Cash payment**<br />cash | 1.3.45 |
@@ -30,7 +30,7 @@ version 2
 | `09` | **Accounts receivable** | 1.3.45 |
 | `0A` | **SEPA transfer**<br /> | 1.3.45 |
 | `0B` | **Other Bank transfer** | 1.3.45 |
-| `0C` | **Transfer to Cashbook / Vault / Owner / Employee**<br />Positive (+) amount contributes to cashbox/vault. This higher the amount in cashbox/vault.<br />Negative (-) amount lowers the amount in cashbox/vault. | 1.3.45 |
+| `0C` | **Transfer to Cashbook / Vault / Owner / Employee**<br />Positive (+) amount contributes to the till/vault and raises the amount in it.<br />Negative (-) amount lowers the amount in the till/vault. | 1.3.45 |
 | `0D` | **Internal / Material consumption** | 1.3.45 |
 | `0E` | **Grant** | 1.3.45 |
 | `0F` | **Ticket Restaurant / (Sodexo, edenred, usw.)** | 1.3.45 |
@@ -42,7 +42,7 @@ version 2
 
 #### gggg - global tagging/flag
 
-| **Value** | **Description** | **Middleware Version** |
+| **Value** | **Description** | **fiskaltrust.Middleware version** |
 | --- | --- | --- |
 | `0001` | **IsVoid**<br />Marks PayItem as Void previous position. Quantity and amount are inverted, related to original item. <br />IsVoid is used in cases where the exchange of money has not been executed yet. | 1.3.45 |
 | `0002` | **IsReturn/IsRefund**<br />Marks PayItem as Return of good or service. Quantity and amount are inverted, related to original item.<br />IsReturn/IsRefund is used in cases where the exchange of money has been executed already. | 1.3.45 |
