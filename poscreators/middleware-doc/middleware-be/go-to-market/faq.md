@@ -27,7 +27,7 @@ Which receipt case results in which FDM event, and what is sent to the FDM, is d
 
 ### Do we have to support every payment type and transaction scenario our software offers, even if our Belgian customers do not use them?
 
-Which functions are tested is decided in the certification procedure of the FPS Finance. From the fiskaltrust.Middleware's side there is no need to use every feature: it maps whatever your POS sends. A pragmatic approach is to switch off functions your Belgian customers do not use in the Belgian configuration of your POS, so that the certified scope matches what the POS actually offers.
+Which functions are tested is decided in the certification procedure of the FPS Finance. From the fiskaltrust.Middleware's side there is no need to use every feature. Only use receipt cases and payment types that are marked as available on the [FDM event operations](./fdm-event-operations.md) page: unmapped receipt cases may be rejected or accepted without an FDM signature, and some payment types (e.g. accounts receivable) are not supported. A pragmatic approach is to switch off functions your Belgian customers do not use, and functions that are not yet available, in the Belgian configuration of your POS, so that the certified scope matches what the POS actually offers.
 
 How payment types, VAT codes, and transaction lines are mapped to the FDM is described in [FDM event operations](./fdm-event-operations.md#mapping-of-the-fiskaltrust-data-model).
 

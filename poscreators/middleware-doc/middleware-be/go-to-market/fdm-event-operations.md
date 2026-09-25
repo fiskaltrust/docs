@@ -27,7 +27,7 @@ The request formats of all fifteen mutations are implemented in the fiskaltrust.
 | REPORT (`R`) | `signReportUserZ` | To be defined | In development |
 | INVOICE (`I`) | `signInvoice` | Invoice `…_1001` (B2C), `…_1002` (B2B), `…_1003` (B2G) with `cbPreviousReceiptReference` to the VAT receipts | In development |
 | PRO FORMA (`P`) | `signOrder` | Order `…_3004` | In development |
-| PRO FORMA (`P`) | `signPreBill` | Table check / provisional bill `…_0006` | In development |
+| PRO FORMA (`P`) | `signPreBill` | To be defined | In development |
 | PRO FORMA (`P`) | `signCostCenterChange` | To be defined | In development |
 | FINANCIAL (`F`) | `signMoneyInOut` | Payment transfer `…_0002` | In development |
 | FINANCIAL (`F`) | `signDrawerOpen` | To be defined | In development |
