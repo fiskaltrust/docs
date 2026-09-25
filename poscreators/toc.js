@@ -115,6 +115,16 @@ module.exports = [
             label: "Belgium (BE)",
             items: [
               "poscreators/middleware-doc/middleware-be/appendix-be",
+              {
+                type: "category",
+                label: "Go-to-Market",
+                key: "be-go-to-market",
+                items: [
+                  "poscreators/middleware-doc/middleware-be/go-to-market/go-to-market",
+                  "poscreators/middleware-doc/middleware-be/go-to-market/fdm-event-operations",
+                  "poscreators/middleware-doc/middleware-be/go-to-market/faq",
+                ],
+              },
               "poscreators/middleware-doc/middleware-be/terminology/terminology",
               "poscreators/middleware-doc/middleware-be/cash-register-integration/cash-register-integration",
               "poscreators/middleware-doc/middleware-be/data-structures/data-structures",
