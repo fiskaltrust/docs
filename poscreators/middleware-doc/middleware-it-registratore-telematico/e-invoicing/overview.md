@@ -7,6 +7,10 @@ title: Overview
 
 eInvoicing works the same way across fiskaltrust markets — the shared model, the `/sign` + `/issue` flow, and the no-webhook rule are described in **[eInvoicing — Overview](../../e-invoicing/overview.md)**. This page covers only what's specific to the **Italian (IT)** market.
 
+:::caution Availability via the fiskaltrust API — target state
+The Italian eInvoicing path via the API is **not shipped yet** — there is no SDI / FatturaPA implementation in the PosSystem API path today. Do not plan a go-live on it; confirm the roadmap with your fiskaltrust partner manager. The regulatory facts below describe the market, not what fiskaltrust ships today.
+:::
+
 ## Regulatory status
 
 | Aspect | Current status |
@@ -34,7 +38,7 @@ Italy's eInvoicing has been mandatory since **2019**, and SDI clearance covers B
 ## Related pages
 
 - [eInvoicing — Overview](../../e-invoicing/overview.md) — the shared model, integration flow, and prerequisites across markets.
-- [Set up and test eInvoicing (Italy)](./setup.md) — prerequisites, Portal enablement, and the end-to-end sandbox example.
+- [Set up and test eInvoicing (Italy)](./setup.md) — prerequisites, the Portal identity settings, and the per-call sandbox walkthrough.
 - [Delivery (`/issue` Endpoint)](../../experience-middleware/delivery.md) — the product-level eInvoicing and e-Delivery concept across all markets.
 - [Migrating from API v0 to PosSystem API (v2)](../../possystem-api/migration-guide.md) — eInvoicing is a PosSystem API (v2) feature.
 - [Appendix: IT (Registratore Telematico)](../appendix-it-registratore-telematico.md) — Italy fiscalization details.
