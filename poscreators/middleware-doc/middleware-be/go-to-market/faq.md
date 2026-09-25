@@ -85,17 +85,17 @@ What remains with you and your customers:
 
 The display requirements for the user interface are defined by the regulation; ask the FPS Finance whether they apply to your web channel.
 
-From the fiskaltrust.Middleware's side, every channel is treated alike. Every event sent to the FDM carries the software version of the cash register system (`posSwVersion`), whether it comes from a POS terminal, a kiosk, or a web shop. For web and kiosk orders the FPS Finance also requires:
+From the fiskaltrust.Middleware's side, every channel is treated alike. Every event sent to the FDM must carry the software version of the cash register system (`posSwVersion`), whether it comes from a POS terminal, a kiosk, or a web shop. The fiskaltrust.Middleware currently sends a fixed value instead of your POS's software version, so events do not yet carry the correct version. For web and kiosk orders the FPS Finance also requires:
 
 - the robot user `00000000029` as `employeeId`, passed in `cbUser`;
 - the web shop's URL, or the name of the ordering platform, as the identification of the input device.
 
-The way the POS passes its software version and the input-device identification to the fiskaltrust.Middleware is being added to the PosSystem API mapping.
+Passing the POS's software version and the input-device identification to the fiskaltrust.Middleware is in development.
 
 ## FDM operations
 
 ### Does fiskaltrust support all FDM event operations?
 
-The fiskaltrust.Middleware implements the request formats of all fifteen mutations (`signWorkIn`, `signWorkOut`, `signInvoice`, `signSale`, `signCostCenterChange`, `signOrder`, `signPreBill`, `signMoneyInOut`, `signDrawerOpen`, `signPaymentCorrection`, `signReportTurnoverX`, `signReportTurnoverZ`, `signReportUserX`, `signReportUserZ`, `signCopy`). Their mapping to receipt cases is being added step by step. Today `signSale` (including refunds and training mode) and `signReportTurnoverZ` are available in the sandbox.
+The fiskaltrust.Middleware implements the request formats of all fifteen mutations (`signWorkIn`, `signWorkOut`, `signInvoice`, `signSale`, `signCostCenterChange`, `signOrder`, `signPreBill`, `signMoneyInOut`, `signDrawerOpen`, `signPaymentCorrection`, `signReportTurnoverX`, `signReportTurnoverZ`, `signReportUserX`, `signReportUserZ`, `signCopy`). Their mapping to receipt cases is being added step by step. Today only sales and training sales (`signSale`) are available in the sandbox. Refunds and the daily closing are partly available: refunds are signed but do not yet reference the original VAT receipt (`fdmRefs`), and the Z report (`signReportTurnoverZ`) is signed but its turnover totals are still sent empty. Neither matches the certification test cases yet.
 
 The [FDM event operations](./fdm-event-operations.md) page lists every mutation with its receipt case and status. fiskaltrust walks through the supported operations with you in the sandbox; contact your fiskaltrust account manager to schedule a session.

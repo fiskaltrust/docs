@@ -19,9 +19,10 @@ The request formats of all fifteen mutations are implemented in the fiskaltrust.
 
 | Event (label) | FDM mutation | fiskaltrust receipt case | Status |
 | ------------- | ------------ | ------------------------ | ------ |
-| NORMAL (`N`) | `signSale` | POS receipt `0x4245_2000_0000_0001` (and unknown `…_0000`), including refunds with the refund flag | **Available** |
+| NORMAL (`N`) | `signSale` | POS receipt `0x4245_2000_0000_0001` (and unknown `…_0000`) | **Available** |
+| NORMAL (`N`), refund | `signSale` with refund | POS receipt with the refund flag `0x0100` and `cbPreviousReceiptReference` to the original | Partly available (the reference to the original VAT receipt, `fdmRefs`, is not yet sent) |
 | NORMAL (`N`), training | `signSale` with training | POS receipt with the training flag `0x0002` in `gggg`; the FDM registers it with label `T` | **Available** |
-| REPORT (`R`) | `signReportTurnoverZ` | Daily closing `0x4245_2000_0000_2011` | **Available** (turnover totals in development, see below) |
+| REPORT (`R`) | `signReportTurnoverZ` | Daily closing `0x4245_2000_0000_2011` | Partly available (the turnover totals are still sent empty) |
 | REPORT (`R`) | `signReportTurnoverX` | To be defined | In development |
 | REPORT (`R`) | `signReportUserX` | To be defined | In development |
 | REPORT (`R`) | `signReportUserZ` | To be defined | In development |
