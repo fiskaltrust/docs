@@ -5,19 +5,19 @@ title: Reference Tables
 
 # Reference Tables
 
-This page expands on the reference tables covered in the [Reference Tables](../../general/reference-tables/reference-tables.md) of the Compliance Middleware, with country-specific information applicable to the Belgian market. The respective tables can be found in the following subsections.
+This page expands on the reference tables covered in the general [Reference Tables](../../general/reference-tables/reference-tables.md) of the fiskaltrust.Middleware, with country-specific information applicable to the Belgian market. The respective tables can be found in the following subsections.
 
 :::info POSSystem API v2 Reference
 
-The Compliance Middleware [Reference Tables](../../general/reference-tables/reference-tables.md) contain the core POSSystem API v2 tagging structure used across all markets and should be your primary reference.
+The general [Reference Tables](../../general/reference-tables/reference-tables.md) contain the core POSSystem API v2 tagging structure used across all markets and should be your primary reference.
 
 :::
 
-As the Middleware abstracts processes and data over multiple markets/countries, there is a specific mapping for the Belgian market. This mapping is based upon the overall tagging system which gives the additional benefit of giving all receipts, chargeitems and payitems also a semantical value. The following section describes the overall format.
+As the fiskaltrust.Middleware abstracts processes and data over multiple markets/countries, there is a specific mapping for the Belgian market. This mapping is based upon the overall tagging system which gives the additional benefit of giving all receipts, chargeitems and payitems also a semantical value. The following section describes the overall format.
 
 ## Format
 
-Every case that is sent to the middleware, or every Item that is being returned from the middleware is based upon this tagging system. For the tagging system we are using hex based numbers since they make things like, flagging and having a consistent numbering scheme easier.
+Every case that is sent to the fiskaltrust.Middleware, or every item that is being returned from the fiskaltrust.Middleware is based upon this tagging system. For the tagging system we are using hex based numbers since they make things like, flagging and having a consistent numbering scheme easier.
 
 The overall format is built up of 4 sections:
 
