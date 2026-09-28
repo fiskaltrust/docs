@@ -155,7 +155,7 @@ module.exports = [
     items: [
       {
         type: "category",
-        label: "Austria (AT)",
+        label: "Austria",
         className: "sidebar-country sidebar-country--at",
         items: [
           "poscreators/middleware-doc/middleware-at-rksv/appendix-at-rksv",
@@ -194,7 +194,7 @@ module.exports = [
       },
       {
         type: "category",
-        label: "Belgium (BE)",
+        label: "Belgium",
         className: "sidebar-country sidebar-country--be",
         items: [
           "poscreators/middleware-doc/middleware-be/appendix-be",
@@ -220,7 +220,7 @@ module.exports = [
       },
       {
         type: "category",
-        label: "Germany (DE)",
+        label: "Germany",
         className: "sidebar-country sidebar-country--de",
         items: [
           "poscreators/middleware-doc/middleware-de-kassensichv/appendix-de-kassensichv",
@@ -310,7 +310,7 @@ module.exports = [
       },
       {
         type: "category",
-        label: "Spain (ES)",
+        label: "Spain",
         className: "sidebar-country sidebar-country--es",
         items: [
           "poscreators/middleware-doc/middleware-es/appendix-es",
@@ -336,7 +336,7 @@ module.exports = [
       },
       {
         type: "category",
-        label: "France (FR)",
+        label: "France",
         className: "sidebar-country sidebar-country--fr",
         items: [
           "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/appendix-fr-boi-tva-decla-30-10-30",
@@ -370,7 +370,7 @@ module.exports = [
       },
       {
         type: "category",
-        label: "Greece (GR)",
+        label: "Greece",
         className: "sidebar-country sidebar-country--gr",
         items: [
           "poscreators/middleware-doc/middleware-gr/appendix-gr",
@@ -396,7 +396,7 @@ module.exports = [
       },
       {
         type: "category",
-        label: "Italy (IT)",
+        label: "Italy",
         className: "sidebar-country sidebar-country--it",
         items: [
           "poscreators/middleware-doc/middleware-it-registratore-telematico/appendix-it-registratore-telematico",
@@ -473,7 +473,7 @@ module.exports = [
       },
       {
         type: "category",
-        label: "Poland (PL)",
+        label: "Poland",
         className: "sidebar-country sidebar-country--pl",
         items: [
           "poscreators/middleware-doc/middleware-pl/appendix-pl",
@@ -510,7 +510,7 @@ module.exports = [
       },
       {
         type: "category",
-        label: "Portugal (PT)",
+        label: "Portugal",
         className: "sidebar-country sidebar-country--pt",
         items: [
           "poscreators/middleware-doc/middleware-pt/appendix-pt",
