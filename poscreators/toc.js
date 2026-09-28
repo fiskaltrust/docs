@@ -153,6 +153,11 @@ module.exports = [
         type: "category",
         label: "Austria",
         customProps: {
+          topPages: [
+            "poscreators/middleware-doc/middleware-at-rksv/appendix-at-rksv",
+            "poscreators/middleware-doc/middleware-at-rksv/cash-register-integration/cash-register-integration",
+            "poscreators/middleware-doc/middleware-at-rksv/receipt-case-definitions/receipt-case-definitions",
+          ],
           newPage: { label: "eInvoicing", docId: "poscreators/middleware-doc/middleware-at-rksv/e-invoicing/overview" },
         },
         className: "sidebar-country sidebar-country--at",
@@ -194,6 +199,13 @@ module.exports = [
       {
         type: "category",
         label: "Belgium",
+        customProps: {
+          topPages: [
+            "poscreators/middleware-doc/middleware-be/appendix-be",
+            "poscreators/middleware-doc/middleware-be/cash-register-integration/cash-register-integration",
+            "poscreators/middleware-doc/middleware-be/reference-tables/reference-tables",
+          ],
+        },
         className: "sidebar-country sidebar-country--be",
         items: [
           "poscreators/middleware-doc/middleware-be/appendix-be",
@@ -221,6 +233,11 @@ module.exports = [
         type: "category",
         label: "Germany",
         customProps: {
+          topPages: [
+            "poscreators/middleware-doc/middleware-de-kassensichv/appendix-de-kassensichv",
+            "poscreators/middleware-doc/middleware-de-kassensichv/cash-register-integration/cash-register-integration",
+            "poscreators/middleware-doc/middleware-de-kassensichv/receipt-case-definitions/receipt-case-definitions",
+          ],
           newPage: { label: "eInvoicing", docId: "poscreators/middleware-doc/middleware-de-kassensichv/e-invoicing/overview" },
         },
         className: "sidebar-country sidebar-country--de",
@@ -313,6 +330,13 @@ module.exports = [
       {
         type: "category",
         label: "Spain",
+        customProps: {
+          topPages: [
+            "poscreators/middleware-doc/middleware-es/appendix-es",
+            "poscreators/middleware-doc/middleware-es/cash-register-integration/cash-register-integration",
+            "poscreators/middleware-doc/middleware-es/reference-tables/reference-tables",
+          ],
+        },
         className: "sidebar-country sidebar-country--es",
         items: [
           "poscreators/middleware-doc/middleware-es/appendix-es",
@@ -340,6 +364,11 @@ module.exports = [
         type: "category",
         label: "France",
         customProps: {
+          topPages: [
+            "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/appendix-fr-boi-tva-decla-30-10-30",
+            "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/cash-register-integration/cash-register-integration",
+            "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/receipt-case-definitions/receipt-case-definitions",
+          ],
           newPage: { label: "eInvoicing", docId: "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/e-invoicing/overview" },
         },
         className: "sidebar-country sidebar-country--fr",
@@ -376,6 +405,13 @@ module.exports = [
       {
         type: "category",
         label: "Greece",
+        customProps: {
+          topPages: [
+            "poscreators/middleware-doc/middleware-gr/appendix-gr",
+            "poscreators/middleware-doc/middleware-gr/cash-register-integration/cash-register-integration",
+            "poscreators/middleware-doc/middleware-gr/reference-tables/reference-tables",
+          ],
+        },
         className: "sidebar-country sidebar-country--gr",
         items: [
           "poscreators/middleware-doc/middleware-gr/appendix-gr",
@@ -403,6 +439,11 @@ module.exports = [
         type: "category",
         label: "Italy",
         customProps: {
+          topPages: [
+            "poscreators/middleware-doc/middleware-it-registratore-telematico/appendix-it-registratore-telematico",
+            "poscreators/middleware-doc/middleware-it-registratore-telematico/cash-register-integration/cash-register-integration",
+            "poscreators/middleware-doc/middleware-it-registratore-telematico/receipt-case-definitions/receipt-case-definitions",
+          ],
           newPage: { label: "eInvoicing", docId: "poscreators/middleware-doc/middleware-it-registratore-telematico/e-invoicing/overview" },
         },
         className: "sidebar-country sidebar-country--it",
@@ -483,6 +524,11 @@ module.exports = [
         type: "category",
         label: "Poland",
         customProps: {
+          topPages: [
+            "poscreators/middleware-doc/middleware-pl/appendix-pl",
+            "poscreators/middleware-doc/middleware-pl/cash-register-integration/cash-register-integration",
+            "poscreators/middleware-doc/middleware-pl/receipt-case-definitions/receipt-case-definitions",
+          ],
           newPage: { label: "eInvoicing", docId: "poscreators/middleware-doc/middleware-pl/e-invoicing/overview" },
         },
         className: "sidebar-country sidebar-country--pl",
@@ -522,6 +568,13 @@ module.exports = [
       {
         type: "category",
         label: "Portugal",
+        customProps: {
+          topPages: [
+            "poscreators/middleware-doc/middleware-pt/appendix-pt",
+            "poscreators/middleware-doc/middleware-pt/cash-register-integration/cash-register-integration",
+            "poscreators/middleware-doc/middleware-pt/reference-tables/reference-tables",
+          ],
+        },
         className: "sidebar-country sidebar-country--pt",
         items: [
           "poscreators/middleware-doc/middleware-pt/appendix-pt",
