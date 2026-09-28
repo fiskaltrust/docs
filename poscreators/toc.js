@@ -138,10 +138,6 @@ module.exports = [
     ],
   },
   {
-    type: "html",
-    value: "<hr class='sidebar-divider' />",
-  },
-  {
     type: "category",
     label: "Country-Specific Guides",
     collapsed: true,
