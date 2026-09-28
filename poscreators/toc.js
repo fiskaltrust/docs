@@ -217,14 +217,6 @@ module.exports = [
       {
         type: "category",
         label: "Germany",
-        // Most visited pages by unique pageviews, Matomo Apr 1 – Jun 30, 2026 (Introduction excluded)
-        customProps: {
-          topPages: [
-            "poscreators/middleware-doc/middleware-de-kassensichv/reference-tables/type-of-receipt-ftreceiptcase",
-            "poscreators/middleware-doc/middleware-de-kassensichv/reference-tables/type-of-service-ftchargeitemcase",
-            "poscreators/middleware-doc/middleware-de-kassensichv/procedural-documentation/dsfinv-k-generation",
-          ],
-        },
         className: "sidebar-country sidebar-country--de",
         items: [
           "poscreators/middleware-doc/middleware-de-kassensichv/appendix-de-kassensichv",
@@ -341,14 +333,6 @@ module.exports = [
       {
         type: "category",
         label: "France",
-        // Most visited pages by unique pageviews, Matomo Apr 1 – Jun 30, 2026 (Introduction excluded)
-        customProps: {
-          topPages: [
-            "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/reference-tables/reference-tables",
-            "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/data-structures/data-structures",
-            "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/receipt-case-definitions/receipt-case-definitions",
-          ],
-        },
         className: "sidebar-country sidebar-country--fr",
         items: [
           "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/appendix-fr-boi-tva-decla-30-10-30",
@@ -409,14 +393,6 @@ module.exports = [
       {
         type: "category",
         label: "Italy",
-        // Most visited pages by unique pageviews, Matomo Apr 1 – Jun 30, 2026 (Introduction excluded)
-        customProps: {
-          topPages: [
-            "poscreators/middleware-doc/middleware-it-registratore-telematico/reference-tables/type-of-service-ftchargeitemcase",
-            "poscreators/middleware-doc/middleware-it-registratore-telematico/reference-tables/type-of-receipt-ftreceiptcase",
-            "poscreators/middleware-doc/middleware-it-registratore-telematico/reference-tables/type-of-payment-ftpayitemcase",
-          ],
-        },
         className: "sidebar-country sidebar-country--it",
         items: [
           "poscreators/middleware-doc/middleware-it-registratore-telematico/appendix-it-registratore-telematico",
