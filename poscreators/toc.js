@@ -8,8 +8,8 @@ module.exports = [
       "poscreators/getting-started/portal-registration",
       {
         type: "category",
-        collapsed: true,
         label: "Middleware Integration",
+        collapsed: true,
         items: [
           "poscreators/getting-started/middleware-integration",
           "poscreators/getting-started/integration-checklist",
@@ -17,7 +17,7 @@ module.exports = [
       },
       "poscreators/getting-started/onboarding-posdealers",
     ],
-},
+  },
   {
     type: "html",
     value: "<hr class='sidebar-divider' />",
@@ -31,203 +31,287 @@ module.exports = [
       "poscreators/middleware-doc/possystem-api/android-intent",
       "poscreators/middleware-doc/possystem-api/migration-guide",
     ],
-},
+  },
   {
     type: "category",
+    label: "fiskaltrust.Middleware",
     collapsed: true,
-    label: "Compliance Middleware",
+    key: "fiskaltrust-middleware",
     items: [
-      "poscreators/middleware-doc/general/general",
-      "poscreators/middleware-doc/general/terminology/terminology",
       {
         type: "category",
-        label: "Cash Register Integration",
-        key: "general-cash-register-integration",
-        items: [
-          "poscreators/middleware-doc/general/cash-register-integration/cash-register-integration-regular-workflow",
-          "poscreators/middleware-doc/general/cash-register-integration/cash-register-integration-failure-scenarios",
-        ],
-      },
-      "poscreators/middleware-doc/general/operation-modes/operation-modes",
-      {
-        type: "category",
-        label: "Components",
-        key: "general-components",
-        items: [
-          "poscreators/middleware-doc/general/components/components",
-          "poscreators/middleware-doc/general/components/components-install-config",
-        ],
-      },
-      "poscreators/middleware-doc/general/configuration/configuration",
-      "poscreators/middleware-doc/general/data-structures/data-structures",
-      "poscreators/middleware-doc/general/function-structures/function-structures",
-      "poscreators/middleware-doc/general/communication/communication",
-      "poscreators/middleware-doc/general/receipt-case-definitions/receipt-case-definitions",
-      "poscreators/middleware-doc/general/reference-tables/reference-tables",
-
-      {
-        type: "category",
-        label: "Country-Specific Guides",
+        label: "Compliance Middleware",
         collapsed: true,
-        key: "country-specific-guides",
+        key: "compliance-middleware",
         items: [
+          "poscreators/middleware-doc/general/general",
+          "poscreators/middleware-doc/general/terminology/terminology",
           {
             type: "category",
-            label: "Austria (AT)",
+            label: "Cash Register Integration",
+            key: "general-cash-register-integration",
             items: [
-              "poscreators/middleware-doc/middleware-at-rksv/appendix-at-rksv",
-              "poscreators/middleware-doc/middleware-at-rksv/terminology/terminology",
-              "poscreators/middleware-doc/middleware-at-rksv/cash-register-integration/cash-register-integration",
-              "poscreators/middleware-doc/middleware-at-rksv/operation-modes/operation-modes",
-              "poscreators/middleware-doc/middleware-at-rksv/installation/installation",
-              "poscreators/middleware-doc/middleware-at-rksv/data-structures/data-structures",
-              "poscreators/middleware-doc/middleware-at-rksv/function-structures/function-structures",
-              "poscreators/middleware-doc/middleware-at-rksv/communication/communication",
-              "poscreators/middleware-doc/middleware-at-rksv/receipt-case-definitions/receipt-case-definitions",
+              "poscreators/middleware-doc/general/cash-register-integration/cash-register-integration-regular-workflow",
+              "poscreators/middleware-doc/general/cash-register-integration/cash-register-integration-failure-scenarios",
+            ],
+          },
+          "poscreators/middleware-doc/general/operation-modes/operation-modes",
+          {
+            type: "category",
+            label: "Components",
+            key: "general-components",
+            items: [
+              "poscreators/middleware-doc/general/components/components",
+              "poscreators/middleware-doc/general/components/components-install-config",
+            ],
+          },
+          "poscreators/middleware-doc/general/configuration/configuration",
+          "poscreators/middleware-doc/general/data-structures/data-structures",
+          "poscreators/middleware-doc/general/function-structures/function-structures",
+          "poscreators/middleware-doc/general/communication/communication",
+          "poscreators/middleware-doc/general/receipt-case-definitions/receipt-case-definitions",
+          "poscreators/middleware-doc/general/reference-tables/reference-tables",
+        ],
+      },
+      {
+        type: "category",
+        label: "Experience Middleware",
+        collapsed: true,
+        key: "experience-middleware",
+        items: [
+          "poscreators/middleware-doc/experience-middleware/introduction",
+          "poscreators/middleware-doc/experience-middleware/terminology",
+          "poscreators/middleware-doc/experience-middleware/payment",
+          "poscreators/middleware-doc/experience-middleware/delivery",
+          {
+            type: "category",
+            label: "Digital Receipt",
+            collapsed: true,
+            items: [
+              "poscreators/middleware-doc/digital-receipt/introduction",
+              "poscreators/middleware-doc/digital-receipt/bundles",
+              "poscreators/middleware-doc/digital-receipt/receive-receipts",
+              "poscreators/middleware-doc/digital-receipt/compliance",
               {
                 type: "category",
-                label: "Reference Tables",
-                key: "at-reference-tables",
+                label: "Implementation",
                 items: [
-                  "poscreators/middleware-doc/middleware-at-rksv/reference-tables/reference-tables",
-                  "poscreators/middleware-doc/middleware-at-rksv/reference-tables/service-status-ftstate",
-                  "poscreators/middleware-doc/middleware-at-rksv/reference-tables/type-of-receipt-ftreceiptcase",
-                  "poscreators/middleware-doc/middleware-at-rksv/reference-tables/type-of-service-ftchargeitemcase",
-                  "poscreators/middleware-doc/middleware-at-rksv/reference-tables/type-of-payment-ftpayitemcase",
-                  "poscreators/middleware-doc/middleware-at-rksv/reference-tables/type-of-signature-ftsignatureformat",
-                  "poscreators/middleware-doc/middleware-at-rksv/reference-tables/type-of-journal-ftjournaltype",
-                ],
-              },
-              {
-                type: "category",
-                collapsed: true,
-                label: "eInvoicing",
-                items: [
-                  "poscreators/middleware-doc/middleware-at-rksv/e-invoicing/overview",
-                  "poscreators/middleware-doc/middleware-at-rksv/e-invoicing/setup",
+                  "poscreators/middleware-doc/digital-receipt/implementation/getting-started",
+                  "poscreators/middleware-doc/digital-receipt/implementation/digital-receipt-implementation",
                 ],
               },
             ],
           },
-
           {
             type: "category",
-            label: "Belgium (BE)",
+            label: "InStore App",
+            collapsed: true,
             items: [
-              "poscreators/middleware-doc/middleware-be/appendix-be",
-              "poscreators/middleware-doc/middleware-be/terminology/terminology",
-              "poscreators/middleware-doc/middleware-be/cash-register-integration/cash-register-integration",
-              "poscreators/middleware-doc/middleware-be/data-structures/data-structures",
+              "poscreators/middleware-doc/instore-app/introduction/introduction",
+              "poscreators/middleware-doc/instore-app/available-settings/settings",
               {
                 type: "category",
-                label: "Reference Tables",
-                key: "be-reference-tables",
+                label: "Installation and Setup",
                 items: [
-                  "poscreators/middleware-doc/middleware-be/reference-tables/reference-tables",
-                  "poscreators/middleware-doc/middleware-be/reference-tables/service-status-ftstate",
-                  "poscreators/middleware-doc/middleware-be/reference-tables/type-of-receipt-ftreceiptcase",
-                  "poscreators/middleware-doc/middleware-be/reference-tables/type-of-service-ftchargeitemcase",
-                  "poscreators/middleware-doc/middleware-be/reference-tables/type-of-payment-ftpayitemcase",
-                  "poscreators/middleware-doc/middleware-be/reference-tables/type-of-signature-ftsignaturetype",
-                  "poscreators/middleware-doc/middleware-be/reference-tables/type-of-signature-ftsignatureformat",
-                  "poscreators/middleware-doc/middleware-be/reference-tables/type-of-journal-ftjournaltype",
+                  "poscreators/middleware-doc/instore-app/Setup-guide/setup",
+                  "poscreators/middleware-doc/instore-app/Setup-guide/dummy-payment-provider",
+                ],
+              },
+              {
+                type: "category",
+                label: "Installation Guides",
+                items: [
+                  "poscreators/middleware-doc/instore-app/installation-guides/installation-guides",
+                  "poscreators/middleware-doc/instore-app/installation-guides/manual/manual-guide",
+                  "poscreators/middleware-doc/instore-app/installation-guides/GooglePlay/googleplay-guide",
+                  "poscreators/middleware-doc/instore-app/installation-guides/Orderman/orderman-guide",
+                  "poscreators/middleware-doc/instore-app/installation-guides/Sunmi/sunmi-guide",
+                ],
+              },
+              "poscreators/middleware-doc/instore-app/printer-guide/printer",
+              "poscreators/middleware-doc/instore-app/multiterminal-settings/multiterminal",
+              "poscreators/middleware-doc/instore-app/faq/faq",
+            ],
+          },
+        ],
+      },
+    ],
+  },
+  {
+    type: "html",
+    value: "<hr class='sidebar-divider' />",
+  },
+  {
+    type: "category",
+    label: "Country-Specific Guides",
+    collapsed: true,
+    key: "country-specific-guides",
+    link: {
+      type: "generated-index",
+      title: "Country-Specific Guides",
+      description: "Market-specific integration details for the fiskaltrust.Middleware, per country.",
+      slug: "/poscreators/country-specific-guides",
+    },
+    items: [
+      {
+        type: "category",
+        label: "Austria (AT)",
+        className: "sidebar-country sidebar-country--at",
+        items: [
+          "poscreators/middleware-doc/middleware-at-rksv/appendix-at-rksv",
+          "poscreators/middleware-doc/middleware-at-rksv/terminology/terminology",
+          "poscreators/middleware-doc/middleware-at-rksv/cash-register-integration/cash-register-integration",
+          "poscreators/middleware-doc/middleware-at-rksv/operation-modes/operation-modes",
+          "poscreators/middleware-doc/middleware-at-rksv/installation/installation",
+          "poscreators/middleware-doc/middleware-at-rksv/data-structures/data-structures",
+          "poscreators/middleware-doc/middleware-at-rksv/function-structures/function-structures",
+          "poscreators/middleware-doc/middleware-at-rksv/communication/communication",
+          "poscreators/middleware-doc/middleware-at-rksv/receipt-case-definitions/receipt-case-definitions",
+          {
+            type: "category",
+            label: "Reference Tables",
+            key: "at-reference-tables",
+            items: [
+              "poscreators/middleware-doc/middleware-at-rksv/reference-tables/reference-tables",
+              "poscreators/middleware-doc/middleware-at-rksv/reference-tables/service-status-ftstate",
+              "poscreators/middleware-doc/middleware-at-rksv/reference-tables/type-of-receipt-ftreceiptcase",
+              "poscreators/middleware-doc/middleware-at-rksv/reference-tables/type-of-service-ftchargeitemcase",
+              "poscreators/middleware-doc/middleware-at-rksv/reference-tables/type-of-payment-ftpayitemcase",
+              "poscreators/middleware-doc/middleware-at-rksv/reference-tables/type-of-signature-ftsignatureformat",
+              "poscreators/middleware-doc/middleware-at-rksv/reference-tables/type-of-journal-ftjournaltype",
+            ],
+          },
+          {
+            type: "category",
+            label: "eInvoicing",
+            collapsed: true,
+            items: [
+              "poscreators/middleware-doc/middleware-at-rksv/e-invoicing/overview",
+              "poscreators/middleware-doc/middleware-at-rksv/e-invoicing/setup",
+            ],
+          },
+        ],
+      },
+      {
+        type: "category",
+        label: "Belgium (BE)",
+        className: "sidebar-country sidebar-country--be",
+        items: [
+          "poscreators/middleware-doc/middleware-be/appendix-be",
+          "poscreators/middleware-doc/middleware-be/terminology/terminology",
+          "poscreators/middleware-doc/middleware-be/cash-register-integration/cash-register-integration",
+          "poscreators/middleware-doc/middleware-be/data-structures/data-structures",
+          {
+            type: "category",
+            label: "Reference Tables",
+            key: "be-reference-tables",
+            items: [
+              "poscreators/middleware-doc/middleware-be/reference-tables/reference-tables",
+              "poscreators/middleware-doc/middleware-be/reference-tables/service-status-ftstate",
+              "poscreators/middleware-doc/middleware-be/reference-tables/type-of-receipt-ftreceiptcase",
+              "poscreators/middleware-doc/middleware-be/reference-tables/type-of-service-ftchargeitemcase",
+              "poscreators/middleware-doc/middleware-be/reference-tables/type-of-payment-ftpayitemcase",
+              "poscreators/middleware-doc/middleware-be/reference-tables/type-of-signature-ftsignaturetype",
+              "poscreators/middleware-doc/middleware-be/reference-tables/type-of-signature-ftsignatureformat",
+              "poscreators/middleware-doc/middleware-be/reference-tables/type-of-journal-ftjournaltype",
+            ],
+          },
+        ],
+      },
+      {
+        type: "category",
+        label: "Germany (DE)",
+        className: "sidebar-country sidebar-country--de",
+        items: [
+          "poscreators/middleware-doc/middleware-de-kassensichv/appendix-de-kassensichv",
+          "poscreators/middleware-doc/middleware-de-kassensichv/terminology/terminology",
+          {
+            type: "category",
+            label: "Cash Register Integration",
+            key: "de-cash-register-integration",
+            items: [
+              "poscreators/middleware-doc/middleware-de-kassensichv/cash-register-integration/cash-register-integration",
+              "poscreators/middleware-doc/middleware-de-kassensichv/cash-register-integration/single-receipt-creation",
+              "poscreators/middleware-doc/middleware-de-kassensichv/cash-register-integration/receipt-sequences-creation",
+            ],
+          },
+          {
+            type: "category",
+            label: "Operation Modes",
+            key: "de-operation-modes",
+            items: [
+              "poscreators/middleware-doc/middleware-de-kassensichv/operation-modes/on-premise-installation",
+              {
+                type: "category",
+                label: "On-Premise Platforms",
+                key: "de-on-premise-platforms",
+                items: [
+                  "poscreators/middleware-doc/middleware-de-kassensichv/operation-modes/on-premise-platforms/android",
+                  "poscreators/middleware-doc/middleware-de-kassensichv/operation-modes/on-premise-platforms/linux",
+                  "poscreators/middleware-doc/middleware-de-kassensichv/operation-modes/on-premise-platforms/windows",
+                ],
+              },
+              {
+                type: "category",
+                label: "Signature Creation Devices",
+                key: "de-signature-creation-devices",
+                items: [
+                  "poscreators/middleware-doc/middleware-de-kassensichv/operation-modes/scu/a-trust",
+                  "poscreators/middleware-doc/middleware-de-kassensichv/operation-modes/scu/cryptovision",
+                  "poscreators/middleware-doc/middleware-de-kassensichv/operation-modes/scu/deutsche-fiskal",
+                  "poscreators/middleware-doc/middleware-de-kassensichv/operation-modes/scu/diebold-nixdorf",
+                  "poscreators/middleware-doc/middleware-de-kassensichv/operation-modes/scu/epson",
+                  "poscreators/middleware-doc/middleware-de-kassensichv/operation-modes/scu/fiskaly",
+                  "poscreators/middleware-doc/middleware-de-kassensichv/operation-modes/scu/swissbit-cloud",
+                  "poscreators/middleware-doc/middleware-de-kassensichv/operation-modes/scu/swissbit",
+                ],
+              },
+              {
+                type: "category",
+                label: "On-Premise Databases",
+                key: "de-on-premise-databases",
+                items: [
+                  "poscreators/middleware-doc/middleware-de-kassensichv/operation-modes/on-premise-databases/entity-framework",
+                  "poscreators/middleware-doc/middleware-de-kassensichv/operation-modes/on-premise-databases/mysql",
+                  "poscreators/middleware-doc/middleware-de-kassensichv/operation-modes/on-premise-databases/sqlite",
                 ],
               },
             ],
           },
-
+          "poscreators/middleware-doc/middleware-de-kassensichv/installation/installation",
+          "poscreators/middleware-doc/middleware-de-kassensichv/data-structures/data-structures",
+          "poscreators/middleware-doc/middleware-de-kassensichv/receipt-case-definitions/receipt-case-definitions",
           {
             type: "category",
-            label: "Germany (DE)",
+            label: "Reference Tables",
+            key: "de-reference-tables",
             items: [
-              "poscreators/middleware-doc/middleware-de-kassensichv/appendix-de-kassensichv",
-              "poscreators/middleware-doc/middleware-de-kassensichv/terminology/terminology",
-              {
-                type: "category",
-                label: "Cash Register Integration",
-                key: "de-cash-register-integration",
-                items: [
-                  "poscreators/middleware-doc/middleware-de-kassensichv/cash-register-integration/cash-register-integration",
-                  "poscreators/middleware-doc/middleware-de-kassensichv/cash-register-integration/single-receipt-creation",
-                  "poscreators/middleware-doc/middleware-de-kassensichv/cash-register-integration/receipt-sequences-creation",
-                ],
-              },
-              {
-                type: "category",
-                label: "Operation Modes",
-                key: "de-operation-modes",
-                items: [
-                  "poscreators/middleware-doc/middleware-de-kassensichv/operation-modes/on-premise-installation",
-                  {
-                    type: "category",
-                    label: "On-Premise Platforms",
-                    key: "de-on-premise-platforms",
-                    items: [
-                      "poscreators/middleware-doc/middleware-de-kassensichv/operation-modes/on-premise-platforms/android",
-                      "poscreators/middleware-doc/middleware-de-kassensichv/operation-modes/on-premise-platforms/linux",
-                      "poscreators/middleware-doc/middleware-de-kassensichv/operation-modes/on-premise-platforms/windows",
-                    ],
-                  },
-                  {
-                    type: "category",
-                    label: "Signature Creation Devices",
-                    key: "de-signature-creation-devices",
-                    items: [
-                      "poscreators/middleware-doc/middleware-de-kassensichv/operation-modes/scu/a-trust",
-                      "poscreators/middleware-doc/middleware-de-kassensichv/operation-modes/scu/cryptovision",
-                      "poscreators/middleware-doc/middleware-de-kassensichv/operation-modes/scu/deutsche-fiskal",
-                      "poscreators/middleware-doc/middleware-de-kassensichv/operation-modes/scu/diebold-nixdorf",
-                      "poscreators/middleware-doc/middleware-de-kassensichv/operation-modes/scu/epson",
-                      "poscreators/middleware-doc/middleware-de-kassensichv/operation-modes/scu/fiskaly",
-                      "poscreators/middleware-doc/middleware-de-kassensichv/operation-modes/scu/swissbit-cloud",
-                      "poscreators/middleware-doc/middleware-de-kassensichv/operation-modes/scu/swissbit",
-                    ],
-                  },
-                  {
-                    type: "category",
-                    label: "On-Premise Databases",
-                    key: "de-on-premise-databases",
-                    items: [
-                      "poscreators/middleware-doc/middleware-de-kassensichv/operation-modes/on-premise-databases/entity-framework",
-                      "poscreators/middleware-doc/middleware-de-kassensichv/operation-modes/on-premise-databases/mysql",
-                      "poscreators/middleware-doc/middleware-de-kassensichv/operation-modes/on-premise-databases/sqlite",
-                    ],
-                  },
-                ],
-              },
-              "poscreators/middleware-doc/middleware-de-kassensichv/installation/installation",
-              "poscreators/middleware-doc/middleware-de-kassensichv/data-structures/data-structures",
-              "poscreators/middleware-doc/middleware-de-kassensichv/receipt-case-definitions/receipt-case-definitions",
-              {
-                type: "category",
-                label: "Reference Tables",
-                key: "de-reference-tables",
-                items: [
-                  "poscreators/middleware-doc/middleware-de-kassensichv/reference-tables/reference-tables",
-                  "poscreators/middleware-doc/middleware-de-kassensichv/reference-tables/service-status-ftstate",
-                  "poscreators/middleware-doc/middleware-de-kassensichv/reference-tables/type-of-receipt-ftreceiptcase",
-                  "poscreators/middleware-doc/middleware-de-kassensichv/reference-tables/type-of-service-ftchargeitemcase",
-                  "poscreators/middleware-doc/middleware-de-kassensichv/reference-tables/type-of-payment-ftpayitemcase",
-                  "poscreators/middleware-doc/middleware-de-kassensichv/reference-tables/type-of-signature-ftsignaturetype",
-                  "poscreators/middleware-doc/middleware-de-kassensichv/reference-tables/type-of-signature-ftsignatureformat",
-                  "poscreators/middleware-doc/middleware-de-kassensichv/reference-tables/type-of-journal-ftjournaltype",
-                ],
-              },
-              "poscreators/middleware-doc/middleware-de-kassensichv/procedural-documentation/dsfinv-k-generation",
-              {
-                type: "category",
-                collapsed: true,
-                label: "eInvoicing",
-                items: [
-                  "poscreators/middleware-doc/middleware-de-kassensichv/e-invoicing/overview",
-                  "poscreators/middleware-doc/middleware-de-kassensichv/e-invoicing/setup",
-                ],
-              },
+              "poscreators/middleware-doc/middleware-de-kassensichv/reference-tables/reference-tables",
+              "poscreators/middleware-doc/middleware-de-kassensichv/reference-tables/service-status-ftstate",
+              "poscreators/middleware-doc/middleware-de-kassensichv/reference-tables/type-of-receipt-ftreceiptcase",
+              "poscreators/middleware-doc/middleware-de-kassensichv/reference-tables/type-of-service-ftchargeitemcase",
+              "poscreators/middleware-doc/middleware-de-kassensichv/reference-tables/type-of-payment-ftpayitemcase",
+              "poscreators/middleware-doc/middleware-de-kassensichv/reference-tables/type-of-signature-ftsignaturetype",
+              "poscreators/middleware-doc/middleware-de-kassensichv/reference-tables/type-of-signature-ftsignatureformat",
+              "poscreators/middleware-doc/middleware-de-kassensichv/reference-tables/type-of-journal-ftjournaltype",
             ],
+          },
+          "poscreators/middleware-doc/middleware-de-kassensichv/procedural-documentation/dsfinv-k-generation",
+          {
+            type: "category",
+            label: "eInvoicing",
+            collapsed: true,
+            items: [
+              "poscreators/middleware-doc/middleware-de-kassensichv/e-invoicing/overview",
+              "poscreators/middleware-doc/middleware-de-kassensichv/e-invoicing/setup",
+            ],
+          },
+        ],
       },
       {
         type: "category",
         label: "Spain (ES)",
+        className: "sidebar-country sidebar-country--es",
         items: [
           "poscreators/middleware-doc/middleware-es/appendix-es",
           "poscreators/middleware-doc/middleware-es/terminology/terminology",
@@ -253,6 +337,7 @@ module.exports = [
       {
         type: "category",
         label: "France (FR)",
+        className: "sidebar-country sidebar-country--fr",
         items: [
           "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/appendix-fr-boi-tva-decla-30-10-30",
           "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/terminology/terminology",
@@ -274,8 +359,8 @@ module.exports = [
           "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/reference-tables/reference-tables",
           {
             type: "category",
-            collapsed: true,
             label: "eInvoicing",
+            collapsed: true,
             items: [
               "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/e-invoicing/overview",
               "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/e-invoicing/setup",
@@ -286,6 +371,7 @@ module.exports = [
       {
         type: "category",
         label: "Greece (GR)",
+        className: "sidebar-country sidebar-country--gr",
         items: [
           "poscreators/middleware-doc/middleware-gr/appendix-gr",
           "poscreators/middleware-doc/middleware-gr/terminology/terminology",
@@ -311,11 +397,12 @@ module.exports = [
       {
         type: "category",
         label: "Italy (IT)",
+        className: "sidebar-country sidebar-country--it",
         items: [
           "poscreators/middleware-doc/middleware-it-registratore-telematico/appendix-it-registratore-telematico",
           "poscreators/middleware-doc/middleware-it-registratore-telematico/terminology/terminology",
           "poscreators/middleware-doc/middleware-it-registratore-telematico/cash-register-integration/cash-register-integration",
-                   {
+          {
             type: "category",
             label: "Operation Modes",
             key: "it-operation-modes",
@@ -353,7 +440,7 @@ module.exports = [
                 ],
               },
             ],
-          }, 
+          },
           "poscreators/middleware-doc/middleware-it-registratore-telematico/installation/installation",
           "poscreators/middleware-doc/middleware-it-registratore-telematico/data-structures/data-structures",
           "poscreators/middleware-doc/middleware-it-registratore-telematico/communication/communication",
@@ -375,8 +462,8 @@ module.exports = [
           },
           {
             type: "category",
-            collapsed: true,
             label: "eInvoicing",
+            collapsed: true,
             items: [
               "poscreators/middleware-doc/middleware-it-registratore-telematico/e-invoicing/overview",
               "poscreators/middleware-doc/middleware-it-registratore-telematico/e-invoicing/setup",
@@ -384,9 +471,10 @@ module.exports = [
           },
         ],
       },
-{
+      {
         type: "category",
         label: "Poland (PL)",
+        className: "sidebar-country sidebar-country--pl",
         items: [
           "poscreators/middleware-doc/middleware-pl/appendix-pl",
           "poscreators/middleware-doc/middleware-pl/terminology/terminology",
@@ -411,8 +499,8 @@ module.exports = [
           },
           {
             type: "category",
-            collapsed: true,
             label: "eInvoicing",
+            collapsed: true,
             items: [
               "poscreators/middleware-doc/middleware-pl/e-invoicing/overview",
               "poscreators/middleware-doc/middleware-pl/e-invoicing/setup",
@@ -423,6 +511,7 @@ module.exports = [
       {
         type: "category",
         label: "Portugal (PT)",
+        className: "sidebar-country sidebar-country--pt",
         items: [
           "poscreators/middleware-doc/middleware-pt/appendix-pt",
           {
@@ -459,69 +548,6 @@ module.exports = [
       },
     ],
   },
-  ],
-  },
-  {
-  type: "category",
-  label: "Experience Middleware",
-  collapsed: true,
-    items: [
-      "poscreators/middleware-doc/experience-middleware/introduction",
-      "poscreators/middleware-doc/experience-middleware/terminology",
-      "poscreators/middleware-doc/experience-middleware/payment",
-      "poscreators/middleware-doc/experience-middleware/delivery",
-      {
-    type: "category",
-    collapsed: true,
-    label: "Digital Receipt",
-    items: [
-      "poscreators/middleware-doc/digital-receipt/introduction",
-      "poscreators/middleware-doc/digital-receipt/bundles",
-      "poscreators/middleware-doc/digital-receipt/receive-receipts",
-      "poscreators/middleware-doc/digital-receipt/compliance",
-          {
-            type: "category",
-            label: "Implementation",
-            items: [
-              "poscreators/middleware-doc/digital-receipt/implementation/getting-started",
-              "poscreators/middleware-doc/digital-receipt/implementation/digital-receipt-implementation",
-            ],
-          },
-        ],
-    },
-    {
-      type: "category",
-      collapsed: true,
-      label: "InStore App",
-      items: [
-        "poscreators/middleware-doc/instore-app/introduction/introduction",
-        "poscreators/middleware-doc/instore-app/available-settings/settings",
-        {
-          type: "category",
-          label: "Installation and Setup",
-          items: [
-            "poscreators/middleware-doc/instore-app/Setup-guide/setup",
-            "poscreators/middleware-doc/instore-app/Setup-guide/dummy-payment-provider",
-          ],
-        },
-        {
-          type: "category",
-          label: "Installation Guides",
-          items: [
-            "poscreators/middleware-doc/instore-app/installation-guides/installation-guides",
-            "poscreators/middleware-doc/instore-app/installation-guides/manual/manual-guide",
-            "poscreators/middleware-doc/instore-app/installation-guides/GooglePlay/googleplay-guide",
-            "poscreators/middleware-doc/instore-app/installation-guides/Orderman/orderman-guide",
-            "poscreators/middleware-doc/instore-app/installation-guides/Sunmi/sunmi-guide",
-          ],
-        },
-        "poscreators/middleware-doc/instore-app/printer-guide/printer",
-        "poscreators/middleware-doc/instore-app/multiterminal-settings/multiterminal",
-        "poscreators/middleware-doc/instore-app/faq/faq",
-      ],
-    },
-  ],
-},
   {
     type: "html",
     value: "<hr class='sidebar-divider' />",
@@ -542,5 +568,5 @@ module.exports = [
     type: "link",
     label: "Development Kit",
     href: "https://github.com/fiskaltrust/possystemapi-devkit/blob/main/README.MD",
-  }, 
+  },
 ];
