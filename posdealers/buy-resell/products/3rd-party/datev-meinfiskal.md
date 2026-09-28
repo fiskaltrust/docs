@@ -154,12 +154,12 @@ Note that the **DATEV MeinFiskal** account is created automatically during the c
 
 *Figure 2. fiskaltrust.Portal Company overview with the section for enabling third-party connections to DATEV MeinFiskal.*
 
-| Steps | Description                                                                                                                                                                                                                                                                                                                                                                   |
-|-------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| ![Number 1](../../../images/numbers/circle-1o.png) | After purchasing a required commercial product for using DATEV MeinFiskal (see [Prerequisites](#prerequisites)), select `Company` / `Overview`.                                                                                                                                                                                                                               |
-| ![Number 2](../../../images/numbers/circle-2o.png) | Scroll down until `Connections to 3rd party partners` / `DATEV MeinFiskal`.                                                                                                                                                                                                                                                                                                   |
-| ![Number 3](../../../images/numbers/circle-3o.png) | Activate the toggle in front of DATEV MeinFiskal, if you have not yet.                                                                                                                                                                                                                                                                                                        |
-| ![Number 4](../../../images/numbers/circle-4o.png) | You will be redirected to the page to read and `sign` the contract **(Nutzungsvertrag über die Nutzung von DATEV MeinFiskal)**. With your signature, a background process starts. Allow the process sufficient time to complete and refrain from refreshing the page. Navigating away from the page or logging out and back into the account will not have a negative effect. |
+| Steps | Description                                                                                                                                                                                                                                                                                                                                                                                                                               |
+|-------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ![Number 1](../../../images/numbers/circle-1o.png) | After purchasing a required commercial product for using DATEV MeinFiskal (see [Prerequisites](#prerequisites)), log in or [surrogate](../../../getting-started/operator-onboarding/surrogating.md) as a PosOperator account and select `Company` / `Overview`.                                                                                                                                                                           |
+| ![Number 2](../../../images/numbers/circle-2o.png) | Scroll down until `Connections to 3rd party partners` / `DATEV MeinFiskal`.                                                                                                                                                                                                                                                                                                                                                               |
+| ![Number 3](../../../images/numbers/circle-3o.png) | Activate the toggle in front of DATEV MeinFiskal, if you have not yet.                                                                                                                                                                                                                                                                                                                                                                    |
+| ![Number 4](../../../images/numbers/circle-4o.png) | You will be redirected to the page to read and `sign` the contract **(Nutzungsvertrag über die Nutzung von DATEV MeinFiskal)**. With your signature, a background process starts. Allow the process sufficient time to complete and refrain from refreshing the page. Navigating away from the page or logging out and back into the account will not have a negative effect. <br/><br/>You can download the signed contract at any time. |
 
 *Table 3. Steps to set up the DATEV MeinFiskal connection in the fiskaltrust.Portal.*
 
@@ -188,17 +188,15 @@ As a PosDealer, you should have also received a welcome email with further instr
 
 ## Status check for a single PosOperator
 
-![DATEV MeinFiskal Status](../../images/datev-status-information.png "https://portal-sandbox.fiskaltrust.TLD/AccountProfile")
+![DATEV MeinFiskal onboarding status](../../images/datev_meinfiskal_onboarding_status_check.png)
 
-*Figure 5. Portal Company overview showing the DATEV MeinFiskal connection details and status.*
+*Figure 5. DATEV MeinFiskal onboarding status and details.*
 
-| Steps | Description |
-|-------|-------------|
-| ![Number 1](../../../images/numbers/circle-1o.png) | Open the `Company` accordion in the sidebar. |
-| ![Number 2](../../../images/numbers/circle-2o.png) | Choose `Overview`. |
-| ![Number 3](../../../images/numbers/circle-3o.png) | Scroll down until `Connections to 3rd party partners` / `DATEV MeinFiskal`. |
-| ![Number 4](../../../images/numbers/circle-4o.png) | Details about the connection and status are given here. |
-| ![Number 5](../../../images/numbers/circle-5o.png) | The contract can be downloaded using this link again. It was sent to your email address when the contract was signed or changed. |
+| Steps                                              | Description                                                                                                                                              |
+|----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ![Number 1](../../../images/numbers/circle-1o.png) | Log in or [surrogate](../../../getting-started/operator-onboarding/surrogating.md) as a PosOperator account and select `PosOperator`/ `DATEV MeinFiskal` |
+| ![Number 2](../../../images/numbers/circle-2o.png) | Details about the connection and status are given here.                                                                                                  |
+| ![Number 3](../../../images/numbers/circle-3o.png) | The password for the DATEV MeinFiskal account can be changed at any time by clicking on the respective button.                                           |
 
 *Table 5. Steps to check the DATEV MeinFiskal connection status for a single PosOperator.*
 
