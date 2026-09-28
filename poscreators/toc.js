@@ -152,6 +152,9 @@ module.exports = [
       {
         type: "category",
         label: "Austria",
+        customProps: {
+          newPage: { label: "eInvoicing", docId: "poscreators/middleware-doc/middleware-at-rksv/e-invoicing/overview" },
+        },
         className: "sidebar-country sidebar-country--at",
         items: [
           "poscreators/middleware-doc/middleware-at-rksv/appendix-at-rksv",
@@ -217,6 +220,9 @@ module.exports = [
       {
         type: "category",
         label: "Germany",
+        customProps: {
+          newPage: { label: "eInvoicing", docId: "poscreators/middleware-doc/middleware-de-kassensichv/e-invoicing/overview" },
+        },
         className: "sidebar-country sidebar-country--de",
         items: [
           "poscreators/middleware-doc/middleware-de-kassensichv/appendix-de-kassensichv",
@@ -333,6 +339,9 @@ module.exports = [
       {
         type: "category",
         label: "France",
+        customProps: {
+          newPage: { label: "eInvoicing", docId: "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/e-invoicing/overview" },
+        },
         className: "sidebar-country sidebar-country--fr",
         items: [
           "poscreators/middleware-doc/middleware-fr-boi-tva-decla-30-10-30/appendix-fr-boi-tva-decla-30-10-30",
@@ -393,6 +402,9 @@ module.exports = [
       {
         type: "category",
         label: "Italy",
+        customProps: {
+          newPage: { label: "eInvoicing", docId: "poscreators/middleware-doc/middleware-it-registratore-telematico/e-invoicing/overview" },
+        },
         className: "sidebar-country sidebar-country--it",
         items: [
           "poscreators/middleware-doc/middleware-it-registratore-telematico/appendix-it-registratore-telematico",
@@ -470,6 +482,9 @@ module.exports = [
       {
         type: "category",
         label: "Poland",
+        customProps: {
+          newPage: { label: "eInvoicing", docId: "poscreators/middleware-doc/middleware-pl/e-invoicing/overview" },
+        },
         className: "sidebar-country sidebar-country--pl",
         items: [
           "poscreators/middleware-doc/middleware-pl/appendix-pl",
