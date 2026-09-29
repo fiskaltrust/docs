@@ -28,7 +28,7 @@ Once paired, the app listens to the CashBox and displays receipts or starts paym
 A: The following must be in place:
 
 - An **Android device** with a touchscreen. An integrated or connected receipt printer is recommended for Consumer mode, but not required.
-- An **internet connection** for the initial configuration, and a **permanent and stable internet connection** when actions (show receipt, start payment) are received via the fiskaltrust cloud backend. Payments triggered via the optional local communication path do not require it (see [Can the InStore App be used offline?](#for-developers)).
+- An **internet connection** for the initial configuration, and a **permanent and stable internet connection** when actions (show receipt, start payment) are received via the fiskaltrust cloud backend. Payments triggered via the optional local communication path do not require it (see [For Developers](#for-developers)).
 - A **CashBox in the fiskaltrust.Portal** to pair with. For development and demos, use a sandbox CashBox. For the cloud-hosted POS System API, a Cloud CashBox is used; for local setups, the CashBox needs the corresponding helper (see [PosSystem API Platforms](../../../../posdealers/technical-operations/possystem-api-platforms/overview.md)).
 - The **Display over other apps** permission, and Bluetooth for Bluetooth printers.
 - Optionally, an **account with a supported payment provider** and, for software-based payment (SoftPOS), the provider's payment app installed on the same device.
@@ -200,7 +200,7 @@ A: A complete checkout consists of three flows:
 2. **Fiscalization**: The POS sends `/sign` with charge items and the pay items from step 1. The Middleware fiscalizes the receipt according to the market rules and returns the receipt response.
 3. **Issuing**: The POS sends `/issue` with the request and response pair. fiskaltrust stores the receipt, returns the document URL, and pushes the receipt to the InStore App, which displays QR code, OK, Print, Email, and SMS. Consumer interactions are logged in the fiskaltrust backend, and the POS can poll the delivered status.
 
-The InStore App never communicates with the POS directly. All communication runs through the fiskaltrust backend, and the terminal ID determines which device reacts. Optionally, payments can also be triggered locally by a POS app on the same Android device (see below).
+For cloud-triggered actions, the POS and InStore App communicate through the fiskaltrust backend, and the terminal ID determines which device reacts. Optionally, payments can instead be triggered locally by a POS app on the same Android device (see below).
 
 **Q: Can the InStore App be used offline?**
 
