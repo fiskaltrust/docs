@@ -1,4 +1,4 @@
----
+﻿---
 slug: /poscreators/middleware-doc/instore-app/introduction
 title: Introduction
 ---
@@ -81,21 +81,35 @@ This high-level overview shows the steps required to implement and configure the
 
 For more information about the configuration steps for the master data, see [Digital Receipt Introduction](../../../../posdealers/buy-resell/products/digital-receipt.md#introduction).
 
-## Implementing InStore App 
+## Implementing InStore App
 
-fiskaltrust provides two implementation methods for the InStore App. The first approach is via the POS API Helper, which is recommended for testing/sandbox environments as well as for small installations. Configuring the POS API Helper within the fiskaltrust.Portal requires no implementation effort in your point-of-sale software.
+There are two ways to connect your point-of-sale software to the InStore App:
 
-The POS API is the latest addition to the digital receipt ecosystem. It is a superset of the Middleware's original IPOS interface and uses the same models for `/sign`, `/journal`, and `/echo`. The core features of this API provides a variety of functionalities for point-of-sale software and serve as the central entry point to the fiskaltrust.Middleware. For the InStore App, the `/print` endpoint is required to digitally print digital receipts.
+- **POS System API (recommended):** Your point-of-sale software calls the fiskaltrust POS System API directly. This is the integration path described below.
+- **POS API Helper (for existing integrations):** If your point-of-sale software is already integrated with the classic Middleware interface (`/sign` via IPOS v0 or the SignatureCloud API), the POS API Helper can push the signed receipts to the paired InStore App without changing that existing integration. The Helper is configured on the CashBox in the fiskaltrust.Portal (see [Configuring POS API Helper](#configuring-pos-api-helper)). It is a bridge rather than a replacement for the POS System API: it does not log delivery statuses (scanned, acknowledged, printed), which are required in Austria to prove compliance with the obligations to issue and accept receipts, and it does not support payments via the InStore App. For production rollouts, migrate to the POS System API following the [Migration Guide](../../possystem-api/migration-guide.md).
 
-This means that existing implementations can be easily reused by adapting them to the asynchronous flow. The IPOS interface will continue to be fully supported by the Middleware.
+:::info
 
-As most operations, especially `/print` requests, may take an extended amount of time, this API is designed to be fully asynchronous. After sending a request to the `/print` endpoint, the InStore App immediately displays the QR code. Note that the `/sign` operation does not necessarily need to be implemented for the InStore App. 
+The [POS System API documentation](https://docs.fiskaltrust.cloud/apis/pos-system-api) is the source of truth for endpoints, headers, request and response schemas, and environments (sandbox and production). This page only gives a brief overview.
 
-A general sample of this process flow is illustrated as follows:
+:::
 
-![Screenshot 2023-11-07 152951](https://github.com/fiskaltrust/interface-doc/assets/124153755/bd976d8c-3119-47b1-852d-abb678aea01d)
+### How it works
 
-*Figure 4. Sample asynchronous flow for signing and printing a digital receipt through the POS API.*
+At a high level, the point-of-sale software performs the following steps:
+
+1. Optionally, call `/echo` to verify connectivity and authentication.
+2. Call `/sign` to fiscalize the receipt according to local regulations. The response contains the signed receipt data.
+3. Call `/issue` with the `ReceiptRequest` and `ReceiptResponse` from `/sign` to issue the receipt digitally. The InStore App paired with the CashBox then displays the QR code with the link to the digital receipt.
+4. Optionally, use the `/issue/{QueueId}/{QueueItemId}` endpoints to retrieve the receipt in other formats, to query the delivery status (`/delivered`), or to update the receipt status.
+
+Every request must carry the authentication and idempotency headers (CashBox ID, access token, operation ID, and POS system ID) as defined in the POS System API documentation. The CashBox ID and access token are obtained by creating a CashBox in the fiskaltrust.Portal.
+
+For details on each endpoint, see the [POS System API documentation](https://docs.fiskaltrust.cloud/apis/pos-system-api).
+
+### Development kit
+
+The [POS System API development kit](https://github.com/fiskaltrust/possystemapi-devkit/blob/main/README.MD) provides runnable C# samples for the InStore App and the POS System API, including a dummy payment provider for sandbox testing. Use it to get familiar with the flow before implementing it in your point-of-sale software.
 
 :::warning
 
@@ -103,304 +117,11 @@ The fiskaltrust InStore App requires a permanent and stable internet connection.
 
 :::
 
-## Availability
-
-The production API is available at https://possystem-api.fiskaltrust.eu/v2/ as for all fiskaltrust services. The sandbox instance should be used for development and testing and is available at https://possystem-api-sandbox.fiskaltrust.eu/v2/.
-
-The same endpoints will also be added to the on-premise Launcher (natively in version 2.0, and via additional Helper packages for earlier versions).
-
-:::info
-
-- **Sign** endpoint is only available in Austria with the Cloud CashBox.
-- **Print** endpoint is available in Austria and Germany.
-
-:::
-
-## Authentication
-
-Authentication is handled via the `CashBoxID` and `Accesstoken` headers, which are mandatory for each request. These values can be obtained by creating a CashBox in the one of the country-specific fiskaltrust.Portal.
-
-## Operation Flow (Digital Receipt)
-
-Typically, a complete receipt flow when using digital receipt (sign, print, and response) looks as follows:
-
-1. Call the `/sign` endpoint and wait asynchronously for the result.
-2. If signing is successful, call the `/print` endpoint. The InStore App then displays the QR code to the digital receipt.
-
-## Asynchronously Sign a Receipt According to Local Regulations (Sign Endpoint)
-
-This method can be used to sign different types of receipts in accordance with local fiscalization regulations. After signing the receipt according to fiscal law, the method asynchronously returns the data that will be displayed on the digital receipt.
-
-The format of the receipt request is documented in the Middleware API documentation. The exact behavior of the method is determined by the cases sent within the properties (for example, `ftReceiptCase`, `ftChargeItemCase`, and `ftPayItemCase`).
-
-**POST:**
-
-https://possystem-api.fiskaltrust.eu/v2/sign (Production)
-
-https://possystem-api-sandbox.fiskaltrust.eu/v2/sign (Sandbox)
-
-**Header parameters:**
-
-cashboxid (required): string <br/>
-accesstoken (required): string
-
-<details>
-<summary>Request body schema (JSON):</summary>
-
-
-```json
-{
-  "ftCashBoxID": "string",
-  "ftQueueID": "string",
-  "ftPosSystemId": "string",
-  "cbTerminalID": "string",
-  "cbReceiptReference": "string",
-  "cbReceiptMoment": "2019-08-24T14:15:22Z",
-  "cbChargeItems": [
-    {
-      "position": 0,
-      "quantity": 0,
-      "description": "string",
-      "amount": 0,
-      "vatRate": 0,
-      "ftChargeItemCase": 0,
-      "ftChargeItemCaseData": "string",
-      "vatAmount": 0,
-      "accountNumber": "string",
-      "costCenter": "string",
-      "productGroup": "string",
-      "productNumber": "string",
-      "productBarcode": "string",
-      "unit": "string",
-      "unitQuantity": 0,
-      "unitPrice": 0,
-      "moment": "2019-08-24T14:15:22Z"
-    }
-  ],
-  "cbPayItems": [
-    {
-      "position": 0,
-      "quantity": 0,
-      "description": "string",
-      "amount": 0,
-      "ftPayItemCase": 0,
-      "ftPayItemCaseData": "string",
-      "accountNumber": "string",
-      "costCenter": "string",
-      "moneyGroup": "string",
-      "moneyNumber": "string",
-      "moment": "2019-08-24T14:15:22Z"
-    }
-  ],
-  "ftReceiptCase": 0,
-  "ftReceiptCaseData": "string",
-  "cbReceiptAmount": 0,
-  "cbUser": "string",
-  "cbArea": "string",
-  "cbCustomer": "string",
-  "cbSettlement": "string",
-  "cbPreviousReceiptReference": "string"
-}
-```
-
-
-</details>
-
-**Responses:**
-
-200 - Returns a unique identifier, which can be used to obtain the result of the operation via the response endpoint.
-
-<details>
-<summary>Response sample (JSON):</summary>
-
-
-```json
-{
-  "type": "sign",
-  "identifier": "fdf2a983-0c30-4d40-bda3-e4e339551e5e"
-}
-```
-
-
-</details>
-
-400 - Bad request (Please check the request)
-
-401 - Unauthorized (No or wrong Accesstoken or CashBoxID in header)
-
-## Asynchronously Create a Digital Receipt (Print Endpoint) 
-
-This method is used to "print" a digital receipt, based on the receipt request and response pair from signing a receipt via the sign endpoint. The asynchronously created response contains the URL to the digital receipt. 
-
-**POST:**
-
-https://possystem-api.fiskaltrust.eu/v2/print (Production)
-
-https://possystem-api-sandbox.fiskaltrust.eu/v2/print (Sandbox)
-
-**Header parameters:**
-
-cashboxid (required): string <br/>
-accesstoken (required): string 
-
-<details>
-<summary>Request body schema (JSON):</summary>
-
-
-```json
-{
-  "request": {
-    "ftCashBoxID": "string",
-    "ftQueueID": "string",
-    "ftPosSystemId": "string",
-    "cbTerminalID": "string",
-    "cbReceiptReference": "string",
-    "cbReceiptMoment": "2019-08-24T14:15:22Z",
-    "cbChargeItems": [
-      {
-        "position": 0,
-        "quantity": 0,
-        "description": "string",
-        "amount": 0,
-        "vatRate": 0,
-        "ftChargeItemCase": 0,
-        "ftChargeItemCaseData": "string",
-        "vatAmount": 0,
-        "accountNumber": "string",
-        "costCenter": "string",
-        "productGroup": "string",
-        "productNumber": "string",
-        "productBarcode": "string",
-        "unit": "string",
-        "unitQuantity": 0,
-        "unitPrice": 0,
-        "moment": "2019-08-24T14:15:22Z"
-      }
-    ],
-    "cbPayItems": [
-      {
-        "position": 0,
-        "quantity": 0,
-        "description": "string",
-        "amount": 0,
-        "ftPayItemCase": 0,
-        "ftPayItemCaseData": "string",
-        "accountNumber": "string",
-        "costCenter": "string",
-        "moneyGroup": "string",
-        "moneyNumber": "string",
-        "moment": "2019-08-24T14:15:22Z"
-      }
-    ],
-    "ftReceiptCase": 0,
-    "ftReceiptCaseData": "string",
-    "cbReceiptAmount": 0,
-    "cbUser": "string",
-    "cbArea": "string",
-    "cbCustomer": "string",
-    "cbSettlement": "string",
-    "cbPreviousReceiptReference": "string"
-  },
-  "response": {
-    "ftCashBoxID": "string",
-    "ftQueueID": "string",
-    "ftQueueItemID": "string",
-    "ftQueueRow": 0,
-    "cbTerminalID": "string",
-    "cbReceiptReference": "string",
-    "ftCashBoxIdentification": "string",
-    "ftReceiptIdentification": "string",
-    "ftReceiptMoment": "2019-08-24T14:15:22Z",
-    "ftReceiptHeader": [
-      "string"
-    ],
-    "ftChargeItems": [
-      {
-        "position": 0,
-        "quantity": 0,
-        "description": "string",
-        "amount": 0,
-        "vatRate": 0,
-        "ftChargeItemCase": 0,
-        "ftChargeItemCaseData": "string",
-        "vatAmount": 0,
-        "accountNumber": "string",
-        "costCenter": "string",
-        "productGroup": "string",
-        "productNumber": "string",
-        "productBarcode": "string",
-        "unit": "string",
-        "unitQuantity": 0,
-        "unitPrice": 0,
-        "moment": "2019-08-24T14:15:22Z"
-      }
-    ],
-    "ftChargeLines": [
-      "string"
-    ],
-    "ftPayItems": [
-      {
-        "position": 0,
-        "quantity": 0,
-        "description": "string",
-        "amount": 0,
-        "ftPayItemCase": 0,
-        "ftPayItemCaseData": "string",
-        "accountNumber": "string",
-        "costCenter": "string",
-        "moneyGroup": "string",
-        "moneyNumber": "string",
-        "moment": "2019-08-24T14:15:22Z"
-      }
-    ],
-    "ftPayLines": [
-      "string"
-    ],
-    "ftSignatures": [
-      {
-        "ftSignatureFormat": 0,
-        "ftSignatureType": 0,
-        "caption": "string",
-        "data": "string"
-      }
-    ],
-    "ftReceiptFooter": [
-      "string"
-    ],
-    "ftState": 0,
-    "ftStateData": "string"
-  }
-}
-```
-
-
-</details>
-
-**Responses:**
-
-200 - Returns a unique identifier, which can be used to obtain the result of the operation via the response endpoint.
-
-<details>
-<summary>Response sample (JSON):</summary>
-
-
-```json
-{
-    "type": "print",
-    "identifier": "0ccf5ada-7d0d-4531-bc2c-9c602d26e4fe"
-}
-```
-
-
-</details>
-
-400 - Bad request "not supported" (Please check the request) 
-
-401 – Unauthorized (No or wrong Accesstoken or CashBoxID in header)
-
 ## Configuring POS API Helper
 
 The POS API Helper is available in all countries. This Helper is responsible for uploading data from the local Queue to the digital receipt endpoint. It is configured in the fiskaltrust.Portal and assigned to each CashBox that uses digital receipts. The POS API Helper enables direct upload of digital receipts.
+
+The POS API Helper is only needed for point-of-sale software that still uses the classic Middleware interface. It is not the same as the LocalPosSystemApi Helper, which provides the POS System API locally with Launcher 2.0 (see the [Migration Guide](../../possystem-api/migration-guide.md)). A Cloud CashBox used with the POS System API needs no additional Helper.
 
 To proceed with the configuration, log in to your fiskaltrust.Portal account first. 
 
