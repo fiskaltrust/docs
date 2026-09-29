@@ -46,7 +46,7 @@ In-store, the merchant collects items and processes the payment or checkout. The
 
 - **Acknowledge:** The consumer manually acknowledges receipt by tapping the OK button in the InStore App. The InStore app sends a log to the fiskaltrust backend indicating that the receipt was acknowledged manually. The InStore app receives a response from the fiskaltrust backend to close the display. 
 
-- **Print receipt:** Consumers can manually initiate paper receipt printing on the InStore App device by tapping the Print button. Additionally, if there is no user interaction, a paper receipt is automatically printed after a default countdown of 15 seconds. Once the receipt is printed, the display closes and the print command is logged.
+- **Print receipt:** Consumers can manually initiate paper receipt printing on the InStore App device by tapping the Print button. Additionally, in Consumer mode, a paper receipt is automatically printed if there is no user interaction before the configured [Print Delay](../available-settings/settings.md#print-delay) expires. Once the receipt is printed, the display closes and the print command is logged.
 
 - **Send receipt via email:** Consumers can choose to receive the digital receipt via email by tapping the Send by Email button on the InStore App device. A screen will then be displayed where the consumer can enter their email address.
 
@@ -68,6 +68,21 @@ In-store, the merchant collects items and processes the payment or checkout. The
 | 6 | `Send by SMS` button to send the receipt via SMS |
 
 *Table 1. Interface elements shown on the InStore App receipt display in Figure 2.*
+
+## Status Information on the Home Screen
+
+Since version 1.3.2, the home screen of the InStore App shows four status icons in the top right corner. A green icon means that the related function is ready.
+
+| Icon | Description |
+|------|-------------|
+| Cloud | The InStore App is connected to the fiskaltrust cloud and can receive actions (show receipt, start payment) from the POS System API. |
+| On device | Apps on the same device can start payments locally via the fiskaltrust Android launcher. This also works offline. |
+| Printer | A printer is configured. |
+| Payment | A payment provider is configured. |
+
+*Table 2. Status icons shown on the InStore App home screen.*
+
+Tapping the icons opens a **Status** popup with further details, such as the configured printer and payment provider.
 
 ## Configuring InStore App
 
@@ -99,7 +114,9 @@ A general sample of this process flow is illustrated as follows:
 
 :::warning
 
-The fiskaltrust InStore App requires a permanent and stable internet connection.
+The fiskaltrust InStore App requires an internet connection for the initial configuration, and a permanent and stable internet connection for actions received via the fiskaltrust cloud backend.
+
+Since version 1.3.2, payments can optionally also be triggered locally by a POS app on the same device via the fiskaltrust Android launcher (see [Android Intent Integration](../../possystem-api/android-intent.md)). This local communication path works offline and requires a fiskaltrust Android launcher version that supports it.
 
 :::
 
