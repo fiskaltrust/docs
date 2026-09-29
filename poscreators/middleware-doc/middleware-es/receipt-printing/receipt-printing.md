@@ -23,7 +23,7 @@ Every simplified invoice (`0x0001`) and complete invoice (`0x1xxx`) contains the
 | ------- | ------ | ----- |
 | Issuer | Master data | Name or company name, NIF and address of the issuer, as configured for the queue in the fiskaltrust.Portal. The NIF is also returned as signature item `IDEmisorFactura`. |
 | Document type | Derived from `ftReceiptCase` | *Factura simplificada* for POS receipts, *Factura* for invoices. Do not print other designations such as *ticket* or *recibo* on fiscal documents. |
-| Series and number | `ftReceiptIdentification` | The part after the `#`, e.g. `ft2A#fktAbCdEfGhIjK0000-17` (series, hyphen, sequential number). Print it unchanged; it is the *NumSerieFactura* of the record and part of the QR code. |
+| Series and number | `ftReceiptIdentification` | The part after the `#`: for `ft2A#fktAbCdEfGhIjK0000-17` print `fktAbCdEfGhIjK0000-17` (series, hyphen, sequential number). Print it unchanged; it is the *NumSerieFactura* of the record and part of the QR code. |
 | Date (and time) | `cbReceiptMoment` | In Spanish local time (the fiskaltrust.Middleware converts UTC to Europe/Madrid for the record). TicketBAI records carry date and time of issue. |
 | Customer | `cbCustomer` | On complete invoices: name, address and NIF (or foreign identification) of the recipient. Simplified invoices carry no recipient. The recipient is transmitted in TicketBAI files but not yet in VERI\*FACTU records (see [Supported document types](../declaration/declaration.md#supported-document-types)). |
 | Line items | `cbChargeItems` | Description, quantity, unit price without VAT, VAT rate and line total. TicketBAI transmits description (max. 250 characters), quantity, net unit price and line total per line. |
@@ -73,7 +73,7 @@ The recommended print order is: issuer, document type, series and number, date a
 
 - **Cancellation (VERI\*FACTU).** Send the document again with the void flag (`0x0004`) and `cbPreviousReceiptReference`. The fiskaltrust.Middleware transmits a *registro de anulación* and returns the hash and the issuer NIF (`IDEmisorFacturaAnulada`); no new QR code is returned. If you print a confirmation, mark it as *Anulación* and reference the cancelled series and number.
 - **Refund.** Send the refund with the refund flag (`0x0100`), `cbPreviousReceiptReference` and the returned lines with negative quantities and amounts (all lines for a full refund, the affected lines with the charge-item refund flag for a partial refund). The response carries a new series and number and a new QR code; print the document like an invoice and reference the original.
-- **Copy of an existing document.** Send `ftReceiptCase` `0x3010`; no transmission takes place. Reprint the original content and signature items unchanged and mark the print as a copy (*Copia*).
+- **Copy of an existing document.** Reprint the original content and signature items from the response stored in your POS, unchanged, and mark the print as a copy (*Copia*). You can record the copy with `ftReceiptCase` `0x3010`; no transmission takes place and the fiskaltrust.Middleware does not return the original signature items again.
 - **TicketBAI.** Cancellations are not yet available on TicketBAI queues; see [Boundaries](../declaration/declaration.md#boundaries).
 
 ## Checklist for PosCreators

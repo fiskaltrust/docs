@@ -62,7 +62,7 @@ version 2
 | `3002` | **Protocol (audit event / accounting event)** |
 | `3003` | **Internal usage / Material consumption** |
 | `3004` | **Order** |
-| `3010` | **Copy Receipt / Print existing Receipt**<br />Stored in the queue, no transmission. Reprint the original signature items and mark the print as a copy. |
+| `3010` | **Copy Receipt / Print existing Receipt**<br />Stored in the queue, no transmission. The original signature items are not returned again; reprint them from the response stored in your POS and mark the print as a copy. |
 | `4001` | **Queue-Start-Receipt (Initial operations receipt)**<br />Activates the queue and creates its two numbering sequences (simplified invoices and invoices). Recorded as start event in the action journal. |
 | `4002` | **Queue-Stop-Receipt (Out of operations receipt)**<br />Deactivates the queue; recorded as stop event. |
 | `4011` | **Initiate SCU-switch**<br />Accepted as no-op in Spain (also `4012`). |

@@ -75,7 +75,7 @@ The following operations are accepted but do not create a fiscal document:
 | --------- | --------------- | ------ |
 | Payment transfer, POS receipt without fiscalization, e-commerce, delivery note, table check, pro forma | `0x0002` to `0x0007` | Stored in the queue without number, record or transmission. They have no fiscal effect in Spain; use them only for documents that are not invoices. |
 | Zero receipt, daily operations | `0x2000` to `0x2013` | Accepted as no-ops; Spain has no closing obligation. |
-| Protocol / audit log, order, pay, copy | `0x3000` to `0x3010` | Stored in the queue, no transmission. A copy (`0x3010`) reprints the original signature items. |
+| Protocol / audit log, order, pay, copy | `0x3000` to `0x3010` | Stored in the queue, no transmission. A copy (`0x3010`) does not return the original signature items; the POS reprints them from its stored response. |
 | Initial / out-of-operation | `0x4001`, `0x4002` | Queue lifecycle. The initial-operation receipt activates the queue and creates the two numbering sequences. |
 | SCU switch | `0x4011`, `0x4012` | Accepted as no-ops. |
 
@@ -116,7 +116,7 @@ The fiskaltrust.Middleware rejects requests that fall outside the supported scop
 ## What this means for PosOperators
 
 - **You remain the taxpayer.** The documents are issued in your name, with your NIF, and transmitted to the AEAT or to your provincial tax authority. You hand them to your customers and keep them for the statutory retention period.
-- **You need an electronic certificate.** A qualified electronic certificate (company seal or legal representative; for TicketBAI additionally a device certificate issued by Izenpe) is uploaded to the fiskaltrust.Portal during onboarding.
+- **You need an electronic certificate.** A qualified electronic certificate accepted by the tax authority of your territory (for example a company seal or legal-representative certificate, or for TicketBAI a device certificate issued by Izenpe) is uploaded to the fiskaltrust.Portal during onboarding.
 - **Keep fiskaltrust's declaration.** You must be able to show the declaración responsable of the fiskaltrust.Middleware to the AEAT on request.
 - **Corrections go through the POS.** A wrong document is voided or refunded through the POS. Documents cannot be edited or deleted.
 - **Bizkaia.** The fiskaltrust.Middleware transmits the TicketBAI files as part of the *LROE* (modelo 240); the remaining LROE chapters are not filed by the fiskaltrust.Middleware. Ask fiskaltrust about the available exports for your accountant.

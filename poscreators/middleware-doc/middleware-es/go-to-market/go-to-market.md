@@ -30,13 +30,13 @@ The steps on your side are described in [Integrating under fiskaltrust's declara
 
 ## What you need to know
 
-**The merchant's territory decides the queue.** A merchant with an establishment in Araba, Bizkaia or Gipuzkoa issues the invoices of that establishment under TicketBAI of that province; all other establishments use VERI\*FACTU. In the fiskaltrust.Middleware this is a property of the queue: a queue is set up either for VERI\*FACTU or for TicketBAI of one province, and the choice cannot be changed afterwards. The requests your POS sends are the same in both cases; only the returned signature items differ. For the Canary Islands, Ceuta and Melilla the applied tax (IGIC or IPSI instead of VAT) is part of the queue configuration.
+**The merchant's territory decides the queue.** A merchant with an establishment in Araba, Bizkaia or Gipuzkoa issues the invoices of that establishment under TicketBAI of that province; establishments in the common territory use VERI\*FACTU. Navarre has its own regime and is not supported. In the fiskaltrust.Middleware this is a property of the queue: a queue is set up either for VERI\*FACTU or for TicketBAI of one province, and the choice cannot be changed afterwards. The requests your POS sends are the same in both cases; only the returned signature items differ. For the Canary Islands, Ceuta and Melilla the applied tax (IGIC or IPSI instead of VAT) is part of the queue configuration.
 
 **Every document is transmitted in real time.** The fiskaltrust.Middleware transmits every record synchronously, and the response of the tax authority decides whether the document is issued. The response time of the authority is therefore part of the checkout time.
 
 **No numbered invoice without the fiskaltrust.Middleware.** While your POS cannot reach the fiskaltrust.Middleware it cannot issue a numbered invoice. In exceptional situations a provisional receipt may be handed to the customer and must be replaced by the official invoice as soon as the connection is back. Contact fiskaltrust for the recommended procedure for outages.
 
-**The merchant needs a certificate.** Transmission and signature use a qualified electronic certificate of the merchant (for TicketBAI additionally a device certificate issued by Izenpe). The merchant uploads it in the Spanish fiskaltrust.Portal (`portal.fiskaltrust.es`) during onboarding; your POS never handles it.
+**The merchant needs a certificate.** Transmission and signature use a qualified electronic certificate of the merchant that is accepted by the tax authority of its territory (for TicketBAI, for example, a device certificate issued by Izenpe). The merchant uploads it in the Spanish fiskaltrust.Portal (`portal.fiskaltrust.es`) during onboarding; your POS never handles it.
 
 **Supported scope.** The fiskaltrust.Middleware issues simplified invoices, complete invoices, cancellations and refunds. Corrective invoice types, TicketBAI cancellations, vouchers, the equivalence surcharge and SII are not available yet. See [Supported document types](../declaration/declaration.md#supported-document-types) and [Boundaries](../declaration/declaration.md#boundaries).
 
