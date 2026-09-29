@@ -28,7 +28,7 @@ Once paired, the app listens to the CashBox and displays receipts or starts paym
 A: The following must be in place:
 
 - An **Android device** with a touchscreen. An integrated or connected receipt printer is recommended for Consumer mode, but not required.
-- A **permanent and stable internet connection**. The app receives its actions (show receipt, start payment) via push from the fiskaltrust backend.
+- An **internet connection** for the initial configuration, and a **permanent and stable internet connection** when actions (show receipt, start payment) are received via the fiskaltrust cloud backend. Payments triggered via the optional local communication path do not require it (see [Can the InStore App be used offline?](#for-developers)).
 - A **CashBox in the fiskaltrust.Portal** to pair with. For development and demos, use a sandbox CashBox. For the cloud-hosted POS System API, a Cloud CashBox is used; for local setups, the CashBox needs the corresponding helper (see [PosSystem API Platforms](../../../../posdealers/technical-operations/possystem-api-platforms/overview.md)).
 - The **Display over other apps** permission, and Bluetooth for Bluetooth printers.
 - Optionally, an **account with a supported payment provider** and, for software-based payment (SoftPOS), the provider's payment app installed on the same device.
@@ -51,7 +51,7 @@ Some payment providers also expose the terminal's integrated printer to the app 
 
 A: The POS system needs to be able to send HTTP/JSON requests to the [fiskaltrust POS System API](../../possystem-api/introduction.md) (v2). Every request carries the CashBox credentials from the fiskaltrust.Portal as headers (`x-cashbox-id`, `x-cashbox-accesstoken`, `x-possystem-id`) and a unique `x-operation-id` per operation so calls can be safely retried. The POS system should also be able to set a terminal identification (`cbTerminalID` in the request body, or the `x-terminal-id` header) so that requests reach the right device in [multi-terminal setups](../multiterminal-settings/multiterminal.md).
 
-No SDK, no device-side integration, and no direct network connection between the POS and the InStore App are needed. The app is paired with the CashBox and receives its actions from the fiskaltrust backend.
+No SDK, no device-side integration, and no direct network connection between the POS and the InStore App are needed. The app is paired with the CashBox and receives its actions from the fiskaltrust backend. Optionally, a POS app on the same Android device can also trigger payments locally via the fiskaltrust Android launcher (see [Android Intent Integration](../../possystem-api/android-intent.md)).
 
 **Q: Is a connection to the fiskaltrust POS System API sufficient?**
 
@@ -127,7 +127,7 @@ A: The interfaces available today are the POS System API receipt data (`/sign` a
 
 **Q: Is the InStore App required to use the payment functions?**
 
-A: Yes. fiskaltrust's payment integration is delivered through the InStore App. The app hosts the connection to the payment provider, either by driving a SoftPOS payment app installed on the same device (for example Softpay.io, GP tom, Viva, Worldline Tap on Mobile) or by talking to a hardware terminal (for example Hobex ECR or Shift4). The POS system only calls the `/pay` endpoint; the InStore App executes the payment on the device identified by `cbTerminalID`. See [Payment](../../experience-middleware/payment.md) and the [PSP feature matrix](../../experience-middleware/payment.md#payment-service-provider-psp-feature-matrix).
+A: Yes. fiskaltrust's payment integration is delivered through the InStore App. The app hosts the connection to the payment provider, either by driving a SoftPOS or payment app installed on the same device or by talking to a hardware terminal. The POS system only calls the `/pay` endpoint; the InStore App executes the payment on the device identified by `cbTerminalID`. The supported payment service providers and their features are listed in the [PSP feature matrix](../../experience-middleware/payment.md#payment-service-provider-psp-feature-matrix). See also [Payment](../../experience-middleware/payment.md).
 
 **Q: Can payments be processed independently of the InStore App?**
 
@@ -200,7 +200,18 @@ A: A complete checkout consists of three flows:
 2. **Fiscalization**: The POS sends `/sign` with charge items and the pay items from step 1. The Middleware fiscalizes the receipt according to the market rules and returns the receipt response.
 3. **Issuing**: The POS sends `/issue` with the request and response pair. fiskaltrust stores the receipt, returns the document URL, and pushes the receipt to the InStore App, which displays QR code, OK, Print, Email, and SMS. Consumer interactions are logged in the fiskaltrust backend, and the POS can poll the delivered status.
 
-The InStore App never communicates with the POS directly. All communication runs through the fiskaltrust backend, and the terminal ID determines which device reacts.
+The InStore App never communicates with the POS directly. All communication runs through the fiskaltrust backend, and the terminal ID determines which device reacts. Optionally, payments can also be triggered locally by a POS app on the same Android device (see below).
+
+**Q: Can the InStore App be used offline?**
+
+A: Partly. Since version 1.3.2, payment requests are supported via two paths:
+
+- **Cloud backend** (POS System API in the cloud): requires a permanent internet connection.
+- **Local communication** (optional): a POS app on the same device triggers payments via the POS System API of the fiskaltrust Android launcher (see [Android Intent Integration](../../possystem-api/android-intent.md)). Works offline. Requires a fiskaltrust Android launcher version that supports this path.
+
+An internet connection is always required for the initial configuration, even if payments are later triggered only locally.
+
+The **Cloud** and **On device** status icons on the home screen show which path is currently available. See [Status Information on the Home Screen](../introduction/introduction.md#status-information-on-the-home-screen).
 
 **Q: How can an existing integration be extended to support the InStore App?**
 
