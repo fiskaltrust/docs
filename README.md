@@ -1,6 +1,6 @@
 # fiskaltrust Documentation Content
 
-This repository contains the documentation content for the [fiskaltrust documentation platform](https://docs.fiskaltrust.eu). It is consumed as a Git submodule by [fiskaltrust/service-docs-ui](https://github.com/fiskaltrust/service-docs-ui), which uses [Docusaurus](https://docusaurus.io/) to build and deploy the site.
+This repository contains the documentation content for the [fiskaltrust documentation platform](https://docs.fiskaltrust.cloud). It is consumed as a Git submodule by [fiskaltrust/service-docs-ui](https://github.com/fiskaltrust/service-docs-ui), which uses [Docusaurus](https://docusaurus.io/) to build and deploy the site.
 
 ## Documentation Structure
 
@@ -50,7 +50,7 @@ Every page on the live site has an "Edit this document" link at the bottom that 
 
 Pull requests are automatically validated with a link check ([lychee](https://github.com/lycheeverse/lychee-action)) and a full Docusaurus site build to catch broken links and build errors before merging.
 
-When a pull request is merged to `main`, the site is automatically rebuilt and deployed to the [documentation site](https://docs.fiskaltrust.eu).
+When a pull request is merged to `main`, the site is automatically rebuilt and deployed to the [documentation site](https://docs.fiskaltrust.cloud).
 
 > For a full overview of how the workflows across all repositories fit together, see the [CI/CD Workflows section in the service-docs-ui README](https://github.com/fiskaltrust/service-docs-ui#cicd-workflows).
 

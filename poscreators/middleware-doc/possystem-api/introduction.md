@@ -63,7 +63,7 @@ The API exposes a compact, consistent set of endpoints that cover the full fisca
 
 Not every integration needs all five groups. The minimum is `/echo` (connectivity check on startup) plus `/sign` (every transaction, including the daily closing). `/pay` is used only when electronic payments are processed through the Middleware — cash transactions skip it. `/issue` is optional and used for digital receipt distribution. `/journal` is used for audit exports and closings.
 
-For the full request/response models, payload schemas and per-endpoint error codes, see the [POS System API reference (v2.1)](https://docs.fiskaltrust.eu/apis/pos-system-api).
+For the full request/response models, payload schemas and per-endpoint error codes, see the [POS System API reference (v2.1)](https://docs.fiskaltrust.cloud/apis/pos-system-api).
 
 ## End-to-End Request Flow
 
@@ -89,7 +89,7 @@ The POS System API uses semantic versioning:
 - Non-breaking changes may add fields without altering existing models.
 - If no version is specified, the latest available version is used.
 
-The currently published version and any prior major versions are shown in the version selector of the [POS System API reference](https://docs.fiskaltrust.eu/apis/pos-system-api). Pinning to a specific major version is recommended for production integrations.
+The currently published version and any prior major versions are shown in the version selector of the [POS System API reference](https://docs.fiskaltrust.cloud/apis/pos-system-api). Pinning to a specific major version is recommended for production integrations.
 
 ## FAQ
 

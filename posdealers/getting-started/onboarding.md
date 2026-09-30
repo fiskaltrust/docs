@@ -65,4 +65,4 @@ The **Contract Partner Agreement** [(VPA)](../buy-resell/overview.md#volume-purc
 
 ### 8. Knowledge and Documentation
 
-Know where to locate [knowledge articles](https://portal.fiskaltrust.de/#/KBArticles) in the portal and fiskaltrust [documentation](https://docs.fiskaltrust.eu/).
+Know where to locate [knowledge articles](https://portal.fiskaltrust.de/#/KBArticles) in the portal and fiskaltrust [documentation](https://docs.fiskaltrust.cloud/).

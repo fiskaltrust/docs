@@ -4,7 +4,7 @@ Area-specific guidance. The general rules in the root [AGENTS.md](../../../AGENT
 
 ## Updating the docs for a new InStore App release
 
-Release notes are published at `https://docs.fiskaltrust.eu/changelog/instoreapp/<version>` (for example `.../1.3.2`). For a release update:
+Release notes are published at `https://docs.fiskaltrust.cloud/changelog/instoreapp/<version>` (for example `.../1.3.2`). For a release update:
 
 1. Read the release notes and compare every feature, improvement and bug fix with the pages in this folder.
 2. Bump the version in the info box at the top of [available-settings/settings.md](available-settings/settings.md).

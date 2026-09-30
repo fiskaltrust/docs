@@ -105,7 +105,7 @@ There are two ways to connect your point-of-sale software to the InStore App:
 
 :::info
 
-The [POS System API documentation](https://docs.fiskaltrust.eu/apis/pos-system-api) is the source of truth for endpoints, headers, request and response schemas, and environments (sandbox and production). This page only gives a brief overview.
+The [POS System API documentation](https://docs.fiskaltrust.cloud/apis/pos-system-api) is the source of truth for endpoints, headers, request and response schemas, and environments (sandbox and production). This page only gives a brief overview.
 
 :::
 
@@ -120,7 +120,7 @@ At a high level, the point-of-sale software performs the following steps:
 
 Every request must carry the authentication and idempotency headers (CashBox ID, access token, operation ID, and POS system ID) as defined in the POS System API documentation. The CashBox ID and access token are obtained by creating a CashBox in the fiskaltrust.Portal.
 
-For details on each endpoint, see the [POS System API documentation](https://docs.fiskaltrust.eu/apis/pos-system-api).
+For details on each endpoint, see the [POS System API documentation](https://docs.fiskaltrust.cloud/apis/pos-system-api).
 
 ### Development kit
 
