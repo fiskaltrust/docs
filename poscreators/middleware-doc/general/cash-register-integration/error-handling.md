@@ -10,7 +10,7 @@ This page describes how errors are reported to the POS system and how the POS sy
 | Level | What happens | `ReceiptResponse` available? |
 |-------|--------------|------------------------------|
 | [Transport-level error](#transport-level-errors) | The POS system receives no answer, for example because the connection fails, is interrupted or times out. It is unknown whether the request was processed. | No |
-| [HTTP-level error](#http-level-errors) | The request reaches the service, but is rejected or fails before a `ReceiptResponse` is created. The service answers with an HTTP error status (for example `400` or `500`). | No |
+| [HTTP-level error](#http-level-errors) | The request reaches the service, which answers with an HTTP error status (for example `400` or `500`) instead of a `ReceiptResponse`. | No |
 | [fiskaltrust.Middleware error](#fiskaltrustmiddleware-errors) | The request is processed by the Middleware, which returns a `ReceiptResponse` with a successful HTTP status. The `ftState` indicates that the receipt could not be processed. | Yes |
 
 *Table 1. Levels on which errors are reported to the POS system.*
@@ -65,7 +65,7 @@ The `ftState` is returned with every `ReceiptResponse` and has the format _CCCC_
 
 *Table 3. ftState values relevant for error handling.*
 
-The error values `EEEE_EEEE` and `FFFF_FFFF` set all bits of the lower 32 bits, so they must be checked by comparing the complete lower 32 bits, **before** checking individual status flags:
+The error values `EEEE_EEEE` and `FFFF_FFFF` overlap with the bits of the status flags, so the complete lower 32 bits must be compared with these values **before** checking individual status flags:
 
 ```csharp
 var state = receiptResponse.ftState & 0xFFFF_FFFF;
