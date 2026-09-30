@@ -34,13 +34,13 @@ fiskaltrust appointed Dr. Markus Knasmüller from BMD to create an external asse
 
 The following diagram describes the process of generating a digital receipt with the InStore App. The participants in the process are the merchant, fiskaltrust, the consumer and the InStore App. 
 
-![InStore App_sequence](../introduction/images/sequenze_diagramm_instore_app.png)
+![InStore App_sequence](./images/instore-app-sequence.svg)
 
 *Figure 1. Sequence diagram of the digital receipt process between the merchant, fiskaltrust, the consumer, and the InStore App.*
 
 The InStore App offers five options: scanning the QR code to receive the digital receipt on a mobile phone, tapping the OK button to manually acknowledge receipt, printing the receipt on thermal paper, sending the receipt via email, or sending it via SMS.
 
-In-store, the merchant collects items and processes the payment or checkout. The merchant then sends a sign message to fiskaltrust for fiscalization purposes. 
+In-store, the merchant collects items and processes the payment or checkout. Then the receipt is signed and issued through fiskaltrust. 
 
 - **Scan QR code:** The InStore App continuously listens to the fiskaltrust receipt backend for incoming receipt push events. When an HTTPS receipt link is received, it displays a QR code on the device screen. The consumer scans the QR code with their mobile phone and receives the HTTPS receipt link. The InStore app sends a log to the fiskaltrust backend indicating that the receipt was scanned by the consumer. The fiskaltrust backend renders the receipt, and the QR code display on the InStore App device is closed. The consumer can now access the HTML receipt document and provide feedback regarding the receipt. 
 
