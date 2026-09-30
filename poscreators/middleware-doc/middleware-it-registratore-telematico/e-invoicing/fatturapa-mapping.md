@@ -8,14 +8,16 @@ title: FatturaPA mapping
 This page describes how fiskaltrust turns an Italian invoice receipt into a **FatturaPA** document (format FPR12, schema 1.2.x): which receipts get one, which document types are supported, where every FatturaPA element comes from, what the fiskaltrust.Middleware returns, and which validation rules a receipt has to pass. For scope and regulatory status, see the [Overview](./overview.md); for prerequisites and the end-to-end flow, see [Setup & testing](./setup.md).
 
 :::info What fiskaltrust supports today
-- **B2C and B2B:** fiskaltrust generates the FatturaPA and it is transmitted to SDI.
+- **B2C and B2B:** the FatturaPA is generated as part of `/sign` and transmitted to SDI through `/issue`.
 - **B2G is not supported.**
 - **Sending only:** receiving eInvoices from SDI is not supported.
 :::
 
 ## How the mapping runs
 
-The FatturaPA is produced by the fiskaltrust eInvoicing service for Italy. The fiskaltrust.Middleware calls it twice for every receipt you send to `/sign`:
+The FatturaPA is **generated as part of `/sign`** and **transmitted to SDI through `/issue`** (see [Transmission to SDI through `/issue`](#transmission-to-sdi-through-issue)).
+
+The document is built by the fiskaltrust eInvoicing service for Italy. The fiskaltrust.Middleware calls the service twice for every receipt you send to `/sign`:
 
 1. **Validate — before fiscalization.** The service receives the `ReceiptRequest`, decides whether the receipt gets a FatturaPA, and checks it against the [validation rules](#validation-rules). A receipt that breaks a rule is **rejected and not fiscalized**: the response carries an error state and a signature naming the reason. Correct the receipt and send it again.
 2. **Process — after fiscalization.** The service receives the `ReceiptRequest` and the fiscalized `ReceiptResponse`, runs the same rules again, builds the FatturaPA XML, checks the built document against the FatturaPA rules, and appends the result to `ftSignatures` (see [Output](#output)).
@@ -24,9 +26,9 @@ Everything that can be decided from the request and the merchant's account is ch
 
 If the service cannot read the merchant's account data or its own storage while validating a receipt it acts on, the validate step fails and the receipt is rejected before fiscalization.
 
-### Who transmits the document
+### Transmission to SDI through `/issue`
 
-fiskaltrust renders the document; an **accredited partner transmits it to SdI**. The partner receives the complete, **unsigned** XML and owns the transmission layer: it (re)writes `DatiTrasmissione` (`IdTrasmittente`, `ProgressivoInvio`), names the file, and adds `TerzoIntermediarioOSoggettoEmittente` where it applies. What the service writes in those places is a schema-valid placeholder, not a value SdI will see.
+`/sign` returns the generated FatturaPA in its response. To transmit it to SDI, call `/issue` with the `/sign` request and its response; see [Setup & testing](./setup.md#end-to-end-example). The transmission is carried out by an **accredited partner**, which receives the complete, **unsigned** XML and owns the transmission layer: it (re)writes `DatiTrasmissione` (`IdTrasmittente`, `ProgressivoInvio`), names the file, and adds `TerzoIntermediarioOSoggettoEmittente` where it applies. What the service writes in those places is a schema-valid placeholder, not a value SdI will see.
 
 ## Which receipts get a FatturaPA
 

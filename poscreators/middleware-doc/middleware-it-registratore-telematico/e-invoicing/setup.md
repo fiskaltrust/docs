@@ -8,11 +8,11 @@ title: "Setup & testing"
 This page covers the prerequisites for eInvoicing in the Italian (IT) market, how to enable it in the fiskaltrust.Portal, and how to validate the flow against a sandbox before production. For scope, regulatory status, and the delivery flow, see the [Overview](./overview.md).
 
 :::note What setup means in Italy
-eInvoicing rides on calls you already make. Setup is about **configuration** — FatturaPA output and the fiskaltrust.Middleware's Italian locale. fiskaltrust renders the FatturaPA and returns it **unsigned**; an **accredited partner** transmits it to SDI. Delivery via `/issue` is **optional**. There is **no new connection or credential**.
+eInvoicing rides on calls you already make. Setup is about **configuration** — FatturaPA output and the fiskaltrust.Middleware's Italian locale. The FatturaPA is **generated as part of `/sign`** and returned **unsigned** in the response; it is **transmitted to SDI through `/issue`**, by an **accredited partner**. There is **no new connection or credential**.
 :::
 
 :::info What fiskaltrust supports today
-- **B2C and B2B:** fiskaltrust generates the FatturaPA and it is transmitted to SDI.
+- **B2C and B2B:** the FatturaPA is generated as part of `/sign` and transmitted to SDI through `/issue`.
 - **B2G is not supported.**
 - **Sending only:** receiving eInvoices from SDI is not supported.
 :::
@@ -44,10 +44,10 @@ Validate the end-to-end flow against a sandbox-scoped fiskaltrust.Middleware —
 
 1. Provision a **sandbox fiskaltrust.Middleware** in the fiskaltrust.Portal — this yields the `x-cashbox-id` and `x-cashbox-accesstoken` used on every request. See [Portal registration](../../../getting-started/portal-registration.md).
 2. Confirm your integration against the [Integration checklist](../../../getting-started/integration-checklist.md).
-3. Run one invoice through the full flow below: `/sign` → (optionally) `/issue` → poll until **cleared by SDI**.
+3. Run one invoice through the full flow below: `/sign` (generation) → `/issue` (transmission to SDI) → poll until **cleared by SDI**.
 
 :::note The FatturaPA is returned unsigned
-The FatturaPA XML is returned unsigned. An accredited partner transmits it to SDI and completes the transmission data (`DatiTrasmissione`, the file name). See [Who transmits the document](./fatturapa-mapping.md#who-transmits-the-document).
+The FatturaPA XML is returned unsigned by `/sign`. When you call `/issue`, an accredited partner transmits it to SDI and completes the transmission data (`DatiTrasmissione`, the file name). See [Transmission to SDI through `/issue`](./fatturapa-mapping.md#transmission-to-sdi-through-issue).
 :::
 
 ### End-to-end example
@@ -61,7 +61,7 @@ x-possystem-id: <registered POS system ID>
 x-operation-id: <fresh UUID per operation>
 ```
 
-**Step 1 — Sign (`/sign`)** — produces the eInvoice
+**Step 1 — Sign (`/sign`)** — generates the FatturaPA
 
 Call `/sign` as you do today, with the buyer's master data, using the **B2B invoice** receipt case. Add the invoice number and the SDI routing in `ftReceiptCaseData`. The response carries the fiscalized receipt and, in the `einvoice-fattura-pa` signature, the FatturaPA XML. See [FatturaPA mapping](./fatturapa-mapping.md) for how each field is mapped and which validation rules apply.
 
@@ -91,9 +91,9 @@ Call `/sign` as you do today, with the buyer's master data, using the **B2B invo
 
 > **Try it:** [developer.fiskaltrust.eu → IT → sign → B2BInvoice](https://developer.fiskaltrust.eu/#/pos-system/IT?endpoint=sign&businesscase=SignRequestReceipt_B2BInvoice_1). The FatturaPA output is produced per the fiskaltrust.Middleware's configuration — see [Enable eInvoicing in the Portal](#enable-einvoicing-in-the-portal).
 
-**Step 2 — Issue (`/issue`)** — optional, register for delivery
+**Step 2 — Issue (`/issue`)** — transmits the FatturaPA to SDI
 
-To make the receipt available for delivery, call `/issue` with the **original `/sign` request and its response** (`ReceiptRequest` + `ReceiptResponse`). The response returns the `ftQueueID` / `ftQueueItemID` used by the delivery and status calls.
+To transmit the FatturaPA generated in Step 1 to SDI, call `/issue` with the **original `/sign` request and its response** (`ReceiptRequest` + `ReceiptResponse`). The SDI recipient is part of the generated document: the `codiceDestinatario` (or `pec`) you sent in `ftReceiptCaseData` in Step 1. The response returns the `ftQueueID` / `ftQueueItemID` used by the delivery and status calls.
 
 ```json
 // POST https://possystem-api-sandbox.fiskaltrust.eu/v2/issue
@@ -105,9 +105,9 @@ To make the receipt available for delivery, call `/issue` with the **original `/
 
 > **Try it:** [developer.fiskaltrust.eu → IT → issue](https://developer.fiskaltrust.eu/#/pos-system/IT?endpoint=issue).
 
-**Step 3 — Deliver to a channel** — optional
+**Step 3 — Deliver to other channels** — optional
 
-Deliver the document with `PUT /issue/{queueId}/{queueItemId}`, choosing a delivery method: `IssueUpdateSend` (email/SMS), `IssueUpdatePrint`, `IssueUpdateDownload`, `IssueUpdateUpload`, or `IssueUpdateLink`. The SDI routing is not part of `/issue`: the buyer's `codiceDestinatario` (or `pec`) is sent with `/sign` in `ftReceiptCaseData` (see Step 1).
+In addition to SDI, deliver the document with `PUT /issue/{queueId}/{queueItemId}`, choosing a delivery method: `IssueUpdateSend` (email/SMS), `IssueUpdatePrint`, `IssueUpdateDownload`, `IssueUpdateUpload`, or `IssueUpdateLink`.
 
 **Step 4 — Check clearance status**
 
