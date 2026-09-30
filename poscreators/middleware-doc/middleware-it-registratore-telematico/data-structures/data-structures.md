@@ -28,7 +28,7 @@ Examples of using `cbReceiptReference` and `cbPreviousReceiptReference` to conne
 
 #### Customer data `cbCustomer`
 
-Customer data is sent in via the field `cbCustomer` as a **JSON string**, not as a JSON object. The POSSystem API types `cbCustomer` as a string and the Italian SCU deserializes its content, so the customer structure has to be serialized before it is placed into the request. A nested JSON object is rejected together with the whole receipt.
+Customer data is sent in via the field `cbCustomer` as a JSON object with the following fields. For the fields used in other markets, see [cbCustomer](../../general/data-structures/data-structures.md#cbcustomer).
 
 | **Field name**    | **Data type**                   | **Default Value Mandatory Field** | **Description**                                                                                                                                                                                                                                                                       | **Version** |
 |-------------------|---------------------------------|-----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------|

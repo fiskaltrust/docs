@@ -45,7 +45,7 @@ The `ftReceiptCase` **fiskaltrust** field is of critical importance for the corr
 
 ## cbCustomer
 
-The `cbCustomer` field of the `ReceiptRequest` identifies the customer (buyer) for whom the receipt is created. The Middleware reads it as a JSON object with the fields listed in the following table. In Italy, the same structure is sent as a serialized JSON string instead, see [Customer data cbCustomer](../../middleware-it-registratore-telematico/data-structures/data-structures.md#customer-data-cbcustomer).
+The `cbCustomer` field of the `ReceiptRequest` identifies the customer (buyer) for whom the receipt is created. The Middleware reads it as a JSON object with the fields listed in the following table.
 
 ```json
 "cbCustomer": {
@@ -56,7 +56,8 @@ The `cbCustomer` field of the `ReceiptRequest` identifies the customer (buyer) f
   "CustomerZip": "1100-053",
   "CustomerCity": "Lisboa",
   "CustomerCountry": "PT",
-  "CustomerVATId": "123456789"
+  "CustomerVATId": "123456789",
+  "CustomerTaxId": "987654321"
 }
 ```
 
