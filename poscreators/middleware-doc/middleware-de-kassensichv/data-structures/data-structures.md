@@ -40,7 +40,6 @@ The data types are the limits of the [DSFinV-K export](../procedural-documentati
 |-------------------|---------------------------------|-----|-------------|
 | `CustomerName`    | `string (50)`                   | DSFinV-K export, eInvoicing | 1.3         |
 | `CustomerId`      | `string (50)`                   | DSFinV-K export | 1.3         |
-| `CustomerType`    | `string (50)`                   | DSFinV-K export | 1.3         |
 | `CustomerStreet`  | `string (60)`                   | DSFinV-K export, eInvoicing | 1.3         |
 | `CustomerZip`     | `string (10)`                   | DSFinV-K export, eInvoicing | 1.3         |
 | `CustomerCity`    | `string (62)`                   | DSFinV-K export, eInvoicing | 1.3         |

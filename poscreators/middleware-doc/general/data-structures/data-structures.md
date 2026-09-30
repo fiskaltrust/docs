@@ -52,15 +52,12 @@ The `cbCustomer` field of the `ReceiptRequest` identifies the customer (buyer) f
   "cbCustomer": {
     "CustomerName": "Erika Musterfrau",
     "CustomerId": "C-10042",
-    "CustomerType": "B2B",
-    "CustomerStreet": "Rua Augusta",
-    "CustomerHouseNumber": "100",
+    "CustomerStreet": "Rua Augusta 100",
     "CustomerZip": "1100-053",
     "CustomerCity": "Lisboa",
     "CustomerCountry": "PT",
     "CustomerVATId": "123456789",
-    "CustomerTaxId": "987654321",
-    "CustomerIdentifier": "P1234567"
+    "CustomerTaxId": "987654321"
   }
 }
 ```
@@ -90,15 +87,12 @@ The following table lists every field that the Middleware reads from the structu
 |-----------------------|-----------|---------------|----------|------------------------|-------------|
 | `CustomerName`        | `string`  | null          | true     | AT, DE, ES, FR, GR, IT, PL, PT | Name or company name of the customer. |
 | `CustomerId`          | `string`  | null          | true     | DE, PT                 | Identification of the customer in the POS system. |
-| `CustomerType`        | `string`  | null          | true     | DE, PT                 | Type of the customer, for example `Mitarbeiter` (employee) or `B2B`. |
-| `CustomerStreet`      | `string`  | null          | true     | AT, DE, ES, FR, GR, IT, PL, PT | Street of the customer's address. In markets that do not read `CustomerHouseNumber`, include the house number here. |
-| `CustomerHouseNumber` | `string`  | null          | true     | GR                     | House number of the customer's address. |
+| `CustomerStreet`      | `string`  | null          | true     | AT, DE, ES, FR, GR, IT, PL, PT | Street and house number of the customer's address. |
 | `CustomerZip`         | `string`  | null          | true     | AT, DE, ES, FR, GR, IT, PL, PT | Postal code of the customer's address. |
 | `CustomerCity`        | `string`  | null          | true     | AT, DE, FR, GR, IT, PL, PT | City of the customer's address. |
 | `CustomerCountry`     | `string`  | null          | true     | AT, DE, ES, FR, GR, IT, PL, PT | Country of the customer. The expected country code format differs per market. |
 | `CustomerVATId`       | `string`  | null          | true     | AT, DE, ES, FR, GR, IT, PL, PT | VAT or tax identification number of the customer. |
 | `CustomerTaxId`       | `string`  | null          | true     | ES, IT                 | Tax identification number of the customer that is not a VAT ID. |
-| `CustomerIdentifier`  | `string`  | null          | true     | ES                     | Other identification document of the customer, for example a passport number. |
 
 *Table 2. Fields of the cbCustomer data structure identifying the customer of a receipt.*
 
