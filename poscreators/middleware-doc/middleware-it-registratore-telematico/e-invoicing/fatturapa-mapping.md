@@ -9,9 +9,9 @@ This page describes how fiskaltrust turns an Italian invoice receipt into a **Fa
 
 ## How the mapping runs
 
-The FatturaPA is **generated as part of `/sign`** and **transmitted to SDI through `/issue`** (see [Transmission to SDI through `/issue`](#transmission-to-sdi-through-issue)).
+The FatturaPA is **generated as part of `/sign`** by the fiskaltrust eInvoicing service for Italy. Its transmission to SDI is described in [Setup & testing](./setup.md#end-to-end-example).
 
-The document is built by the fiskaltrust eInvoicing service for Italy. The fiskaltrust.Middleware calls the service twice for every receipt you send to `/sign`:
+The fiskaltrust.Middleware calls the service twice for every receipt you send to `/sign`:
 
 1. **Validate — before fiscalization.** The service receives the `ReceiptRequest`, decides whether the receipt gets a FatturaPA, and checks it against the [validation rules](#validation-rules). A receipt that breaks a rule is **rejected and not fiscalized**: the response carries an error state and a signature naming the reason. Correct the receipt and send it again.
 2. **Process — after fiscalization.** The service receives the `ReceiptRequest` and the fiscalized `ReceiptResponse`, runs the same rules again, builds the FatturaPA XML, checks the built document against the FatturaPA rules, and appends the result to `ftSignatures` (see [Output](#output)).
@@ -20,9 +20,9 @@ Everything that can be decided from the request and the merchant's account is ch
 
 If the service cannot read the merchant's account data or its own storage while validating a receipt it acts on, the validate step fails and the receipt is rejected before fiscalization.
 
-### Transmission to SDI through `/issue`
+### Transmission data
 
-`/sign` returns the generated FatturaPA in its response. To transmit it to SDI, call `POST /issue` with the `/sign` request and its response; see [Setup & testing](./setup.md#end-to-end-example). `POST /issue` sends it to the **fiskaltrust SDI service**, which receives the complete, **unsigned** XML, transmits it to SDI and owns the transmission layer: it (re)writes `DatiTrasmissione` (`IdTrasmittente`, `ProgressivoInvio`), names the file, and adds `TerzoIntermediarioOSoggettoEmittente` where it applies. What the service writes in those places is a schema-valid placeholder, not a value SdI will see.
+The XML is generated **unsigned**. `DatiTrasmissione` (`IdTrasmittente`, `ProgressivoInvio`), the file name and `TerzoIntermediarioOSoggettoEmittente` are completed when the document is transmitted to SDI. What the service writes in those places is a schema-valid placeholder, not a value SdI will see.
 
 ## Which receipts get a FatturaPA
 
@@ -165,9 +165,9 @@ Per pay item, `ftPayItemCaseData` → `IT.einvoicing` can override the payment m
 
 | FatturaPA element | Value |
 | --- | --- |
-| `IdTrasmittente/IdPaese` | `IT` — placeholder, the fiskaltrust SDI service writes its own. |
-| `IdTrasmittente/IdCodice` | The merchant's codice fiscale — placeholder, the fiskaltrust SDI service writes its own. |
-| `ProgressivoInvio` | Five base-36 characters derived from `ftQueueItemID` — placeholder, the fiskaltrust SDI service assigns its own. |
+| `IdTrasmittente/IdPaese` | `IT` — placeholder, replaced at transmission. |
+| `IdTrasmittente/IdCodice` | The merchant's codice fiscale — placeholder, replaced at transmission. |
+| `ProgressivoInvio` | Five base-36 characters derived from `ftQueueItemID` — placeholder, replaced at transmission. |
 | `FormatoTrasmissione` | `FPR12` |
 | `CodiceDestinatario` | See [Routing](#routing). |
 | `PECDestinatario` | `pec`, written only when `CodiceDestinatario` is `0000000`. |
@@ -377,9 +377,9 @@ These optional elements of the FatturaPA schema ([`Schema_VFPR12` v1.2.3](https:
 | `StabileOrganizzazione` (of the seller or the buyer) | A non-resident party with a permanent establishment in Italy. |
 | Seller `IscrizioneREA` | A company registered in the Registro delle Imprese (REA data). |
 | Seller `AlboProfessionale`, `ProvinciaAlbo`, `NumeroIscrizioneAlbo`, `DataIscrizioneAlbo` | A professional registered in a professional register (albo). |
-| Seller `Contatti`, `ContattiTrasmittente` | Contact details of the seller or the transmitter; the transmitter's belong to the fiskaltrust SDI service. |
+| Seller `Contatti`, `ContattiTrasmittente` | Contact details of the seller or the transmitter; the transmitter's are added at transmission. |
 | `Anagrafica` `Titolo` and `CodEORI`, `Sede` `NumeroCivico` | Honorific title, EORI code, house number as a separate element (the house number is part of `Indirizzo`). |
-| `SoggettoEmittente` `TZ` | A document issued by a third party; the fiskaltrust SDI service adds it when it applies. |
+| `SoggettoEmittente` `TZ` | A document issued by a third party; added at transmission when it applies. |
 | `DatiOrdineAcquisto`, `DatiContratto`, `DatiConvenzione` (CIG, CUP) | Orders, contracts and agreements the invoice refers to; for B2G, which is not supported, a public office rejects an invoice without them. |
 | `DatiRicezione`, `DatiSAL`, `FatturaPrincipale` | References to a goods receipt, a work progress stage (SAL), or the main invoice of an ancillary transport invoice. |
 | `Art73` | Documents issued under art. 73 DPR 633/72. |
@@ -408,7 +408,7 @@ On success, the process step appends two signatures to `ftSignatures` of the `Re
 | `Caption` | `ftSignatureFormat` | `Data` |
 | --- | --- | --- |
 | `einvoice-fattura-pa` | Text | The FatturaPA XML, UTF-8, on a single line, unsigned. The signature type carries the **DontVisualize** flag, so the XML is not printed on the receipt. |
-| `einvoice-file-name` | Text | A suggested SdI file name, `IT{codice fiscale}_{ProgressivoInvio}.xml`. The fiskaltrust SDI service names the file it transmits. |
+| `einvoice-file-name` | Text | A suggested SdI file name, `IT{codice fiscale}_{ProgressivoInvio}.xml`. The file is named at transmission. |
 
 *Table 18. Signatures returned on success.*
 

@@ -16,7 +16,7 @@ eInvoicing works the same way across fiskaltrust markets — the shared model, t
 | Live since | **2019** (full B2B mandate). No upcoming deadline to plan around. |
 | Current spec | **FatturaPA v1.9.1** — live since 15 May 2026; derogation running to December 2027. |
 | Format | **FatturaPA** — Italy's own XML schema (predates EN 16931). The FPA12 format (B2G) requires a signature; FPR12 (B2B, B2C) does not. |
-| Transmission | The FatturaPA is **generated as part of `/sign`** and returned **unsigned** in the response; `POST /issue` sends it to the **fiskaltrust SDI service**, which transmits it to SDI. See [FatturaPA mapping](./fatturapa-mapping.md#transmission-to-sdi-through-issue). |
+| Transmission | The FatturaPA is **generated as part of `/sign`** and returned **unsigned** in the response; `POST /issue` sends it to the **fiskaltrust SDI service**, which transmits it to SDI. See [Setup & testing](./setup.md#end-to-end-example). |
 
 *Table 1. Regulatory status of eInvoicing in Italy.*
 

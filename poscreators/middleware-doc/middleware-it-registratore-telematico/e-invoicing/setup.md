@@ -41,7 +41,7 @@ Validate the end-to-end flow against a sandbox-scoped fiskaltrust.Middleware —
 3. Run one invoice through the full flow below: `/sign` (generation) → `/issue` (transmission to SDI) → poll until **cleared by SDI**.
 
 :::note The FatturaPA is returned unsigned
-The FatturaPA XML is returned unsigned by `/sign`. `POST /issue` sends it to the fiskaltrust SDI service, which transmits it to SDI and completes the transmission data (`DatiTrasmissione`, the file name). See [Transmission to SDI through `/issue`](./fatturapa-mapping.md#transmission-to-sdi-through-issue).
+The FatturaPA XML is returned unsigned by `/sign`. `POST /issue` sends it to the fiskaltrust SDI service, which transmits it to SDI and completes the transmission data (`DatiTrasmissione`, the file name). See [Transmission data](./fatturapa-mapping.md#transmission-data).
 :::
 
 ### End-to-end example
