@@ -48,18 +48,20 @@ The `ftReceiptCase` **fiskaltrust** field is of critical importance for the corr
 The `cbCustomer` field of the `ReceiptRequest` identifies the customer (buyer) for whom the receipt is created. The Middleware reads it as a JSON object with the fields listed in the following table.
 
 ```json
-"cbCustomer": {
-  "CustomerName": "Erika Musterfrau",
-  "CustomerId": "C-10042",
-  "CustomerType": "B2B",
-  "CustomerStreet": "Rua Augusta",
-  "CustomerHouseNumber": "100",
-  "CustomerZip": "1100-053",
-  "CustomerCity": "Lisboa",
-  "CustomerCountry": "PT",
-  "CustomerVATId": "123456789",
-  "CustomerTaxId": "987654321",
-  "CustomerIdentifier": "P1234567"
+{
+  "cbCustomer": {
+    "CustomerName": "Erika Musterfrau",
+    "CustomerId": "C-10042",
+    "CustomerType": "B2B",
+    "CustomerStreet": "Rua Augusta",
+    "CustomerHouseNumber": "100",
+    "CustomerZip": "1100-053",
+    "CustomerCity": "Lisboa",
+    "CustomerCountry": "PT",
+    "CustomerVATId": "123456789",
+    "CustomerTaxId": "987654321",
+    "CustomerIdentifier": "P1234567"
+  }
 }
 ```
 
@@ -82,7 +84,7 @@ Required fields, validations and default values differ per market. They are desc
 
 ### Fields
 
-The following table lists every field of the structure. The column **Read by** lists the markets in which the Middleware uses the field, including the buyer's master data for B2B invoices with eInvoicing. For eInvoicing, see the setup pages of [Austria](../../middleware-at-rksv/e-invoicing/setup.md), [France](../../middleware-fr-boi-tva-decla-30-10-30/e-invoicing/setup.md) and [Poland](../../middleware-pl/e-invoicing/setup.md).
+The following table lists every field that the Middleware reads from the structure. The column **Read by** lists the markets in which the Middleware uses the field, including the buyer's master data for B2B invoices with eInvoicing. For eInvoicing, see the setup pages of [Austria](../../middleware-at-rksv/e-invoicing/setup.md), [France](../../middleware-fr-boi-tva-decla-30-10-30/e-invoicing/setup.md) and [Poland](../../middleware-pl/e-invoicing/setup.md).
 
 | Field Name            | Data Type | Default Value | Nullable | Read by                | Description |
 |-----------------------|-----------|---------------|----------|------------------------|-------------|
