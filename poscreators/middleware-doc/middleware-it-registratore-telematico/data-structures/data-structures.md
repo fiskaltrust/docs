@@ -28,20 +28,14 @@ Examples of using `cbReceiptReference` and `cbPreviousReceiptReference` to conne
 
 #### Customer data `cbCustomer`
 
-Customer data is sent in via the field `cbCustomer` as a JSON object with the following fields.
+The following `cbCustomer` fields have rules specific to the Italian market.
 
 | **Field name**    | **Data type**                   | **Description**                                                                                                                                                                                                                                                                       | **Version** |
 |-------------------|---------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------|
 | `CustomerTaxId`   | `string (16)`                   | **Codice fiscale of the customer.** <br />Exactly 16 characters with a valid check character (CIN), including the omocodia substitutions. It is the identifier printed on the *scontrino parlante*. A partita IVA is not accepted here, it belongs in `CustomerVATId`.                    | 1.3.88      |
 | `CustomerVATId`   | `string (11)`                   | **Partita IVA of the customer.** <br />11 digits with a valid check digit. An `IT` country prefix is accepted and stripped, any other prefix is invalid. The placeholder `00000000000` is rejected.                                                                                      | 1.3         |
-| `CustomerId`      | `string (50)`                   | **Customer identifier of the POS software.** <br />Carries no fiscal meaning and is not read by the Middleware for the Italian market. Up to version 1.3.88 this field carried the codice fiscale, which now belongs in `CustomerTaxId`.                                                 | 1.3         |
-| `CustomerName`    | `string (50)`                   | **Name or company name of the customer.** <br />Printed on the invoice.                                                                                                                                                                                                                 | 1.3         |
-| `CustomerStreet`  | `string (60)`                   | **Street and house number of the customer.** <br />Printed on the invoice.                                                                                                                                                                                                              | 1.3         |
-| `CustomerZip`     | `string (10)`                   | **Zip of the customer.** <br />Printed on the invoice, on a single line together with `CustomerCountry` and `CustomerCity`.                                                                                                                                                              | 1.3         |
-| `CustomerCity`    | `string (62)`                   | **City of the customer.** <br />Printed on the invoice, on a single line together with `CustomerCountry` and `CustomerZip`.                                                                                                                                                              | 1.3         |
-| `CustomerCountry` | `string`                        | **Country of the customer.** <br />Printed on the invoice, on a single line together with `CustomerZip` and `CustomerCity`.                                                                                                                                                              | 1.3         |
 
-*Table 2. Customer data fields sent via `cbCustomer`.*
+*Table 2. `cbCustomer` fields with rules specific to the Italian market.*
 
 :::caution The codice fiscale moved from `CustomerId` to `CustomerTaxId`
 
