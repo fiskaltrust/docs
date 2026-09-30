@@ -95,7 +95,7 @@ The fiskaltrust receipt case field (`ftReceiptCase`) is of utmost importance for
 | `0001` | **Process as Late Signing Receipt**<br />The cash register lost connection to the queue and processed receipts without communicating with the it. All processed receipts marked with the hint "Security mechanism not reachable" must be sent to the queue with this maker. | 
 | `0002` | Training Receipt. |
 | `0800` | **Group by Position-Number**<br />Position fields are represented as decimal numbers: the whole number indicates the grouped line item, and the fractional part is used within that group. The sum of all `ChargeItems` within a position must count toward the total receipt amount. If the quantity and amount are 0,00, the quantity and amount will not be visualized for this line on the digital receipt, regardless of whether it is a main item or a subitem. |
-| `8000` | **ReceiptRequest**<br />If you don’t receive a response, try this flag first before taking any other action. This will return a stored result, for example in case of a timeout when cash register calls the queue. |
+| `8000` | **ReceiptRequest**<br />Returns the stored response of an already processed receipt with the same `cbReceiptReference` instead of processing it again.<br />To recover from a missing response or a timeout, retry the request with the same `x-operation-id` instead (see [Process-Driven and Idempotent Design](../../possystem-api/introduction.md#process-driven-and-idempotent-design)). |
 
 *Table 4. Global tagging flags (gggg) of the ftReceiptCase format.*
 
