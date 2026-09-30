@@ -344,7 +344,7 @@ Keeping the POS's own VAT makes the document total equal the receipt total. Exam
 
 ### Body — `DatiPagamento`
 
-`DatiPagamento` is derived from `cbPayItems`, and only for an **issued** document. It carries `CondizioniPagamento` **TP02** (pagamento completo) and one `DettaglioPagamento` per payment method:
+`DatiPagamento` is derived from `cbPayItems`, and only for an **issued** document. It carries `CondizioniPagamento` **TP02** (pagamento completo) and one `DettaglioPagamento` per payment method, with `ModalitaPagamento`, `ImportoPagamento` (the summed amount) and, when sent in `ftPayItemCaseData`, `DataScadenzaPagamento` and `IBAN`:
 
 - Pay items are grouped by payment method, due date and IBAN, and summed, so a change item (a negative amount of the same method) nets out.
 - The negative pay items of a refund are written as positive amounts.
@@ -368,20 +368,35 @@ There is no FatturaPA code for a voucher, a meal ticket or a sale on account; th
 
 ### Not rendered
 
-These optional FatturaPA blocks are not written:
+These optional elements of the FatturaPA schema ([`Schema_VFPR12` v1.2.3](https://www.agenziaentrate.gov.it/portale/documents/d/guest/schema_vfpr12_v1-2-3), used by specification version 1.9.1) are not written:
 
 | Block | Needed when |
 | --- | --- |
+| `RappresentanteFiscale` (of the seller or the buyer) | A party acting through a fiscal representative in Italy. |
+| `StabileOrganizzazione` (of the seller or the buyer) | A non-resident party with a permanent establishment in Italy. |
+| Seller `IscrizioneREA` | A company registered in the Registro delle Imprese (REA data). |
+| Seller `AlboProfessionale`, `ProvinciaAlbo`, `NumeroIscrizioneAlbo`, `DataIscrizioneAlbo` | A professional registered in a professional register (albo). |
+| Seller `Contatti`, `ContattiTrasmittente` | Contact details of the seller or the transmitter; the transmitter's belong to the partner. |
+| `Anagrafica` `Titolo` and `CodEORI`, `Sede` `NumeroCivico` | Honorific title, EORI code, house number as a separate element (the house number is part of `Indirizzo`). |
+| `SoggettoEmittente` `TZ` | A document issued by a third party; the partner adds it when it applies. |
 | `DatiOrdineAcquisto`, `DatiContratto`, `DatiConvenzione` (CIG, CUP) | B2G: a public office rejects an invoice without them. |
+| `DatiRicezione`, `DatiSAL`, `FatturaPrincipale` | References to a goods receipt, a work progress stage (SAL), or the main invoice of an ancillary transport invoice. |
+| `Art73` | Documents issued under art. 73 DPR 633/72. |
+| `DatiVeicoli` | Intra-community sale of new means of transport. |
+| `Allegati` | Attachments to the invoice. |
 | `DatiTrasporto` | Accompanying invoice (fattura accompagnatoria). |
 | `DatiBollo`, `DatiRitenuta`, `DatiCassaPrevidenziale`, document-level `ScontoMaggiorazione`, `Arrotondamento` | Specific regimes. |
 | `DettaglioPagamento` `IstitutoFinanziario`, `ABI`/`CAB`/`BIC`, instalments (`TP01`) | Detailed bank data, payment by instalments. |
-| Line-level `CodiceArticolo`, `UnitaMisura`, `ScontoMaggiorazione`, `DataInizioPeriodo`/`DataFinePeriodo`, `RiferimentoAmministrazione`, `AltriDatiGestionali` | `ProductNumber`, `ProductBarcode` and `Unit` of the charge item are not read. |
+| `CondizioniPagamento` `TP03`; `DettaglioPagamento` `Beneficiario`, `DataRiferimentoTerminiPagamento`, `GiorniTerminiPagamento`, `CodUfficioPostale`, quietanzante fields, `ScontoPagamentoAnticipato`, `DataLimitePagamentoAnticipato`, `PenalitaPagamentiRitardati`, `DataDecorrenzaPenale`, `CodicePagamento` | Advance payment, payment terms, early-payment discount, late-payment penalty, payment reference. |
+| `EsigibilitaIVA` `D` and `S` | Deferred VAT (esigibilità differita) and split payment (scissione dei pagamenti); every summary block carries `I`. |
+| `DatiRiepilogo` `SpeseAccessorie`, `Arrotondamento`, `RiferimentoNormativo` | Ancillary expenses, rounding, or the legal reference of a summary block (for example the provision behind a `Natura`). |
+| Line-level `CodiceArticolo`, `UnitaMisura`, `ScontoMaggiorazione`, `DataInizioPeriodo`/`DataFinePeriodo`, `RiferimentoAmministrazione`, `AltriDatiGestionali` | `ProductNumber`, `ProductBarcode` and `Unit` of the charge item are not read. `AltriDatiGestionali` also carries the `ESENZSPORT` value introduced with specification 1.9.1. |
+| Line-level `TipoCessionePrestazione`, `Ritenuta` | A line marked as discount, premium, rebate or ancillary expense; a line subject to withholding tax. |
 | Buyer `Nome`/`Cognome` | Private person, ditta individuale. |
 | IdSdI of a linked document | Has no element in schema 1.2.x. |
 | TD07–TD09 simplified invoices | A different format (FSM10). |
 
-*Table 17. FatturaPA blocks that are not rendered.*
+*Table 17. FatturaPA elements that are not rendered.*
 
 Foreign buyers of an issued document are excluded by decision: such a receipt gets no FatturaPA (see [Which receipts get a FatturaPA](#which-receipts-get-a-fatturapa)).
 
@@ -574,3 +589,11 @@ A B2B invoice with one 22% line, paid in cash, rendered in the sandbox. As the [
 - [Type of Receipt: ftReceiptCase](../reference-tables/type-of-receipt-ftreceiptcase.md) — the invoice receipt cases and the refund flag.
 - [Type of Service: ftChargeItemCase](../reference-tables/type-of-service-ftchargeitemcase.md) — the VAT and nature-of-VAT values behind `Natura`.
 - [Type of Payment: ftPayItemCase](../reference-tables/type-of-payment-ftpayitemcase.md) — the payment types behind `ModalitaPagamento`.
+
+External references:
+
+- [Specifiche tecniche versione 1.9.1 (Agenzia delle Entrate)](https://www.agenziaentrate.gov.it/portale/specifiche-tecniche-versione-1.9.1-%C2%A0-utilizzabili-dal-15-maggio-2026-) — the current FatturaPA specification, usable from 15 May 2026, with the schemas and tabular layouts.
+- [Allegato A – Specifiche tecniche vers. 1.9.1 (PDF)](https://www.agenziaentrate.gov.it/portale/documents/d/guest/allegato-a-specifiche-tecniche-vers-1-9-1) — the technical specification document, including the SdI controls.
+- [`Schema_VFPR12` v1.2.3 (XSD)](https://www.agenziaentrate.gov.it/portale/documents/d/guest/schema_vfpr12_v1-2-3) — the XML schema of the ordinary invoice.
+- [Specifiche tecniche versione 1.9 (Agenzia delle Entrate)](https://www.agenziaentrate.gov.it/portale/specifiche-tecniche-versione-1.9) — the previous specification version.
+- [Documentazione Sistema di Interscambio (fatturapa.gov.it)](https://www.fatturapa.gov.it/it/norme-e-regole/DocumentazioneSDI/) — the SdI documentation.
