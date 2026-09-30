@@ -29,10 +29,12 @@ HTTP-level errors are returned by the [POS System API](../../possystem-api/intro
 | `401 Unauthorized` | The access token is not set or invalid. |
 | `409 Conflict` | The `x-operation-id` was reused with a different request body. |
 | `500 Internal Server Error` | The server encountered an unexpected error. |
+| `502 Bad Gateway` | The service is temporarily not reachable. |
+| `503 Service Unavailable` | The service is temporarily not available. |
 
 *Table 2. Relevant HTTP error status codes of the POS System API.*
 
-The error codes per endpoint are listed in the [POS System API reference](https://docs.fiskaltrust.eu/apis/pos-system-api). Error responses use the content type `application/problem+json` and contain a `ProblemDetails` object with a short summary in `title`, the HTTP status in `status` and a description in `detail`. The optional `errors` array can contain details for individual request properties, parameters or headers.
+The error codes per endpoint are listed in the [POS System API reference](https://docs.fiskaltrust.eu/apis/pos-system-api). Error responses use the content type `application/problem+json` and contain a `ProblemDetails` object as defined in [RFC 9457 (Problem Details for HTTP APIs)](https://www.rfc-editor.org/rfc/rfc9457), with a short summary in `title`, the HTTP status in `status` and a description in `detail`. The optional `errors` array can contain details for individual request properties, parameters or headers.
 
 ```json
 {
@@ -123,9 +125,9 @@ If a request fails validation, the response may contain one failure signature pe
 
 | Level | Situation | Reaction of the POS system |
 |-------|-----------|----------------------------|
-| Transport | No answer, connection interrupted or timeout | Do not assume that the receipt was or was not processed. Resend the unchanged request (same `cbReceiptReference`) with the `ReceiptRequest` flag `0x0000_0000_8000_0000` to receive the stored response of an already processed receipt (see [ftReceiptCaseFlag](../reference-tables/reference-tables.md#ftreceiptcaseflag)). With the POS System API, retry with the same `x-operation-id` and the same body (see [Process-Driven and Idempotent Design](../../possystem-api/introduction.md#process-driven-and-idempotent-design)). If the Middleware stays unreachable, continue as described in [Middleware not reachable or failing](./cash-register-integration-failure-scenarios.md#middleware-not-reachable-or-failing). |
-| HTTP | `400`, `401` or `409` | Resending the unchanged request does not resolve the error. Correct the cause described in the `ProblemDetails` (for example the request body or the credentials) and send the corrected request with a new `x-operation-id`, because reusing the `x-operation-id` with a different body is rejected with `409 Conflict`. |
-| HTTP | `500` | The request can be retried with the same `x-operation-id` and the same body, as calls to the POS System API are idempotent (see [Process-Driven and Idempotent Design](../../possystem-api/introduction.md#process-driven-and-idempotent-design)). |
+| Transport | No answer, connection interrupted or timeout | Do not assume that the receipt was or was not processed. Retry the request with the same `x-operation-id` and the same body (see [Process-Driven and Idempotent Design](../../possystem-api/introduction.md#process-driven-and-idempotent-design)). If the original request was already processed, its result is returned; if it is still being processed, the call blocks until it is finished. The operation is never executed twice. If the Middleware stays unreachable, continue as described in [Middleware not reachable or failing](./cash-register-integration-failure-scenarios.md#middleware-not-reachable-or-failing). |
+| HTTP | `502` or `503` | The service is temporarily not reachable or not available. Retry the request with the same `x-operation-id` and the same body, as for a timeout. |
+| HTTP | Any other status code, for example `400`, `401`, `409` or `500` | The operation failed, so retrying with the same `x-operation-id` does not resolve the error. Correct the cause described in the `ProblemDetails` (for example the request body or the credentials) and send the request again with a new `x-operation-id`. |
 | Middleware | `ftState` OK | Print or issue the receipt, including all returned `ftSignatures`. |
 | Middleware | `ftState` with status flags | Print or issue the receipt, including all returned `ftSignatures`, and signal the state to the operator. Resolve the state as described for the flag, usually with a Zero-Receipt or the due closing receipt (see [Service Status: ftState](../reference-tables/reference-tables.md#service-status-ftstate) and [Failure Scenarios](./cash-register-integration-failure-scenarios.md)). |
 | Middleware | `ftState` `0000_0001` | Start the queue with an initial-operation receipt. A stopped queue cannot be reopened; a new queue must be created and started instead (see [Stop Receipt](./cash-register-integration-regular-workflow.md#stop-receipt-closing-receipt)). |
