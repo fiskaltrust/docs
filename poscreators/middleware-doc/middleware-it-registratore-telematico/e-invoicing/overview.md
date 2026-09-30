@@ -11,16 +11,29 @@ eInvoicing works the same way across fiskaltrust markets — the shared model, t
 
 | Aspect | Current status |
 | --- | --- |
-| Scope | **B2G, B2B, and B2C.** |
+| Scope | **B2G, B2B, and B2C.** fiskaltrust supports B2C and B2B — see [What fiskaltrust supports](#what-fiskaltrust-supports). |
 | Regulatory model | **Centralised clearance** — SDI validates and clears every invoice before it is legally effective. |
 | Live since | **2019** (full B2B mandate). No upcoming deadline to plan around. |
 | Current spec | **FatturaPA v1.9.1** — live since 15 May 2026; derogation running to December 2027. |
 | Format | **FatturaPA** — Italy's own XML schema (predates EN 16931). The FPA12 format (B2G) requires a signature; FPR12 (B2B, B2C) does not. |
 | Transmission | fiskaltrust renders the FatturaPA and returns it **unsigned**; an **accredited partner** transmits it to SDI. See [FatturaPA mapping](./fatturapa-mapping.md#who-transmits-the-document). |
 
+*Table 1. Regulatory status of eInvoicing in Italy.*
+
 :::info Already live — usually a displacement
 Italy's eInvoicing has been mandatory since **2019**, and SDI clearance covers B2G, B2B, and B2C. Most merchants already run some eInvoicing arrangement, so integrating through fiskaltrust is typically **replacing an existing setup, not a first-time build**. There is no upcoming deadline forcing the question.
 :::
+
+## What fiskaltrust supports
+
+| Aspect | Supported today |
+| --- | --- |
+| B2C, B2B | **Yes** — generation of the FatturaPA and transmission to SDI. |
+| B2G | **No.** |
+| Sending eInvoices | **Yes.** |
+| Receiving eInvoices | **No** — eInvoices sent to the merchant through SDI are not received. |
+
+*Table 2. eInvoicing scope supported by fiskaltrust in Italy.*
 
 ## Terminology
 
@@ -31,6 +44,8 @@ Italy's eInvoicing has been mandatory since **2019**, and SDI clearance covers B
 | **CodiceDestinatario** | The routing code identifying a buyer's channel in SDI. Sent in `ftReceiptCaseData`. |
 | **PEC** | Certified email — the fallback delivery channel for an unknown buyer. |
 | **XAdES** | A digital signature standard for FatturaPA documents; a signature is required for the FPA12 format (B2G). |
+
+*Table 3. Italian eInvoicing terms.*
 
 ## Related pages
 

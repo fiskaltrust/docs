@@ -5,7 +5,13 @@ title: FatturaPA mapping
 
 # FatturaPA mapping (Italy)
 
-This page describes how fiskaltrust turns an Italian invoice receipt into a **FatturaPA** document (format FPR12 / FPA12, schema 1.2.x): which receipts get one, which document types are supported, where every FatturaPA element comes from, what the fiskaltrust.Middleware returns, and which validation rules a receipt has to pass. For scope and regulatory status, see the [Overview](./overview.md); for prerequisites and the end-to-end flow, see [Setup & testing](./setup.md).
+This page describes how fiskaltrust turns an Italian invoice receipt into a **FatturaPA** document (format FPR12, schema 1.2.x): which receipts get one, which document types are supported, where every FatturaPA element comes from, what the fiskaltrust.Middleware returns, and which validation rules a receipt has to pass. For scope and regulatory status, see the [Overview](./overview.md); for prerequisites and the end-to-end flow, see [Setup & testing](./setup.md).
+
+:::info What fiskaltrust supports today
+- **B2C and B2B:** fiskaltrust generates the FatturaPA and it is transmitted to SDI.
+- **B2G is not supported.**
+- **Sending only:** receiving eInvoices from SDI is not supported.
+:::
 
 ## How the mapping runs
 
@@ -26,7 +32,7 @@ fiskaltrust renders the document; an **accredited partner transmits it to SdI**.
 
 | Condition | Rule | When not met |
 | --- | --- | --- |
-| Invoice receipt case | `ftReceiptCase` is `0x1001` (B2C), `0x1002` (B2B) or `0x1003` (B2G). See [Type of Receipt: ftReceiptCase](../reference-tables/type-of-receipt-ftreceiptcase.md#txcc---receiptcase). | No FatturaPA; the receipt is fiscalized as usual. |
+| Invoice receipt case | `ftReceiptCase` is `0x1001` (B2C) or `0x1002` (B2B). B2G (`0x1003`) is not supported. See [Type of Receipt: ftReceiptCase](../reference-tables/type-of-receipt-ftreceiptcase.md#txcc---receiptcase). | No FatturaPA; the receipt is fiscalized as usual. |
 | Buyer in Italy | For a document the merchant **issues** (see [Document types](#document-types)): `cbCustomer.CustomerCountry` is empty, `IT`, or not a recognized country code. Purchase and self-issued documents apply whatever the country; their own rules decide which countries are valid. | A recognized country code other than `IT` on an issued document: no FatturaPA; the receipt is fiscalized as usual. |
 | Currency | `Currency` is `EUR` or not set. | The receipt is rejected. |
 
@@ -117,7 +123,7 @@ In the sandbox, seller data the merchant's account is missing is filled with a s
 | --- | --- |
 | `numero` | **Required.** The invoice number from the merchant's own progressive series (art. 21 DPR 633/72). The fiskaltrust `ftReceiptIdentification` is not used: it is a receipt counter, not a per-year series, and it collides across the cashboxes of one merchant. |
 | `tipoDocumento` | The FatturaPA document type. Optional; see [Document types](#document-types). |
-| `codiceDestinatario` | The SdI routing code: 6 characters (*codice univoco ufficio*) for B2G, 7 characters for B2B. See [Routing](#routing). |
+| `codiceDestinatario` | The SdI routing code: 7 characters for B2B. See [Routing](#routing). |
 | `pec` | The recipient's certified email address. See [Routing](#routing). |
 | `causale` | Free text for `Causale`. Optional. |
 | `cessionario.provincia` | The counterparty's two-letter province code, since `cbCustomer` has no province field. Optional. |
@@ -166,7 +172,7 @@ Per pay item, `ftPayItemCaseData` → `IT.einvoicing` can override the payment m
 | `IdTrasmittente/IdPaese` | `IT` — placeholder, the partner writes its own. |
 | `IdTrasmittente/IdCodice` | The merchant's codice fiscale — placeholder, the partner writes its own. |
 | `ProgressivoInvio` | Five base-36 characters derived from `ftQueueItemID` — placeholder, the partner assigns its own. |
-| `FormatoTrasmissione` | `FPA12` when `CodiceDestinatario` has 6 characters (B2G), otherwise `FPR12`. |
+| `FormatoTrasmissione` | `FPR12` |
 | `CodiceDestinatario` | See [Routing](#routing). |
 | `PECDestinatario` | `pec`, written only when `CodiceDestinatario` is `0000000`. |
 
@@ -176,8 +182,7 @@ Per pay item, `ftPayItemCaseData` → `IT.einvoicing` can override the payment m
 
 | Receipt | `codiceDestinatario` | `pec` | `CodiceDestinatario` in the XML |
 | --- | --- | --- | --- |
-| B2G `0x1003` | **Required**: the 6-character *codice univoco ufficio*. | Not used. | The 6 characters (`FPA12`). |
-| B2B `0x1002` | A 7-character channel code. A 6-character code is rejected — use the B2G receipt case. | Required when there is no 7-character code. | The 7 characters, or `0000000` + `PECDestinatario`. |
+| B2B `0x1002` | A 7-character channel code. A 6-character code (a public office) is rejected. | Required when there is no 7-character code. | The 7 characters, or `0000000` + `PECDestinatario`. |
 | B2C `0x1001` | Omitted or `0000000`. | Optional. | `0000000`, with `PECDestinatario` when `pec` is sent. |
 | Purchase and self-issued documents | When sent, the merchant's **own** 7-character code. | When sent, the merchant's own PEC. | The merchant's code; `0000000` (the merchant's *cassetto fiscale*) when neither is sent. |
 | TD29 | Must not be sent. | Must not be sent. | Always `0000000`, without PEC. |
@@ -220,7 +225,7 @@ For an **issued** document, the merchant is `CedentePrestatore` and the buyer is
 
 The identifiers follow the Italian [`cbCustomer` fields](../data-structures/data-structures.md#customer-data-cbcustomer): the partita IVA in `CustomerVATId`, the codice fiscale in `CustomerTaxId`, each validated with the same rules. `CustomerId` is not read. A buyer may send both, and both are written. A private person (B2C) sends the codice fiscale in `CustomerTaxId` and the full name in `CustomerName`; the document uses `Denominazione`, not `Nome`/`Cognome`.
 
-The address (`CustomerStreet`, `CustomerZip`, `CustomerCity`) is required for B2B and B2G. A B2C receipt may leave it out; the `Sede` is then filled with placeholders: `Indirizzo` `-`, `CAP` `00000`, `Comune` `-`, `Provincia` `RM`, `Nazione` `IT`.
+The address (`CustomerStreet`, `CustomerZip`, `CustomerCity`) is required for B2B. A B2C receipt may leave it out; the `Sede` is then filled with placeholders: `Indirizzo` `-`, `CAP` `00000`, `Comune` `-`, `Provincia` `RM`, `Nazione` `IT`.
 
 #### The supplier of a purchase document
 
@@ -379,7 +384,7 @@ These optional elements of the FatturaPA schema ([`Schema_VFPR12` v1.2.3](https:
 | Seller `Contatti`, `ContattiTrasmittente` | Contact details of the seller or the transmitter; the transmitter's belong to the partner. |
 | `Anagrafica` `Titolo` and `CodEORI`, `Sede` `NumeroCivico` | Honorific title, EORI code, house number as a separate element (the house number is part of `Indirizzo`). |
 | `SoggettoEmittente` `TZ` | A document issued by a third party; the partner adds it when it applies. |
-| `DatiOrdineAcquisto`, `DatiContratto`, `DatiConvenzione` (CIG, CUP) | B2G: a public office rejects an invoice without them. |
+| `DatiOrdineAcquisto`, `DatiContratto`, `DatiConvenzione` (CIG, CUP) | Orders, contracts and agreements the invoice refers to; for B2G, which is not supported, a public office rejects an invoice without them. |
 | `DatiRicezione`, `DatiSAL`, `FatturaPrincipale` | References to a goods receipt, a work progress stage (SAL), or the main invoice of an ancillary transport invoice. |
 | `Art73` | Documents issued under art. 73 DPR 633/72. |
 | `DatiVeicoli` | Intra-community sale of new means of transport. |
@@ -466,14 +471,12 @@ These rules apply to the merchant's AdE connection. The same rules are applied w
 
 | Receipt case | Rule | Message |
 | --- | --- | --- |
-| B2G | 6-character code required. | `codiceDestinatario (the 6-char codice univoco ufficio) is required for a B2G invoice.` |
-| B2G | Buyer identity required. | `cbCustomer.CustomerVATId (the public office's partita IVA) or cbCustomer.CustomerTaxId (its codice fiscale) is required for a B2G invoice.` |
 | B2B | Buyer identity required. | `cbCustomer.CustomerVATId (the buyer's partita IVA) or cbCustomer.CustomerTaxId (its codice fiscale) is required for a B2B invoice.` |
-| B2B | A 6-character code names a public office. | `A 6-char codiceDestinatario names a public office; use the InvoiceB2G receipt case.` |
+| B2B | A 6-character code names a public office. | `A 6-char codiceDestinatario names a public office; use the InvoiceB2G receipt case.` (B2G is not supported.) |
 | B2B | 7-character code or `pec` required. | `A B2B invoice needs a 7-char codiceDestinatario or a pec for SdI routing.` |
 | B2C | Only the `0000000` code. | `A B2C invoice is routed with codiceDestinatario 0000000; leave it out or pass the sentinel.` |
 | B2C | Consumer's identity required. | `cbCustomer.CustomerTaxId (the consumer's codice fiscale) or cbCustomer.CustomerVATId (a partita IVA) is required for a B2C invoice.` |
-| B2B, B2G | Buyer address required. | `cbCustomer must carry CustomerStreet, CustomerZip and CustomerCity for a B2B/B2G invoice.` |
+| B2B | Buyer address required. | `cbCustomer must carry CustomerStreet, CustomerZip and CustomerCity for a B2B/B2G invoice.` |
 
 *Table 22. Routing rules per invoice receipt case.*
 

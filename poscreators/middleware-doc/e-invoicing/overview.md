@@ -48,7 +48,7 @@ The model is constant; the specifics are market-driven:
 - **Network / target** — Peppol, a national clearance hub (SDI, KSeF), or a national portal.
 - **Regulatory model** — post-audit (no clearance) vs. centralised clearance (the invoice is cleared before it is legally valid).
 - **Availability** — some markets are live via the API, one runs through the Portal / InStore App, and one is a build in progress.
-- **Signatures & identifiers** — e.g. an XAdES signature (Italy) or routing identifiers (Leitweg-ID, CodiceDestinatario, KSeF number).
+- **Signatures & identifiers** — e.g. a signature (the Italian FPA12 format) or routing identifiers (Leitweg-ID, CodiceDestinatario, KSeF number).
 
 Exact case codes, delivery targets, and go-live status live on each **country page**.
 
@@ -59,7 +59,7 @@ Exact case codes, delivery targets, and go-live status live on each **country pa
 | **Austria (AT)** | B2G mandated; B2B optional | API — `/sign` + `/issue` via Peppol / the national portal |
 | **France (FR)** | B2B, decentralised (PDP) | API — `/sign` + `/issue` via the Plateforme Agréée |
 | **Germany (DE)** | B2B, post-audit | API — `/sign` + `/issue` via Peppol |
-| **Italy (IT)** | B2G/B2B/B2C, centralised clearance | API — `/sign` + `/issue` via SDI |
+| **Italy (IT)** | B2G/B2B/B2C, centralised clearance | API — `/sign` + `/issue` via SDI. Supported: B2C and B2B, sending only — see [What fiskaltrust supports](../middleware-it-registratore-telematico/e-invoicing/overview.md#what-fiskaltrust-supports). |
 | **Poland (PL)** | B2B, centralised clearance | API (preview) — `/sign` + `/issue` via KSeF |
 | **EU (cross-border)** | Voluntary — no national mandate | API — `/sign` + `/issue` via Peppol |
 

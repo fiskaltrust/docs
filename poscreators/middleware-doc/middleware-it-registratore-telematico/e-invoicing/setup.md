@@ -11,6 +11,12 @@ This page covers the prerequisites for eInvoicing in the Italian (IT) market, ho
 eInvoicing rides on calls you already make. Setup is about **configuration** — FatturaPA output and the fiskaltrust.Middleware's Italian locale. fiskaltrust renders the FatturaPA and returns it **unsigned**; an **accredited partner** transmits it to SDI. Delivery via `/issue` is **optional**. There is **no new connection or credential**.
 :::
 
+:::info What fiskaltrust supports today
+- **B2C and B2B:** fiskaltrust generates the FatturaPA and it is transmitted to SDI.
+- **B2G is not supported.**
+- **Sending only:** receiving eInvoices from SDI is not supported.
+:::
+
 ## Prerequisites
 
 | Requirement | Detail |
