@@ -16,9 +16,7 @@ The fiskaltrust.Middleware calls the service twice for every receipt you send to
 1. **Validate — before fiscalization.** The service receives the `ReceiptRequest`, decides whether the receipt gets a FatturaPA, and checks it against the [validation rules](#validation-rules). A receipt that breaks a rule is **rejected and not fiscalized**: the response carries an error state and a signature naming the reason. Correct the receipt and send it again.
 2. **Process — after fiscalization.** The service receives the `ReceiptRequest` and the fiscalized `ReceiptResponse`, runs the same rules again, builds the FatturaPA XML, checks the built document against the FatturaPA rules, and appends the result to `ftSignatures` (see [Output](#output)).
 
-Everything that can be decided from the request and the merchant's account is checked in the validate step, so a receipt is rejected before a fiscal record exists. A repeated process call for the same `ftQueueItemID` returns the result recorded for the first call, so a retry renders the identical document.
-
-If the service cannot read the merchant's account data or its own storage while validating a receipt it acts on, the validate step fails and the receipt is rejected before fiscalization.
+Everything that can be decided from the request and the merchant's account is checked in the validate step, so a receipt is rejected before a fiscal record exists.
 
 ### Transmission data
 
