@@ -28,7 +28,7 @@ If the service cannot read the merchant's account data or its own storage while 
 
 ### Transmission to SDI through `/issue`
 
-`/sign` returns the generated FatturaPA in its response. To transmit it to SDI, call `/issue` with the `/sign` request and its response; see [Setup & testing](./setup.md#end-to-end-example). The transmission is carried out by an **accredited partner**, which receives the complete, **unsigned** XML and owns the transmission layer: it (re)writes `DatiTrasmissione` (`IdTrasmittente`, `ProgressivoInvio`), names the file, and adds `TerzoIntermediarioOSoggettoEmittente` where it applies. What the service writes in those places is a schema-valid placeholder, not a value SdI will see.
+`/sign` returns the generated FatturaPA in its response. To transmit it to SDI, call `POST /issue` with the `/sign` request and its response; see [Setup & testing](./setup.md#end-to-end-example). The transmission is carried out by an **accredited partner**, which receives the complete, **unsigned** XML and owns the transmission layer: it (re)writes `DatiTrasmissione` (`IdTrasmittente`, `ProgressivoInvio`), names the file, and adds `TerzoIntermediarioOSoggettoEmittente` where it applies. What the service writes in those places is a schema-valid placeholder, not a value SdI will see.
 
 ## Which receipts get a FatturaPA
 
