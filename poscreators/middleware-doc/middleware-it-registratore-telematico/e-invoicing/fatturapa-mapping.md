@@ -5,13 +5,7 @@ title: FatturaPA mapping
 
 # FatturaPA mapping (Italy)
 
-This page describes how fiskaltrust turns an Italian invoice receipt into a **FatturaPA** document (format FPR12, schema 1.2.x): which receipts get one, which document types are supported, where every FatturaPA element comes from, what the fiskaltrust.Middleware returns, and which validation rules a receipt has to pass. For scope and regulatory status, see the [Overview](./overview.md); for prerequisites and the end-to-end flow, see [Setup & testing](./setup.md).
-
-:::info What fiskaltrust supports today
-- **B2C and B2B:** the FatturaPA is generated as part of `/sign` and transmitted to SDI through `/issue`.
-- **B2G is not supported:** the fiskaltrust SDI service is not certified for B2G.
-- **Sending only:** receiving eInvoices from SDI is not supported.
-:::
+This page describes how fiskaltrust turns an Italian invoice receipt into a **FatturaPA** document (format FPR12, schema 1.2.x): which receipts get one, which document types are supported, where every FatturaPA element comes from, what the fiskaltrust.Middleware returns, and which validation rules a receipt has to pass. For the supported scope (B2C and B2B, sending only), see [What fiskaltrust supports](./overview.md#what-fiskaltrust-supports); for regulatory status, see the [Overview](./overview.md); for prerequisites and the end-to-end flow, see [Setup & testing](./setup.md).
 
 ## How the mapping runs
 
