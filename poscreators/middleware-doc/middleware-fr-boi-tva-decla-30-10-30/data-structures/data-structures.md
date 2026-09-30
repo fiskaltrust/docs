@@ -94,6 +94,23 @@ For French law fulfilment, a `ManagerId` is required, if the receipt is sent as 
 ...
 ```
 
+### cbCustomer
+
+This section describes how the Middleware processes `cbCustomer` for the French market. For the structure and all of its fields, see [cbCustomer](../../general/data-structures/data-structures.md#cbcustomer) in the General Part.
+
+`cbCustomer` is only read for [eInvoicing](../e-invoicing/setup.md), where it carries the buyer's master data of a B2B invoice. The column **Read by** lists the components of the Middleware that use the field.
+
+| Field Name        | Read by | Description |
+|-------------------|---------|-------------|
+| `CustomerVATId`   | eInvoicing | VAT ID of the buyer. |
+| `CustomerName`    | eInvoicing | Name or company name of the buyer. |
+| `CustomerStreet`  | eInvoicing | Street of the buyer's address. |
+| `CustomerZip`     | eInvoicing | Postal code of the buyer's address. |
+| `CustomerCity`    | eInvoicing | City of the buyer's address. |
+| `CustomerCountry` | eInvoicing | Country of the buyer. |
+
+*Table 5. cbCustomer fields read by the Middleware for the French market.*
+
 ### Receipt Response
 
 This table describes additional fields of the receipt response applicable to the French market.
@@ -103,7 +120,7 @@ This table describes additional fields of the receipt response applicable to the
 | `ftCashBoxIdentification` | `string`  | mandatory                     | Cash register identification.                                                                             | 1.2     |
 | `ftReceiptIdentification` | `string`  | mandatory                     | Allocated through fiskaltrust.SecurityMechanism up counting receipt number depending on the receipt type. | 1.2     |
 
-*Table 5. Additional receipt response fields for France.*
+*Table 6. Additional receipt response fields for France.*
 
 ### ChargeItems Entry
 
@@ -120,7 +137,7 @@ This table describes additional fields of the ChargeItems Entry applicable to th
 | `Unit`                 | `string`<br />Max 1k  | mandatory          | Unit of measurement, e. g. pièce, kg, litre, room, nuit, ...                         | 1.2         |
 | `UnitPrice`            | `Decimal`             | mandatory          | Gross price per indicated unit.                                                      | 1.2         |
 
-*Table 6. Additional ChargeItems entry fields for France.*
+*Table 7. Additional ChargeItems entry fields for France.*
 
 #### ChargeItemCaseData Entry
 
@@ -131,7 +148,7 @@ For French law fulfilment, a net-amount by line is required. This is added by a 
 |----------------|---------------|-----------------------------------|--------------------------------------------------------|-------------|
 | `NetAmount`    | `Decimal`     | 0.0<br /> mandatory               | POS-device given net-amount, by line, to be processed. | 1.2         |
 
-*Table 7. ChargeItemCaseData entry fields for France.*
+*Table 8. ChargeItemCaseData entry fields for France.*
 
 ##### Example
 
@@ -165,4 +182,4 @@ This table describes additional fields of the Signature Entry applicable to the 
 | `ftSignatureFormat` | `Int64`       | 0<br />mandatory                           | Format for displaying signature data according to the reference table in the appendix. | 1.2         |
 | `ftSignatureType`   | `Int64`       | 0<br />mandatory                           | Type of signature according to the reference table in the appendix.                    | 1.2         |
 
-*Table 8. Additional Signature entry fields for France.*
+*Table 9. Additional Signature entry fields for France.*
