@@ -14,7 +14,7 @@ Based on the version 2.3 of the DSFinV-K specification, this chapter explains ho
 
 A daily-closing-receipt must be sent at the end of the day for the fiskaltrust.Middleware to be able to generate the DSFinV-K export. Without the daily-closing-receipts the DSFinV-K export will be empty.
 A detailed description of the daily-closing-receipt can be found in our postman collection:
-[Daily-Closing-Receipt](https://middleware-samples.docs.fiskaltrust.eu/#ebb752b7-5cc8-4026-9e13-f2b3ef0e5c87)
+[Daily-Closing-Receipt](https://middleware-samples.docs.fiskaltrust.cloud/#ebb752b7-5cc8-4026-9e13-f2b3ef0e5c87)
 
 ### Structure
 
@@ -248,7 +248,7 @@ If `cbPreviousReceiptReference` is filled in your receipt request, fiskaltrust w
 
 If a previous receipt with the same `cbReceiptReference` exists, fiskaltrust will also automatically find the referenced receipt and add an entry to Bon_Referenzen. 
 
-For a recommendation on how to connect the single requests via `cbReceiptReference` and `cbPreviousReceiptReference`, please refer to our [Postman sample collection](https://middleware-samples.docs.fiskaltrust.eu/).
+For a recommendation on how to connect the single requests via `cbReceiptReference` and `cbPreviousReceiptReference`, please refer to our [Postman sample collection](https://middleware-samples.docs.fiskaltrust.cloud/).
 
 If you optionally want to add additional references (from other systems or other cashpoints), you can add them by providing their data as shown below:
 
