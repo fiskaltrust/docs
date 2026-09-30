@@ -38,7 +38,7 @@ Two friends are having a beer in a bar.  Because it is good German beer, they ar
 
 #### Code examples
 
-Code examples of receipt sequences can be found in our [Postman collection](https://middleware-samples.docs.fiskaltrust.cloud/#e9b0b712-2dda-4c4c-a061-16d72daa723b).
+Code examples of receipt sequences can be found in our [Postman collection](https://middleware-samples.docs.fiskaltrust.eu/#e9b0b712-2dda-4c4c-a061-16d72daa723b).
 
 ## Splitting actions
 
@@ -63,7 +63,7 @@ Two friends are having a beer in a bar.  Each of them is paying his own consumpt
 
 ### Code examples
 
-Code examples of splitting receipts can be found in our [Postman collection](https://middleware-samples.docs.fiskaltrust.cloud/#86967a8f-a1fe-4262-975e-c4a155209cb3).
+Code examples of splitting receipts can be found in our [Postman collection](https://middleware-samples.docs.fiskaltrust.eu/#86967a8f-a1fe-4262-975e-c4a155209cb3).
 
 ## Merging actions
 
@@ -87,7 +87,7 @@ Two friends are having a beer in a bar. One of them has birthday. To celebrate t
 
 #### Code examples
 
-Code examples of merging receipts can be found in our [Postman collection](https://middleware-samples.docs.fiskaltrust.cloud/#b81fedc6-919a-46e4-899a-52582606a6d7).
+Code examples of merging receipts can be found in our [Postman collection](https://middleware-samples.docs.fiskaltrust.eu/#b81fedc6-919a-46e4-899a-52582606a6d7).
 
 ## Changing the area in which the receipt is created
 
@@ -168,7 +168,7 @@ For this workflow, the combination of following receipt-sequences is needed:
 
 #### Code examples
 
-Code examples of referencing external receipts can be found in our [Postman collection](https://middleware-samples.docs.fiskaltrust.cloud/#06a34ac5-7c4f-441e-ba2b-4f02badc409c).
+Code examples of referencing external receipts can be found in our [Postman collection](https://middleware-samples.docs.fiskaltrust.eu/#06a34ac5-7c4f-441e-ba2b-4f02badc409c).
 
 ## Money substitutes based sequences (vouchers, membership cards,...)
 
@@ -182,7 +182,7 @@ Code examples of referencing external receipts can be found in our [Postman coll
 
 #### How to use
 
-Issuing and redeeming a multi-purpose voucher can be achieved with charge- and payitems or within payitems only as shown in [following examples](https://middleware-samples.docs.fiskaltrust.cloud/#ef0d52d6-ac2f-4c75-b16c-d4d1380e3257) in the Postman collection. 
+Issuing and redeeming a multi-purpose voucher can be achieved with charge- and payitems or within payitems only as shown in [following examples](https://middleware-samples.docs.fiskaltrust.eu/#ef0d52d6-ac2f-4c75-b16c-d4d1380e3257) in the Postman collection. 
 
 #### Workflow
 
@@ -201,6 +201,6 @@ In the last business action, the customer wants to have his credit paid out. The
 
 #### Code examples
 
-- [Issuing](https://middleware-samples.docs.fiskaltrust.cloud/#c8cba72c-6fbe-4e34-b47d-2fc498d12c2f) and [redeeming](https://middleware-samples.docs.fiskaltrust.cloud/#fa77f359-eda8-4686-8c70-efb125058985) multi-purpose voucher using pay-items
+- [Issuing](https://middleware-samples.docs.fiskaltrust.eu/#c8cba72c-6fbe-4e34-b47d-2fc498d12c2f) and [redeeming](https://middleware-samples.docs.fiskaltrust.eu/#fa77f359-eda8-4686-8c70-efb125058985) multi-purpose voucher using pay-items
 
-- [Issuing](https://middleware-samples.docs.fiskaltrust.cloud/#ee38c78e-a056-440c-ac46-ec1926bc92ad) and [redeeming](https://middleware-samples.docs.fiskaltrust.cloud/#58e9564f-c9bc-4920-8740-f3e468db1b2f) multi-purpose voucher using charge- and pay-items
+- [Issuing](https://middleware-samples.docs.fiskaltrust.eu/#ee38c78e-a056-440c-ac46-ec1926bc92ad) and [redeeming](https://middleware-samples.docs.fiskaltrust.eu/#58e9564f-c9bc-4920-8740-f3e468db1b2f) multi-purpose voucher using charge- and pay-items
