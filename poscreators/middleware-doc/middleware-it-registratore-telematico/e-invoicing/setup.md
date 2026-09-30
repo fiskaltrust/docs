@@ -8,12 +8,12 @@ title: "Setup & testing"
 This page covers the prerequisites for eInvoicing in the Italian (IT) market, how to enable it in the fiskaltrust.Portal, and how to validate the flow against a sandbox before production. For scope, regulatory status, and the delivery flow, see the [Overview](./overview.md).
 
 :::note What setup means in Italy
-eInvoicing rides on calls you already make. Setup is about **configuration** — FatturaPA output and the fiskaltrust.Middleware's Italian locale. The FatturaPA is **generated as part of `/sign`** and returned **unsigned** in the response; it is **transmitted to SDI through `/issue`**, by an **accredited partner**. There is **no new connection or credential**.
+eInvoicing rides on calls you already make. Setup is about **configuration** — FatturaPA output and the fiskaltrust.Middleware's Italian locale. The FatturaPA is **generated as part of `/sign`** and returned **unsigned** in the response; `POST /issue` sends it to the **fiskaltrust SDI service**, which transmits it to SDI. There is **no new connection or credential**.
 :::
 
 :::info What fiskaltrust supports today
 - **B2C and B2B:** the FatturaPA is generated as part of `/sign` and transmitted to SDI through `/issue`.
-- **B2G is not supported.**
+- **B2G is not supported:** the fiskaltrust SDI service is not certified for B2G.
 - **Sending only:** receiving eInvoices from SDI is not supported.
 :::
 
@@ -47,7 +47,7 @@ Validate the end-to-end flow against a sandbox-scoped fiskaltrust.Middleware —
 3. Run one invoice through the full flow below: `/sign` (generation) → `/issue` (transmission to SDI) → poll until **cleared by SDI**.
 
 :::note The FatturaPA is returned unsigned
-The FatturaPA XML is returned unsigned by `/sign`. When you call `/issue`, an accredited partner transmits it to SDI and completes the transmission data (`DatiTrasmissione`, the file name). See [Transmission to SDI through `/issue`](./fatturapa-mapping.md#transmission-to-sdi-through-issue).
+The FatturaPA XML is returned unsigned by `/sign`. `POST /issue` sends it to the fiskaltrust SDI service, which transmits it to SDI and completes the transmission data (`DatiTrasmissione`, the file name). See [Transmission to SDI through `/issue`](./fatturapa-mapping.md#transmission-to-sdi-through-issue).
 :::
 
 ### End-to-end example
