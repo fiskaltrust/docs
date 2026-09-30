@@ -34,17 +34,17 @@ If using `cbPreviousReceiptReference`, as per DSFinV-K it must have a maximum le
 
 #### Customer data `cbCustomer`
 
-The data types are the limits of the [DSFinV-K export](../procedural-documentation/dsfinv-k-generation.md); `CustomerCountry` is an ISO 3166 ALPHA-3 country code. The column **Read by** lists the components of the Middleware that use the field: the DSFinV-K export and [eInvoicing](../e-invoicing/setup.md) for B2B invoices.
+The data types are the limits of the [DSFinV-K export](../procedural-documentation/dsfinv-k-generation.md); `CustomerCountry` is an ISO 3166 ALPHA-3 country code.
 
-| **Field name**    | **Data type**                   | **Read by** | **Version** |
-|-------------------|---------------------------------|-----|-------------|
-| `CustomerName`    | `string (50)`                   | DSFinV-K export, eInvoicing | 1.3         |
-| `CustomerId`      | `string (50)`                   | DSFinV-K export | 1.3         |
-| `CustomerStreet`  | `string (60)`                   | DSFinV-K export, eInvoicing | 1.3         |
-| `CustomerZip`     | `string (10)`                   | DSFinV-K export, eInvoicing | 1.3         |
-| `CustomerCity`    | `string (62)`                   | DSFinV-K export, eInvoicing | 1.3         |
-| `CustomerCountry` | `ISO 3166 ALPHA-3 country code` | DSFinV-K export, eInvoicing | 1.3         |
-| `CustomerVATId`   | `string(15)`                    | DSFinV-K export, eInvoicing | 1.3         |
+| **Field name**    | **Data type**                   | **Version** |
+|-------------------|---------------------------------|-------------|
+| `CustomerName`    | `string (50)`                   | 1.3         |
+| `CustomerId`      | `string (50)`                   | 1.3         |
+| `CustomerStreet`  | `string (60)`                   | 1.3         |
+| `CustomerZip`     | `string (10)`                   | 1.3         |
+| `CustomerCity`    | `string (62)`                   | 1.3         |
+| `CustomerCountry` | `ISO 3166 ALPHA-3 country code` | 1.3         |
+| `CustomerVATId`   | `string(15)`                    | 1.3         |
 
 *Table 2. Customer data fields sent via `cbCustomer`.*
 
