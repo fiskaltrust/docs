@@ -52,12 +52,14 @@ The `cbCustomer` field of the `ReceiptRequest` identifies the customer (buyer) f
   "CustomerName": "Erika Musterfrau",
   "CustomerId": "C-10042",
   "CustomerType": "B2B",
-  "CustomerStreet": "Rua Augusta 100",
+  "CustomerStreet": "Rua Augusta",
+  "CustomerHouseNumber": "100",
   "CustomerZip": "1100-053",
   "CustomerCity": "Lisboa",
   "CustomerCountry": "PT",
   "CustomerVATId": "123456789",
-  "CustomerTaxId": "987654321"
+  "CustomerTaxId": "987654321",
+  "CustomerIdentifier": "P1234567"
 }
 ```
 
