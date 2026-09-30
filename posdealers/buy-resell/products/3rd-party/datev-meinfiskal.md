@@ -61,24 +61,19 @@ Check if the **isValid** field is **true**. If the **isValid** field shows the v
 
 *Table 1. Common errors in the DFKA validation report and their causes.*
 
-### PosDealer
+### PosDealer and PosOperator
 
 The PosDealer activates the **DATEV MeinFiskal** function in the fiskaltrust.Portal by signing the **user agreement** on behalf of the PosOperator.
 
-Customer data such as **Email address** and **tax number** (St.-ldNr. or USt-ldNr.) are exchanged between the fiskaltrust.Portal and the [DATEV MeinFiskal](https://www.meinfiskal.de/) platform. 
+Customer data such as **Email address** and **tax number** (St.-ldNr. or USt-ldNr.) are exchanged between the fiskaltrust.Portal and the [DATEV MeinFiskal](https://www.meinfiskal.de/) platform.
 
-A **DATEV MeinFiskal** user account and a password are created automatically at DATEV. 
+A **DATEV MeinFiskal** user account and a password are created automatically at DATEV.
 
-After the automatic account creation, the PosDealer receives an email from DATEV with a link to reset the account's password.
+After the automatic account creation, the PosDealer receives an onboarding email from fiskaltrust with the instructions on how to reset the account's password. 
+At the same time, a similar onboarding email gets sent to the PosOperator to inform them about the successful onboarding.
 
-### PosOperator
-
-After the PosDealer has set a new password and prepared the account for the PosOperator, the PosOperator receives their own welcome email with a link to edit the password if they wish to do so.
-
-After that, the DATEV MeinFiskal account is fully operational, and the PosOperator can use its services such as **DATEV Kassenarchiv online**.
-
+At this point, the DATEV MeinFiskal account is fully operational, and the PosOperator can use its services such as **DATEV Kassenarchiv online**.
 Further services like the **DATEV Kassenbuch online** are available at the MeinFiskal platform.
-
 Fiskaltrust handles the generation of the legally required data formats (DSFinV-K, DFKA taxonomy, .tar files, native format, other documents), as well as the connection and data transfer to **DATEV MeinFiskal** via the fiskaltrust.Portal.
 
 ![MeinFiskal_Prozess](../../images/meinFiskal_Schnittstellen2.png)
@@ -89,11 +84,19 @@ Fiskaltrust handles the generation of the legally required data formats (DSFinV-
 
 ### Prerequisites
 
+:::info important
+
+In order for a PosOperator to use DATEV MeinFiskal, the PosDealer must purchase either at least one Carefree subscription or a standalone product [DATEV MeinFiskal Kassenarchiv online](https://portal.fiskaltrust.de/#/Shop/Product/4445-041040) for that PosOperator.
+Whether the [fiskaltrust.Carefree subscription](https://portal.fiskaltrust.de/#/Shop/Product/4445-021040) was purchased without or with the additional product [TSE-as-a-Service](https://portal.fiskaltrust.de/#/Shop/Product/4445-021050) is irrelevant when setting up the connection with DATEV MeinFiskal.
+Furthermore, neither a queue nor a cashbox is necessary when setting up the connection. However, for a successful data backup via DATEV MeinFiskal, a queue and a cashbox must be set up and activated if required. In case of problems, check [Troubleshooting](#troubleshooting) below.
+
+:::
+
 As a PosDealer, you can get an overview of all your PosSystems and their **PosSystemId** in use.
 1. Log in to **fiskaltrust.Portal** and select `PosSystems`.
 2. If no PosSystem should be available, contact your PosCreator.
 
-If the following requirements are not met, the [PosOperator Onboarding](../../../getting-started/operator-onboarding/invitation-process.md) must be completed first, or the PosOperator itself must perform the setup.
+If the following requirements are not met, the [PosOperator Onboarding](../../../getting-started/operator-onboarding/invitation-process.md) must be completed first, or the PosOperator themselves must perform the setup.
 
 1. The PosOperator already has an account in the **fiskaltrust.Portal** and agreed to the general terms and conditions and the PosOperator user agreement of fiskaltrust.  
 2. The [Master data](../../../getting-started/operator-onboarding/master-data.md "Master data") are checked by the PosOperator or by the PosDealer.  
@@ -134,7 +137,7 @@ DATEV has strict checks that verify the entered address data. The city and stree
 1. At `PosOperator` / `Overview`, select the link at `Name` and go to the account of the PosOperator.
 2. Select `Company` / `Master data`.
 3. Check if every mandatory field, like `Name*` or `Address*`, is filled in.
-4. Check whether you can successfully perform a validity check using either `St-ldNr` or `USt-ldNr`.
+4. Check whether you can successfully perform a validity check using either `St-IdNr` or `USt-IdNr`.
 5. Save your entries with `Save`. 
 
 ### Setup instructions
@@ -145,28 +148,18 @@ Note that the **DATEV MeinFiskal** account is created automatically during the c
 
 :::
 
-#### Setup after the purchase of a fiskaltrust.Carefree subscription
-
-:::info summary
-
-In order for a PosOperator to use DATEV MeinFiskal, the PosDealer must purchase either at least one Carefree subscription or a standalone product [DATEV MeinFiskal Kassenarchiv online](https://portal.fiskaltrust.de/#/Shop/Product/4445-041040) for that PosOperator. 
-Whether the [fiskaltrust.Carefree subscription](https://portal.fiskaltrust.de/#/Shop/Product/4445-021040) was purchased without or with the additional product [TSE-as-a-Service](https://portal.fiskaltrust.de/#/Shop/Product/4445-021050) is irrelevant when setting up the connection with DATEV MeinFiskal.
-Furthermore, neither a queue nor a cashbox is necessary when setting up the connection. However, for a successful data backup via DATEV MeinFiskal, a queue and a cashbox must be set up and activated if required. In case of problems, check [Troubleshooting](#troubleshooting) below.
-
-:::
-
 ##### Connection setup
 
-![preview](../../images/DATEV_PW_Change_Dialog-0.png "Access data for DATEV MeinFiskal")
+![preview](../../images/trigger_datev_meinfiskal_onboarding.png "Access data for DATEV MeinFiskal")
 
 *Figure 2. fiskaltrust.Portal Company overview with the section for enabling third-party connections to DATEV MeinFiskal.*
 
-| Steps | Description |
-|-------|-------------|
-| ![Number 1](../../../images/numbers/circle-1o.png) | After purchasing a fiskaltrust.Carefree subscription, select `Company` / `Overview`. |
-| ![Number 2](../../../images/numbers/circle-2o.png) | Scroll down until `Connections to 3rd party partners` / `DATEV MeinFiskal`. |
-| ![Number 3](../../../images/numbers/circle-3o.png) | Press the `slider`, if you have not yet. |
-| ![Number 4](../../../images/numbers/circle-4o.png) | You will be redirected to the page to read and `sign` the contract **(Nutzungsvertrag über die Nutzung von DATEV MeinFiskal)**. With your signature, a background process starts. Allow the process sufficient time to complete and refrain from refreshing the page. Navigating away from the page or logging out and back into the account will not have a negative effect. |
+| Steps | Description                                                                                                                                                                                                                                                                                                                                                                                                                               |
+|-------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ![Number 1](../../../images/numbers/circle-1o.png) | After purchasing a required commercial product for using DATEV MeinFiskal (see [Prerequisites](#prerequisites)), log in or [surrogate](../../../getting-started/operator-onboarding/surrogating.md) as a PosOperator account and select `Company` / `Overview`.                                                                                                                                                                           |
+| ![Number 2](../../../images/numbers/circle-2o.png) | Scroll down until `Connections to 3rd party partners` / `DATEV MeinFiskal`.                                                                                                                                                                                                                                                                                                                                                               |
+| ![Number 3](../../../images/numbers/circle-3o.png) | Activate the toggle in front of DATEV MeinFiskal, if you have not yet.                                                                                                                                                                                                                                                                                                                                                                    |
+| ![Number 4](../../../images/numbers/circle-4o.png) | You will be redirected to the page to read and `sign` the contract **(Nutzungsvertrag über die Nutzung von DATEV MeinFiskal)**. With your signature, a background process starts. Allow the process sufficient time to complete and refrain from refreshing the page. Navigating away from the page or logging out and back into the account will not have a negative effect. <br/><br/>You can download the signed contract at any time. |
 
 *Table 3. Steps to set up the DATEV MeinFiskal connection in the fiskaltrust.Portal.*
 
@@ -175,9 +168,9 @@ Furthermore, neither a queue nor a cashbox is necessary when setting up the conn
 If the background process for connecting your PosOperator's account to DATEV MeinFiskal was successful, you will see information similar to that shown in the image below.
 As a PosDealer, you should have also received a welcome email with further instructions.
 
-![preview](../../images/DATEV_PW_Change_Dialog-2.png "Best case scenario: connection was successful")
+![preview](../../images/successful_datev_meinfiskal_onboarding.png "Best case scenario: connection was successful")
 
-*Figure 3. Portal display of the automatically generated username and password after a successful connection.*
+*Figure 3. Portal confirmation of a successful DATEV MeinFiskal onboarding.*
 
 ##### Worst case: connection could not be set up
 
@@ -195,17 +188,15 @@ As a PosDealer, you should have also received a welcome email with further instr
 
 ## Status check for a single PosOperator
 
-![DATEV MeinFiskal Status](../../images/datev-status-information.png "https://portal-sandbox.fiskaltrust.TLD/AccountProfile")
+![DATEV MeinFiskal onboarding status](../../images/datev_meinfiskal_onboarding_status_check.png)
 
-*Figure 5. Portal Company overview showing the DATEV MeinFiskal connection details and status.*
+*Figure 5. DATEV MeinFiskal onboarding status and details.*
 
-| Steps | Description |
-|-------|-------------|
-| ![Number 1](../../../images/numbers/circle-1o.png) | Open the `Company` accordion in the sidebar. |
-| ![Number 2](../../../images/numbers/circle-2o.png) | Choose `Overview`. |
-| ![Number 3](../../../images/numbers/circle-3o.png) | Scroll down until `Connections to 3rd party partners` / `DATEV MeinFiskal`. |
-| ![Number 4](../../../images/numbers/circle-4o.png) | Details about the connection and status are given here. |
-| ![Number 5](../../../images/numbers/circle-5o.png) | The contract can be downloaded using this link again. It was sent to your email address when the contract was signed or changed. |
+| Steps                                              | Description                                                                                                                                              |
+|----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| ![Number 1](../../../images/numbers/circle-1o.png) | Log in or [surrogate](../../../getting-started/operator-onboarding/surrogating.md) as a PosOperator account and select `PosOperator`/ `DATEV MeinFiskal` |
+| ![Number 2](../../../images/numbers/circle-2o.png) | Details about the connection and status are given here.                                                                                                  |
+| ![Number 3](../../../images/numbers/circle-3o.png) | The password for the DATEV MeinFiskal account can be changed at any time by clicking on the respective button.                                           |
 
 *Table 5. Steps to check the DATEV MeinFiskal connection status for a single PosOperator.*
 

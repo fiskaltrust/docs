@@ -7,7 +7,7 @@ title: Available Settings
 
 :::info Important
 
-All settings and options described here apply to version **1.3.1** of the InStore App.  
+All settings and options described here apply to version **1.3.2** of the InStore App.  
 If you are using an older version, some settings may differ or may not be available at all.
 
 :::
@@ -67,6 +67,7 @@ When you tap on Printer, a subpage will open where you can select a printer. Any
 
 #### Printer
 Shows all available printers (USB, Bluetooth, ESC POS Network printing, ... ). Select the one you want to use.
+Select **No printing** if no printer is used on this device.
 Some payment terminals also expose an integrated printer and are tied to the payment configuration (e.g. the Shift4 Commerce Engine printer). Such printers might only appear after the payment provider was configured. Therefore we suggest to first configure Payment and afterwards the printer.
 
 #### Print Delay
@@ -91,11 +92,18 @@ Executes a simple "demo" test print to check basic printer functionality.
 Tapping **Payment Method** opens a sub-page where you select and configure a payment provider.
 
 #### Payment Method
-Select the payment provider to use on this device (e.g., **Hobex ECR**, **Hobex POSit**, **Softpay.io**, **WPI SoftPay**, **Viva Wallet**, **GP tom**, **GP Pay**, **Shift4**). 
+Select the payment provider to use on this device. All supported payment service providers and the payment features available for each of them are listed in the [PSP feature matrix](../../experience-middleware/payment.md#payment-service-provider-psp-feature-matrix). For SoftPOS and app-based providers, the provider's payment app must be installed on the same device.
+
+In addition, the following options are available:
+
+- **No payment** – All payment requests are ignored. Use this option when the InStore App is only used for receipts and printing (similar to the **No printing** printer option).
+- **Dummy Payment Provider** – Only visible when paired with a sandbox CashBox. See [Dummy Payment Provider](../Setup-guide/dummy-payment-provider.md).
+
+Providers that require additional configuration in the InStore App are described below.
 
 ##### Use Sandbox app *(internal / sandbox builds only)*
-For **Softpay.io**, **Hobex POSit**, and **GPTom** (and maybe others in future) show a **Use Sandbox app** switch. When enabled, the provider's sandbox app is used instead of the production app.
-This switch is only available when the InStore App is paired with a sandbox cashbox.
+Some payment providers offer a **Use Sandbox app** switch. When enabled, the InStore App uses the provider's sandbox payment app instead of the production app.
+This switch is only available when the InStore App is paired with a sandbox CashBox.
 
 ##### HobexECR
 - **Terminal ID** – The terminal ID assigned by Hobex.
@@ -108,6 +116,14 @@ This switch is only available when the InStore App is paired with a sandbox cash
 - **Auth Token** – The merchant auth token which will be provided by the merchant's Lighthouse Transaction Manager Account Administrator. The expected format is `12345678-ABCD-1234-ABCD1234567890EF` (uppercase hex); an inline message is shown if the format is invalid. For further help please refer to Shift4 support.
 - **Commerce Engine Host** – The Commerce Engine host address to connect to and process payment requests. If not otherwise provided by fiskaltrust support please use *127.0.0.1:8085*.
 - **Allow API Debugging** – Allows insecure certificates for troubleshooting. **Do not use in production.**
+
+##### SumUp
+
+Payments are processed through the installed SumUp app (PaymentSwitch) with a connected SumUp Solo or Solo Light reader.
+
+- **API Key** – The merchant's SumUp API key (see [SumUp: API keys](https://developer.sumup.com/tools/authorization/api-keys)). When configured, the InStore App additionally uses the SumUp cloud API for **refund**, **cancel**, and detailed payment receipts with the full transaction details. Without an API key, only **payment** is available.
+
+See the notes on SumUp in the [PSP feature matrix](../../experience-middleware/payment.md#notes) for the exact scope.
 
 #### Test Communication
 Available for some payment solutions only. Checks connectivity with the configured payment endpoint before going live.
