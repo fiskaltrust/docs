@@ -7,6 +7,10 @@ title: Overview
 
 eInvoicing works the same way across fiskaltrust markets — the shared model, the `/sign` + `/issue` flow, and the no-webhook rule are described in **[eInvoicing — Overview](../../e-invoicing/overview.md)**. This page covers only what's specific to the **Austrian (AT)** market.
 
+:::caution Availability via the fiskaltrust API — sandbox only
+The API eInvoicing path in Austria is currently available on the **sandbox** only; InStore App B2B delivery is in preview. Treat production go-live as *target state* and confirm the roadmap with your fiskaltrust partner manager. The regulatory facts below describe the market, not what fiskaltrust ships today.
+:::
+
 ## Regulatory status
 
 | Aspect | Current status |
@@ -31,7 +35,7 @@ There is **no B2B eInvoicing deadline** in Austria today. Offering B2B eInvoicin
 ## Related pages
 
 - [eInvoicing — Overview](../../e-invoicing/overview.md) — the shared model, integration flow, and prerequisites across markets.
-- [Set up and test eInvoicing (Austria)](./setup.md) — prerequisites, Portal enablement, and the end-to-end sandbox example.
+- [Set up and test eInvoicing (Austria)](./setup.md) — prerequisites, the Portal identity settings, and the per-call sandbox walkthrough.
 - [Delivery (`/issue` Endpoint)](../../experience-middleware/delivery.md) — the product-level eInvoicing and e-Delivery concept across all markets.
 - [Migrating from API v0 to PosSystem API (v2)](../../possystem-api/migration-guide.md) — eInvoicing is a PosSystem API (v2) feature.
 - [Appendix: AT (RKSV)](../appendix-at-rksv.md) — Austria fiscalization details.

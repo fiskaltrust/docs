@@ -5,10 +5,14 @@ title: "Setup & testing"
 
 # Set up and test eInvoicing (Italy)
 
-This page covers the prerequisites for eInvoicing in the Italian (IT) market, how to enable it in the fiskaltrust.Portal, and how to validate the flow against a sandbox before production. For scope, regulatory status, and the delivery flow, see the [Overview](./overview.md).
+This page covers the prerequisites, the one-time identity settings in the fiskaltrust.Portal, and the per-call PosSystem API flow that produces and delivers an eInvoice — with a sandbox walkthrough. For scope and regulatory status, see the [Overview](./overview.md).
 
-:::note What setup means in Italy
-eInvoicing rides on calls you already make. Setup is about **configuration** — FatturaPA output and the fiskaltrust.Middleware's Italian locale. The Middleware applies the required **XAdES signature**. Delivery via `/issue` is **optional**. There is **no new connection or credential**.
+:::caution Target state — not yet available
+The Italian eInvoicing path via the API is **not shipped yet** — there is no SDI / FatturaPA implementation in the POS System API path today. This page describes the **target** flow. Do not plan a go-live on it; confirm the roadmap with your fiskaltrust partner manager.
+:::
+
+:::note How eInvoicing is "enabled" in Italy
+There is **no "enable eInvoicing" switch and no output-format setting** on the fiskaltrust.Middleware. You configure your **identity once** in the Portal (company master data, plus buyer routing), and then request the **format and delivery channel per call** on the PosSystem API `/issue` endpoint. The Middleware applies the required **XAdES signature** on `/sign`. The Middleware's Italian locale is already set from fiscalization.
 :::
 
 ## Prerequisites
@@ -17,34 +21,23 @@ eInvoicing rides on calls you already make. Setup is about **configuration** —
 | --- | --- |
 | fiskaltrust account + fiskaltrust.Middleware | An active account with a configured fiskaltrust.Middleware. See [Portal registration](../../../getting-started/portal-registration.md). |
 | Existing fiscalization integration | Your POS already fiscalizes in Italy via `/sign`. |
-| fiskaltrust.Middleware country configuration | The fiskaltrust.Middleware's country configuration is set to the **Italian locale**. |
-| PosSystem API (v2) | eInvoicing features are exposed through the **PosSystem API (v2)**. If you are on the v0 interface, plan your [migration](../../possystem-api/migration-guide.md) first. |
+| fiskaltrust.Middleware country configuration | Set to the **Italian locale** (already done for fiscalization). The eInvoice **format is chosen per `/issue` call**, not by this configuration. |
+| Identity settings in the Portal | Company master data (name, address, VAT ID, country) and buyer routing (`CodiceDestinatario` / PEC). |
+| PosSystem API (v2) | eInvoicing is exposed through the **PosSystem API (v2)**. If you are on the v0 interface, plan your [migration](../../possystem-api/migration-guide.md) first. |
 | Buyer routing | The buyer's **`CodiceDestinatario`** is on file, or plan the **PEC fallback** for an unknown buyer. |
 | Existing arrangement | Ask what the merchant already uses — in Italy this is almost always a **displacement**, not a first-time integration. |
+| Sandbox validation | Run one document end to end against a sandbox fiskaltrust.Middleware before the first live document. |
 
-## Enable eInvoicing in the Portal
+## Configure your identity in the Portal (one-time)
 
-eInvoicing is enabled by **configuration**: FatturaPA output and the fiskaltrust.Middleware's Italian locale. No new integration is required on the POS side.
+This is the only Portal-side step. It sets the master data used to build the document and the identity used to route it:
 
-:::caution Draft — Portal steps to be confirmed
-The exact steps to enable eInvoicing in the fiskaltrust.Portal (FatturaPA output, Italian locale) are being verified and will be documented here. Do not treat this section as final until the flow has been confirmed.
-:::
+- **Company master data** — legal name, address, VAT ID, country.
+- **Buyer routing** — the buyer's `CodiceDestinatario`, or the PEC fallback.
 
-## Sandbox validation
+## Produce and deliver an eInvoice (per call)
 
-Validate the end-to-end flow against a sandbox-scoped fiskaltrust.Middleware — using non-production `x-cashbox-id` and `x-cashbox-accesstoken` credentials — before enabling it on a production fiskaltrust.Middleware. **Run one document through the sandbox end to end before the first live document.**
-
-1. Provision a **sandbox fiskaltrust.Middleware** in the fiskaltrust.Portal — this yields the `x-cashbox-id` and `x-cashbox-accesstoken` used on every request. See [Portal registration](../../../getting-started/portal-registration.md).
-2. Confirm your integration against the [Integration checklist](../../../getting-started/integration-checklist.md).
-3. Run one invoice through the full flow below: `/sign` → (optionally) `/issue` → poll until **cleared by SDI**.
-
-:::note The Middleware applies the XAdES signature
-FatturaPA requires an XAdES signature. It is applied by the Middleware on `/sign` — you do not sign the document yourself.
-:::
-
-### End-to-end example
-
-Run it against the sandbox at `https://possystem-api-sandbox.fiskaltrust.eu/v2`. The API is request/response and **idempotent — there is no status webhook**; the `x-operation-id` header is the idempotency key that makes retries safe. Every request carries the standard headers:
+Everything about the eInvoice — that it is produced, in which format, and where it goes — is decided **per call** on the PosSystem API. Run the walkthrough against the sandbox at `https://possystem-api-sandbox.fiskaltrust.eu/v2`. The API is request/response and **idempotent — there is no status webhook**; `x-operation-id` is the idempotency key that makes retries safe. Every request carries:
 
 ```
 x-cashbox-id: <sandbox fiskaltrust.Middleware ID>
@@ -53,9 +46,13 @@ x-possystem-id: <registered POS system ID>
 x-operation-id: <fresh UUID per operation>
 ```
 
-**Step 1 — Sign (`/sign`)** — produces the eInvoice
+:::note The Middleware applies the XAdES signature
+FatturaPA requires an XAdES signature. It is applied by the Middleware on `/sign` — you do not sign the document yourself.
+:::
 
-Call `/sign` as you do today, with the buyer's master data, using the **B2B invoice** receipt case. The response carries the fiscalized receipt and the FatturaPA document with the XAdES signature applied.
+**Step 1 — Sign (`/sign`)** — fiscalize the invoice
+
+Call `/sign` as you do today, with the buyer's master data, using the **B2B invoice** receipt case. The response fiscalizes the receipt and returns the `ftQueueID` / `ftQueueItemID` you need next.
 
 ```json
 // POST https://possystem-api-sandbox.fiskaltrust.eu/v2/sign
@@ -80,11 +77,11 @@ Call `/sign` as you do today, with the buyer's master data, using the **B2B invo
 }
 ```
 
-> **Try it:** [developer.fiskaltrust.eu → IT → sign → B2BInvoice](https://developer.fiskaltrust.eu/#/pos-system/IT?endpoint=sign&businesscase=SignRequestReceipt_B2BInvoice_1). The FatturaPA output and XAdES signature are produced by the fiskaltrust.Middleware per its configuration — see [Enable eInvoicing in the Portal](#enable-einvoicing-in-the-portal).
+> **Try it:** [developer.fiskaltrust.eu → IT → /sign → B2BInvoice](https://developer.fiskaltrust.eu/#/pos-system/IT?endpoint=sign&businesscase=SignRequestReceipt_B2BInvoice_1).
 
-**Step 2 — Issue (`/issue`)** — optional, register for delivery
+**Step 2 — Register at `/issue`**
 
-To make the receipt available for delivery, call `/issue` with the **original `/sign` request and its response** (`ReceiptRequest` + `ReceiptResponse`). The response returns the `ftQueueID` / `ftQueueItemID` used by the delivery and status calls.
+Register the fiscalized receipt with the **original `/sign` request and its response** (`ReceiptRequest` + `ReceiptResponse`). The `ftQueueID` / `ftQueueItemID` come from the `/sign` response.
 
 ```json
 // POST https://possystem-api-sandbox.fiskaltrust.eu/v2/issue
@@ -93,18 +90,44 @@ To make the receipt available for delivery, call `/issue` with the **original `/
   "ReceiptResponse": { "...": "the /sign response from Step 1" }
 }
 ```
+```json
+// response
+{ "ftQueueID": "a1b2…", "ftQueueItemID": "c3d4…",
+  "DocumentURL": "https://<receipt-api>/a1b2…/c3d4…" }
+```
 
-> **Try it:** [developer.fiskaltrust.eu → IT → issue](https://developer.fiskaltrust.eu/#/pos-system/IT?endpoint=issue).
+> **Try it:** [developer.fiskaltrust.eu → IT → /issue register](https://developer.fiskaltrust.eu/#/pos-system/IT?endpoint=issue).
 
-**Step 3 — Deliver to a channel** — optional
+**Step 3 — Get or send the eInvoice** — `PUT /v2/issue/{queueId}/{queueItemId}`
 
-Deliver the document with `PUT /issue/{queueId}/{queueItemId}`, choosing a delivery method: `IssueUpdateSend` (email/SMS), `IssueUpdatePrint`, `IssueUpdateDownload`, `IssueUpdateUpload`, or `IssueUpdateLink`. For SDI submission provide the buyer's `CodiceDestinatario` (or fall back to PEC) — confirm the exact delivery target with product.
+Choose the format and channel here, per call:
 
-**Step 4 — Check clearance status**
+*Download the structured document:*
+```json
+{ "Action": "download", "Format": "application/xml" }
+```
+*…or email a copy:*
+```json
+{ "Action": "send",
+  "Target": { "Scheme": "email", "Address": "buyer@example.com",
+              "Attach": "application/pdf", "Send": true } }
+```
 
-Poll `GET /issue/{queueId}/{queueItemId}` for the status until it reports **cleared by SDI**. There is **no callback or webhook**.
+`Action` accepts `download`, `send`, `print`, `link`, `accept`; `Target.Scheme` is `email`, `sms`, `whatsapp`, or `peppol`. SDI submission using the buyer's `CodiceDestinatario` (or the PEC fallback) is *target state* — confirm the exact routing with product when the IT path ships.
 
-See the [POS System API reference](https://docs.fiskaltrust.cloud/apis/pos-system-api) for the full `/issue` request/response schemas.
+> **Try it:** [developer.fiskaltrust.eu → IT → update receipt (download / send)](https://developer.fiskaltrust.eu/#/pos-system/IT?endpoint=issue-update).
+
+**Step 4 — Check delivery**
+
+```
+GET /v2/issue/{queueId}/{queueItemId}/delivered   → 200 delivered / 204 not yet
+```
+
+**SDI clearance status is not exposed through the PosSystem API** — that is target state; poll `/delivered` for delivery only. `GET /v2/issue/{queueId}/{queueItemId}` (without `/delivered`) returns the **document content**, not status. There is **no callback or webhook**.
+
+> **Try it:** [developer.fiskaltrust.eu → IT → delivery status](https://developer.fiskaltrust.eu/#/pos-system/IT?endpoint=issue-delivered).
+
+See the [POS System API reference](https://docs.fiskaltrust.cloud/apis/pos-system-api) for the full `/issue` schemas.
 
 ## Related pages
 
