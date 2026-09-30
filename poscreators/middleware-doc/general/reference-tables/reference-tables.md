@@ -267,17 +267,24 @@ For more information, see [VAT rules and rates](https://europa.eu/youreurope/bus
 | nn (nature of non-VAT/<br />super specific tax V==8 && S==F) | Description               | IT | GR |
 |--------------------------------------------------------|---------------------------|----|----|
 | 00 | Exact description is used for mapping and printing. | |
-| 10 | | | |
-| 20 | | | |
-| 30 | | | |
-| 40 | | | |
-| 50 | | | |
-| 60 | | | |
-| 70 | | | |
-| 80 | | | |
 
 *Table 16. Nature-of-non-VAT codes (nn) for super-specific taxes in the ftChargeItemCase format.*
 
+
+The following table is relevant only for the German market. Germany differentiates various cash transfers from/to a cash till (Kassenlade) depending on the purpose of the transfer.
+
+| nn (Germany only, SV=A8)<br />Cash transfer types | GV-Typ (defined by DSFinVK) | Description                                                                                                                                                                                                                                                                                                                      | Transfer direction                 |
+|---------------------------------------------------|-----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------|
+| 00                                                | Ein- and Auszahlung         | A catch-all for cash coming in or out that no other GV-Typ covers (e.g. paying for office supplies in cash or getting money back for returning a good to a supplier).                                                                                                                                                            | `+` (to till)<br/> `-` (from till) |
+| 91                                                | Geldtransit                 | Moves all or part of the cash or cheques out of or into the register, for example to the bank or a safe. It also covers moving cash between registers and topping up the drawer after it was emptied. Money going into the private sphere must be recorded as _Privatentnahme_ instead.                                          | `+` (to till)<br/> `-` (from till) |
+| 92                                                | Privateinlage and -entnahme | The owner takes cash out of the register for private, non-business purposes, or puts it from private funds into the register.                                                                                                                                                                                                    | `+` (to till)<br/> `-` (from till) |
+| 93                                                | Lohnzahlung                 | The employer pays all or part of an employee's wages from the register, for example a salary advance.                                                                                                                                                                                                                            | `-` (from till)                    |
+| 94                                                | Anfangsbestand              | Records the cash already in the drawer when the register is opened at the start of a period (this can also happen during the day). This is a purely technical entry. It is optional.<br/> <br/>If the drawer was emptied at the last closing, the starting balance is 0.00, and any new cash put in must be recorded as _Geldtransit_. | `+` (to till)                      |
+
+
+<!-- TODO: add a table description -->
+<!-- TODO: research a possibility to make the .md file automatically generate a table number count -->
+<!-- TODO: check if we can use the German flag icon in order to highlight Germany-only documentation better -->
 
 #### gggg - Global tagging/flags
 
