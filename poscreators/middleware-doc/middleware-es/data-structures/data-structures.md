@@ -15,14 +15,16 @@ This section describes how the Middleware processes `cbCustomer` for the Spanish
 - When `cbCustomer` is sent, `CustomerName`, `CustomerStreet` and `CustomerZip` must not be empty.
 - `CustomerVATId` is validated as a Spanish NIF when `CustomerCountry` is `ES` or empty.
 
-| Field Name           | Description |
-|----------------------|-------------|
-| `CustomerName`       | Name or company name of the recipient. Mandatory when `cbCustomer` is sent. |
-| `CustomerStreet`     | Address of the recipient. Mandatory when `cbCustomer` is sent. |
-| `CustomerZip`        | Postal code of the recipient. Mandatory when `cbCustomer` is sent. |
-| `CustomerCountry`    | `ES` or empty marks a domestic customer, which is identified by `CustomerVATId`. Any other country marks a foreign customer (TicketBAI). |
-| `CustomerVATId`      | NIF of a domestic customer, or VAT ID of a foreign customer. |
-| `CustomerTaxId`      | TicketBAI: identification of a foreign customer when no `CustomerVATId` is given. |
-| `CustomerIdentifier` | TicketBAI: identification of a foreign customer when neither `CustomerVATId` nor `CustomerTaxId` is given. On a B2C invoice it is treated as a passport number, otherwise as another identification document. |
+The column **Read by** lists the components of the Middleware that use the field.
+
+| Field Name           | Read by | Description |
+|----------------------|-----|-------------|
+| `CustomerName`       | Validation, TicketBAI | Name or company name of the recipient. Mandatory when `cbCustomer` is sent. |
+| `CustomerStreet`     | Validation, TicketBAI | Address of the recipient. Mandatory when `cbCustomer` is sent. |
+| `CustomerZip`        | Validation, TicketBAI | Postal code of the recipient. Mandatory when `cbCustomer` is sent. |
+| `CustomerCountry`    | Validation, TicketBAI | `ES` or empty marks a domestic customer, which is identified by `CustomerVATId`. Any other country marks a foreign customer (TicketBAI). |
+| `CustomerVATId`      | Validation, TicketBAI | NIF of a domestic customer, or VAT ID of a foreign customer. |
+| `CustomerTaxId`      | TicketBAI | TicketBAI: identification of a foreign customer when no `CustomerVATId` is given. |
+| `CustomerIdentifier` | TicketBAI | TicketBAI: identification of a foreign customer when neither `CustomerVATId` nor `CustomerTaxId` is given. On a B2C invoice it is treated as a passport number, otherwise as another identification document. |
 
 *Table 1. cbCustomer fields read by the Middleware for the Spanish market.*
