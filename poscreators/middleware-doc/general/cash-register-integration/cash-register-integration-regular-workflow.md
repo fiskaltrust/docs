@@ -117,7 +117,9 @@ After fiskaltrust.Middleware has received an "end of failure receipt", the statu
 
 ### Closing Receipts
 
-Closing receipts conclude a business period. The cash register sends them to the fiskaltrust.Middleware as special receipts of the `DailyOperations` category. The fiskaltrust.Middleware supports shift, daily, monthly and yearly closings. Which of these closings are mandatory depends on the market; refer to the appropriate appendix.
+Closing receipts conclude a business period. The cash register sends them to the fiskaltrust.Middleware as special receipts of the `DailyOperations` category. The fiskaltrust.Middleware supports shift, daily, monthly and yearly closings.
+
+The fiskaltrust.Middleware closings are independent of local fiscal regulations. They are part of the fiskaltrust.Middleware itself, so the POS system must integrate them to use the fiskaltrust.Middleware correctly, even in markets where the law does not require a closing. Local regulations can add further requirements; refer to the appropriate appendix.
 
 The daily closing is an essential part of the fiskaltrust.SecurityMechanism and executes additional market-specific clean-up tasks. Therefore, each queue should perform a daily closing.
 
