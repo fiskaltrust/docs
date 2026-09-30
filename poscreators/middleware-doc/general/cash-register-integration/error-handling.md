@@ -31,7 +31,11 @@ var state = receiptResponse.ftState & 0xFFFF_FFFF;
 
 if (state == 0xEEEE_EEEE || state == 0xFFFF_FFFF)
 {
-    // Error / Fail: the receipt was not fiscalized
+    // Error / Fail: the receipt was not processed
+}
+else if ((state & 0x0000_0001) != 0)
+{
+    // Security mechanism out of operation: the receipt was not processed
 }
 else if (state == 0)
 {
@@ -85,8 +89,9 @@ Errors that occur before a request can be assigned to a queue item (for example 
 | `ftState` OK | Print or issue the receipt, including all returned `ftSignatures`. |
 | `ftState` with status flags | Print or issue the receipt, including all returned `ftSignatures`, and signal the state to the operator. Resolve the state as described for the flag, usually with a Zero-Receipt or the due closing receipt (see [Service Status: ftState](../reference-tables/reference-tables.md#service-status-ftstate) and [Failure Scenarios](./cash-register-integration-failure-scenarios.md)). |
 | `ftState` `0000_0001` | Start the queue with an initial-operation receipt. A stopped queue cannot be reopened; a new queue must be created and started instead (see [Stop Receipt](./cash-register-integration-regular-workflow.md#stop-receipt-closing-receipt)). |
-| `ftState` `EEEE_EEEE` or `FFFF_FFFF` | The receipt was not fiscalized and must not be issued as a fiscal receipt. Show the error message from the failure signature(s) to the operator, correct the cause, and send the request again. Check the country-specific appendix for market-specific rules, for example in Poland sales must not continue while the fiscal register is unreachable (see [Cash Register Integration (PL)](../../middleware-pl/cash-register-integration/cash-register-integration.md)). |
-| No response, timeout or transport error | Do not assume that the receipt was or was not processed. Resend the unchanged request (same `cbReceiptReference`) with the `ReceiptRequest` flag `0x0000_0000_8000_0000` to receive the stored response of an already processed receipt (see [ftReceiptCaseFlag](../reference-tables/reference-tables.md#ftreceiptcaseflag)). With the POS System API, retry with the same `x-operation-id` and the same body (see [Process-Driven and Idempotent Design](../../possystem-api/introduction.md#process-driven-and-idempotent-design)). If the Middleware stays unreachable, continue as described in [Middleware not reachable or failing](./cash-register-integration-failure-scenarios.md#middleware-not-reachable-or-failing). |
+| `ftState` `EEEE_EEEE` or `FFFF_FFFF` | The receipt was not fiscalized and must not be issued as a fiscal receipt. Show the error message from the failure signature(s) to the operator, correct the cause, and send the request again. Check the country-specific appendix for market-specific rules. For example, in Poland sales must not continue while the fiscal register is unreachable (see [Cash Register Integration (PL)](../../middleware-pl/cash-register-integration/cash-register-integration.md)). The state `0x504C_2001_EEEE_EEEE` is also returned when the outcome on the register is unknown, so the device state must be verified (for example via a Zero-Receipt) before the request is sent again (see [Response handling — ambiguous outcomes](../../middleware-pl/operation-modes/scu/posnet.md#response-handling--ambiguous-outcomes)). |
+| No response or timeout | Do not assume that the receipt was or was not processed. Resend the unchanged request (same `cbReceiptReference`) with the `ReceiptRequest` flag `0x0000_0000_8000_0000` to receive the stored response of an already processed receipt (see [ftReceiptCaseFlag](../reference-tables/reference-tables.md#ftreceiptcaseflag)). With the POS System API, retry with the same `x-operation-id` and the same body (see [Process-Driven and Idempotent Design](../../possystem-api/introduction.md#process-driven-and-idempotent-design)). If the Middleware stays unreachable, continue as described in [Middleware not reachable or failing](./cash-register-integration-failure-scenarios.md#middleware-not-reachable-or-failing). |
+| HTTP error response (POS System API) | Resending the unchanged request does not resolve the error. Correct the cause as described for the endpoint's error code in the [POS System API reference](https://docs.fiskaltrust.cloud/apis/pos-system-api). Send a corrected request with a new `x-operation-id`, because reusing the `x-operation-id` with a different body is rejected with `409 Conflict`. |
 
 *Table 2. Recommended reactions of the POS system per error situation.*
 
