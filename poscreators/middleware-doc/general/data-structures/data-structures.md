@@ -63,28 +63,38 @@ The `cbCustomer` field of the `ReceiptRequest` identifies the customer (buyer) f
 
 ### Why cbCustomer and its fields are optional
 
-- **Most receipts have no identified customer.** A typical point-of-sale receipt is issued to an anonymous consumer, so `cbCustomer` is omitted. For example, the Portuguese market issues a receipt without `cbCustomer` to the anonymous final consumer (*Consumidor final*).
-- **Whether customer data is required depends on the market and the receipt case.** The Middleware enforces this per market, for example:
-  - Spain: `cbCustomer` is required for invoices (`ftReceiptCase` of type invoice).
-  - Poland: a receipt flagged with `ReceiverIsBusiness` (paragon z NIP) requires `CustomerVATId`.
-  - Portugal: on a refund or a payment transfer, the customer data must match the data of the original receipt.
-- **The same structure is shared by all markets, and each market reads a different subset of it.** For example, `CustomerHouseNumber` is only read in Greece, `CustomerIdentifier` only in Spain (TicketBAI) and `CustomerType` is not read in Italy. Fields that a market does not read are ignored, so none of them can be required globally.
+- **Most receipts have no identified customer.** A typical point-of-sale receipt is issued to an anonymous consumer, so `cbCustomer` is omitted.
+- **Whether customer data is required depends on the market and the receipt case.** Each market enforces its own rules, for example for invoices or for receipts to business customers.
+- **The same structure is shared by all markets, and each market reads a different subset of it.** Fields that a market does not read are ignored, so none of them can be required globally.
 
-The following table lists every field of the structure. The column **Read by** lists the markets in which the Middleware uses the field. For the market-specific rules, see the data structure pages of [Germany](../../middleware-de-kassensichv/data-structures/data-structures.md#customer-data-cbcustomer), [Italy](../../middleware-it-registratore-telematico/data-structures/data-structures.md#customer-data-cbcustomer) and [Poland](../../middleware-pl/data-structures/data-structures.md).
+### Market-specific rules
+
+Required fields, validations and default values differ per market. They are described in the `cbCustomer` section of each market's data structures page:
+
+- [Germany](../../middleware-de-kassensichv/data-structures/data-structures.md#customer-data-cbcustomer)
+- [Greece](../../middleware-gr/data-structures/data-structures.md#cbcustomer)
+- [Italy](../../middleware-it-registratore-telematico/data-structures/data-structures.md#customer-data-cbcustomer)
+- [Poland](../../middleware-pl/data-structures/data-structures.md#cbcustomer)
+- [Portugal](../../middleware-pt/data-structures/data-structures.md#cbcustomer)
+- [Spain](../../middleware-es/data-structures/data-structures.md#cbcustomer)
+
+### Fields
+
+The following table lists every field of the structure. The column **Read by** lists the markets in which the Middleware uses the field, including the buyer's master data for B2B invoices with eInvoicing. For eInvoicing, see the setup pages of [Austria](../../middleware-at-rksv/e-invoicing/setup.md), [France](../../middleware-fr-boi-tva-decla-30-10-30/e-invoicing/setup.md) and [Poland](../../middleware-pl/e-invoicing/setup.md).
 
 | Field Name            | Data Type | Default Value | Nullable | Read by                | Description |
 |-----------------------|-----------|---------------|----------|------------------------|-------------|
-| `CustomerName`        | `string`  | null          | true     | DE, ES, GR, IT, PT     | Name or company name of the customer.<br />ES: mandatory whenever `cbCustomer` is sent.<br />GR: transmitted for customers outside Greece or when the receipt carries transport information.<br />PT: `Desconhecido` is used when empty. |
-| `CustomerId`          | `string`  | null          | true     | DE, PT                 | Identification of the customer in the POS system.<br />PT: used as customer ID in the SAF-T export. When empty, the Middleware derives it from `CustomerVATId`, or from `CustomerName` if no VAT ID is given.<br />IT: not read; the codice fiscale belongs in `CustomerTaxId`. |
-| `CustomerType`        | `string`  | null          | true     | DE, PT                 | Type of the customer, for example `Mitarbeiter` (employee) or `B2B`.<br />PT: only compared between a refund or a payment transfer and the original receipt.<br />IT: not read; the business case is expressed through `ftReceiptCase`. |
-| `CustomerStreet`      | `string`  | null          | true     | DE, ES, GR, IT, PT     | Street of the customer's address. In markets without `CustomerHouseNumber`, include the house number here.<br />ES: mandatory whenever `cbCustomer` is sent.<br />PT: `Desconhecido` is used when empty. |
+| `CustomerName`        | `string`  | null          | true     | AT, DE, ES, FR, GR, IT, PL, PT | Name or company name of the customer. |
+| `CustomerId`          | `string`  | null          | true     | DE, PT                 | Identification of the customer in the POS system. |
+| `CustomerType`        | `string`  | null          | true     | DE, PT                 | Type of the customer, for example `Mitarbeiter` (employee) or `B2B`. |
+| `CustomerStreet`      | `string`  | null          | true     | AT, DE, ES, FR, GR, IT, PL, PT | Street of the customer's address. In markets that do not read `CustomerHouseNumber`, include the house number here. |
 | `CustomerHouseNumber` | `string`  | null          | true     | GR                     | House number of the customer's address. |
-| `CustomerZip`         | `string`  | null          | true     | DE, ES, GR, IT, PT     | Postal code of the customer's address.<br />ES: mandatory whenever `cbCustomer` is sent.<br />GR: the address is only transmitted when both `CustomerZip` and `CustomerCity` are set.<br />PT: `Desconhecido` is used when empty. |
-| `CustomerCity`        | `string`  | null          | true     | DE, GR, IT, PT         | City of the customer's address.<br />GR: the address is only transmitted when both `CustomerZip` and `CustomerCity` are set.<br />PT: `Desconhecido` is used when empty. |
-| `CustomerCountry`     | `string`  | null          | true     | DE, ES, GR, IT, PT     | Country of the customer.<br />ES, PT: the `CustomerVATId` is validated as a national tax ID (NIF) when the country is `ES` or `PT` respectively, or when it is empty. In Spain (TicketBAI), a different country marks the customer as foreign.<br />GR: determines whether the customer is domestic (`GR` or `EL`, or empty), from another EU country or from a third country. The customer is only transmitted to myDATA when the country code is valid.<br />DE: ISO 3166 ALPHA-3 country code. |
-| `CustomerVATId`       | `string`  | null          | true     | DE, ES, GR, IT, PL, PT | VAT or tax identification number of the customer.<br />ES, PT: validated as NIF for domestic customers (see `CustomerCountry`).<br />PT: `999999990` identifies the anonymous final consumer.<br />PL: the buyer's NIP, required for a receipt flagged with `ReceiverIsBusiness`.<br />IT: the partita IVA. |
-| `CustomerTaxId`       | `string`  | null          | true     | ES, IT                 | Tax identification number of the customer that is not a VAT ID.<br />IT: the codice fiscale.<br />ES (TicketBAI): used as identification of a foreign customer when no `CustomerVATId` is given. |
-| `CustomerIdentifier`  | `string`  | null          | true     | ES                     | Other identification document of the customer.<br />ES (TicketBAI): used for a foreign customer when neither `CustomerVATId` nor `CustomerTaxId` is given. On a B2C invoice it is treated as a passport number, otherwise as another identification document. |
+| `CustomerZip`         | `string`  | null          | true     | AT, DE, ES, FR, GR, IT, PL, PT | Postal code of the customer's address. |
+| `CustomerCity`        | `string`  | null          | true     | AT, DE, FR, GR, IT, PL, PT | City of the customer's address. |
+| `CustomerCountry`     | `string`  | null          | true     | AT, DE, ES, FR, GR, IT, PL, PT | Country of the customer. The expected country code format differs per market. |
+| `CustomerVATId`       | `string`  | null          | true     | AT, DE, ES, FR, GR, IT, PL, PT | VAT or tax identification number of the customer. |
+| `CustomerTaxId`       | `string`  | null          | true     | ES, IT                 | Tax identification number of the customer that is not a VAT ID. |
+| `CustomerIdentifier`  | `string`  | null          | true     | ES                     | Other identification document of the customer, for example a passport number. |
 
 *Table 2. Fields of the cbCustomer data structure identifying the customer of a receipt.*
 
