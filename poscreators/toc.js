@@ -451,6 +451,7 @@ module.exports = [
         items: [
           "poscreators/middleware-doc/middleware-it-registratore-telematico/e-invoicing/overview",
           "poscreators/middleware-doc/middleware-it-registratore-telematico/e-invoicing/setup",
+          "poscreators/middleware-doc/middleware-it-registratore-telematico/e-invoicing/fatturapa-mapping",
         ],
       },
     ],

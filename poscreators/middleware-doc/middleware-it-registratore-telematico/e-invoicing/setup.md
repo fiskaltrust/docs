@@ -8,7 +8,7 @@ title: "Setup & testing"
 This page covers the prerequisites for eInvoicing in the Italian (IT) market, how to enable it in the fiskaltrust.Portal, and how to validate the flow against a sandbox before production. For scope, regulatory status, and the delivery flow, see the [Overview](./overview.md).
 
 :::note What setup means in Italy
-eInvoicing rides on calls you already make. Setup is about **configuration** — FatturaPA output and the fiskaltrust.Middleware's Italian locale. The Middleware applies the required **XAdES signature**. Delivery via `/issue` is **optional**. There is **no new connection or credential**.
+eInvoicing rides on calls you already make. Setup is about **configuration** — FatturaPA output and the fiskaltrust.Middleware's Italian locale. fiskaltrust renders the FatturaPA and returns it **unsigned**; an **accredited partner** transmits it to SDI. Delivery via `/issue` is **optional**. There is **no new connection or credential**.
 :::
 
 ## Prerequisites
@@ -19,7 +19,9 @@ eInvoicing rides on calls you already make. Setup is about **configuration** —
 | Existing fiscalization integration | Your POS already fiscalizes in Italy via `/sign`. |
 | fiskaltrust.Middleware country configuration | The fiskaltrust.Middleware's country configuration is set to the **Italian locale**. |
 | PosSystem API (v2) | eInvoicing features are exposed through the **PosSystem API (v2)**. If you are on the v0 interface, plan your [migration](../../possystem-api/migration-guide.md) first. |
-| Buyer routing | The buyer's **`CodiceDestinatario`** is on file, or plan the **PEC fallback** for an unknown buyer. |
+| Merchant master data | The merchant has connected their fiskaltrust account to their AdE account, with **regime fiscale** and **sede**. The seller on every FatturaPA comes from this connection, never from the receipt. See [FatturaPA mapping](./fatturapa-mapping.md#data-sources). |
+| Invoice number | Your POS sends the invoice number from the merchant's own progressive series as `numero` in `ftReceiptCaseData`. It is **required**. |
+| Buyer routing | The buyer's **`CodiceDestinatario`** is on file, or plan the **PEC fallback** for an unknown buyer. Both are sent in `ftReceiptCaseData`. |
 | Existing arrangement | Ask what the merchant already uses — in Italy this is almost always a **displacement**, not a first-time integration. |
 
 ## Enable eInvoicing in the Portal
@@ -38,8 +40,8 @@ Validate the end-to-end flow against a sandbox-scoped fiskaltrust.Middleware —
 2. Confirm your integration against the [Integration checklist](../../../getting-started/integration-checklist.md).
 3. Run one invoice through the full flow below: `/sign` → (optionally) `/issue` → poll until **cleared by SDI**.
 
-:::note The Middleware applies the XAdES signature
-FatturaPA requires an XAdES signature. It is applied by the Middleware on `/sign` — you do not sign the document yourself.
+:::note The FatturaPA is returned unsigned
+The FatturaPA XML is returned unsigned. An accredited partner transmits it to SDI and completes the transmission data (`DatiTrasmissione`, the file name). See [Who transmits the document](./fatturapa-mapping.md#who-transmits-the-document).
 :::
 
 ### End-to-end example
@@ -55,7 +57,7 @@ x-operation-id: <fresh UUID per operation>
 
 **Step 1 — Sign (`/sign`)** — produces the eInvoice
 
-Call `/sign` as you do today, with the buyer's master data, using the **B2B invoice** receipt case. The response carries the fiscalized receipt and the FatturaPA document with the XAdES signature applied.
+Call `/sign` as you do today, with the buyer's master data, using the **B2B invoice** receipt case. Add the invoice number and the SDI routing in `ftReceiptCaseData`. The response carries the fiscalized receipt and, in the `einvoice-fattura-pa` signature, the FatturaPA XML. See [FatturaPA mapping](./fatturapa-mapping.md) for how each field is mapped and which validation rules apply.
 
 ```json
 // POST https://possystem-api-sandbox.fiskaltrust.eu/v2/sign
@@ -76,11 +78,19 @@ Call `/sign` as you do today, with the buyer's master data, using the **B2B invo
   ],
   "cbPayItems": [
     { "Description": "Bank transfer", "Amount": 1220.00, "ftPayItemCase": 35184372088842 }
-  ]
+  ],
+  "ftReceiptCaseData": {
+    "IT": {
+      "einvoicing": {
+        "numero": "2026/00001",
+        "codiceDestinatario": "ABCDEFG"
+      }
+    }
+  }
 }
 ```
 
-> **Try it:** [developer.fiskaltrust.eu → IT → sign → B2BInvoice](https://developer.fiskaltrust.eu/#/pos-system/IT?endpoint=sign&businesscase=SignRequestReceipt_B2BInvoice_1). The FatturaPA output and XAdES signature are produced by the fiskaltrust.Middleware per its configuration — see [Enable eInvoicing in the Portal](#enable-einvoicing-in-the-portal).
+> **Try it:** [developer.fiskaltrust.eu → IT → sign → B2BInvoice](https://developer.fiskaltrust.eu/#/pos-system/IT?endpoint=sign&businesscase=SignRequestReceipt_B2BInvoice_1). The FatturaPA output is produced per the fiskaltrust.Middleware's configuration — see [Enable eInvoicing in the Portal](#enable-einvoicing-in-the-portal).
 
 **Step 2 — Issue (`/issue`)** — optional, register for delivery
 
@@ -98,7 +108,7 @@ To make the receipt available for delivery, call `/issue` with the **original `/
 
 **Step 3 — Deliver to a channel** — optional
 
-Deliver the document with `PUT /issue/{queueId}/{queueItemId}`, choosing a delivery method: `IssueUpdateSend` (email/SMS), `IssueUpdatePrint`, `IssueUpdateDownload`, `IssueUpdateUpload`, or `IssueUpdateLink`. For SDI submission provide the buyer's `CodiceDestinatario` (or fall back to PEC) — confirm the exact delivery target with product.
+Deliver the document with `PUT /issue/{queueId}/{queueItemId}`, choosing a delivery method: `IssueUpdateSend` (email/SMS), `IssueUpdatePrint`, `IssueUpdateDownload`, `IssueUpdateUpload`, or `IssueUpdateLink`. The SDI routing is not part of `/issue`: the buyer's `codiceDestinatario` (or `pec`) is sent with `/sign` in `ftReceiptCaseData` (see Step 1).
 
 **Step 4 — Check clearance status**
 
@@ -109,5 +119,6 @@ See the [POS System API reference](https://docs.fiskaltrust.cloud/apis/pos-syste
 ## Related pages
 
 - [Overview](./overview.md) — scope, regulatory status, and the integration flow.
+- [FatturaPA mapping](./fatturapa-mapping.md) — how a receipt maps to FatturaPA, and the validation rules a receipt must pass.
 - [Delivery (`/issue` Endpoint)](../../experience-middleware/delivery.md) — the product-level eInvoicing and e-Delivery concept.
 - [Migrating from API v0 to PosSystem API (v2)](../../possystem-api/migration-guide.md) — eInvoicing is a PosSystem API (v2) feature.
