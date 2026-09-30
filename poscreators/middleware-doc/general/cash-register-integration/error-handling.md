@@ -32,7 +32,7 @@ HTTP-level errors are returned by the [POS System API](../../possystem-api/intro
 
 *Table 2. Relevant HTTP error status codes of the POS System API.*
 
-The error codes per endpoint are listed in the [POS System API reference](https://docs.fiskaltrust.cloud/apis/pos-system-api). Error responses use the content type `application/problem+json` and contain a `ProblemDetails` object with a short summary in `title`, the HTTP status in `status` and a description in `detail`. The optional `errors` array can contain details for individual request properties, parameters or headers.
+The error codes per endpoint are listed in the [POS System API reference](https://docs.fiskaltrust.eu/apis/pos-system-api). Error responses use the content type `application/problem+json` and contain a `ProblemDetails` object with a short summary in `title`, the HTTP status in `status` and a description in `detail`. The optional `errors` array can contain details for individual request properties, parameters or headers.
 
 ```json
 {

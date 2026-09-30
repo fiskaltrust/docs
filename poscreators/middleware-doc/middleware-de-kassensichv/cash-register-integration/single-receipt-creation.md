@@ -71,7 +71,7 @@ There has to be a "Start-Transaction" and a "Finish-Transaction" executed agains
 
 For a better understanding how to implement the implicit flow, we prepared use cases for short- and long-lasting actions. For better understanding, the request- and response workflows have been illustrated. The comments provided in the code examples should help to determine the start-end end times of the actions printed on the receipt.
 
-Additional implicit- and explicit flow examples can be found in our [Postman collection](https://middleware-samples.docs.fiskaltrust.cloud/).
+Additional implicit- and explicit flow examples can be found in our [Postman collection](https://middleware-samples.docs.fiskaltrust.eu/).
 
 <details>
   <summary><b>Short lasting actions, e.g. Retail</b></summary>
