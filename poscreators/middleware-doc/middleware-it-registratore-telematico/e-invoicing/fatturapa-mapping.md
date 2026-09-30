@@ -77,7 +77,7 @@ A **rectification** — a refund receipt that keeps a purchase code or TD26 — 
 | Source | Carries |
 | --- | --- |
 | The merchant's **AdE connection** in fiskaltrust | The merchant: `CedentePrestatore` of what it issues, `CessionarioCommittente` of a purchase or self-issued document. The P.IVA and the *denominazione* are verified with the Agenzia delle Entrate when the merchant connects their fiskaltrust account to their AdE account from the fiskaltrust.Portal; the *regime fiscale* and the registered seat (*sede*) are configured together with that connection. |
-| `cbCustomer` | The counterparty: the buyer of a sale, the supplier of a purchase document. See [Customer data `cbCustomer`](../data-structures/data-structures.md#customer-data-cbcustomer). |
+| `cbCustomer` | The counterparty: the buyer of a sale, the supplier of a purchase document. The fields and the way the customer is sent (a serialized JSON string) are described in [Customer data `cbCustomer`](../data-structures/data-structures.md#customer-data-cbcustomer). |
 | `ftReceiptCaseData` → `IT.einvoicing` | Invoice number, document type, SdI routing, *causale*, the counterparty's province, linked documents, delivery notes. |
 | `cbChargeItems` | The invoice lines and the VAT summary. |
 | `cbPayItems` (and `ftPayItemCaseData` → `IT.einvoicing`) | `DatiPagamento`. |
@@ -126,7 +126,7 @@ In the sandbox, seller data the merchant's account is missing is filled with a s
 
 *Table 5. Fields of `ftReceiptCaseData` → `IT.einvoicing`.*
 
-`ftReceiptCaseData` must be a **JSON object**, not a JSON string. Property names are read case-insensitively; dates are written as `yyyy-MM-dd`. A malformed date anywhere in the payload makes the whole payload unreadable: the receipt is then rejected for the number and routing it seems to lack.
+`ftReceiptCaseData` can be sent as a JSON object, as above, or as a JSON string holding the serialized object; the same holds for `ftPayItemCaseData`. Property names are read case-insensitively; dates are written as `yyyy-MM-dd`. A malformed date anywhere in the payload makes the whole payload unreadable: the receipt is then rejected for the number and routing it seems to lack.
 
 ### The `ftPayItemCaseData` payload
 
@@ -207,8 +207,8 @@ For an **issued** document, the merchant is `CedentePrestatore` and the buyer is
 
 | FatturaPA element (`CessionarioCommittente`) | Value |
 | --- | --- |
-| `DatiAnagrafici/IdFiscaleIVA/IdPaese`, `IdCodice` | `IT` and `CustomerVATId`, when `CustomerVATId` is an 11-digit P.IVA; an `IT` prefix is stripped. |
-| `DatiAnagrafici/CodiceFiscale` | `CustomerVATId`, when it is a 16-character codice fiscale, in upper case. |
+| `DatiAnagrafici/IdFiscaleIVA/IdPaese`, `IdCodice` | `IT` and `CustomerVATId`, the partita IVA; an `IT` prefix is stripped. Omitted when `CustomerVATId` is empty. |
+| `DatiAnagrafici/CodiceFiscale` | `CustomerTaxId`, the codice fiscale, in upper case. Omitted when `CustomerTaxId` is empty. |
 | `DatiAnagrafici/Anagrafica/Denominazione` | `CustomerName` |
 | `Sede/Indirizzo` | `CustomerStreet` |
 | `Sede/CAP` | `CustomerZip` |
@@ -218,7 +218,7 @@ For an **issued** document, the merchant is `CedentePrestatore` and the buyer is
 
 *Table 10. Mapping of the buyer.*
 
-`CustomerVATId` carries one identifier only, so a buyer's P.IVA and codice fiscale cannot both be sent. A private person (B2C) sends the codice fiscale there and the full name in `CustomerName`; the document uses `Denominazione`, not `Nome`/`Cognome`.
+The identifiers follow the Italian [`cbCustomer` fields](../data-structures/data-structures.md#customer-data-cbcustomer): the partita IVA in `CustomerVATId`, the codice fiscale in `CustomerTaxId`, each validated with the same rules. `CustomerId` is not read. A buyer may send both, and both are written. A private person (B2C) sends the codice fiscale in `CustomerTaxId` and the full name in `CustomerName`; the document uses `Denominazione`, not `Nome`/`Cognome`.
 
 The address (`CustomerStreet`, `CustomerZip`, `CustomerCity`) is required for B2B and B2G. A B2C receipt may leave it out; the `Sede` is then filled with placeholders: `Indirizzo` `-`, `CAP` `00000`, `Comune` `-`, `Provincia` `RM`, `Nazione` `IT`.
 
@@ -227,7 +227,7 @@ The address (`CustomerStreet`, `CustomerZip`, `CustomerCity`) is required for B2
 | FatturaPA element (`CedentePrestatore`) | Value |
 | --- | --- |
 | `DatiAnagrafici/IdFiscaleIVA/IdPaese` | `CustomerCountry`; `IT` when empty. Must be allowed for the document type (see [Table 3](#document-types)). |
-| `DatiAnagrafici/IdFiscaleIVA/IdCodice` | `CustomerVATId`, **required**. Italian supplier: 11 digits. Foreign supplier: 1 to 28 letters or digits, the country prefix stripped (`EL` for Greece). |
+| `DatiAnagrafici/IdFiscaleIVA/IdCodice` | `CustomerVATId`, **required**. Italian supplier: a partita IVA with a valid check digit. Foreign supplier: 1 to 28 letters or digits, the country prefix stripped (`EL` for Greece). |
 | `DatiAnagrafici/Anagrafica/Denominazione` | `CustomerName`, required. |
 | `DatiAnagrafici/RegimeFiscale` | `RF01` for an Italian supplier, `RF18` (altro) for a foreign one. |
 | `Sede/Indirizzo`, `Sede/Comune` | `CustomerStreet`, `CustomerCity`, required. |
@@ -377,7 +377,7 @@ These optional FatturaPA blocks are not written:
 | `DatiBollo`, `DatiRitenuta`, `DatiCassaPrevidenziale`, document-level `ScontoMaggiorazione`, `Arrotondamento` | Specific regimes. |
 | `DettaglioPagamento` `IstitutoFinanziario`, `ABI`/`CAB`/`BIC`, instalments (`TP01`) | Detailed bank data, payment by instalments. |
 | Line-level `CodiceArticolo`, `UnitaMisura`, `ScontoMaggiorazione`, `DataInizioPeriodo`/`DataFinePeriodo`, `RiferimentoAmministrazione`, `AltriDatiGestionali` | `ProductNumber`, `ProductBarcode` and `Unit` of the charge item are not read. |
-| Buyer `Nome`/`Cognome`, separate `CodiceFiscale` and P.IVA | Private person, ditta individuale. |
+| Buyer `Nome`/`Cognome` | Private person, ditta individuale. |
 | IdSdI of a linked document | Has no element in schema 1.2.x. |
 | TD07–TD09 simplified invoices | A different format (FSM10). |
 
@@ -435,7 +435,8 @@ These rules apply to the merchant's AdE connection. The same rules are applied w
 
 | Rule | Message |
 | --- | --- |
-| `CustomerVATId`, when sent, is an 11-digit P.IVA or a 16-character codice fiscale. | `cbCustomer.CustomerVATId must be an 11-digit P.IVA or a 16-char codice fiscale.` |
+| `CustomerVATId`, when sent, is a partita IVA: 11 digits with a valid check digit, optionally prefixed with `IT`. | `The given partita IVA '…' is not valid. cbCustomer.CustomerVATId must contain 11 digits with a valid check digit, optionally prefixed with 'IT', or must be left empty. A codice fiscale belongs in cbCustomer.CustomerTaxId.` |
+| `CustomerTaxId`, when sent, is a codice fiscale: 16 characters with a valid check character. | `The given codice fiscale '…' is not valid. cbCustomer.CustomerTaxId must contain a 16 character Italian codice fiscale. A partita IVA belongs in cbCustomer.CustomerVATId.` |
 | `CustomerName` is set. | `cbCustomer with CustomerName is required for an invoice receipt.` |
 | `CustomerName` ≤ 80, `CustomerStreet` ≤ 60, `CustomerCity` ≤ 60 characters. | `cbCustomer.… is … characters; a FatturaPA accepts at most ….` |
 | Latin-1 text only in `CustomerName`, `CustomerStreet`, `CustomerCity`. | `cbCustomer.… contains characters outside Latin-1; …` |
@@ -451,12 +452,12 @@ These rules apply to the merchant's AdE connection. The same rules are applied w
 | Receipt case | Rule | Message |
 | --- | --- | --- |
 | B2G | 6-character code required. | `codiceDestinatario (the 6-char codice univoco ufficio) is required for a B2G invoice.` |
-| B2G | Buyer identity required. | `cbCustomer.CustomerVATId (the public office's P.IVA or codice fiscale) is required for a B2G invoice.` |
-| B2B | Buyer identity required. | `cbCustomer.CustomerVATId is required for a B2B invoice.` |
+| B2G | Buyer identity required. | `cbCustomer.CustomerVATId (the public office's partita IVA) or cbCustomer.CustomerTaxId (its codice fiscale) is required for a B2G invoice.` |
+| B2B | Buyer identity required. | `cbCustomer.CustomerVATId (the buyer's partita IVA) or cbCustomer.CustomerTaxId (its codice fiscale) is required for a B2B invoice.` |
 | B2B | A 6-character code names a public office. | `A 6-char codiceDestinatario names a public office; use the InvoiceB2G receipt case.` |
 | B2B | 7-character code or `pec` required. | `A B2B invoice needs a 7-char codiceDestinatario or a pec for SdI routing.` |
 | B2C | Only the `0000000` code. | `A B2C invoice is routed with codiceDestinatario 0000000; leave it out or pass the sentinel.` |
-| B2C | Consumer's codice fiscale required. | `cbCustomer.CustomerVATId (the consumer's codice fiscale) is required for a B2C invoice.` |
+| B2C | Consumer's identity required. | `cbCustomer.CustomerTaxId (the consumer's codice fiscale) or cbCustomer.CustomerVATId (a partita IVA) is required for a B2C invoice.` |
 | B2B, B2G | Buyer address required. | `cbCustomer must carry CustomerStreet, CustomerZip and CustomerCity for a B2B/B2G invoice.` |
 
 *Table 22. Routing rules per invoice receipt case.*
@@ -500,7 +501,7 @@ In these messages, `…` at the start stands for the document type.
 | Purchase documents as InvoiceB2B. | `… completes a supplier's document, with the supplier in cbCustomer: send it as an InvoiceB2B receipt.` |
 | Supplier name. | `… names the supplier in cbCustomer: CustomerName is required.` |
 | Supplier country (SdI 00473). | `… names a supplier established in Italy, but cbCustomer.CustomerCountry is '…' (SdI control 00473).`, or the corresponding message for a supplier established abroad or in another EU member state. |
-| Supplier VAT number. | `… needs the supplier's VAT number in cbCustomer.CustomerVATId: the CedentePrestatore's IdFiscaleIVA is mandatory.`, `cbCustomer.CustomerVATId must be the supplier's 11-digit P.IVA.`, or `cbCustomer.CustomerVATId must be the supplier's VAT number: 1 to 28 letters or digits, the country prefix optional.` |
+| Supplier VAT number. | `… needs the supplier's VAT number in cbCustomer.CustomerVATId: the CedentePrestatore's IdFiscaleIVA is mandatory.`, `cbCustomer.CustomerVATId must be the supplier's partita IVA: 11 digits with a valid check digit.`, or `cbCustomer.CustomerVATId must be the supplier's VAT number: 1 to 28 letters or digits, the country prefix optional.` |
 | Supplier is not the merchant (SdI 00471). | `… is issued by the merchant for a supplier: the supplier's P.IVA cannot be the merchant's own (SdI control 00471).` |
 | Supplier address. | `… needs the supplier's address in cbCustomer: CustomerStreet and CustomerCity, and CustomerZip for an Italian supplier (the CedentePrestatore's Sede is mandatory).` |
 | No province for a foreign supplier. | `einvoicing.cessionario.provincia is an Italian province; a supplier established abroad has none.` |
@@ -528,19 +529,12 @@ After building the XML, the process step checks the complete document against th
 
 ## Example
 
-A B2B invoice with one 22% line, paid in cash, rendered in the sandbox:
+A B2B invoice with one 22% line, paid in cash, rendered in the sandbox. As the [`cbCustomer` contract](../data-structures/data-structures.md#customer-data-cbcustomer) requires, the customer is sent as a serialized JSON string:
 
 ```json
 {
   "ftReceiptCase": 35184372092930,
-  "cbCustomer": {
-    "CustomerVATId": "12345678903",
-    "CustomerName": "Cliente Esempio S.r.l.",
-    "CustomerStreet": "Via Dante 4",
-    "CustomerZip": "20121",
-    "CustomerCity": "Milano",
-    "CustomerCountry": "IT"
-  },
+  "cbCustomer": "{\"CustomerVATId\":\"12345678903\",\"CustomerName\":\"Cliente Esempio S.r.l.\",\"CustomerStreet\":\"Via Dante 4\",\"CustomerZip\":\"20121\",\"CustomerCity\":\"Milano\",\"CustomerCountry\":\"IT\"}",
   "cbChargeItems": [
     { "Quantity": 1, "Description": "Couch", "Amount": 1200, "VATRate": 22, "VATAmount": 216.39, "ftChargeItemCase": 35184372088851 }
   ],
@@ -576,7 +570,7 @@ A B2B invoice with one 22% line, paid in cash, rendered in the sandbox:
 
 - [Overview](./overview.md) — scope, regulatory status, and terminology.
 - [Setup & testing](./setup.md) — prerequisites and the end-to-end sandbox example.
-- [Data Structures](../data-structures/data-structures.md) — the `cbCustomer` fields.
+- [Data Structures](../data-structures/data-structures.md) — the `cbCustomer` fields and how the customer is sent.
 - [Type of Receipt: ftReceiptCase](../reference-tables/type-of-receipt-ftreceiptcase.md) — the invoice receipt cases and the refund flag.
 - [Type of Service: ftChargeItemCase](../reference-tables/type-of-service-ftchargeitemcase.md) — the VAT and nature-of-VAT values behind `Natura`.
 - [Type of Payment: ftPayItemCase](../reference-tables/type-of-payment-ftpayitemcase.md) — the payment types behind `ModalitaPagamento`.
