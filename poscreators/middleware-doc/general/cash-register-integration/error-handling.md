@@ -20,7 +20,7 @@ The `ftState` is returned with every `ReceiptResponse` and has the format _CCCC_
 | Status flags, e.g. `0000_0002`, `0000_0008`, `0000_0040`, `0000_0100` | **Processed with status information.** The receipt was processed, and the Middleware reports a state that requires attention (for example SCU out of service, late-signing mode active, message pending, daily closing due). | Yes |
 | `0000_0001` | **Security mechanism out of operation.** The queue is not started yet or has already been stopped. | No |
 | `EEEE_EEEE` | **Error.** The request was stored as a queue item, but it was not processed as a receipt: no `ftReceiptNumber` was consumed, and the receipt is not part of the receipt chain. The error reason is contained in the `ftSignatures`. This happens, for example, if the `ftReceiptCase` is not recognized or the request fails validation. | No |
-| `FFFF_FFFF` | **Fail.** The request was not processed, and nothing was persisted in the queue. The fail reason is contained in the `ftSignatures`. | No |
+| `FFFF_FFFF` | **Fail.** The request was not processed, and nothing was persisted in the queue. The fail reason is contained in the `ftSignatures`. This happens, for example, if the fiskaltrust.Middleware has no access to its database and therefore cannot store the request. | No |
 
 *Table 1. ftState values relevant for error handling.*
 

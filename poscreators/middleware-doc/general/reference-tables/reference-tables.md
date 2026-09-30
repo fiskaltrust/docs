@@ -380,7 +380,7 @@ version 2
 | `0000_0200` | `MonthlyClosing` due.<br />When the first `cbReceiptMoment` used since last `MonthlyClosing` and the current/latest `cbReceiptMoment` in the `ReceiptRequest` are different, this state indicates a `MonthlyClosing` should be done. |
 | `0000_0400` | `YearlyClosing` due. |
 | `EEEE_EEEE` | Error.<br />Something went wrong while processing the last request. `QueueItem` exists but didn’t reach the state of a `ReceiptItem` and didn’t consume a `ftReceiptNumber` within the chain. Error reason is shown within the responded `ftSignatureItems`. This happens, for example, if the `ReceiptCase` is not recognized or is wrong. |
-| `FFFF_FFFF` | Fail.<br />Something went wrong while processing the last request, and nothing persisted within the Queue. Fail reason is shown within the responded `ftSignatureItems`. This happens, for example, when the flag `ReceiptRequest` is used after a communication outage, and no properly processed item is found. |
+| `FFFF_FFFF` | Fail.<br />Something went wrong while processing the last request, and nothing persisted within the Queue. Fail reason is shown within the responded `ftSignatureItems`. This happens, for example, when the flag `ReceiptRequest` is used after a communication outage, and no properly processed item is found. It also happens if the fiskaltrust.Middleware has no access to its database and therefore cannot store the request. |
 
 *Table 20. Global status flags (gggg_gggg) of the ftState field.*
 
