@@ -165,7 +165,7 @@ Per pay item, `ftPayItemCaseData` → `IT.einvoicing` can override the payment m
 | --- | --- |
 | `IdTrasmittente/IdPaese` | `IT` — placeholder, replaced at transmission. |
 | `IdTrasmittente/IdCodice` | The merchant's codice fiscale — placeholder, replaced at transmission. |
-| `ProgressivoInvio` | Five base-36 characters derived from `ftQueueItemID` — placeholder, replaced at transmission. |
+| `ProgressivoInvio` | Placeholder, replaced at transmission. |
 | `FormatoTrasmissione` | `FPR12` |
 | `CodiceDestinatario` | See [Routing](#routing). |
 | `PECDestinatario` | `pec`, written only when `CodiceDestinatario` is `0000000`. |
