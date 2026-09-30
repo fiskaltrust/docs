@@ -34,20 +34,18 @@ If using `cbPreviousReceiptReference`, as per DSFinV-K it must have a maximum le
 
 #### Customer data `cbCustomer`
 
-If you need to provide customer data in your request, you can send it in via the field `cbCustomer` by filling it JSON format with following fields.
+The data types are the limits of the [DSFinV-K export](../procedural-documentation/dsfinv-k-generation.md); `CustomerCountry` is an ISO 3166 ALPHA-3 country code. The column **Read by** lists the components of the Middleware that use the field: the DSFinV-K export and [eInvoicing](../e-invoicing/setup.md) for B2B invoices.
 
-The column **Read by** lists the components of the Middleware that use the field: the [DSFinV-K export](../procedural-documentation/dsfinv-k-generation.md) and [eInvoicing](../e-invoicing/setup.md) for B2B invoices.
-
-| **Field name**    | **Data type**                   | **Default Value Mandatory Field** | **Read by** | **Description**                                                                                                                                                                                                                       | **Version** |
-|-------------------|---------------------------------|-----------------------------------|-----|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------|
-| `CustomerName`    | `string (50)`                   | Optional                          | DSFinV-K export, eInvoicing | **Name of beneficiary customer.** <br />Send via `cbCustomer` in JSON format by adding the key value pair `CustomerName` e.g. `"cbCustomer":"{"CustomerName":"Erika Musterfrau",...}"`                                                | 1.3         |
-| `CustomerId`      | `string (50)`                   | Optional                          | DSFinV-K export | **ID of the beneficiary customer.** <br />Send via `cbCustomer` in JSON format by adding the key value pair `CustomerId ` e.g. `"cbCustomer":"{"customerName":"Max Mustermann", "CustomerId":"PX9819822", ...}"`                      | 1.3         |
-| `CustomerType`    | `string (50)`                   | Optional                          | DSFinV-K export | **Type of the beneficiary customer** (e.g. employee). <br />Send via `cbCustomer` in JSON format by adding the key value pair `CustomerType` e.g. `"cbCustomer":"{..., "CustomerId":"PX9819822", "CustomerType":"Mitarbeiter", ...}"` | 1.3         |
-| `CustomerStreet`  | `string (60)`                   | Optional                          | DSFinV-K export, eInvoicing | **Street and house number of the beneficiary customer.** <br />Include the house number here; `CustomerHouseNumber` is not read for the German market. <br />Send via `cbCustomer` in JSON format by adding the key value pair `CustomerStreet` e.g. `"cbCustomer":"{..., "CustomerStreet":"Lindwurmstr. 98", ...}"`                | 1.3         |
-| `CustomerZip`     | `string (10)`                   | Optional                          | DSFinV-K export, eInvoicing | **Zip of the beneficiary customer.** <br />Send via `cbCustomer` in JSON format by adding the key value pair `CustomerZip` e.g. `"cbCustomer":"{..., "CustomerZip":"80337", ...}"`                                                    | 1.3         |
-| `CustomerCity`    | `string (62)`                   | Optional                          | DSFinV-K export, eInvoicing | **City of the beneficiary customer**. <br />Send via `cbCustomer` in JSON format by adding the key value pair `CustomerCity` e.g. `"cbCustomer":"{..., "CustomerCity":"München", ...}"`                                               | 1.3         |
-| `CustomerCountry` | `ISO 3166 ALPHA-3 country code` | Optional                          | DSFinV-K export, eInvoicing | **Country of the beneficiary customer.** <br />Send via `cbCustomer` in JSON format by adding the key value pair `CustomerCountry` e.g. `"cbCustomer":"{..., "CustomerCountry":"DEU", ...}"`                                          | 1.3         |
-| `CustomerVATId`   | `string(15)`                    | Optional                          | DSFinV-K export, eInvoicing | **VAT-ID of the beneficiary customer.**<br />Send via `cbCustomer` in JSON format by adding the key value pair `CustomerVATId` e.g. `"cbCustomer":"{..., "CustomerVATId":"DE123456789", ...}"`                                        | 1.3         |
+| **Field name**    | **Data type**                   | **Read by** | **Version** |
+|-------------------|---------------------------------|-----|-------------|
+| `CustomerName`    | `string (50)`                   | DSFinV-K export, eInvoicing | 1.3         |
+| `CustomerId`      | `string (50)`                   | DSFinV-K export | 1.3         |
+| `CustomerType`    | `string (50)`                   | DSFinV-K export | 1.3         |
+| `CustomerStreet`  | `string (60)`                   | DSFinV-K export, eInvoicing | 1.3         |
+| `CustomerZip`     | `string (10)`                   | DSFinV-K export, eInvoicing | 1.3         |
+| `CustomerCity`    | `string (62)`                   | DSFinV-K export, eInvoicing | 1.3         |
+| `CustomerCountry` | `ISO 3166 ALPHA-3 country code` | DSFinV-K export, eInvoicing | 1.3         |
+| `CustomerVATId`   | `string(15)`                    | DSFinV-K export, eInvoicing | 1.3         |
 
 *Table 2. Customer data fields sent via `cbCustomer`.*
 

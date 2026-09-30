@@ -9,8 +9,6 @@ This chapter expands on the descriptions of the country-specific Data Structures
 
 ## cbCustomer
 
-This section describes how the Middleware processes `cbCustomer` for the Spanish market. For the structure and all of its fields, see [cbCustomer](../../general/data-structures/data-structures.md#cbcustomer) in the General Part.
-
 - `cbCustomer` is required for invoices (`ftReceiptCase` of type invoice).
 - When `cbCustomer` is sent, `CustomerName`, `CustomerStreet` and `CustomerZip` must not be empty.
 - `CustomerVATId` is validated as a Spanish NIF when `CustomerCountry` is `ES` or empty.
@@ -19,9 +17,6 @@ The column **Read by** lists the components of the Middleware that use the field
 
 | Field Name           | Read by | Description |
 |----------------------|-----|-------------|
-| `CustomerName`       | Validation, TicketBAI | Name or company name of the recipient. Mandatory when `cbCustomer` is sent. |
-| `CustomerStreet`     | Validation, TicketBAI | Address of the recipient. Mandatory when `cbCustomer` is sent. |
-| `CustomerZip`        | Validation, TicketBAI | Postal code of the recipient. Mandatory when `cbCustomer` is sent. |
 | `CustomerCountry`    | Validation, TicketBAI | `ES` or empty marks a domestic customer, which is identified by `CustomerVATId`. Any other country marks a foreign customer (TicketBAI). |
 | `CustomerVATId`      | Validation, TicketBAI | NIF of a domestic customer, or VAT ID of a foreign customer. |
 | `CustomerTaxId`      | TicketBAI | TicketBAI: identification of a foreign customer when no `CustomerVATId` is given. |

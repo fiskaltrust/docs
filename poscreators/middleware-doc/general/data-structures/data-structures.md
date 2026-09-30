@@ -71,15 +71,13 @@ The `cbCustomer` field of the `ReceiptRequest` identifies the customer (buyer) f
 
 ### Market-specific rules
 
-Required fields, validations and default values differ per market. They are described in the `cbCustomer` section of each market's data structures page:
+Required fields, validations and default values differ per market. They are described on the market pages:
 
-- [Austria](../../middleware-at-rksv/data-structures/data-structures.md#cbcustomer)
-- [France](../../middleware-fr-boi-tva-decla-30-10-30/data-structures/data-structures.md#cbcustomer)
 - [Germany](../../middleware-de-kassensichv/data-structures/data-structures.md#customer-data-cbcustomer)
 - [Greece](../../middleware-gr/data-structures/data-structures.md#cbcustomer)
 - [Italy](../../middleware-it-registratore-telematico/data-structures/data-structures.md#customer-data-cbcustomer)
 - [Poland](../../middleware-pl/data-structures/data-structures.md#cbcustomer)
-- [Portugal](../../middleware-pt/data-structures/data-structures.md#cbcustomer)
+- [Portugal](../../middleware-pt/certification/certification.md#always-provided-by-the-fiskaltrustmiddleware) (certification page, row *Customer data*)
 - [Spain](../../middleware-es/data-structures/data-structures.md#cbcustomer)
 
 ### Fields
