@@ -41,7 +41,7 @@ Italy's eInvoicing has been mandatory since **2019**, and SDI clearance covers B
 | --- | --- |
 | **FatturaPA** | Italy's own XML schema — predates EN 16931. Transmitted as FPA12 (B2G) or FPR12 (B2B, B2C). |
 | **SDI** | *Sistema di Interscambio*, the centralised hub that clears every invoice. |
-| **CodiceDestinatario** | The routing code identifying a buyer's channel in SDI. Sent in `ftReceiptCaseData`. |
+| **CodiceDestinatario** | The routing code identifying a buyer's channel in SDI. |
 | **PEC** | Certified email — the fallback delivery channel for an unknown buyer. |
 | **XAdES** | A digital signature standard for FatturaPA documents; a signature is required for the FPA12 format (B2G). |
 

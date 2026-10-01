@@ -20,8 +20,7 @@ eInvoicing rides on calls you already make. Setup is about **configuration** —
 | fiskaltrust.Middleware country configuration | The fiskaltrust.Middleware's country configuration is set to the **Italian locale**. |
 | PosSystem API (v2) | eInvoicing features are exposed through the **PosSystem API (v2)**. If you are on the v0 interface, plan your [migration](../../possystem-api/migration-guide.md) first. |
 | Merchant master data | The merchant has connected their fiskaltrust account to their AdE account, with **regime fiscale** and **sede**. The seller on every FatturaPA comes from this connection, never from the receipt. See [FatturaPA mapping](./fatturapa-mapping.md#data-sources). |
-| Invoice number | Your POS sends the invoice number from the merchant's own progressive series as `numero` in `ftReceiptCaseData`. It is **required**. |
-| Buyer routing | The buyer's **`CodiceDestinatario`** is on file, or plan the **PEC fallback** for an unknown buyer. Both are sent in `ftReceiptCaseData`. |
+| Buyer routing | The buyer's **`CodiceDestinatario`** is on file, or plan the **PEC fallback** for an unknown buyer. |
 | Existing arrangement | Ask what the merchant already uses — in Italy this is almost always a **displacement**, not a first-time integration. |
 
 ## Enable eInvoicing in the Portal
@@ -57,7 +56,7 @@ x-operation-id: <fresh UUID per operation>
 
 **Step 1 — Sign (`/sign`)** — generates the FatturaPA
 
-Call `/sign` as you do today, with the buyer's master data, using the **B2B invoice** receipt case. Add the invoice number and the SDI routing in `ftReceiptCaseData`. The response carries the fiscalized receipt and, in the `einvoice-fattura-pa` signature, the FatturaPA XML. See [FatturaPA mapping](./fatturapa-mapping.md) for how each field is mapped and which validation rules apply.
+Call `/sign` as you do today, with the buyer's master data, using the **B2B invoice** receipt case. The response carries the fiscalized receipt and, in the `einvoice-fattura-pa` signature, the FatturaPA XML. See [FatturaPA mapping](./fatturapa-mapping.md) for how each field is mapped and which validation rules apply.
 
 ```json
 // POST https://possystem-api-sandbox.fiskaltrust.eu/v2/sign
@@ -71,15 +70,7 @@ Call `/sign` as you do today, with the buyer's master data, using the **B2B invo
   ],
   "cbPayItems": [
     { "Description": "Bank transfer", "Amount": 1220.00, "ftPayItemCase": 35184372088842 }
-  ],
-  "ftReceiptCaseData": {
-    "IT": {
-      "einvoicing": {
-        "numero": "2026/00001",
-        "codiceDestinatario": "ABCDEFG"
-      }
-    }
-  }
+  ]
 }
 ```
 
@@ -87,7 +78,7 @@ Call `/sign` as you do today, with the buyer's master data, using the **B2B invo
 
 **Step 2 — Issue (`/issue`)** — transmits the FatturaPA to SDI
 
-To transmit the FatturaPA generated in Step 1 to SDI, call `/issue` with the **original `/sign` request and its response** (`ReceiptRequest` + `ReceiptResponse`). The SDI recipient is part of the generated document: the `codiceDestinatario` (or `pec`) you sent in `ftReceiptCaseData` in Step 1. The response returns the `ftQueueID` / `ftQueueItemID` used by the delivery and status calls.
+To transmit the FatturaPA generated in Step 1 to SDI, call `/issue` with the **original `/sign` request and its response** (`ReceiptRequest` + `ReceiptResponse`). The SDI recipient is the `CodiceDestinatario` (or the PEC address) in the generated document. The response returns the `ftQueueID` / `ftQueueItemID` used by the delivery and status calls.
 
 ```json
 // POST https://possystem-api-sandbox.fiskaltrust.eu/v2/issue
