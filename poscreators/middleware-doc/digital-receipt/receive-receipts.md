@@ -9,15 +9,15 @@ There are various ways receipts are provided and transported towards the consume
 
 ## With customer facing display/device 
 
-![qr-code_on_display](./images/sequenz_diagramm_qr-code_display.png)
+![qr-code_on_display](./images/qr-code-display-sequence.svg)
 
 *Figure 1. Sequence diagram of providing a digital receipt via a QR-Code on a customer-facing display or device.*
 
 This sequence diagram describes the process of generating a digital receipt with a customer display, handheld or self-checkout device using the fiskaltrust digital receipt solution. The participants in the process are the merchant, fiskaltrust and the consumer. 
 
-In store, the merchant collects the items and processes the checkout. Then the merchant sends a sign message to fiskaltrust for fiscalization purposes. The merchant then shows a QR-Code on a customer-facing display/device, which can be scanned by the consumer using their mobile phone. 
+In store, the merchant collects the items and processes the checkout. Then the receipt is signed and issued through fiskaltrust. Only a signed and issued receipt has a QR-Code that can be retrieved and shown to the consumer. The merchant then shows the QR-Code on a customer-facing display/device, which can be scanned by the consumer using their mobile phone. 
 
-The consumer accesses the receipt by scanning the QR-Code displayed on the customer-facing display/device with their mobile phone. The consumer requests the receipt from fiskaltrust and receives an HTML document as the receipt. The consumer can then provide feedback regarding the receipt. 
+The consumer accesses the receipt by scanning the QR-Code displayed on the customer-facing display/device with their mobile phone. The receipt opens immediately as an HTML document (a web page) on the consumer's mobile phone. The consumer can then provide feedback regarding the receipt. 
 
 Overall, this diagram illustrates the process of generating a digital receipt with customer display, handheld or self-checkout devices, where the receipt is accessed by the consumer through a QR-Code displayed on the customer-facing display/device. 
 
@@ -39,7 +39,7 @@ The merchants PosDealer can participate by means of placing orders and intermedi
 
 ## With InStore App
 
-![instore-app](./images/sequenze_diagramm_instore_app.png)
+![instore-app](../instore-app/introduction/images/instore-app-sequence.svg)
 
 *Figure 3. Sequence diagram of providing a digital receipt via the InStore App.*
 
