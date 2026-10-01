@@ -1,4 +1,10 @@
 
-## KBA 
-For technical guidelines and common problems, please refer to the [Knowledge Base](https://portal.fiskaltrust.fr/KBArticle) (located in the _Help_ section of the fiskaltrust.Portal) 
+## Where to look first
 
+Technical guidelines and the problems we are asked about most often are documented here rather than in a separate knowledge base.
+
+* [Middleware startup failures](../../../../../technical-operations/troubleshooting/middleware-startup-failures.md) — a local Middleware that does not start, and repairing its SQLite database. The French tab of that page also covers empty `ftSignatures` in the ChaîneCloud sandbox and the `PopulateFtJournalFRCopyPayloadTable` exception.
+* [CashBox failures](../../../../../technical-operations/troubleshooting/cashbox-failures.md) — exceptions from a running instance, and the basic receipt check that tells you whether a queue complies with the basic rules.
+* [Network troubleshooting](../../../../../technical-operations/troubleshooting/network-troubleshooting.md) — connectivity, proxies, SSL, and connections closed while sending.
+* [Master data](../../../../../getting-started/operator-onboarding/master-data.md) — SIREN and SIRET, and what to do when the data check fails.
+* [Configuration](../../../../../technical-operations/middleware/configuration.md) — component parameters, including `UseNewCopyReceipt` for slow printing and timeouts on sign requests.

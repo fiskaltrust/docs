@@ -39,6 +39,14 @@ A delivery note can not be processed mixed with cash transaction receipts. Deliv
 
 For further information, refer to the appropriate Appendix for the specific country.
 
+## Returns and cancellations
+
+A return, a cancellation or any other negative sale is a business transaction in its own right. A receipt must be produced for it and handed to the customer, in the same way as for a sale.
+
+Issuing the receipt is what the obligation covers; printing it is not the only acceptable form, and an electronic receipt satisfies it just as a printed one does. Treating a return as a silent correction of the original transaction is not sufficient, because the original receipt has already been issued and recorded.
+
+This applies in every market we operate in. For the legal basis and any national particularities, refer to the appropriate Appendix for the specific country.
+
 ## Tips
 
 Tips are to be divided into two categories:

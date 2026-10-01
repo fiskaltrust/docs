@@ -35,6 +35,8 @@ SQLite databases work well for a single CashBox on a system. With increasing num
 The ft.Middleware runs as a service on all Windows platforms since Windows 7 in 32 or 64 bit. 
 A .NET Framework version 4.8 is recommended.
 
+Running the Middleware on a Microsoft Terminal Server, including virtualised setups under Hyper-V, needs no special precautions: installation and operation are the same as on a physical machine.
+
 ## Linux & macOS
 Starting with version 1.1, the Middleware will run on Linux and macOS, using [Mono](https://www.mono-project.com/). In general, it's possible to run the Middleware on every Linux distribution that is supported by Mono (_Ubuntu_, _Debian_, _Raspbian_, _CentOS_ and _Fedora_, including their derivatives). Most testing at _fiskaltrust_ is performed with Ubuntu and Debian, 
 hence we recommend using these distributions.

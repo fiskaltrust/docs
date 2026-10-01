@@ -76,3 +76,61 @@ The following table contains the list of all currently supported configuration p
 ## Changing parameters with the Launcher
 
 In addition to manually editing the configuration file `fiskaltrust.exe.config`, you can set parameters via the Launcher. Please see the chapter [Launcher](launchers/desktop.md#configuration-parameters) for more details on how to do that.
+
+## Component parameters
+
+The parameters above configure the Launcher, which is the process that hosts your Middleware instance. The individual components inside a CashBox — the queues, the SCUs and the helpers — carry their own parameters, and those are configured in the fiskaltrust.Portal rather than in `fiskaltrust.exe.config`.
+
+To set one that is not offered as a field of its own, select the CashBox, choose `Edit`, open `Parameter`, and use `Add custom configuration` to add the parameter name and its value. Save the configuration afterwards and [rebuild](cashbox.md#rebuilding) the CashBox, so the new value reaches the deployed instance.
+
+### Timeouts
+
+Each component that forwards requests has a timeout, expressed in seconds.
+
+| Component | Parameter | Default | Description |
+| --------- | --------- | ------- | ----------- |
+| Queue | `timeout` | `15` | How long the queue may take to process a request. |
+| Balancer helper | `timeout` | `15` | How long the balancer waits for the queue behind it. |
+| REST helper | `timeout` | `15` | How long the REST helper waits for the queue behind it. |
+
+*Table 2. Timeout parameters of the request-processing components.*
+
+Choosing these values is a trade-off. A timeout that is too short produces errors for requests that would have completed; one that is too long leaves the cashier, and the customer at the till, waiting.
+
+The one hard rule is that **a helper must wait longer than the queue behind it**. If the helper gives up first, the queue keeps working on a request whose answer nobody is waiting for any more. Setting all three to the same value has the same effect, since the helper and the queue then expire together. Leave a margin — for a queue at 110 seconds, 120 seconds for the balancer and the REST helper works well.
+
+The serial-port helper talks to hardware rather than to a queue, and takes its timeouts in milliseconds.
+
+| Parameter | Default | Description |
+| --------- | ------- | ----------- |
+| `tcpreceivetimeout` | `1000` | How long a `TcpClient` waits to receive data once a read has started. |
+| `tcpsendtimeout` | `1000` | How long a `TcpClient` waits for a send to complete. |
+| `comreadtimeout` | `-1` | How long a read on the serial port may take before it times out. `-1` means no limit. |
+| `comwritetimeout` | `-1` | How long a write on the serial port may take before it times out. `-1` means no limit. |
+| `pollintervall` | `2000` | How long to wait before reconnecting and resuming reads after a connection was closed. |
+
+*Table 3. Timeout parameters of the serial-port helper.*
+
+### Market-specific parameters
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import ComponentParametersAT from '../../_markets/at/technical-operations/middleware/configuration/_component-parameters.mdx';
+import ComponentParametersFR from '../../_markets/fr/technical-operations/middleware/configuration/_component-parameters.mdx';
+import ComponentParametersDE from '../../_markets/de/technical-operations/middleware/configuration/_component-parameters.mdx';
+
+<Tabs groupId="market">
+
+  <TabItem value="AT" label="Austria">
+    <ComponentParametersAT />
+  </TabItem>
+
+  <TabItem value="FR" label="France">
+    <ComponentParametersFR />
+  </TabItem>
+
+  <TabItem value="DE" label="Germany">
+    <ComponentParametersDE />
+  </TabItem>
+
+</Tabs>

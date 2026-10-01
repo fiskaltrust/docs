@@ -45,6 +45,14 @@ import ReactPlayer from "react-player"
 
 *Table 1. Steps to create and download an export in the fiskaltrust.Portal.*
 
+## Access for financial auditors
+
+An auditor examining a PosOperator's books needs to inspect the master data and the configuration, and to download the fiscal archives. That does not require an account with wide privileges.
+
+Grant the auditor **read-only** access to `Master data` and `Configuration`. Those permissions are sufficient to produce every export they need — see [Managing user rights](../../getting-started/registration.md#managing-user-rights) for how to set them, and keep in mind that no access at all is possible without `Read`.
+
+Auditors also have tooling of their own. The `Partners` section of the [fiskaltrust website](https://fiskaltrust.eu) offers, further down the page, the user guide for fiscal archives and the TaxAuditorTool, which lets them verify an archive independently.
+
 ## Country-specific exports
 Most countries require specific export formats in their fiscalization laws and regulations. The fiskaltrust.Middleware and the Portal generally support all exports needed in each market we operate in so that cash registers using it are automatically compliant with these requirements.
 
