@@ -231,6 +231,7 @@ The certificate covers the functionality described above and nothing beyond it. 
 **Operational boundaries**
 
 - Series, ATCUD, and the signing key are managed exclusively by fiskaltrust. There is no way for a PosCreator or merchant to configure series or to sign documents locally.
+- The numbering series and their starting numbers are set by fiskaltrust and cannot be configured by the PosCreator or the merchant.
 - Daily, monthly, and yearly closing receipts as well as the zero receipt have no fiscal function in Portugal and are accepted as no-ops.
 - Training mode is only available on queues where it has been explicitly enabled; the sandbox environment must not be used for productive documents.
 - The PDF rendered by fiskaltrust is not signed with a qualified electronic signature or seal. Under the current transitional rule, plain PDF invoices are accepted until 31 December 2026; from 1 January 2027 a qualified signature or seal is required for PDF invoices sent electronically to customers. B2G invoicing (CIUS-PT / EDI) is not part of the certified scope.
