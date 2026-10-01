@@ -130,7 +130,7 @@ ChargeItems are collected via ftReceiptCase 'Info-internal' or 'Info-order'. 'cb
 
 #### Workflow example
 
-![Workflow: hotel guests order a beer on the internal POS-System as INFO-INTERNAL, referenced from check-in to checkout on the external POS-System that issues the receipt](media/chargeitem-internal-payment-external.svg)
+![Workflow: hotel guests order a beer on the internal POS system as INFO-INTERNAL, referenced from check-in to checkout on the external POS system that issues the receipt](media/chargeitem-internal-payment-external.svg)
 
 
 *Figure 5. Workflow where charge items collected via an internal queue are paid at an external system.*
@@ -154,7 +154,7 @@ For this workflow, the combination of following receipt-sequences is needed:
 
 #### Workflow example
 
-![Workflow: charge items from an external queue or POS-System are referenced via INFO-INTERNAL and included in the final POS-RECEIPT on the internal POS-System at checkout](media/chargeitem-external-payment-internal.svg) 
+![Workflow: charge items from an external queue or POS system are referenced via INFO-INTERNAL and included in the final POS-RECEIPT on the internal POS system at checkout](media/chargeitem-external-payment-internal.svg) 
 
 
 *Figure 6. Workflow where charge items collected at an external system are paid at the internal queue.*
