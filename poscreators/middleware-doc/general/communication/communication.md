@@ -51,7 +51,7 @@ We recommend using REST in case you're already familiar with its principles and 
 
 ### Country specifics
 
-In Austria and France, REST can currently only be used by adding a _helper_ package provided by fiskaltrust. For more information, see the [Austrian appendix](../../middleware-at-rksv/communication/communication.md). In Germany, the Middleware natively supports REST without using a helper.
+In Austria and France, REST can currently only be used by adding a _helper_ package provided by fiskaltrust. In Germany, the Middleware natively supports REST without using a helper.
 
 ## WCF Web Service
 
