@@ -18,7 +18,8 @@ Guidance for AI agents working in this repository. See [README.md](README.md) fo
 
 - Figures and tables get an italic caption below them, numbered per page: `*Figure 1. ...*`, `*Table 1. ...*`. Keep the numbering consistent when adding or removing figures and tables.
 - Admonitions use Docusaurus syntax (`:::info`, `:::warning`, `:::tip`).
-- Existing pages link to other pages in this repo with relative paths to the `.md` file (for example `../faq/faq.md#for-developers`); follow that convention. Absolute `https://docs.fiskaltrust.cloud/...` URLs are only used for pages outside this repo (for example the API reference).
+- Existing pages link to other pages in this repo with relative paths to the `.md` file (for example `../faq/faq.md#for-developers`); follow that convention. Absolute `https://docs.fiskaltrust.eu/...` URLs are only used for pages outside this repo (for example the API reference).
+- Always use `docs.fiskaltrust.eu` as the docs domain, never `docs.fiskaltrust.cloud`. This does not apply to other hosts under `docs.fiskaltrust.cloud` (for example `middleware-samples.docs.fiskaltrust.cloud`), which have no `.eu` equivalent.
 - Docusaurus generates anchors from **headings** only. Bold FAQ questions (`**Q: ...**`) are not headings and have no anchor, so link to the nearest `##` heading instead.
 - After editing, verify that every new link target file and anchor exists (for example with `grep -n "^#" <file>`).
 - State only facts from the source (release notes, the app, the user). Do not add assumptions or caveats that the source does not contain; ask instead.
