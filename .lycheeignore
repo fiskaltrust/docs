@@ -38,3 +38,6 @@ https?://(www\.)?meinfiskal\.de
 https?://(www\.)?aade\.gr/.*
 https?://bofip\.impots\.gouv\.fr/bofip/10693-PGP\?branch=2
 https?://(www\.)?lindeverlag\.at/.*
+
+# The Bizkaia Batuz site uses an Izenpe certificate that the link checker does not trust
+https?://www\.batuz\.eus/es/registro-de-software
