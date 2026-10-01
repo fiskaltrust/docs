@@ -75,7 +75,7 @@ Required fields, validations and default values differ per market. They are desc
 - [Germany](../../middleware-de-kassensichv/data-structures/data-structures.md#customer-data-cbcustomer)
 - [Greece](../../middleware-gr/data-structures/data-structures.md#cbcustomer)
 - [Italy](../../middleware-it-registratore-telematico/data-structures/data-structures.md#customer-data-cbcustomer)
-- [Poland](../../middleware-pl/data-structures/data-structures.md#cbcustomer)
+- [Poland](../../middleware-pl/receipt-case-definitions/receipt-case-definitions.md#constraints-enforced-by-the-queue) (receipt case definitions, *Paragon z NIP*)
 - [Portugal](../../middleware-pt/certification/certification.md#always-provided-by-the-fiskaltrustmiddleware) (certification page, row *Customer data*)
 - [Spain](../../middleware-es/data-structures/data-structures.md#cbcustomer)
 
