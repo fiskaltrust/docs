@@ -39,7 +39,7 @@ The merchants PosDealer can participate by means of placing orders and intermedi
 
 ## With InStore App
 
-![instore-app](./images/sequenze_diagramm_instore_app.png)
+![instore-app](../instore-app/introduction/images/instore-app-sequence.svg)
 
 *Figure 3. Sequence diagram of providing a digital receipt via the InStore App.*
 
