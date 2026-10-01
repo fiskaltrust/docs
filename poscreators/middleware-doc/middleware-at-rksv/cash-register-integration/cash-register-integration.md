@@ -31,7 +31,36 @@ The regular workflow of the fiskaltrust.SecurityMechanism in the Austrian market
 
 The following diagram illustrates the regular creation of a receipt with fiskaltrust.Middleware following Austrian law.
 
-![Swimlane flowchart, regular operation: POS sends a ReceiptRequest via iPOS to the Queue, the signature creation unit signs it, and the ReceiptResponse drives receipt generation](./images/13.png)
+```mermaid
+flowchart TD
+  accTitle: Workflow - regular operation (AT)
+  accDescr: Flowchart of regular operation: the POS collects charge and pay items, sends a fiskaltrust.ReceiptRequest via fiskaltrust.iPOS to the Queue, the signature creation unit calculates the signature value, and the returned fiskaltrust.ReceiptResponse drives receipt generation.
+  A(["Input station:<br/>Collect charge items and pay items"])
+  J(["Input station: Receipt generation"])
+  K["Input station: Receipt"]
+  B[("Server:<br/>Database cash register")]
+  C{"Server:<br/>Business transaction"}
+  I[("Server:<br/>Database cash register")]
+  D[/"fiskaltrust.iPOS:<br/>fiskaltrust.ReceiptRequest"/]
+  H[/"fiskaltrust.iPOS:<br/>fiskaltrust.ReceiptResponse"/]
+  E[["Queue: Process ReceiptRequest"]]
+  G[["Queue: Prepare signature block"]]
+  L[("Queue:<br/>RKSV-DCL<br/>+E131-DCL<br/>+ Action journal")]
+  F[["Signature creation unit:<br/>Calculate signature value"]]
+  A --> B
+  B --> C
+  C --> D
+  C --> J
+  D --> E
+  E --> F
+  E --> G
+  F --> G
+  G --> H
+  G --> L
+  H --> I
+  I --> J
+  J --> K
+```
 
 *Figure 2. Workflow of the regular receipt creation operation (AT - RKSVO).*
 
@@ -39,7 +68,38 @@ The following diagram illustrates the regular creation of a receipt with fiskalt
 
 The following diagram illustrates the creation of a special receipt with fiskaltrust.Middleware following Austrian law.
 
-![Swimlane flowchart for special receipts: a zero-receipt request goes via iPOS to the Queue, which executes it, gets a signature and returns a response, with optional FON report](./images/14.png)
+```mermaid
+flowchart TD
+  accTitle: Workflow - special receipts (AT)
+  accDescr: Flowchart for special receipts (initial-, zero-, collective-, closing-receipt, shift-, daily-, monthly-, yearly-tally): a special request with zero-receipt goes via fiskaltrust.iPOS to the Queue, which executes it, gets a signature value and returns a fiskaltrust.ReceiptResponse, with an optional FON report and FON review.
+  A(["Input station:<br/>Start special request with zero-receipt"])
+  J(["Input station: Receipt generation"])
+  K["Input station: Receipt"]
+  B[("Server:<br/>Database cash register")]
+  I[("Server:<br/>Database cash register")]
+  C[/"fiskaltrust.iPOS:<br/>fiskaltrust.ReceiptRequest"/]
+  H[/"fiskaltrust.iPOS:<br/>fiskaltrust.ReceiptResponse"/]
+  D[["Queue: Process ReceiptRequest"]]
+  E[["Queue: Execute special request"]]
+  G[["Queue: Prepare signature block"]]
+  L[("Queue:<br/>RKSV-DCL<br/>+ E131-DCL<br/>+ Action journal")]
+  M["Queue:<br/>FON-report<br/>FON-review"]
+  F[["Signature creation unit:<br/>Calculate signature value"]]
+  A --> B
+  A --> J
+  B --> C
+  C --> D
+  D --> E
+  E --> F
+  E --> G
+  F --> G
+  G --> H
+  G --> L
+  L -.-> M
+  H --> I
+  I --> J
+  J --> K
+```
 
 *Figure 3. Workflow of special receipts (AT): initial-, zero-, collective-, closing-, shift-, daily-, monthly- and yearly-tally receipts (AT - RKSVO).*
 
@@ -47,15 +107,116 @@ The following diagram illustrates the creation of a special receipt with fiskalt
 
 The following diagram illustrates the workflow of a failure of the signature creation device following Austrian law.
 
-![Swimlane flowchart, queue timeout: signature retries fail, the Queue returns ftState 0x02 and the receipt is printed as security mechanism failed](./images/15.png)
+```mermaid
+flowchart TD
+  accTitle: Workflow - failure of the signature creation device (queue timeout) (AT)
+  accDescr: Flowchart for the first receipt failing to reach the signature creation unit: the Queue retries calculating the signature value, then prepares a signature block noting security mechanism failed, sets ftState 0x02 for all further receipts, and the sales receipt is printed as security mechanism failed.
+  A(["Input station:<br/>Collect charge items and pay items"])
+  J(["Input station: Receipt generation"])
+  K["Input station:<br/>Sales receipt<br/>„security mechanism failed“"]
+  B[("Server:<br/>Database cash register")]
+  C{"Server:<br/>Business transaction"}
+  I[("Server:<br/>Database cash register")]
+  D[/"fiskaltrust.iPOS:<br/>fiskaltrust.ReceiptRequest"/]
+  H[/"fiskaltrust.iPOS:<br/>fiskaltrust.ReceiptResponse"/]
+  E[["Queue: Process ReceiptRequest"]]
+  E2[["Queue:<br/>Timeout or error calculating<br/>signature value retries"]]
+  G[["Queue:<br/>Prepare signature block with note<br/>„security mechanism failed“"]]
+  G2[["Queue:<br/>ftState |= 0x02<br/>„security mechanism failed“<br/>for all further receipts"]]
+  L[("Queue:<br/>RKSV-DCL<br/>+ E131-DCL<br/>+ Action journal")]
+  F1[["Signature creation unit:<br/>Calculate signature value"]]
+  F2[["Signature creation unit:<br/>Calculate signature value"]]
+  A --> B
+  B --> C
+  C --> D
+  C --> J
+  D --> E
+  E <-.-> F1
+  E --> E2
+  E2 <-.-> F2
+  E2 --> G
+  G --> G2
+  G2 --> H
+  G2 --> L
+  H --> I
+  I --> J
+  J --> K
+```
 
 *Figure 4. Workflow of a signature creation device failure (queue timeout) (AT - RKSVO).*
 
-![Swimlane flowchart, wrong state: with ftState 0x02 the Queue skips signing, marks receipts security mechanism failed and triggers a FON report after 48 hours](./images/16.png)
+```mermaid
+flowchart TD
+  accTitle: Workflow - failure of the signature creation device (wrong state) (AT)
+  accDescr: Flowchart for further receipts processed while the signature creation unit is in a failed state: if ftState |= 0x02 the Queue skips calculating the signature value, prepares a signature block noting security mechanism failed, and after more than 48 hours a FON report follows.
+  A(["Input station:<br/>Collect charge items and pay items"])
+  J(["Input station: Receipt generation"])
+  K["Input station:<br/>Sales receipt<br/>„security mechanism failed“"]
+  B[("Server:<br/>Database cash register")]
+  C{"Server:<br/>Business transaction"}
+  I[("Server:<br/>Database cash register")]
+  D[/"fiskaltrust.iPOS:<br/>fiskaltrust.ReceiptRequest"/]
+  H[/"fiskaltrust.iPOS:<br/>fiskaltrust.ReceiptResponse"/]
+  E[["Queue: Process ReceiptRequest"]]
+  S{"Queue:<br/>ftState |= 0x02"}
+  G[["Queue:<br/>Prepare signature block with note<br/>„security mechanism failed“"]]
+  L[("Queue:<br/>RKSV DCL<br/>+ E131 DCL<br/>+ Action journal")]
+  T{"Queue: >48h"}
+  M["Queue: FON report"]
+  F[["Signature creation unit:<br/>Calculate signature value"]]
+  A --> B
+  B --> C
+  C --> D
+  C --> J
+  D --> E
+  E --> S
+  S -- No --> F
+  S --> G
+  G --> H
+  G --> L
+  L --> T
+  T -.-> M
+  H --> I
+  I --> J
+  J --> K
+```
 
 *Figure 5. Workflow of a signature creation device failure (wrong state) (AT - RKSVO).*
 
-![Swimlane flowchart, signature creation unit timeout: after a timeout the Queue enters stop mode, marks receipts security mechanism failed and reports to FON after 48 hours](./images/17.png)
+```mermaid
+flowchart TD
+  accTitle: Workflow - failure of the signature creation device (signature creation unit timeout) (AT)
+  accDescr: Flowchart for stop mode using a collective-receipt: after a timeout error of the signature creation unit the Queue prepares a signature block noting security mechanism failed in stop mode, and after more than 48 hours a FON report follows.
+  A(["Input station:<br/>Start special request with zero-receipt"])
+  J(["Input station: Receipt generation"])
+  K["Input station: Receipt"]
+  B[("Server:<br/>Database cash register")]
+  I[("Server:<br/>Database cash register")]
+  C[/"fiskaltrust.iPOS:<br/>fiskaltrust.ReceiptRequest"/]
+  H[/"fiskaltrust.iPOS:<br/>fiskaltrust.ReceiptResponse"/]
+  D[["Queue: Process ReceiptRequest"]]
+  X{"Queue:<br/>Timeout error"}
+  G[["Queue:<br/>Prepare signature block with note<br/>„security mechanism failed“<br/>stop mode"]]
+  L[("Queue:<br/>RKSV-DCL<br/>+ E131-DCL<br/>+ Action journal")]
+  T{"Queue: >48h"}
+  M["Queue: FON-report"]
+  F[["Signature creation unit:<br/>Calculate signature value"]]
+  Y[/"Signature creation unit:<br/>Failure of the signature creation unit<br/>(queue timeout)"\]
+  A --> B
+  B --> C
+  C --> D
+  D --> F
+  F --> X
+  X -- Yes --> Y
+  X -- No --> G
+  G --> H
+  G --> L
+  L --> T
+  T -.-> M
+  H --> I
+  I --> J
+  J --> K
+```
 
 *Figure 6. Workflow of a signature creation device failure (SCD timeout) (AT - RKSVO).*
 
@@ -63,11 +224,73 @@ The following diagram illustrates the workflow of a failure of the signature cre
 
 The following diagram illustrates the workflow of a failure of the fiskaltrust.SecurityMechanism following the Austrian law.
 
-![Swimlane flowchart, network error: the ReceiptRequest times out, the POS marks the receipt for resending, retries, and prints it without a machine-readable code](./images/18.png)
+```mermaid
+flowchart TD
+  accTitle: Workflow - failure of the fiskaltrust.Middleware (network error) (AT)
+  accDescr: Flowchart for a receipt failing to reach the fiskaltrust.Service: if the ReceiptRequest times out with a network error, the POS marks the receipt to be used later as proof of loss and to be sent again, retries, and prints a sales receipt marked security mechanism failed without a machine-readable code, otherwise regular operation continues.
+  A(["Input station:<br/>Collect charge items and pay items"])
+  J(["Input station: Receipt generation"])
+  K["Input station:<br/>Sales receipt<br/>„security mechanism failed“<br/>(no machine readable code)"]
+  B[("Server:<br/>Database cash register")]
+  C{"Server:<br/>Business transaction"}
+  R[["Server:<br/>Mark receipt to be used later<br/>as proof of loss, send again<br/>to the fiskaltrust.Service"]]
+  I[("Server:<br/>Database cash register")]
+  D[/"fiskaltrust.iPOS:<br/>fiskaltrust.ReceiptRequest"/]
+  X{"fiskaltrust.iPOS:<br/>Timeout<br/>ReceiptRequest == null<br/>network error"}
+  Z[\"Queue: regular operation"/]
+  A --> B
+  B --> C
+  C --> D
+  C --> J
+  D --> X
+  X -- Yes --> R
+  X -- No --> Z
+  R -- Retry --> C
+  R --> I
+  I --> J
+  J --> K
+```
 
 *Figure 7. Workflow of a fiskaltrust.SecurityMechanism failure (network error) (AT - RKSVO).*
 
-![Swimlane flowchart, recovery after 48+ hours: POS posts outage data via a collective receipt, ends with a zero receipt, and the Queue signs and reports to FON](./images/19.png)
+```mermaid
+flowchart TD
+  accTitle: Workflow - failure of the fiskaltrust.Middleware (recover after more than 48 hours) (AT)
+  accDescr: Flowchart for data entry at a later stage: the POS starts data entry with a collective receipt, the Queue processes it and calculates the signature value, after the last outage receipt the POS ends data entry with a zero receipt, and for an outage over 48 hours a FON report follows.
+  A(["Input station:<br/>start data entry at a later stage<br/>using a collective receipt"])
+  J(["Input station: generation"])
+  K["Input station: Receipt"]
+  B[("Server:<br/>Database cash register")]
+  Z[["Server:<br/>end data entry at a later stage<br/>using a zero receipt"]]
+  O{"Server:<br/>Last Outage receipt"}
+  I[("Server:<br/>Database cash register")]
+  C[/"fiskaltrust.iPOS:<br/>fiskaltrust.ReceiptRequest"/]
+  H[/"fiskaltrust.iPOS:<br/>fiskaltrust.ReceiptResponse"/]
+  D[["Queue: Process ReceiptRequest"]]
+  E[["Queue:<br/>end data entry at a later stage<br/>using a collective receipt"]]
+  G[["Queue: Prepare signature block"]]
+  L[("Queue:<br/>RKSV DCL<br/>+ E131 DCL<br/>+ Action journal")]
+  T{"Queue:<br/>Outage>48h"}
+  M["Queue: FON report"]
+  F[["Signature creation unit:<br/>Calculate signature value"]]
+  A --> B
+  B --> C
+  C --> D
+  D --> E
+  E --> F
+  E --> G
+  F --> G
+  G --> H
+  G --> L
+  L --> T
+  T -.-> M
+  H --> I
+  I --> O
+  O --> Z
+  Z --> B
+  I --> J
+  J --> K
+```
 
 *Figure 8. Workflow of a fiskaltrust.Middleware failure (recovery after more than 48 hours) (AT - RKSVO).*
 

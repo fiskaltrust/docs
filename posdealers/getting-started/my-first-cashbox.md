@@ -27,7 +27,29 @@ If you don't have one yet, please get in touch with your *PosCreator* for invita
 
 :::
 
-![Flowchart: after Prerequisites and Decision on creation, either Business and Technical Rollout or manual SCU, Helper, Queue and cashbox creation lead to CashBox rebuild, Launcher download and Middleware start](./images/my-first-cashbox/first-CashBox-flow.png "My first CashBox")
+```mermaid
+flowchart TD
+    accTitle: Process flow for creating your first CashBox
+    accDescr: After Prerequisites and the Decision on Creation, either a Business Rollout and Technical Rollout, or manually creating an SCU, optionally adding a Helper, and manually creating a Queue and a Cashbox, lead to the CashBox (re-)build, downloading the Launcher, and starting the Middleware and testing.
+    A("Prerequisites") --> B("Decision on<br/>Creation")
+    B --> C[/"Business Rollout"/]
+    C --> D[/"Technical Rollout"/]
+    B --> E[/"Create SCU<br/>manually"/]
+    E --> F[/"Add Helper<br/>(optionally)"/]
+    F --> G[/"Create<br/>Queue<br/>manually"/]
+    G --> H[/"Create<br/>Cashbox<br/>manually"/]
+    D --> I[/"CashBox<br/>(re-)build"/]
+    H --> I
+    I --> J[/"Download<br/>Launcher"/]
+    J --> K[/"Start<br/>Middleware<br/>and testing"/]
+    subgraph legend["legend:"]
+        direction LR
+        L1("PosDealer<br/>Account")
+        L2[/"Bulk<br/>process"/]
+        L3("PosOperator<br/>Account")
+        L4[/"single<br/>process"/]
+    end
+```
 
 *Figure 1. Process flow for creating your first CashBox.*
 

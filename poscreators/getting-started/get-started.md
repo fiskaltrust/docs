@@ -15,7 +15,12 @@ Following these stages ensures a reliable and compliant deployment of fiskaltrus
 
 The integration workflow focuses on the technical implementation of **fiskaltrust.Middleware** and is divided into discrete stages, each with specific objectives and deliverables.
 
-![integration phases](images/pos-creator-integration-phases.svg)
+```mermaid
+flowchart LR
+  accTitle: PosCreator integration phases
+  accDescr: The integration workflow runs through six stages in order: Portal Registration, ft.Middleware Integration, Business Case Analysis, POS Dealer Onboarding, Pilot Installation and Handover for Rollout.
+  A["Portal<br/>Registration"] --> B["ft.Middleware<br/>Integration"] --> C["Business Case<br/>Analysis"] --> D["POS Dealer<br/>Onboarding"] --> E["Pilot<br/>Installation"] --> F["Handover<br/>for Rollout"]
+```
 
 *Figure 1. Stages of the fiskaltrust.Middleware integration workflow for PosCreators.*
 

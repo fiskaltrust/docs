@@ -133,7 +133,25 @@ If notifications are disabled and later re-enabled:
 
 *Table 1. Dealer and Operator responsibilities across the notification onboarding steps.*
 
-![Notification Flow](./images/NotificationFlow_DE.png)
+```mermaid
+flowchart TD
+  accTitle: Notification workflow between Dealer and Operator
+  accDescr: The Dealer checks the Operator subscription and enables notifications, the Operator receives the onboarding email, updates and fixes the form data and submits it, and the notification status is monitored until the end.
+  start(("Start")) --> openPage["Dealer:<br/>Open notifications page"]
+  openPage --> checkSub["Dealer:<br/>Check Operator subscription"]
+  checkSub --> subActive{"Dealer:<br/>Subscription Active?"}
+  subActive -- "Yes" --> enable["Dealer:<br/>Enable notifications"]
+  subActive -- "No" --> purchase["Dealer:<br/>Purchase or Extend subscription"]
+  receive["Operator:<br/>Receive Onboarding email"] --> update["Operator:<br/>Update data in the Form"]
+  update --> issues{"Operator:<br/>Data issues?"}
+  issues -- "No" --> submit["Operator:<br/>Submit Form"]
+  issues -- "Yes" --> fix["Operator:<br/>Fix issues"]
+  fix --> update
+  enable -.-> receive
+  enable --> monitor["Monitor notification status<br/>(Scheduled, Sent...)"]
+  submit --> monitor
+  monitor --> finish(("End"))
+```
 
 *Figure 3. Overview of the notification workflow between Dealer, Operator, and fiskaltrust.*
 

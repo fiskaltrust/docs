@@ -23,7 +23,30 @@ First, the fiskaltrust.Middleware ensures that all receipts are processed by a t
 
 As the technical implementation of security, each request and response is hashed to ensure the integrity of the data. To guarantee immutability, another hash value is generated that relates to the entire request-response cycle. This includes the cycle identification, the time of operation, the human-readable document number, and the hash values of the request, response, and the previous receipt, called the document hash value. This concatenation of the receipt hash value provides immutability and the ability to detect any changes or deletions in actions provided by the POS system.
 
-![Receipt chain diagram: each request and response hash plus JournalId, Moment and Identification feed a receipt hash that starts the next chain link](../images/receipt-chain.svg)
+```mermaid
+flowchart TD
+  accTitle: Receipt chain
+  accDescr: Each receipt hash is calculated from the previous receipt hash (null for the first receipt), the Receipt JournalId, Moment, Receipt Identification and the hashes of the Receipt Request and Receipt Response, so every receipt hash links to the previous one and forms a chain.
+  req1>"{ Receipt Request }"]
+  resp1>"{ Receipt Response #35;1 }"]
+  req2>"{ Receipt Request }"]
+  resp2>"{ Receipt Response #35;2 }"]
+  req3>"{ Receipt Request }"]
+  resp3>"{ Receipt Response #35;3 }"]
+  b1["null | Receipt JournalId | Moment |<br/>Receipt Identification |<br/>Receipt Request Hash |<br/>Receipt Response Hash"]
+  b2["Receipt Hash #35;1 | Receipt JournalId |<br/>Moment | Receipt Identification |<br/>Receipt Request Hash |<br/>Receipt Response Hash"]
+  b3["Receipt Hash #35;2 | Receipt JournalId |<br/>Moment | Receipt Identification |<br/>Receipt Request Hash |<br/>Receipt Response Hash"]
+  b4["Receipt Hash #35;3 | ..."]
+  req1 --> b1
+  resp1 --> b1
+  req2 --> b2
+  resp2 --> b2
+  req3 --> b3
+  resp3 --> b3
+  b1 --> b2
+  b2 --> b3
+  b3 --> b4
+```
 
 *Figure 1. Receipt chaining mechanism used to ensure the immutability of receipts.*
 

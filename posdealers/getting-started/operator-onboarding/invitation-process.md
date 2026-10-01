@@ -51,7 +51,30 @@ There are two ways to add and assign PosOperators to your account as a PosDealer
 
 ### Overview individual invitation
 
-![invitation process individual](images/1-onboarding-individual-relaunch.png "https://portal-sandbox.fiskaltrust.TLD/PosOperator/PosOperators")  
+```mermaid
+flowchart TD
+    accTitle: Individual invitation of a PosOperator
+    accDescr: The PosDealer opens PosOperator / Invitation, configures the invitation, adds the PosOperator details and assigns all PosOperators. The PosOperator accepts the e-mail invitation, activates the PosOperator role and verifies master data and outlets. The PosDealer then checks in PosOperator / Overview whether the operator name is an active link; if yes, the PosDealer is ready to surrogate, if not, the invitation is repeated from the invitation history.
+    subgraph dealer["Done by the PosDealer"]
+        A["Open in Portal:<br/><i>PosOperator /<br/>Invitation</i>"]
+        B["Configure<br/>invitation"]
+        C["Click <i>Add</i>, enter<br/>PosOperator details"]
+        D["Click<br/><i>Assign all<br/>PosOperators</i>"]
+        H["Open in Portal:<br/><i>PosOperator /<br/>Overview</i>"]
+        I{"Operator<br/>name is active<br/>link"}
+        J["Ready to surrogate"]
+        K["Open in Portal:<br/><i>PosOperator /<br/>Invitation /<br/>Invitation history</i>"]
+        L["Repeat e-mail<br/>or copy link & re-<br/>send invitation"]
+    end
+    subgraph operator["Done by the PosOperator"]
+        E["Accept e-mail<br/>invitation"]
+        F["Activate<br/>PosOperator role"]
+        G["Verify master data<br/>& outlets"]
+    end
+    A --> B --> C --> D --> E --> F --> G --> H --> I
+    I -- Yes --> J
+    I -- No --> K --> L --> E
+```
 
 *Figure 2. fiskaltrust.Portal screen for inviting a single PosOperator.*
 
@@ -106,7 +129,31 @@ import PreviewDE from '../../_markets/de/getting-started/operator-onboarding/inv
 
 ### Overview bulk process
 
-![Invitation of PosOperators in a bulk process](images/2-onboarding-bulk-relaunch.png "Invitation of PosOperators in a bulk process")  
+```mermaid
+flowchart TD
+    accTitle: Bulk invitation of PosOperators
+    accDescr: The PosDealer opens PosOperator / Invitation, configures the invitation, downloads the demo CSV file, uploads it and assigns all PosOperators. The PosOperator accepts the e-mail invitation, activates the PosOperator role and verifies master data and outlets. The PosDealer then checks in PosOperator / Overview whether the operator name is an active link; if yes, the PosDealer is ready to surrogate, if not, the invitation is repeated from the invitation history.
+    subgraph dealer["Done by the PosDealer"]
+        A["Open in Portal:<br/><i>PosOperator /<br/>Invitation</i>"]
+        B["Configure<br/>invitation"]
+        C["Download demo<br/>CSV file & enter data"]
+        D["Upload CSV &<br/>click <i>Import</i>"]
+        D2["Click<br/><i>Assign all<br/>PosOperators</i>"]
+        H["Open in Portal:<br/><i>PosOperator /<br/>Overview</i>"]
+        I{"Operator<br/>name is active<br/>link"}
+        J["Ready to surrogate"]
+        K["Open in Portal:<br/><i>PosOperator /<br/>Invitation /<br/>Invitation history</i>"]
+        L["Repeat e-mail<br/>or copy link & re-<br/>send invitation"]
+    end
+    subgraph operator["Done by the PosOperator"]
+        E["Accept e-mail<br/>invitation"]
+        F["Activate<br/>PosOperator role"]
+        G["Verify master data<br/>& outlets"]
+    end
+    A --> B --> C --> D --> D2 --> E --> F --> G --> H --> I
+    I -- Yes --> J
+    I -- No --> K --> L --> E
+```
 
 *Figure 3. fiskaltrust.Portal screen for the bulk invitation of PosOperators.*
 
@@ -217,7 +264,32 @@ There are several ways to help.
 
 #### Onboarding of existing PosOperators 
 
-![Flowchart: PosDealer invitation fails with E-mail address already exists, PosOperator searches the PosDealer and requests assignment, PosDealer accepts and can surrogate](images/15-onboarding-already-existing-PosOperators.png "https://portal-sandbox.fiskaltrust.TLD/PosOperator")
+```mermaid
+flowchart TD
+    accTitle: Onboarding an already existing PosOperator
+    accDescr: The PosDealer's invitation fails with the error that the e-mail address already exists. The PosOperator searches the PosDealer, sets access rights to Full and requests the assignment, then the PosDealer searches the PosOperator, accepts and is ready to surrogate.
+    subgraph dealer1["Done by the PosDealer"]
+        A["Open in Portal:<br/><i>PosOperator /<br/>Invitation</i>"]
+        B["Click<br/><i>Assign all<br/>PosOperators</i>"]
+    end
+    ERR["<b>Error:</b><br/><i>E-mail address<br/>already exists</i>"]
+    subgraph operator["Done by the PosOperator"]
+        C["Open in Portal:<br/><i>PosOperator /<br/>Search PosDealer</i>"]
+        D["Enter name or e-mail<br/>of PosDealer and<br/>click <i>Search</i>"]
+        E["Ensure <i>access<br/>rights</i> dropdown<br/>is set to #quot;Full#quot;"]
+        F["Click <i>Request<br/>Assignment</i>"]
+    end
+    subgraph dealer2["Done by the PosDealer"]
+        G["Open in Portal:<br/><i>PosOperator /<br/>Overview</i>"]
+        H["Enter name or e-mail<br/>of PosOperator and<br/>click <i>Search</i>"]
+        I["Click <i>Accept</i>"]
+        J["Ready to surrogate"]
+    end
+    A -. "Invitation process" .-> B
+    B --- ERR --> C
+    C --> D --> E --> F --> G
+    G --> H --> I --> J
+```
 
 *Figure 8. Onboarding an already existing PosOperator in the fiskaltrust.Portal.*
 

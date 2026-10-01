@@ -317,7 +317,25 @@ From then on, all users log in using the links listed [above](registration.md#co
 
 ### Employees complain about access
 
-![Access employee](images/registration/user_rights_employee.png "Access employee")
+```mermaid
+flowchart TD
+    accTitle: Employees complain about access
+    accDescr: Decision tree for employees who complain about access to the fiskaltrust.Portal. If access is not given, check the employee settings, e-mail address, access rights, e-mail invitation and assignment link. If access is given but error messages appear, check the employee settings and authorizations.
+    A["Employees complain<br/>about access<br/>to fiskaltrust.Portal"] --> B{"access<br/>to fiskaltrust.Portal<br/>is given"}
+    B -- NO --> C["check settings<br/>([Company] /<br/>Employee)"]
+    C --> D["E-Mail:<br/>correct address"]
+    D --> E["Access rights:<br/>at least #quot;Read#quot;<br/>is enabled"]
+    E --> F[/"E-Mail invitation:<br/>confirmed"/]
+    F --> G[/"Assignment<br/>as employee:<br/>correct link in use?"/]
+    B -- YES --> H["error messages<br/>when using"]
+    H --> I["check settings<br/>([Company] /<br/>Employee)"]
+    I --> J["Authorizations"]
+    subgraph legend["legend:"]
+        direction LR
+        L1["PosDealer<br/>Portal"]
+        L2[/"Employee<br/>E-Mail"/]
+    end
+```
 
 *Figure 9. Employee access rights view used to diagnose access complaints.*
 

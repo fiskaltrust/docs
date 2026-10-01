@@ -30,7 +30,20 @@ Connect requests representing a business action with ['cbReceiptReference'](../d
 
 #### Workflow example
 
-![Workflow: two INFO-ORDER requests and a final POS-RECEIPT all reference the same cbReceiptReference for two friends ordering beer rounds](media/referencing-previous-receipts.svg)
+```mermaid
+flowchart TD
+  accTitle: Referencing previous receipts
+  accDescr: Two friends order two rounds of beer as two INFO-ORDER requests and then ask for the bill with a POS-RECEIPT, all three using cbReceiptReference = 123 to reference the same business action.
+  S1(["2 Friends ordering<br/>the first round of beer"])
+  R1["INFO-ORDER<br/>cbReceiptReference = 123<br/>---<br/>CHARGE ITEMS: 2 beer<br/>PAY ITEMS: (empty)<br/>Implicit Flow"]
+  R2["INFO-ORDER<br/>cbReceiptReference = 123<br/>---<br/>CHARGE ITEMS: 2 beer<br/>PAY ITEMS: (empty)<br/>Implicit Flow"]
+  R3["POS-RECEIPT<br/>cbReceiptReference = 123<br/>---<br/>CHARGE ITEMS: 4 beer<br/>PAY ITEMS: payment data<br/>Implicit Flow"]
+  S1 ==> R1
+  R1 == "order of the second<br/>round of beer" ==> R2
+  R2 == "&quot;The bill, please&quot;" ==> R3
+  R2 -. cbReceiptReference .-> R1
+  R3 -. cbReceiptReference .-> R1
+```
 
 *Figure 1. Workflow for referencing previous receipts within a queue.*
 
@@ -54,7 +67,22 @@ Use ['cbReceiptPreviousReference'](../data-structures/data-structures.md#single-
 
 #### Workflow example
 
-![Workflow: one INFO-ORDER is split into two POS-RECEIPTs, each pointing back to the order via cbReceiptPreviousReference when friends pay separately](media/splitting-receipts.svg)
+```mermaid
+flowchart LR
+  accTitle: Splitting receipts
+  accDescr: Two friends order beer as one INFO-ORDER with cbReceiptReference = 124, and when each pays his own consumption, two POS-RECEIPTs (cbReceiptReference 125 and 126) point back to the order via cbPreviousReceiptReference = 124.
+  S1(["2 Friends ordering<br/>beer"])
+  R1["INFO-ORDER<br/>cbReceiptReference = 124<br/>---<br/>CHARGE ITEMS: 2 beer<br/>PAY ITEMS: (empty)<br/>Implicit Flow"]
+  B(["&quot;The bill, please.<br/>Each of us pays his<br/>own consumption.&quot;"])
+  R2["POS-RECEIPT<br/>cbReceiptReference = 125<br/>cbPreviousReceiptReference = 124<br/>---<br/>CHARGE ITEMS: 1 beer<br/>PAY ITEMS: payment data<br/>Implicit Flow"]
+  R3["POS-RECEIPT<br/>cbReceiptReference = 126<br/>cbPreviousReceiptReference = 124<br/>---<br/>CHARGE ITEMS: 1 beer<br/>PAY ITEMS: payment data<br/>Implicit Flow"]
+  S1 ==> R1
+  R1 ==> B
+  B ==> R2
+  B ==> R3
+  R2 -. cbPreviousReceiptReference .-> R1
+  R3 -. cbPreviousReceiptReference .-> R1
+```
 
 
 *Figure 2. Workflow for splitting a receipt among multiple payers.*
@@ -78,7 +106,25 @@ Merge receipts by combining ['cbReceiptReference' and 'cbReceiptPreviousReferenc
 
 #### Workflow example
 
-![Workflow: two tables INFO-ORDERs are linked by INFO-INTERNAL requests via cbPreviousReceiptReference and merged into one POS-RECEIPT](media/merging-receipts.svg)
+```mermaid
+flowchart TD
+  accTitle: Merging receipts
+  accDescr: Two separate INFO-ORDERs (cbReceiptReference 127 and 128) are each referenced by an INFO-INTERNAL request with the shared cbReceiptReference = 129 via cbPreviousReceiptReference, and both are merged into one POS-RECEIPT with cbReceiptReference = 129.
+  S1(["2 Friends ordering<br/>the first round of beer"])
+  S2(["4 people want to<br/>consume cocktails"])
+  O1["INFO-ORDER<br/>cbReceiptReference = 127<br/>---<br/>CHARGE ITEMS: 2 beer<br/>PAY ITEMS: (empty)<br/>Implicit Flow"]
+  O2["INFO-ORDER<br/>cbReceiptReference = 128<br/>---<br/>CHARGE ITEMS: 4 cocktails<br/>PAY ITEMS: (empty)<br/>Implicit Flow"]
+  I1["INFO-INTERNAL<br/>cbReceiptReference = 129<br/>cbPreviousReceiptReference = 127<br/>---<br/>CHARGE ITEMS: (empty)<br/>PAY ITEMS: (empty)<br/>Implicit Flow"]
+  I2["INFO-INTERNAL<br/>cbReceiptReference = 129<br/>cbPreviousReceiptReference = 128<br/>---<br/>CHARGE ITEMS: (empty)<br/>PAY ITEMS: (empty)<br/>Implicit Flow"]
+  P["POS-RECEIPT<br/>cbReceiptReference = 129<br/>---<br/>CHARGE ITEMS: 2 beer, 4 cocktails<br/>PAY ITEMS: payment data<br/>Implicit Flow"]
+  S1 ==> O1
+  O1 == "they invite the table<br/>next to them" ==> I1
+  S2 ==> O2
+  O2 == "they get invited from<br/>the table next to them" ==> I2
+  I1 <-. cbReceiptReference = 129 .-> I2
+  I1 ==> P
+  I2 ==> P
+```
 
 
 *Figure 3. Workflow for merging receipts of separate business actions.*
@@ -105,7 +151,28 @@ Document the field/section in which the receipt is created with [cbArea](../../g
 
 #### Workflow example
 
-![Workflow: guests move from cbArea Table 21 to Table 22; the new INFO-ORDER keeps the reference to the first order while new guests start at Table 21](media/switching-cbarea.svg)
+```mermaid
+flowchart TD
+  accTitle: Switching cbArea
+  accDescr: Two friends order beer at cbArea Table 21 (cbReceiptReference = 130), move to Table 22 and order another 2 beer with a new INFO-ORDER that keeps cbReceiptReference = 130, while 4 new guests at Table 21 start a new order with cbReceiptReference = 131.
+  subgraph T21["cbArea = Table 21"]
+    direction TB
+    S1(["2 Friends ordering<br/>the first round of beer"])
+    O1["INFO-ORDER<br/>cbReceiptReference = 130<br/>cbArea = Table 21<br/>---<br/>CHARGE ITEMS: 2 beer<br/>PAY ITEMS: (empty)<br/>Implicit Flow"]
+    S3(["4 new guests sit on<br/>the empty table 21<br/>and order some food"])
+    O3["INFO-ORDER<br/>cbReceiptReference = 131<br/>cbArea = Table 21<br/>---<br/>CHARGE ITEMS: 4 Wiener Schnitzel<br/>PAY ITEMS: (empty)<br/>Implicit Flow"]
+  end
+  subgraph T22["cbArea = Table 22"]
+    direction TB
+    S2(["they order another<br/>2 beer"])
+    O2["INFO-ORDER<br/>cbReceiptReference = 130<br/>cbArea = Table 22<br/>---<br/>CHARGE ITEMS: 2 beer<br/>PAY ITEMS: (empty)<br/>Implicit Flow"]
+  end
+  S1 ==> O1
+  O1 == "they move to table 22" ==> S2
+  S2 ==> O2
+  S3 ==> O3
+  O1 -. cbReceiptReference = 130 .-> O2
+```
 
 
 *Figure 4. Workflow for changing the area (cbArea) in which a receipt is created.*
@@ -130,7 +197,28 @@ ChargeItems are collected via ftReceiptCase 'Info-internal' or 'Info-order'. 'cb
 
 #### Workflow example
 
-![Workflow: hotel guests order a beer on the internal POS-System as INFO-INTERNAL, referenced from check-in to checkout on the external POS-System that issues the receipt](media/chargeitem-internal-payment-external.svg)
+```mermaid
+flowchart TD
+  accTitle: Charge items internal, payment external
+  accDescr: A couple checks in at the hotel on the external POS-System (INFO-ORDER Room 234), has a beer at the hotel bar recorded on the internal POS-System as INFO-INTERNAL with cbReceiptReference = 101 and cbArea = Room 234, and pays at checkout on the external POS-System, which issues the POS RECEIPT.
+  subgraph INT["internal POS-System<br/>Hotel bar"]
+    direction TB
+    I1["INFO-INTERNAL<br/>cbReceiptReference = 101<br/>cbArea = Room 234<br/>---<br/>CHARGE ITEMS: 2 beer<br/>PAY ITEMS: (empty)<br/>Implicit Flow"]
+  end
+  subgraph EXT["external POS-System<br/>Hotel accomodation"]
+    direction TB
+    S1(["A couple checks in<br/>in a hotel for 1 night"])
+    E1["external POS-System<br/>INFO-ORDER<br/>Room 234"]
+    S2(["checkout"])
+    E2["external POS-System<br/>POS RECEIPT<br/>Room 234"]
+  end
+  S1 ==> E1
+  E1 == "They have a beer<br/>at the Hotel bar.<br/>Consumption should be paid<br/>via accommodation<br/>invoice / checkout." ==> I1
+  I1 ==> S2
+  S2 ==> E2
+  E1 -. Room 234 .-> I1
+  I1 -. Room 234 .-> E2
+```
 
 
 *Figure 5. Workflow where charge items collected via an internal queue are paid at an external system.*
@@ -154,7 +242,32 @@ For this workflow, the combination of following receipt-sequences is needed:
 
 #### Workflow example
 
-![Workflow: charge items from an external queue or POS-System are referenced via INFO-INTERNAL and included in the final POS-RECEIPT on the internal POS-System at checkout](media/chargeitem-external-payment-internal.svg) 
+```mermaid
+flowchart TD
+  accTitle: Charge items external, payment internal
+  accDescr: A couple checks in on the internal POS-System (INFO-ORDER cbReceiptReference = 100, Room 234), has a beer recorded on an external queue or POS-System, which is referenced via INFO-INTERNAL with ftReceiptCaseData, and at checkout the overnight stay and the 2 beer are included in the final POS-RECEIPT on the internal POS-System.
+  subgraph EXT["external POS-System<br/>Hotel bar"]
+    direction TB
+    X1["External queue or POS-System<br/>INFO-INTERNAL<br/>Room 234<br/>---<br/>CHARGE ITEMS: 2 beer<br/>PAY ITEMS: (empty)<br/>additional/footer data"]
+  end
+  subgraph INT["internal POS-System<br/>Hotel accomodation"]
+    direction TB
+    S1(["A couple checks in<br/>in a hotel for 1 night"])
+    O1["INFO-ORDER<br/>cbReceiptReference = 100<br/>cbArea = Room 234<br/>---<br/>CHARGE ITEMS: overnight stay 1 night<br/>PAY ITEMS: (empty)<br/>Implicit Flow"]
+    I1["INFO-INTERNAL<br/>cbReceiptReference = 101<br/>ftReceiptCaseData = data of<br/>external POS-System<br/>cbArea = Room 234<br/>---<br/>CHARGE ITEMS: (empty)<br/>PAY ITEMS: (empty)<br/>Implicit Flow"]
+    S2(["checkout"])
+    I2["INFO-INTERNAL<br/>cbReceiptReference = 101<br/>cbPreviousReceiptReference = 100<br/>cbArea = Room 234<br/>---<br/>CHARGE ITEMS: (empty)<br/>PAY ITEMS: (empty)<br/>Implicit Flow"]
+    P["POS-RECEIPT<br/>cbReceiptReference = 101<br/>cbArea = Room 234<br/>---<br/>CHARGE ITEMS: overnight stay<br/>1 night, 2 beer<br/>PAY ITEMS: payment data<br/>Implicit Flow"]
+  end
+  S1 ==> O1
+  O1 == "They have a beer<br/>at the Hotel bar.<br/>Consumption should be paid<br/>via accommodation<br/>invoice / checkout." ==> X1
+  X1 == "overnight stay" ==> I1
+  S2 ==> I2
+  I1 ==> P
+  I2 ==> P
+  X1 -. ftReceiptCaseData .-> I1
+  X1 -. "CHARGE ITEMS: 2 beer" .-> P
+```
 
 
 *Figure 6. Workflow where charge items collected at an external system are paid at the internal queue.*
@@ -186,7 +299,20 @@ Issuing and redeeming a multi-purpose voucher can be achieved with charge- and p
 
 #### Workflow
 
-![Workflow: sequence of four POS-RECEIPTs for a customer issuing, using and redeeming a multi-purpose card, with the voucher recorded in the pay items](media/multi-purpose-voucher.svg)
+```mermaid
+flowchart TD
+  accTitle: Multi-purpose voucher
+  accDescr: Sequence of four POS-RECEIPTs in which a customer charges 100 euros on an NFC bracelet as a multi-purpose voucher, redeems it for a cocktail and a scuba diving session, and has the remaining credit paid out, with the voucher recorded in the pay items.
+  S1(["Customer in Club Med<br/>charges 100 €<br/>on his bracelet"])
+  R1["POS-RECEIPT<br/>cbReceiptReference = 333<br/>cbArea = Reception<br/>---<br/>CHARGE ITEMS: (empty)<br/>PAY ITEMS:<br/>Multi-purpose voucher purchase:<br/>- 100 €<br/>ftPayItemCaseData: ItemCaseName<br/>&quot;NFC-bracelet Nr. 321&quot;<br/>payment: 100 €<br/>Implicit Flow"]
+  S2(["Customer consumes<br/>one cocktail"])
+  R2["POS-RECEIPT<br/>cbReceiptReference = 526<br/>cbArea = Pool-Bar<br/>---<br/>CHARGE ITEMS: One cocktail: 10 €<br/>PAY ITEMS:<br/>Multi-purpose voucher redemption:<br/>100 €<br/>ftPayItemCaseData: ItemCaseName<br/>&quot;NFC-bracelet Nr. 321&quot;<br/>payment: - 90 €<br/>Implicit Flow"]
+  S3(["Customer consumes<br/>a scuba diving session"])
+  R3["POS-RECEIPT<br/>cbReceiptReference = 34<br/>cbArea = Scuba Diving School<br/>---<br/>CHARGE ITEMS: One Scuba Diving<br/>session: 60 €<br/>PAY ITEMS:<br/>Multi-purpose voucher redemption:<br/>90 €<br/>ftPayItemCaseData: ItemCaseName<br/>&quot;NFC-bracelet Nr. 321&quot;<br/>payment: - 30 €<br/>Implicit Flow"]
+  S4(["Customer wants to<br/>have the credit<br/>paid out"])
+  R4["POS-RECEIPT<br/>cbReceiptReference = 356<br/>cbArea = Reception<br/>---<br/>CHARGE ITEMS: (empty)<br/>PAY ITEMS:<br/>Multi-purpose voucher redemption:<br/>30 €<br/>ftPayItemCaseData: ItemCaseName<br/>&quot;NFC-bracelet Nr. 321&quot;<br/>payment: 0 €<br/>Implicit Flow"]
+  S1 ==> R1 ==> S2 ==> R2 ==> S3 ==> R3 ==> S4 ==> R4
+```
 
 
 *Figure 7. Workflow for issuing and redeeming a multi-purpose voucher across POS-Systems.*

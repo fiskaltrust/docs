@@ -21,7 +21,29 @@ To address this, the POS API provides comprehensive logging of digital receipt i
 
 This sequence diagram describes the process of generating a digital receipt with the sign endpoint and the POS API Helper. The participants in the process are the Point of Sale software, fiskaltrust.Middleware, POS API Helper, fiskaltrust and the consumer. 
 
-![Sequence diagram: POS software calls /sign on the Middleware, POS API Helper sends the receipt to fiskaltrust, POS shows a QR code the consumer scans to get the receipt](./images/POS_API_Helper_sequence.png)
+```mermaid
+sequenceDiagram
+    accTitle: Digital receipt with /sign and the POS API Helper
+    accDescr: The POS software calls /sign on the Middleware, the POS API Helper gets the receipt information from the Middleware and asynchronously sends the receipt to fiskaltrust, the POS software gets the receipt response and shows a QR code that the consumer scans to get the HTML receipt document from fiskaltrust.
+    participant P as pos software
+    participant M as middleware
+    participant H as pos-api helper
+    participant F as fiskaltrust
+    participant C as consumer
+    rect rgba(0, 0, 0, 0)
+        Note over P,C: /sign + pos-api helper
+        Note left of P: process payment<br/>or checkout
+        P-)M: /sign<br/>for fiskalization<br/>purpose
+        H-)M: get receipt<br/>receipt information
+        H-)F: asynchronous send<br/>send receipt
+        Note right of F: receipt uploaded
+        F-)P: get receipt response
+        Note left of P: show qr-code<br/>on consumer<br/>facing display
+        Note left of C: scan qr-code<br/>on display<br/>with mobile phone
+        C->>F: get receipt
+        Note left of C: html<br/>receipt<br/>document
+    end
+```
 
 *Figure 1. Sequence diagram of generating a digital receipt with the sign endpoint and the POS API Helper.*
 

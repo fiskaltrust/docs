@@ -20,7 +20,12 @@ The business rollout simplifies acquiring entitlements, transferring them to the
 
 This sketch shows the process :
 
-![Business rollout workflow: Rollout Management, Business Rollout, select rollout plan, select PosOperators and outlets, create quote and load into cart, binding order](./images/rollout-management.png)
+```mermaid
+flowchart LR
+  accTitle: Business rollout process
+  accDescr: The business rollout starts in Rollout Management, Business Rollout, then the PosDealer selects a rollout plan, selects PosOperators and outlets, creates a quote and loads it into the cart, and places a binding order.
+  A["Rollout<br/>Management -><br/>Business Rollout"] --> B["select<br/>rollout plan"] --> C["select<br/>PosOperators<br/>and outlets"] --> D["create quote<br/>and load into cart"] --> E["binding order"]
+```
 
 *Figure 1. Process of the business rollout for acquiring and activating entitlements.*
 

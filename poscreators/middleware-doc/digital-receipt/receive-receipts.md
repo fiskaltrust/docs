@@ -9,7 +9,25 @@ There are various ways receipts are provided and transported towards the consume
 
 ## With customer facing display/device 
 
-![Sequence diagram: merchant fiscalizes the receipt via fiskaltrust and shows a QR code; the consumer scans it, gets the HTML receipt and sends feedback](./images/sequenz_diagramm_qr-code_display.png)
+```mermaid
+sequenceDiagram
+  accTitle: Digital receipt via QR code on a customer-facing display
+  accDescr: In store the merchant collects items, processes payment or checkout and fiscalizes the receipt with fiskaltrust, then shows a QR code on a consumer-facing display or handheld; the consumer scans it with a mobile phone and gets the receipt from fiskaltrust. Later the consumer has the HTML receipt document and sends feedback to fiskaltrust.
+  participant merchant
+  participant fiskaltrust
+  participant consumer
+  Note over merchant,consumer: instore
+  Note left of merchant: collect items,<br/>process payment<br/>or checkout
+  merchant-)fiskaltrust: fiscalize receipt
+  activate merchant
+  Note right of merchant: show qr-code<br/>on consumer<br/>facing display<br/>or handheld
+  Note left of consumer: scan qr-code<br/>on display<br/>with mobile phone
+  consumer->>fiskaltrust: get receipt
+  deactivate merchant
+  Note over fiskaltrust,consumer: later
+  Note left of consumer: html<br/>receipt<br/>document
+  consumer--)fiskaltrust: feedback
+```
 
 *Figure 1. Sequence diagram of providing a digital receipt via a QR-Code on a customer-facing display or device.*
 
@@ -23,7 +41,24 @@ Overall, this diagram illustrates the process of generating a digital receipt wi
 
 ## With Give-Away (QR-Label)
 
-![Sequence diagram: merchant scans a give-away QR label at checkout, fiscalizes via fiskaltrust and hands it over; the consumer later scans it to get the receipt](./images/sequenz_diagramm_give-awaypng.png)
+```mermaid
+sequenceDiagram
+  accTitle: Digital receipt via give-away (QR label)
+  accDescr: In store the merchant collects items, processes payment or checkout, scans the give-away while checking out, fiscalizes the receipt with fiskaltrust and hands over the item with the give-away to the consumer. Later the consumer scans the give-away with a mobile phone, gets the receipt as an HTML receipt document from fiskaltrust and sends feedback.
+  participant merchant
+  participant fiskaltrust
+  participant consumer
+  Note over merchant,consumer: instore
+  Note left of merchant: collect items,<br/>process payment<br/>or checkout
+  Note left of merchant: scan give-away while<br/>checkout
+  merchant-)fiskaltrust: fiscalize receipt
+  merchant-)consumer: hand over item with give-away
+  Note over fiskaltrust,consumer: later
+  Note left of consumer: scan<br/>give-away<br/>with mobile phone
+  consumer->>fiskaltrust: get receipt
+  Note left of consumer: html<br/>receipt<br/>document
+  consumer--)fiskaltrust: feedback
+```
 
 *Figure 2. Sequence diagram of providing a digital receipt via Give-Away (QR-Label).*
 
@@ -39,7 +74,43 @@ The merchants PosDealer can participate by means of placing orders and intermedi
 
 ## With InStore App
 
-![Sequence diagram: merchant fiscalizes via fiskaltrust, the InStore App shows a receipt QR code for the consumer to scan, with acknowledge and print receipt flows](./images/sequenze_diagramm_instore_app.png)
+```mermaid
+sequenceDiagram
+  accTitle: fiskaltrust receipt with instore-app
+  accDescr: The merchant fiscalizes the receipt with fiskaltrust, which pushes it to the instore-app; the instore-app generates a display QR code with the https receipt link, the consumer scans it to view the HTML receipt and can give feedback, and the consumer can then acknowledge the receipt or print it via the instore-app after a 15 second countdown, with fiskaltrust logging views and prints.
+  participant merchant
+  participant fiskaltrust
+  participant consumer
+  participant app as instore-app
+  Note over merchant,fiskaltrust: instore
+  Note left of merchant: collect items,<br/>process payment<br/>or checkout
+  merchant-)fiskaltrust: fiscalize receipt
+  Note over fiskaltrust,app: instore-app scan qr-code
+  fiskaltrust-)app: on push get receipt
+  app-)app: generate display<br/>qr-code<br/>(https receipt link)
+  Note left of consumer: scan qr-code<br/>with mobile phone
+  consumer-)fiskaltrust: get https receipt link
+  app-)fiskaltrust: log view
+  fiskaltrust-)consumer: render receipt
+  fiskaltrust-)app: on viewed, close qr-code display
+  consumer-)consumer: see receipt
+  Note left of consumer: html<br/>receipt<br/>document
+  consumer-->>fiskaltrust: feedback
+  Note over fiskaltrust,app: acknowledge
+  consumer-)app: acknowledge receipt
+  app-)fiskaltrust: acknowledge receipt
+  fiskaltrust-)fiskaltrust: log view
+  fiskaltrust-)app: on viewed, close display
+  Note over fiskaltrust,app: print receipt
+  consumer-)app: print receipt
+  loop countdown 15s
+    app-->>app: countdown
+  end
+  app-)app: print receipt
+  app-)app: on printed, close display
+  app-)fiskaltrust: print
+  fiskaltrust-)fiskaltrust: log print
+```
 
 *Figure 3. Sequence diagram of providing a digital receipt via the InStore App.*
 

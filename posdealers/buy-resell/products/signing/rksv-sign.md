@@ -37,7 +37,23 @@ An overview of the process is visualized in the following flow chart. Below, the
 
 :::
 
-![Flow chart: PosDealer enables the PosDealer for RKSV Sign role, fiskaltrust prepares the volume purchase agreement, then entitlements, API instances and CashBox credentials follow](../../images/rksv-sign.png)
+```mermaid
+flowchart TD
+    accTitle: RKSV.Sign buy, resell and rollout process
+    accDescr: The PosDealer opens Account / Overview and enables the role PosDealer for RKSV Sign, fiskaltrust prepares the volume purchase agreement, the PosDealer signs it, fiskaltrust assigns entitlements to the account, and the PosDealer produces instances via the API and authenticates sign requests with CashBox credentials.
+    subgraph dealer["Done by the PosDealer"]
+        A["Open in Portal:<br/><i>Account / Overview</i>"]
+        B["Enable role: #quot;PosDealer<br/>for RKSV Sign#quot;"]
+        D["Sign Volume Purchase<br/>Agreement"]
+        F["Produce instances<br/>via the API"]
+        G["Authenticate Sign<br/>requests with CashBox<br/>credentials"]
+    end
+    subgraph ft["Done by fiskaltrust"]
+        C["Prepare Volume<br/>Purchase Agreement"]
+        E["Assign entitlements<br/>to the account"]
+    end
+    A --> B --> C --> D --> E --> F --> G
+```
 
 *Figure 1. Flow chart of the RKSV.Sign buy, resell and rollout process.*
 

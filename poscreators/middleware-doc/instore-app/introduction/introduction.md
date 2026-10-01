@@ -34,7 +34,51 @@ fiskaltrust appointed Dr. Markus Knasmüller from BMD to create an external asse
 
 The following diagram describes the process of generating a digital receipt with the InStore App. The participants in the process are the merchant, fiskaltrust, the consumer and the InStore App. 
 
-![InStore App_sequence](../introduction/images/sequenze_diagramm_instore_app.png)
+```mermaid
+sequenceDiagram
+  accTitle: fiskaltrust receipt with instore-app
+  accDescr: Sequence of the digital receipt process between the merchant, fiskaltrust, the consumer and the instore-app: the merchant fiscalizes the receipt, the instore-app displays a QR-code that the consumer scans to view the receipt, and the consumer can alternatively acknowledge the receipt or have it printed.
+  participant merchant
+  participant fiskaltrust
+  participant consumer
+  participant app as instore-app
+  rect rgba(0,0,0,0)
+    Note over merchant,fiskaltrust: instore
+    Note left of merchant: collect items,<br/>process payment<br/>or checkout
+    merchant->>fiskaltrust: fiscalize receipt
+  end
+  rect rgba(0,0,0,0)
+    Note over fiskaltrust,app: instore-app scan qr-code
+    fiskaltrust->>app: on push get receipt
+    app->>app: generate display qr-code (https receipt link)
+    Note left of consumer: scan qr-code<br/>with mobile phone
+    consumer->>fiskaltrust: get https receipt link
+    app->>fiskaltrust: log view
+    fiskaltrust->>consumer: render receipt
+    fiskaltrust->>app: on viewed, close qr-code display
+    consumer->>consumer: see receipt
+    Note left of consumer: html<br/>receipt<br/>document
+    consumer-->>fiskaltrust: feedback
+  end
+  rect rgba(0,0,0,0)
+    Note over fiskaltrust,app: acknowledge
+    consumer->>app: acknowledge receipt
+    app->>fiskaltrust: acknowledge receipt
+    fiskaltrust->>fiskaltrust: log view
+    fiskaltrust->>app: on viewed, close display
+  end
+  rect rgba(0,0,0,0)
+    Note over fiskaltrust,app: print receipt
+    consumer->>app: print receipt
+    loop countdown 15s
+      app-->>app: countdown
+    end
+    app->>app: print receipt
+    app->>app: on printed, close display
+    app->>fiskaltrust: print
+    fiskaltrust->>fiskaltrust: log print
+  end
+```
 
 *Figure 1. Sequence diagram of the digital receipt process between the merchant, fiskaltrust, the consumer, and the InStore App.*
 

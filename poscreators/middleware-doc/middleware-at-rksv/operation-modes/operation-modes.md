@@ -92,7 +92,24 @@ Events are extracted from the notification-processing protocol. Special events h
 
 In the simplest scenario, a fiskaltrust.SecurityMechanism consists of a single signature creation device and a single queue with a data collection protocol (RKSV-DEP).
 
-![Diagram: one fiskaltrust.SecurityMechanism service with a Queue using an SSCD and writing to a Journal, exposed via IPOS and IATSSCD, mirroring data to fiskaltrust.Helipad](./images/21.png)
+```mermaid
+flowchart LR
+  accTitle: Single queue scenario (AT)
+  accDescr: One fiskaltrust.SecurityMechanism service ftCashBoxId, exposed via the IATSSCD and IPOS interfaces, in which the Queue uses the SSCD and writes to the Journal, with data mirrored to fiskaltrust.Helipad.
+  IATSSCD(["IATSSCD"])
+  IPOS(["IPOS"])
+  subgraph SM["fiskaltrust.SecurityMechanism<br/>service ftCashBoxId"]
+    SSCD["SSCD"]
+    Queue["Queue"]
+    Journal["Journal"]
+  end
+  Helipad(("fiskaltrust.Helipad"))
+  IATSSCD <--> SSCD
+  IPOS <--> Queue
+  Queue --> SSCD
+  Queue --> Journal
+  SM ==> Helipad
+```
 
 *Figure 1. Single queue scenario (AT).*
 
@@ -102,7 +119,28 @@ To handle scenarios of higher complexity, a fiskaltrust.SecurityMechanism can al
 
 The fiskaltrust.SecurityMechanism illustrated below hosts several queues. Each queue runs a RKSV-DEP and an E131-DEP. The queues can address a signature creation device available within a pool.
 
-![Diagram: SecurityMechanism service with a Balancer distributing to Queues 1..n, each using a pool of SSCDs 1..m and writing Journals, mirrored to fiskaltrust.Helipad](./images/22.png)
+```mermaid
+flowchart LR
+  accTitle: Scenario with several queues for performance improvement (AT)
+  accDescr: One fiskaltrust.SecurityMechanism service ftCashBoxId, exposed via the ISSCD1..m, IPOS1.n,IDEP1.n and IPOS interfaces, in which a Balancer distributes to Queue1..n, each Queue uses the pool SSCD1..m and writes to Journal1..n, with data mirrored to fiskaltrust.Helipad.
+  ISSCD(["ISSCD1..m"])
+  IPOSn(["IPOS1.n,IDEP1.n"])
+  IPOS(["IPOS"])
+  subgraph SM["fiskaltrust.SecurityMechanism<br/>service ftCashBoxId"]
+    SSCD["SSCD1..m"]
+    Queue["Queue1..n"]
+    Journal["Journal1..n"]
+    Balancer["Balancer"]
+  end
+  Helipad(("fiskaltrust.Helipad"))
+  ISSCD <--> SSCD
+  IPOSn <--> Queue
+  IPOS <--> Balancer
+  Balancer --> Queue
+  Queue --> SSCD
+  Queue --> Journal
+  SM ==> Helipad
+```
 
 *Figure 2. Scenario with several queues for performance improvement (AT).*
 
@@ -110,6 +148,38 @@ The fiskaltrust.SecurityMechanism illustrated below hosts several queues. Each q
 
 As with the fiskaltrust.SecurityMechanism, the signature creation device is also available via network, and it is possible to use a signature creation device of a different cash register system in backup mode (indicated by the orange access line on the following illustration). Legal prerequisite for this is the registration of both signature creation devices with the same taxpayer.
 
-![Diagram: two SecurityMechanism services, each with Queue, SSCD and Journal; orange lines show each Queue using the other service SSCD as network backup](./images/23.png)
+```mermaid
+flowchart LR
+  accTitle: Several fiskaltrust.SecurityMechanisms use the SSCD via network (AT)
+  accDescr: Two fiskaltrust.SecurityMechanisms (ftCashBoxId1 and ftCashBoxId2), each with its own Queue, SSCD and Journal mirrored to fiskaltrust.Helipad, where each Queue can use the SSCD of the other service via network as backup.
+  IATSSCD1(["IATSSCD"])
+  IPOS1(["IPOS, IDEP"])
+  IATSSCD2(["IATSSCD"])
+  IPOS2(["IPOS, IDEP"])
+  subgraph SM1["fiskaltrust.SecurityMechanism<br/>service ftCashBoxId1"]
+    SSCD1["SSCD1"]
+    Queue1["Queue1"]
+    Journal1["Journal1"]
+  end
+  subgraph SM2["fiskaltrust.SecurityMechanism<br/>ftCashBoxId2"]
+    SSCD2["SSCD2"]
+    Queue2["Queue2"]
+    Journal2["Journal2"]
+  end
+  Helipad1(("fiskaltrust.<br/>Helipad"))
+  Helipad2(("fiskaltrust.<br/>Helipad"))
+  IATSSCD1 <--> SSCD1
+  IPOS1 <--> Queue1
+  IATSSCD2 <--> SSCD2
+  IPOS2 <--> Queue2
+  Queue1 --> SSCD1
+  Queue1 --> Journal1
+  Queue2 --> SSCD2
+  Queue2 --> Journal2
+  Queue1 -. backup .-> SSCD2
+  Queue2 -. backup .-> SSCD1
+  SM1 ==> Helipad1
+  SM2 ==> Helipad2
+```
 
 *Figure 3. Several fiskaltrust.SecurityMechanisms use the SSCD via network.*

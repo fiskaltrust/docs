@@ -18,7 +18,24 @@ With digital receipts, the PosOperator can reduce expenses for printouts and hel
 As a PosDealer, you thus offer a state-of-the-art PosSystem.  
 
 
-![Flowchart: PosDealer opens the Portal, switches to the PosOperator, checks master data, then edits the outlet and adds an outlet logo](../images/buy_resell-digital-receipt-3.png)
+```mermaid
+flowchart TD
+  accTitle: Setting up the outlet logo for digital receipts
+  accDescr: The PosDealer opens the fiskaltrust.Portal, chooses the PosOperator overview and switches to the PosOperator, who then checks the master data, saves, edits the outlet, adds an outlet logo and saves.
+  A["PosDealer:<br/>Open<br/>fiskaltrust.Portal"]
+  B["PosDealer:<br/>Choose<br/>PosOperator /<br/>Overview"]
+  C["PosDealer:<br/>Switch to<br/>PosOperator"]
+  D["PosOperator:<br/>Choose<br/>Company /<br/>Master Data"]
+  E["PosOperator:<br/>check<br/>Master Data"]
+  F["PosOperator:<br/>perform<br/>Data Check"]
+  G["PosOperator:<br/>Save"]
+  H["PosOperator:<br/>Switch to<br/>Company /<br/>Outlets"]
+  I["PosOperator:<br/>Edit<br/>Outlet"]
+  J["PosOperator:<br/>Check<br/>Outlet Data"]
+  K["PosOperator:<br/>Add<br/>Outlet Logo"]
+  L["PosOperator:<br/>Save"]
+  A --> B --> C --> D --> E --> F --> G --> H --> I --> J --> K --> L
+```
 
 *Figure 1. Example of a digital receipt as shown to the customer.*
 
