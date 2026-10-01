@@ -15,13 +15,13 @@ Austria requires a POS system to fulfil three obligations. The fiskaltrust.Middl
 
 Every cash transaction must be recorded by a cash register with a tamper protection device that signs each transaction with a signature creation device and chains it to the previous receipt, so that the receipt chain cannot be changed afterwards (§131b Abs 2 BAO, §§9 and 10 RKSV); the requirements for the signature creation device itself are laid down in §§12 to 14 RKSV. In the Middleware, the Queue records and chains the receipts and the Signature Creation Unit (SCU) drives the signature creation device (SSCD).
 
-See [Operation Modes](operation-modes/operation-modes.md) for the components and the supported signature creation devices, and [Cash Register Integration](cash-register-integration/cash-register-integration.md) for the receipt workflows, including the zero-amount receipts the RKSV requires (start, monthly, annual, end-of-failure and stop receipt) and the handling of signature creation device failures.
+See [Cash Register Integration](cash-register-integration/cash-register-integration.md) for Austrian specific details on the cash register integration.
 
 ### Data collection log and exports (DEP-7)
 
 Every cash register must keep a data collection log (RKSV-DEP, also referred to as DEP-7 after §7 RKSV) of all cash transactions and be able to export it in the export format defined in the annex to the RKSV. In the Middleware the fiskaltrust.SecurityMechanism manages this log, and the fiskaltrust.Journal extracts it.
 
-See [Data Collection Log](cash-register-integration/cash-register-integration.md#data-collection-log) for the two logs kept in Austria (RKSV-DEP and E131-DEP) and [RKSV-DEP Export](function-structures/function-structures.md#rksv-dep-export) for the corresponding journal call. Records must be retained for seven years (§132 BAO); creating exports in the fiskaltrust.Portal is described in [Exports](../../../posdealers/technical-operations/maintenance/exports.md), and the cloud-based storage options in [Revision-safe archiving](../../../posdealers/buy-resell/products/revision-safe-archiving.md).
+See [Data Collection Log](cash-register-integration/cash-register-integration.md#data-collection-log) for the two logs kept in Austria (RKSV-DEP and E131-DEP). Records must be retained for seven years (§132 BAO); creating exports in the fiskaltrust.Portal is described in [Exports](../../../posdealers/technical-operations/maintenance/exports.md), and the cloud-based storage options in [Revision-safe archiving](../../../posdealers/buy-resell/products/revision-safe-archiving.md).
 
 ### FinanzOnline notifications and validations
 
@@ -30,11 +30,9 @@ The signature creation unit and the cash register must be registered with the ta
 ## Where to start
 
 1. [Terminology](terminology/terminology.md) - the Austrian terms and abbreviations used throughout these pages.
-2. [Operation Modes](operation-modes/operation-modes.md) - the Middleware components, the signature creation devices and the configuration scenarios to choose from.
-3. [Installation](installation/installation.md) - installing the chosen signature creation device.
 4. [Cash Register Integration](cash-register-integration/cash-register-integration.md) - the receipt workflows, special receipts, receipt structure and data collection log your POS system has to implement.
 
-The remaining Austrian pages - [Data Structures](data-structures/data-structures.md), [Function Structures](function-structures/function-structures.md), [Communication](communication/communication.md), [Receipt Case Definitions](receipt-case-definitions/receipt-case-definitions.md) and [Reference Tables](reference-tables/reference-tables.md) - are references to use while implementing.
+The remaining Austrian pages - [Data Structures](data-structures/data-structures.md), [Receipt Case Definitions](receipt-case-definitions/receipt-case-definitions.md) and [Reference Tables](reference-tables/reference-tables.md) - are references to use while implementing.
 
 :::info Upgrading to PosSystem API (v2)
 
