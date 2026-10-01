@@ -65,8 +65,8 @@ version 2
 | `3010` | **Copy Receipt / Print existing Receipt** | 1.3.45 |
 | `4001` | **Initial operation receipt**<br />Puts the fiskaltrust.Middleware into operation. | 1.3.45 |
 | `4002` | **Out of operation receipt**<br />Takes the fiskaltrust.Middleware out of operation. | 1.3.45 |
-| `4011` | **Initiate FDM switch** | 1.3.45 |
-| `4012` | **Finish FDM switch** | 1.3.45 |
+| `4011` | **Initiate SCU-switch** | 1.3.45 |
+| `4012` | **Finish SCU-switch** | 1.3.45 |
 
 *Table 3. ftReceiptCase values for the Belgian market.*
 
