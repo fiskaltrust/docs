@@ -115,6 +115,35 @@ A closed queue can’t be reopened with a start receipt. Instead, a new queue ha
 The End of failure Receipt is required to exit the late signing mode when the receipts created during a failure are transferred.
 After fiskaltrust.Middleware has received an "end of failure receipt", the status of failure is terminated by receiving a response with normal state code.
 
+### Closing Receipts
+
+Closing receipts conclude a business period. The cash register sends them to the fiskaltrust.Middleware as special receipts of the `DailyOperations` category. The fiskaltrust.Middleware supports shift, daily, monthly and yearly closings.
+
+The daily, monthly and yearly closings are independent of local fiscal regulations. They are part of the fiskaltrust.Middleware itself, so the POS system must integrate them to use the fiskaltrust.Middleware correctly, even in markets where the law does not require a closing. The shift closing is only necessary if the business works in shifts. Local regulations can add further requirements; refer to the appropriate appendix.
+
+The daily closing is an essential part of the fiskaltrust.SecurityMechanism and executes additional market-specific clean-up tasks. Therefore, each queue should perform a daily closing.
+
+To close a month, the POS system must first close the day. To close a year, the POS system must first close the day and the month. The closing receipts are therefore sent in the following order: daily closing, monthly closing, yearly closing.
+
+With the v2 tagging system, the fiskaltrust.Middleware signals a due closing through global flags in the `ftState` of the receipt response. The POS system should evaluate these flags and send the corresponding closing receipt. If the last daily closing was missed, the fiskaltrust.Middleware can also set the *Message Pending* flag, which should be signaled to the cashier.
+
+| Closing | `ftReceiptCase` (`txcc`) | Global `ftState` flag when due (`gggg_gggg`) |
+|---------|--------------------------|----------------------------------------------|
+| Shift closing | `2010` | – |
+| Daily closing | `2011` | `0000_0100` |
+| Monthly closing | `2012` | `0000_0200` |
+| Yearly closing | `2013` | `0000_0400` |
+
+*Table 1. Closing receipts and the ftState flags that indicate a due closing (v2 tagging system).*
+
+:::info
+
+The values in Table 1 are the `txcc` part of the v2 `ftReceiptCase` and the global flags of the v2 `ftState`; they are not complete values. For classic, market-specific Middleware integrations, use the receipt cases and `ftState` values from the appropriate appendix instead. For example, in Germany `0x4445000000000100` indicates an SCU switch, not a due daily closing. For Austria, France and Germany, the [Migration Guide](../../possystem-api/migration-guide.md#ftreceiptcase) maps the v2 receipt cases to the market-specific values.
+
+:::
+
+Closing receipts are not to be confused with the [Stop Receipt](#stop-receipt-closing-receipt), which permanently takes a queue out of operation. For the full definitions, see [Type of Receipt: ftReceiptCase](../reference-tables/reference-tables.md#type-of-receipt-ftreceiptcase) and [Service Status: ftState](../reference-tables/reference-tables.md#service-status-ftstate).
+
 ## Receipt structure
 
 This section describes the structure of a receipt, including the main blocks provided by the cash register and the additional data added by fiskaltrust.Middleware.
