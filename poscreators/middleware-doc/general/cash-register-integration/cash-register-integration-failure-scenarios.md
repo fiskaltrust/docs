@@ -68,7 +68,7 @@ After the fiskaltrust.Middleware has received an "end of failure receipt" (i.e. 
 
 :::tip
 
-We recommend resending the first failed receipt using the "receipt request" flag `0x0000000080000000`, which checks if a receipt was already sent and returns it in that case (to cover the case when the Middleware received and processed a receipt, but the answer was lost, e.g. due to a network outage). More details about this flag can be found [here](../reference-tables/reference-tables.md#ftreceiptcaseflag)
+We recommend retrying the first request that did not receive an answer with the same `x-operation-id` and the same body before treating it as a failed receipt (see [Process-Driven and Idempotent Design](../../possystem-api/introduction.md#process-driven-and-idempotent-design)). This covers the case when the Middleware received and processed a receipt, but the answer was lost, e.g. due to a network outage: the result of the original operation is returned, and the receipt is not processed a second time. For the reaction to other error types, see [Error Handling](./error-handling.md#how-the-pos-system-should-react).
 
 :::
 

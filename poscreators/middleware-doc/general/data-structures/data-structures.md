@@ -36,12 +36,65 @@ The `ftReceiptCase` **fiskaltrust** field is of critical importance for the corr
 | `cbReceiptAmount`       | `number($decimal)`        | null              | true        | Optional total receipt amount, including value added taxes (i.e., gross receipt amount). This field is provided to prevent calculation and rounding differences. Systems that use net amounts as the central calculation should always use this property. If not provided, the sum of amount in all provided `cbChargeItems` is used as total receipt amount. |
 | `cbUser`                | `object`                  | null              | true        | Optional Identification of the user who creates the receipt. |
 | `cbArea`                | `object`                  | null              | true        | Optional Identification of the area, section, or field in which the receipt is created. Examples include table number of a restaurant business, a department of a commercial establishment, or the vehicle of a taxi company. |
-| `cbCustomer`            | `object`                  | null              | true        | Optional Identification of the consumer for whom the receipt is created. Examples include an email address, phone number, or personal tax number. |
+| `cbCustomer`            | `object`                  | null              | true        | Optional identification of the customer for whom the receipt is created, such as name, address and tax identification numbers. See [cbCustomer](#cbcustomer). |
 | `cbSettlement`          | `object`                  | null              | true        | Optional Settlement identification indicating where this receipt will be added. Examples include a shift number or the day of operation. |
 | `Currency`              | `string` (enum)           | EUR               | false       | This field is used as currency code for money numbers along [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217). Enum: [EUR, CHF, CZK, HUF, BAM, DKK, RON, NOK, PLN, RSD, SEK, UAH, USD, AED, AFN, ALL, AMD, ANG, AOA, ARS, AUD, AWG, AZN, BBD, BDT, BGN, BHD, BIF, BMD, BND, BOB, BOV, BRL, BSD, BTN, BWP, BYN, BZD, CAD, CDF, CHE, CHW, CLF, CLP, CNY, COP, COU, CRC, CUP, CVE, DJF, DOP, DZD, EGP, ERN, ETB, FJD, FKP, GBP, GEL, GHS, GIP, GMD, GNF, GTQ, GYD, HKD, HNL, HTG, IDR, ILS, INR, IQD, IRR, ISK, JMD, JOD, JPY, KES, KGS, KHR, KMF, KPW, KRW, KWD, KYD, KZT, LAK, LBP, LKR, LRD, LSL, LYD, MAD, MDL, MGA, MKD, MMK, MNT, MOP, MRU, MUR, MVR, MWK, MXN, MXV, MYR, MZN, NAD, NGN, NIO, NPR, NZD, OMR, PAB, PEN, PGK, PHP, PKR, PYG, QAR, RUB, RWF, SAR, SBD, SCR, SDG, SGD, SHP, SLE, SLL, SOS, SRD, SSP, STN, SVC, SYP, SZL, THB, TJS, TMT, TND, TOP, TRY, TTD, TWD, TZS, UGX, USN, UYI, UYU, UYW, UZS, VED, VES, VND, VUV, WST, XAF, XAG, XAU, XBA, XBB, XBC, XBD, XCD, XDR, XOF, XPD, XPF, XPT, XSU, XTS, XUA, XXX, YER, ZAR, ZMW, ZWL] |
 | `DecimalPrecisionMultiplier` | `integer($int32)`    | 1                 | false       | This field is used as a multiplier for decimal numbers. When the value is **1**, the relevant numbers are interpreted as floating-point numbers. For all other values, the relevant numbers are interpreted as integers and must be divided by the Multiplier to obtain the decimal representation. Enum: [1, 100, 10000, 1000000, 100000000] |
 
 *Table 1. Fields of the ReceiptRequest data structure sent by the cash register to the Middleware.*
+
+## cbCustomer
+
+The `cbCustomer` field of the `ReceiptRequest` identifies the customer (buyer) for whom the receipt is created. The Middleware reads it as a JSON object with the fields listed in the following table.
+
+```json
+{
+  "cbCustomer": {
+    "CustomerName": "Erika Musterfrau",
+    "CustomerId": "C-10042",
+    "CustomerStreet": "Rua Augusta 100",
+    "CustomerZip": "1100-053",
+    "CustomerCity": "Lisboa",
+    "CustomerCountry": "PT",
+    "CustomerVATId": "123456789",
+    "CustomerTaxId": "987654321"
+  }
+}
+```
+
+### Why cbCustomer and its fields are optional
+
+- **Most receipts have no identified customer.** A typical point-of-sale receipt is issued to an anonymous consumer, so `cbCustomer` is omitted.
+- **Whether customer data is required depends on the market and the receipt case.** Each market enforces its own rules, for example for invoices or for receipts to business customers.
+- **The same structure is shared by all markets, and each market reads a different subset of it.** Fields that a market does not read are ignored, so none of them can be required globally.
+
+### Market-specific rules
+
+Required fields, validations and default values differ per market. They are described on the market pages:
+
+- [Germany](../../middleware-de-kassensichv/data-structures/data-structures.md#customer-data-cbcustomer)
+- [Greece](../../middleware-gr/data-structures/data-structures.md#cbcustomer)
+- [Italy](../../middleware-it-registratore-telematico/data-structures/data-structures.md#customer-data-cbcustomer)
+- [Poland](../../middleware-pl/receipt-case-definitions/receipt-case-definitions.md#constraints-enforced-by-the-queue) (receipt case definitions, *Paragon z NIP*)
+- [Portugal](../../middleware-pt/certification/certification.md#always-provided-by-the-fiskaltrustmiddleware) (certification page, row *Customer data*)
+- [Spain](../../middleware-es/data-structures/data-structures.md#cbcustomer)
+
+### Fields
+
+The following table lists every field that the Middleware reads from the structure. For the buyer's master data of B2B invoices with eInvoicing, see the setup pages of [Austria](../../middleware-at-rksv/e-invoicing/setup.md), [France](../../middleware-fr-boi-tva-decla-30-10-30/e-invoicing/setup.md) and [Poland](../../middleware-pl/e-invoicing/setup.md).
+
+| Field Name            | Data Type | Default Value | Nullable | Description |
+|-----------------------|-----------|---------------|----------|-------------|
+| `CustomerName`        | `string`  | null          | true     | Name or company name of the customer. |
+| `CustomerId`          | `string`  | null          | true     | Identification of the customer in the POS system. |
+| `CustomerStreet`      | `string`  | null          | true     | Street and house number of the customer's address. |
+| `CustomerZip`         | `string`  | null          | true     | Postal code of the customer's address. |
+| `CustomerCity`        | `string`  | null          | true     | City of the customer's address. |
+| `CustomerCountry`     | `string`  | null          | true     | Country of the customer. The expected country code format differs per market. |
+| `CustomerVATId`       | `string`  | null          | true     | VAT or tax identification number of the customer. |
+| `CustomerTaxId`       | `string`  | null          | true     | Tax identification number of the customer that is not a VAT ID. |
+
+*Table 2. Fields of the cbCustomer data structure identifying the customer of a receipt.*
 
 ## ReceiptResponse
 
@@ -68,7 +121,7 @@ The `ftReceiptCase` **fiskaltrust** field is of critical importance for the corr
 | `ftState*`              | `integer($uint64)`        | 0                 | false       | Indicates the status of the **fiskaltrust.Middleware** according to **fiskaltrust** reference. For more information, see [ftState](../../general/reference-tables/reference-tables.md#service-status-ftstate). |
 | `ftStateData`           | `object`                  | null              | true        | This optional field provides additional details for the status of **fiskaltrust.Middleware** related to **fiskaltrust** reference. |
 
-*Table 2. Fields of the ReceiptResponse data structure returned by the Middleware to the cash register.*
+*Table 3. Fields of the ReceiptResponse data structure returned by the Middleware to the cash register.*
 
 ## ChargeItem
 
@@ -97,7 +150,7 @@ Represents an item related to a service or a product that is taxable.
 | `Currency`              | `string` (enum)           | EUR               | false       | This field is used as currency code for money numbers along [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217). Enum: [EUR, CHF, CZK, HUF, BAM, DKK, RON, NOK, PLN, RSD, SEK, UAH, USD, AED, AFN, ALL, AMD, ANG, AOA, ARS, AUD, AWG, AZN, BBD, BDT, BGN, BHD, BIF, BMD, BND, BOB, BOV, BRL, BSD, BTN, BWP, BYN, BZD, CAD, CDF, CHE, CHW, CLF, CLP, CNY, COP, COU, CRC, CUP, CVE, DJF, DOP, DZD, EGP, ERN, ETB, FJD, FKP, GBP, GEL, GHS, GIP, GMD, GNF, GTQ, GYD, HKD, HNL, HTG, IDR, ILS, INR, IQD, IRR, ISK, JMD, JOD, JPY, KES, KGS, KHR, KMF, KPW, KRW, KWD, KYD, KZT, LAK, LBP, LKR, LRD, LSL, LYD, MAD, MDL, MGA, MKD, MMK, MNT, MOP, MRU, MUR, MVR, MWK, MXN, MXV, MYR, MZN, NAD, NGN, NIO, NPR, NZD, OMR, PAB, PEN, PGK, PHP, PKR, PYG, QAR, RUB, RWF, SAR, SBD, SCR, SDG, SGD, SHP, SLE, SLL, SOS, SRD, SSP, STN, SVC, SYP, SZL, THB, TJS, TMT, TND, TOP, TRY, TTD, TWD, TZS, UGX, USN, UYI, UYU, UYW, UZS, VED, VES, VND, VUV, WST, XAF, XAG, XAU, XBA, XBB, XBC, XBD, XCD, XDR, XOF, XPD, XPF, XPT, XSU, XTS, XUA, XXX, YER, ZAR, ZMW, ZWL] |
 | `DecimalPrecisionMultiplier` | `integer($int32)`    | 1                 | false       | This field is used as a multiplier for decimal numbers. When the value is **1**, the relevant numbers are interpreted as floating-point numbers. For all other values, the relevant numbers are interpreted as integers and must be divided by the Multiplier to obtain the decimal representation. Enum: [1, 100, 10000, 1000000, 100000000] |
 
-*Table 3. Fields of the ChargeItem data structure representing a taxable service or product.*
+*Table 4. Fields of the ChargeItem data structure representing a taxable service or product.*
 
 ## PayItem
 
@@ -121,7 +174,7 @@ Represents an item related to a payment.
 | `Currency`              | `string` (enum)           | EUR               | false       | This field is used as currency code for money numbers along [ISO 4217](https://en.wikipedia.org/wiki/ISO_4217). Enum: [EUR, CHF, CZK, HUF, BAM, DKK, RON, NOK, PLN, RSD, SEK, UAH, USD, AED, AFN, ALL, AMD, ANG, AOA, ARS, AUD, AWG, AZN, BBD, BDT, BGN, BHD, BIF, BMD, BND, BOB, BOV, BRL, BSD, BTN, BWP, BYN, BZD, CAD, CDF, CHE, CHW, CLF, CLP, CNY, COP, COU, CRC, CUP, CVE, DJF, DOP, DZD, EGP, ERN, ETB, FJD, FKP, GBP, GEL, GHS, GIP, GMD, GNF, GTQ, GYD, HKD, HNL, HTG, IDR, ILS, INR, IQD, IRR, ISK, JMD, JOD, JPY, KES, KGS, KHR, KMF, KPW, KRW, KWD, KYD, KZT, LAK, LBP, LKR, LRD, LSL, LYD, MAD, MDL, MGA, MKD, MMK, MNT, MOP, MRU, MUR, MVR, MWK, MXN, MXV, MYR, MZN, NAD, NGN, NIO, NPR, NZD, OMR, PAB, PEN, PGK, PHP, PKR, PYG, QAR, RUB, RWF, SAR, SBD, SCR, SDG, SGD, SHP, SLE, SLL, SOS, SRD, SSP, STN, SVC, SYP, SZL, THB, TJS, TMT, TND, TOP, TRY, TTD, TWD, TZS, UGX, USN, UYI, UYU, UYW, UZS, VED, VES, VND, VUV, WST, XAF, XAG, XAU, XBA, XBB, XBC, XBD, XCD, XDR, XOF, XPD, XPF, XPT, XSU, XTS, XUA, XXX, YER, ZAR, ZMW, ZWL] |
 | `DecimalPrecisionMultiplier` | `integer($int32)`    | 1                 | false       | This field is used as a multiplier for decimal numbers. When the value is **1**, the relevant numbers are interpreted as floating-point numbers. For all other values, the relevant numbers are interpreted as integers and must be divided by the Multiplier to obtain the decimal representation. Enum: [1, 100, 10000, 1000000, 100000000] |
 
-*Table 4. Fields of the PayItem data structure representing a payment.*
+*Table 5. Fields of the PayItem data structure representing a payment.*
 
 ## SignatureItem
 
@@ -137,4 +190,4 @@ The signature entries can also be used to visualize hints and messages related t
 | `Caption`               | `string`<br />Max 1023    | null              | true        | Optional heading displayed as text above the signature data. |
 | `Data*`                 | `string`<br />Max 1023    | -                 | false       | Signature content displayed in the specified format. |
 
-*Table 5. Fields of the SignatureItem data structure describing receipt signature data.*
+*Table 6. Fields of the SignatureItem data structure describing receipt signature data.*

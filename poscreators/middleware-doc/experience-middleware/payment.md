@@ -11,6 +11,8 @@ Rather than replacing existing POS payment logic, fiskaltrust provides a **unifi
 
 Payments are integrated through the **InStore App** and the POS System API, allowing transactions, fiscal receipts, and optional digital receipts to be handled in a coordinated flow.
 
+Payment requests are sent via the POS System API in the cloud. Optionally, a POS app running on the same Android device as the InStore App can also trigger payments locally via the fiskaltrust Android launcher (see [Android Intent Integration](../possystem-api/android-intent.md)).
+
 ## Key Design Principles
 
 The payment solution follows these core principles:
