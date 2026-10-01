@@ -86,7 +86,7 @@ See [Declaration and Registration](../declaration/declaration.md#supported-docum
 | `0080` | **IsSaleInForeignCountry** |
 | `0100` | **IsReturn/IsRefund**<br />Marks Receipt as Return of good or service.<br />In Spain the refund requires exactly one `cbPreviousReceiptReference` to the original document and is transmitted as a new record with negative amounts in the sequence of the receipt case. Partial refunds mark the returned lines with the charge-item refund flag. Corrective invoice types (`R1` to `R5`) are not emitted yet. |
 | `0800` | **Group by Position-Number / 100**<br />100 = first position, 101 first subitem, 102 second subitem.<br />The sum of all chargeitems within a position must count toward the total receipt amount.<br />If the quantity and amount are 0,00, the quantity and amount will not be visualized for this line on the digital receipt. Independent if main or subitem. |
-| `8000` | **ReceiptRequest**<br />If you don’t receive a response, try this flag first before taking any other action.<br />This will return a stored result for example in case of a timeout when cashregister calls queue. |
+| `8000` | **ReceiptRequest**<br />Returns the stored response of an already processed receipt with the same `cbReceiptReference` instead of processing it again.<br />To recover from a missing response or a timeout, retry the request with the same `x-operation-id` instead (see [Process-Driven and Idempotent Design](../../possystem-api/introduction.md#process-driven-and-idempotent-design)). |
 
 *Table 4. Global tagging/flag values (gggg) for Spain.*
 

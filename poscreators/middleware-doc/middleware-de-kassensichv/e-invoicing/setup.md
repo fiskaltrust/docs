@@ -104,7 +104,7 @@ Deliver the document with `PUT /issue/{queueId}/{queueItemId}`, choosing a deliv
 
 Poll `GET /issue/{queueId}/{queueItemId}` for the status until it reports **delivered**. There is **no callback or webhook**.
 
-See the [POS System API reference](https://docs.fiskaltrust.cloud/apis/pos-system-api) for the full `/issue` request/response schemas.
+See the [POS System API reference](https://docs.fiskaltrust.eu/apis/pos-system-api) for the full `/issue` request/response schemas.
 
 ## Related pages
 

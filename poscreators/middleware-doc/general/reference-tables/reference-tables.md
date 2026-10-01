@@ -95,7 +95,7 @@ The fiskaltrust receipt case field (`ftReceiptCase`) is of utmost importance for
 | `0001` | **Process as Late Signing Receipt**<br />The cash register lost connection to the queue and processed receipts without communicating with the it. All processed receipts marked with the hint "Security mechanism not reachable" must be sent to the queue with this maker. | 
 | `0002` | Training Receipt. |
 | `0800` | **Group by Position-Number**<br />Position fields are represented as decimal numbers: the whole number indicates the grouped line item, and the fractional part is used within that group. The sum of all `ChargeItems` within a position must count toward the total receipt amount. If the quantity and amount are 0,00, the quantity and amount will not be visualized for this line on the digital receipt, regardless of whether it is a main item or a subitem. |
-| `8000` | **ReceiptRequest**<br />If you don’t receive a response, try this flag first before taking any other action. This will return a stored result, for example in case of a timeout when cash register calls the queue. |
+| `8000` | **ReceiptRequest**<br />Returns the stored response of an already processed receipt with the same `cbReceiptReference` instead of processing it again.<br />To recover from a missing response or a timeout, retry the request with the same `x-operation-id` instead (see [Process-Driven and Idempotent Design](../../possystem-api/introduction.md#process-driven-and-idempotent-design)). |
 
 *Table 4. Global tagging flags (gggg) of the ftReceiptCase format.*
 
@@ -380,7 +380,7 @@ version 2
 | `0000_0200` | `MonthlyClosing` due.<br />When the first `cbReceiptMoment` used since last `MonthlyClosing` and the current/latest `cbReceiptMoment` in the `ReceiptRequest` are different, this state indicates a `MonthlyClosing` should be done. |
 | `0000_0400` | `YearlyClosing` due. |
 | `EEEE_EEEE` | Error.<br />Something went wrong while processing the last request. `QueueItem` exists but didn’t reach the state of a `ReceiptItem` and didn’t consume a `ftReceiptNumber` within the chain. Error reason is shown within the responded `ftSignatureItems`. This happens, for example, if the `ReceiptCase` is not recognized or is wrong. |
-| `FFFF_FFFF` | Fail.<br />Something went wrong while processing the last request, and nothing persisted within the Queue. Fail reason is shown within the responded `ftSignatureItems`. This happens, for example, when the flag `ReceiptRequest` is used after a communication outage, and no properly processed item is found. |
+| `FFFF_FFFF` | Fail.<br />Something went wrong while processing the last request, and nothing persisted within the Queue. Fail reason is shown within the responded `ftSignatureItems`. This happens, for example, when the flag `ReceiptRequest` is used after a communication outage, and no properly processed item is found. It also happens if the fiskaltrust.Middleware has no access to its database and therefore cannot store the request. |
 
 *Table 20. Global status flags (gggg_gggg) of the ftState field.*
 
