@@ -72,6 +72,25 @@ For TD16–TD20 and TD29, the supplier's P.IVA must differ from the merchant's (
 
 A **rectification** — a refund receipt that keeps a purchase code or TD26 — keeps the quantity positive and turns the unit price, the imponibile and the imposta negative. A TD04 is always a refund receipt and carries **positive** amounts: the sign is expressed by the document type.
 
+### How to send each document type
+
+Every document type needs `numero` in `ftReceiptCaseData` → `IT.einvoicing`. On top of that, send the receipt as follows:
+
+| Document type | `ftReceiptCase` | `tipoDocumento` | `cbCustomer` | Also send |
+| --- | --- | --- | --- | --- |
+| TD01 fattura | `0x1001` (B2C) or `0x1002` (B2B), without the refund flag | Omit | The buyer | SDI routing per receipt case (see [Routing](#routing)). |
+| TD04 nota di credito | `0x1001` or `0x1002` **with** the refund flag `0100`, with the refunded items | Omit (or `TD04`) | The buyer | Optionally `cbPreviousReceiptReference` with the `cbReceiptReference` of the invoice it corrects. |
+| TD02, TD03, TD06 | `0x1001` or `0x1002`, without the refund flag | The code | The buyer | — |
+| TD05 nota di debito | `0x1001` or `0x1002`, without the refund flag | `TD05` | The buyer | Optionally `cbPreviousReceiptReference` with the invoice it adds to. |
+| TD24, TD25 fattura differita | `0x1001` or `0x1002`, without the refund flag | The code | The buyer | Optionally `ddt` with the delivery notes it covers. |
+| TD26 | `0x1001` or `0x1002`; with the refund flag for a rectification | `TD26` | The buyer | — |
+| TD21, TD27 (self-issued) | `0x1001` or `0x1002`; TD21 with the refund flag for a rectification | The code | Not read | Optionally the merchant's own `codiceDestinatario` or `pec`. A TD21 has no line with `VATRate` 0. |
+| TD16–TD19, TD22, TD23, TD28 (purchase) | `0x1002` (B2B); with the refund flag for a rectification | The code | The **supplier**, established where [Table 3](#document-types) requires | `fattureCollegate` with the supplier's invoice (for a rectification, `cbPreviousReceiptReference` to the document it corrects); optionally the merchant's own `codiceDestinatario` or `pec`. |
+| TD20 (purchase) | `0x1002` (B2B); with the refund flag for a rectification | `TD20` | The **supplier** | Optionally `fattureCollegate`; optionally the merchant's own `codiceDestinatario` or `pec`. |
+| TD29 (purchase) | `0x1002` (B2B), without the refund flag | `TD29` | The **supplier**, established in Italy | Optionally `fattureCollegate`. No `codiceDestinatario` and no `pec`. |
+
+*Table 4. How to send each document type.*
+
 ## Data sources
 
 | Source | Carries |
@@ -84,7 +103,7 @@ A **rectification** — a refund receipt that keeps a purchase code or TD26 — 
 | `cbPreviousReceiptReference` | `DatiFattureCollegate` of a TD04, a TD05 or a rectification. |
 | The fiscalized `ReceiptResponse` | The document date (`ftReceiptMoment`). |
 
-*Table 4. Where the FatturaPA data comes from.*
+*Table 5. Where the FatturaPA data comes from.*
 
 :::warning The merchant is configured, not sent
 Whose name is on an invoice is not decided by the receipt. A receipt whose `ftReceiptCaseData` carries a `cedente` is **rejected**; configure the merchant on its AdE connection instead.
@@ -124,7 +143,7 @@ In the sandbox, seller data the merchant's account is missing is filled with a s
 | `fattureCollegate` | Documents this service did not render that the document refers to — above all the supplier's invoice a purchase code completes. Each entry has `idDocumento` and `data`. |
 | `ddt` | Delivery notes, for an issued document (for example a TD24/TD25 deferred invoice). Each entry has `numeroDdt`, `dataDdt` and optionally `riferimentoNumeroLinea`. |
 
-*Table 5. Fields of `ftReceiptCaseData` → `IT.einvoicing`.*
+*Table 6. Fields of `ftReceiptCaseData` → `IT.einvoicing`.*
 
 `ftReceiptCaseData` can be sent as a JSON object, as above, or as a JSON string holding the serialized object; the same holds for `ftPayItemCaseData`. Property names are read case-insensitively; dates are written as `yyyy-MM-dd`. A malformed date anywhere in the payload makes the whole payload unreadable: the receipt is then rejected for the number and routing it seems to lack.
 
@@ -155,7 +174,7 @@ Per pay item, `ftPayItemCaseData` → `IT.einvoicing` can override the payment m
 | `dataScadenzaPagamento` | Due date, written to `DataScadenzaPagamento`. |
 | `iban` | IBAN, written to `IBAN`. Spaces are dropped. |
 
-*Table 6. Fields of `ftPayItemCaseData` → `IT.einvoicing`.*
+*Table 7. Fields of `ftPayItemCaseData` → `IT.einvoicing`.*
 
 ## Mapping
 
@@ -170,7 +189,7 @@ Per pay item, `ftPayItemCaseData` → `IT.einvoicing` can override the payment m
 | `CodiceDestinatario` | See [Routing](#routing). |
 | `PECDestinatario` | `pec`, written only when `CodiceDestinatario` is `0000000`. |
 
-*Table 7. Mapping of `DatiTrasmissione`.*
+*Table 8. Mapping of `DatiTrasmissione`.*
 
 ### Routing
 
@@ -181,7 +200,7 @@ Per pay item, `ftPayItemCaseData` → `IT.einvoicing` can override the payment m
 | Purchase and self-issued documents | When sent, the merchant's **own** 7-character code. | When sent, the merchant's own PEC. | The merchant's code; `0000000` (the merchant's *cassetto fiscale*) when neither is sent. |
 | TD29 | Must not be sent. | Must not be sent. | Always `0000000`, without PEC. |
 
-*Table 8. SdI routing.*
+*Table 9. SdI routing.*
 
 ### Header — `CedentePrestatore` and `CessionarioCommittente`
 
@@ -200,7 +219,7 @@ For an **issued** document, the merchant is `CedentePrestatore` and the buyer is
 | `Sede/Provincia` | *Sede* `provincia`, when configured. |
 | `Sede/Nazione` | *Sede* `nazione`; `IT` when none is configured. |
 
-*Table 9. Mapping of the merchant.*
+*Table 10. Mapping of the merchant.*
 
 #### The buyer of an issued document
 
@@ -215,7 +234,7 @@ For an **issued** document, the merchant is `CedentePrestatore` and the buyer is
 | `Sede/Provincia` | `ftReceiptCaseData` → `IT.einvoicing.cessionario.provincia`, in upper case. Omitted when not sent. |
 | `Sede/Nazione` | `CustomerCountry`; `IT` when empty. |
 
-*Table 10. Mapping of the buyer.*
+*Table 11. Mapping of the buyer.*
 
 The identifiers follow the Italian [`cbCustomer` fields](../data-structures/data-structures.md#customer-data-cbcustomer): the partita IVA in `CustomerVATId`, the codice fiscale in `CustomerTaxId`, each validated with the same rules. `CustomerId` is not read. A buyer may send both, and both are written. A private person (B2C) sends the codice fiscale in `CustomerTaxId` and the full name in `CustomerName`; the document uses `Denominazione`, not `Nome`/`Cognome`.
 
@@ -234,7 +253,7 @@ The address (`CustomerStreet`, `CustomerZip`, `CustomerCity`) is required for B2
 | `Sede/Provincia` | `ftReceiptCaseData` → `IT.einvoicing.cessionario.provincia`, for an Italian supplier only. |
 | `Sede/Nazione` | `CustomerCountry` |
 
-*Table 11. Mapping of the supplier.*
+*Table 12. Mapping of the supplier.*
 
 ### Body — `DatiGeneraliDocumento`
 
@@ -247,7 +266,7 @@ The address (`CustomerStreet`, `CustomerZip`, `CustomerCity`) is required for B2
 | `Causale` | `causale` from `ftReceiptCaseData`, cut to 200 characters. Omitted when not sent. |
 | `ImportoTotaleDocumento` | Sum of `ImponibileImporto` + `Imposta` over all `DatiRiepilogo` blocks. |
 
-*Table 12. Mapping of `DatiGeneraliDocumento`.*
+*Table 13. Mapping of `DatiGeneraliDocumento`.*
 
 #### Invoice numbers
 
@@ -280,7 +299,7 @@ Each entry of `cbChargeItems` becomes one line, in the order sent. Modifiers suc
 | `AliquotaIVA` | `VATRate` |
 | `Natura` | Only when `VATRate` is 0: derived from `ftChargeItemCase` (see [Natura](#natura)). |
 
-*Table 13. Mapping of `DettaglioLinee`.*
+*Table 14. Mapping of `DettaglioLinee`.*
 
 `Quantita` and `PrezzoUnitario` keep up to 8 decimals because SdI recomputes `PrezzoTotale` as `PrezzoUnitario` × `Quantita` and tolerates a difference of less than one cent (SdI 00423). A unit price cut to cents fails that check as soon as the quantity is above 1: two items at 44.00 gross (7.93 VAT) are 18.04 × 2 = 36.08 against a net amount of 36.07; with `PrezzoUnitario` 18.035 the product is 36.07.
 
@@ -317,7 +336,7 @@ Amounts are rounded to two decimals **half away from zero** (2.345 becomes 2.35)
 | VAT `8`, NN `6x` | `N7` — VAT paid in another EU country |
 | VAT `8`, NN `80`–`FF` | `N1` — excluded pursuant to art. 15 DPR 633/72 |
 
-*Table 14. Derivation of `Natura` from `ftChargeItemCase`.*
+*Table 15. Derivation of `Natura` from `ftChargeItemCase`.*
 
 The rules are applied top to bottom. No `Natura` can be derived — and a line with `VATRate` 0 is [rejected](#charge-items-currency-and-causale) — for:
 
@@ -337,7 +356,7 @@ The lines are grouped by `AliquotaIVA` and `Natura`; each group becomes one `Dat
 | `Imposta` | The VAT the POS charged (sum of the lines' VAT, rounded to cents) when it is less than one cent away from `ImponibileImporto` × `AliquotaIVA` ÷ 100 (SdI 00421); otherwise that product, rounded to cents. |
 | `EsigibilitaIVA` | `I` (immediata). |
 
-*Table 15. Mapping of `DatiRiepilogo`.*
+*Table 16. Mapping of `DatiRiepilogo`.*
 
 Keeping the POS's own VAT makes the document total equal the receipt total. Example: 1019.68 at 22% is 224.3296; the POS charged 224.32, which is 0.0096 away and is kept, so the 22% group totals 1244.00 like the receipt instead of 1244.01.
 
@@ -361,7 +380,7 @@ Keeping the POS's own VAT makes the document total equal the receipt total. Exam
 | `0F` Ticket restaurant | `MP08` carta di pagamento — meal tickets are electronic cards since the 2020 reform |
 | `00` Unknown, `08` Loyalty, `0C` Transfer to cashbook, `0D` Internal consumption, `0E` Grant | Not written: these settle nothing. |
 
-*Table 16. Derivation of `ModalitaPagamento` from `ftPayItemCase`. See [Type of Payment: ftPayItemCase](../reference-tables/type-of-payment-ftpayitemcase.md#pp---payment-type).*
+*Table 17. Derivation of `ModalitaPagamento` from `ftPayItemCase`. See [Type of Payment: ftPayItemCase](../reference-tables/type-of-payment-ftpayitemcase.md#pp---payment-type).*
 
 There is no FatturaPA code for a voucher, a meal ticket or a sale on account; the defaults above are the closest ones. A POS that knows better names the method per pay item in [`ftPayItemCaseData`](#the-ftpayitemcasedata-payload).
 
@@ -395,7 +414,7 @@ These optional elements of the FatturaPA schema ([`Schema_VFPR12` v1.2.3](https:
 | IdSdI of a linked document | Has no element in schema 1.2.x. |
 | TD07–TD09 simplified invoices | A different format (FSM10). |
 
-*Table 17. FatturaPA elements that are not rendered.*
+*Table 18. FatturaPA elements that are not rendered.*
 
 Foreign buyers of an issued document are excluded by decision: such a receipt gets no FatturaPA (see [Which receipts get a FatturaPA](#which-receipts-get-a-fatturapa)).
 
@@ -408,7 +427,7 @@ On success, the process step appends two signatures to `ftSignatures` of the `Re
 | `einvoice-fattura-pa` | Text | The FatturaPA XML, UTF-8, on a single line, unsigned. The signature type carries the **DontVisualize** flag, so the XML is not printed on the receipt. |
 | `einvoice-file-name` | Text | A suggested SdI file name, `IT{codice fiscale}_{ProgressivoInvio}.xml`. The file is named at transmission. |
 
-*Table 18. Signatures returned on success.*
+*Table 19. Signatures returned on success.*
 
 If the process step fails, `ftState` is set to the error state (see [Service Status: ftState](../reference-tables/service-status-ftstate.md)) and one signature is appended:
 
@@ -416,7 +435,7 @@ If the process step fails, `ftState` is set to the error state (see [Service Sta
 | --- | --- | --- |
 | `einvoice-error` | Text | The broken rules, separated by `; `, cut to 4000 characters. The signature type carries the **Failure** category. |
 
-*Table 19. Signature returned on failure.*
+*Table 20. Signature returned on failure.*
 
 :::caution A process failure happens after fiscalization
 Unlike a validation rejection, a failure in the process step happens after the receipt was fiscalized. The validation rules below catch everything that can be decided from the request and the merchant's account, so this case is limited to rules only the built document can check.
@@ -443,7 +462,7 @@ These rules apply to the merchant's AdE connection. The same rules are applied w
 | `provincia` is an Italian province code. | `cedente.sede.provincia must be a two-letter Italian province code (e.g. RM), but is '…'.` |
 | `nazione` is a known country code. | `cedente.sede.nazione must be an ISO 3166-1 alpha-2 country code the FatturaPA list knows (e.g. IT), but is '…'.` |
 
-*Table 20. Validation rules for the seller.*
+*Table 21. Validation rules for the seller.*
 
 ### Buyer
 
@@ -459,7 +478,7 @@ These rules apply to the merchant's AdE connection. The same rules are applied w
 | `cessionario.provincia`, when sent, is an Italian province code. | `einvoicing.cessionario.provincia must be a two-letter Italian province code (e.g. RM), but is '…'.` |
 | `cessionario.provincia` needs the buyer address. | `einvoicing.cessionario.provincia belongs to the buyer's address: cbCustomer must also carry CustomerStreet, CustomerZip and CustomerCity.` |
 
-*Table 21. Validation rules for the buyer.*
+*Table 22. Validation rules for the buyer.*
 
 ### Routing per receipt case
 
@@ -472,7 +491,7 @@ These rules apply to the merchant's AdE connection. The same rules are applied w
 | B2C | Consumer's identity required. | `cbCustomer.CustomerTaxId (the consumer's codice fiscale) or cbCustomer.CustomerVATId (a partita IVA) is required for a B2C invoice.` |
 | B2B | Buyer address required. | `cbCustomer must carry CustomerStreet, CustomerZip and CustomerCity for a B2B/B2G invoice.` |
 
-*Table 22. Routing rules per invoice receipt case.*
+*Table 23. Routing rules per invoice receipt case.*
 
 ### Charge items, currency and causale
 
@@ -486,7 +505,7 @@ These rules apply to the merchant's AdE connection. The same rules are applied w
 | Currency is EUR. | `Only EUR is supported on a FatturaPA, but the receipt carries '…'.` |
 | Latin-1 `causale`. | `einvoicing.causale contains characters outside Latin-1; …` |
 
-*Table 23. Validation rules for charge items, currency and causale.*
+*Table 24. Validation rules for charge items, currency and causale.*
 
 ### Invoice number and linked invoices
 
@@ -499,7 +518,7 @@ These rules apply to the merchant's AdE connection. The same rules are applied w
 | `numero` not issued yet for the merchant, year and number space (SdI 00404). | `einvoicing.numero '…' is already the number of the … of … rendered from receipt '…'; SdI rejects a second document with the same seller, year and number (control 00404).` |
 | `cbPreviousReceiptReference` of a TD04, TD05 or rectification names a rendered invoice. | `cbPreviousReceiptReference '…' names no invoice rendered for this seller; a credit note links the invoice it corrects (DatiFattureCollegate), so the reference must be the cbReceiptReference of that invoice.` |
 
-*Table 24. Validation rules for the invoice number and linked invoices.*
+*Table 25. Validation rules for the invoice number and linked invoices.*
 
 ### Document types, linked documents, delivery notes and payments
 
@@ -529,7 +548,7 @@ In these messages, `…` at the start stands for the document type.
 | Payment method override is a FatturaPA code. | `cbPayItems[…].ftPayItemCaseData einvoicing.modalitaPagamento must be a FatturaPA code (MP01 … MP23), but is '…'.` |
 | IBAN shape. | `cbPayItems[…].ftPayItemCaseData einvoicing.iban must be an IBAN (2 letters, 2 digits, 11 to 30 letters or digits), but is '…'.` |
 
-*Table 25. Validation rules for document types, linked documents, delivery notes and payments.*
+*Table 26. Validation rules for document types, linked documents, delivery notes and payments.*
 
 :::info Latin-1 only
 FatturaPA and SdI accept Latin-1 text only. Any character outside Latin-1 (above `U+00FF`) — for example emoji, or characters of non-Latin scripts — in a name, address, description, number or *causale* rejects the receipt.
@@ -576,7 +595,7 @@ A B2B invoice with one 22% line, paid in cash, rendered in the sandbox. As the [
 | `ImportoTotaleDocumento` | 1200.00 | Sum of the summary |
 | `DatiPagamento` | `TP02`, `MP01` 1200.00 | `cbPayItems`, cash |
 
-*Table 26. FatturaPA values rendered from the example.*
+*Table 27. FatturaPA values rendered from the example.*
 
 ## Related pages
 
