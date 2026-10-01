@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 280" width="960" height="280" font-family="Helvetica, Arial, sans-serif" font-size="14">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#44546a"/>
+    </marker>
+  </defs>
+  <rect x="0" y="0" width="960" height="280" fill="#ffffff"/>
+
+  <!-- POS -->
+  <rect x="20" y="70" width="180" height="80" rx="8" fill="#f4f4f4" stroke="#44546a"/>
+  <text x="110" y="104" text-anchor="middle" font-weight="bold" fill="#1f2d3d">POS</text>
+  <text x="110" y="126" text-anchor="middle" fill="#44546a">terminal, kiosk, web shop</text>
+
+  <!-- fiskaltrust.Middleware -->
+  <rect x="300" y="70" width="240" height="80" rx="8" fill="#eef4fb" stroke="#2f6db5" stroke-width="1.5"/>
+  <text x="420" y="104" text-anchor="middle" font-weight="bold" fill="#2f6db5">fiskaltrust.Middleware</text>
+  <text x="420" y="126" text-anchor="middle" fill="#44546a">FDM communication, journals</text>
+
+  <!-- FDM -->
+  <rect x="640" y="70" width="150" height="80" rx="8" fill="#fff6e5" stroke="#c07a00"/>
+  <text x="715" y="104" text-anchor="middle" font-weight="bold" fill="#1f2d3d">FDM</text>
+  <text x="715" y="126" text-anchor="middle" fill="#44546a">Fiscal Data Module</text>
+
+  <!-- FPS Finance -->
+  <rect x="835" y="70" width="110" height="80" rx="8" fill="#f4f4f4" stroke="#44546a"/>
+  <text x="890" y="104" text-anchor="middle" font-weight="bold" fill="#1f2d3d">FPS Finance</text>
+  <text x="890" y="126" text-anchor="middle" fill="#44546a">cloud</text>
+
+  <!-- request path (top) -->
+  <line x1="200" y1="92" x2="298" y2="92" stroke="#44546a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="540" y1="92" x2="638" y2="92" stroke="#44546a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <!-- response path (bottom) -->
+  <line x1="638" y1="128" x2="542" y2="128" stroke="#44546a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="298" y1="128" x2="202" y2="128" stroke="#44546a" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <!-- FDM to FPS Finance -->
+  <line x1="790" y1="110" x2="833" y2="110" stroke="#44546a" stroke-width="1.5" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+
+  <!-- labels -->
+  <text x="250" y="190" text-anchor="middle" fill="#1f2d3d">1. ReceiptRequest</text>
+  <text x="250" y="208" text-anchor="middle" fill="#44546a">PosSystem API /sign</text>
+  <text x="250" y="236" text-anchor="middle" fill="#1f2d3d">4. ReceiptResponse</text>
+  <text x="250" y="254" text-anchor="middle" fill="#44546a">with ftSignatures</text>
+  <text x="590" y="190" text-anchor="middle" fill="#1f2d3d">2. GraphQL mutation (HTTPS)</text>
+  <text x="590" y="236" text-anchor="middle" fill="#1f2d3d">3. signResult</text>
+  <text x="590" y="254" text-anchor="middle" fill="#44546a">with control data</text>
+  <text x="890" y="190" text-anchor="middle" fill="#44546a">buffered events</text>
+</svg>
