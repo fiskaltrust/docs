@@ -48,7 +48,7 @@ As the final component of the security mechanism, the fiskaltrust.Middleware als
 
 To remain open to different platforms and operating systems and to act as a stable interface to the POS system, the fiskaltrust.Middleware follows a strict architecture:
 
-![Diagram: POS system connects via the international iPOS interface to the Middleware CashBox, whose Queue talks to a market-specific SCU](./images/mw-architecture.png)
+![Diagram: POS system connects via the international iPOS interface to the Middleware CashBox, whose Queue talks to a market-specific SCU](./images/mw-architecture.svg)
 
 *Figure 3. Architecture of the fiskaltrust.Middleware — the CashBox container with its Queue and SCU components.*
 
@@ -68,7 +68,7 @@ The implementation of a fiskaltrust.SecurityMechanism may differ between countri
 
 The following diagram illustrates the creation of a special receipt with fiskaltrust.Middleware. For a general description of special receipts, see [Receipt for special functions](#receipt-for-special-functions). For national laws on receipts, refer to the appropriate appendix.
 
-![Swimlane workflow: POS starts a special request with a zero receipt, the Queue executes it and prepares the signature block, and the POS generates the receipt](./images/03-special-receipts.png)
+![Swimlane workflow: POS starts a special request with a zero receipt, the Queue executes it and prepares the signature block, and the POS generates the receipt](./images/03-special-receipts.svg)
 
 *Figure 5. Workflow for creating a special receipt with the fiskaltrust.Middleware.*
 
@@ -76,11 +76,11 @@ The following diagram illustrates the creation of a special receipt with fiskalt
 
 The following diagram illustrates the workflow of a failure of fiskaltrust.Middleware. For a description of recovering, refer to the appropriate appendix.
 
-![Swimlane workflow: on timeout or network error the POS marks the receipt for later, retries, and prints a security mechanism failed receipt](./images/04-service-failure-timeout.png)
+![Swimlane workflow: on timeout or network error the POS marks the receipt for later, retries, and prints a security mechanism failed receipt](./images/04-service-failure-timeout.svg)
 
 *Figure 6. Workflow when the fiskaltrust.Middleware call times out.*
 
-![Swimlane workflow: after a Middleware outage the POS sends a zero receipt and a collective receipt so the Queue ends late data entry and signs](./images/05-service-failure.png)
+![Swimlane workflow: after a Middleware outage the POS sends a zero receipt and a collective receipt so the Queue ends late data entry and signs](./images/05-service-failure.svg)
 
 *Figure 7. Workflow when the fiskaltrust.Middleware is unavailable (service failure).*
 
