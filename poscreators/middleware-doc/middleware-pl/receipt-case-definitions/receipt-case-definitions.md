@@ -30,5 +30,5 @@ How the Middleware processes each receipt case category in Poland:
 
 - **Currency PLN** on the receipt and on every charge/pay item (error code `CurrencyMustMatchMarket`).
 - **No mixed sale and return positions** in one document — returns are separate documents on the register side.
-- **Paragon z NIP**: the `ReceiverIsBusiness` flag requires the buyer's NIP as `CustomerVATId` in `cbCustomer`.
+- **Paragon z NIP**: the `ReceiverIsBusiness` flag requires the buyer's NIP as `CustomerVATId` in `cbCustomer`. Formatting characters, for example in `123-456-32-18`, are removed before the NIP is sent to the fiscal printer.
 - **Register unreachable**: fiscal cases fail with `0x504C_2001_EEEE_EEEE` (Art. 111(3) — no working register, no sale).
