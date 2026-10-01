@@ -109,12 +109,17 @@ The POS System API (v2) is the central entry point to the fiskaltrust.Middleware
 
 A digital receipt flow with the POS System API looks like this:
 
-1. Call `/sign` to sign the receipt according to the local fiscalization regulations.
-2. Call `/issue` with the receipt request and the receipt response from `/sign`. Alternatively, `/issue` accepts the `QueueId` and `QueueItemId` of a receipt that was already signed.
-3. fiskaltrust stores the receipt document in the fiskaltrust.Cloud and returns `ftQueueID`, `ftQueueItemID` and the `DocumentURL` to the POS system.
-4. Check whether the receipt was delivered with `GET /issue/{QueueId}/{QueueItemId}/delivered`. It returns `200` when the receipt was delivered and `204` while delivery is still pending. To wait for the delivery instead, call `GET /BlockIssueRequest/{QueueId}/{QueueItemId}/WhileDelivered`.
+1. Optionally, call `/echo` to verify connectivity and authentication.
+2. Call `/sign` to sign the receipt according to the local fiscalization regulations.
+3. Call `/issue` with the receipt request and the receipt response from `/sign`. Alternatively, `/issue` accepts the `QueueId` and `QueueItemId` of a receipt that was already signed.
+4. fiskaltrust stores the receipt document in the fiskaltrust.Cloud and returns `ftQueueID`, `ftQueueItemID` and the `DocumentURL` to the POS system.
+5. Check whether the receipt was delivered with `GET /issue/{QueueId}/{QueueItemId}/delivered`. It returns `200` when the receipt was delivered and `204` while delivery is still pending. To wait for the delivery instead, call `GET /BlockIssueRequest/{QueueId}/{QueueItemId}/WhileDelivered`. The other `/issue/{QueueId}/{QueueItemId}` endpoints retrieve the receipt in other formats or update the receipt status.
+
+Every request must carry the authentication and idempotency headers (CashBox ID, access token, operation ID, and POS system ID) as defined in the POS System API documentation. The CashBox ID and access token are obtained by creating a CashBox in the fiskaltrust.Portal.
 
 For authentication, availability and the other endpoints, see the [POS System API introduction](../../possystem-api/introduction.md). For the full request and response models, payload schemas and error codes, see the [POS System API reference (v2.1)](https://docs.fiskaltrust.cloud/apis/pos-system-api). If your POS system uses API v0, follow the [Migration Guide](../../possystem-api/migration-guide.md).
+
+The [POS System API development kit](https://github.com/fiskaltrust/possystemapi-devkit/blob/main/README.MD) provides runnable C# samples for the POS System API. Use it to get familiar with the flow before implementing it in your point-of-sale software.
 
 :::info
 
