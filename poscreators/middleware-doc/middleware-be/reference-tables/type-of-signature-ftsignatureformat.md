@@ -5,12 +5,12 @@ title: 'Format of Signature: ftSignatureFormat'
 
 # Format of Signature: ftSignatureFormat
 
-The Middleware uses the same ftSignatureFormat in Belgium as in all other countries, as described in the [Format of Signature: ftSignatureFormat](../../general/reference-tables/reference-tables.md#format-of-signature-ftsignatureformat) reference table of the Compliance Middleware.
+The fiskaltrust.Middleware uses the same ftSignatureFormat in Belgium as in all other countries, as described in the [Format of Signature: ftSignatureFormat](../../general/reference-tables/reference-tables.md#format-of-signature-ftsignatureformat) reference table of the fiskaltrust.Middleware.
 
 
 ## ftSignatureFormatFlag
 
-| **Value** | **Description** | **Middleware Version** | 
+| **Value** | **Description** | **fiskaltrust.Middleware version** | 
 | --------- | --------------- | ---------------------- |
 | TBD | TBD | TBD |
 

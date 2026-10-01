@@ -5,10 +5,10 @@ title: 'Type of Journal: ftJournalType'
 
 # Type of Journal: ftJournalType
 
-This table expands on the values provided in the [Type of Journal: ftJournalType](../../general/reference-tables/reference-tables.md#type-of-journal-ftjournaltype) reference table of the Compliance Middleware with values applicable to the Belgian market.
+This table expands on the values provided in the [Type of Journal: ftJournalType](../../general/reference-tables/reference-tables.md#type-of-journal-ftjournaltype) reference table of the fiskaltrust.Middleware with values applicable to the Belgian market.
 
-| **Value** | **Description** | **Middleware Version** |
+| **Value** | **Description** | **fiskaltrust.Middleware version** |
 | --------- | --------------- | ---------------------- |
-| `000` | Status Information QueueBE | 1.3.45 |
+| `000` | Status information of the fiskaltrust.Middleware | 1.3.45 |
 
 *Table 1. ftJournalType values for the Belgian market.*

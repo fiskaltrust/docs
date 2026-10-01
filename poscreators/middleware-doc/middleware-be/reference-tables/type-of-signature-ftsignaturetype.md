@@ -18,7 +18,7 @@ version 2
 
 #### t - Type/Category
 
-| **Value** | **Description** | **Middleware Version** |
+| **Value** | **Description** | **fiskaltrust.Middleware version** |
 | --------- | --------------- | ---------------------- |
 | `0` | Uncategorized, Normal use (notification) | 1.3.45 |
 | `1` | Information (notification), low priority | 1.3.45 |
@@ -29,7 +29,7 @@ version 2
 
 #### gggg - global flags
 
-| **Value** | **Description** | **Middleware Version** |
+| **Value** | **Description** | **fiskaltrust.Middleware version** |
 | --------- | --------------- | ---------------------- |
 | `0001` | Archiving required.<br />Signatures marked with this flag are known to be archived related to market specific bookkeeping requirements. In case of offline usage or pure open-source usage, receipts/artefacts having this flag need to be handled as bookkeeping/accounting-relevant item. | 1.3.45 |
 | `0010` | Printing/Visualization is optional. | 1.3.45 |
@@ -40,7 +40,7 @@ version 2
 *Table 2. ftSignatureType global flag values for the Belgian market.*
 
 #### sss - SignatureCase 
-| **Value** | **Description** | **Caption** | **Middleware Version** |
+| **Value** | **Description** | **Caption** | **fiskaltrust.Middleware version** |
 | --------- | --------------- | ----------- | ---------------------- |
 | TBD | TBD | TBD | TBD |
 
