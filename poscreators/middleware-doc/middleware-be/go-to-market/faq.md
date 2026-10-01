@@ -62,7 +62,7 @@ In the fiskaltrust.Middleware this works as follows:
 
 - Register the sale right after the payment is confirmed and before the customer leaves.
 - For interrupted sales (table service, web orders), register the orders on the way as PRO FORMA events, so that the final sale only closes an already registered transaction (`signOrder` is in development, see [FDM event operations](./fdm-event-operations.md)).
-- If the call to the fiskaltrust.Middleware times out, send the same request again with the *ReceiptRequest* flag (`0x8000`). The fiskaltrust.Middleware returns the stored result if the receipt was already processed, so the sale is not registered twice. See [Failure Scenarios](../../general/cash-register-integration/cash-register-integration-failure-scenarios.md).
+- If the call to the fiskaltrust.Middleware times out or gets no answer, retry the request with the same `x-operation-id` and the same body. If the receipt was already processed, its result is returned; if it is still being processed, the call waits until it is finished. The sale is never registered twice. See [Error Handling](../../general/cash-register-integration/error-handling.md#how-the-pos-system-should-react) and [Process-Driven and Idempotent Design](../../possystem-api/introduction.md#process-driven-and-idempotent-design).
 
 ### Does fiskaltrust take over the data retention and data integrity requirements?
 
