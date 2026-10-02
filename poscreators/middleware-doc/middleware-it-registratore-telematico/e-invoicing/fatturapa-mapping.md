@@ -135,11 +135,11 @@ The address (`CustomerStreet`, `CustomerZip`, `CustomerCity`) is required for B2
 
 #### Invoice numbers
 
-An invoice number must not have been issued already for the same merchant and year (SdI 00404). Credit notes (TD04) have a number space of their own. The fiskaltrust `ftReceiptIdentification` is not used as the number: it is a receipt counter, not a per-year series, and it collides across the cashboxes of one merchant.
+An invoice number must not have been issued already for the same merchant and year (SdI 00404). Credit notes (TD04) have a number space of their own. If another receipt with the same number is processed at the same moment and registers it first, the process step of the second one fails with an `einvoice-error` naming SdI 00404, and no FatturaPA is returned for it. The fiskaltrust `ftReceiptIdentification` is not used as the number: it is a receipt counter, not a per-year series, and it collides across the cashboxes of one merchant.
 
 ### Body — `DatiFattureCollegate`
 
-On a TD04, every value of `cbPreviousReceiptReference` (a single reference or a group) must be the `cbReceiptReference` of an invoice this service rendered **for the same merchant**; it becomes one `DatiFattureCollegate` with that invoice's `Numero` as `IdDocumento` and its `Data`. On any other document, `cbPreviousReceiptReference` is the POS's own link and is ignored. No linked document may be dated after the document itself (SdI 00418).
+On a TD04, every value of `cbPreviousReceiptReference` (a single reference or a group) must be the `cbReceiptReference` of an invoice this service rendered **for the same fiskaltrust.Middleware (cashbox)** — references are resolved among the cashbox's own receipts, since POS systems number them per till; it becomes one `DatiFattureCollegate` with that invoice's `Numero` as `IdDocumento` and its `Data`. On any other document, `cbPreviousReceiptReference` is the POS's own link and is ignored. No linked document may be dated after the document itself (SdI 00418).
 
 ### Body — `DettaglioLinee` (one per charge item)
 
@@ -314,6 +314,7 @@ These rules apply to the merchant's AdE connection. The same rules are applied w
 | *Sede* has `indirizzo`, a 5-character `cap` and `comune`. | `The seller's sede is missing: the account's AdE connection carries no indirizzo, 5-char cap and comune. Add them with POST /v0/ade/connection.` |
 | *Denominazione* ≤ 80, `indirizzo` ≤ 60, `comune` ≤ 60 characters. | `cedente.… is … characters; a FatturaPA accepts at most ….` |
 | Latin-1 text only. | `cedente.… contains characters outside Latin-1; a FatturaPA (and SdI) accepts Latin-1 text only.` |
+| No control characters. | `cedente.… contains control characters (tab, line break or others below U+0020), which a FatturaPA does not accept.` |
 | `provincia` is an Italian province code. | `cedente.sede.provincia must be a two-letter Italian province code (e.g. RM), but is '…'.` |
 | `nazione` is a known country code. | `cedente.sede.nazione must be an ISO 3166-1 alpha-2 country code the FatturaPA list knows (e.g. IT), but is '…'.` |
 
@@ -328,8 +329,10 @@ These rules apply to the merchant's AdE connection. The same rules are applied w
 | `CustomerName` is set. | `cbCustomer with CustomerName is required for an invoice receipt.` |
 | `CustomerName` ≤ 80, `CustomerStreet` ≤ 60, `CustomerCity` ≤ 60 characters. | `cbCustomer.… is … characters; a FatturaPA accepts at most ….` |
 | Latin-1 text only in `CustomerName`, `CustomerStreet`, `CustomerCity`. | `cbCustomer.… contains characters outside Latin-1; …` |
+| No control characters in `CustomerName`, `CustomerStreet`, `CustomerCity`. | `cbCustomer.… contains control characters (tab, line break or others below U+0020), which a FatturaPA does not accept.` |
 | `CustomerZip`, when sent, has exactly 5 characters. | `cbCustomer.CustomerZip must be the 5-character CAP (00000 outside Italy), but is '…'.` |
 | `CustomerCountry`, when sent, is a known country code. | `cbCustomer.CustomerCountry must be an ISO 3166-1 alpha-2 country code the FatturaPA list knows (e.g. IT), but is '…'.` |
+| `cbCustomer`, when sent, can be read. | `cbCustomer cannot be read as the Italian customer data (a JSON object, or a JSON string holding one): …` |
 
 *Table 16. Validation rules for the buyer.*
 
@@ -352,6 +355,7 @@ These rules apply to the merchant's AdE connection. The same rules are applied w
 | `VATRate` between 0 and 100. | `cbChargeItems[…] has VATRate …; a FatturaPA AliquotaIVA is a percentage between 0 and 100.` |
 | A 0% line has a derivable `Natura`. | `cbChargeItems[…] has VATRate 0 but its ftChargeItemCase (0x…) yields no FatturaPA Natura.` |
 | Latin-1 `Description`. | `cbChargeItems[…].Description contains characters outside Latin-1; …` |
+| No control characters in `Description`. | `cbChargeItems[…].Description contains control characters (tab, line break or others below U+0020), which a FatturaPA does not accept.` |
 | Currency is EUR. | `Only EUR is supported on a FatturaPA, but the receipt carries '…'.` |
 
 *Table 18. Validation rules for charge items and currency.*
@@ -365,13 +369,13 @@ These rules apply to the merchant's AdE connection. The same rules are applied w
 
 *Table 19. Validation rules for linked invoices.*
 
-:::info Latin-1 only
-FatturaPA and SdI accept Latin-1 text only. Any character outside Latin-1 (above `U+00FF`) — for example emoji, or characters of non-Latin scripts — in a name, address or description rejects the receipt.
+:::info Latin-1 only, without control characters
+FatturaPA and SdI accept Latin-1 text only. Any character outside Latin-1 (above `U+00FF`) — for example emoji, or characters of non-Latin scripts — in a name, address or description rejects the receipt. So does a control character (below `U+0020`, for example a tab or a line break).
 :::
 
 ### Rules checked on the built document
 
-After building the XML, the process step checks the complete document against the FatturaPA rules, using the validators of the FatturaElettronica.NET library. Their errors come back as `<code> - <property>: <message>` in the `einvoice-error` signature.
+After building the XML, the process step checks the complete document against the FatturaPA rules, using the validators of the FatturaElettronica.NET library. Their errors come back as `<code> - <property>: <message>` in the `einvoice-error` signature. If the document cannot be built at all, the `einvoice-error` signature carries `The FatturaPA could not be built: …`.
 
 ## Related pages
 
