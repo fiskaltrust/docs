@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/digital-receipt/general/compliance 
 title: Compliance
+description: Legal requirements for digital receipts in Austria and Germany and how the fiskaltrust digital receipt fulfils them.
+tags: [Digital receipt, Compliance, Legal, Austria, Germany]
 ---
 
 # Compliance

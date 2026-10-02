@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/general/cash-register-integration/voided-receipt-workflow
 title: Voided receipt regular workflow
+description: How to void a receipt by resending it with negative values, the void flag in ftReceiptCase and cbPreviousReceiptReference.
+tags: [Voided Receipt, Receipt Case, cbPreviousReceiptReference, Cash Register Integration]
 ---
 
 ## Voided receipt workflow

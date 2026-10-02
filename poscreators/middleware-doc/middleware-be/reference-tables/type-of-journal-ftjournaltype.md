@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/belgium/reference-tables/ftjournaltype
 title: 'Type of Journal: ftJournalType'
+description: ftJournalType value for the Belgian Queue status information, extending the general journal type table.
+tags: [ftJournalType, Belgium, Reference Tables, Journal]
 ---
 
 # Type of Journal: ftJournalType

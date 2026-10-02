@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/germany/operation-modes/on-premise-installation
 title: On-Premise Installation
+description: Components, platforms, communication protocols, SCUs and local storage options supported for on-premise Middleware installations in Germany.
+tags: [Germany, Operation Modes, SCU, TSE, Installation]
 ---
 
 # On-Premise Installation

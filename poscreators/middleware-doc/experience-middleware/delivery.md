@@ -1,5 +1,7 @@
 ---
 title: Delivery
+description: Delivery formats and channels of the /issue endpoint — printed receipts, digital receipts, structured invoices and eInvoices with payload examples.
+tags: [eDelivery, Issue Endpoint, eInvoicing, Digital receipt, Experience Middleware]
 slug: /poscreators/experience-middleware/delivery
 ---
 

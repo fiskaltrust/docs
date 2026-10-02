@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/portugal/go-to-market/own-certificate
 title: 'Route 2: Certifying your own solution'
+description: Route 2 in Portugal — obtaining your own AT certificate on top of the Middleware, with responsibilities, procedure phases, AT findings, and effort.
+tags: [Certification, Portugal, Compliance, PosCreators]
 ---
 
 # Route 2: Certifying your own solution

@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/general/operation-modes
 title: Operation Modes
+description: On-premise, off-premise and private cloud environments for fiskaltrust.Middleware and their availability by market.
+tags: [Operation Modes, On-Premise, Private Cloud, Middleware]
 ---
 
 # Operation Modes

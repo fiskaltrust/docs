@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/general/cash-register-integration/failure-scenarios
 title: Failure Scenarios
+description: How to handle SCU failures, an unreachable Middleware and cash register outages, including failed mode and late-signing receipts.
+tags: [Failure Handling, SCU, Cash Register Integration, Middleware]
 ---
 # Failure Scenarios
 

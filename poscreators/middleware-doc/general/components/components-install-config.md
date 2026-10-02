@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/general/components/components-install-config
 title: Installing and Configuring Components
+description: Configuring Middleware components in the Portal, downloading the launcher, and running it on Windows, Linux and macOS as a service.
+tags: [Installation, Launcher, Configuration, CashBox, Middleware]
 ---
 
 # Installing and Configuring Components

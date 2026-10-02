@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/business-basics/management-portal
 title: Management Portal
+description: Tasks PosDealers perform in the fiskaltrust.Portal — account, operator and data management, surrogating, CashBox maintenance and the shop.
+tags: [Portal, Surrogating, CashBox, PosDealers]
 ---
 # Management Portal
 

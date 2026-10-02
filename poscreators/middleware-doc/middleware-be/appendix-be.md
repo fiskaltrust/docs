@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/belgium
 title: Introduction
+description: Entry point to the Belgium-specific Middleware pages, which extend the General Part only where the Belgian market needs it.
+tags: [Belgium, Middleware, PosCreators]
 ---
 
 # Appendix: Belgium

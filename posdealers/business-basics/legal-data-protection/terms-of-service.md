@@ -1,6 +1,8 @@
 ---
 slug: /business-basics/legal-data-protection/terms-of-service
 title: Terms of Service
+description: fiskaltrust terms of service for PosDealers, with country tabs for Austria, France and Germany (details still in progress).
+tags: [Terms of Service, Legal, PosDealers, Austria, France, Germany]
 ---
 # Terms of Service
 

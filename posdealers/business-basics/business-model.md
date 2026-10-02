@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/business-basics/business-model
 title: Business Model
+description: How the partner-based fiskaltrust business model works and what it offers PosDealers, PosCreators, and PosOperators.
+tags: [Pricing, PosDealers, Portal, Onboarding]
 ---
 # Business Model
 
