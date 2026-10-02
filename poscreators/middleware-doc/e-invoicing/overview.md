@@ -42,7 +42,7 @@ Where the API path is available, the flow is the same shape everywhere — your 
 
 ## Invoices and invoice types
 
-An invoice differs from a receipt in that it identifies the buyer: every invoice carries the buyer in [`cbCustomer`](../general/data-structures/data-structures.md#cbcustomer). The invoice type is set by the receipt case of the `/sign` request:
+An invoice differs from a receipt in that it identifies the buyer: every invoice carries the buyer in [`cbCustomer`](../general/data-structures/data-structures.md#cbcustomer). The invoice type is set by the receipt case of the `/sign` request alone; no `cbCustomer` field is needed for it:
 
 | Invoice type | `ftReceiptCase` (PosSystem API v2) |
 | --- | --- |
@@ -52,7 +52,7 @@ An invoice differs from a receipt in that it identifies the buyer: every invoice
 
 *Table 1. Invoice types and their receipt cases.*
 
-For every invoice type, an eInvoice XML is generated and validated semantically. If the validation fails, the `/sign` call fails. For the full list of receipt cases, see [ftReceiptCase](../possystem-api/migration-guide.md#ftreceiptcase).
+For every invoice type, an eInvoice XML is generated, whatever the buyer's country, and validated semantically. If the validation fails, the `/sign` call fails. Which `cbCustomer` fields are required, for example `CustomerVATId`, depends on the situation, the market and the buyer. Fields that do not apply to the buyer can be left out or sent empty. For the full list of receipt cases, see [ftReceiptCase](../possystem-api/migration-guide.md#ftreceiptcase).
 
 ## What varies by market
 

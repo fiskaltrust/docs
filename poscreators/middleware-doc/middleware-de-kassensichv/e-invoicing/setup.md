@@ -24,24 +24,6 @@ eInvoicing rides on calls you already make. Setup is about **configuration** —
 
 *Table 1. Prerequisites for eInvoicing in Germany.*
 
-## Buyer data (`cbCustomer`)
-
-Every invoice carries the buyer in [`cbCustomer`](../../general/data-structures/data-structures.md#cbcustomer); B2C, B2B and B2G are distinguished by the receipt case, see [Invoices and invoice types](../../e-invoicing/overview.md#invoices-and-invoice-types). The following table lists the `cbCustomer` fields read for eInvoicing in Germany.
-
-| Field | Used in the eInvoice | Format and notes |
-| --- | --- | --- |
-| `CustomerName` | Yes — buyer name | Name or company name of the buyer. |
-| `CustomerStreet` | Yes — buyer address | Street and house number. |
-| `CustomerZip` | Yes — buyer address | Postal code. |
-| `CustomerCity` | Yes — buyer address | City. |
-| `CustomerCountry` | Yes — buyer address | **ISO 3166-1 alpha-2** code, for example `DE`, `AT`, `FR`. |
-| `CustomerVATId` | Yes — buyer VAT identifier | VAT ID of the buyer, for example `DE123456789`. Not mandatory, for German, EU or non-EU buyers alike. The eInvoice is validated semantically, see [Invoices and invoice types](../../e-invoicing/overview.md#invoices-and-invoice-types). |
-| `CustomerId` | No | The buyer's customer number in your POS system. It is not an identity document number (ID card, passport). |
-
-*Table 2. Fields of `cbCustomer` read for eInvoicing in Germany.*
-
-Customer data is also exported to the DSFinV-K, see [Customer data `cbCustomer`](../data-structures/data-structures.md#customer-data-cbcustomer).
-
 :::caution Draft — Leitweg-ID to be confirmed
 How the buyer's Leitweg-ID is passed for B2G invoices is being verified and will be documented here.
 :::
