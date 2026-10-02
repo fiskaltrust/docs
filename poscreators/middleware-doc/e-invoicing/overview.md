@@ -40,6 +40,20 @@ Where the API path is available, the flow is the same shape everywhere — your 
 | 2. Issue for delivery (optional) | Register the receipt via `/issue`, then deliver it to a channel. |
 | 3. Poll for status | Poll `GET /issue/{queueId}/{queueItemId}` until delivered / cleared. No webhook. |
 
+## Invoices and invoice types
+
+An invoice differs from a receipt in that it identifies the buyer: every invoice carries the buyer in [`cbCustomer`](../general/data-structures/data-structures.md#cbcustomer). The invoice type is set by the receipt case of the `/sign` request:
+
+| Invoice type | `ftReceiptCase` (PosSystem API v2) |
+| --- | --- |
+| B2C invoice | `0x2000_0000_1001` |
+| B2B invoice | `0x2000_0000_1002` |
+| B2G invoice | `0x2000_0000_1003` |
+
+*Table 1. Invoice types and their receipt cases.*
+
+For every invoice type, an eInvoice XML is generated and validated. For the full list of receipt cases, see [ftReceiptCase](../possystem-api/migration-guide.md#ftreceiptcase).
+
 ## What varies by market
 
 The model is constant; the specifics are market-driven:
