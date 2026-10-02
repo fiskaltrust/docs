@@ -35,7 +35,7 @@ Every invoice carries the buyer in [`cbCustomer`](../../general/data-structures/
 | `CustomerZip` | Yes — buyer address | Postal code. |
 | `CustomerCity` | Yes — buyer address | City. |
 | `CustomerCountry` | Yes — buyer address | **ISO 3166-1 alpha-2** code, for example `DE`, `AT`, `FR`. |
-| `CustomerVATId` | Yes — buyer VAT identifier | VAT ID of the buyer, for example `DE123456789`. Not mandatory, and fiskaltrust does not validate it, for German, EU or non-EU buyers alike. |
+| `CustomerVATId` | Yes — buyer VAT identifier | VAT ID of the buyer, for example `DE123456789`. Not mandatory, for German, EU or non-EU buyers alike. The eInvoice is validated semantically, see [Invoices and invoice types](../../e-invoicing/overview.md#invoices-and-invoice-types). |
 | `CustomerId` | No | The buyer's customer number in your POS system. It is not an identity document number (ID card, passport). |
 
 *Table 2. Fields of `cbCustomer` read for eInvoicing in Germany.*

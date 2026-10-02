@@ -52,7 +52,7 @@ An invoice differs from a receipt in that it identifies the buyer: every invoice
 
 *Table 1. Invoice types and their receipt cases.*
 
-For every invoice type, an eInvoice XML is generated and validated. For the full list of receipt cases, see [ftReceiptCase](../possystem-api/migration-guide.md#ftreceiptcase).
+For every invoice type, an eInvoice XML is generated and validated semantically. If the validation fails, the `/sign` call fails. For the full list of receipt cases, see [ftReceiptCase](../possystem-api/migration-guide.md#ftreceiptcase).
 
 ## What varies by market
 
