@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/general/cash-register-integration
 title: Cash Register Integration
 description: Recommended receipt creation workflow with fiskaltrust.Middleware — SecurityMechanism, special and closing receipts, receipt structure and journals.
-tags: [cash-register-integration, receipt-case, closings, journal, middleware]
+tags: [Cash Register Integration, Receipt Case, Closings, Journal, Middleware]
 ---
 
 # Cash Register Integration

@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/germany/scu/swissbit-cloud
 title: Swissbit Cloud-TSE
 description: Certification, client registration, SCU parameters and troubleshooting for the Swissbit Cloud-TSE in Germany.
-tags: [germany, swissbit, tse, scu, certification, troubleshooting]
+tags: [Germany, Swissbit, TSE, SCU, Certification, Troubleshooting]
 ---
 
 # Swissbit Cloud-TSE

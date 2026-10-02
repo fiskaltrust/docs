@@ -2,7 +2,7 @@
 slug: /posdealers/technical-operations/rollout-automation/templates
 title: Templates
 description: How CashBox templates work — instantiation via shop or API, pre-defined system and custom variables, and the template JSON structure.
-tags: [templates, cashbox, rollout-automation, configuration, posdealers]
+tags: [Templates, CashBox, Rollout Automation, Configuration, PosDealers]
 ---
 # Templates
 

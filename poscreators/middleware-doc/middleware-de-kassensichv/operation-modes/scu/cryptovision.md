@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/germany/scu/cryptovision
 title: Cryptovision-TSE
 description: BSI certification and SCU package parameters for connecting the German Middleware to a Cryptovision/Bundesdruckerei hardware TSE.
-tags: [germany, cryptovision, tse, scu, certification]
+tags: [Germany, Cryptovision, TSE, SCU, Certification]
 ---
 
 # SCU for Cryptovision/Bundesdruckerei Hardware-TSE

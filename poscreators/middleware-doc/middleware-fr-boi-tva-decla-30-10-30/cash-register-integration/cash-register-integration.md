@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/france/cash-register-integration
 title: Cash Register Integration
 description: Receipt creation, special receipts such as daily, monthly, annual and archive receipts, receipt structure and journals for France.
-tags: [france, cash-register-integration, closings, journal, middleware]
+tags: [France, Cash Register Integration, Closings, Journal, Middleware]
 ---
 
 # Cash Register Integration

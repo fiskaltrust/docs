@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/austria/reference-tables/ftstate
 title: 'Service Status: ftState'
 description: ftState global and local flag values returned by the Middleware in Austria, and how they combine with OR.
-tags: [ftstate, austria, reference-tables, rksv]
+tags: [ftState, Austria, Reference Tables, RKSV]
 ---
 
 # Service Status: ftState

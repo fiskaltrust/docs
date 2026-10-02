@@ -2,7 +2,7 @@
 slug: /posdealers/information-sources/contacting-support
 title: Contacting support
 description: When and how PosDealers and PosCreators contact the fiskaltrust Customer Success Team, with support addresses per market.
-tags: [support, posdealers, austria, france, germany]
+tags: [Support, PosDealers, Austria, France, Germany]
 ---
 # Contacting support
 

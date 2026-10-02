@@ -2,7 +2,7 @@
 slug: /posdealers/getting-started/posdealer-onboarding
 title: PosDealer Onboarding
 description: Step-by-step PosDealer onboarding checklist from account and roles through operator invitations, architecture, procurement and contracts.
-tags: [onboarding, posdealers, portal, company-roles]
+tags: [Onboarding, PosDealers, Portal, Company Roles]
 ---
 
 # PosDealer Onboarding Guide

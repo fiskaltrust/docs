@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/digital-receipt/getting-started
 title: Getting Started
 description: High-level implementation and configuration steps for the digital receipt via QR-Code, Give-Away (QR-Label) and the InStore App.
-tags: [digital-receipt, qr-code, instore-app, configuration, experience-middleware]
+tags: [Digital receipt, QR Code, InStore App, Configuration, Experience Middleware]
 ---
 
 # Getting Started

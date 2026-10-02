@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/germany/terminology
 title: Terminology
 description: Definitions of action, transaction, business-action and flow as used for the KassenSichV and the German Middleware.
-tags: [germany, kassensichv, terminology, tse]
+tags: [Germany, KassenSichV, Terminology, TSE]
 ---
 
 # Terminology

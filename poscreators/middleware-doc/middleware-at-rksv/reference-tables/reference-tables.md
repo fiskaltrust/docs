@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/austria/reference-tables
 title: Reference tables
 description: The hex-based tagging format used for Austrian ftReceiptCase, ftChargeItemCase and other case values, with links to each table.
-tags: [austria, reference-tables, rksv, middleware]
+tags: [Austria, Reference Tables, RKSV, Middleware]
 ---
 
 # Reference tables

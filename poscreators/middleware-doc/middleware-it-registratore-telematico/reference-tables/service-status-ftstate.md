@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/italy/reference-tables/ftstate
 title: 'Service Status: ftState'
 description: ftState values for Italy — format and flags such as security mechanism out of operation, SCU out of service and late signing mode.
-tags: [ftstate, reference-tables, failure-handling, rt, italy]
+tags: [ftState, Reference Tables, Failure Handling, RT, Italy]
 ---
 
 # Service Status: ftState

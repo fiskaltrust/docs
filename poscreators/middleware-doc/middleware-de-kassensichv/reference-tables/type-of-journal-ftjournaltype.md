@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/germany/reference-tables/ftjournaltype
 title: 'Type of Journal: ftJournalType'
 description: ftJournalType values for Germany to export QueueDE status, TSE and database TAR files, and the DSFinV-K ZIP export.
-tags: [germany, ftjournaltype, journal, reference-tables, dsfinv-k]
+tags: [Germany, ftJournalType, Journal, Reference Tables, DSFinV-K]
 ---
 
 # Type of Journal: ftJournalType

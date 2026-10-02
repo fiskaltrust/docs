@@ -2,7 +2,7 @@
 slug: /posdealers/buy-resell/products/middleware
 title: Middleware
 description: The fiskaltrust.Middleware as a product for PosDealers — its security mechanism, deployment options and country-specific variants.
-tags: [middleware, signature, posdealers]
+tags: [Middleware, Signature, PosDealers]
 ---
 
 # Middleware

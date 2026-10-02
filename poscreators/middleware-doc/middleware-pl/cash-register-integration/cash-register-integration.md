@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/poland/cash-register-integration
 title: Cash Register Integration
 description: Cash register integration in Poland — register responsibilities, available SCUs, fiscalization, unreachable register handling and invoices.
-tags: [cash-register-integration, scu, crk, failure-handling, poland]
+tags: [Cash Register Integration, SCU, CRK, Failure Handling, Poland]
 ---
 
 # Cash Register Integration

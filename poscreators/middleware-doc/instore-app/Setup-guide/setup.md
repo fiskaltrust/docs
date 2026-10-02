@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/instore-app/setup/getting-started
 title: Getting Started
 description: Installing the InStore App, granting permissions and pairing it with a CashBox via a PIN from the fiskaltrust.Portal.
-tags: [instore-app, installation, cashbox, pairing, android]
+tags: [InStore App, Installation, CashBox, Pairing, Android]
 ---
 
 # Getting Started

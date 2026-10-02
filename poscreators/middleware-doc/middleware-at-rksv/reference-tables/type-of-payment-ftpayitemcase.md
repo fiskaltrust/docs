@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/austria/reference-tables/ftpayitemcase
 title: 'Type of Payment: ftPayItemCase'
 description: ftPayItemCase payment type codes and global flags for the Austrian market, such as cash, card, voucher and online payment.
-tags: [pay-item-case, austria, reference-tables]
+tags: [Pay Item Case, Austria, Reference Tables]
 ---
 
 # Type of Payment: ftPayItemCase

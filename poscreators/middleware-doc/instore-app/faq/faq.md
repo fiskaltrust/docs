@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/instore-app/faq
 title: FAQ
 description: Answers to common InStore App questions on setup, POS integration, existing integrations, loyalty, payment, fiscalization and development.
-tags: [instore-app, faq, onboarding, payment, cash-register-integration]
+tags: [InStore App, FAQ, Onboarding, Payment, Cash Register Integration]
 ---
 
 # Frequently Asked Questions (FAQ)

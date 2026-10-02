@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/greece/reference-tables/ftchargeitemcase
 title: 'Type of Service: ftChargeItemCase'
 description: ftChargeItemCase values for Greece — VAT rates, type of service, nature of VAT and global flags.
-tags: [greece, charge-item-case, reference-tables]
+tags: [Greece, Charge Item Case, Reference Tables]
 ---
 
 # Type of Service: ftChargeItemCase

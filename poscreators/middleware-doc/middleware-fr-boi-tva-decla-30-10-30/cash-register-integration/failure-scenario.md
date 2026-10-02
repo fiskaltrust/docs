@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/france/failure-scenario
 title: Failure Scenario
 description: How to handle an unreachable Middleware in France — degraded mode receipts, failed receipt flag and late signing mode.
-tags: [france, failure-handling, cash-register-integration, middleware]
+tags: [France, Failure Handling, Cash Register Integration, Middleware]
 ---
 
 ## Failure Scenario

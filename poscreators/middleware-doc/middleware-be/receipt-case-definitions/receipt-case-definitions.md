@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/belgium/receipt-case-definitions
 title: Receipt Case Definitions
 description: Placeholder for Belgium-specific receipt case definitions that links to the general receipt case definitions.
-tags: [belgium, receipt-case, middleware]
+tags: [Belgium, Receipt Case, Middleware]
 ---
 
 # Receipt Case Definitions

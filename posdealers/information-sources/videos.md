@@ -2,7 +2,7 @@
 slug: /posdealers/information-sources/videos
 title: Videos
 description: Where to find fiskaltrust video walkthroughs, product demonstrations, and recorded webinars on the fiskaltrust YouTube channel.
-tags: [videos, posdealers, onboarding]
+tags: [Videos, PosDealers, Onboarding]
 ---
 # Videos
 

@@ -2,7 +2,7 @@
 slug: /posdealers/buy-resell/products/product-bundles
 title: Product bundles
 description: Market-specific product bundles for carefree fiscalization, listed for Austria, France and Germany.
-tags: [product-bundles, carefree, posdealers, austria, france, germany]
+tags: [Product Bundles, Carefree, PosDealers, Austria, France, Germany]
 ---
 
 # Product bundles

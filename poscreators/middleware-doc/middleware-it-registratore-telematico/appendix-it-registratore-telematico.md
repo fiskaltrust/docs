@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/italy
 title: Introduction
 description: Introduction to the Italian Registratore Telematico appendix, which adds Italy-specific details to the general Middleware documentation.
-tags: [rt, middleware, poscreators, italy]
+tags: [RT, Middleware, PosCreators, Italy]
 ---
 
 # Appendix: Italy (Registratore Telematico)

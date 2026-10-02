@@ -2,7 +2,7 @@
 slug: /posdealers/technical-operations/maintenance/backup-restore
 title: Backup & Restore
 description: Which Middleware components to back up locally (database and data directory) and the steps to restore a Middleware setup on a new system.
-tags: [backup-restore, middleware, queue, posdealers]
+tags: [Backup and Restore, Middleware, Queue, PosDealers]
 ---
 # Backup & Restore
 

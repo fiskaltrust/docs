@@ -2,7 +2,7 @@
 slug: /posdealers/buy-resell/products/3rd-party/datev-meinfiskal
 title: DATEV MeinFiskal
 description: Connecting PosOperator accounts to DATEV MeinFiskal in Germany — DFKA export, master data prerequisites, setup, status checks and troubleshooting.
-tags: [datev-meinfiskal, datev, germany, posdealers, troubleshooting]
+tags: [DATEV MeinFiskal, DATEV, Germany, PosDealers, Troubleshooting]
 ---
 # DATEV MeinFiskal
 

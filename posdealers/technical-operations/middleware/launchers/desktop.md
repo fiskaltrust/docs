@@ -2,7 +2,7 @@
 slug: /posdealers/technical-operations/middleware/launchers/desktop
 title: Windows, Linux & macOS
 description: How to download the Middleware Launcher for Windows, Linux, and macOS, install it as a service, run it in test mode, and use command-line parameters.
-tags: [launcher, installation, middleware, windows, linux, posdealers]
+tags: [Launcher, Installation, Middleware, Windows, Linux, PosDealers]
 ---
 
 # Launcher for Windows, Linux & macOS

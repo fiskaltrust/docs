@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/portugal/reference-tables/ftchargeitemcase
 title: 'Type of Service: ftChargeItemCase'
 description: ftChargeItemCase values for Portugal — VAT cases, service types, nature of VAT, and charge item flags.
-tags: [charge-item-case, portugal, reference-tables]
+tags: [Charge Item Case, Portugal, Reference Tables]
 ---
 
 # Type of Service: ftChargeItemCase

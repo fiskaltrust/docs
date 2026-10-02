@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/belgium/reference-tables/ftpayitemcase
 title: 'Type of Payment: ftPayItemCase'
 description: ftPayItemCase payment type codes and global flags for the Belgian market, such as cash, card, voucher and SEPA transfer.
-tags: [pay-item-case, belgium, reference-tables]
+tags: [Pay Item Case, Belgium, Reference Tables]
 ---
 
 # Type of Payment: ftPayItemCase

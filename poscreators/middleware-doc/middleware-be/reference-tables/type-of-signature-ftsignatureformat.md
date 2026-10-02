@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/belgium/reference-tables/ftsignatureformat
 title: 'Format of Signature: ftSignatureFormat'
 description: Belgium uses the general ftSignatureFormat values; the Belgian ftSignatureFormatFlag table is still to be defined.
-tags: [ftsignatureformat, belgium, signature, reference-tables]
+tags: [ftSignatureFormat, Belgium, Signature, Reference Tables]
 ---
 
 # Format of Signature: ftSignatureFormat

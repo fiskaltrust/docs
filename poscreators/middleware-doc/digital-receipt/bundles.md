@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/digital-receipt/bundles
 title: Bundles
 description: Compares the four digital receipt bundles — Basic, Carefree, Give-Away / QR-Label and Pos Archive — by features and receipt availability.
-tags: [bundles, digital-receipt, pricing, experience-middleware]
+tags: [Bundles, Digital receipt, Pricing, Experience Middleware]
 ---
 
 # Bundles

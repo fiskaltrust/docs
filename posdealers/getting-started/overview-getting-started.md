@@ -2,7 +2,7 @@
 slug: /posdealers/getting-started/overview-getting-started
 title: Overview - Getting Started
 description: Overview of the PosDealer getting started section — sandbox, registration, authorizations, operator onboarding and the first CashBox.
-tags: [onboarding, posdealers, portal]
+tags: [Onboarding, PosDealers, Portal]
 ---
 
 # Overview - Getting Started

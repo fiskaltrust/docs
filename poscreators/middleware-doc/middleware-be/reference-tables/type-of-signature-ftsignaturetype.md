@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/belgium/reference-tables/ftsignaturetype
 title: 'Type of Signature: ftSignatureType'
 description: ftSignatureType format for Belgium — type and category, global flags and signature case values with Middleware versions.
-tags: [ftsignaturetype, belgium, signature, reference-tables]
+tags: [ftSignatureType, Belgium, Signature, Reference Tables]
 ---
 
 # Type of Signature: ftSignatureType

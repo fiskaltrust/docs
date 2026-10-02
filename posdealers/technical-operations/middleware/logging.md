@@ -2,7 +2,7 @@
 slug: /posdealers/technical-operations/middleware/logging
 title: Logging
 description: Middleware log levels, how to configure the log level and log file, the log format, and how to provide logs to fiskaltrust.Support.
-tags: [logging, middleware, troubleshooting, configuration, posdealers]
+tags: [Logging, Middleware, Troubleshooting, Configuration, PosDealers]
 ---
 # Logging
 

@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/portugal/receipt-printing
 title: Receipt Printing
 description: Mandatory content of certified fiscal documents in Portugal, output formats, signature items, copies and voids, and a PosCreator checklist.
-tags: [printing, portugal, signature, certification, digital-receipt]
+tags: [Printing, Portugal, Signature, Certification, Digital receipt]
 ---
 
 # Receipt Printing

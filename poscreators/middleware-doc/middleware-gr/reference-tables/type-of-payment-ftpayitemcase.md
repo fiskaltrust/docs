@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/greece/reference-tables/ftpayitemcase
 title: 'Type of Payment: ftPayItemCase'
 description: ftPayItemCase format and payment type values for Greece, with reserved and local flag fields and global flags.
-tags: [greece, pay-item-case, reference-tables, payment]
+tags: [Greece, Pay Item Case, Reference Tables, Payment]
 ---
 
 # Type of Payment: ftPayItemCase

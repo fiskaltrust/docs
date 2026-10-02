@@ -2,7 +2,7 @@
 slug: /poscreators/possystem-api/android-intent
 title: Android Intent Integration
 description: How Android POS apps call the fiskaltrust.Middleware side-by-side via Android intents for offline fiscal operations, with endpoints and examples.
-tags: [possystem-api, android, launcher, operation-modes, middleware]
+tags: [POS System API, Android, Launcher, Operation Modes, Middleware]
 ---
 
 # Android Intent Integration

@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/instore-app/installation-guides
 title: Installation Guides Introduction
 description: Overview of InStore App install options — manual APK, Google Play, Orderman SCN, Sunmi, and PAX partner stores.
-tags: [instore-app, installation, android, orderman, sunmi, pax]
+tags: [InStore App, Installation, Android, Orderman, Sunmi, PAX]
 ---
 
 # Installation Guides Introduction

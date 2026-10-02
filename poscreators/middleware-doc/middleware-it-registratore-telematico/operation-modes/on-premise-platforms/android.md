@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/italy/platforms/android
 title: Android
 description: Running the Italian Middleware on Android 7.0+ — preconfigured SQLite queue with Epson and Custom SCUs, distribution via Portal or Google Play.
-tags: [android, launcher, operation-modes, middleware, italy]
+tags: [Android, Launcher, Operation Modes, Middleware, Italy]
 ---
 
 # Android

@@ -2,7 +2,7 @@
 slug: /posdealers/buy-resell/subscription-management
 title: Subscription management
 description: Managing PosOperator subscriptions in the Portal — automatic and manual annual renewals and cancellation.
-tags: [subscriptions, portal, posdealers]
+tags: [Subscriptions, Portal, PosDealers]
 ---
 # Subscription management
 

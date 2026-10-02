@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/portugal/reference-tables/ftstate
 title: 'Service Status: ftState'
 description: ftState values for Portugal — global status flags of the Middleware, with Portuguese local flags still to be defined.
-tags: [ftstate, portugal, reference-tables, failure-handling]
+tags: [ftState, Portugal, Reference Tables, Failure Handling]
 ---
 
 # Service Status: ftState

@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/belgium/cash-register-integration
 title: Cash Register Integration
 description: Placeholder for cash register integration in Belgium that links to the general cash register integration workflow.
-tags: [belgium, cash-register-integration, middleware]
+tags: [Belgium, Cash Register Integration, Middleware]
 ---
 
 # Cash Register Integration

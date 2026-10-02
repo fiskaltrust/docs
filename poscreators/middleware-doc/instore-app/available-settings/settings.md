@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/instore-app/available-settings
 title: Available Settings
 description: Reference of all InStore App 1.3.2 settings — operation mode, terminal ID filter, printer, payment providers, PIN lock and unpairing.
-tags: [instore-app, configuration, printing, payment, android]
+tags: [InStore App, Configuration, Printing, Payment, Android]
 ---
 
 # Available Settings - InStore App

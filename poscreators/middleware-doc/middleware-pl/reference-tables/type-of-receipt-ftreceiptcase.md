@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/poland/reference-tables/ftreceiptcase
 title: 'Type of Receipt: ftReceiptCase'
 description: ftReceiptCase format, receipt case types, and global and local flags for Poland (country code 0x504C), currently in preview.
-tags: [receipt-case, poland, reference-tables]
+tags: [Receipt Case, Poland, Reference Tables]
 ---
 
 # Type of Receipt: ftReceiptCase

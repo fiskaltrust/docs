@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/general/function-structures
 title: Function Structures
 description: The iPOS interface functions echo, sign and journal, with synchronous v0 and asynchronous v1 call examples.
-tags: [ipos, sign, journal, echo, middleware]
+tags: [iPOS, Sign, Journal, Echo, Middleware]
 ---
 
 # Function Structures

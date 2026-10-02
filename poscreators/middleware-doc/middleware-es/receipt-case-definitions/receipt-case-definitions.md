@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/spain/receipt-case-definitions
 title: Receipt Case Definitions
 description: Placeholder for Spanish receipt case definitions that extend the general receipt case definitions of the Middleware.
-tags: [spain, receipt-case, middleware, poscreators]
+tags: [Spain, Receipt Case, Middleware, PosCreators]
 ---
 
 # Receipt Case Definitions

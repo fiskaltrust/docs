@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/instore-app/installation-guides/googleplay-guide
 title: Google Play Installation Guide
 description: Step-by-step install of the fiskaltrust InStore App on an Android device from the Google Play Store, with next steps and troubleshooting.
-tags: [google-play, instore-app, installation, android]
+tags: [Google Play, InStore App, Installation, Android]
 ---
 
 # Google Play Installation Guide

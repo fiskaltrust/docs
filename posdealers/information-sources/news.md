@@ -2,7 +2,7 @@
 slug: /posdealers/information-sources/news
 title: News
 description: Where PosDealers find fiskaltrust news and product changes — newsletters and news channels for Austria, France and Germany.
-tags: [news, posdealers, austria, france, germany]
+tags: [News, PosDealers, Austria, France, Germany]
 ---
 # News 
 

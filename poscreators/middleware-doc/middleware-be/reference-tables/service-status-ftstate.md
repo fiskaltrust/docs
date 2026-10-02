@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/belgium/reference-tables/ftstate
 title: 'Service Status: ftState'
 description: ftState global and local flag values returned by the Middleware in Belgium, such as SCU out of service and late signing mode.
-tags: [ftstate, belgium, reference-tables]
+tags: [ftState, Belgium, Reference Tables]
 ---
 
 # Service Status: ftState

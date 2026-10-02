@@ -2,7 +2,7 @@
 slug: /posdealers/technical-operations/middleware/cashbox
 title: Cashbox
 description: What a CashBox configuration contains, how to find its CashBoxID and AccessToken, and how to create, configure, and rebuild CashBoxes in the portal.
-tags: [cashbox, accesstoken, configuration, middleware, portal, posdealers]
+tags: [CashBox, AccessToken, Configuration, Middleware, Portal, PosDealers]
 ---
 # Cashbox
 

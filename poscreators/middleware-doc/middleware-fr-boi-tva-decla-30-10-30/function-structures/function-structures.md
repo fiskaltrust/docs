@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/france/function-structures
 title: Function Structures
 description: Echo, sign and journal functions of the iPOS interface for France, including the ChaineCloud empty echo queue reinitialization.
-tags: [france, ipos, communication, journal, middleware]
+tags: [France, iPOS, Communication, Journal, Middleware]
 ---
 
 # Function structures

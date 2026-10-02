@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/general/communication
 title: Communication
 description: Communication protocols supported by fiskaltrust.Middleware — gRPC, REST, WCF and user-specific — and how to set them in the Portal.
-tags: [communication, grpc, rest, wcf, middleware]
+tags: [Communication, gRPC, REST, WCF, Middleware]
 ---
 
 # Communication

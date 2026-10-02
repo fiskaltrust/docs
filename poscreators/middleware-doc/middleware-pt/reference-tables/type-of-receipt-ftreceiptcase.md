@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/portugal/reference-tables/ftreceiptcase
 title: 'Type of Receipt: ftReceiptCase'
 description: ftReceiptCase format, receipt case types, and global and local flags for Portugal (country code 0x5054).
-tags: [receipt-case, portugal, reference-tables]
+tags: [Receipt Case, Portugal, Reference Tables]
 ---
 
 # Type of Receipt: ftReceiptCase

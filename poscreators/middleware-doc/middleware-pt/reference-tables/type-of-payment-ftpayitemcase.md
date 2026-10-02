@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/portugal/reference-tables/ftpayitemcase
 title: 'Type of Payment: ftPayItemCase'
 description: ftPayItemCase payment types and flags for Portugal, such as cash, crossed cheque, and debit card payments.
-tags: [pay-item-case, portugal, reference-tables, payment]
+tags: [Pay Item Case, Portugal, Reference Tables, Payment]
 ---
 
 # Type of Payment: ftPayItemCase

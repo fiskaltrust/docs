@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/germany/platforms/windows
 title: Windows
 description: Supported Windows versions and .NET Framework prerequisites for running the German fiskaltrust.Middleware as a service.
-tags: [germany, windows, operation-modes, installation]
+tags: [Germany, Windows, Operation Modes, Installation]
 ---
 
 # fiskaltrust.Middleware für Windows

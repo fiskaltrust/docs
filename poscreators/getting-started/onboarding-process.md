@@ -2,7 +2,7 @@
 slug: /get-started/onboarding-process
 title: Onboarding Process
 description: The phased onboarding journey across PosCreators, PosDealers and PosOperators, from portal registration to deployment and rollout.
-tags: [onboarding, roles, poscreators, posdealers, portal]
+tags: [Onboarding, Roles, PosCreators, PosDealers, Portal]
 ---
 
 # Onboarding Process - Roles and Flow

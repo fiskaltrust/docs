@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/austria/reference-tables/ftjournaltype
 title: 'Type of Journal: ftJournalType'
 description: ftJournalType value for the Austrian Queue status information, extending the general journal type table.
-tags: [ftjournaltype, austria, reference-tables, journal]
+tags: [ftJournalType, Austria, Reference Tables, Journal]
 ---
 
 # Type of Journal: ftJournalType

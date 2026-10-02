@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/italy/platforms/linux
 title: Linux
 description: Running the Italian Middleware on Linux and macOS with Launcher 2.0 — supported distributions, versions and local storage options.
-tags: [linux, launcher, operation-modes, installation, italy]
+tags: [Linux, Launcher, Operation Modes, Installation, Italy]
 ---
 
 # fiskaltrust.Middleware for Linux and macOS

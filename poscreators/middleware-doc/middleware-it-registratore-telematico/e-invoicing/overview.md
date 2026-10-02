@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/italy/e-invoicing/overview
 title: Overview
 description: Italy-specific eInvoicing details — FatturaPA format, XAdES signature, SDI clearance for B2G, B2B and B2C, and key terms.
-tags: [eInvoicing, fatturapa, sdi, italy]
+tags: [eInvoicing, FatturaPA, SDI, Italy]
 ---
 
 # eInvoicing in Italy — Overview

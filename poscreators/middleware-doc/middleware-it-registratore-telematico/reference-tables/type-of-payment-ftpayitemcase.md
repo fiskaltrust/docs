@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/italy/reference-tables/ftpayitemcase
 title: 'Type of Payment: ftPayItemCase'
 description: ftPayItemCase values for Italy — payment types such as cash, cards, vouchers and transfers, plus local and global flags.
-tags: [pay-item-case, reference-tables, rt, italy]
+tags: [Pay Item Case, Reference Tables, RT, Italy]
 ---
 
 # Type of Payment: ftPayItemCase

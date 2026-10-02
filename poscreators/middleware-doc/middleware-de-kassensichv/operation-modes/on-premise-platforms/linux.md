@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/germany/platforms/linux
 title: Linux
 description: Running the German Middleware on Linux and macOS with Mono — requirements, supported storage and SCUs, and REST and WCF limitations.
-tags: [germany, linux, mono, operation-modes, launcher]
+tags: [Germany, Linux, Mono, Operation Modes, Launcher]
 ---
 
 # fiskaltrust.Middleware for Linux and macOs

@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/germany/dsfinv-k
 title: DSFinV-K Generation
 description: How the Middleware generates the DSFinV-K export for Germany — prerequisites, module structure, mandatory data and file-by-file field mapping.
-tags: [germany, dsfinv-k, journal, closings, kassensichv]
+tags: [Germany, DSFinV-K, Journal, Closings, KassenSichV]
 ---
 
 # Procedural Documentation for DSFinV-K Generation

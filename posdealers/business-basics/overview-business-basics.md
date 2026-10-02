@@ -2,7 +2,7 @@
 slug: /posdealers/business-basics/overview-business-basics
 title: Overview - Business Basics
 description: Introduction to the PosDealer business basics section — supported countries, services, the Portal, the Middleware and prerequisites.
-tags: [posdealers, portal, middleware, onboarding]
+tags: [PosDealers, Portal, Middleware, Onboarding]
 ---
 
 # Overview - Business Basics

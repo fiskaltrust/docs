@@ -2,7 +2,7 @@
 slug: /posdealers/buy-resell/products/digital-receipt
 title: Digital Receipt
 description: Preparations PosDealers and PosOperators need for digital receipts, general and per country, plus how to evaluate digital receipt retrievals.
-tags: [digital-receipt, portal, posdealers]
+tags: [Digital receipt, Portal, PosDealers]
 ---
 
 # Digital Receipt

@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/austria/receipt-case-definitions
 title: Receipt Case Definitions
 description: How single- and multi-purpose vouchers, agency business, delivery notes and tips are handled under RKSV in Austria.
-tags: [austria, rksv, receipt-case, vouchers]
+tags: [Austria, RKSV, Receipt Case, Vouchers]
 ---
 
 # Receipt Case Definitions

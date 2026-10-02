@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/general/terminology
 title: Terminology
 description: Definitions of general terms and abbreviations used in the fiskaltrust.Middleware interface documentation, such as SecurityMechanism and iPOS.
-tags: [terminology, glossary, middleware]
+tags: [Terminology, Glossary, Middleware]
 ---
 
 # Terminology

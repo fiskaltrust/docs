@@ -2,7 +2,7 @@
 slug: /posdealers/information-sources/downloads
 title: Downloads
 description: Finding contracts, general information such as SLA and price lists, and exports in the fiskaltrust.Portal, and creating exports.
-tags: [downloads, exports, portal, posdealers]
+tags: [Downloads, Exports, Portal, PosDealers]
 ---
 # Downloads
 

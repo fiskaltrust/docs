@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/poland
 title: Introduction
 description: Introduction to the Polish Middleware appendix (preview) — certified cash register model, CRK reporting and differences from other markets.
-tags: [crk, middleware, poscreators, architecture, poland]
+tags: [CRK, Middleware, PosCreators, Architecture, Poland]
 ---
 
 # Appendix: Poland

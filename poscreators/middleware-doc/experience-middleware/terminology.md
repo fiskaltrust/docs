@@ -1,7 +1,7 @@
 ---
 title: Terminology
 description: Definitions of terms used with the Experience Middleware, such as bundle, digital receipt, InStore App, multi-terminal setup and PSP.
-tags: [terminology, glossary, experience-middleware, digital-receipt, instore-app]
+tags: [Terminology, Glossary, Experience Middleware, Digital receipt, InStore App]
 slug: /poscreators/experience-middleware/terminology
 ---
 

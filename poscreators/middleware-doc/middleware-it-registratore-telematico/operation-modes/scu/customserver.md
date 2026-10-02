@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/italy/scu/customserver
 title: Custom-Server
 description: Configuration parameters of the Custom RT Server SCU package for Italy, including AccountMasterData and synchronous sending options.
-tags: [custom, scu, rt, configuration, italy]
+tags: [Custom, SCU, RT, Configuration, Italy]
 ---
 
 # Custom Server

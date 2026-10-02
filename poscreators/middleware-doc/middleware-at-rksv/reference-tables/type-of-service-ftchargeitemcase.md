@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/austria/reference-tables/ftchargeitemcase
 title: 'Type of service: ftChargeItemCase'
 description: ftChargeItemCase VAT rates, service types, nature of VAT and flags applicable to charge items in Austria.
-tags: [charge-item-case, austria, reference-tables]
+tags: [Charge Item Case, Austria, Reference Tables]
 ---
 
 # Type of Service: ftChargeItemCase

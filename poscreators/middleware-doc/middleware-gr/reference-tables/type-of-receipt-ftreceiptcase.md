@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/greece/reference-tables/ftreceiptcase
 title: 'Type of Receipt: ftReceiptCase'
 description: ftReceiptCase values for Greece — receipt case types, receipt cases and global and local flags under Greek law.
-tags: [greece, receipt-case, reference-tables]
+tags: [Greece, Receipt Case, Reference Tables]
 ---
 
 # Type of Receipt: ftReceiptCase

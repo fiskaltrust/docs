@@ -2,7 +2,7 @@
 slug: /business-basics/legal-protection/compliance-requirements
 title: Compliance requirements
 description: Market-specific compliance requirements for staying legally compliant with fiskaltrust products in Austria, France, and Germany.
-tags: [compliance, legal, posdealers, austria, france, germany]
+tags: [Compliance, Legal, PosDealers, Austria, France, Germany]
 ---
 # Compliance requirements
 

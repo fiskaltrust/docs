@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/belgium/reference-tables
 title: Reference Tables
 description: The hex-based tagging format for Belgian case values and links to the Belgium-specific reference tables.
-tags: [belgium, reference-tables, middleware]
+tags: [Belgium, Reference Tables, Middleware]
 ---
 
 # Reference Tables

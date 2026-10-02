@@ -2,7 +2,7 @@
 slug: /poscreators/get-started/checklist
 title: Integration Checklist
 description: Checklist of required steps per market for PosCreators — sandbox and production accounts, API implementation, certification and dealer connection.
-tags: [integration-checklist, onboarding, poscreators, middleware, certification]
+tags: [Integration Checklist, Onboarding, PosCreators, Middleware, Certification]
 ---
 
 # Integration Checklist

@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/france/installation
 title: Installation
 description: French specifics for installing the Middleware, including debug launchers for Windows and Linux (Mono).
-tags: [france, installation, launcher, middleware]
+tags: [France, Installation, Launcher, Middleware]
 ---
 # Installation
 

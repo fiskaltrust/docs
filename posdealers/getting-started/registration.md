@@ -2,7 +2,7 @@
 slug: /posdealers/getting-started/registration
 title: Registration
 description: Registering a company in the fiskaltrust.Portal, resetting passwords, inviting employees and managing user rights, with troubleshooting.
-tags: [registration, portal, onboarding, posdealers, troubleshooting]
+tags: [Registration, Portal, Onboarding, PosDealers, Troubleshooting]
 ---
 # Registration
 

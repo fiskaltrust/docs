@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/germany/scu/a-trust
 title: A-Trust-TSE
 description: Status notice for the A-Trust Cloud-TSE in Germany, which has been paused by A-Trust since August 2021.
-tags: [germany, a-trust, tse, scu]
+tags: [Germany, A-Trust, TSE, SCU]
 ---
 
 # A-Trust Cloud-TSE 

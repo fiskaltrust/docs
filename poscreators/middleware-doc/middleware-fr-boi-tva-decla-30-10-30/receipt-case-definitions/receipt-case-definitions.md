@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/france/receipt-case-definitions
 title: Receipt Case Definitions
 description: French business cases — service and value vouchers, agency business, tips, duplicates and advance deposit invoices.
-tags: [france, receipt-case, vouchers, middleware]
+tags: [France, Receipt Case, Vouchers, Middleware]
 ---
 
 # Receipt Case Definitions

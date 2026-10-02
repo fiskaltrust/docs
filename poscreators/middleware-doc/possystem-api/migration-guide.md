@@ -2,7 +2,7 @@
 slug: /poscreators/possystem-api/migration-guide-v0-v2
 title: Migration Guide (v0 to v2)
 description: How to migrate from the v0 SignatureCloud and ifPOS.v0 APIs to POSSystem API v2 — base URLs, authentication, and case value mappings.
-tags: [migration, possystem-api, receipt-case, charge-item-case, austria, france]
+tags: [Migration, POS System API, Receipt Case, Charge Item Case, Austria, France]
 ---
 
 # Migrating from API v0 to PosSystem API (v2)

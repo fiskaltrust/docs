@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/italy/scu/epsonprinter
 title: Epson-Printer
 description: Configuration parameters of the Epson RT Printer SCU package that connects the Italian Middleware to an Epson fiscal printer.
-tags: [epson, scu, rt, configuration, italy]
+tags: [Epson, SCU, RT, Configuration, Italy]
 ---
 
 # Epson Printer

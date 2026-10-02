@@ -2,7 +2,7 @@
 slug: /posdealers/technical-operations/troubleshooting/troubleshooting-guide
 title: Troubleshooting Guide
 description: Step-by-step approach to narrowing down Middleware problems before contacting the fiskaltrust Customer Success Team, with country-specific resources.
-tags: [troubleshooting, support, middleware, posdealers]
+tags: [Troubleshooting, Support, Middleware, PosDealers]
 ---
 
 # Troubleshooting Guide

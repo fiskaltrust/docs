@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/germany/databases/mysql
 title: MySQL
 description: Configuration parameters of the MySQL storage provider for running the German Middleware with an external MySQL database.
-tags: [germany, mysql, queue, configuration, operation-modes]
+tags: [Germany, MySQL, Queue, Configuration, Operation Modes]
 ---
 
 # MySQL Storage

@@ -2,7 +2,7 @@
 slug: /poscreators/get-started/middleware-integration
 title: Integration Steps
 description: Step-by-step guide to configure a sandbox CashBox with Queue and SCU, run the Middleware launcher and send first requests via Postman.
-tags: [cashbox, launcher, queue, scu, poscreators, configuration]
+tags: [CashBox, Launcher, Queue, SCU, PosCreators, Configuration]
 ---
 
 # Integration Steps

@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/belgium/data-structures
 title: Data Structures
 description: Placeholder for Belgium-specific data structures that links to the general Middleware data structures chapter.
-tags: [belgium, data-structures, middleware]
+tags: [Belgium, Data Structures, Middleware]
 ---
 
 # Data Structures

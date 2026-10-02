@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/instore-app/installation-guides/sunmi-guide
 title: Sunmi Installation Guide
 description: How to publish the InStore App to Sunmi Android POS devices through the Sunmi Partner Portal, from app settings to device model selection.
-tags: [sunmi, instore-app, installation, android]
+tags: [Sunmi, InStore App, Installation, Android]
 ---
 
 # Sunmi Installation Guide

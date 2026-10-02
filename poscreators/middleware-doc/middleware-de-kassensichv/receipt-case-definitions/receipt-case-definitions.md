@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/germany/receipt-case-definitions
 title: Receipt Case Definitions
 description: Stub for German receipt case definitions that points to the Receipt Case Definitions chapter of the General Part.
-tags: [germany, receipt-case, kassensichv, middleware]
+tags: [Germany, Receipt Case, KassenSichV, Middleware]
 ---
 
 # Receipt Case Definitions

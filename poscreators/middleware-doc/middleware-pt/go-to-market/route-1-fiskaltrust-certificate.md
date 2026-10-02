@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/portugal/go-to-market/fiskaltrust-certificate
 title: 'Route 1: Using the fiskaltrust certificate'
 description: Route 1 in Portugal — integrating with the AT-certified fiskaltrust.CloudCashBox (certificate 3535), what to build, what not to, and onboarding steps.
-tags: [certification, portugal, onboarding, cashbox, poscreators]
+tags: [Certification, Portugal, Onboarding, CashBox, PosCreators]
 ---
 
 # Route 1: Using the fiskaltrust certificate

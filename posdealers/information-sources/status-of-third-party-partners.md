@@ -2,7 +2,7 @@
 slug: /posdealers/information-sources/status-of-third-party-partners
 title: Status of third-party partners
 description: Where PosDealers find the connection status of third-party partners set up in the fiskaltrust.Portal, with details for Austria, France, and Germany.
-tags: [third-party-partners, posdealers, portal, austria, france, germany]
+tags: [Third-Party Partners, PosDealers, Portal, Austria, France, Germany]
 ---
 # Status of third-party partners
 

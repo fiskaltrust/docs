@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/germany/e-invoicing/setup
 title: "Setup & testing"
 description: Prerequisites for eInvoicing in Germany, how to enable it in the fiskaltrust.Portal, and how to validate the flow in a sandbox.
-tags: [germany, eInvoicing, configuration, portal, possystem-api]
+tags: [Germany, eInvoicing, Configuration, Portal, POS System API]
 ---
 
 # Set up and test eInvoicing (Germany)

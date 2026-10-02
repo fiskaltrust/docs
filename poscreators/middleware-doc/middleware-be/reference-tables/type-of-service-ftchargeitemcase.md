@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/belgium/reference-tables/ftchargeitemcase
 title: 'Type of Service: ftChargeItemCase'
 description: ftChargeItemCase values for Belgium — accepted VAT rates of 21, 12, 6 and 0 percent, service types, nature of VAT and flags.
-tags: [charge-item-case, belgium, reference-tables]
+tags: [Charge Item Case, Belgium, Reference Tables]
 ---
 
 # Type of Service: ftChargeItemCase

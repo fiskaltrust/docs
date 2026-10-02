@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/poland/reference-tables/ftchargeitemcase
 title: 'Type of Service: ftChargeItemCase'
 description: ftChargeItemCase values for Poland — mapping VAT cases to Polish PTU rates, service types, nature of VAT, and flags.
-tags: [charge-item-case, poland, reference-tables]
+tags: [Charge Item Case, Poland, Reference Tables]
 ---
 
 # Type of Service: ftChargeItemCase

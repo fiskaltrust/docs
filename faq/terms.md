@@ -2,7 +2,7 @@
 slug: /faq/terms
 title: fiskaltrust.Terminology
 description: Glossary of fiscal and technical terms used in the fiskaltrust.Portal and documentation for PosCreators, PosDealers and PosOperators.
-tags: [terminology, glossary, portal, faq]
+tags: [Terminology, Glossary, Portal, FAQ]
 custom_edit_url: ''
 ---
 

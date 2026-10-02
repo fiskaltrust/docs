@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/germany/cash-register-integration
 title: Cash Register Integration
 description: Which ftSignatures to print on receipts in Germany, with or without a QR code, and how the printing-optional flag is used.
-tags: [germany, printing, signature, cash-register-integration, kassensichv]
+tags: [Germany, Printing, Signature, Cash Register Integration, KassenSichV]
 ---
 
 # Cash Register Integration

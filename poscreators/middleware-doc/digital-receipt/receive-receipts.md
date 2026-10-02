@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/digital-receipt/general/receive-receipts
 title: Receiving Digital Receipts
 description: Ways consumers receive digital receipts — QR-Code on a customer-facing display, Give-Away (QR-Label) and the InStore App, with sequence diagrams.
-tags: [digital-receipt, qr-code, instore-app, experience-middleware]
+tags: [Digital receipt, QR Code, InStore App, Experience Middleware]
 ---
 
 # Receiving Digital Receipts

@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/poland/reference-tables
 title: Reference Tables
 description: Overview of the Polish reference tables that map the POSSystem API v2 tagging structure to the Polish market.
-tags: [reference-tables, poland, possystem-api, middleware]
+tags: [Reference Tables, Poland, POS System API, Middleware]
 ---
 
 # Reference Tables

@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/general/reference-tables
 title: Reference Tables
 description: The v2 hex tagging system and values for ftReceiptCase, ftChargeItemCase, ftPayItemCase and related flags, including local flags per market.
-tags: [reference-tables, receipt-case, charge-item-case, pay-item-case, middleware]
+tags: [Reference Tables, Receipt Case, Charge Item Case, Pay Item Case, Middleware]
 ---
 
 # Reference Tables

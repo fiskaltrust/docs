@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/general/components
 title: Middleware Components
 description: Logical components of fiskaltrust.Middleware — iPOS interface, Queue, SCU, Helipad helper, launcher — plus hardware and platform requirements.
-tags: [architecture, queue, scu, launcher, helipad, middleware]
+tags: [Architecture, Queue, SCU, Launcher, Helipad, Middleware]
 ---
 
 # Middleware Components

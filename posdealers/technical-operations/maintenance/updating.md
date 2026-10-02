@@ -2,7 +2,7 @@
 slug: /posdealers/technical-operations/maintenance/updating
 title: Updating
 description: How to bulk update CashBox packages and configurations in the fiskaltrust.Portal, control updates, and restart the Middleware afterwards.
-tags: [updating, cashbox, middleware, portal, posdealers]
+tags: [Updating, CashBox, Middleware, Portal, PosDealers]
 ---
 # Updating
 

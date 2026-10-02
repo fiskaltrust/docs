@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/austria/cash-register-integration
 title: Cash Register Integration
 description: Receipt workflows, special receipts, receipt structure and data collection log (RKSV-DEP, E131-DEP) for the Middleware in Austria.
-tags: [austria, rksv, cash-register-integration, failure-handling, journal, closings]
+tags: [Austria, RKSV, Cash Register Integration, Failure Handling, Journal, Closings]
 ---
 
 # Cash Register Integration

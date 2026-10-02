@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/germany/scu/deutsche-fiskal-cloud
 title: Deutsche Fiskal Cloud-TSE
 description: Certification, client registration, SCU parameters and troubleshooting for the Deutsche Fiskal Cloud-TSE in Germany.
-tags: [germany, deutsche-fiskal, tse, scu, certification, troubleshooting]
+tags: [Germany, Deutsche Fiskal, TSE, SCU, Certification, Troubleshooting]
 ---
 
 # Deutsche Fiskal Cloud-TSE

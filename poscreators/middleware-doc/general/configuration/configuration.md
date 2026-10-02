@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/general/configuration
 title: Configuration
 description: Core Middleware configuration in the fiskaltrust.Portal — Queues, journals, notifications — with links to scenarios for Austria, Germany, France and Italy.
-tags: [configuration, portal, queue, journal, middleware]
+tags: [Configuration, Portal, Queue, Journal, Middleware]
 ---
 # Configuration
 

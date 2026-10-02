@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/instore-app/setup/dummy-payment-provider
 title: Dummy Payment Provider (Developer Mode)
 description: Using the hidden Dummy Payment Provider in InStore App developer mode with a sandbox CashBox to test payment success and error scenarios.
-tags: [dummy-payment-provider, instore-app, payment, sandbox, android]
+tags: [Dummy Payment Provider, InStore App, Payment, Sandbox, Android]
 ---
 
 # Dummy Payment Provider for Simplified Integration (InStore App Developer Mode)

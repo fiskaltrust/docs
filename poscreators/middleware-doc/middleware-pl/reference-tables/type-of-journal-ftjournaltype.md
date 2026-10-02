@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/poland/reference-tables/ftjournaltype
 title: 'Type of Journal: ftJournalType'
 description: ftJournalType values for Poland, including the status information journal that returns the QueuePL and SCU configuration.
-tags: [ftjournaltype, poland, journal, reference-tables]
+tags: [ftJournalType, Poland, Journal, Reference Tables]
 ---
 
 # Type of Journal: ftJournalType

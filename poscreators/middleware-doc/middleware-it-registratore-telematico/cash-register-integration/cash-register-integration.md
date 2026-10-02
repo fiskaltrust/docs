@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/italy/cash-register-integration
 title: Cash Register Integration
 description: Entry point for cash register integration under Italian law, linking to the general integration workflow of the Middleware.
-tags: [cash-register-integration, rt, middleware, italy]
+tags: [Cash Register Integration, RT, Middleware, Italy]
 ---
 
 # Cash Register Integration

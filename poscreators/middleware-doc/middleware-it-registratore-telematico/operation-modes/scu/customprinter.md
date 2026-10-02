@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/italy/scu/customprinter
 title: Custom-Printer
 description: Configuration parameters of the Custom RT Printer SCU package that connects the Italian Middleware to a Custom fiscal printer.
-tags: [custom, scu, rt, configuration, italy]
+tags: [Custom, SCU, RT, Configuration, Italy]
 ---
 
 # Custom Printer

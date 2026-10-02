@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/france/data-structures
 title: Data Structures
 description: French fields of the receipt request and response — bills and table changes, copies, training mode, charge items, pay items and signatures.
-tags: [france, data-structures, receipt-request, middleware]
+tags: [France, Data Structures, ReceiptRequest, Middleware]
 ---
 
 # Data Structures

@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/spain/reference-tables/ftsignaturetype
 title: 'Type of Signature: ftSignatureType'
 description: ftSignatureType format for Spain — signature type categories and global flags, with Spanish signature cases still to be defined.
-tags: [spain, ftsignaturetype, signature, reference-tables]
+tags: [Spain, ftSignatureType, Signature, Reference Tables]
 ---
 
 # Type of Signature: ftSignatureType

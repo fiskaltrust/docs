@@ -2,7 +2,7 @@
 slug: /posdealers/business-basics/countries
 title: Countries
 description: Countries where fiskaltrust operates, local data hosting, and market-specific contact information for Austria, France, and Germany.
-tags: [posdealers, austria, france, germany, data-protection]
+tags: [PosDealers, Austria, France, Germany, Data Protection]
 ---
 # Countries
 

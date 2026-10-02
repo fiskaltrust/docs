@@ -2,7 +2,7 @@
 slug: /posdealers/technical-operations/rollout-scenarios
 title: Rollout Scenarios
 description: Rollout scenarios for placing SCUs, Queues, and POS Systems, from one SCU per POS System to shared signature services and hosted Middleware, with pros and cons.
-tags: [rollout-scenarios, scu, queue, middleware, architecture, posdealers]
+tags: [Rollout Scenarios, SCU, Queue, Middleware, Architecture, PosDealers]
 ---
 # Rollout Scenarios
 

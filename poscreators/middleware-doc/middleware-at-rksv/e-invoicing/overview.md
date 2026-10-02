@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/austria/e-invoicing/overview
 title: Overview
 description: eInvoicing status in Austria — B2G mandatory via Peppol or e-Rechnung.gv.at, B2B optional, ebInterface format and key terms.
-tags: [austria, eInvoicing, ebinterface, peppol]
+tags: [Austria, eInvoicing, ebInterface, Peppol]
 ---
 
 # eInvoicing in Austria — Overview

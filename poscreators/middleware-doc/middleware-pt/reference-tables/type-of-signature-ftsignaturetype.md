@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/portugal/reference-tables/ftsignaturetype
 title: 'Type of Signature: ftSignatureType'
 description: ftSignatureType format for Portugal — signature categories, global flags, and Portuguese signature cases returned by the Middleware.
-tags: [ftsignaturetype, portugal, signature, reference-tables]
+tags: [ftSignatureType, Portugal, Signature, Reference Tables]
 ---
 
 # Type of Signature: ftSignatureType

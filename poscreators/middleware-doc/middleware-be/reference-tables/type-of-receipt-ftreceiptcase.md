@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/belgium/reference-tables/ftreceiptcase
 title: 'Type of Receipt: ftReceiptCase'
 description: ftReceiptCase format, receipt case types, case values and flags for processing receipts under Belgian law (country code 0x4245).
-tags: [receipt-case, belgium, reference-tables]
+tags: [Receipt Case, Belgium, Reference Tables]
 ---
 
 # Type of Receipt: ftReceiptCase

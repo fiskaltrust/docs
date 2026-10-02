@@ -2,7 +2,7 @@
 slug: /posdealers/information-sources/knowledge-base
 title: Knowledge Base
 description: Browsing and rating knowledge base articles in the Help section of the fiskaltrust.Portal before contacting support.
-tags: [knowledge-base, support, portal, posdealers]
+tags: [Knowledge Base, Support, Portal, PosDealers]
 ---
 # Knowledge Base
 

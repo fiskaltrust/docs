@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/portugal/data-structures
 title: Data Structures
 description: Placeholder chapter for Portugal-specific data structures, pointing to the Data Structures chapter of the General Part.
-tags: [data-structures, portugal, middleware]
+tags: [Data Structures, Portugal, Middleware]
 ---
 
 # Data Structures

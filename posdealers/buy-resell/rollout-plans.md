@@ -2,7 +2,7 @@
 slug: /posdealers/buy-resell/rollout-plans
 title: Rollout Plans
 description: Using Business Rollout plans in the Portal to buy, transfer and activate entitlements for multiple PosOperators and outlets at once.
-tags: [rollout-plans, entitlements, portal, posdealers]
+tags: [Rollout Plans, Entitlements, Portal, PosDealers]
 ---
 # Rollout Plans
 

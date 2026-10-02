@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/germany
 title: Introduction
 description: Entry point for the German KassenSichV appendix, which adds Germany-specific details to the General Part of the Middleware docs.
-tags: [germany, kassensichv, middleware, poscreators]
+tags: [Germany, KassenSichV, Middleware, PosCreators]
 ---
 
 # Appendix: Germany (KassenSichV)

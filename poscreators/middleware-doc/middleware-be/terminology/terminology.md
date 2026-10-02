@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/belgium/terminology
 title: Terminology
 description: Placeholder for the terminology of the Belgian fiskaltrust.Middleware — content is still under development.
-tags: [belgium, terminology, middleware, poscreators]
+tags: [Belgium, Terminology, Middleware, PosCreators]
 ---
 
 # Terminology

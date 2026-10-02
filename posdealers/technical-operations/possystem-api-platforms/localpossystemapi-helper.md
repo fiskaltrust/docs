@@ -2,7 +2,7 @@
 slug: /posdealers/technical-operations/middleware/localpossystemapi-helper
 title: Local PosSystem API Helper
 description: How to add, configure, and deploy the LocalPosSystemApi Helper in a Launcher 2.0 CashBox and test the local PosSystem API endpoint.
-tags: [localpossystemapi-helper, possystem-api, launcher, cashbox, posdealers]
+tags: [LocalPosSystemApi Helper, POS System API, Launcher, CashBox, PosDealers]
 ---
 # Configuring the Local PosSystem API Helper with Launcher 2.0
 
