@@ -20,7 +20,7 @@ The values below are the PosSystem API (v2) tagging values documented in [Type o
 | Business case | `ftReceiptCase` | Sample |
 | --- | --- | --- |
 | Sale paid at the point of sale | receipt case `0001` (POS receipt) | [Cash sale](https://developer.fiskaltrust.eu/#/pos-system/AT?endpoint=sign&businesscase=SignRequestReceipt_CashSaleReceipt_1) |
-| Void of a receipt issued before | flag `0004` (IsVoid), with the line items marked as void as well; the receipt is annotated "STO" in the signature block | [Void](https://developer.fiskaltrust.eu/#/pos-system/AT?endpoint=sign&businesscase=SignRequestReceipt_VoidReceipt_1) |
+| Void of a receipt issued before | flag `0004` (IsVoid), with the line items marked as void as well; the receipt is annotated "STO" in the signature block | [Void](https://developer.fiskaltrust.eu/#/pos-system/AT?endpoint=sign&businesscase=SignRequestReceipt_VoidReceipt_2) |
 | Refund or return of goods and services | flag `0100` (IsReturn/IsRefund) | [Refund of an earlier receipt](https://developer.fiskaltrust.eu/#/pos-system/AT?endpoint=sign&businesscase=SignRequestReceipt_CashSaleRefund_1), [refund without reference](https://developer.fiskaltrust.eu/#/pos-system/AT?endpoint=sign&businesscase=SignRequestReceipt_CashSaleRefund_3) |
 | Training booking, annotated "TRA" and not counted towards the cumulative sales counter (Umsatzzähler) | flag `0002` (training receipt) | - |
 | Receipts recorded while the fiskaltrust.Middleware was unreachable and sent later | flag `0001` (late signing), closed with an [end of failure receipt](#end-of-failure-receipt-collective-failure-report) | - |
