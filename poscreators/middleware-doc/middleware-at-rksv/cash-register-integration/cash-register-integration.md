@@ -21,11 +21,11 @@ The values below are the PosSystem API (v2) tagging values documented in [Type o
 | --- | --- | --- |
 | Sale paid at the point of sale | receipt case `0001` (POS receipt) | [Cash sale](https://developer.fiskaltrust.eu/#/pos-system/AT?endpoint=sign&businesscase=SignRequestReceipt_CashSaleReceipt_1) |
 | Void of a receipt issued before | flag `0004` (IsVoid), with the line items marked as void as well; the receipt is annotated "STO" in the signature block | [Void](https://developer.fiskaltrust.eu/#/pos-system/AT?endpoint=sign&businesscase=SignRequestReceipt_VoidReceipt_2) |
-| Refund or return of goods and services | flag `0100` (IsReturn/IsRefund) | [Refund of an earlier receipt](https://developer.fiskaltrust.eu/#/pos-system/AT?endpoint=sign&businesscase=SignRequestReceipt_CashSaleRefund_1), [refund without reference](https://developer.fiskaltrust.eu/#/pos-system/AT?endpoint=sign&businesscase=SignRequestReceipt_CashSaleRefund_3) |
-| Training booking, annotated "TRA" and not counted towards the cumulative sales counter (Umsatzzähler) | flag `0002` (training receipt) | - |
-| Receipts recorded while the fiskaltrust.Middleware was unreachable and sent later | flag `0001` (late signing), closed with an [end of failure receipt](#end-of-failure-receipt-collective-failure-report) | - |
-| Handwritten receipt entered afterwards | flag `0008` (handwritten receipt) | - |
-| Delivery note, vouchers, agency business, tips | see [Receipt Case Definitions](../receipt-case-definitions/receipt-case-definitions.md) | - |
+| Refund or return of goods and services | flag `0100` (IsReturn/IsRefund) | [Refund of an earlier receipt](https://developer.fiskaltrust.eu/#/pos-system/AT?endpoint=sign&businesscase=SignRequestReceipt_CashSaleRefund_2), [refund without reference](https://developer.fiskaltrust.eu/#/pos-system/AT?endpoint=sign&businesscase=SignRequestReceipt_CashSaleRefund_3) |
+| Training booking, annotated "TRA" and not counted towards the cumulative sales counter (Umsatzzähler) | flag `0002` (training receipt) | [training receipt](https://developer.fiskaltrust.eu/#/pos-system/AT?endpoint=sign&businesscase=SignRequestReceipt_CashSaleReceipt_6) |
+| Receipts recorded while the fiskaltrust.Middleware was unreachable and sent later | flag `0001` (late signing), closed with an [end of failure receipt](#end-of-failure-receipt-collective-failure-report) | [late-signing offline receipts](https://developer.fiskaltrust.eu/#/pos-system/AT?endpoint=sign&businesscase=SignRequest_Sale_Offline_Middleware_1), [zero receipt](https://developer.fiskaltrust.eu/#/pos-system/AT?endpoint=sign&businesscase=SignRequest_Sale_Offline_Middleware_Z) |
+| Handwritten receipt entered afterwards | flag `0008` (handwritten receipt) | [handwritten receipt](https://developer.fiskaltrust.eu/#/pos-system/AT?endpoint=sign&businesscase=SignRequest_Sale_Offline_Middleware_2) |
+| Delivery note, vouchers, agency business, tips | see [Receipt Case Definitions](../receipt-case-definitions/receipt-case-definitions.md) | see [examples ](https://developer.fiskaltrust.eu/#/pos-system/AT)|
 
 *Table 1. Basic receipt cases an Austrian integration has to cover.*
 
@@ -41,7 +41,7 @@ The values below are the PosSystem API (v2) tagging values documented in [Type o
 
 *Table 2. Operational receipts required by the RKSV.*
 
-The start receipt and the annual receipt must also be validated with FinanzOnline, and a failure of the signature creation device lasting longer than 48 hours as well as the deregistration of a signature creation unit or a queue must be notified there. These validations and notifications are not sent by the POS system: they are handled in the fiskaltrust.Portal, automatically with a fiskaltrust.Carefree or Notification subscription, see [FinanzOnline Management](../../../../posdealers/buy-resell/products/3rd-party/finanzonline-management.md).
+The start receipt and the annual receipt must also be validated with FinanzOnline, and a failure of the signature creation device lasting longer than 48 hours as well as the deregistration of a signature creation unit or a queue must be notified there. These validations and notifications are created from requests sent by the POS system, but they are sent and managed by the fiskaltrust.Portal, automatically with a fiskaltrust.Carefree or Notification subscription, see [FinanzOnline Management](../../../../posdealers/buy-resell/products/3rd-party/finanzonline-management.md).
 
 :::tip Try the samples
 
@@ -98,7 +98,7 @@ Outages that exceed 48 hours must be notified to FinanzOnline. This can be done 
 
 ### Monthly Receipt
 
-Before the beginning of a new monthly period, the preliminary result of the cumulative sales counter (monthly counter) has to be recorded accordingly to §8 Abs 2 RKSV. The POS can request this by sending a monthly receipt request to the fiskaltrust.Middleware. The running sales counter is sent back to the POS within the signature items block in an unencrypted format.
+Before the beginning of a new monthly period, the preliminary result of the cumulative sales counter (monthly counter) has to be recorded accordingly to §8 Abs 2 RKSV. The POS can request this by sending a monthly receipt request to the fiskaltrust.Middleware. The running sales counter is sent back to the POS within the signature items block in an unencrypted format. The monthly receipt has to be archived.
 
 ### Annual Receipt
 
