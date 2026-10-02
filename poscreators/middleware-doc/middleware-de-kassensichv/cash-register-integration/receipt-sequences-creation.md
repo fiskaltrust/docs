@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/germany/receipt-sequences-creation
 title: Receipt Sequences Creation
+description: How to link single receipts into sequences in Germany — referencing, splitting, merging and changing areas, and referencing external queues.
+tags: [germany, cbreceiptreference, cash-register-integration, receipt-case, kassensichv]
 ---
 
 # Receipt Sequences Creation

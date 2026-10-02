@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/poland/scu/posnet
 title: POSNET-Printer
+description: POSNET Online printer SCU for Poland (preview) — TCP connection parameter, ambiguous response handling and development without a device.
+tags: [posnet, scu, configuration, poland]
 ---
 
 # POSNET Printer

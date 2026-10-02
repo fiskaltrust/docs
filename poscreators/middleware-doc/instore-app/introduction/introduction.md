@@ -1,6 +1,8 @@
 ﻿---
 slug: /poscreators/middleware-doc/instore-app/introduction
 title: Introduction
+description: How the InStore App shows digital receipts on a consumer-facing device, and how to configure, implement and pair it with a CashBox.
+tags: [instore-app, digital-receipt, cashbox, configuration, android]
 ---
 
 # Introduction

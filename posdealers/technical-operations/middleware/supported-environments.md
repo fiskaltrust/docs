@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/technical-operations/middleware/supported-environments
 title: Supported Environments
+description: Operating systems, databases, hardware, CPU architectures, and storage the Middleware requires on Windows, Linux, macOS, and Android.
+tags: [supported-environments, installation, middleware, android, posdealers]
 ---
 # Supported Environments
 

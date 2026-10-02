@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/austria/data-structures
 title: Data Structures
+description: Austria-specific fields of the receipt response, charge items, pay items and signature entries in the Middleware data structures.
+tags: [austria, rksv, data-structures, middleware]
 ---
 
 # Data Structures

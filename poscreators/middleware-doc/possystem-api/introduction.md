@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/possystem-api/introduction
 title: Introduction
+description: Overview of the process-driven, idempotent POS System API — authentication, headers, core endpoints, request flow, and versioning.
+tags: [possystem-api, middleware, communication, poscreators]
 ---
 
 # Introduction

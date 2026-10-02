@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/technical-operations/possystem-api-platforms/overview
 title: Overview
+description: Cloud-hosted vs. local PosSystem API options (CloudCashbox, LocalPosSystemApi Helper, Android launcher) and which setup guide to use per market.
+tags: [possystem-api, cloudcashbox, localpossystemapi-helper, android, posdealers]
 ---
 
 # Overview 

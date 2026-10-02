@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/spain/reference-tables/ftsignatureformat
 title: 'Format of Signature: ftSignatureFormat'
+description: ftSignatureFormat in Spain follows the shared format of the Compliance Middleware; Spanish flag values are still to be defined.
+tags: [spain, ftsignatureformat, signature, reference-tables]
 ---
 
 # Format of Signature: ftSignatureFormat

@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/austria/reference-tables/ftsignatureformat
 title: 'Format of signature: ftSignatureFormat'
+description: Austria uses the same ftSignatureFormat values as all other markets — pointer to the general signature format table.
+tags: [ftsignatureformat, austria, signature, reference-tables]
 ---
 
 # Format of Signature: ftSignatureFormat

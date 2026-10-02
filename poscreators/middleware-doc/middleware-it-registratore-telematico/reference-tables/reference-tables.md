@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/italy/reference-tables
 title: Reference Tables
+description: Overview of the Italian reference tables and the hex-based CCCC_vlll_gggg_xxxx tagging format used for receipt, charge and pay item cases.
+tags: [reference-tables, receipt-case, rt, possystem-api, italy]
 ---
 
 # Reference Tables

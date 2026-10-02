@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/germany/communication
 title: Communication
+description: Communication protocols supported by the German Middleware — REST, gRPC and WCF — with details on gRPC, proto files and the NuGet client.
+tags: [germany, grpc, communication, middleware]
 ---
 
 ## Communication

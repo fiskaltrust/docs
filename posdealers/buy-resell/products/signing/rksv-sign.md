@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/buy-resell/products/signing/rksv
 title: RKSV.Sign
+description: Rollout of the RKSV.Sign signing-only product for Austria — entitlements, creating instances via the API, credentials and instance overview.
+tags: [rksv-sign, rksv, austria, signature, signing-api, posdealers]
 ---
 # RKSV.Sign - Receipt signing for Austria
 

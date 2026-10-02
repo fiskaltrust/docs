@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/austria/terminology
 title: Terminology
+description: Austrian legal and technical terms used in the Middleware docs, such as RKSV, BAO, DEP, Nullbeleg, Startbeleg and SSCD.
+tags: [austria, terminology, rksv, glossary]
 ---
 
 # Terminology

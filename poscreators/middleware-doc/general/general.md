@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc
 title: Introduction
+description: Entry point to the fiskaltrust.Middleware interface specification — access, workflow, data and function structures, communication and operation modes.
+tags: [middleware, interface-specification, poscreators]
 ---
 
 # Introduction

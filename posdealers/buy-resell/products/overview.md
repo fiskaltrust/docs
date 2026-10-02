@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/buy-resell/products
 title: Product overview
+description: Categories of fiskaltrust products for PosDealers — bundles, the free Middleware, signing devices and services, and add-on subscriptions.
+tags: [products, product-bundles, middleware, signature, posdealers]
 ---
 
 # Products & Services Overview

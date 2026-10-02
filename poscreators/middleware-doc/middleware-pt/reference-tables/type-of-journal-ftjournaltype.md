@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/portugal/reference-tables/ftjournaltype
 title: 'Type of Journal: ftJournalType'
+description: ftJournalType values for Portugal, including the SAF-T (PT) audit file export in structure 1.04_01.
+tags: [ftjournaltype, portugal, saf-t, journal, reference-tables]
 ---
 
 # Type of Journal: ftJournalType

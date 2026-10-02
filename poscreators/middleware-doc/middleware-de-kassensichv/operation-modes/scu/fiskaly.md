@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/germany/scu/fiskaly-cloud
 title: fiskaly-TSE
+description: BSI certification and FiskalyCertified SCU package parameters for connecting the German Middleware to the fiskaly Cloud-TSE (v2).
+tags: [germany, fiskaly, tse, scu, certification]
 ---
 
 # SCU for fiskaly Cloud-TSE

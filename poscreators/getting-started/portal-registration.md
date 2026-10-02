@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/get-started/portal-registration
 title: Portal Registration
+description: Registering a PosCreator account in the live or sandbox fiskaltrust.Portal, with portal URLs per country and the cooperation agreement.
+tags: [portal, registration, sandbox, onboarding, poscreators]
 ---
 
 # Portal Registration

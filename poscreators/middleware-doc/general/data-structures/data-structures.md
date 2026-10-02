@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/general/data-structures
 title: Data Structures
+description: Field reference for ReceiptRequest, cbCustomer, ReceiptResponse, ChargeItem, PayItem and SignatureItem used with fiskaltrust.Middleware.
+tags: [data-structures, receipt-request, receiptresponse, cbcustomer, middleware]
 ---
 
 # Data Structures

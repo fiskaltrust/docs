@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/italy/platforms/windows
 title: Windows
+description: Windows versions supported by the Italian Middleware, which runs as a service on 32-bit and 64-bit Windows 7 and later.
+tags: [windows, operation-modes, installation, middleware, italy]
 ---
 
 # fiskaltrust.Middleware for Windows

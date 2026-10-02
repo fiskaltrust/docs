@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/technical-operations/rollout-automation/api-templating
 title: API Templating
+description: How to create CashBoxes automatically via the fiskaltrust template REST API — request format, template escaping, parameters, variables, and the response.
+tags: [api-templating, templates, cashbox, rollout-automation, posdealers]
 ---
 # API Templating
 

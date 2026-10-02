@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/germany/databases/ef
 title: Entity Framework
+description: Configuration parameters of the Entity Framework storage provider for running the German Middleware on Microsoft SQL Server.
+tags: [germany, entity-framework, queue, configuration, operation-modes]
 ---
 
 # Entity Framework Storage

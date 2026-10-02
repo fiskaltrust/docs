@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/italy/e-invoicing/setup
 title: "Setup & testing"
+description: Prerequisites, Portal activation and sandbox validation for eInvoicing in Italy, with an end-to-end FatturaPA example.
+tags: [e-invoicing, fatturapa, configuration, possystem-api, italy]
 ---
 
 # Set up and test eInvoicing (Italy)

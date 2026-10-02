@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/spain/reference-tables/ftstate
 title: 'Service Status: ftState'
+description: ftState values for Spain — global and local flags signalling queue, SCU and late signing status in receipt responses.
+tags: [spain, ftstate, reference-tables, middleware]
 ---
 
 # Service Status: ftState

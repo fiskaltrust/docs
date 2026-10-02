@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/greece/cash-register-integration
 title: Cash Register Integration
+description: Cash register integration in accordance with Greek law, extending the general integration workflow of the Middleware.
+tags: [greece, cash-register-integration, middleware, poscreators]
 ---
 
 # Cash Register Integration

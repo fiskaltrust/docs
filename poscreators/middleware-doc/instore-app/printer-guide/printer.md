@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/instore-app/printer-guide
 title: Printer Setup
+description: Connect and configure Bluetooth, network ESC/POS or USB printers in the InStore App, run a test print and set delay and paper width.
+tags: [instore-app, printing, configuration, troubleshooting, android]
 ---
 
 

@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/poland/reference-tables/ftsignaturetype
 title: 'Type of Signature: ftSignatureType'
+description: ftSignatureType format for Poland — signature categories, global flags, and Polish signature cases returned by the Middleware.
+tags: [ftsignaturetype, poland, signature, reference-tables]
 ---
 
 # Type of Signature: ftSignatureType

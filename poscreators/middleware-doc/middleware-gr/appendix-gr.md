@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/greece
 title: Introduction
+description: How fiscalization works in Greece via AADE myDATA and the MARK, and where to start in the Greek market appendix.
+tags: [greece, mydata, middleware, poscreators, compliance]
 ---
 
 # Appendix: Greece

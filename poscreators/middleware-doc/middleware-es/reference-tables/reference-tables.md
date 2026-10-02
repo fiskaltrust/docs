@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/spain/reference-tables
 title: Reference Tables
+description: Overview of the hex-based tagging format behind the Spanish reference tables for receipt, charge item and pay item cases.
+tags: [spain, reference-tables, possystem-api, middleware]
 ---
 
 # Reference Tables

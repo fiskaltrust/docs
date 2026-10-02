@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/italy/databases/sqlite
 title: SQLite
+description: SQLite storage provider for the Italian Middleware — a local, file-based database suited to smaller cash register systems.
+tags: [sqlite, queue, configuration, operation-modes, italy]
 ---
 
 # SQLite Storage

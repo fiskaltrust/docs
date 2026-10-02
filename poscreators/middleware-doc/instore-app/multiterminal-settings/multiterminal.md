@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/instore-app/multiterminal-settings
 title: Multi-Terminal Setup
+description: Rules for how Terminal IDs on the POS and InStore App devices decide which devices display a receipt or run a payment.
+tags: [terminal-id, instore-app, configuration, payment]
 ---
 
 # Multi-Terminal Setup

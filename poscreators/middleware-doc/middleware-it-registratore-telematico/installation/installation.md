@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/italy/installation
 title: Installation
+description: Installing the Italian Middleware on Windows, Linux and macOS with the self-contained fiskaltrust Launcher 2.0.
+tags: [installation, launcher, middleware, italy]
 ---
 
 # Installation

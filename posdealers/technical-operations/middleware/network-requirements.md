@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/technical-operations/middleware/network-requirements
 title: Network Requirements
+description: Inbound and outbound network access the Middleware needs, including required hostnames and ports, plus how to set up and edit proxy configurations.
+tags: [network-requirements, proxy, middleware, installation, posdealers]
 ---
 # Network Requirements
 

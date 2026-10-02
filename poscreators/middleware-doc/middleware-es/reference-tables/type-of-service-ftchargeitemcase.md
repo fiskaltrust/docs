@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/spain/reference-tables/ftchargeitemcase
 title: 'Type of Service: ftChargeItemCase'
+description: ftChargeItemCase values for Spain — VAT rates, type of service, nature of VAT and charge item flags.
+tags: [spain, charge-item-case, reference-tables]
 ---
 
 # Type of Service: ftChargeItemCase

@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/buy-resell/products/revision-safe-archiving
 title: Revision-safe archiving
+description: Cloud-based revision-safe receipt archiving mirrored from the Middleware, with country-specific storage variants for Austria, France and Germany.
+tags: [revision-safe-archiving, journal, posdealers, austria, france, germany]
 ---
 
 # Revision-safe archiving in fiskaltrust's cloud

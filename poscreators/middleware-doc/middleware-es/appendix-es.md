@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/spain
 title: Introduction
+description: Entry point to the Spanish market appendix of the Compliance Middleware, to be read together with the General Part.
+tags: [spain, middleware, poscreators, verifactu, ticketbai]
 ---
 
 # Appendix: Spain

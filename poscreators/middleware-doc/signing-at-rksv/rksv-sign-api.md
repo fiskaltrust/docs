@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/signing/austria/api
 title: RKSV.Sign API
+description: REST and SOAP endpoints of the Austrian RKSV.Sign API, with authentication and the Echo, Sign, Certificate, and ZDA methods.
+tags: [signing-api, austria, rksv, signature]
 ---
 
 # RKSV.Sign API

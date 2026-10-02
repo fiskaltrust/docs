@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/poland/terminology
 title: Terminology
+description: Polish fiscal terms such as kasa rejestrująca, kasa wirtualna, and CRK with English glosses and descriptions.
+tags: [terminology, poland, glossary, middleware]
 ---
 
 # Terminology

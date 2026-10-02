@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/poland/reference-tables/ftstate
 title: 'Service Status: ftState'
+description: ftState values for Poland — global flags and the Polish local flag for an unreachable fiscal register (Art. 111(3) VAT Act).
+tags: [ftstate, poland, reference-tables, failure-handling]
 ---
 
 # Service Status: ftState

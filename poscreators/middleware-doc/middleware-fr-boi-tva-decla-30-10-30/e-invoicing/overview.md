@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/france/e-invoicing/overview
 title: Overview
+description: French eInvoicing specifics — B2B mandate dates, PDP delivery model, UBL, CII and Factur-X formats and terminology.
+tags: [france, e-invoicing, factur-x, pdp, compliance]
 ---
 
 # eInvoicing in France — Overview

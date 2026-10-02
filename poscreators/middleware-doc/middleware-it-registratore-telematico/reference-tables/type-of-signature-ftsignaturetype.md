@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/italy/reference-tables/ftsignaturetype
 title: 'Type of Signature: ftSignatureType'
+description: ftSignatureType values for Italy — format, flags and signature cases such as RT serial number, Z-number and document number.
+tags: [ftsignaturetype, signature, reference-tables, rt, italy]
 ---
 
 # Type of Signature: ftSignatureType

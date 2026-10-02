@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/greece/reference-tables/ftsignaturetype
 title: 'Type of Signature: ftSignatureType'
+description: ftSignatureType values for Greece — format, flags and signature cases such as the myDATA MARK, UID, QR code and transmission failure.
+tags: [ftsignaturetype, signature, reference-tables, mydata, greece]
 ---
 
 # Type of Signature: ftSignatureType

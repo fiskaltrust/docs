@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/portugal
 title: Introduction
+description: Entry point to the Portuguese appendix of the Middleware docs, including the AT-certified invoicing program under certificate 3535.
+tags: [portugal, middleware, certification, poscreators]
 ---
 
 # Appendix: Portugal

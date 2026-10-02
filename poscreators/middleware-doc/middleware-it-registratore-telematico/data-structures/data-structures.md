@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/italy/data-structures
 title: Data Structures
+description: Receipt request fields needing special handling in Italy, such as cbTerminalID, cbReceiptReference and cbCustomer customer data.
+tags: [data-structures, cbcustomer, cbreceiptreference, rt, italy]
 ---
 
 # Data Structures

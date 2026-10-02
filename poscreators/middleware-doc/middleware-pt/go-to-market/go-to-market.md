@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/portugal/go-to-market
 title: Go-to-Market
+description: The two routes for bringing a POS system to the Portuguese market — using the fiskaltrust certificate or certifying your own solution.
+tags: [certification, portugal, onboarding, poscreators]
 ---
 
 # Go-to-Market in Portugal

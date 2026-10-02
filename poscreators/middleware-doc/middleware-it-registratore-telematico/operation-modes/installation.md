@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/italy/operation-modes/installation
 title: Installation
+description: On-premise and cloud components of the Italian Middleware, with support matrices for platforms, communication, SCUs and local storage.
+tags: [operation-modes, installation, scu, rt, italy]
 ---
 
 # Installation

@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/greece/reference-tables/ftstate
 title: 'Service Status: ftState'
+description: ftState values for Greece — ready status, global and local flags, and how they combine with general states via OR.
+tags: [greece, ftstate, reference-tables, middleware]
 ---
 
 # Service Status: ftState

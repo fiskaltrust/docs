@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/technical-operations/middleware/launchers/cloudcashbox
 title: CloudCashbox
+description: What the hosted CloudCashbox is, how to order and create CloudCashboxes in the fiskaltrust.Portal, and how to migrate existing CashBoxes to it.
+tags: [cloudcashbox, cashbox, middleware, migration, portal, posdealers]
 ---
 
 # CloudCashbox

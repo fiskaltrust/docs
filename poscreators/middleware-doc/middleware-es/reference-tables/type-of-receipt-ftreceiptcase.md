@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/spain/reference-tables/ftreceiptcase
 title: 'Type of Receipt: ftReceiptCase'
+description: ftReceiptCase values for Spain — receipt types, invoices, closings, protocols, queue start/stop and global and local flags.
+tags: [spain, receipt-case, reference-tables, closings]
 ---
 
 # Type of Receipt: ftReceiptCase

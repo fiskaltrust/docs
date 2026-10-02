@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/getting-started/operator-onboarding/invitation-process
 title: Invitation process
+description: Inviting a single PosOperator or bulk-inviting several via CSV in the Portal, managing invitations and handling errors.
+tags: [invitation, onboarding, portal, posdealers, troubleshooting]
 ---
 # Invitation process
 

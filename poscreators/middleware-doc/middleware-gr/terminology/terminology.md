@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/greece/terminology
 title: Terminology
+description: Greek myDATA terms for the Middleware — AADE, MARK and UID identifiers, document types, taxes beyond VAT and transport documents.
+tags: [terminology, mydata, aade, glossary, greece]
 ---
 
 # Terminology

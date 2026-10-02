@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/instore-app/installation-guides/orderman-guide
 title: Orderman Installation Guide
+description: How to publish and install the InStore App on Orderman Android POS devices via the Orderman SystemCenterNext (SCN) portal.
+tags: [orderman, instore-app, installation, android]
 ---
 
 # Orderman Installation Guide

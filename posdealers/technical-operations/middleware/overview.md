@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/technical-operations/middleware/overview
 title: Overview
+description: Core features of the fiskaltrust.Middleware and its main components — CashBox, Launcher, Queue, and SCU — with on- and off-premise deployment options.
+tags: [middleware, architecture, cashbox, launcher, queue, scu]
 ---
 # Overview
 

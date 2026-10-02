@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/germany/reference-tables/ftsignatureformat
 title: 'Format of Signature: ftSignatureFormat'
+description: ftSignatureFormat in Germany and the flag that marks signatures as optional to print when the receipt shows a QR code.
+tags: [germany, ftsignatureformat, signature, printing, reference-tables]
 ---
 
 # Format of Signature: ftSignatureFormat

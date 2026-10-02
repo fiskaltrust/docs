@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/introduction
 title: Introduction
+description: Introduction to the PosDealer documentation — sections on business basics, getting started, buy/resell, technical operations, and information sources.
+tags: [posdealers, onboarding, portal]
 ---
 # Introduction
 We created this documentation for cash register dealers (_PosDealers_). It describes the steps recommended by fiskaltrust for the successful purchase, resale, rollout and support of our products.

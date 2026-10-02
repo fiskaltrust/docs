@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/poland/e-invoicing/overview
 title: Overview
+description: Poland-specific eInvoicing details — KSeF clearance for B2B, FA(3) schema, mandate dates and key terms.
+tags: [e-invoicing, ksef, poland]
 ---
 
 # eInvoicing in Poland — Overview

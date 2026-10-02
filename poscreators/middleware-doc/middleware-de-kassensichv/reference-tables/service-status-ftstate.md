@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/germany/reference-tables/ftstate
 title: 'Service Status: ftState'
+description: ftState values for Germany, such as TSE communication failure and SCU switch states, combined with the OR operator.
+tags: [germany, ftstate, reference-tables, tse, failure-handling]
 ---
 
 # Service Status: ftState

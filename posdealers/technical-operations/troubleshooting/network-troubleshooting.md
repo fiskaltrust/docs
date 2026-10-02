@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/technical-operations/troubleshooting/network-troubleshooting
 title: Network troubleshooting
+description: How to diagnose Middleware network issues — verifying online mode, the fiskaltrust firewall script, and common DNS, network, SSL, and Queue/SCU errors.
+tags: [network-troubleshooting, troubleshooting, middleware, proxy, posdealers]
 ---
 # Network troubleshooting
 

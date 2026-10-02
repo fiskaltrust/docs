@@ -1,5 +1,7 @@
 ---
 title: Introduction
+description: Overview of the Experience Middleware components — Payment, Digital Receipt and InStore App — and who the documentation is for.
+tags: [experience-middleware, payment, digital-receipt, instore-app, middleware]
 slug: /poscreators/experience-middleware/introduction
 ---
 

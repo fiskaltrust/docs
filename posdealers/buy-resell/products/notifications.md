@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/buy-resell/products/notifications
 title: Tax authority notifications
+description: Tax authority notification products per market — FinanzOnline for Austria, the notification workflow for Germany, none for France.
+tags: [notifications, posdealers, austria, germany, france]
 ---
 
 # Tax authority notifications

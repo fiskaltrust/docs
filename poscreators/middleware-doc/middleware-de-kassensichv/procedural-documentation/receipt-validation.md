@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/germany/receiptvalidation
 title: DSFinV-K Receipt Validation (Release TBA)
+description: Errors reported by the fiskaltrust Receipt Validation against DSFinV-K rules in Germany, with causes and how to resolve each one.
+tags: [germany, dsfinv-k, receipt-validation, troubleshooting, kassensichv]
 ---
 
 # Procedural documentation for clarifying errors shown in the fiskaltrust Receipt Validation (Release TBA)

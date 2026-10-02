@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/get-started
 title: Introduction
+description: Overview of the stages a PosCreator goes through to integrate fiskaltrust.Middleware, with a tutorial video and presentation slides.
+tags: [onboarding, poscreators, middleware, cash-register-integration]
 ---
 
 # Introduction

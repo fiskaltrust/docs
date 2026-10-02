@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/germany/platforms/android
 title: Android
+description: Running the German Middleware on Android — requirements, preconfigured packages, distribution via Portal or Google Play, and troubleshooting.
+tags: [germany, android, launcher, operation-modes, swissbit, fiskaly]
 ---
 
 # Android

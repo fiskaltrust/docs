@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/austria/e-invoicing/setup
 title: "Setup & testing"
+description: Prerequisites, Portal activation and sandbox validation for eInvoicing in Austria, with an end-to-end request example.
+tags: [austria, e-invoicing, configuration, portal, ebinterface]
 ---
 
 # Set up and test eInvoicing (Austria)

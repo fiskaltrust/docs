@@ -1,5 +1,7 @@
 ---
 title: Payment
+description: Unified payment endpoint of the Experience Middleware, its design principles, integration flow and a feature matrix per payment service provider.
+tags: [payment, psp, experience-middleware, instore-app, possystem-api]
 slug: /poscreators/experience-middleware/payment
 ---
 

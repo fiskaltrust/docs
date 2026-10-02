@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/greece/data-structures
 title: Data Structures
+description: How cbCustomer fields are transmitted to myDATA as the document counterpart for Greece, and when the customer is required.
+tags: [greece, cbcustomer, data-structures, mydata, middleware]
 ---
 
 # Data Structures

@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/general/reference-tables/reference-tables-v1
 title: Reference Tables (Legacy v1)
+description: Legacy reference tables for the deprecated POSSystem API v1 tagging structure, available as a PDF download.
+tags: [reference-tables, legacy, v1, middleware]
 ---
 
 # Reference Tables (Legacy v1)

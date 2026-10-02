@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/buy-resell/overview
 title: Overview - Buy & Resell
+description: How PosDealers buy entitlements and resell fiskaltrust products, including credit limits, volume purchase agreements and price lists.
+tags: [entitlements, volume-purchase-agreement, pricing, posdealers, portal]
 ---
 # Overview - Buy & Resell
 

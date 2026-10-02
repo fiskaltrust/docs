@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/getting-started/my-first-cashbox
 title: My First Cashbox
+description: Creating a first CashBox as a PosDealer with a Business Rollout plan or manual configuration, then running a test request.
+tags: [cashbox, rollout-plans, middleware, onboarding, posdealers]
 ---
 # My First Cashbox
 

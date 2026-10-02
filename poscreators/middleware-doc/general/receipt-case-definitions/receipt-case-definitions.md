@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/general/receipt-case-definitions
 title: Receipt Case Definitions
+description: Definitions of business cases such as POS sales receipt, invoice, single and multi-use vouchers, agency business, delivery note and tips.
+tags: [receipt-case, vouchers, agency-business, tips, middleware]
 ---
 
 # Receipt Case Definitions

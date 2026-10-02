@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/information-sources/documentation
 title: About this Documentation
+description: How to navigate, search and copy from the fiskaltrust documentation, with links to software docs, glossary, videos and scenarios.
+tags: [documentation, posdealers, poscreators]
 ---
 
 # About this Documentation

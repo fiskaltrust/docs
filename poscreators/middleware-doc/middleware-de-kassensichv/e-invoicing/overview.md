@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/germany/e-invoicing/overview
 title: Overview
+description: Regulatory status of B2B eInvoicing in Germany — receive and issue mandates, penalties, XRechnung and ZUGFeRD formats, and key terms.
+tags: [germany, xrechnung, zugferd, e-invoicing, possystem-api]
 ---
 
 # eInvoicing in Germany — Overview

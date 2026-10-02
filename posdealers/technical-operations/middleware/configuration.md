@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/technical-operations/middleware/configuration
 title: Configuration
+description: How to set runtime parameters of a locally deployed .NET Middleware in fiskaltrust.exe.config or through Launcher command-line parameters.
+tags: [fiskaltrust-exe-config, configuration, middleware, launcher, posdealers]
 ---
 # Configuration
 

@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/get-started/onboarding-posdealers
 title: Onboarding PosDealers
+description: How PosCreators invite PosDealers in the fiskaltrust.Portal, create and assign PosSystems, and prepare pilot installations and rollout.
+tags: [onboarding, possystem, portal, poscreators, posdealers]
 ---
 
 # Onboarding PosDealers (PosCreators)
