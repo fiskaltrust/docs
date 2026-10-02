@@ -20,7 +20,7 @@ As a PosDealer, you thus offer a state-of-the-art PosSystem.
 
 ![Flowchart: PosDealer opens the Portal, switches to the PosOperator, checks master data, then edits the outlet and adds an outlet logo](../images/buy_resell-digital-receipt-3.png)
 
-*Figure 1. Example of a digital receipt as shown to the customer.*
+*Figure 1. Portal steps to prepare digital receipts: the PosDealer switches to the PosOperator, checks the master data, then checks the outlet data and adds an outlet logo.*
 
 Please note that the visualization in the sandbox may look different than in the productive system.
 Please also note that different regulations or requirements may apply depending on the country where your PosSystem is used. Please refer to the country-specific regulations. Please understand that we can only describe these details without claiming to be complete.
