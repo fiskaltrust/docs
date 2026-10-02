@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/france/e-invoicing/setup
 title: "Setup & testing"
 description: Prerequisites, Portal activation and sandbox validation for eInvoicing in France, with an end-to-end example.
-tags: [france, e-invoicing, configuration, portal, onboarding]
+tags: [france, eInvoicing, configuration, portal, onboarding]
 ---
 
 # Set up and test eInvoicing (France)

@@ -2,7 +2,7 @@
 slug: /poscreators/middleware-doc/poland/e-invoicing/setup
 title: "Setup & testing"
 description: Prerequisites, Portal activation and sandbox validation for eInvoicing in Poland (preview), with an end-to-end KSeF FA(3) example.
-tags: [e-invoicing, ksef, configuration, possystem-api, poland]
+tags: [eInvoicing, ksef, configuration, possystem-api, poland]
 ---
 
 # Set up and test eInvoicing (Poland)
