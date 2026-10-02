@@ -22,6 +22,45 @@ eInvoicing rides on calls you already make. Setup is about **configuration** —
 | Default output format | Decide the default: **XRechnung** for B2G and network-capable B2B buyers, **ZUGFeRD** for direct delivery. |
 | Leitweg-ID (B2G only) | For public-sector buyers, the buyer's **Leitweg-ID** is required in the invoice data. |
 
+*Table 1. Prerequisites for eInvoicing in Germany.*
+
+## Invoice types
+
+The invoice type is set by the **receipt case** of the `/sign` request. fiskaltrust does not derive it from `cbCustomer`: neither `CustomerType` nor the buyer's country nor the presence of a VAT ID changes the invoice type.
+
+| Invoice type | `ftReceiptCase` (PosSystem API v2) | `cbCustomer` |
+| --- | --- | --- |
+| B2C invoice | `0x2000_0000_1001` | Optional. |
+| B2B invoice | `0x2000_0000_1002` | Required, with a non-empty `CustomerName`. |
+| B2G invoice | `0x2000_0000_1003` | Required, with a non-empty `CustomerName`. |
+
+*Table 2. Invoice types and whether they require buyer data.*
+
+The eInvoice XML is generated for the invoice receipt case, whatever the buyer's country. There is no separate case or flag for German, EU or non-EU buyers. For the full list of receipt cases, see [ftReceiptCase](../../possystem-api/migration-guide.md#ftreceiptcase).
+
+:::caution Draft — B2G to be confirmed
+The handling of B2G invoices (`0x2000_0000_1003`) in Germany, including how the buyer's Leitweg-ID is passed, is being verified and will be documented here.
+:::
+
+## Buyer data (`cbCustomer`)
+
+The buyer of an eInvoice is sent in [`cbCustomer`](../../general/data-structures/data-structures.md#cbcustomer). Apart from `CustomerName` for B2B and B2G invoices, every field is optional. A field that is missing, `null` or an empty string is ignored, so on a B2C invoice you can send `cbCustomer` with only the fields you have.
+
+| Field | Required | Used in the eInvoice | Format and notes |
+| --- | --- | --- | --- |
+| `CustomerName` | B2B and B2G | Yes — buyer name | Name or company name of the buyer. |
+| `CustomerStreet` | No | Yes — buyer address | Street and house number. |
+| `CustomerZip` | No | Yes — buyer address | Postal code. |
+| `CustomerCity` | No | Yes — buyer address | City. |
+| `CustomerCountry` | No | Yes — buyer address | **ISO 3166-1 alpha-2** code, for example `DE`, `AT`, `FR`. |
+| `CustomerVATId` | No | Yes — buyer VAT identifier | VAT ID of the buyer, for example `DE123456789`. fiskaltrust does not validate it, for German, EU or non-EU buyers alike. |
+| `CustomerId` | No | No | The buyer's customer number in your POS system. It is not an identity document number (ID card, passport). |
+| `CustomerType` | No | No | Not evaluated for eInvoicing. The invoice type comes from the receipt case, see [Invoice types](#invoice-types). |
+
+*Table 3. Fields of `cbCustomer` read for eInvoicing in Germany.*
+
+Customer data is also exported to the DSFinV-K, see [Customer data `cbCustomer`](../data-structures/data-structures.md#customer-data-cbcustomer).
+
 ## Enable eInvoicing in the Portal
 
 eInvoicing is enabled by **configuration**: the output format (XRechnung / ZUGFeRD) and the fiskaltrust.Middleware's German locale. No new integration is required on the POS side.

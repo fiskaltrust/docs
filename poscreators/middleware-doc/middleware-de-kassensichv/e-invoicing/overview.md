@@ -34,6 +34,7 @@ Since **1 January 2025**, every German business must be able to **receive** eInv
 
 - [eInvoicing — Overview](../../e-invoicing/overview.md) — the shared model, integration flow, and prerequisites across markets.
 - [Set up and test eInvoicing (Germany)](./setup.md) — prerequisites, Portal enablement, and the end-to-end sandbox example.
+- [Invoice types](./setup.md#invoice-types) and [Buyer data (`cbCustomer`)](./setup.md#buyer-data-cbcustomer) — B2C/B2B/B2G receipt cases and the buyer fields read for eInvoicing.
 - [Delivery (`/issue` Endpoint)](../../experience-middleware/delivery.md) — the product-level eInvoicing and eDelivery concept across all markets.
 - [Migrating from API v0 to PosSystem API (v2)](../../possystem-api/migration-guide.md) — eInvoicing is a PosSystem API (v2) feature.
 - [Appendix: DE (KassenSichV)](../appendix-de-kassensichv.md) — Germany fiscalization details.

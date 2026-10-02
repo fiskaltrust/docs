@@ -36,6 +36,8 @@ If using `cbPreviousReceiptReference`, as per DSFinV-K it must have a maximum le
 
 Customer data sent in `cbCustomer` is exported to the Bonkopf file of the DSFinV-K. For the field mapping and the maximum lengths, see [Bonkopf (transactions.csv)](../procedural-documentation/dsfinv-k-generation.md#file-bonkopf-transactionscsv).
 
+For the `cbCustomer` fields read for eInvoicing (required fields, country code format), see [Buyer data (`cbCustomer`)](../e-invoicing/setup.md#buyer-data-cbcustomer).
+
 #### Receipt case data `ftReceiptCaseData`
 
 In the general description, the field `ftReceiptCaseData` is described as optional. However, for the German market, the content of this field is not always optional.
