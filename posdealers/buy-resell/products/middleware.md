@@ -23,7 +23,7 @@ First, the fiskaltrust.Middleware ensures that all receipts are processed by a t
 
 As the technical implementation of security, each request and response is hashed to ensure the integrity of the data. To guarantee immutability, another hash value is generated that relates to the entire request-response cycle. This includes the cycle identification, the time of operation, the human-readable document number, and the hash values of the request, response, and the previous receipt, called the document hash value. This concatenation of the receipt hash value provides immutability and the ability to detect any changes or deletions in actions provided by the POS system.
 
-![receipt-chaining](../images/receipt-chain.svg)
+![Receipt chain diagram: each request and response hash plus JournalId, Moment and Identification feed a receipt hash that starts the next chain link](../images/receipt-chain.svg)
 
 *Figure 1. Receipt chaining mechanism used to ensure the immutability of receipts.*
 
@@ -33,7 +33,7 @@ As the final component of the security mechanism, the fiskaltrust.Middleware als
 
 To remain open to different platforms and operating systems and to act as a stable interface to the POS system, the fiskaltrust.Middleware follows a strict architecture:
 
-![mw-architecture](../images/mw-architecture.png)
+![Architecture diagram: POS system talks over the international iPOS interface to the Middleware CashBox, where the international Queue connects to a market-specific SCU](../images/mw-architecture.png)
 
 *Figure 2. Architecture of the fiskaltrust.Middleware.*
 

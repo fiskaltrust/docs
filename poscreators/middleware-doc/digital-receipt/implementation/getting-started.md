@@ -17,12 +17,12 @@ This high level overview shows you the implementation and configuration steps, w
 
 <br/>
 
-![getting_started_qr-code](./images/getting_started_qr-code.png)
+![Flowchart for the QR-Code digital receipt: /sign, /print, response endpoint URL shown as QR code on customer display, then status check](./images/getting_started_qr-code.png)
 
 *Figure 1. High-level implementation and configuration steps for the digital receipt via QR-Code.*
 
 <br/>
 
-![getting_started_give-away](./images/getting_started_give-away.png)
+![Flowchart for Give-Away: scan ReceiptTag from QR-Label, /sign including it, /print, and cashier hands out goods with the QR-Label](./images/getting_started_give-away.png)
 
 *Figure 2. High-level implementation and configuration steps for the digital receipt via Give-Away (QR-Label).*

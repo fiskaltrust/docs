@@ -7,7 +7,7 @@ title: Operation Modes
 
 The fiskaltrust.Middleware can be operated in following operational environments:
 
-![operational-environments](images/operational-environments.svg)
+![Diagram of Middleware operational environments: on-premise in the POS operator outlet, and off-premise in a data center, private cloud or shared virtualised resources](images/operational-environments.svg)
 
 *Figure 1. Operational environments in which the fiskaltrust.Middleware can be operated.*
 

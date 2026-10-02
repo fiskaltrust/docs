@@ -76,7 +76,7 @@ At this point, the DATEV MeinFiskal account is fully operational, and the PosOpe
 Further services like the **DATEV Kassenbuch online** are available at the MeinFiskal platform.
 Fiskaltrust handles the generation of the legally required data formats (DSFinV-K, DFKA taxonomy, .tar files, native format, other documents), as well as the connection and data transfer to **DATEV MeinFiskal** via the fiskaltrust.Portal.
 
-![MeinFiskal_Prozess](../../images/meinFiskal_Schnittstellen2.png)
+![Diagram: POS data flows via API to the fiskaltrust Middleware and Platform, then via the DATEV API to MeinFiskal Kassenarchiv, Kassenbuch and Finanzbuchführung](../../images/meinFiskal_Schnittstellen2.png)
 
 *Figure 1. Interfaces and data flow between the fiskaltrust.Portal and the DATEV MeinFiskal platform.*
 
@@ -150,7 +150,7 @@ Note that the **DATEV MeinFiskal** account is created automatically during the c
 
 ##### Connection setup
 
-![preview](../../images/trigger_datev_meinfiskal_onboarding.png "Access data for DATEV MeinFiskal")
+![Portal Company info Overview with the DATEV MeinFiskal toggle switched on under Connections to 3rd party partners, steps 1 to 3 marked](../../images/trigger_datev_meinfiskal_onboarding.png "Access data for DATEV MeinFiskal")
 
 *Figure 2. fiskaltrust.Portal Company overview with the section for enabling third-party connections to DATEV MeinFiskal.*
 
@@ -168,13 +168,13 @@ Note that the **DATEV MeinFiskal** account is created automatically during the c
 If the background process for connecting your PosOperator's account to DATEV MeinFiskal was successful, you will see information similar to that shown in the image below.
 As a PosDealer, you should have also received a welcome email with further instructions.
 
-![preview](../../images/successful_datev_meinfiskal_onboarding.png "Best case scenario: connection was successful")
+![Portal PosOperator DATEV MeinFiskal page showing the connection as Connected, with tenant name, tenant ID and the Set DATEV MeinFiskal password button](../../images/successful_datev_meinfiskal_onboarding.png "Best case scenario: connection was successful")
 
 *Figure 3. Portal confirmation of a successful DATEV MeinFiskal onboarding.*
 
 ##### Worst case: connection could not be set up
 
-![preview](../../images/DATEV_PW_Change_Dialog-3.png "Access data for DATEV MeinFiskal")
+![Portal DATEV MeinFiskal notice with the Perform DATEV MeinFiskal onboarding operations button for a retry](../../images/DATEV_PW_Change_Dialog-3.png "Access data for DATEV MeinFiskal")
 
 *Figure 4. Portal view shown when the background connection process did not succeed.*
 

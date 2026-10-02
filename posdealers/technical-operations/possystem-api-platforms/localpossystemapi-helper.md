@@ -41,7 +41,7 @@ If you're interested in running this in Austria reach out to us as the launcher 
 To add the LocalPosSystemApi Helper, navigate to `Configuration` / `Helper` in the fiskaltrust Portal and follow the steps below.
 Note that the following figures and steps are exemplary.
 
-![possystemapihelper1.png](images/possystemapihelper1.png)
+![Portal Create new helper form with Description, Package name LocalPosSystemApi, Package version, Outlet and Save marked 3 to 7](images/possystemapihelper1.png)
 
 *Figure 1. Helper configuration page in the fiskaltrust Portal where a LocalPosSystemApi Helper is added; steps are listed in Table 1.*
 
@@ -61,7 +61,7 @@ After the Helper has been saved, a **success** notification confirms that it has
 
 ## Configure a LocalPosSystemApi Helper
 
-![posystemapiconfiguration.png](images/posystemapiconfiguration.png)
+![Portal Helper Configure page with the http (SOAP) URL button and Save button marked 1 and 2](images/posystemapiconfiguration.png)
 
 *Figure 2. Configuration window of the new LocalPosSystemApi Helper; steps are listed in Table 2.*
 
@@ -74,7 +74,7 @@ After the Helper has been saved, a **success** notification confirms that it has
 
 ## Use a LocalPosSystemApi Helper
 
-![assignposysstemapi.png](images/assignposysstemapi.png)
+![Portal Configuration CashBox list with the CashBox menu item and the Edit button marked 1 and 2](images/assignposysstemapi.png)
 
 *Figure 3. CashBox search on the `Configuration` / `CashBox` page in the fiskaltrust Portal; steps are listed in Table 3.*
 
@@ -85,7 +85,7 @@ After the Helper has been saved, a **success** notification confirms that it has
 
 *Table 3. Steps to locate and open the desired CashBox configuration, as shown in Figure 3.*
 
-![selecthelper.png](images/selecthelper.png)
+![Helpers section of the CashBox configuration with a Helper checkbox selected, marked 3 and 4](images/selecthelper.png)
 
 *Figure 4. Helpers section of the CashBox configuration; steps are listed in Table 4.*
 
@@ -96,7 +96,7 @@ After the Helper has been saved, a **success** notification confirms that it has
 
 *Table 4. Steps to activate the LocalPosSystemApi Helper in the CashBox, as shown in Figure 4.*
 
-![savecashboxconfig.png](images/savecashboxconfig.png)
+![Portal Edit CashBox page with the top of the form and the Save button marked 5 and 6](images/savecashboxconfig.png)
 
 *Figure 5. Saving the CashBox configuration after activating the Helper; steps are listed in Table 5.*
 
@@ -121,7 +121,7 @@ The minimum required Launcher version is **2.0.0-rc.25**. When downloading a lau
 
 :::
 
-![downloadlauncher.png](images/downloadlauncher.png)
+![Portal CashBox list showing the LocalPosSystemApi Helper URL, with Rebuild configuration and Launcher Download marked 2 and 3](images/downloadlauncher.png)
 
 *Figure 6. `Configuration` / `CashBox` page showing the configured Helper URL and Launcher download; steps are listed in Table 6.*
 
@@ -141,25 +141,25 @@ Once the Launcher package is downloaded, extract it and run `launcher-test.cmd` 
 
 Once the Middleware is running, verify that the LocalPosSystemApi Helper is working correctly by sending a test request. The easiest way to do this is by using the [fiskaltrust Developer Portal](https://developer.fiskaltrust.eu/), which provides an interactive interface for sending requests to the Middleware and inspecting the responses.
 
-![fiskaltrustfordevpage.png](images/fiskaltrustfordevpage.png)
+![fiskaltrust for developers landing page with the POS System API card in the APIs section](images/fiskaltrustfordevpage.png)
 
 *Figure 7. Landing page of the fiskaltrust Developer Portal listing the available APIs.*
 
 Select **POS System API** from the available options.
 
-![fiskaltrustfordev_selectmarket.png](images/fiskaltrustfordev_selectmarket.png)
+![Developer Portal Select your market page with country cards such as Austria, Germany, France and Italy](images/fiskaltrustfordev_selectmarket.png)
 
 *Figure 8. Market selection in the POS System API view of the Developer Portal.*
 
 Select your market.
 
-![fiskaltrustfordev_settings.png](images/fiskaltrustfordev_settings.png)
+![Developer Portal POS System API view with endpoints list, request body and the Settings button in the top-right corner](images/fiskaltrustfordev_settings.png)
 
 *Figure 9. Settings button in the top-right corner of the Developer Portal.*
 
 Click **Settings** in the top-right corner.
 
-![fiskaltrustfordev_setsettings.png](images/fiskaltrustfordev_setsettings.png)
+![Developer Portal Settings dialog with Local Middleware environment, Middleware Endpoint URL, Pairing PIN and Test Connection marked](images/fiskaltrustfordev_setsettings.png)
 
 *Figure 10. Settings dialog for pointing the Developer Portal at the local Middleware; steps are listed in Table 7.*
 
@@ -171,7 +171,7 @@ Click **Settings** in the top-right corner.
 
 *Table 7. Steps to configure the local Middleware endpoint and pair the Developer Portal, as shown in Figure 10.*
 
-![pairedpin.png](images/pairedpin.png)
+![Pair with PIN section of the Developer Portal settings showing the Paired successfully confirmation](images/pairedpin.png)
 
 *Figure 11. Confirmation message shown after successfully pairing with the local Middleware; steps are listed in Table 8.*
 
@@ -184,6 +184,6 @@ Click **Settings** in the top-right corner.
 
 Close **Settings**. You can now use the available endpoints to send requests to the Middleware and verify the Helper functionality.
 
-![fiskaltrustfordev_endpoints.png](images/fiskaltrustfordev_endpoints.png)
+![Developer Portal sending a POST /echo request to the local Middleware Helper URL and receiving a 201 response](images/fiskaltrustfordev_endpoints.png)
 
 *Figure 12. Available POS System API endpoints in the Developer Portal for sending requests to the Middleware.*

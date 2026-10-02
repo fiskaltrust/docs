@@ -66,7 +66,7 @@ Please do not select it without further information, we recommend to read this s
 :::
 
 
-![](../../../buy-resell/images/FON-Management-1.png)
+![Portal PosDealer FinanzOnline management page listing PosOperators with their FinanzOnline notification state and status update buttons](../../../buy-resell/images/FON-Management-1.png)
 
 *Figure 1. The FinanzOnline Management overview page in the fiskaltrust.Portal.*
 
@@ -81,7 +81,7 @@ Please do not select it without further information, we recommend to read this s
 
 ### Status check for a single Queue or SCU
 
-![](../../../buy-resell/images/FON-Management-2.png)
+![Portal FinanzOnline management with a PosOperator expanded, Queues tab open and the status check button next to a queue highlighted](../../../buy-resell/images/FON-Management-2.png)
 
 *Figure 2. Detail view of a single PosOperator with tabs for queues and SCUs.*
 
@@ -97,7 +97,7 @@ Please do not select it without further information, we recommend to read this s
 
 ### Status check for a single PosOperator
 
-![](../../../buy-resell/images/FON-Management-3.png)
+![Portal Send status request dialog for a single PosOperator with the Send status request button highlighted](../../../buy-resell/images/FON-Management-3.png)
 
 *Figure 3. Executing a FinanzOnline status update for a single PosOperator.*
 
@@ -113,7 +113,7 @@ Please do not select it without further information, we recommend to read this s
  As a PosDealer, the page `PosDealer` / `FinanzOnline Management` provides an overview of the data on queues and SCU of the connected accounts. This data is updated when you open the page. You have learned how to check details and update them if necessary in the sections above. A `Status check for all PosOperator` is only required if, despite automatic data exchange, somebody made manual changes in FinanzOnline.
 
 
-![](../../../buy-resell/images/FON-Management-4.png)
+![Portal Send status request dialog opened from Execute FinanzOnline status update for all PosOperators](../../../buy-resell/images/FON-Management-4.png)
 
 *Figure 4. Executing a FinanzOnline status update for all PosOperators.*
 

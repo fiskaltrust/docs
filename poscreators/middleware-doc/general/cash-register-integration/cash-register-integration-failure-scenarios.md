@@ -18,7 +18,7 @@ If the communication between the Middleware and the SCU fails (e.g. when the sec
 
 The Middleware uses a circuit breaker pattern for this failure mode. After a communication failure is detected, further SCU calls are suppressed until recovery. This prevents repeated failures during temporary outages and ensures that POS operations can continue without blocking due to SCU timeouts.
 
-![no-scu-connection](./images/10-no-scu-connection.svg)
+![Flow diagram: POS sends a sign request to the Queue, the SCU cannot reach the SSCD, and the response ftState 0x02 leads to a receipt printed with failure information](./images/10-no-scu-connection.svg)
 
 *Figure 1. Receipt flow when the Signature Creation Unit is not reachable and the Middleware enters failed mode.*
   
@@ -36,7 +36,7 @@ We recommend to not manually print the text "SCU communication failed", but to p
 
 :::
 
-![reestablished-scu-connection](./images/11-reestablished-connection.svg)
+![Flow diagram: POS sends a zero receipt to the Queue, the SCU reaches the SSCD again, and the response ftState 0x00 confirms success](./images/11-reestablished-connection.svg)
 
 *Figure 2. Recovery flow after the SCU connection is re-established via a Zero-Receipt.*
 
@@ -45,7 +45,7 @@ We recommend to not manually print the text "SCU communication failed", but to p
 
 If a cash register cannot communicate with the fiskaltrust.Middleware, the cause is typically a failure of the network connection, the Middleware host, or the Middleware itself. In this state, the electronic recording system is not operational, and access to the journal is not available.
 
-![no-middleware-connection](./images/07-no-middleware-connection.svg)
+![Flow diagram: POS server's sign request cannot reach the Queue, so it marks the data to resend later and applies market-specific receipt handling](./images/07-no-middleware-connection.svg)
 
 *Figure 3. Receipt flow when the cash register cannot communicate with the fiskaltrust.Middleware.*
 
@@ -56,13 +56,13 @@ In this case, the following steps must be taken:
   - This copy needs to be kept until the failure is resolved. The creation and storage of the receipt copy can also be done electronically by the cash register or terminal.
   - After communication with the fiskaltrust.Middleware is restored, the cash register or the input station must send all receipts marked with the identification "receipt copy, electronic recording system failed" to fiskaltrust.Middleware. The ReceiptCase must be flagged with the code "failed receipt" to indicate the failure state to fiskaltrust.Middleware, which will then issue a receipt response with the `ftState` "Late Signing Mode".
 
-![late-signing-mode](./images/08-late-signing-mode.svg)
+![Flow diagram: POS resends each marked receipt with the failed flag, the Queue switches to Late-Signing-Mode and returns ftState 0x08](./images/08-late-signing-mode.svg)
 
 *Figure 4. Late-signing mode used to re-send receipts once the Middleware is reachable again.*
 
 After the fiskaltrust.Middleware has received an "end of failure receipt" (i.e. a Zero-Receipt), the failure status is terminated by receiving a response with normal state code.
 
-![end-late-signing-mode](./images/09-end-late-signing-mode.svg)
+![Flow diagram: POS sends a zero receipt to end post recording, the Queue ends Late-Signing-Mode and returns ftState 0x00](./images/09-end-late-signing-mode.svg)
 
 *Figure 5. Ending late-signing mode by sending a Zero-Receipt to return to normal operation.*
 
