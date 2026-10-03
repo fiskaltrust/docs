@@ -386,12 +386,33 @@ After building the XML, the process step checks the complete document against th
 - [Type of Service: ftChargeItemCase](../reference-tables/type-of-service-ftchargeitemcase.md) — the VAT and nature-of-VAT values behind `Natura`.
 - [Type of Payment: ftPayItemCase](../reference-tables/type-of-payment-ftpayitemcase.md) — the payment types behind `ModalitaPagamento`.
 
-External references:
+## References
 
-- [Specifiche tecniche versione 1.9.1 (Agenzia delle Entrate)](https://www.agenziaentrate.gov.it/portale/specifiche-tecniche-versione-1.9.1-%C2%A0-utilizzabili-dal-15-maggio-2026-) — the current FatturaPA specification, usable from 15 May 2026, with the schemas and tabular layouts.
-- [Allegato A – Specifiche tecniche vers. 1.9.1 (PDF)](https://www.agenziaentrate.gov.it/portale/documents/d/guest/allegato-a-specifiche-tecniche-vers-1-9-1) — the technical specification document, including the SdI controls.
-- [`Schema_VFPR12` v1.2.3 (XSD)](https://www.agenziaentrate.gov.it/portale/documents/d/guest/schema_vfpr12_v1-2-3) — the XML schema of the ordinary invoice.
-- [FatturaPA examples (fatturapa.gov.it)](https://www.fatturapa.gov.it/it/lafatturapa/esempi/) — sample files of schema 1.2 for private recipients (B2B, B2C): [one line](https://www.fatturapa.gov.it/export/documenti/fatturapa/v1.2/IT01234567890_FPR01.xml), [several lines](https://www.fatturapa.gov.it/export/documenti/fatturapa/v1.2/IT01234567890_FPR02.xml) and [a batch of invoices](https://www.fatturapa.gov.it/export/documenti/fatturapa/v1.2/IT01234567890_FPR03.xml), plus the stylesheets that display a FatturaPA.
-- [Esempi fattura, hash e ricevute (Agenzia delle Entrate)](https://www.agenziaentrate.gov.it/portale/web/guest/esempi-fattura-hash-e-ricevute) — sample invoice files with their hashes, and sample SdI receipts (delivery, rejection, delivery failure).
-- [Specifiche tecniche versione 1.9 (Agenzia delle Entrate)](https://www.agenziaentrate.gov.it/portale/specifiche-tecniche-versione-1.9) — the previous specification version.
+Official FatturaPA documentation of the Agenzia delle Entrate and of the Sistema di Interscambio. fiskaltrust produces the ordinary invoice (FPR12) only; the simplified invoice (FSM10) files are listed for completeness.
+
+**Specification**
+
+- [Specifiche tecniche versione 1.9.1](https://www.agenziaentrate.gov.it/portale/specifiche-tecniche-versione-1.9.1-%C2%A0-utilizzabili-dal-15-maggio-2026-) — the current FatturaPA specification, usable from 15 May 2026, with all files below.
+- [Allegato A – Specifiche tecniche vers. 1.9.1 (PDF, Italian)](https://www.agenziaentrate.gov.it/portale/documents/d/guest/allegato-a-specifiche-tecniche-vers-1-9-1) and [Appendix A – Technical Specifications vers. 1.9.1 (PDF, English)](https://www.agenziaentrate.gov.it/portale/documents/d/guest/appendix-a-technical-specifications-vers-1-9-1) — the technical specification, including the SdI controls.
+- [Specifiche tecniche versione 1.9](https://www.agenziaentrate.gov.it/portale/specifiche-tecniche-versione-1.9) — the previous specification version.
+
+**XML schemas (XSD)**
+
+- [`Schema_VFPR12` v1.2.3](https://www.agenziaentrate.gov.it/portale/documents/d/guest/schema_vfpr12_v1-2-3) — the ordinary invoice (FPA12, FPR12). It imports the [XML Signature schema (`xmldsig-core-schema.xsd`)](https://www.w3.org/TR/2002/REC-xmldsig-core-20020212/xmldsig-core-schema.xsd) of the W3C.
+- [`Schema_VFSM10` v1.0.2](https://www.agenziaentrate.gov.it/portale/documents/d/guest/schema_vfsm10v_1-0-2) — the simplified invoice (FSM10).
+- [`MessaggiFatturaTypes` v1.0](https://www.agenziaentrate.gov.it/portale/documents/20143/288192/ST+Fatturazione+elettronica+-+MessaggiFatturaTypes_MessaggiFatturaTypes_v1.0.xsd/2b799419-1311-d901-80cf-8a64d4e23522) — the SdI receipts and notifications.
+
+**Field tables**
+
+- Ordinary invoice: [Rappresentazione tabellare (XLSX, Italian)](https://www.agenziaentrate.gov.it/portale/documents/d/guest/rappresentazionetabellarefattordinaria-1) and [Table view B2B Ordinary invoice 1.9.1 (XLS, English)](https://www.agenziaentrate.gov.it/portale/documents/d/guest/table-view-b2b-ordinary-invoice-1-9-1) — every element with its cardinality, format and description.
+- Simplified invoice: [Rappresentazione tabellare (XLSX, Italian)](https://www.agenziaentrate.gov.it/portale/documents/d/guest/rappresentazionetabellarefattsemplificata-1) and [Table view B2B Simplified invoice 1.9.1 (XLS, English)](https://www.agenziaentrate.gov.it/portale/documents/d/guest/table-view-b2b-simplified-invoice-1-9-1).
+
+**Samples and stylesheets**
+
+- [FatturaPA examples (fatturapa.gov.it)](https://www.fatturapa.gov.it/it/lafatturapa/esempi/) — sample files of schema 1.2 for private recipients (B2B, B2C): [one line](https://www.fatturapa.gov.it/export/documenti/fatturapa/v1.2/IT01234567890_FPR01.xml), [several lines](https://www.fatturapa.gov.it/export/documenti/fatturapa/v1.2/IT01234567890_FPR02.xml) and [a batch of invoices](https://www.fatturapa.gov.it/export/documenti/fatturapa/v1.2/IT01234567890_FPR03.xml), plus the [stylesheet that displays an ordinary invoice](https://www.fatturapa.gov.it/export/documenti/fatturapa/v1.2.1/Foglio_di_stile_fatturaordinaria_v1.2.1.xsl).
+- [Esempi fattura, hash e ricevute](https://www.agenziaentrate.gov.it/portale/web/guest/esempi-fattura-hash-e-ricevute) — sample invoice files with their hashes, and sample SdI receipts (delivery, rejection, delivery failure).
+- [Fogli di stile per ricevute](https://www.agenziaentrate.gov.it/portale/web/guest/fogli-di-stile-per-ricevute) — stylesheets that display the SdI receipts.
+
+**Sistema di Interscambio**
+
 - [Documentazione Sistema di Interscambio (fatturapa.gov.it)](https://www.fatturapa.gov.it/it/norme-e-regole/DocumentazioneSDI/) — the SdI documentation.
