@@ -24,10 +24,6 @@ eInvoicing rides on calls you already make. Setup is about **configuration** —
 
 *Table 1. Prerequisites for eInvoicing in Germany.*
 
-:::caution Draft — Leitweg-ID to be confirmed
-How the buyer's Leitweg-ID is passed for B2G invoices is being verified and will be documented here.
-:::
-
 ## Enable eInvoicing in the Portal
 
 eInvoicing is enabled by **configuration**: the output format (XRechnung / ZUGFeRD) and the fiskaltrust.Middleware's German locale. No new integration is required on the POS side.
