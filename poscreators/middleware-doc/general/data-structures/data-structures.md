@@ -90,11 +90,52 @@ The following table lists every field that the Middleware reads from the structu
 | `CustomerStreet`      | `string`  | null          | true     | Street and house number of the customer's address. |
 | `CustomerZip`         | `string`  | null          | true     | Postal code of the customer's address. |
 | `CustomerCity`        | `string`  | null          | true     | City of the customer's address. |
+| `CustomerSubdivision` | `string`  | null          | true     | Subdivision of the country in the customer's address, such as a province, state or county, for example `MI` for the Italian province of Milan. EN 16931: BT-54 *Buyer country subdivision*. |
 | `CustomerCountry`     | `string`  | null          | true     | Country of the customer as ISO 3166-1 alpha-2 code, for example `DE`. |
 | `CustomerVATId`       | `string`  | null          | true     | VAT or tax identification number of the customer. |
 | `CustomerTaxId`       | `string`  | null          | true     | Tax identification number of the customer that is not a VAT ID. |
+| `CustomerEndpointId`  | `string`  | null          | true     | Electronic address to which an eInvoice is delivered, as `<scheme>:<id>`, for example `0204:04011000-1234512345-06`. See [Electronic address](#electronic-address-customerendpointid). EN 16931: BT-49 *Buyer electronic address* and BT-49-1 *scheme identifier*. |
+| `CustomerReference`   | `string`  | null          | true     | Reference assigned by the customer, used to route an eInvoice inside the customer's organisation, for example a cost centre. If it is empty and `CustomerEndpointId` uses scheme `0204`, the Leitweg-ID is used. EN 16931: BT-10 *Buyer reference*. |
 
 *Table 2. Fields of the cbCustomer data structure identifying the customer of a receipt.*
+
+:::caution New fields
+`CustomerSubdivision`, `CustomerEndpointId` and `CustomerReference` are being introduced for eInvoicing and are not processed yet.
+:::
+
+### Electronic address (`CustomerEndpointId`)
+
+`CustomerEndpointId` holds the scheme and the identifier of the customer's electronic address in one string, separated by a colon: `<scheme>:<id>`.
+
+- The value is split at the **first** colon. Everything before it is the scheme, everything after it is the identifier.
+- The scheme is a code from the [Peppol Electronic Address Scheme (EAS) code list](https://docs.peppol.eu/poacc/billing/3.0/codelist/eas/), or `PEC` for an Italian certified email address.
+- A value without a colon or with an unknown scheme is rejected.
+- Peppol's full notation (`iso6523-actorid-upis::<scheme>:<id>`) is not accepted.
+
+| Scheme | Identifier | Example |
+| --- | --- | --- |
+| `0204` | Leitweg-ID of a German public-sector buyer | `0204:04011000-1234512345-06` |
+| `9930` | German VAT ID, as Peppol participant identifier | `9930:DE123456789` |
+| `0088` | Global Location Number (GLN) | `0088:4012345000009` |
+| `0225` | French electronic address from the PPF directory: SIREN, optionally with a suffix | `0225:123456789` |
+| `0205` | Italian *Codice Destinatario* (SDI channel code, 7 characters) | `0205:ABC1234` |
+| `0201` | Italian *Codice Univoco Ufficio* of a public administration (iPA, 6 characters) | `0201:UFABCD` |
+| `PEC` | Italian certified email address (*Posta Elettronica Certificata*) | `PEC:fatture@pec.esempio.it` |
+
+*Table 3. Common schemes of `CustomerEndpointId`.*
+
+```json
+{
+  "cbCustomer": {
+    "CustomerName": "Stadt Musterstadt",
+    "CustomerStreet": "Rathausplatz 1",
+    "CustomerZip": "12345",
+    "CustomerCity": "Musterstadt",
+    "CustomerCountry": "DE",
+    "CustomerEndpointId": "0204:04011000-1234512345-06"
+  }
+}
+```
 
 ## ReceiptResponse
 
