@@ -18,7 +18,7 @@ EN 16931-1 is published by CEN and is not freely available. The links in the fol
 | `CustomerStreet` | BT-50 Buyer address line 1 | [`cac:PostalAddress/cbc:StreetName`](https://docs.peppol.eu/poacc/billing/3.0/syntax/ubl-invoice/cac-AccountingCustomerParty/cac-Party/cac-PostalAddress/cbc-StreetName/) |
 | `CustomerZip` | BT-53 Buyer post code | [`cac:PostalAddress/cbc:PostalZone`](https://docs.peppol.eu/poacc/billing/3.0/syntax/ubl-invoice/cac-AccountingCustomerParty/cac-Party/cac-PostalAddress/cbc-PostalZone/) |
 | `CustomerCity` | BT-52 Buyer city | [`cac:PostalAddress/cbc:CityName`](https://docs.peppol.eu/poacc/billing/3.0/syntax/ubl-invoice/cac-AccountingCustomerParty/cac-Party/cac-PostalAddress/cbc-CityName/) |
-| `CustomerSubdivision` | BT-54 Buyer country subdivision | [`cac:PostalAddress/cbc:CountrySubentity`](https://docs.peppol.eu/poacc/billing/3.0/syntax/ubl-invoice/cac-AccountingCustomerParty/cac-Party/cac-PostalAddress/cbc-CountrySubentity/) |
+| `CustomerCountrySubentity` | BT-54 Buyer country subdivision | [`cac:PostalAddress/cbc:CountrySubentity`](https://docs.peppol.eu/poacc/billing/3.0/syntax/ubl-invoice/cac-AccountingCustomerParty/cac-Party/cac-PostalAddress/cbc-CountrySubentity/) |
 | `CustomerCountry` | BT-55 Buyer country code | [`cac:PostalAddress/cac:Country/cbc:IdentificationCode`](https://docs.peppol.eu/poacc/billing/3.0/syntax/ubl-invoice/cac-AccountingCustomerParty/cac-Party/cac-PostalAddress/cac-Country/cbc-IdentificationCode/) |
 | `CustomerVATId` | BT-48 Buyer VAT identifier | [`cac:PartyTaxScheme/cbc:CompanyID`](https://docs.peppol.eu/poacc/billing/3.0/syntax/ubl-invoice/cac-AccountingCustomerParty/cac-Party/cac-PartyTaxScheme/cbc-CompanyID/) |
 | `CustomerEndpointId` | BT-49 Buyer electronic address and BT-49-1 scheme identifier | [`cbc:EndpointID`](https://docs.peppol.eu/poacc/billing/3.0/syntax/ubl-invoice/cac-AccountingCustomerParty/cac-Party/cbc-EndpointID/) and its `schemeID` attribute |
@@ -29,6 +29,6 @@ EN 16931-1 is published by CEN and is not freely available. The links in the fol
 
 ## Mapping rules
 
-- **`CustomerEndpointId`** is split at the first colon: the part before it is written to BT-49-1 (the `schemeID` attribute), the part after it to BT-49. For the format and the schemes, see [Electronic address](../general/data-structures/data-structures.md#electronic-address-customerendpointid).
+- **`CustomerEndpointId`** is split at the first colon: the part before it is written to BT-49-1 (the `schemeID` attribute), the part after it to BT-49.
 - **`CustomerReference`**: if it is empty and `CustomerEndpointId` uses scheme `0204`, the Leitweg-ID is written to BT-10.
 - **`CustomerTaxId`** has no EN 16931 business term, because EN 16931 has no tax number of the buyer other than the VAT identifier. National formats can read it, for example FatturaPA as `CodiceFiscale`.
