@@ -30,5 +30,7 @@ EN 16931-1 is published by CEN and is not freely available. The links in the fol
 ## Mapping rules
 
 - **`CustomerEndpointId`** is split at the first colon: the part before it is written to BT-49-1 (the `schemeID` attribute), the part after it to BT-49.
-- **`CustomerReference`**: if it is empty and `CustomerEndpointId` uses scheme `0204`, the Leitweg-ID is written to BT-10.
+- **`CustomerReference`** is written to BT-10. For B2G invoices in Germany, it holds the buyer's Leitweg-ID.
+- **`CustomerEndpointId`** for B2G invoices in Germany: if it is empty, `0204:<CustomerReference>` is written to BT-49.
+- **XRechnung** requires both BT-10 (rule `BR-DE-15`) and BT-49 (rule `PEPPOL-EN16931-R010`); a missing value fails the validation. See the [XRechnung Schematron](https://github.com/itplr-kosit/xrechnung-schematron).
 - **`CustomerTaxId`** has no EN 16931 business term, because EN 16931 has no tax number of the buyer other than the VAT identifier. National formats can read it, for example FatturaPA as `CodiceFiscale`.

@@ -94,8 +94,8 @@ The following table lists every field that the Middleware reads from the structu
 | `CustomerCountry`     | `string`  | null          | true     | Country of the customer as ISO 3166-1 alpha-2 code, for example `DE`. |
 | `CustomerVATId`       | `string`  | null          | true     | VAT or tax identification number of the customer. |
 | `CustomerTaxId`       | `string`  | null          | true     | Tax identification number of the customer that is not a VAT ID. |
-| `CustomerEndpointId`  | `string`  | null          | true     | Electronic address to which an eInvoice is delivered, as `<scheme>:<id>`, for example `0204:04011000-1234512345-06`. EN 16931: BT-49 *Buyer electronic address* and BT-49-1 *scheme identifier*. |
-| `CustomerReference`   | `string`  | null          | true     | Reference assigned by the customer, used to route an eInvoice inside the customer's organisation, for example a cost centre. If it is empty and `CustomerEndpointId` uses scheme `0204`, the Leitweg-ID is used. EN 16931: BT-10 *Buyer reference*. |
+| `CustomerEndpointId`  | `string`  | null          | true     | Electronic address to which an eInvoice is delivered, as `<scheme>:<id>`, for example `9930:DE123456789`. For B2G invoices in Germany, if it is empty, the Leitweg-ID from `CustomerReference` is used as `0204:<Leitweg-ID>`. EN 16931: BT-49 *Buyer electronic address* and BT-49-1 *scheme identifier*. |
+| `CustomerReference`   | `string`  | null          | true     | Reference assigned by the customer, used to route an eInvoice inside the customer's organisation, for example a cost centre. For B2G invoices in Germany, this is the buyer's Leitweg-ID. EN 16931: BT-10 *Buyer reference*. |
 
 *Table 2. Fields of the cbCustomer data structure identifying the customer of a receipt.*
 
