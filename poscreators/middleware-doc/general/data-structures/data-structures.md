@@ -86,11 +86,11 @@ The following table lists every field that the Middleware reads from the structu
 | Field Name            | Data Type | Default Value | Nullable | Description |
 |-----------------------|-----------|---------------|----------|-------------|
 | `CustomerName`        | `string`  | null          | true     | Name or company name of the customer. |
-| `CustomerId`          | `string`  | null          | true     | Identification of the customer in the POS system. |
+| `CustomerId`          | `string`  | null          | true     | Identification of the customer in the POS system, for example a customer number. Not an identity document number such as an ID card or passport number. |
 | `CustomerStreet`      | `string`  | null          | true     | Street and house number of the customer's address. |
 | `CustomerZip`         | `string`  | null          | true     | Postal code of the customer's address. |
 | `CustomerCity`        | `string`  | null          | true     | City of the customer's address. |
-| `CustomerCountry`     | `string`  | null          | true     | Country of the customer. The expected country code format differs per market. |
+| `CustomerCountry`     | `string`  | null          | true     | Country of the customer as ISO 3166-1 alpha-2 code, for example `DE`. |
 | `CustomerVATId`       | `string`  | null          | true     | VAT or tax identification number of the customer. |
 | `CustomerTaxId`       | `string`  | null          | true     | Tax identification number of the customer that is not a VAT ID. |
 
