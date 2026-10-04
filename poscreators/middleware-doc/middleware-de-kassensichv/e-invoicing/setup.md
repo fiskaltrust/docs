@@ -21,6 +21,7 @@ eInvoicing rides on calls you already make. Setup is about **configuration** —
 | PosSystem API (v2) | eInvoicing features are exposed through the **PosSystem API (v2)**. If you are on the v0 interface, plan your [migration](../../possystem-api/migration-guide.md) first. |
 | Default output format | Decide the default: **XRechnung** for B2G and network-capable B2B buyers, **ZUGFeRD** for direct delivery. |
 | Leitweg-ID (B2G only) | For public-sector buyers, the buyer's **Leitweg-ID** is required. Send it in [`CustomerReference`](../../general/data-structures/data-structures.md#fields). |
+| Buyer electronic address (XRechnung) | XRechnung requires the buyer's electronic address, also for B2G. Send it in [`CustomerEndpointId`](../../general/data-structures/data-structures.md#fields). |
 
 *Table 1. Prerequisites for eInvoicing in Germany.*
 
@@ -82,7 +83,7 @@ Call `/sign` as you do today, with the buyer's master data, using the **B2B invo
 }
 ```
 
-> **Try it:** [developer.fiskaltrust.eu → DE → sign → B2BInvoice](https://developer.fiskaltrust.eu/#/pos-system/DE?endpoint=sign&businesscase=SignRequestReceipt_B2BInvoice_1). The output format (XRechnung / ZUGFeRD) comes from the fiskaltrust.Middleware configuration, not this payload — see [Enable eInvoicing in the Portal](#enable-einvoicing-in-the-portal). For B2G buyers, send the buyer's **Leitweg-ID** in `cbCustomer.CustomerReference`.
+> **Try it:** [developer.fiskaltrust.eu → DE → sign → B2BInvoice](https://developer.fiskaltrust.eu/#/pos-system/DE?endpoint=sign&businesscase=SignRequestReceipt_B2BInvoice_1). The output format (XRechnung / ZUGFeRD) comes from the fiskaltrust.Middleware configuration, not this payload — see [Enable eInvoicing in the Portal](#enable-einvoicing-in-the-portal). For B2G buyers, send the buyer's **Leitweg-ID** in `cbCustomer.CustomerReference`. For XRechnung, also send the buyer's electronic address in `cbCustomer.CustomerEndpointId`.
 
 **Step 2 — Issue (`/issue`)** — optional, register for delivery
 
