@@ -81,7 +81,11 @@ Required fields, validations and default values differ per market. They are desc
 
 ### Fields
 
-The following table lists every field that the Middleware reads from the structure. For the mapping of these fields to the buyer fields of the eInvoicing standard EN 16931, see [Buyer data (`cbCustomer`) in eInvoicing](../../e-invoicing/cbcustomer.md). For the buyer's master data of B2B invoices with eInvoicing, see the setup pages of [Austria](../../middleware-at-rksv/e-invoicing/setup.md), [France](../../middleware-fr-boi-tva-decla-30-10-30/e-invoicing/setup.md) and [Poland](../../middleware-pl/e-invoicing/setup.md).
+The following table lists every field that the Middleware reads from the structure.
+
+:::info eInvoicing
+For eInvoicing-specific information on `cbCustomer`, see [Buyer data (`cbCustomer`) in eInvoicing](../../e-invoicing/cbcustomer.md) and the eInvoicing setup page of each country: [Austria](../../middleware-at-rksv/e-invoicing/setup.md), [France](../../middleware-fr-boi-tva-decla-30-10-30/e-invoicing/setup.md), [Germany](../../middleware-de-kassensichv/e-invoicing/setup.md), [Italy](../../middleware-it-registratore-telematico/e-invoicing/setup.md) and [Poland](../../middleware-pl/e-invoicing/setup.md).
+:::
 
 | Field Name            | Data Type | Default Value | Nullable | Description |
 |-----------------------|-----------|---------------|----------|-------------|
@@ -90,12 +94,12 @@ The following table lists every field that the Middleware reads from the structu
 | `CustomerStreet`      | `string`  | null          | true     | Street and house number of the customer's address. |
 | `CustomerZip`         | `string`  | null          | true     | Postal code of the customer's address. |
 | `CustomerCity`        | `string`  | null          | true     | City of the customer's address. |
-| `CustomerCountrySubentity` | `string`  | null          | true     | Subdivision of the country in the customer's address, such as a province, state or county, for example `MI` for the Italian province of Milan. EN 16931: BT-54 *Buyer country subdivision*. |
+| `CustomerCountrySubentity` | `string`  | null          | true     | Subdivision of the country in the customer's address, such as a province, state or county, for example `MI` for the Italian province of Milan. |
 | `CustomerCountry`     | `string`  | null          | true     | Country of the customer as ISO 3166-1 alpha-2 code, for example `DE`. |
 | `CustomerVATId`       | `string`  | null          | true     | VAT or tax identification number of the customer. |
 | `CustomerTaxId`       | `string`  | null          | true     | Tax identification number of the customer that is not a VAT ID. |
-| `CustomerEndpointId`  | `string`  | null          | true     | Electronic address to which an eInvoice is delivered, as `<scheme>:<id>`, for example `9930:DE123456789`. For B2G invoices in Germany, if it is empty, the Leitweg-ID from `CustomerReference` is used as `0204:<Leitweg-ID>`. EN 16931: BT-49 *Buyer electronic address* and BT-49-1 *scheme identifier*. |
-| `CustomerReference`   | `string`  | null          | true     | Reference assigned by the customer, used to route an eInvoice inside the customer's organisation, for example a cost centre. For B2G invoices in Germany, this is the buyer's Leitweg-ID. EN 16931: BT-10 *Buyer reference*. |
+| `CustomerEndpointId`  | `string`  | null          | true     | Electronic address under which the customer receives documents, such as the address of the customer in a delivery network. It consists of the identification scheme and the identifier, separated by a colon (`<scheme>:<id>`). |
+| `CustomerReference`   | `string`  | null          | true     | Reference that the customer assigned and asked to be stated on the document. The customer uses it to forward the document internally to the responsible department or person and to assign it in its own accounting. |
 
 *Table 2. Fields of the cbCustomer data structure identifying the customer of a receipt.*
 
