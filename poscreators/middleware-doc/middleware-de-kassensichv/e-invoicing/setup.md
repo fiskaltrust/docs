@@ -24,6 +24,8 @@ eInvoicing rides on calls you already make. Setup is about **configuration** —
 
 *Table 1. Prerequisites for eInvoicing in Germany.*
 
+*Table 1. Prerequisites for eInvoicing in Germany.*
+
 ## Enable eInvoicing in the Portal
 
 eInvoicing is enabled by **configuration**: the output format (XRechnung / ZUGFeRD) and the fiskaltrust.Middleware's German locale. No new integration is required on the POS side.
