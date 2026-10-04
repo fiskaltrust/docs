@@ -94,7 +94,7 @@ For eInvoicing-specific information on `cbCustomer`, see [Buyer data (`cbCustome
 | `CustomerStreet`      | `string`  | null          | true     | Street and house number of the customer's address. |
 | `CustomerZip`         | `string`  | null          | true     | Postal code of the customer's address. |
 | `CustomerCity`        | `string`  | null          | true     | City of the customer's address. |
-| `CustomerCountrySubentity` | `string`  | null          | true     | Subdivision of the country in the customer's address, such as a province, state or county, for example `MI` for the Italian province of Milan. |
+| `CustomerCountrySubentity` | `string`  | null          | true     | Subdivision of the country in the customer's address, such as a province, state or county. |
 | `CustomerCountry`     | `string`  | null          | true     | Country of the customer as ISO 3166-1 alpha-2 code, for example `DE`. |
 | `CustomerVATId`       | `string`  | null          | true     | VAT or tax identification number of the customer. |
 | `CustomerTaxId`       | `string`  | null          | true     | Tax identification number of the customer that is not a VAT ID. |

@@ -5,7 +5,7 @@ title: Buyer data (cbCustomer)
 
 # Buyer data (`cbCustomer`) in eInvoicing
 
-This page maps the fields of [`cbCustomer`](../general/data-structures/data-structures.md#cbcustomer) to the buyer fields of the European eInvoicing standard **EN 16931**. The national formats (XRechnung, ZUGFeRD / Factur-X, Peppol BIS Billing) are profiles of EN 16931 and use the same business terms (BT). For how invoices and invoice types are handled, see [Invoices and invoice types](./overview.md#invoices-and-invoice-types).
+This page maps the fields of [`cbCustomer`](../general/data-structures/data-structures.md#cbcustomer) to the buyer fields of the European eInvoicing standard **EN 16931**. The national eInvoicing formats are profiles of EN 16931 and use the same business terms (BT). For how invoices and invoice types are handled, see [Invoices and invoice types](./overview.md#invoices-and-invoice-types).
 
 EN 16931-1 is published by CEN and is not freely available. The links in the following table point to the [Peppol BIS Billing 3.0](https://docs.peppol.eu/poacc/billing/3.0/bis/) syntax reference, which documents every EN 16931 business term with its UBL element.
 
@@ -29,7 +29,8 @@ EN 16931-1 is published by CEN and is not freely available. The links in the fol
 
 ## Mapping rules
 
+Which fields are required, and what they contain, depends on the country and its format. See the eInvoicing setup page of the respective country.
+
 - **`CustomerEndpointId`** is split at the first colon: the part before it is written to BT-49-1 (the `schemeID` attribute), the part after it to BT-49.
-- **`CustomerReference`** is written to BT-10. For B2G invoices in Germany, it holds the buyer's Leitweg-ID.
-- **XRechnung** requires both BT-10 (rule `BR-DE-15`) and BT-49 (rule `PEPPOL-EN16931-R010`); a missing value fails the validation. See the [XRechnung Schematron](https://github.com/itplr-kosit/xrechnung-schematron).
-- **`CustomerTaxId`** has no EN 16931 business term, because EN 16931 has no tax number of the buyer other than the VAT identifier. National formats can read it, for example FatturaPA as `CodiceFiscale`.
+- **`CustomerReference`** is written to BT-10.
+- **`CustomerTaxId`** has no EN 16931 business term, because EN 16931 has no tax number of the buyer other than the VAT identifier. National formats can read it; see the eInvoicing pages of the respective country.

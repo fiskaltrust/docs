@@ -20,8 +20,8 @@ eInvoicing rides on calls you already make. Setup is about **configuration** —
 | fiskaltrust.Middleware country configuration | The fiskaltrust.Middleware's country configuration is set to the **German locale**. |
 | PosSystem API (v2) | eInvoicing features are exposed through the **PosSystem API (v2)**. If you are on the v0 interface, plan your [migration](../../possystem-api/migration-guide.md) first. |
 | Default output format | Decide the default: **XRechnung** for B2G and network-capable B2B buyers, **ZUGFeRD** for direct delivery. |
-| Leitweg-ID (B2G only) | For public-sector buyers, the buyer's **Leitweg-ID** is required. Send it in [`CustomerReference`](../../general/data-structures/data-structures.md#fields). |
-| Buyer electronic address (XRechnung) | XRechnung requires the buyer's electronic address, also for B2G. Send it in [`CustomerEndpointId`](../../general/data-structures/data-structures.md#fields). |
+| Buyer reference (XRechnung) | XRechnung requires the buyer reference (BT-10, rule [`BR-DE-15`](https://github.com/itplr-kosit/xrechnung-schematron)) on every invoice. Send it in [`CustomerReference`](../../general/data-structures/data-structures.md#fields). For public-sector buyers (B2G), this is the buyer's **Leitweg-ID**. |
+| Buyer electronic address (XRechnung) | XRechnung requires the buyer's electronic address (BT-49, rule [`PEPPOL-EN16931-R010`](https://github.com/itplr-kosit/xrechnung-schematron)) on every invoice, also for B2G. Send it in [`CustomerEndpointId`](../../general/data-structures/data-structures.md#fields). |
 
 *Table 1. Prerequisites for eInvoicing in Germany.*
 
