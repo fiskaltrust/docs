@@ -9,10 +9,6 @@ This page maps the fields of [`cbCustomer`](../general/data-structures/data-stru
 
 EN 16931-1 is published by CEN and is not freely available. The links in the following table point to the [Peppol BIS Billing 3.0](https://docs.peppol.eu/poacc/billing/3.0/bis/) syntax reference, which documents every EN 16931 business term with its UBL element.
 
-:::caution New fields
-`CustomerSubdivision`, `CustomerEndpointId` and `CustomerReference`, and the mapping of `CustomerId` to BT-46, are being introduced and are not processed yet.
-:::
-
 ## Field mapping
 
 | `cbCustomer` field | EN 16931 business term | UBL element |

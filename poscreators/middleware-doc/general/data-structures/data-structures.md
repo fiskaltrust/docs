@@ -99,10 +99,6 @@ The following table lists every field that the Middleware reads from the structu
 
 *Table 2. Fields of the cbCustomer data structure identifying the customer of a receipt.*
 
-:::caution New fields
-`CustomerSubdivision`, `CustomerEndpointId` and `CustomerReference` are being introduced for eInvoicing and are not processed yet.
-:::
-
 ### Electronic address (`CustomerEndpointId`)
 
 `CustomerEndpointId` holds the scheme and the identifier of the customer's electronic address in one string, separated by a colon: `<scheme>:<id>`.
