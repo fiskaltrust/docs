@@ -537,6 +537,7 @@ module.exports = [
     collapsed: true,
     items: [
       "poscreators/middleware-doc/e-invoicing/overview",
+      "poscreators/middleware-doc/e-invoicing/cbcustomer",
     ],
   },
   {

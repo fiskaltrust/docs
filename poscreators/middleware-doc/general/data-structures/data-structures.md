@@ -81,7 +81,7 @@ Required fields, validations and default values differ per market. They are desc
 
 ### Fields
 
-The following table lists every field that the Middleware reads from the structure. For the buyer's master data of B2B invoices with eInvoicing, see the setup pages of [Austria](../../middleware-at-rksv/e-invoicing/setup.md), [France](../../middleware-fr-boi-tva-decla-30-10-30/e-invoicing/setup.md) and [Poland](../../middleware-pl/e-invoicing/setup.md).
+The following table lists every field that the Middleware reads from the structure. For the mapping of these fields to the buyer fields of the eInvoicing standard EN 16931, see [Buyer data (`cbCustomer`) in eInvoicing](../../e-invoicing/cbcustomer.md). For the buyer's master data of B2B invoices with eInvoicing, see the setup pages of [Austria](../../middleware-at-rksv/e-invoicing/setup.md), [France](../../middleware-fr-boi-tva-decla-30-10-30/e-invoicing/setup.md) and [Poland](../../middleware-pl/e-invoicing/setup.md).
 
 | Field Name            | Data Type | Default Value | Nullable | Description |
 |-----------------------|-----------|---------------|----------|-------------|
