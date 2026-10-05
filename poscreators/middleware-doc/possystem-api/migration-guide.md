@@ -895,7 +895,7 @@ All other fields (`ftCashBoxID`, `cbTerminalID`, `cbReceiptMoment`, `cbChargeIte
 
 #### Currency and DecimalPrecisionMultiplier
 
-Both fields are optional. If you omit them, the defaults (`EUR` and `1`) apply and your v0 amounts can be sent unchanged as decimal numbers.
+Both fields have defaults (`EUR` and `1`). `Currency` must be set if the currency is not EUR. If you use EUR and omit `DecimalPrecisionMultiplier`, your v0 amounts can be sent unchanged as decimal numbers.
 
 - `Currency` and `DecimalPrecisionMultiplier` exist on the `ReceiptRequest`, on each `ChargeItem` and on each `PayItem`. Each value applies to the structure that contains it.
 - `DecimalPrecisionMultiplier` applies to all fields of type `number($decimal)` of that structure, for example `cbReceiptAmount` on the `ReceiptRequest` and `Quantity`, `Amount` and `VATRate` on a `ChargeItem`.
