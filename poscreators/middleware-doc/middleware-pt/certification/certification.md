@@ -147,7 +147,7 @@ The POS influences the content of the document only through the request it sends
 | Field | Where it appears | Typical use |
 | ----- | ---------------- | ----------- |
 | `cbCustomer` (name, street, zip, city, country, `CustomerVATId`) | Customer block | Identified customer. Without `CustomerVATId` the document shows *Consumidor final*. |
-| `cbUser` | Operator line | The operator who issued the document. Either a plain string or an object `{ "UserId": "...", "UserDisplayName": "...", "UserEmail": "..." }`; the display name is printed, the user ID is exported to the SAF-T. |
+| `cbUser` | Operator line | The operator who issued the document, as a string with at least 3 characters. JSON objects are rejected. A hash of the value is exported to the SAF-T as `SourceID`. |
 | `ftReceiptCaseData.cbReceiptLines` (array of strings) | Below the customer block, before the footer | Document-level free text: table number, order reference, delivery information, loyalty balance. |
 | `ftChargeItemCaseData.cbChargeItemLines` (array of strings) | Below the article description | Line-level details: serial number, size, deposit information, promotion text. |
 | `ftPayItemCaseData.cbPayItemLines` (array of strings) | *Dados da transação* block after the payments | Card payment details returned by the terminal (masked PAN, authorisation code, terminal ID). |

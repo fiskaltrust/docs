@@ -41,7 +41,7 @@ The following sections describe what the Middleware validates and how to fix a r
 
 | What is validated | How to fix |
 |-------------------|------------|
-| `cbUser` identifies the operator and has at least 3 characters. | Always send `cbUser` as a JSON object with `UserId`, `UserDisplayName` and `UserEmail`. |
+| `cbUser` is a string with at least 3 characters that identifies the operator. | Always send `cbUser` as a string, for example the operator's name. Do not send a JSON object. |
 | `cbCustomer` is a valid customer object. | Send `cbCustomer` as a JSON object with the customer fields of the [data model](../../general/data-structures/data-structures.md), or omit it. |
 | A Portuguese customer VAT ID is a valid NIF. | If `CustomerVATId` is a Portuguese NIF (`CustomerCountry` is empty or `PT`), send the 9-digit number without prefix or spaces, and check it for typing errors. For foreign customers, set `CustomerCountry` to the customer's country. |
 
