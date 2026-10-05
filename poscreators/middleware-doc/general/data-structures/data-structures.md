@@ -13,6 +13,16 @@ The following conventions apply to all tables in this chapter:
 - Fields marked with `*` are required and are always serialized, even when they hold their default value. All other fields are optional and are omitted from the JSON payload when they are `null`. Optional numeric fields are also omitted when they hold their default value (for example `Position` with the value **0**). Collections that are initialized by the Middleware, such as `ftSignatures`, are always serialized, even when they are empty.
 - **Nullable** indicates whether the field accepts `null`.
 - Fields of type `number($decimal)` are interpreted according to the `DecimalPrecisionMultiplier` of the containing structure: when the multiplier is **1** they are floating-point numbers, otherwise they are integers that must be divided by the multiplier to obtain the decimal representation.
+- Fields of type `object`, for example `ftReceiptCaseData`, `ftChargeItemCaseData` or `ftPayItemCaseData`, are JSON objects, not JSON-encoded strings. Market-specific overrides are placed in a sub-object keyed by the two-letter ISO code of the market, for example `"DE": { ... }`.
+
+```json
+"ftReceiptCaseData": {
+  "<property>": "<value>",
+  "DE": {
+    "<property>": "<value for Germany>"
+  }
+}
+```
 
 ## ReceiptRequest
 

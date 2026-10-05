@@ -84,6 +84,7 @@ Each market's **Overview** and **Setup & testing** pages live under its entry in
 | Requirement | Detail |
 | --- | --- |
 | fiskaltrust account + fiskaltrust.Middleware | An active account with a configured fiskaltrust.Middleware. See [Portal registration](../../getting-started/portal-registration.md). |
+| Cloud CashBox | eInvoicing is currently only available with a cloud-based fiskaltrust.Middleware (cloud CashBox), not with a local fiskaltrust.Middleware. |
 | Existing fiscalization integration | Your POS already fiscalizes via `/sign` in the target market. |
 | fiskaltrust.Middleware country configuration | Set to the market's locale — this drives the output format. |
 | PosSystem API (v2) | eInvoicing is exposed through the **PosSystem API (v2)**. If you don't integrate with it yet, start with the [PosSystem API introduction](../possystem-api/introduction.md). |
