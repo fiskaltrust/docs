@@ -28,7 +28,7 @@ You'll need at least the following three items to run a request successfully aga
 * Your account's access token
 * The desired template
 
-![](images/account_data.png "https://portal-sandbox.fiskaltrust.TLD/AccountProfile")
+![Portal Company Overview page with the API-Access section showing the AccountId and AccessToken fields](images/account_data.png "https://portal-sandbox.fiskaltrust.TLD/AccountProfile")
 
 *Figure 1. The account profile page in the fiskaltrust.Portal showing the account ID and access token.*
 

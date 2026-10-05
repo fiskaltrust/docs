@@ -31,7 +31,7 @@ A CashBox is a configuration container that connects (links) the configurations 
 
 In the next steps, an SCU and a Queue will be created for testing purposes and connected via a CashBox.
 
-![cashbox](images/middleware.svg)
+![Diagram: POS system connects via IPOS to a CashBox containing a Queue and an SCU, which signs through a smart card, USB or cloud SSCD](images/middleware.svg)
 
 *Figure 1. Diagram of a CashBox linking the Queue and SCU configurations of the fiskaltrust.Middleware.*
 
@@ -43,7 +43,7 @@ The SCU (Signature Creation Unit) is a component of the ft.Middleware responsibl
 
 To create an SCU configuration in the fiskaltrust.Portal, select the menu item `Configuration` / `Signature creation unit` and click "Create". Enter a short description (name) for the SCU, then select the package for your TSE under "Package Name". Next, choose the latest version under "Package Version" and select the appropriate "Outlet". Click "Save" to create the SCU configuration.
 
-![cashbox-config-scu-creation-01](images/cashbox-config-scu-creation-01.png)
+![Portal SCU creation form with Description, Package name, Package version and Outlet fields and the Save button](images/cashbox-config-scu-creation-01.png)
 
 *Figure 2. Creating a Signature Creation Unit configuration in the fiskaltrust.Portal.*
 
@@ -65,7 +65,7 @@ Select the outlet in the shop before you add the fiskaly Cloud-TSE test to your 
 
 To specify the communication endpoint for the SCU, select, for example, the "gRPC" by pressing the corresponding button in the lower part of the form . The input field is filled automatically and can be edited if necessary. For the purposes of this guide, the automatically filled gRPC endpoint is sufficient.
 
-![cashbox-config-scu-creation-02](images/cashbox-config-scu-creation-02.png)
+![SCU endpoint field filled with grpc://localhost:1401 next to the gRPC, http (REST), http (SOAP) and net.pipe (SOAP) buttons](images/cashbox-config-scu-creation-02.png)
 
 *Figure 3. Configuring the SCU communication endpoint in the fiskaltrust.Portal.*
 
@@ -77,13 +77,13 @@ The Queue is a component of the fiskaltrust.Middleware that collects the receive
 
 Under the menu item `Configuration` / `Queue`, click the "Add" button to create a new Queue. This opens the input form. Enter a short description (name) and the CashBoxIdentification. The CashBoxIdentification is later used by the SCU as clientID for the TSE. It must therefore be a **unique value**, formatted as a ["printable string"](https://en.wikipedia.org/wiki/PrintableString) with a maximum length of 20 characters.
 
-![cashbox-config-queue-creation-01](images/cashbox-config-queue-creation-01.png)
+![Portal Queue creation form with Description, Package name, Timeout, CashBox Identification, Outlet and date fields](images/cashbox-config-queue-creation-01.png)
 
 *Figure 4. Creating a Queue configuration in the fiskaltrust.Portal.*
 
 After saving, a form appears where you can specify the communication endpoint. This endpoint will later be used for communication with the Queue. For our example, we will choose http(REST) by clicking the corresponding button.
 
-![cashbox-config-queue-creation-02](images/cashbox-config-queue-creation-02.png)
+![Queue endpoint field filled with a rest://localhost:1500 URL after clicking the http (REST) button](images/cashbox-config-queue-creation-02.png)
 
 *Figure 5. Selecting the Queue communication endpoint in the fiskaltrust.Portal.*
 
@@ -93,7 +93,7 @@ Once saved, the Queue configuration is complete. In the next step, we will creat
 
 Under the menu item `Configuration` / `CashBox,`click the "Add" button to create a new CashBox. This opens the input form. After entering a short description (name), click "Save". The CashBox is now created and appears in the list.
 
-![cashbox-config-cashbox-creation-01](images/cashbox-config-cashbox-creation-01.png)
+![Portal CashBox creation form with Description, IP-Address and Outlet fields and the Save button](images/cashbox-config-cashbox-creation-01.png)
 
 *Figure 6. Creating a CashBox configuration container in the fiskaltrust.Portal.*
 
@@ -101,19 +101,19 @@ Under the menu item `Configuration` / `CashBox,`click the "Add" button to create
 
 Next, we will add the configuration of the Queue and SCU to the created CashBox and connect them. To do this, click the button with the list icon assigned to the CashBox.
 
-![icon-list-config](images/icon-list-config.png)
+![List icon button that opens the CashBox configuration](images/icon-list-config.png)
 
 *Figure 7. List icon button used to open the CashBox configuration.*
 
 Select the previously created Queue and SCU using the corresponding checkboxes, then click "Save". After saving, we will connect the Queue with the SCU. To do this, expand the list entry of the new CashBox in the overview of the CashBoxes. The detail area shows the contained configurations. Two buttons are assigned to the Queue configuration on the right side. Click the first button (box-and-arrow icon) to assign the new SCU to the Queue.
 
-![icon-box-and-arrow](images/icon-box-and-arrow.png)
+![Box-and-arrow icon button for assigning the SCU to the Queue](images/icon-box-and-arrow.png)
 
 *Figure 8. Box-and-arrow icon button used to assign the SCU to the Queue.*
 
 A popup appears where you can select the SCU. After assigning and saving, the CashBox configuration is complete.
 
-![queue-to-scu-assignment](images/queue-to-scu-assignment.png)
+![SCU assignment popup with SCU 01 selected and the Save and close, Save and Cancel buttons](images/queue-to-scu-assignment.png)
 
 *Figure 9. Popup for assigning the SCU to the Queue in the fiskaltrust.Portal.*
 
@@ -125,13 +125,13 @@ The ft.Middleware Launcher starts the required services on the local machine and
 
 Before downloading the launcher, **it is important to "rebuild" the CashBox**. To do this, click the "Rebuild configuration" button (first grey button with the reload icon) in the CashBox line. **This action must be repeated whenever the CashBox configuration or any of its components is changed.**.
 
-![icon-rebuild-cashbox](images/icon-rebuild-cashbox.png)
+![Grey Rebuild configuration button with the reload icon](images/icon-rebuild-cashbox.png)
 
 *Figure 10. Rebuild configuration button in the CashBox line.*
 
 After rebuild, you can now download the launcher by clicking the "Download" button.
 
-![icon-download-launcher](images/icon-download-launcher.png)
+![Orange Download button for the Launcher](images/icon-download-launcher.png)
 
 *Figure 11. Download button for the Middleware Launcher.*
 
