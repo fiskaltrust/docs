@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/technical-operations/middleware/helper
 title: Helper
+description: What Middleware Helpers do, examples such as the POS-API Helper and HelipadHelper, and how to add, configure, and assign a Helper to a CashBox.
+tags: [LocalPosSystemApi Helper, Helipad, CashBox, Middleware, Configuration, PosDealers]
 ---
 
 # Helper

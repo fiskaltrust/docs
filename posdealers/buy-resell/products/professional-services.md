@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/buy-resell/products/professional-services
 title: Professional services
+description: Professional services offered per market, with country tabs for Austria, Germany and France (ConseilCertif).
+tags: [Professional Services, PosDealers, France, Austria, Germany]
 ---
 
 # Professional services

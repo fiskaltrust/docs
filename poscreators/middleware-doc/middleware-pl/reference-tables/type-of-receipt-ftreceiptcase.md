@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/poland/reference-tables/ftreceiptcase
 title: 'Type of Receipt: ftReceiptCase'
+description: ftReceiptCase format, receipt case types, and global and local flags for Poland (country code 0x504C), currently in preview.
+tags: [Receipt Case, Poland, Reference Tables]
 ---
 
 # Type of Receipt: ftReceiptCase
@@ -84,7 +86,7 @@ version 2
 | `0080` | **IsSaleInForeignCountry**<br /> | preview |
 | `0100` | **IsReturn/IsRefund**<br />Marks Receipt as Return of good or service.<br />In Poland a return must be its own document referencing the original receipt via `cbPreviousReceiptReference`; mixing sale and return positions in one document is rejected. | preview |
 | `0800` | **Group by Position-Number / 100**<br />100 = first position, 101 first subitem, 102 second subitem.<br />The sum of all chargeitems within a position must count toward the total receipt amount.<br />If the quantity and amount are 0,00, the quantity and amount will not be visualized for this line on the digital receipt. Independent if main or subitem. | preview |
-| `8000` | **ReceiptRequest**<br />If you don’t receive a response, try this flag first before taking any other action.<br />This will return a stored result for example in case of a timeout when cashregister calls queue. | preview |
+| `8000` | **ReceiptRequest**<br />Returns the stored response of an already processed receipt with the same `cbReceiptReference` instead of processing it again.<br />To recover from a missing response or a timeout, retry the request with the same `x-operation-id` instead (see [Process-Driven and Idempotent Design](../../possystem-api/introduction.md#process-driven-and-idempotent-design)). | preview |
 
 #### lll - local tagging/flag 
 

@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/technical-operations/maintenance/exports
 title: Exports
+description: How PosDealers and PosOperators create and download data exports (CSV, XML, country-specific formats) for queues in the fiskaltrust.Portal.
+tags: [Exports, Journal, Portal, PosDealers]
 ---
 # Exports
 

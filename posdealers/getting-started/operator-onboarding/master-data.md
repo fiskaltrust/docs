@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/getting-started/operator-onboarding/master-data
 title: Master Data
+description: Why complete master data matters and how to check company data, tax numbers and outlets in the fiskaltrust.Portal.
+tags: [Master Data, Onboarding, Portal, PosDealers]
 ---
 # Master Data
 

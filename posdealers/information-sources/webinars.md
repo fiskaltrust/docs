@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/information-sources/webinars
 title: Webinars
+description: How PosDealers join and take part in free fiskaltrust webinars, with links to country-specific webinar information for Austria, France, and Germany.
+tags: [Webinars, PosDealers, Onboarding, Austria, France, Germany]
 ---
 # Webinars
 

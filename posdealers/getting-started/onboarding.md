@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/getting-started/posdealer-onboarding
 title: PosDealer Onboarding
+description: Step-by-step PosDealer onboarding checklist from account and roles through operator invitations, architecture, procurement and contracts.
+tags: [Onboarding, PosDealers, Portal, Company Roles]
 ---
 
 # PosDealer Onboarding Guide
@@ -65,4 +67,4 @@ The **Contract Partner Agreement** [(VPA)](../buy-resell/overview.md#volume-purc
 
 ### 8. Knowledge and Documentation
 
-Know where to locate [knowledge articles](https://portal.fiskaltrust.de/#/KBArticles) in the portal and fiskaltrust [documentation](https://docs.fiskaltrust.cloud/).
+Know where to locate [knowledge articles](https://portal.fiskaltrust.de/#/KBArticles) in the portal and fiskaltrust [documentation](https://docs.fiskaltrust.eu/).

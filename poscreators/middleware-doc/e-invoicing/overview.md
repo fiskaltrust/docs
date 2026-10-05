@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/e-invoicing/overview
 title: eInvoicing
+description: How eInvoicing is layered onto the /sign and /issue calls, what varies by market, and availability for Austria, France, Germany, Italy and Poland.
+tags: [eInvoicing, Peppol, Issue Endpoint, Middleware, PosCreators]
 sidebar_label: "eInvoicing — Overview"
 ---
 
@@ -50,6 +52,20 @@ Where the API path is available, the flow is the same shape everywhere — your 
 | 2. Issue for delivery (optional) | Register the receipt via `/issue`, then deliver it to a channel. |
 | 3. Poll for status | Poll `GET /issue/{queueId}/{queueItemId}` until delivered / cleared. No webhook. |
 
+## Invoices and invoice types
+
+An invoice differs from a receipt in that it identifies the buyer: every invoice carries the buyer in [`cbCustomer`](../general/data-structures/data-structures.md#cbcustomer). The invoice type is set by the receipt case of the `/sign` request alone; no `cbCustomer` field is needed for it:
+
+| Invoice type | `ftReceiptCase` (PosSystem API v2) |
+| --- | --- |
+| B2C invoice | `0x2000_0000_1001` |
+| B2B invoice | `0x2000_0000_1002` |
+| B2G invoice | `0x2000_0000_1003` |
+
+*Table 1. Invoice types and their receipt cases.*
+
+For every invoice type, an eInvoice XML is generated, whatever the buyer's country, and validated semantically. If the validation fails, the `/sign` call fails. Which `cbCustomer` fields are required, for example `CustomerVATId`, depends on the situation, the market and the buyer. Fields that do not apply to the buyer can be left out or sent empty. For the full list of receipt cases, see [ftReceiptCase](../possystem-api/migration-guide.md#ftreceiptcase).
+
 ## What varies by market
 
 The model is constant; the specifics are market-driven:
@@ -80,6 +96,7 @@ Each market's **Overview** and **Setup & testing** pages live under its entry in
 | Requirement | Detail |
 | --- | --- |
 | fiskaltrust account + fiskaltrust.Middleware | An active account with a configured fiskaltrust.Middleware. See [Portal registration](../../getting-started/portal-registration.md). |
+| CloudCashBox | eInvoicing is currently only available with a cloud-based fiskaltrust.Middleware (CloudCashBox), not with a local fiskaltrust.Middleware. |
 | Existing fiscalization integration | Your POS already fiscalizes via `/sign` in the target market. |
 | fiskaltrust.Middleware country configuration | Set to the market's locale — this drives the output format. |
 | PosSystem API (v2) | eInvoicing is exposed through the **PosSystem API (v2)**. If you don't integrate with it yet, start with the [PosSystem API introduction](../possystem-api/introduction.md). |
@@ -98,6 +115,7 @@ Market-specific terms (XRechnung, ZUGFeRD, FatturaPA, XAdES, SDI, `CodiceDestina
 
 ## Related pages
 
+- [Buyer data (`cbCustomer`) in eInvoicing](./cbcustomer.md) — mapping of the `cbCustomer` fields to the EN 16931 buyer fields.
 - [Delivery (`/issue` Endpoint)](../experience-middleware/delivery.md) — the product-level eInvoicing and eDelivery concept.
 - [Migrating from API v0 to PosSystem API (v2)](../possystem-api/migration-guide.md) — eInvoicing is a PosSystem API (v2) feature.
 - Country pages — see [Availability by market](#availability-by-market).

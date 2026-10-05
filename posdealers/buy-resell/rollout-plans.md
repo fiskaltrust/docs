@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/buy-resell/rollout-plans
 title: Rollout Plans
+description: Using Business Rollout plans in the Portal to buy, transfer and activate entitlements for multiple PosOperators and outlets at once.
+tags: [Rollout Plans, Entitlements, Portal, PosDealers]
 ---
 # Rollout Plans
 
@@ -20,7 +22,7 @@ The business rollout simplifies acquiring entitlements, transferring them to the
 
 This sketch shows the process :
 
-![Rollout-management](./images/rollout-management.png)
+![Business rollout workflow: Rollout Management, Business Rollout, select rollout plan, select PosOperators and outlets, create quote and load into cart, binding order](./images/rollout-management.png)
 
 *Figure 1. Process of the business rollout for acquiring and activating entitlements.*
 

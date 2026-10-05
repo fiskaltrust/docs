@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/poland/reference-tables/ftpayitemcase
 title: 'Type of Payment: ftPayItemCase'
+description: ftPayItemCase payment types and flags for Poland, where every pay item must use the currency PLN.
+tags: [Pay Item Case, Poland, Reference Tables, Payment]
 ---
 
 # Type of Payment: ftPayItemCase
