@@ -19,7 +19,7 @@ The following conventions apply to all tables in this chapter:
 
 ## Object fields
 
-Fields of type `object`, for example `ftReceiptCaseData`, `ftChargeItemCaseData`, `ftPayItemCaseData`, `cbUser`, `cbArea` or `cbSettlement`, are sent as JSON objects, not as JSON-encoded strings. Their properties at the top level apply to all markets.
+Fields of type `object`, for example `ftReceiptCaseData`, `ftChargeItemCaseData`, `ftPayItemCaseData`, `cbUser`, `cbArea`, `cbSettlement` or [`cbCustomer`](#cbcustomer), are sent as JSON objects, not as JSON-encoded strings. Their properties at the top level apply to all markets.
 
 ### Market-specific content
 
