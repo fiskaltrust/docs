@@ -15,7 +15,7 @@ This page describes the corrections that the data model supports, how the POS sy
 
 | Correction | Use case | `ftReceiptCase` flag | `ftChargeItemCase` flag | `ftPayItemCase` flag | `cbPreviousReceiptReference` |
 |------------|----------|----------------------|-------------------------|----------------------|------------------------------|
-| [Void](#void) | Cancel a complete receipt. | `0004` IsVoid | `0001` IsVoid | `0001` IsVoid | Required, single reference |
+| [Void](#void) | Cancel a complete receipt before goods and money were exchanged, usually because of a technical problem. | `0004` IsVoid | `0001` IsVoid | `0001` IsVoid | Required, single reference |
 | [Full refund](#full-refund) | Give back everything that was bought and get all of the money back. | `0100` IsReturn/IsRefund | Optional, ignored | Optional, ignored | Required, single reference |
 | [Partial refund](#partial-refund) | Give back a part of the original receipt and get back a part of the money. | none | `0002` IsReturn/IsRefund on all items | `0002` IsReturn/IsRefund on all items | Single reference |
 | [Exchange](#exchange) | Give back something and get another product for it. | none | `0002` IsReturn/IsRefund on the returned items only | `0002` IsReturn/IsRefund on the paid-back items only | Single reference |
@@ -29,33 +29,29 @@ The flags are part of the global tagging section `gggg` of the case values, see 
 
 Voiding and refunding both reverse a previously recorded transaction, but they describe different business cases and use different flags. A **void** cancels a receipt as if the business case had not happened. A **refund/return** records a new business case that offsets an earlier, already paid sale; the original receipt stays on record. Choosing the wrong flag produces a receipt that passes validation but misrepresents the business case in the fiscal records.
 
-The deciding question is: **has the exchange of money already been executed?** The pay item flags define it this way: `IsVoid` is used when the exchange of money has not been executed yet, `IsReturn/IsRefund` when it has already been executed.
+The deciding question is: **have goods and money already been exchanged?** A void is only used when neither the goods nor the money have changed hands. This is usually the case when the cashier notices a technical problem. The pay item flags define it the same way: `IsVoid` is used when the exchange of money has not been executed yet, `IsReturn/IsRefund` when it has already been executed.
 
 | | Void | Refund / Return |
 |---|------|-----------------|
 | **Meaning** | Cancels or corrects a receipt as if the business case had not happened. | Reverses a completed sale: goods or services are given back after the fact. |
-| **Money already exchanged?** | No, the payment was not (yet) settled. | Yes, the customer already paid and is paid back. |
-| **Typical trigger** | Cashier error, wrong item, the customer changes their mind before paying. | The customer returns a purchased product later, or a service is refunded. |
+| **Goods and money already exchanged?** | No, neither the goods nor the money have changed hands. | Yes, the customer already received the goods or service and paid, and is paid back. |
+| **Typical trigger** | A technical problem that the cashier notices. | The customer returns a purchased product, or a service is refunded. |
 | **Relates to** | The receipt or position that is being corrected. | An earlier, already closed sale. |
 
 *Table 2. Differences between a void and a refund/return.*
 
 :::tip Rule of thumb
-Money not yet moved → **Void**. Money already moved → **Refund/Return**.
+Goods and money not yet exchanged → **Void**. Goods or money already exchanged → **Refund/Return**. If you are not sure whether a case is a void or a refund, use a **refund**.
 :::
 
 ### Decision flow
 
-1. **Was the original transaction already paid, i.e. was money exchanged?**
+1. **Have goods and money already been exchanged?**
    - **No**: this is a [void](#void) (`IsVoid`).
-   - **Yes**: continue with step 2.
+   - **Yes**, or **not sure**: continue with step 2.
 2. **Are goods or services given back, or a paid service reversed?**
    - **Yes**: this is a [full refund](#full-refund), a [partial refund](#partial-refund) or an [exchange](#exchange) (`IsReturn/IsRefund`), see [Full refund, partial refund or exchange](#full-refund-partial-refund-or-exchange).
    - **No**, for example a pure correction of an already settled receipt: follow the market-specific correction rules, see [Market-specific considerations](#market-specific-considerations).
-
-![Decision flow: if money was not yet exchanged, the transaction is a void with IsVoid referencing the preceding receipt; if money was exchanged and goods or services are given back, it is a refund/return with IsReturn/IsRefund; otherwise a market-specific correction applies](./images/void-vs-refund-flow.svg)
-
-*Figure 1. Choosing between void, refund/return and a market-specific correction.*
 
 ### Full refund, partial refund or exchange
 
@@ -77,7 +73,7 @@ The flags `Discount`, `Downpayment` and `Returnable` of a charge item define the
 
 ## Void
 
-A void cancels a complete receipt. The POS system sends a new receipt with:
+A void cancels a complete receipt before goods and money were exchanged. It is usually only used when the cashier notices a technical problem. If it is not clear whether goods or money have already been exchanged, use a [full refund](#full-refund) or [partial refund](#partial-refund) instead. The POS system sends a new receipt with:
 
 - the same `ftReceiptCase` as the original receipt, with the flag `IsVoid` (`0x0000_0000_0004_0000`) set,
 - `cbPreviousReceiptReference` set to the `cbReceiptReference` of the original receipt,
@@ -85,7 +81,7 @@ A void cancels a complete receipt. The POS system sends a new receipt with:
 
 A receipt can only be voided once, and a voided receipt can no longer be referenced by other receipts (see [Rules applied by the Middleware](#rules-applied-by-the-middleware)).
 
-**Example**: A cashier rings up 2 × coffee, but the customer ordered only one, and the payment has not been finalized. The POS system voids the receipt: it sends the same receipt again with quantity `-2`, `IsVoid` set on the receipt and the charge item, and `cbPreviousReceiptReference` pointing to the erroneous receipt. It then issues a correct receipt for 1 × coffee.
+**Example**: Because of a technical problem, the POS system records a receipt for 2 × coffee, although the customer has neither paid nor received anything yet. The cashier notices the problem. The POS system voids the receipt: it sends the same receipt again with quantity `-2`, `IsVoid` set on the receipt and the charge item, and `cbPreviousReceiptReference` pointing to the erroneous receipt. It then issues a correct receipt for the sale.
 
 ## Full refund
 
