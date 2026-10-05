@@ -67,7 +67,25 @@ Where the `IsReturn/IsRefund` flag is set decides how the Middleware interprets 
 
 ## Values in a correction
 
-In all corrections, quantity and amount of the flagged charge items and pay items are inverted in relation to the original item: a sold item with a positive quantity and amount is refunded or voided with a negative quantity and amount. The same applies to the pay items: the money paid out to the customer is a negative pay item amount.
+In a void or refund, **both** quantity and amount of every charge item and pay item are always the **inverse** of the original item: each value is multiplied by -1. Inverted does not mean negative: a value that was positive in the original receipt is negative in the correction, and a value that was negative in the original receipt is positive in the correction.
+
+### Quantity and amount
+
+`Quantity` and `Amount` are two separate values with different meanings:
+
+- `Quantity` is the number of units of the goods or service on the line, i.e. the goods that move.
+- `Amount` is the total value of the line, i.e. the money that moves.
+
+Because they describe different things, their signs do not have to match. A discount line, for example, has a positive quantity and a negative amount, and a deposit return has a negative quantity and a negative amount. The correction therefore must not simply set both values to negative; it inverts each of them on its own:
+
+| Line | Original `Quantity` | Original `Amount` | Correction `Quantity` | Correction `Amount` |
+|------|--------------------:|------------------:|----------------------:|--------------------:|
+| Coffee | 2 | 6.00 | -2 | -6.00 |
+| Discount | 1 | -1.00 | -1 | 1.00 |
+| Deposit return (`Returnable`) | -3 | -0.75 | 3 | 0.75 |
+| **Cash** (pay item) | 1 | 4.25 | -1 | -4.25 |
+
+*Table 4. Quantity and amount of a receipt and of its void or full refund: each value is inverted.*
 
 The flags `Discount`, `Downpayment` and `Returnable` of a charge item define the meaning of a positive and a negative amount. Combined with `IsVoid` or `IsReturn/IsRefund`, this meaning is inverted, so a discount on a refunded item is sent with a positive amount. See [gggg - Global tagging/flags](../reference-tables/reference-tables.md#type-of-service-ftchargeitemcase) of `ftChargeItemCase`.
 
@@ -90,7 +108,7 @@ In a full refund, the customer gives back everything they bought and gets all of
 - the same `ftReceiptCase` as the original receipt, with the flag `IsReturn/IsRefund` (`0x0000_0000_0100_0000`) set,
 - `cbPreviousReceiptReference` set to the `cbReceiptReference` of the original receipt,
 - all charge items of the original receipt with inverted quantity and amount,
-- the pay items for the money paid back, with negative amounts.
+- the pay items for the money paid back, with inverted amounts.
 
 The POS system may also set the flag `IsReturn/IsRefund` (`0x0000_0000_0002_0000`) on the charge items and pay items, but the Middleware ignores these item flags in a full refund. The sum of the charge items must equal the sum of the pay items, as in every receipt.
 
@@ -106,8 +124,8 @@ In a partial refund, the customer gives back only a part of the original receipt
 
 - the `ftReceiptCase` of a regular receipt, **without** the receipt flag `IsReturn/IsRefund`,
 - `cbPreviousReceiptReference` set to the `cbReceiptReference` of the original receipt,
-- only the returned charge items, with negative quantity and amount and the flag `IsReturn/IsRefund`,
-- the pay items for the money paid back, with negative amounts and the flag `IsReturn/IsRefund`.
+- only the returned charge items, with inverted quantity and amount and the flag `IsReturn/IsRefund`,
+- the pay items for the money paid back, with inverted amounts and the flag `IsReturn/IsRefund`.
 
 All charge items and pay items of a partial refund carry the flag. A receipt that mixes flagged and unflagged items is an [exchange](#exchange).
 
@@ -123,7 +141,7 @@ The original receipt with `cbReceiptReference` `R-1001` contains two items and w
 | Cake | 1 | 4.00 | `0xCCCC_2000_0000_0013` |
 | **Cash** (pay item) | 1 | 10.00 | `0xCCCC_2000_0000_0001` |
 
-*Table 4. Original receipt `R-1001` with `ftReceiptCase` `0xCCCC_2000_0000_0001`.*
+*Table 5. Original receipt `R-1001` with `ftReceiptCase` `0xCCCC_2000_0000_0001`.*
 
 The customer returns one coffee. The partial refund keeps the `ftReceiptCase` `0xCCCC_2000_0000_0001`, sets `cbPreviousReceiptReference` to `R-1001`, and contains only the returned coffee:
 
@@ -132,13 +150,13 @@ The customer returns one coffee. The partial refund keeps the `ftReceiptCase` `0
 | Coffee | -1 | -3.00 | `0xCCCC_2000_0002_0013` |
 | **Cash** (pay item) | -1 | -3.00 | `0xCCCC_2000_0002_0001` |
 
-*Table 5. Partial refund of one coffee from receipt `R-1001`.*
+*Table 6. Partial refund of one coffee from receipt `R-1001`.*
 
 If the customer returned both coffees and the cake instead, the POS system would send a [full refund](#full-refund) with the receipt flag `IsReturn/IsRefund` (`ftReceiptCase` `0xCCCC_2000_0100_0001`) and all three items inverted.
 
 ## Exchange
 
-In an exchange, the customer gives back something and gets another product for it. The receipt itself is not flagged. It contains a mix of charge items with the flag `IsReturn/IsRefund` (the returned goods, with negative quantity and amount) and charge items without the flag (the new goods). The same applies to the pay items: pay items for money paid back carry the flag, pay items for money received do not.
+In an exchange, the customer gives back something and gets another product for it. The receipt itself is not flagged. It contains a mix of charge items with the flag `IsReturn/IsRefund` (the returned goods, with inverted quantity and amount) and charge items without the flag (the new goods). The same applies to the pay items: pay items for money paid back carry the flag, pay items for money received do not.
 
 :::warning
 An exchange is not allowed in many markets. There, the POS system sends the return and the new sale as separate receipts: a [partial refund](#partial-refund) or [full refund](#full-refund) for the returned goods, and a regular receipt for the new goods. See the market pages.
