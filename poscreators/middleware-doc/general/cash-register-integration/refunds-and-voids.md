@@ -1,8 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/general/cash-register-integration/refunds-and-voids
 title: Refunds and Voids
-description: How to void a receipt, refund a receipt in full or in part, and void single positions, using the IsVoid and IsReturn/IsRefund flags and cbPreviousReceiptReference.
-tags: [Refund, Partial Refund, Void, Return, cbPreviousReceiptReference, Receipt Case, Cash Register Integration]
+description: How to void a receipt, refund a receipt in full or in part, exchange goods, and void single positions, using the IsVoid and IsReturn/IsRefund flags and cbPreviousReceiptReference.
+tags: [Refund, Partial Refund, Exchange, Void, Return, cbPreviousReceiptReference, Receipt Case, Cash Register Integration]
 ---
 
 # Refunds and Voids
@@ -16,8 +16,9 @@ This page describes the corrections that the data model supports, how the POS sy
 | Correction | Use case | `ftReceiptCase` flag | `ftChargeItemCase` flag | `ftPayItemCase` flag | `cbPreviousReceiptReference` |
 |------------|----------|----------------------|-------------------------|----------------------|------------------------------|
 | [Void](#void) | Cancel a complete receipt. | `0004` IsVoid | `0001` IsVoid | `0001` IsVoid | Required, single reference |
-| [Refund](#refund) | Return all goods or services of a receipt. | `0100` IsReturn/IsRefund | `0002` IsReturn/IsRefund | `0002` IsReturn/IsRefund | Required, single reference |
-| [Partial refund](#partial-refund) | Return some goods or services of a receipt. | none | `0002` IsReturn/IsRefund on the returned items | `0002` IsReturn/IsRefund | Single reference |
+| [Full refund](#full-refund) | Give back everything that was bought and get all of the money back. | `0100` IsReturn/IsRefund | Optional, ignored | Optional, ignored | Required, single reference |
+| [Partial refund](#partial-refund) | Give back a part of the original receipt and get back a part of the money. | none | `0002` IsReturn/IsRefund on all items | `0002` IsReturn/IsRefund on all items | Single reference |
+| [Exchange](#exchange) | Give back something and get another product for it. | none | `0002` IsReturn/IsRefund on the returned items only | `0002` IsReturn/IsRefund on the paid-back items only | Single reference |
 | [Position void](#position-void) | Cancel a position within the receipt that is being created. | none | `0001` IsVoid on the correcting item | none | none |
 
 *Table 1. Corrections supported by the data model and the flags they use.*
@@ -49,12 +50,24 @@ Money not yet moved → **Void**. Money already moved → **Refund/Return**.
    - **No**: this is a [void](#void) (`IsVoid`).
    - **Yes**: continue with step 2.
 2. **Are goods or services given back, or a paid service reversed?**
-   - **Yes**: this is a [refund](#refund) or [partial refund](#partial-refund) (`IsReturn/IsRefund`).
+   - **Yes**: this is a [full refund](#full-refund), a [partial refund](#partial-refund) or an [exchange](#exchange) (`IsReturn/IsRefund`), see [Full refund, partial refund or exchange](#full-refund-partial-refund-or-exchange).
    - **No**, for example a pure correction of an already settled receipt: follow the market-specific correction rules, see [Market-specific considerations](#market-specific-considerations).
 
 ![Decision flow: if money was not yet exchanged, the transaction is a void with IsVoid referencing the preceding receipt; if money was exchanged and goods or services are given back, it is a refund/return with IsReturn/IsRefund; otherwise a market-specific correction applies](./images/void-vs-refund-flow.svg)
 
 *Figure 1. Choosing between void, refund/return and a market-specific correction.*
+
+### Full refund, partial refund or exchange
+
+Where the `IsReturn/IsRefund` flag is set decides how the Middleware interprets the receipt:
+
+| Business case | `ftReceiptCase` | Charge items and pay items |
+|---------------|-----------------|----------------------------|
+| [Full refund](#full-refund): everything that was bought is given back, and all of the money is paid back. | `IsReturn/IsRefund` set | All items of the original receipt, inverted. Item flags are optional and ignored. |
+| [Partial refund](#partial-refund): only a part of the original receipt is given back, and only a part of the money is paid back. | No flag | Only the returned items, all flagged with `IsReturn/IsRefund`. |
+| [Exchange](#exchange): something is given back, and another product is taken in exchange. | No flag | A mix of items with and without `IsReturn/IsRefund`. Not allowed in many markets. |
+
+*Table 3. How the position of the IsReturn/IsRefund flag distinguishes full refund, partial refund and exchange.*
 
 ## Values in a correction
 
@@ -74,18 +87,18 @@ A receipt can only be voided once, and a voided receipt can no longer be referen
 
 **Example**: A cashier rings up 2 × coffee, but the customer ordered only one, and the payment has not been finalized. The POS system voids the receipt: it sends the same receipt again with quantity `-2`, `IsVoid` set on the receipt and the charge item, and `cbPreviousReceiptReference` pointing to the erroneous receipt. It then issues a correct receipt for 1 × coffee.
 
-## Refund
+## Full refund
 
-A refund returns all goods or services of a receipt. The POS system sends a new receipt with:
+In a full refund, the customer gives back everything they bought and gets all of their money back. As soon as the flag `IsReturn/IsRefund` is set in `ftReceiptCase`, the Middleware treats the receipt as a full refund and assumes that all charge items and pay items of the original receipt are reversed. The POS system sends a new receipt with:
 
 - the same `ftReceiptCase` as the original receipt, with the flag `IsReturn/IsRefund` (`0x0000_0000_0100_0000`) set,
 - `cbPreviousReceiptReference` set to the `cbReceiptReference` of the original receipt,
-- all charge items of the original receipt with inverted quantity and amount, marked with the flag `IsReturn/IsRefund` (`0x0000_0000_0002_0000`),
-- the pay items for the money paid back, with negative amounts and the flag `IsReturn/IsRefund` (`0x0000_0000_0002_0000`).
+- all charge items of the original receipt with inverted quantity and amount,
+- the pay items for the money paid back, with negative amounts.
 
-The sum of the charge items must equal the sum of the pay items, as in every receipt.
+The POS system may also set the flag `IsReturn/IsRefund` (`0x0000_0000_0002_0000`) on the charge items and pay items, but the Middleware ignores these item flags in a full refund. The sum of the charge items must equal the sum of the pay items, as in every receipt.
 
-**Example**: A customer bought a jacket last week (paid, receipt closed) and returns it today. The POS system sends a refund with quantity `-1` and the negative amount for the jacket, `IsReturn/IsRefund` set on the receipt, the charge item and the pay item, and `cbPreviousReceiptReference` pointing to the original sale. The money is paid back to the customer.
+**Example**: A customer bought a jacket last week (paid, receipt closed) and returns it today. The POS system sends a full refund with quantity `-1` and the negative amount for the jacket, a negative cash pay item, `IsReturn/IsRefund` set in `ftReceiptCase`, and `cbPreviousReceiptReference` pointing to the original sale. The money is paid back to the customer.
 
 :::info Unreferenced refunds
 Some scenarios require a refund without a reference to an original receipt, for example a goodwill refund or when the original receipt is unknown. Whether unreferenced refunds are supported, and how they are handled, is market specific; see [Market-specific considerations](#market-specific-considerations).
@@ -93,12 +106,14 @@ Some scenarios require a refund without a reference to an original receipt, for 
 
 ## Partial refund
 
-A partial refund returns only some of the goods or services of a receipt, or a smaller quantity than was sold. The receipt itself is not flagged; the Middleware identifies a partial refund by the charge items that carry the flag `IsReturn/IsRefund`. The POS system sends a new receipt with:
+In a partial refund, the customer gives back only a part of the original receipt (some of the items, or a smaller quantity than was sold) and therefore gets back only a part of the money. The receipt itself is not flagged; the flag is set on the items instead. The POS system sends a new receipt with:
 
 - the `ftReceiptCase` of a regular receipt, **without** the receipt flag `IsReturn/IsRefund`,
 - `cbPreviousReceiptReference` set to the `cbReceiptReference` of the original receipt,
 - only the returned charge items, with negative quantity and amount and the flag `IsReturn/IsRefund`,
 - the pay items for the money paid back, with negative amounts and the flag `IsReturn/IsRefund`.
+
+All charge items and pay items of a partial refund carry the flag. A receipt that mixes flagged and unflagged items is an [exchange](#exchange).
 
 A receipt can be partially refunded several times, for example when a customer returns items on different days. Each partial refund references the original receipt.
 
@@ -112,7 +127,7 @@ The original receipt with `cbReceiptReference` `R-1001` contains two items and w
 | Cake | 1 | 4.00 | `0xCCCC_2000_0000_0013` |
 | **Cash** (pay item) | 1 | 10.00 | `0xCCCC_2000_0000_0001` |
 
-*Table 3. Original receipt `R-1001` with `ftReceiptCase` `0xCCCC_2000_0000_0001`.*
+*Table 4. Original receipt `R-1001` with `ftReceiptCase` `0xCCCC_2000_0000_0001`.*
 
 The customer returns one coffee. The partial refund keeps the `ftReceiptCase` `0xCCCC_2000_0000_0001`, sets `cbPreviousReceiptReference` to `R-1001`, and contains only the returned coffee:
 
@@ -121,9 +136,17 @@ The customer returns one coffee. The partial refund keeps the `ftReceiptCase` `0
 | Coffee | -1 | -3.00 | `0xCCCC_2000_0002_0013` |
 | **Cash** (pay item) | -1 | -3.00 | `0xCCCC_2000_0002_0001` |
 
-*Table 4. Partial refund of one coffee from receipt `R-1001`.*
+*Table 5. Partial refund of one coffee from receipt `R-1001`.*
 
-If the customer returned both coffees and the cake instead, the POS system would send a [refund](#refund) with the receipt flag `IsReturn/IsRefund` (`ftReceiptCase` `0xCCCC_2000_0100_0001`) and all three items inverted.
+If the customer returned both coffees and the cake instead, the POS system would send a [full refund](#full-refund) with the receipt flag `IsReturn/IsRefund` (`ftReceiptCase` `0xCCCC_2000_0100_0001`) and all three items inverted.
+
+## Exchange
+
+In an exchange, the customer gives back something and gets another product for it. The receipt itself is not flagged. It contains a mix of charge items with the flag `IsReturn/IsRefund` (the returned goods, with negative quantity and amount) and charge items without the flag (the new goods). The same applies to the pay items: pay items for money paid back carry the flag, pay items for money received do not.
+
+:::warning
+An exchange is not allowed in many markets. There, the POS system sends the return and the new sale as separate receipts: a [partial refund](#partial-refund) or [full refund](#full-refund) for the returned goods, and a regular receipt for the new goods. See the market pages.
+:::
 
 ## Position void
 
@@ -131,8 +154,8 @@ A position void cancels a position within the receipt that is currently being cr
 
 ## Other corrections
 
-- **Returnables (deposit)**: Charge items with the flag `Returnable` (`0x0000_0000_0010_0000`) use a positive amount for the handout and a negative amount for the return, for example of empty bottles. A deposit return is therefore a negative `Returnable` item, not a refund. Depending on the market, a negative `Returnable` item is only accepted in a void, refund or partial refund, see [Rules applied by the Middleware](#rules-applied-by-the-middleware).
-- **Downpayments**: A downpayment is reduced with a negative `Downpayment` charge item (`0x0000_0000_0008_0000`); see [Reference Tables](../reference-tables/reference-tables.md#type-of-service-ftchargeitemcase). Depending on the market, a negative `Downpayment` item is only accepted in a void, refund or partial refund, see [Rules applied by the Middleware](#rules-applied-by-the-middleware).
+- **Returnables (deposit)**: Charge items with the flag `Returnable` (`0x0000_0000_0010_0000`) use a positive amount for the handout and a negative amount for the return, for example of empty bottles. A deposit return is therefore a negative `Returnable` item, not a refund. Depending on the market, a negative `Returnable` item is only accepted in a void, full refund, partial refund or exchange, see [Rules applied by the Middleware](#rules-applied-by-the-middleware).
+- **Downpayments**: A downpayment is reduced with a negative `Downpayment` charge item (`0x0000_0000_0008_0000`); see [Reference Tables](../reference-tables/reference-tables.md#type-of-service-ftchargeitemcase). Depending on the market, a negative `Downpayment` item is only accepted in a void, full refund, partial refund or exchange, see [Rules applied by the Middleware](#rules-applied-by-the-middleware).
 - **Handwritten receipts**: A refund of a receipt that was recorded with the flag `Process as Handwritten Receipt` (`0x0000_0000_0008_0000`) does not require `cbPreviousReceiptReference`.
 - **Card payments**: For payments processed through the fiskaltrust payment endpoint, see [Payment](../../experience-middleware/payment.md#payment-service-provider-psp-feature-matrix) for the refund and cancel operations supported per payment service provider.
 - **Voided receipt in another queue or system**: When the receipt to be voided cannot be referenced via `cbReceiptReference` because it was processed by a different queue or system, the reference is passed in `ftReceiptCaseData`; see [ReceiptCaseData](../reference-tables/reference-tables.md#receiptcasedata).
@@ -154,11 +177,11 @@ The Middleware looks up the receipt given in `cbPreviousReceiptReference` in the
 
 - no processed receipt matches the reference,
 - more than one processed receipt matches the reference,
-- a void, refund or partial refund uses more than one reference (an array in `cbPreviousReceiptReference`),
-- a refund has no `cbPreviousReceiptReference`, unless it is a handwritten receipt,
+- a void, full refund, partial refund or exchange uses more than one reference (an array in `cbPreviousReceiptReference`),
+- a full refund has no `cbPreviousReceiptReference`, unless it is a handwritten receipt,
 - a void references a receipt that has already been voided,
 - any receipt references a receipt that has already been voided,
-- a receipt that is not a void, refund or partial refund contains charge items with negative quantity or amount that are not flagged as `IsVoid`, `IsReturn/IsRefund` or `Discount`; this also applies to negative `Returnable` and `Downpayment` items,
+- a receipt that is not a void, full refund, partial refund or exchange contains charge items with negative quantity or amount that are not flagged as `IsVoid`, `IsReturn/IsRefund` or `Discount`; this also applies to negative `Returnable` and `Downpayment` items,
 - the sum of the charge items does not match the sum of the pay items.
 
 Markets can define further rules, for example that a partial refund must not exceed the quantity that is left to refund, or that the articles and prices must match the original receipt. These rules are described on the market pages.
