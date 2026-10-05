@@ -30,7 +30,7 @@ The following sections describe what the Middleware validates and how to fix a r
 | The country code in `ftReceiptCase`, `ftChargeItemCase` and `ftPayItemCase` is `PT` (`0x5054`). | Use the Portuguese cases from the [reference tables](../reference-tables/reference-tables.md) for the receipt, all charge items and all pay items. |
 | `cbChargeItems` and `cbPayItems` are present. | Always send both lists. Send an empty list if a receipt has no charge items or no pay items. |
 | `Currency` is `EUR`. | Send amounts in euro. |
-| Training mode is not used. | Do not set the training flag in `ftReceiptCase`. |
+| Training mode is only used on queues where it has been enabled. | Do not set the training flag in `ftReceiptCase` unless training mode has been enabled for the queue. |
 | `cbReceiptReference` is unique. | Use a new `cbReceiptReference` for every receipt. A reference that was used by a successfully processed receipt cannot be used again. |
 | `cbReceiptMoment` is in UTC and close to the time at which the Middleware processes the receipt. | Send `cbReceiptMoment` in UTC and keep the clock of the POS system synchronized. Send the receipt to the Middleware when it is created. |
 | `Position` of charge items and pay items starts at 1 and increases by 1 without gaps. | Number the positions 1, 2, 3, … in each list, or do not set them. |
