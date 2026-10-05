@@ -698,7 +698,14 @@ A systematic approach to updating case values:
 | `0x2000_ooo8_ooo6` | `0x4445_0000_0000_0087` | Downpayment (amount > 0) type of service, parking type of vat => not defined in v0, goto unknown |
 | `0x2000_ooo8_ooo7` | `0x4445_0000_0000_008E` | Downpayment (amount > 0) type of service, zero type of vat |
 | `0x2000_ooo8_ooo8` | `0x4445_0000_0000_008D` | Downpayment (amount > 0) type of service, not taxable type of vat |
-| `0x2000_oooo_ooA8` | `0x4445_0000_0000_0097 X TODO different cash transfers` | Cash transfer type of service, not taxable type of vat |
+| `0x2000_oooo_00A8` | `0x4445_0000_0000_0095` | Cash transfer (amount > 0), not taxable type of vat => v0 "Einzahlung" |
+| `0x2000_oooo_00A8` | `0x4445_0000_0000_0096` | Cash transfer (amount < 0), not taxable type of vat => v0 "Auszahlung" |
+| `0x2000_oooo_91A8` | `0x4445_0000_0000_0093` | Cash transfer from/to till (amount > 0 or < 0), not taxable type of vat => v0 "Geldtransit" |
+| `0x2000_oooo_92A8` | `0x4445_0000_0000_0092` | Cash transfer from owner to till (amount > 0), not taxable type of vat => v0 "Privateinlage" |
+| `0x2000_oooo_92A8` | `0x4445_0000_0000_0091` | Cash transfer from till to owner (amount < 0), not taxable type of vat => v0 "Privatentnahme" |
+| `0x2000_oooo_93A8` | `0x4445_0000_0000_0094` | Cash transfer from till to employee (amount < 0), not taxable type of vat => v0 "Lohnzahlung" |
+| `0x2000_oooo_94A8` | `0x4445_0000_0000_0090` | Cash transfer to empty till (amount > 0), not taxable type of vat => v0 "Anfangsbestand" |
+| `0x2000_oooo_95A8` | `0x4445_0000_0000_0097` | Cash amount difference from/to till (amount > 0 or < 0), not taxable type of vat => v0 "DifferenzSollIst" |
 | `0x2000_oooo_5oo8` | `0x4445_0000_0000_00A1` | Not taxable type of vat, reverse charge => v0 specific implementation |
 | `0x2000_oooo_oo61` | `0x4445_0000_0000_00A2` | Agency business type of service, discounted1 type of vat |
 | `0x2000_oooo_oo62` | `0x4445_0000_0000_00A2` | Agency business type of service, discounted2 type of vat |
