@@ -132,10 +132,15 @@ If the handwritten flag is set in `ftReceiptCase`, only the following rules are 
 
 ### References, refunds, voids and payment transfers
 
+Unreferenced refunds are not supported in Portugal. Every refund must reference the original receipt in `cbPreviousReceiptReference`:
+
+- **Full refund:** the refund flag is set in `ftReceiptCase`. The request must contain all items of the original receipt with negated `Quantity` and `Amount`.
+- **Partial refund:** the refund flag is not set in `ftReceiptCase`, but it is set in the `ftChargeItemCase` of at least one charge item. All charge items and pay items must have the refund flag set, and the refunded quantities and amounts must not exceed the original.
+
 | Code | Triggered when |
 |------|----------------|
-| `EEEE_PreviousReceiptReference` | `cbPreviousReceiptReference` is missing on a payment transfer (`0x0002`), void, refund, partial refund or copy (`0x3010`). |
-| `EEEE_RefundMissingPreviousReceiptReference` | The refund flag is set and `cbPreviousReceiptReference` is missing. |
+| `EEEE_RefundMissingPreviousReceiptReference` | The refund flag is set in `ftReceiptCase` (full refund) and `cbPreviousReceiptReference` is missing. |
+| `EEEE_PreviousReceiptReference` | `cbPreviousReceiptReference` is missing on a partial refund, void, payment transfer (`0x0002`) or copy (`0x3010`). |
 | `EEEE_PreviousReceiptLineItemMismatch` | `cbPreviousReceiptReference` is set on a receipt that is not a refund, void or payment transfer, and the receipt shares no line item with the referenced receipt. |
 | `EEEE_PreviousReceiptIsVoided` | The referenced receipt has already been voided. |
 | `EEEE_VoidAlreadyExists` | A void for the referenced receipt already exists. |
