@@ -22,7 +22,7 @@ eInvoicing rides on calls you already make. Setup is about **configuration** —
 | fiskaltrust.Middleware country configuration | The fiskaltrust.Middleware's country configuration is set to the **Italian locale**. |
 | PosSystem API (v2) | eInvoicing features are exposed through the **PosSystem API (v2)**. If you are on the v0 interface, plan your [migration](../../possystem-api/migration-guide.md) first. |
 | Merchant master data | The merchant has connected their fiskaltrust account to their AdE account, with **regime fiscale** and **sede**. The seller on every FatturaPA comes from this connection, never from the receipt. See [FatturaPA mapping](./fatturapa-mapping.md#data-sources). |
-| Buyer routing | The buyer's **`CodiceDestinatario`** is on file, or plan the **PEC fallback** for an unknown buyer. |
+| Buyer routing | For B2B, the buyer's SDI **codice destinatario** or **PEC** is on file. It is sent in `cbCustomer.CustomerEndpointId` as `0205:<codice destinatario>` or `0202:<pec>`. See [SDI routing](./fatturapa-mapping.md#sdi-routing). |
 | Existing arrangement | Ask what the merchant already uses — in Italy this is almost always a **displacement**, not a first-time integration. |
 
 ## Enable eInvoicing in the Portal
@@ -66,7 +66,7 @@ Call `/sign` as you do today, with the buyer's master data, using the **B2B invo
   "ftReceiptCase": 35184372092930,
   "cbReceiptReference": "IT-EINV-SANDBOX-0001",
   "cbReceiptMoment": "2026-05-15T10:00:00Z",
-  "cbCustomer": "{\"CustomerVATId\":\"IT12345678903\",\"CustomerName\":\"Esempio S.r.l.\",\"CustomerStreet\":\"Via Roma 1\",\"CustomerZip\":\"00100\",\"CustomerCity\":\"Roma\",\"CustomerCountry\":\"IT\"}",
+  "cbCustomer": "{\"CustomerVATId\":\"IT12345678903\",\"CustomerName\":\"Esempio S.r.l.\",\"CustomerStreet\":\"Via Roma 1\",\"CustomerZip\":\"00100\",\"CustomerCity\":\"Roma\",\"CustomerCountrySubentity\":\"RM\",\"CustomerCountry\":\"IT\",\"CustomerEndpointId\":\"0205:ABCDEFG\"}",
   "cbChargeItems": [
     { "Quantity": 1, "Description": "Consulting services", "Amount": 1220.00, "VATRate": 22, "ftChargeItemCase": 35184372088851 }
   ],

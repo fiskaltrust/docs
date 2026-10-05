@@ -78,8 +78,8 @@ In the sandbox, seller data the merchant's account is missing is filled with a s
 | `IdTrasmittente/IdCodice` | The merchant's codice fiscale — placeholder, replaced at transmission. |
 | `ProgressivoInvio` | Placeholder, replaced at transmission. |
 | `FormatoTrasmissione` | `FPR12` |
-| `CodiceDestinatario` | B2C: `0000000`. B2B: the buyer's 7-character SDI code, or `0000000` with `PECDestinatario`. |
-| `PECDestinatario` | The buyer's certified email address, written only when `CodiceDestinatario` is `0000000`. |
+| `CodiceDestinatario` | B2C: `0000000`. B2B: the buyer's 7-character SDI code from `CustomerEndpointId` `0205`, or `0000000` when the buyer is reached by PEC. See [SDI routing](#sdi-routing). |
+| `PECDestinatario` | The buyer's certified email address from `CustomerEndpointId` `0202`, written only when `CodiceDestinatario` is `0000000`. |
 
 *Table 4. Mapping of `DatiTrasmissione`.*
 
@@ -112,14 +112,32 @@ The merchant is `CedentePrestatore` and the buyer is `CessionarioCommittente`.
 | `Sede/Indirizzo` | `CustomerStreet` |
 | `Sede/CAP` | `CustomerZip` |
 | `Sede/Comune` | `CustomerCity` |
-| `Sede/Provincia` | Not written — `cbCustomer` has no province field. |
+| `Sede/Provincia` | `CustomerCountrySubentity`, the two-letter province code, in upper case. Omitted when empty. |
 | `Sede/Nazione` | `CustomerCountry`; `IT` when empty. |
 
 *Table 6. Mapping of the buyer.*
 
 The identifiers follow the Italian [`cbCustomer` fields](../data-structures/data-structures.md#customer-data-cbcustomer): the partita IVA in `CustomerVATId`, the codice fiscale in `CustomerTaxId`, each validated with the same rules. `CustomerId` is not read. A buyer may send both, and both are written. A private person (B2C) sends the codice fiscale in `CustomerTaxId` and the full name in `CustomerName`; the document uses `Denominazione`, not `Nome`/`Cognome`.
 
-The address (`CustomerStreet`, `CustomerZip`, `CustomerCity`) is required for B2B. A B2C receipt may leave it out; the `Sede` is then filled with placeholders: `Indirizzo` `-`, `CAP` `00000`, `Comune` `-`, `Provincia` `RM`, `Nazione` `IT`.
+The address (`CustomerStreet`, `CustomerZip`, `CustomerCity`) is required for B2B. A B2C receipt may leave it out; the `Sede` is then filled with placeholders: `Indirizzo` `-`, `CAP` `00000`, `Comune` `-`, `Provincia` `RM`, `Nazione` `IT`. `CustomerCountrySubentity` belongs to that address and is only accepted together with it.
+
+#### SDI routing
+
+How SDI delivers the invoice to the buyer is sent in `cbCustomer` as **`CustomerEndpointId`**, written `<scheme>:<id>`. The scheme is a code from the Peppol [Electronic Address Scheme (EAS)](https://docs.peppol.eu/poacc/billing/3.0/codelist/eas/) list:
+
+| Scheme | Identifier | Example |
+| --- | --- | --- |
+| `0205` | The buyer's SDI *codice destinatario*: exactly 7 characters, written in upper case. | `0205:ABCDEFG` |
+| `0202` | The buyer's PEC (certified email) address, written as sent. | `0202:amministrazione@pec.esempio.it` |
+
+*Table 7. Schemes accepted in `CustomerEndpointId`.*
+
+| Receipt case | `CustomerEndpointId` | Result |
+| --- | --- | --- |
+| B2B `0x1002` | Required: `0205` or `0202`. | `0205`: `CodiceDestinatario` is the 7 characters. `0202`: `CodiceDestinatario` `0000000` and `PECDestinatario`. |
+| B2C `0x1001` | Optional, `0202` only. | `CodiceDestinatario` `0000000`, with `PECDestinatario` when a PEC is sent. |
+
+*Table 8. SDI routing per receipt case.*
 
 ### Body — `DatiGeneraliDocumento`
 
@@ -131,7 +149,7 @@ The address (`CustomerStreet`, `CustomerZip`, `CustomerCity`) is required for B2
 | `Numero` | The invoice number from the merchant's own progressive series. |
 | `ImportoTotaleDocumento` | Sum of `ImponibileImporto` + `Imposta` over all `DatiRiepilogo` blocks. |
 
-*Table 7. Mapping of `DatiGeneraliDocumento`.*
+*Table 9. Mapping of `DatiGeneraliDocumento`.*
 
 #### Invoice numbers
 
@@ -155,7 +173,7 @@ Each entry of `cbChargeItems` becomes one line, in the order sent. Modifiers suc
 | `AliquotaIVA` | `VATRate` |
 | `Natura` | Only when `VATRate` is 0: derived from `ftChargeItemCase` (see [Natura](#natura)). |
 
-*Table 8. Mapping of `DettaglioLinee`.*
+*Table 10. Mapping of `DettaglioLinee`.*
 
 `Quantita` and `PrezzoUnitario` keep up to 8 decimals because SdI recomputes `PrezzoTotale` as `PrezzoUnitario` × `Quantita` and tolerates a difference of less than one cent (SdI 00423). A unit price cut to cents fails that check as soon as the quantity is above 1: two items at 44.00 gross (7.93 VAT) are 18.04 × 2 = 36.08 against a net amount of 36.07; with `PrezzoUnitario` 18.035 the product is 36.07.
 
@@ -192,7 +210,7 @@ Amounts are rounded to two decimals **half away from zero** (2.345 becomes 2.35)
 | VAT `8`, NN `6x` | `N7` — VAT paid in another EU country |
 | VAT `8`, NN `80`–`FF` | `N1` — excluded pursuant to art. 15 DPR 633/72 |
 
-*Table 9. Derivation of `Natura` from `ftChargeItemCase`.*
+*Table 11. Derivation of `Natura` from `ftChargeItemCase`.*
 
 The rules are applied top to bottom. No `Natura` can be derived — and a line with `VATRate` 0 is [rejected](#charge-items-and-currency) — for:
 
@@ -212,7 +230,7 @@ The lines are grouped by `AliquotaIVA` and `Natura`; each group becomes one `Dat
 | `Imposta` | The VAT the POS charged (sum of the lines' VAT, rounded to cents) when it is less than one cent away from `ImponibileImporto` × `AliquotaIVA` ÷ 100 (SdI 00421); otherwise that product, rounded to cents. |
 | `EsigibilitaIVA` | `I` (immediata). |
 
-*Table 10. Mapping of `DatiRiepilogo`.*
+*Table 12. Mapping of `DatiRiepilogo`.*
 
 Keeping the POS's own VAT makes the document total equal the receipt total. Example: 1019.68 at 22% is 224.3296; the POS charged 224.32, which is 0.0096 away and is kept, so the 22% group totals 1244.00 like the receipt instead of 1244.01.
 
@@ -236,7 +254,7 @@ Keeping the POS's own VAT makes the document total equal the receipt total. Exam
 | `0F` Ticket restaurant | `MP08` carta di pagamento — meal tickets are electronic cards since the 2020 reform |
 | `00` Unknown, `08` Loyalty, `0C` Transfer to cashbook, `0D` Internal consumption, `0E` Grant | Not written: these settle nothing. |
 
-*Table 11. Derivation of `ModalitaPagamento` from `ftPayItemCase`. See [Type of Payment: ftPayItemCase](../reference-tables/type-of-payment-ftpayitemcase.md#pp---payment-type).*
+*Table 13. Derivation of `ModalitaPagamento` from `ftPayItemCase`. See [Type of Payment: ftPayItemCase](../reference-tables/type-of-payment-ftpayitemcase.md#pp---payment-type).*
 
 There is no FatturaPA code for a voucher, a meal ticket or a sale on account; the defaults above are the closest ones.
 
@@ -270,7 +288,7 @@ These optional elements of the FatturaPA schema ([`Schema_VFPR12` v1.2.3](https:
 | IdSdI of a linked document | Has no element in schema 1.2.x. |
 | TD07–TD09 simplified invoices | A different format (FSM10). |
 
-*Table 12. FatturaPA elements that are not rendered.*
+*Table 14. FatturaPA elements that are not rendered.*
 
 Foreign buyers are excluded by decision: such a receipt gets no FatturaPA (see [Which receipts get a FatturaPA](#which-receipts-get-a-fatturapa)).
 
@@ -283,7 +301,7 @@ On success, the process step appends two signatures to `ftSignatures` of the `Re
 | `einvoice-fattura-pa` | Text | The FatturaPA XML, UTF-8, on a single line, unsigned. The signature type carries the **DontVisualize** flag, so the XML is not printed on the receipt. |
 | `einvoice-file-name` | Text | A suggested SdI file name, `IT{codice fiscale}_{ProgressivoInvio}.xml`. The file is named at transmission. |
 
-*Table 13. Signatures returned on success.*
+*Table 15. Signatures returned on success.*
 
 If the process step fails, `ftState` is set to the error state (see [Service Status: ftState](../reference-tables/service-status-ftstate.md)) and one signature is appended:
 
@@ -291,7 +309,7 @@ If the process step fails, `ftState` is set to the error state (see [Service Sta
 | --- | --- | --- |
 | `einvoice-error` | Text | The broken rules, separated by `; `, cut to 4000 characters. The signature type carries the **Failure** category. |
 
-*Table 14. Signature returned on failure.*
+*Table 16. Signature returned on failure.*
 
 :::caution A process failure happens after fiscalization
 Unlike a validation rejection, a failure in the process step happens after the receipt was fiscalized. The validation rules below catch everything that can be decided from the request and the merchant's account, so this case is limited to rules only the built document can check.
@@ -318,7 +336,7 @@ These rules apply to the merchant's AdE connection. The same rules are applied w
 | `provincia` is an Italian province code. | `cedente.sede.provincia must be a two-letter Italian province code (e.g. RM), but is '…'.` |
 | `nazione` is a known country code. | `cedente.sede.nazione must be an ISO 3166-1 alpha-2 country code the FatturaPA list knows (e.g. IT), but is '…'.` |
 
-*Table 15. Validation rules for the seller.*
+*Table 17. Validation rules for the seller.*
 
 ### Buyer
 
@@ -332,9 +350,12 @@ These rules apply to the merchant's AdE connection. The same rules are applied w
 | No control characters in `CustomerName`, `CustomerStreet`, `CustomerCity`. | `cbCustomer.… contains control characters (tab, line break or others below U+0020), which a FatturaPA does not accept.` |
 | `CustomerZip`, when sent, has exactly 5 characters. | `cbCustomer.CustomerZip must be the 5-character CAP (00000 outside Italy), but is '…'.` |
 | `CustomerCountry`, when sent, is a known country code. | `cbCustomer.CustomerCountry must be an ISO 3166-1 alpha-2 country code the FatturaPA list knows (e.g. IT), but is '…'.` |
+| `CustomerCountrySubentity`, when sent, is an Italian province code. | `cbCustomer.CustomerCountrySubentity must be a two-letter Italian province code (e.g. RM), but is '…'.` |
+| `CustomerCountrySubentity` only together with the address. | `cbCustomer.CustomerCountrySubentity belongs to the buyer's address: cbCustomer must also carry CustomerStreet, CustomerZip and CustomerCity.` |
+| `CustomerEndpointId`, when sent, is `<scheme>:<id>` with a supported scheme: a 7-character codice destinatario for `0205`, an email address for `0202`. | `cbCustomer.CustomerEndpointId '…' cannot route on SdI: …` (naming the supported schemes, the expected length, or the email address) |
 | `cbCustomer`, when sent, can be read. | `cbCustomer cannot be read as the Italian customer data (a JSON object, or a JSON string holding one): …` |
 
-*Table 16. Validation rules for the buyer.*
+*Table 18. Validation rules for the buyer.*
 
 ### Per receipt case
 
@@ -343,8 +364,11 @@ These rules apply to the merchant's AdE connection. The same rules are applied w
 | B2B | Buyer identity required. | `cbCustomer.CustomerVATId (the buyer's partita IVA) or cbCustomer.CustomerTaxId (its codice fiscale) is required for a B2B invoice.` |
 | B2C | Consumer's identity required. | `cbCustomer.CustomerTaxId (the consumer's codice fiscale) or cbCustomer.CustomerVATId (a partita IVA) is required for a B2C invoice.` |
 | B2B | Buyer address required. | `cbCustomer must carry CustomerStreet, CustomerZip and CustomerCity for a B2B/B2G invoice.` |
+| B2B | SDI routing required. | `A B2B invoice needs cbCustomer.CustomerEndpointId for SdI routing: 0205:<7-char codice destinatario> or 0202:<pec>.` |
+| B2B | No public-office code (`0201`). | `A 0201 endpoint names a public office; use the InvoiceB2G receipt case.` |
+| B2C | A PEC at most. | `A B2C invoice is routed with codice destinatario 0000000; cbCustomer.CustomerEndpointId may only carry the consumer's PEC (0202:<pec>), or nothing.` |
 
-*Table 17. Rules per invoice receipt case.*
+*Table 19. Rules per invoice receipt case.*
 
 ### Charge items and currency
 
@@ -358,7 +382,7 @@ These rules apply to the merchant's AdE connection. The same rules are applied w
 | No control characters in `Description`. | `cbChargeItems[…].Description contains control characters (tab, line break or others below U+0020), which a FatturaPA does not accept.` |
 | Currency is EUR. | `Only EUR is supported on a FatturaPA, but the receipt carries '…'.` |
 
-*Table 18. Validation rules for charge items and currency.*
+*Table 20. Validation rules for charge items and currency.*
 
 ### Linked invoices
 
@@ -367,7 +391,7 @@ These rules apply to the merchant's AdE connection. The same rules are applied w
 | `cbPreviousReceiptReference` of a TD04 names a rendered invoice. | `cbPreviousReceiptReference '…' names no invoice rendered for this seller; a credit note links the invoice it corrects (DatiFattureCollegate), so the reference must be the cbReceiptReference of that invoice.` |
 | A linked invoice is not dated after the TD04 (SdI 00418). | `The linked document … is dated …, after this document (…); a document cannot refer to a later one (SdI control 00418).` |
 
-*Table 19. Validation rules for linked invoices.*
+*Table 21. Validation rules for linked invoices.*
 
 :::info Latin-1 only, without control characters
 FatturaPA and SdI accept Latin-1 text only. Any character outside Latin-1 (above `U+00FF`) — for example emoji, or characters of non-Latin scripts — in a name, address or description rejects the receipt. So does a control character (below `U+0020`, for example a tab or a line break).
