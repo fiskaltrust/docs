@@ -118,6 +118,10 @@ The fiskaltrust receipt case field (`ftReceiptCase`) is of utmost importance for
 
 *Table 5. Invoice-only PosReceipt flags of the ftReceiptCase format.*
 
+:::tip Void vs. Refund/Return
+`IsVoid` cancels a receipt whose payment was not yet settled; `IsReturn/IsRefund` reverses an already paid sale as a new business case. The flags are not interchangeable. See [Refunds and Voids](../cash-register-integration/refunds-and-voids.md#void-or-refund).
+:::
+
 
 ##### ZeroReceipt (Dailyoperation only)
 
@@ -296,6 +300,10 @@ For more information, see [VAT rules and rates](https://europa.eu/youreurope/bus
 
 *Table 17. Global tagging flags (gggg) of the ftChargeItemCase format.*
 
+:::tip Void vs. Refund/Return
+`IsVoid` and `IsReturn/IsRefund` are not interchangeable: a void cancels a position whose payment was not yet settled, a return/refund reverses an already paid sale. Choosing the wrong flag produces a receipt that passes validation but misrepresents the business case. See [Refunds and Voids](../cash-register-integration/refunds-and-voids.md#void-or-refund).
+:::
+
 
 #### lll - Local tagging/flags
 
@@ -349,6 +357,10 @@ version 2
 | `8000` | **ShowInChargeItems**<br />Visualize the item before Total Amount. This inverts amount and does include the amount into the visualized total amount on the receipt. |
 
 *Table 19. Global tagging flags (gggg) of the ftPayItemCase format.*
+
+:::tip Void vs. Refund/Return
+On pay items the distinction is explicit: `IsVoid` is used when the exchange of money has not been executed yet, `IsReturn/IsRefund` when it has already been executed. See [Refunds and Voids](../cash-register-integration/refunds-and-voids.md#void-or-refund).
+:::
 
 
 ## ReceiptResponse related mapping
