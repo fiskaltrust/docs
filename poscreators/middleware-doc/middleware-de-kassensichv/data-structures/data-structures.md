@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/germany/data-structures
 title: Data Structures
+description: German-specific fields of the receipt request — single fields, cbCustomer, ftReceiptCaseData, charge items and pay items.
+tags: [Germany, ReceiptRequest, Data Structures, KassenSichV]
 ---
 
 # Data Structures

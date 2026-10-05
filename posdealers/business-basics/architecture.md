@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/business-basics/architecture
 title: Architecture
+description: The three-tier fiskaltrust setup of POS system, Middleware, and Portal, and the roles of CashBox, launcher, Queue, SCU, and helpers.
+tags: [Architecture, Middleware, Queue, SCU, CashBox, PosDealers]
 ---
 
 # Architecture

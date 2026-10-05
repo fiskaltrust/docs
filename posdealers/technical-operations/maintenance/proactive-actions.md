@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/technical-operations/maintenance/proactive-actions
 title: Proactive actions
+description: Overview of proactive actions that keep Middleware installations reliable — backups, updates, receipt archive, monitoring, and logging.
+tags: [Maintenance, Middleware, PosDealers, Troubleshooting]
 ---
 # Proactive actions
 

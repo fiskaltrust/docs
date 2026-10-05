@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/germany/single-receipt-creation
 title: Single Receipt Creation
+description: How to create receipts in Germany with the implicit and explicit flow, TSE transactions, examples, and zero, start and stop receipts.
+tags: [Germany, TSE, Cash Register Integration, Receipt Case, KassenSichV]
 ---
 
 # Single Receipt Creation 

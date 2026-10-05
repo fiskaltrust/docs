@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/buy-resell/products/3rd-party/finanzonline-management
 title: FinanzOnline Management
+description: Managing FinanzOnline connections and notifications for PosOperators in Austria, with status checks per Queue, SCU or operator and troubleshooting.
+tags: [FinanzOnline, Austria, RKSV, Notifications, PosDealers, Troubleshooting]
 ---
 # FinanzOnline Management
 

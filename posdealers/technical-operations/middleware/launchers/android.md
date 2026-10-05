@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/technical-operations/middleware/launchers/android
 title: Android
+description: How the Android Launcher hosts the Middleware as a foreground service, where to download it (Portal or Google Play), and how updates work.
+tags: [Android, Launcher, Middleware, Installation, PosDealers]
 ---
 
 # Launcher for Android

@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/digital-receipt/introduction
 title: Introduction
+description: Core concept of the fiskaltrust digital receipt — tracking-free HTML receipts via HTTPS link, consumer interaction and features for Austria and Germany.
+tags: [Digital receipt, Experience Middleware, Austria, Germany, Data Protection]
 ---
 
 # Introduction 

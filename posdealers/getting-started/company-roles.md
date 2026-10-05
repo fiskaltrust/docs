@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/getting-started/company-roles
 title: Company Roles
+description: The four company roles in the fiskaltrust.Portal, what each one can do, and how to activate or deactivate a role.
+tags: [Company Roles, Portal, Onboarding, PosDealers]
 ---
 # Company Roles
 

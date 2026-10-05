@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/digital-receipt/implementation/digital-receipt-implementation
 title: Digital Receipt Implementation
+description: Implementing digital receipts via the POS API Helper or the print endpoint — sign, print, response and status calls, QR-Code and QR-Label versions.
+tags: [Digital receipt, POS System API, POS API Helper, QR Code, Experience Middleware]
 ---
 
 # Digital Receipt Implementation

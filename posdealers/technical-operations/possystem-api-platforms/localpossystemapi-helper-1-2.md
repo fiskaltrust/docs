@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/technical-operations/middleware/localpossystemapi-helper-1-2
 title: Local PosSystem API Helper with Existing 1.2 CashBox
+description: How to use the LocalPosSystemApi Helper with an existing Middleware 1.2 CashBox in Austria or France by adding a REST Helper and a second 1.3 CashBox.
+tags: [LocalPosSystemApi Helper, POS System API, CashBox, Austria, France]
 ---
 # Using the LocalPosSystemApi Helper with an existing 1.2 CashBox
 

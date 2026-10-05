@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/portugal/cash-register-integration
 title: Cash Register Integration
+description: Placeholder chapter on cash register integration under Portuguese law, pointing to the general integration workflow.
+tags: [Cash Register Integration, Portugal, Middleware]
 ---
 
 # Cash Register Integration

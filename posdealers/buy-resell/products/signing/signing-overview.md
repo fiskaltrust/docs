@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/buy-resell/products/signing
 title: Signing devices and services
+description: Signing devices and services PosDealers can obtain via the Portal shop, with country-specific variants for Austria, France and Germany.
+tags: [Signature, SCU, TSE, PosDealers, Austria, Germany]
 ---
 
 # Signing devices and services

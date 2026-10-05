@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/france
 title: Introduction
+description: Entry point to the French market appendix of the Middleware for secured cash desk software under BOI-TVA-DECLA 30-10-30.
+tags: [France, Middleware, PosCreators, Compliance, Legal]
 ---
 
 # Appendix: France (BOI-TVA-DECLA 30-10-30)

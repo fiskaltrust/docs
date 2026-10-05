@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/germany/scu/epson
 title: Epson-TSE
+description: BSI certification, SCU parameters, configuration and troubleshooting for connecting the German Middleware to an Epson hardware TSE.
+tags: [Germany, Epson, TSE, SCU, Certification, Troubleshooting]
 ---
 
 # Epson Hardware-TSE

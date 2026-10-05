@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/buy-resell/products/3rd-party
 title: Overview about 3rd-party products
+description: Third-party products integrated with the fiskaltrust Middleware, such as accounting connections, listed per market for Austria, France and Germany.
+tags: [Third-Party Products, PosDealers, Austria, France, Germany]
 ---
 
 # Overview of third-party products
