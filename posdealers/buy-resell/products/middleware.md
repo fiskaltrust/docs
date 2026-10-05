@@ -33,7 +33,7 @@ As the final component of the security mechanism, the fiskaltrust.Middleware als
 
 To remain open to different platforms and operating systems and to act as a stable interface to the POS system, the fiskaltrust.Middleware follows a strict architecture:
 
-![Architecture diagram: POS system talks over the international iPOS interface to the Middleware CashBox, where the international Queue connects to a market-specific SCU](../images/mw-architecture.png)
+![Architecture diagram: POS system talks over the international iPOS interface to the Middleware CashBox, where the international Queue connects to a market-specific SCU](../images/mw-architecture.svg)
 
 *Figure 2. Architecture of the fiskaltrust.Middleware.*
 

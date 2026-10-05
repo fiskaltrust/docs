@@ -69,7 +69,7 @@ For the full request/response models, payload schemas and per-endpoint error cod
 
 The diagram below illustrates a typical fiscal transaction lifecycle, showing how a POS system interacts with the fiskaltrust.Middleware through the POS System API and how the Middleware in turn communicates with country-specific signing components and the fiskaltrust.Cloud.
 
-![POS System API end-to-end request flow](./images/pos-system-api-request-flow.svg)
+![Sequence diagram: the POS system calls /echo, /order, /pay, /sign, /issue and /journal on the POS System API; the Middleware uses the signing component for country-specific signing and uploads the receipt chain to the cloud](./images/pos-system-api-request-flow.svg)
 
 *Figure 1. End-to-end flow of a fiscal transaction between the POS system, the fiskaltrust.Middleware, signing components, and the fiskaltrust.Cloud.*
 
