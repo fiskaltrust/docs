@@ -11,7 +11,7 @@ The legacy **v0 SignatureCloud API** (also referred to by its subdomain pattern 
 
 Migrating to v2 gives you:
 
-- **eInvoicing support** — Access to eInvoicing features and all future compliance capabilities.
+- **eInvoicing support** — Access to eInvoicing features and all future compliance capabilities. eInvoicing is currently only available with a CloudCashBox (see [eInvoicing prerequisites](../e-invoicing/overview.md#prerequisites-shared)).
 - **Alignment with fiskaltrust Middleware v2** — the POSSystemAPI interface is designed to remain largely stable when the middleware transitions from v1.2 to v2, making this migration valuable preparation.
 - **Long-term supportability** — v0 is considered deprecated; customers are encouraged to migrate as soon as possible.
 - **Simpler authentication** — PIN-based pairing for simpler, more secure authentication setup.
@@ -75,6 +75,12 @@ The path structure changes accordingly:
 :::note Sandbox/admin access only
 
 Local cashbox migration requires additional configuration steps that are currently only supported in sandbox environments under guidance from the fiskaltrust team.
+
+:::
+
+:::info eInvoicing
+
+eInvoicing is currently only available with a CloudCashBox, not with a local CashBox. See the [eInvoicing prerequisites](../e-invoicing/overview.md#prerequisites-shared).
 
 :::
 
@@ -830,7 +836,7 @@ A systematic approach to updating case values:
 Key differences highlighted:
 1. The base URL changes.
 2. All case numeric values must be remapped.
-3. `ftReceiptCaseData` is now an object keyed by market code instead of a raw string.
+3. `ftReceiptCaseData` and the other object properties are now JSON objects instead of JSON-encoded strings.
 
 :::info Important
 
@@ -842,73 +848,35 @@ For the `ftReceiptCaseFlag`, `ftChargeItemCaseFlag`, and `ftPayItemCaseFlag` fie
 
 ### ftReceiptCaseData Format
 
-The `ftReceiptCaseData` field changes from a **JSON-encoded string** in v0 to a **market-keyed JSON object** in v2.
+The `ftReceiptCaseData` field changes from a **JSON-encoded string** in v0 to a **JSON object** in v2. The same applies to `ftChargeItemCaseData`, `ftPayItemCaseData` and all other object properties.
 
 - **v0 format**: the entire value is a JSON string embedded as a string field.
 
 ```json
 {
   "ftReceiptCase": "...",
-  "ftReceiptCaseData": "{\"Code\":\"20\", \"Message\":\"Archivage fiscal de période\", \"Information\":\"\"}"
+  "ftReceiptCaseData": "{\"ReceiptName\":\"Sonstige Sonderwurst\"}"
 }
 ```
 
-- **v2 format**: the value is a plain JSON object with a market key (`"FR"`, `"AT"`, `"DE"`) whose value is a JSON-encoded string.
+- **v2 format**: the value is a plain JSON object. `ReceiptName` is a German field, so it is placed in the `DE` sub-object.
 
 ```json
 {
   "ftReceiptCase": "...",
   "ftReceiptCaseData": {
-    "FR": "{\"Code\": \"20\", \"Message\": \"Archivage fiscal de période\", \"Information\": \"\"}"
+    "DE": {
+      "ReceiptName": "Sonstige Sonderwurst"
+    }
   }
 }
 ```
 
-Key points:
-- The outer field is now a **JSON object**, not a string.
-- The inner value (per market key) remains a **JSON-encoded string** of the market-specific payload.
-- Use the two-letter ISO market code as the key (`"FR"`, `"AT"`, `"DE"`).
-
-#### Examples by Market
-
-**Austria (AT)**
-
-```json
-"ftReceiptCaseData": {
-  "AT": "{\"Code\": \"20\", \"Message\": \"Jahresbeleg\", \"Information\": \"\"}"
-}
-```
-
-**France (FR)**
-
-```json
-"ftReceiptCaseData": {
-  "FR": "{\"Code\": \"20\", \"Message\": \"Archivage fiscal de période\", \"Information\": \"\"}"
-}
-```
-
-**Germany (DE)**
-
-```json
-"ftReceiptCaseData": {
-  "DE": "{\"Code\": \"20\", \"Message\": \"Jahresabschluss\", \"Information\": \"\"}"
-}
-```
-
-**Multi-market (combined)**
-
-```json
-"ftReceiptCaseData": {
-  "AT": "{\"Code\": \"20\", \"Message\": \"Jahresbeleg\", \"Information\": \"\"}",
-  "FR": "{\"Code\": \"20\", \"Message\": \"Archivage fiscal de période\", \"Information\": \"\"}"
-}
-```
+Market-specific overrides are placed in a sub-object keyed by the two-letter ISO code of the market (for example `"DE"`). For details, see [Data Structures](../general/data-structures/data-structures.md).
 
 :::warning
 
-If `ftReceiptCaseData` is not needed for a particular receipt, pass an empty object (`{}`) or omit the field entirely. Do not pass a bare empty string (`""`) as the top-level value — that was valid in v0 but is no longer accepted at the outer level in v2.
-
-The inner string value for a given market key may be an empty string (`""`) when no additional case data is required for that market.
+If `ftReceiptCaseData` is not needed for a particular receipt, pass an empty object (`{}`) or omit the field entirely. Do not pass a string (for example `""` or a JSON-encoded string) — that was valid in v0 but is no longer accepted in v2.
 
 :::
 
@@ -926,6 +894,26 @@ The v2 `ReceiptRequest` is a superset of the v0 model. Most existing fields are 
 *Table 12. Key ReceiptRequest field differences between v0 and v2.*
 
 All other fields (`ftCashBoxID`, `cbTerminalID`, `cbReceiptMoment`, `cbChargeItems`, `cbPayItems`, `ftReceiptCase`, etc.) carry over unchanged.
+
+#### Currency and DecimalPrecisionMultiplier
+
+Both fields have defaults (`EUR` and `1`). `Currency` must be set if the currency is not EUR. If you use EUR and omit `DecimalPrecisionMultiplier`, your v0 amounts can be sent unchanged as decimal numbers.
+
+- `Currency` and `DecimalPrecisionMultiplier` exist on the `ReceiptRequest`, on each `ChargeItem` and on each `PayItem`. Each value applies to the structure that contains it.
+- `DecimalPrecisionMultiplier` applies to all fields of type `number($decimal)` of that structure, for example `cbReceiptAmount` on the `ReceiptRequest` and `Quantity`, `Amount` and `VATRate` on a `ChargeItem`.
+- With the value `1`, these fields are floating-point numbers. With any other allowed value (`100`, `10000`, `1000000`, `100000000`), they are integers that are divided by the multiplier to obtain the decimal value.
+
+For the field definitions, see [Data Structures](../general/data-structures/data-structures.md#receiptrequest).
+
+The following two `ChargeItem` objects are equivalent: one item at 12.50 EUR with 19% VAT.
+
+```json
+{ "Quantity": 1.0, "Amount": 12.50, "VATRate": 19.0, "Currency": "EUR", "DecimalPrecisionMultiplier": 1, ... }
+```
+
+```json
+{ "Quantity": 100, "Amount": 1250, "VATRate": 1900, "Currency": "EUR", "DecimalPrecisionMultiplier": 100, ... }
+```
 
 ### ReceiptResponse
 
