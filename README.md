@@ -10,7 +10,6 @@ The content is organized into audience-specific sections, each with its own side
 .
 ├── poscreators/    # Technical integration guides and middleware API docs for POS system developers
 ├── posdealers/     # Business, onboarding and operational docs for POS resellers
-├── faq/            # General reference pages (terminology, customer roles)
 └── sidebars.js
 ```
 
@@ -38,7 +37,7 @@ Place images in an `images/` directory next to the Markdown files that reference
 ## Contributing
 
 1. Fork or branch this repository.
-2. Edit or add Markdown files in the appropriate section (`poscreators/`, `posdealers/`, or `faq/`).
+2. Edit or add Markdown files in the appropriate section (`poscreators/` or `posdealers/`).
 3. Update the sidebar in the relevant `toc.js` file if you added, removed, or renamed a page.
 4. Open a pull request against the `main` branch.
 

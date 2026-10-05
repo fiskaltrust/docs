@@ -24,7 +24,7 @@ After reading this, you can use the documentation effectively in your specific f
 | ![Number 1](images/Numbers/circle-1o.png) | Jump back to the [start](https://docs.fiskaltrust.eu/)                                                                                                                                  |
 | ![Number 2](images/Numbers/circle-2o.png) | PosCreators start reading [here](../../poscreators/getting-started/get-started.md)                                                                                                         |
 | ![Number 3](images/Numbers/circle-3o.png) | PosDealers start reading [here](../introduction.md)                                                                                               |
-| ![Number 4](images/Numbers/circle-4o.png) | Here you will find answers to frequently asked questions (FAQ), a description of [customer roles](../getting-started/company-roles.md) like PosCreator, PosDealer and our [Terminology](../../faq/terms.md) |
+| ![Number 4](images/Numbers/circle-4o.png) | Here you will find answers to frequently asked questions (FAQ), a description of [customer roles](../business-basics/customer-roles.md) like PosCreator, PosDealer and our [Terminology](../../poscreators/middleware-doc/general/terminology/terminology.md) |
 | ![Number 5](images/Numbers/circle-5o.png) | Jump to our [repositories](https://github.com/fiskaltrust) in GitHub                                                                                                                       |
 | ![Number 6](images/Numbers/circle-6o.png) | Jump to our [Release Notes](https://docs.fiskaltrust.eu/docs/release-notes)                                                                                                             |
 | ![Number 7](images/Numbers/circle-7o.png) | Change between languages, if translations are available                                                                                                                                    |
@@ -80,7 +80,7 @@ These sources provided the basis for the main points of the description
 
 ## General offers
 
-* Glossary: look for our [terminology here](../../faq/terms.md).
+* Glossary: look for our [terminology here](../../poscreators/middleware-doc/general/terminology/terminology.md).
 * Videos - Learn a concept by following a series of [videos](videos.md) 
 * Scenarios - complete a task or achieve a given goal [here](../technical-operations/rollout-scenarios.md).
 
