@@ -52,7 +52,7 @@ A TD04 carries **positive** amounts: the sign is expressed by the document type.
 | Source | Carries |
 | --- | --- |
 | The merchant's **AdE connection** in fiskaltrust | The seller (`CedentePrestatore`). The P.IVA and the *denominazione* are verified with the Agenzia delle Entrate when the merchant connects their fiskaltrust account to their AdE account from the fiskaltrust.Portal; the *regime fiscale* and the registered seat (*sede*) are configured together with that connection. |
-| `cbCustomer` | The buyer (`CessionarioCommittente`). The fields and the way the customer is sent (a serialized JSON string) are described in [Customer data `cbCustomer`](../data-structures/data-structures.md#customer-data-cbcustomer). |
+| `cbCustomer` | The buyer (`CessionarioCommittente`). It is sent as a JSON object; the fields are described in [Customer data `cbCustomer`](../data-structures/data-structures.md#customer-data-cbcustomer). |
 | `cbChargeItems` | The invoice lines and the VAT summary. |
 | `cbPayItems` | `DatiPagamento`. |
 | `cbPreviousReceiptReference` | `DatiFattureCollegate` of a TD04. |

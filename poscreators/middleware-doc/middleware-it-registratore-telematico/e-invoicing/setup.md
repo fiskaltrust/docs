@@ -66,7 +66,16 @@ Call `/sign` as you do today, with the buyer's master data, using the **B2B invo
   "ftReceiptCase": 35184372092930,
   "cbReceiptReference": "IT-EINV-SANDBOX-0001",
   "cbReceiptMoment": "2026-05-15T10:00:00Z",
-  "cbCustomer": "{\"CustomerVATId\":\"IT12345678903\",\"CustomerName\":\"Esempio S.r.l.\",\"CustomerStreet\":\"Via Roma 1\",\"CustomerZip\":\"00100\",\"CustomerCity\":\"Roma\",\"CustomerCountrySubentity\":\"RM\",\"CustomerCountry\":\"IT\",\"CustomerEndpointId\":\"0205:ABCDEFG\"}",
+  "cbCustomer": {
+    "CustomerVATId": "IT12345678903",
+    "CustomerName": "Esempio S.r.l.",
+    "CustomerStreet": "Via Roma 1",
+    "CustomerZip": "00100",
+    "CustomerCity": "Roma",
+    "CustomerCountrySubentity": "RM",
+    "CustomerCountry": "IT",
+    "CustomerEndpointId": "0205:ABCDEFG"
+  },
   "cbChargeItems": [
     { "Quantity": 1, "Description": "Consulting services", "Amount": 1220.00, "VATRate": 22, "ftChargeItemCase": 35184372088851 }
   ],
