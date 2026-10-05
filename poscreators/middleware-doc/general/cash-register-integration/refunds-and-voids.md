@@ -131,11 +131,11 @@ A position void cancels a position within the receipt that is currently being cr
 
 ## Other corrections
 
-- **Returnables (deposit)**: Charge items with the flag `Returnable` (`0x0000_0000_0010_0000`) use a positive amount for the handout and a negative amount for the return, for example of empty bottles. A deposit return is therefore a negative `Returnable` item, not a refund.
-- **Downpayments**: A downpayment is reduced with a negative `Downpayment` charge item (`0x0000_0000_0008_0000`); see [Reference Tables](../reference-tables/reference-tables.md#type-of-service-ftchargeitemcase).
+- **Returnables (deposit)**: Charge items with the flag `Returnable` (`0x0000_0000_0010_0000`) use a positive amount for the handout and a negative amount for the return, for example of empty bottles. A deposit return is therefore a negative `Returnable` item, not a refund. Depending on the market, a negative `Returnable` item is only accepted in a void, refund or partial refund, see [Rules applied by the Middleware](#rules-applied-by-the-middleware).
+- **Downpayments**: A downpayment is reduced with a negative `Downpayment` charge item (`0x0000_0000_0008_0000`); see [Reference Tables](../reference-tables/reference-tables.md#type-of-service-ftchargeitemcase). Depending on the market, a negative `Downpayment` item is only accepted in a void, refund or partial refund, see [Rules applied by the Middleware](#rules-applied-by-the-middleware).
 - **Handwritten receipts**: A refund of a receipt that was recorded with the flag `Process as Handwritten Receipt` (`0x0000_0000_0008_0000`) does not require `cbPreviousReceiptReference`.
 - **Card payments**: For payments processed through the fiskaltrust payment endpoint, see [Payment](../../experience-middleware/payment.md#payment-service-provider-psp-feature-matrix) for the refund and cancel operations supported per payment service provider.
-- **Original receipt in another queue or system**: When the original receipt cannot be referenced via `cbReceiptReference` because it was processed by a different queue or system, the reference is passed in `ftReceiptCaseData`; see [ReceiptCaseData](../reference-tables/reference-tables.md#receiptcasedata).
+- **Voided receipt in another queue or system**: When the receipt to be voided cannot be referenced via `cbReceiptReference` because it was processed by a different queue or system, the reference is passed in `ftReceiptCaseData`; see [ReceiptCaseData](../reference-tables/reference-tables.md#receiptcasedata).
 
 ## Market-specific considerations
 
@@ -158,7 +158,7 @@ The Middleware looks up the receipt given in `cbPreviousReceiptReference` in the
 - a refund has no `cbPreviousReceiptReference`, unless it is a handwritten receipt,
 - a void references a receipt that has already been voided,
 - any receipt references a receipt that has already been voided,
-- a receipt that is not a void, refund or partial refund contains charge items with negative quantity or amount that are not flagged as `IsVoid`, `IsReturn/IsRefund` or `Discount`,
+- a receipt that is not a void, refund or partial refund contains charge items with negative quantity or amount that are not flagged as `IsVoid`, `IsReturn/IsRefund` or `Discount`; this also applies to negative `Returnable` and `Downpayment` items,
 - the sum of the charge items does not match the sum of the pay items.
 
 Markets can define further rules, for example that a partial refund must not exceed the quantity that is left to refund, or that the articles and prices must match the original receipt. These rules are described on the market pages.
