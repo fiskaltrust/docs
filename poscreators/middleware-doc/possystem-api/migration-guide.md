@@ -905,16 +905,6 @@ Both fields have defaults (`EUR` and `1`). `Currency` must be set if the currenc
 
 For the field definitions, see [Data Structures](../general/data-structures/data-structures.md#receiptrequest).
 
-The following two `ChargeItem` objects are equivalent: one item at 12.50 EUR with 19% VAT.
-
-```json
-{ "Quantity": 1.0, "Amount": 12.50, "VATRate": 19.0, "Currency": "EUR", "DecimalPrecisionMultiplier": 1, ... }
-```
-
-```json
-{ "Quantity": 100, "Amount": 1250, "VATRate": 1900, "Currency": "EUR", "DecimalPrecisionMultiplier": 100, ... }
-```
-
 ### ReceiptResponse
 
 The `ReceiptResponse` structure is largely compatible. Verify that your receipt printing logic correctly handles:
