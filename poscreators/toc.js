@@ -538,6 +538,7 @@ module.exports = [
     items: [
       "poscreators/middleware-doc/e-invoicing/overview",
       "poscreators/middleware-doc/e-invoicing/cbcustomer",
+      "poscreators/middleware-doc/e-invoicing/payitems",
     ],
   },
   {

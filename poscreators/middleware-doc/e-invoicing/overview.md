@@ -103,6 +103,7 @@ Market-specific terms (XRechnung, ZUGFeRD, FatturaPA, XAdES, SDI, `CodiceDestina
 ## Related pages
 
 - [Buyer data (`cbCustomer`) in eInvoicing](./cbcustomer.md) — mapping of the `cbCustomer` fields to the EN 16931 buyer fields.
+- [Payment data (`cbPayItems`) in eInvoicing](./payitems.md) — mapping of the `PayItem` fields to the EN 16931 payment fields, including the card number.
 - [Delivery (`/issue` Endpoint)](../experience-middleware/delivery.md) — the product-level eInvoicing and eDelivery concept.
 - [Migrating from API v0 to PosSystem API (v2)](../possystem-api/migration-guide.md) — eInvoicing is a PosSystem API (v2) feature.
 - Country pages — see [Availability by market](#availability-by-market).

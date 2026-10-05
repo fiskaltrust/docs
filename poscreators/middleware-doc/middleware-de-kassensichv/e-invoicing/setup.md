@@ -83,7 +83,7 @@ Call `/sign` as you do today, with the buyer's master data, using the **B2B invo
 }
 ```
 
-> **Try it:** [developer.fiskaltrust.eu → DE → sign → B2BInvoice](https://developer.fiskaltrust.eu/#/pos-system/DE?endpoint=sign&businesscase=SignRequestReceipt_B2BInvoice_1). The output format (XRechnung / ZUGFeRD) comes from the fiskaltrust.Middleware configuration, not this payload — see [Enable eInvoicing in the Portal](#enable-einvoicing-in-the-portal). For B2G buyers, send the buyer's **Leitweg-ID** in `cbCustomer.CustomerReference`. For XRechnung, also send the buyer's electronic address in `cbCustomer.CustomerEndpointId`.
+> **Try it:** [developer.fiskaltrust.eu → DE → sign → B2BInvoice](https://developer.fiskaltrust.eu/#/pos-system/DE?endpoint=sign&businesscase=SignRequestReceipt_B2BInvoice_1). The output format (XRechnung / ZUGFeRD) comes from the fiskaltrust.Middleware configuration, not this payload — see [Enable eInvoicing in the Portal](#enable-einvoicing-in-the-portal). For B2G buyers, send the buyer's **Leitweg-ID** in `cbCustomer.CustomerReference`. For XRechnung, also send the buyer's electronic address in `cbCustomer.CustomerEndpointId`. For a card payment, XRechnung requires the card number (rule BR-DE-24-a): send it masked in `PayItem.MoneyNumber`, see [Payment data (`cbPayItems`) in eInvoicing](../../e-invoicing/payitems.md#card-payments).
 
 **Step 2 — Issue (`/issue`)** — optional, register for delivery
 
