@@ -158,13 +158,23 @@ For example, to specify a timeout value of 10,000 milliseconds for the **second*
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ParametersAT from '../../_markets/at/technical-operations/rollout-automation/api-templating/_parameters.mdx';
+import ParametersBE from '../../_markets/be/technical-operations/rollout-automation/api-templating/_parameters.mdx';
 import ParametersFR from '../../_markets/fr/technical-operations/rollout-automation/api-templating/_parameters.mdx';
 import ParametersDE from '../../_markets/de/technical-operations/rollout-automation/api-templating/_parameters.mdx';
+import ParametersGR from '../../_markets/gr/technical-operations/rollout-automation/api-templating/_parameters.mdx';
+import ParametersIT from '../../_markets/it/technical-operations/rollout-automation/api-templating/_parameters.mdx';
+import ParametersPL from '../../_markets/pl/technical-operations/rollout-automation/api-templating/_parameters.mdx';
+import ParametersPT from '../../_markets/pt/technical-operations/rollout-automation/api-templating/_parameters.mdx';
+import ParametersES from '../../_markets/es/technical-operations/rollout-automation/api-templating/_parameters.mdx';
 
 <Tabs groupId="market">
 
   <TabItem value="AT" label="Austria">
     <ParametersAT />
+  </TabItem>
+
+  <TabItem value="BE" label="Belgium">
+    <ParametersBE />
   </TabItem>
 
   <TabItem value="FR" label="France">
@@ -173,6 +183,26 @@ import ParametersDE from '../../_markets/de/technical-operations/rollout-automat
 
   <TabItem value="DE" label="Germany">
     <ParametersDE />
+  </TabItem>
+
+  <TabItem value="GR" label="Greece">
+    <ParametersGR />
+  </TabItem>
+
+  <TabItem value="IT" label="Italy">
+    <ParametersIT />
+  </TabItem>
+
+  <TabItem value="PL" label="Poland">
+    <ParametersPL />
+  </TabItem>
+
+  <TabItem value="PT" label="Portugal">
+    <ParametersPT />
+  </TabItem>
+
+  <TabItem value="ES" label="Spain">
+    <ParametersES />
   </TabItem>
 
 </Tabs>
