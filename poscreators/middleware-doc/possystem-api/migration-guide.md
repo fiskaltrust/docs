@@ -872,7 +872,7 @@ The `ftReceiptCaseData` field changes from a **JSON-encoded string** in v0 to a 
 }
 ```
 
-Market-specific overrides are placed in a sub-object keyed by the two-letter ISO code of the market (for example `"DE"`). For details, see [Data Structures](../general/data-structures/data-structures.md).
+Market-specific overrides are placed in a sub-object keyed by the two-letter ISO code of the market (for example `"DE"`). For details, see [Object fields](../general/data-structures/data-structures.md#object-fields).
 
 :::warning
 
@@ -887,33 +887,11 @@ The v2 `ReceiptRequest` is a superset of the v0 model. Most existing fields are 
 | Field | v0 | v2 |
 | ----- | -- | -- |
 | `cbReceiptReference` | Optional in some flows | **Required** — must be a unique string per request |
-| `Currency` | Not present | Added — ISO 4217 currency code (default: `EUR`) |
-| `DecimalPrecisionMultiplier` | Not present | Added — controls integer vs. floating-point amounts (default: `1`, i.e. floating-point) |
 | `ftPosSystemID` | Optional | Recommended — identifies your POS software |
 
 *Table 12. Key ReceiptRequest field differences between v0 and v2.*
 
 All other fields (`ftCashBoxID`, `cbTerminalID`, `cbReceiptMoment`, `cbChargeItems`, `cbPayItems`, `ftReceiptCase`, etc.) carry over unchanged.
-
-#### Currency and DecimalPrecisionMultiplier
-
-Both fields have defaults (`EUR` and `1`). `Currency` must be set if the currency is not EUR. If you use EUR and omit `DecimalPrecisionMultiplier`, your v0 amounts can be sent unchanged as decimal numbers.
-
-- `Currency` and `DecimalPrecisionMultiplier` exist on the `ReceiptRequest`, on each `ChargeItem` and on each `PayItem`. Each value applies to the structure that contains it.
-- `DecimalPrecisionMultiplier` applies to all fields of type `number($decimal)` of that structure, for example `cbReceiptAmount` on the `ReceiptRequest` and `Quantity`, `Amount` and `VATRate` on a `ChargeItem`.
-- With the value `1`, these fields are floating-point numbers. With any other allowed value (`100`, `10000`, `1000000`, `100000000`), they are integers that are divided by the multiplier to obtain the decimal value.
-
-For the field definitions, see [Data Structures](../general/data-structures/data-structures.md#receiptrequest).
-
-The following two `ChargeItem` objects are equivalent: one item at 12.50 EUR with 19% VAT.
-
-```json
-{ "Quantity": 1.0, "Amount": 12.50, "VATRate": 19.0, "Currency": "EUR", "DecimalPrecisionMultiplier": 1, ... }
-```
-
-```json
-{ "Quantity": 100, "Amount": 1250, "VATRate": 1900, "Currency": "EUR", "DecimalPrecisionMultiplier": 100, ... }
-```
 
 ### ReceiptResponse
 
