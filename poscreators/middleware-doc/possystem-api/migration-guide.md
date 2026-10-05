@@ -9,7 +9,7 @@ The legacy **v0 SignatureCloud API** (also referred to by its subdomain pattern 
 
 Migrating to v2 gives you:
 
-- **eInvoicing support** — Access to eInvoicing features and all future compliance capabilities. eInvoicing is currently only available with a cloud CashBox (see [eInvoicing prerequisites](../e-invoicing/overview.md#prerequisites-shared)).
+- **eInvoicing support** — Access to eInvoicing features and all future compliance capabilities. eInvoicing is currently only available with a CloudCashBox (see [eInvoicing prerequisites](../e-invoicing/overview.md#prerequisites-shared)).
 - **Alignment with fiskaltrust Middleware v2** — the POSSystemAPI interface is designed to remain largely stable when the middleware transitions from v1.2 to v2, making this migration valuable preparation.
 - **Long-term supportability** — v0 is considered deprecated; customers are encouraged to migrate as soon as possible.
 - **Simpler authentication** — PIN-based pairing for simpler, more secure authentication setup.
@@ -78,7 +78,7 @@ Local cashbox migration requires additional configuration steps that are current
 
 :::info eInvoicing
 
-eInvoicing is currently only available with a cloud CashBox, not with a local CashBox. See the [eInvoicing prerequisites](../e-invoicing/overview.md#prerequisites-shared).
+eInvoicing is currently only available with a CloudCashBox, not with a local CashBox. See the [eInvoicing prerequisites](../e-invoicing/overview.md#prerequisites-shared).
 
 :::
 
