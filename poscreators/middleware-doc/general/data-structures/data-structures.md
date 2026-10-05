@@ -19,7 +19,15 @@ The following conventions apply to all tables in this chapter:
 
 ## Object fields
 
-Fields of type `object`, for example `ftReceiptCaseData`, `ftChargeItemCaseData`, `ftPayItemCaseData`, `cbUser`, `cbArea`, `cbSettlement` or [`cbCustomer`](#cbcustomer), are sent as JSON objects, not as JSON-encoded strings. Their properties at the top level apply to all markets.
+Fields of type `object`, for example `ftReceiptCaseData`, `ftChargeItemCaseData`, `ftPayItemCaseData`, `cbUser`, `cbArea`, `cbSettlement` or [`cbCustomer`](#cbcustomer), are sent as [JSON objects](https://www.rfc-editor.org/rfc/rfc8259#section-4): a set of name/value pairs enclosed in curly braces. Their properties at the top level apply to all markets.
+
+```json
+"ftReceiptCaseData": {
+  "<property1>": "<string value>",
+  "<property2>": 123,
+  "<property3>": true
+}
+```
 
 ### Market-specific content
 
