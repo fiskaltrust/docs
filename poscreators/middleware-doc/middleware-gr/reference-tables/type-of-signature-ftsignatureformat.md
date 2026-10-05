@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/greece/reference-tables/ftsignatureformat
 title: 'Format of Signature: ftSignatureFormat'
+description: ftSignatureFormat in Greece follows the shared format; the Greek implementation uses the Text, Link and QRCode formats.
+tags: [Greece, ftSignatureFormat, Signature, Reference Tables]
 ---
 
 # Format of Signature: ftSignatureFormat

@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/italy/reference-tables/ftchargeitemcase
 title: 'Type of Service: ftChargeItemCase'
+description: ftChargeItemCase values for Italy — VAT rates, type of service, nature of VAT and flags for charge items.
+tags: [Charge Item Case, Reference Tables, VAT, Italy]
 ---
 
 # Type of Service: ftChargeItemCase

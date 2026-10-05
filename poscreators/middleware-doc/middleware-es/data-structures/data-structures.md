@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/spain/data-structures
 title: Data Structures
+description: Spanish rules for cbCustomer — required fields for invoices, NIF validation and TicketBAI foreign customer identification.
+tags: [Spain, cbCustomer, Data Structures, TicketBAI, Middleware]
 ---
 
 # Data Structures

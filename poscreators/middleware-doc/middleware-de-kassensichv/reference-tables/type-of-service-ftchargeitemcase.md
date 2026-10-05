@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/germany/reference-tables/ftchargeitemcase
 title: 'Type of Service: ftChargeItemCase'
+description: ftChargeItemCase values for Germany with VAT rates and DSFinV-K UST_SCHLUESSEL and GV_TYP mapping, plus the flag values.
+tags: [Germany, Charge Item Case, Reference Tables, DSFinV-K]
 ---
 
 # Type of Service: ftChargeItemCase

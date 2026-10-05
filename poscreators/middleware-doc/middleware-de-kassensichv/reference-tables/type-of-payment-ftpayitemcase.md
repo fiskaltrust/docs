@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/germany/reference-tables/ftpayitemcase
 title: 'Type of Payment: ftPayItemCase'
+description: ftPayItemCase values for Germany with their DSFinV-K ZAHLART_TYP mapping, plus the ftPayItemCaseFlag values.
+tags: [Germany, Pay Item Case, Reference Tables, DSFinV-K]
 ---
 
 # Type of Payment: ftPayItemCase

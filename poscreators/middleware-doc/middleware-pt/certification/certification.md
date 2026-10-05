@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/portugal/certification
 title: Certification
+description: What the AT certification (certificate 3535) of the fiskaltrust.CloudCashBox covers in Portugal — document types, layout, options, and boundaries.
+tags: [Certification, Portugal, CashBox, Compliance, Printing]
 ---
 
 # Certification of the fiskaltrust.Middleware (CloudCashBox)

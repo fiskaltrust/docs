@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/signing/austria
 title: Introduction
+description: RKSV.Sign, the cloud signing-only service for Austria without the Middleware, and the CashBox needed before using it.
+tags: [Signing API, Austria, RKSV, CashBox]
 ---
 
 # Introduction to RKSV.Sign

@@ -1,6 +1,8 @@
 ---
 slug: /business-basics/legal-data-protection/data-protection
 title: Data Protection
+description: Data protection information for PosDealers, with country tabs for Austria, France and Germany (details still in progress).
+tags: [Data Protection, Legal, PosDealers, Austria, France, Germany]
 ---
 # Data Protection
 

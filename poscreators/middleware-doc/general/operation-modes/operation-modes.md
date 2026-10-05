@@ -1,13 +1,15 @@
 ---
 slug: /poscreators/middleware-doc/general/operation-modes
 title: Operation Modes
+description: On-premise, off-premise and private cloud environments for fiskaltrust.Middleware and their availability by market.
+tags: [Operation Modes, On-Premise, Private Cloud, Middleware]
 ---
 
 # Operation Modes
 
 The fiskaltrust.Middleware can be operated in following operational environments:
 
-![operational-environments](images/operational-environments.svg)
+![Diagram of Middleware operational environments: on-premise in the POS operator outlet, and off-premise on a dedicated server in a hosting or cloud data center, or in a private cloud on privately or publicly shared virtualised resources](images/operational-environments.svg)
 
 *Figure 1. Operational environments in which the fiskaltrust.Middleware can be operated.*
 
