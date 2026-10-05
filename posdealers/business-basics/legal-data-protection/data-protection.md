@@ -19,13 +19,23 @@ After reading this, you can explain what we do to ensure data protection.
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import DataAT from '../../_markets/at/overview/legal-data-protection/data-protection/_data.mdx';
+import DataBE from '../../_markets/be/overview/legal-data-protection/data-protection/_data.mdx';
 import DataFR from '../../_markets/fr/overview/legal-data-protection/data-protection/_data.mdx';
 import DataDE from '../../_markets/de/overview/legal-data-protection/data-protection/_data.mdx';
+import DataGR from '../../_markets/gr/overview/legal-data-protection/data-protection/_data.mdx';
+import DataIT from '../../_markets/it/overview/legal-data-protection/data-protection/_data.mdx';
+import DataPL from '../../_markets/pl/overview/legal-data-protection/data-protection/_data.mdx';
+import DataPT from '../../_markets/pt/overview/legal-data-protection/data-protection/_data.mdx';
+import DataES from '../../_markets/es/overview/legal-data-protection/data-protection/_data.mdx';
 
 <Tabs groupId="market">
 
   <TabItem value="AT" label="Austria">
       <DataAT />
+  </TabItem>
+
+  <TabItem value="BE" label="Belgium">
+      <DataBE />
   </TabItem>
 
   <TabItem value="FR" label="France">
@@ -34,6 +44,26 @@ import DataDE from '../../_markets/de/overview/legal-data-protection/data-protec
 
   <TabItem value="DE" label="Germany">
       <DataDE />
+  </TabItem>
+
+  <TabItem value="GR" label="Greece">
+      <DataGR />
+  </TabItem>
+
+  <TabItem value="IT" label="Italy">
+      <DataIT />
+  </TabItem>
+
+  <TabItem value="PL" label="Poland">
+      <DataPL />
+  </TabItem>
+
+  <TabItem value="PT" label="Portugal">
+      <DataPT />
+  </TabItem>
+
+  <TabItem value="ES" label="Spain">
+      <DataES />
   </TabItem>
 
 </Tabs>
