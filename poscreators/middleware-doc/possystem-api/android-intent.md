@@ -391,6 +391,8 @@ The middleware responds via a result intent with these extras:
 
 **Scenario**: After fiscalizing a receipt, make it available to the customer via digital channels.
 
+For the output formats of an issued receipt, see [Receipt Formats](./receipt-formats.md).
+
 ### 7. Journal - Transaction Logging
 
 **Purpose**: Query the fiscal journal for auditing and reporting.
