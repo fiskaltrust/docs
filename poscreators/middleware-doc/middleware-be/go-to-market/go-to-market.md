@@ -7,7 +7,7 @@ title: Go-to-Market
 
 In Belgium, businesses that fall under the obligation must record their sales with a **registered cash register system** (RCRS, *geregistreerd kassasysteem* / *système de caisse enregistreuse*). The technical requirements are set out in the ministerial decree of 29 April 2024 and in the technical specifications published by the FPS Finance (*SPF Finances* / *FOD Financiën*) on [geregistreerdkassasysteem.be](https://www.geregistreerdkassasysteem.be). The central element is the **Fiscal Data Module (FDM)**: every event registered on the cash register system is sent to the FDM, which signs it, updates its counters, and forwards the data to the FPS Finance.
 
-This page explains where the fiskaltrust.Middleware sits in this setup, what it takes over, and what remains with the PosCreator. The answers to the questions PosCreators most often ask before entering the Belgian market are collected in the [FAQ](./faq.md). The coverage of the individual FDM operations is listed in [FDM event operations](./fdm-event-operations.md).
+This page explains where the fiskaltrust.Middleware sits in this setup, what it takes over, and what remains with the PosCreator. The answers to the questions PosCreators most often ask before entering the Belgian market are collected in the [FAQ](./faq.md).
 
 ## The parties involved
 
@@ -34,7 +34,7 @@ The fiskaltrust.Middleware can be managed by fiskaltrust in the cloud (**fiskalt
 
 - **One interface for all channels.** POS terminals, kiosks, handhelds, and web shops send the same `ReceiptRequest`; the fiskaltrust.Middleware creates the matching FDM event.
 - **FDM communication.** Building the GraphQL mutation, authentication, time-zone correct `posDateTime`, error handling, and the mapping of FDM errors, warnings, and messages into the response.
-- **Mapping of the fiskaltrust data model to the FDM data model.** VAT codes (A, B, C, D, X), payment types, refund reasons, training mode (event label `T`), and the transaction lines. See [FDM event operations](./fdm-event-operations.md#mapping-of-the-fiskaltrust-data-model).
+- **Mapping of the fiskaltrust data model to the FDM data model.** VAT codes (A, B, C, D, X), payment types, refund reasons, training mode (event label `T`), and the transaction lines.
 - **The VAT receipt.** The fiskaltrust.Middleware provides the VAT receipt layout. The FDM's signature items are also returned in `ftSignatures`.
 - **Journals.** Every request, every FDM request and response, and the resulting `ReceiptResponse` are stored in the journals of the fiskaltrust.Middleware and can be exported through the journal endpoint. See [FAQ: data retention](./faq.md#does-fiskaltrust-take-over-the-data-retention-and-data-integrity-requirements).
 - **Updates.** Changes to the FDM interface are implemented in the fiskaltrust.Middleware without changes to your PosSystem API integration.
@@ -51,7 +51,7 @@ The fiskaltrust.Middleware can be managed by fiskaltrust in the cloud (**fiskalt
 ## Onboarding steps
 
 1. **Register in the Belgian fiskaltrust.Portal** for the [sandbox](https://portal-sandbox.fiskaltrust.be/Account/Register) and, when ready, for production, as described in [Portal Registration](../../../getting-started/portal-registration.md).
-2. **Integrate against the sandbox.** In the sandbox, the fiskaltrust.Middleware is connected to the FDM manufacturer's test environment. Use the [FDM event operations](./fdm-event-operations.md) page to check which of your business cases are already supported.
+2. **Integrate against the sandbox.** In the sandbox, the fiskaltrust.Middleware is connected to the FDM manufacturer's test environment.
 3. **Run through the [Integration Checklist](../../../getting-started/integration-checklist.md)** with the Belgian specifics: initial-operation receipt, a sale, a refund, training mode, and a daily closing (Z report).
 4. **Prepare your certification application** with the FPS Finance. Contact fiskaltrust for the documentation of the fiskaltrust.Middleware components you need to describe.
 5. **Go live** with the production fiskaltrust.Middleware connected to the merchant's FDM.

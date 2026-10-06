@@ -185,7 +185,6 @@ module.exports = [
         key: "be-go-to-market",
         items: [
           "poscreators/middleware-doc/middleware-be/go-to-market/go-to-market",
-          "poscreators/middleware-doc/middleware-be/go-to-market/fdm-event-operations",
           "poscreators/middleware-doc/middleware-be/go-to-market/faq",
         ],
       },

@@ -23,13 +23,9 @@ The scope of the obligation is defined by the regulation, not by the fiskaltrust
 
 For the fiskaltrust.Middleware the rule is simple: **everything that is sent to the fiskaltrust.Middleware is considered in scope** of the registered cash register system. There is no per-transaction exemption; the FPS Finance requires every event on a registered cash register system to be sent to the FDM. If a POS at the same site is out of scope, do not send its transactions to the fiskaltrust.Middleware for Belgium, or operate it as a separate cash register system.
 
-Which receipt case results in which FDM event, and what is sent to the FDM, is described in [FDM event operations](./fdm-event-operations.md).
-
 ### Do we have to support every payment type and transaction scenario our software offers, even if our Belgian customers do not use them?
 
-Which functions are tested is decided in the certification procedure of the FPS Finance. From the fiskaltrust.Middleware's side there is no need to use every feature. Only use receipt cases and payment types that are marked as available on the [FDM event operations](./fdm-event-operations.md) page: unmapped receipt cases may be rejected or accepted without an FDM signature, and some payment types (e.g. accounts receivable) are not supported. A pragmatic approach is to switch off functions your Belgian customers do not use, and functions that are not yet available, in the Belgian configuration of your POS, so that the certified scope matches what the POS actually offers.
-
-How payment types, VAT codes, and transaction lines are mapped to the FDM is described in [FDM event operations](./fdm-event-operations.md#mapping-of-the-fiskaltrust-data-model).
+Which functions are tested is decided in the certification procedure of the FPS Finance. From the fiskaltrust.Middleware's side there is no need to use every feature. Only use functions that are supported for Belgium: unsupported receipt cases may be rejected or accepted without an FDM signature, and some payment types (e.g. accounts receivable) are not supported. A pragmatic approach is to switch off functions your Belgian customers do not use, and functions that are not yet available, in the Belgian configuration of your POS, so that the certified scope matches what the POS actually offers.
 
 ## Architecture and operation
 
@@ -61,7 +57,7 @@ In the fiskaltrust.Middleware this works as follows:
 **Payment already taken.** The fiskaltrust.Middleware registers the sale; it does not move money. A card payment that was already authorised remains valid while the POS retries the registration. Only if the sale cannot be registered at all must the payment be reversed with the payment provider, outside the fiskaltrust.Middleware. To keep this case rare:
 
 - Register the sale right after the payment is confirmed and before the customer leaves.
-- For interrupted sales (table service, web orders), register the orders on the way as PRO FORMA events, so that the final sale only closes an already registered transaction (`signOrder` is in development, see [FDM event operations](./fdm-event-operations.md)).
+- For interrupted sales (table service, web orders), register the orders on the way as PRO FORMA events, so that the final sale only closes an already registered transaction (in development).
 - If the call to the fiskaltrust.Middleware times out or gets no answer, retry the request with the same `x-operation-id` and the same body. If the receipt was already processed, its result is returned; if it is still being processed, the call waits until it is finished. The sale is never registered twice. See [Error Handling](../../general/cash-register-integration/error-handling.md#how-the-pos-system-should-react) and [Process-Driven and Idempotent Design](../../possystem-api/introduction.md#process-driven-and-idempotent-design).
 
 ### Does fiskaltrust take over the data retention and data integrity requirements?
@@ -91,11 +87,3 @@ From the fiskaltrust.Middleware's side, every channel is treated alike. Every ev
 - the web shop's URL, or the name of the ordering platform, as the identification of the input device.
 
 Passing the POS's software version and the input-device identification to the fiskaltrust.Middleware is in development.
-
-## FDM operations
-
-### Does fiskaltrust support all FDM event operations?
-
-The fiskaltrust.Middleware implements the request formats of all fifteen mutations (`signWorkIn`, `signWorkOut`, `signInvoice`, `signSale`, `signCostCenterChange`, `signOrder`, `signPreBill`, `signMoneyInOut`, `signDrawerOpen`, `signPaymentCorrection`, `signReportTurnoverX`, `signReportTurnoverZ`, `signReportUserX`, `signReportUserZ`, `signCopy`). Their mapping to receipt cases is being added step by step. Today only sales and training sales (`signSale`) are available in the sandbox. Refunds and the daily closing are partly available: refunds are signed but do not yet reference the original VAT receipt (`fdmRefs`), and the Z report (`signReportTurnoverZ`) is signed but its turnover totals are still sent empty. Neither matches the certification test cases yet.
-
-The [FDM event operations](./fdm-event-operations.md) page lists every mutation with its receipt case and status. fiskaltrust walks through the supported operations with you in the sandbox; contact your fiskaltrust account manager to schedule a session.
