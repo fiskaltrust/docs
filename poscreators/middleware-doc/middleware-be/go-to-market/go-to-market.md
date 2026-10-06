@@ -14,7 +14,7 @@ This page explains where the fiskaltrust.Middleware sits in this setup, what it 
 | Party | Role in the Belgian setup |
 | ----- | ------------------------- |
 | **PosCreator** | Produces the cash register system and applies for its certification with the FPS Finance. Responsible for the user interface; the VAT receipt layout is provided by the fiskaltrust.Middleware. |
-| **fiskaltrust.Middleware** | Receives every business case from the POS through the [PosSystem API](../../possystem-api/introduction.md), turns it into the FDM event, communicates with the FDM, and returns the FDM's control data to the POS. Stores every request and response in its journals. |
+| **fiskaltrust.Middleware** | Receives every business case from the POS through the [PosSystem API](../../possystem-api/introduction.md), turns it into the FDM event, communicates with the FDM, and returns the signature items the POS needs in `ftSignatures`. Stores every request and response in its journals. |
 | **FDM manufacturer** | Provides the certified Fiscal Data Module. The fiskaltrust.Middleware currently connects to the FDM of ZwarteDoos. |
 | **PosDealer / installer** | Sets up the fiskaltrust.Middleware for the merchant in the fiskaltrust.Portal, connects it to the merchant's FDM, and is responsible for the correct and secure installation and configuration. |
 | **PosOperator (merchant)** | The taxpayer. Registers the cash register system with the FPS Finance and remains responsible for issuing VAT receipts and for the retention of the data. |

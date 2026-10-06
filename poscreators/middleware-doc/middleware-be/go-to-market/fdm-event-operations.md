@@ -102,7 +102,7 @@ The following parts of the FDM data model are not yet filled by the fiskaltrust.
 - The ticket medium `DIGITAL` / `PAPER_DIGITAL` for digital VAT receipts.
 - The turnover totals of the Z report (per department, VAT code, payment type, and negative-quantity reason).
 
-## Control data returned to the POS
+## Signature items returned to the POS
 
 For every event the FDM signs, the fiskaltrust.Middleware adds the following items to `ftSignatures`:
 
@@ -113,8 +113,6 @@ For every event the FDM signs, the fiskaltrust.Middleware adds the following ite
 | `VerificationUrl` | QR code | The URL from which the POS generates the QR code |
 
 *Table 4. Signature items returned by the fiskaltrust.Middleware.*
-
-The complete FDM response, including the counters and the VAT calculation, is stored in `ftStateData` of the response. The mapping of the remaining control data (`fdmId`, `fdmDateTime`, event label, event and total counter, footer lines) into dedicated signature items is in development.
 
 If the FDM refuses an event, the response is marked as failed and contains the FDM's error message together with its code (for example `INVALID_REQUEST` and the sub-code naming the field). Messages the FDM marks as mandatory for display must be shown to the user.
 
