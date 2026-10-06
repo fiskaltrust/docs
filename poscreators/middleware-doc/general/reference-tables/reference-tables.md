@@ -298,6 +298,10 @@ For more information, see [VAT rules and rates](https://europa.eu/youreurope/bus
 
 *Table 17. Global tagging flags (gggg) of the ftChargeItemCase format.*
 
+:::tip Discounts and extras
+A charge item with the flag `Discount` follows directly after the position it belongs to and uses the same type of service and VAT rate. A discount on several positions or on the whole receipt is distributed to the positions. See [Discounts and Extras](../cash-register-integration/discounts-and-extras.md).
+:::
+
 :::tip Void vs. Refund/Return
 `IsVoid` and `IsReturn/IsRefund` are not interchangeable: a void cancels a position before goods and money were exchanged, a return/refund reverses an already paid sale; if in doubt, use a refund. Choosing the wrong flag produces a receipt that passes validation but misrepresents the business case. See [Refunds and Voids](../cash-register-integration/refunds-and-voids.md#void-or-refund).
 :::

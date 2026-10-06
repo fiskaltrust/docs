@@ -1,8 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/greece/data-structures
 title: Data Structures
-description: How cbCustomer fields are transmitted to myDATA as the document counterpart for Greece, and how refunds and voids reference documents from other systems by their MARK.
-tags: [Greece, cbCustomer, ftReceiptCaseData, MARK, Data Structures, myDATA, Middleware]
+description: How cbCustomer fields are transmitted to myDATA as the document counterpart for Greece, how refunds and voids reference documents from other systems by their MARK, and how discounts are transmitted to myDATA.
+tags: [Greece, cbCustomer, ftReceiptCaseData, MARK, Discount, Data Structures, myDATA, Middleware]
 ---
 
 # Data Structures
@@ -57,3 +57,28 @@ The MARKs in `invoiceMark` are added to the MARKs of the receipts referenced in 
 
 - An invoice refund becomes a correlated credit note (5.1) as soon as it carries a reference, whether in `cbPreviousReceiptReference`, in `invoiceMark`, or as `correlatedInvoices` or `multipleConnectedMarks` in `ftReceiptCaseData.GR.mydataoverride.invoice.invoiceHeader`.
 - The void of an Order (8.6) requires one of these references and `cbArea` (the table number); otherwise the request is rejected. The `IsVoid` flag is not supported for other document types; use a refund instead.
+
+## Discounts and extras
+
+Discounts are not transmitted to myDATA as invoice lines of their own. The Middleware assigns every charge item with the flag `Discount` (`0x0000_0000_0004_0000`), and every redeemed voucher, to the charge item before it and transmits their sum as `deductionsAmount` of that invoice line. The `deductionsAmount` of all lines is added up in `totalDeductionsAmount` of the invoice summary. For the general rules, see [Discounts and Extras](../../general/cash-register-integration/discounts-and-extras.md).
+
+- Send every discount directly after the position it belongs to. Discounts on several positions or on the whole receipt are distributed to the positions.
+- myDATA rejects an invoice line whose `deductionsAmount` is greater than its net value (error code `241`), for example a discount of 100 % on a position.
+- Extras (positive amounts) have no separate mapping to myDATA.
+
+The Middleware does not set the myDATA field `discountOption`. To set it, or to replace the calculated `deductionsAmount` of a line, the POS system adds an override to `ftChargeItemCaseData` of the position the discount belongs to. Overrides on the discount line itself are not read.
+
+```json
+"ftChargeItemCaseData": {
+  "GR": {
+    "mydataoverride": {
+      "invoiceDetails": {
+        "discountOption": true,
+        "deductionsAmount": 5.00
+      }
+    }
+  }
+}
+```
+
+Both fields are optional; a field that is not sent keeps the value calculated by the Middleware.

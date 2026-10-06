@@ -54,6 +54,7 @@ module.exports = [
               "poscreators/middleware-doc/general/cash-register-integration/cash-register-integration-regular-workflow",
               "poscreators/middleware-doc/general/cash-register-integration/cash-register-integration-failure-scenarios",
               "poscreators/middleware-doc/general/cash-register-integration/refunds-and-voids",
+              "poscreators/middleware-doc/general/cash-register-integration/discounts-and-extras",
               "poscreators/middleware-doc/general/cash-register-integration/error-handling",
             ],
           },
