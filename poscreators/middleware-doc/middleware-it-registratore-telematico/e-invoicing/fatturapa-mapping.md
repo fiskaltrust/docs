@@ -365,7 +365,7 @@ These rules apply to the merchant's AdE connection. The same rules are applied w
 | B2C | Consumer's identity required. | `cbCustomer.CustomerTaxId (the consumer's codice fiscale) or cbCustomer.CustomerVATId (a partita IVA) is required for a B2C invoice.` |
 | B2B | Buyer address required. | `cbCustomer must carry CustomerStreet, CustomerZip and CustomerCity for a B2B/B2G invoice.` |
 | B2B | SDI routing required. | `A B2B invoice needs cbCustomer.CustomerEndpointId for SdI routing: 0205:<7-char codice destinatario> or 0202:<pec>.` |
-| B2B | No public-office code (`0201`). | `A 0201 endpoint names a public office; use the InvoiceB2G receipt case.` |
+| B2B | No public-office code (`0201`). | `cbCustomer.CustomerEndpointId 0201 names a public office (codice univoco ufficio), which a B2B invoice is not routed to: use 0205:<7-char codice destinatario> or 0202:<pec>.` |
 | B2C | A PEC at most. | `A B2C invoice is routed with codice destinatario 0000000; cbCustomer.CustomerEndpointId may only carry the consumer's PEC (0202:<pec>), or nothing.` |
 
 *Table 19. Rules per invoice receipt case.*
