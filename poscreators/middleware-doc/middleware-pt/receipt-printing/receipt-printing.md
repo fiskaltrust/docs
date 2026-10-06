@@ -56,7 +56,7 @@ Additional layout rules:
 - **No negative amounts.** Quantities, prices, discounts, and totals are printed as absolute values, also on credit notes and returns.
 - **Footer.** None of the mandatory elements may be the last item on the document; print a footer (e.g. a thank-you line) after them. Free text is allowed as long as it cannot be mistaken for a mandatory element.
 - **Multi-page documents.** Every page must show the document type, the document number, the ATCUD, and `Página n de N`. The first and middle pages end with `A transportar: <amount>`, the following pages start with `Transportado: <amount>`. Totals and the VAT summary appear on the last page only.
-- **Simplified invoice.** In addition to the elements above, a simplified invoice shows the customer NIF only if provided. It may not exceed a net amount of 100 EUR (see [Validation errors](../cash-register-integration/cash-register-integration.md#validation-errors)).
+- **Simplified invoice.** In addition to the elements above, a simplified invoice shows the customer NIF only if provided. It may not exceed a net amount of 100 EUR (see [Validation errors](../cash-register-integration/error-handling.md#validation-errors)).
 
 ## Output formats, configuration, and extension points
 

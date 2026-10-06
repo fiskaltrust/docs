@@ -43,7 +43,7 @@ The certification covers the fiskaltrust.Middleware as a **cloud-hosted invoicin
 - **Digital signature (hash chain).** Every document is signed with an RSA private key held by fiskaltrust, chained to the previous document of the same series. The four characters extracted from the hash and the certificate line are returned as signature items and must be printed.
 - **QR code.** The Middleware generates the mandatory QR code content according to *Portaria n.º 195/2020*, including ATCUD, totals per VAT rate, hash extract, and certificate number.
 - **SAF-T (PT) export.** The Middleware produces the SAF-T (PT) audit file in structure 1.04_01 (*Portaria n.º 302/2016*) containing all documents, customers, products, tax table, and working documents. It is exported through the journal endpoint with the Portuguese SAF-T journal type `0x5054200000000001` (see [Type of Journal: ftJournalType](../reference-tables/type-of-journal-ftjournaltype.md)).
-- **Validation rules.** The Middleware enforces the AT's business rules before signing (see [Validation errors](../cash-register-integration/cash-register-integration.md#validation-errors)), so that non-compliant requests are rejected instead of being turned into invalid fiscal documents.
+- **Validation rules.** The Middleware enforces the AT's business rules before signing (see [Validation errors](../cash-register-integration/error-handling.md#validation-errors)), so that non-compliant requests are rejected instead of being turned into invalid fiscal documents.
 - **Document copies and voids.** Reprints are marked as copies (*Duplicado*), voided documents are exported with status `A` and their copies are marked *Documento anulado*.
 - **Document layout.** The rendering of the document (PDF, digital receipt, ESC-POS) produced by the fiskaltrust.Middleware for Experience is part of the certified program; see [Certified document layout](#certified-document-layout) and [Receipt options, configuration, and extension points](#receipt-options-configuration-and-extension-points).
 
@@ -61,7 +61,7 @@ The following components are part of the fiskaltrust.Middleware itself. They are
 
 | Component | What the Middleware does |
 | --------- | ------------------------ |
-| **Validation** | Every request is checked against the Portuguese business rules before anything is signed; non-compliant requests are rejected (see [Validation errors](../cash-register-integration/cash-register-integration.md#validation-errors)). |
+| **Validation** | Every request is checked against the Portuguese business rules before anything is signed; non-compliant requests are rejected (see [Validation errors](../cash-register-integration/error-handling.md#validation-errors)). |
 | **Numbering and series** | Documents are numbered sequentially per series and document type, the chronology of the series is enforced, and the ATCUD validation code of the series is applied to every document. |
 | **Signature and hash chain** | Each document is signed with the RSA key of the program and chained to the previous document of its series; the four hash characters and the certificate line are returned as signature items. |
 | **QR code** | The QR code content according to *Portaria n.º 195/2020* (ATCUD, totals per VAT rate, hash extract, certificate number) is generated for every document. |
@@ -230,14 +230,14 @@ The certificate covers the functionality described above and nothing beyond it. 
 - The PDF rendered by fiskaltrust is not signed with a qualified electronic signature or seal. Under the current transitional rule, plain PDF invoices are accepted until 31 December 2026; from 1 January 2027 a qualified signature or seal is required for PDF invoices sent electronically to customers. B2G invoicing (CIUS-PT / EDI) is not part of the certified scope.
 - Down payments, multi-use vouchers, and payments under the cash VAT regime are not covered.
 
-Requests outside these boundaries are rejected and not signed. What the Middleware validates, and how to correct a rejected request, is described in [Validation errors](../cash-register-integration/cash-register-integration.md#validation-errors).
+Requests outside these boundaries are rejected and not signed. What the Middleware validates, and how to correct a rejected request, is described in [Validation errors](../cash-register-integration/error-handling.md#validation-errors).
 
 ## What this means for PosCreators
 
 - **You integrate a certified program; you do not become one.** Your POS sends the business case to the fiskaltrust.CloudCashBox through the [PosSystem API](../../possystem-api/introduction.md). The Middleware numbers, signs, and exports the document under certificate 3535. Your software must not create, number, or sign fiscal documents itself.
 - **Use the certified document.** Hand the customer the document rendered by fiskaltrust: the PDF or digital receipt reachable through the link in the QR code signature item, or the ESC-POS stream from the `/issue` endpoint. A layout drawn by your own software is not covered by the certificate (see [Certified document layout](#certified-document-layout)).
 - **Print what you receive, unchanged.** If you display or print any returned element (document number, ATCUD, certificate line, QR code, mandatory texts), reproduce it exactly as returned. Never replace the certificate number, the hash characters, or the document number with your own values.
-- **Send complete and valid requests.** The Middleware rejects requests that would produce a non-compliant document (see [Validation errors](../cash-register-integration/cash-register-integration.md#validation-errors)). Show the returned error to the operator and correct the request; do not retry with altered fiscal data.
+- **Send complete and valid requests.** The Middleware rejects requests that would produce a non-compliant document (see [Validation errors](../cash-register-integration/error-handling.md#validation-errors)). Show the returned error to the operator and correct the request; do not retry with altered fiscal data.
 - **Respect the document flow.** Refunds, voids, copies, and payments reference the original document via `cbPreviousReceiptReference`. Working documents (pro forma, budget, table check) carry no payment and are invoiced by reference. Series and ATCUD are assigned by the Middleware; there is no way to choose them.
 - **Sandbox is not production.** Sandbox queues emit the placeholder certificate number `9999` and sandbox documents are never valid invoices. Use the sandbox for integration tests only; productive documents must be created on a production queue.
 - **Self-hosted deployments need their own certification.** Running the Middleware on your own infrastructure or on a device (e.g. the Android launcher) is outside certificate 3535.
