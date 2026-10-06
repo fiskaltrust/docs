@@ -9,12 +9,6 @@ In Belgium, businesses that fall under the obligation must record their sales wi
 
 This page explains where the fiskaltrust.Middleware sits in this setup, what it takes over, and what remains with the PosCreator. The answers to the questions PosCreators most often ask before entering the Belgian market are collected in the [FAQ](./faq.md). The coverage of the individual FDM operations is listed in [FDM event operations](./fdm-event-operations.md).
 
-:::caution Belgian localization in development
-
-The Belgian localization of the fiskaltrust.Middleware is available in the sandbox and under active development. This chapter describes the target architecture and the current implementation status. Features marked as *in development* are not yet available and may change before release.
-
-:::
-
 ## The parties involved
 
 | Party | Role in the Belgian setup |
