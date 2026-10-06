@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/austria/reference-tables/ftreceiptcase
 title: 'Type of receipt: ftReceiptCase'
+description: ftReceiptCase format, receipt case types, case values and flags for processing receipts under Austrian law (country code 0x4154).
+tags: [Receipt Case, Austria, Reference Tables, RKSV]
 ---
 
 # Type of Receipt: ftReceiptCase

@@ -1,11 +1,13 @@
 ---
 slug: /poscreators/middleware-doc/belgium/reference-tables/ftchargeitemcase
 title: 'Type of Service: ftChargeItemCase'
+description: ftChargeItemCase values for Belgium — accepted VAT rates of 21, 12, 6 and 0 percent, service types, nature of VAT and flags.
+tags: [Charge Item Case, Belgium, Reference Tables]
 ---
 
 # Type of Service: ftChargeItemCase
 
-This table expands on the values provided in the [Type of Service: ftChargeItemCase](../../general/reference-tables/reference-tables.md#type-of-service-ftchargeitemcase) reference table of the Compliance Middleware, with country-specific values applicable to the Belgian market.
+This table expands on the values provided in the [Type of Service: ftChargeItemCase](../../general/reference-tables/reference-tables.md#type-of-service-ftchargeitemcase) reference table of the fiskaltrust.Middleware, with country-specific values applicable to the Belgian market.
 
 ## Format
 _CCCC_vlll_gggg_NNSV_ 

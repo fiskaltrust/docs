@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/getting-started/sandbox
 title: Sandbox
+description: What the fiskaltrust Sandbox offers for testing and demos, how it differs from the live system, and its URLs per market.
+tags: [Sandbox, Portal, Onboarding, PosDealers]
 ---
 # Sandbox
 

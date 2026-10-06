@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/italy/platforms/android
 title: Android
+description: Running the Italian Middleware on Android 7.0+ — preconfigured SQLite queue with Epson and Custom SCUs, distribution via Portal or Google Play.
+tags: [Android, Launcher, Operation Modes, Middleware, Italy]
 ---
 
 # Android
@@ -41,7 +43,7 @@ The Android Launcher is available for download as an app for both the HTTP varia
 
 |              | fiskaltrust.Middleware for Android (HTTP)                                         | fiskaltrust.Middleware for Android (gRPC)                                         |
 |--------------|-----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------|
-| **QR Code ** | ![http](../images/android-http.png)                                               | ![grpc](../images/android-grpc.png)                                               |
+| **QR Code ** | ![QR code for fiskaltrust.Middleware for Android (HTTP) on Google Play](../images/android-http.png)                                               | ![QR code for fiskaltrust.Middleware for Android (gRPC) on Google Play](../images/android-grpc.png)                                               |
 | **URL**      | [Download on Google Play](https://play.google.com/store/apps/details?id=eu.fiskaltrust.androidlauncher.http) | [Download on Google Play](https://play.google.com/store/apps/details?id=eu.fiskaltrust.androidlauncher.grpc) |
 
 *Table 1. Google Play Store download links and QR codes for the HTTP and gRPC Android Launcher variants.*

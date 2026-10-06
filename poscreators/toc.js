@@ -457,6 +457,7 @@ module.exports = [
         items: [
           "poscreators/middleware-doc/middleware-it-registratore-telematico/e-invoicing/overview",
           "poscreators/middleware-doc/middleware-it-registratore-telematico/e-invoicing/setup",
+          "poscreators/middleware-doc/middleware-it-registratore-telematico/e-invoicing/fatturapa-mapping",
         ],
       },
     ],
@@ -516,7 +517,15 @@ module.exports = [
       },
       "poscreators/middleware-doc/middleware-pt/certification/certification",
       "poscreators/middleware-doc/middleware-pt/terminology/terminology",
-      "poscreators/middleware-doc/middleware-pt/cash-register-integration/cash-register-integration",
+      {
+        type: "category",
+        label: "Cash Register Integration",
+        key: "pt-cash-register-integration",
+        items: [
+          "poscreators/middleware-doc/middleware-pt/cash-register-integration/cash-register-integration",
+          "poscreators/middleware-doc/middleware-pt/cash-register-integration/error-handling",
+        ],
+      },
       "poscreators/middleware-doc/middleware-pt/receipt-printing/receipt-printing",
       "poscreators/middleware-doc/middleware-pt/data-structures/data-structures",
       {
@@ -546,6 +555,7 @@ module.exports = [
     collapsed: true,
     items: [
       "poscreators/middleware-doc/e-invoicing/overview",
+      "poscreators/middleware-doc/e-invoicing/cbcustomer",
     ],
   },
   {

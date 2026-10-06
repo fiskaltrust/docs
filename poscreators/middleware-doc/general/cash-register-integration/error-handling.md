@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/general/cash-register-integration/error-handling
 title: Error Handling
+description: How transport, HTTP and Middleware errors reach the POS system, how to evaluate ftState and error messages, and how to react.
+tags: [Error Handling, ftState, Failure Handling, Troubleshooting, Cash Register Integration]
 ---
 
 # Error Handling

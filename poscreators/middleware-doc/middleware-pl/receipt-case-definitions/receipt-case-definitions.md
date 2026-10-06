@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/poland/receipt-case-definitions
 title: Receipt Case Definitions
+description: How the Middleware processes each receipt case in Poland — register interaction, KSeF invoices, closings, and the constraints the queue enforces.
+tags: [Receipt Case, Poland, Closings, Middleware, PosCreators]
 ---
 
 # Receipt Case Definitions
