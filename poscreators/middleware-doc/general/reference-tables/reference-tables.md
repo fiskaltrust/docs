@@ -200,8 +200,6 @@ cba … c=reserved ; b=reporting ; a = scu related
 
 ##### ReceiptCaseData
 
-- **Reference in case of "Void"** - when `cbReceiptReference` cannot be used because of source receipt is in a different queue or system. Fields included: `{ RT-Device-Serialnumber, Z-Number, Document-Number, Document-Moment }`
-
 - **Reference in case of "InvoicePayment"**
 
 ### Type of Service: ftChargeItemCase

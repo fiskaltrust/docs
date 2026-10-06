@@ -20,7 +20,7 @@ The **Master data** of a company are essential for various reasons in the fiskal
 
 * For **authentication** towards fiscal authorities or [third-party integrations](../../buy-resell/products/3rd-party/3rd-party-overview.md) Tax registration numbers are essential.  
 
-A company's **outlets** data is significant and should be checked:
+**Outlets** are the locations of a PosOperator's enterprise, for example shops, event locations or production, distribution and administration sites. A company's outlets data is significant and should be checked:
 
 * **Tax regulations** in some countries require exact data on the primary outlet and further outlets.
 
