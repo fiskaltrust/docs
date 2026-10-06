@@ -29,15 +29,15 @@ The merchant must be able to show the declaration to the AEAT on request. Ask [s
 
 ### TicketBAI: software registration
 
-fiskaltrust has registered the fiskaltrust.Middleware as *software garante* with the *Hacienda Foral de Bizkaia*; registration in one province is valid in all three. The identification used in every TicketBAI file is:
+fiskaltrust has registered the fiskaltrust.Middleware as *software garante* with the *Hacienda Foral de Bizkaia* (registered on 14 May 2026); registration in one province is valid in all three. The identification used in every TicketBAI file is:
 
 | Field | Value |
 | ----- | ----- |
 | Developer (*entidad desarrolladora*) | fiskaltrust consulting GmbH, Spanish NIF `N0286342A` |
 | Software name (*nombre del software*) | `fiskaltrust.Middleware` |
-| Licence code (*LicenciaTBAI*) | One licence code per province, configured by fiskaltrust. See the registers of the provinces below. |
+| Licence code (*LicenciaTBAI*) | One licence code per province, configured by fiskaltrust. |
 
-The licence codes are not listed on this page. Each provincial tax authority publishes the registered software, with its licence code, in its register of *software garante*: [Araba](https://web.araba.eus/es/hacienda/ticketbai/listado-de-software), [Bizkaia](https://www.batuz.eus/es/registro-de-software) and [Gipuzkoa](https://www.gipuzkoa.eus/es/web/ogasuna/ticketbai/listado-software). To find the entry of the fiskaltrust.Middleware, look up the developer *fiskaltrust consulting GmbH* (NIF `N0286342A`) or the software name `fiskaltrust.Middleware` in these lists.
+The provincial tax authorities publish the registered software in their registers of *software garante*: [Araba](https://web.araba.eus/es/hacienda/ticketbai/listado-de-software), [Bizkaia](https://www.batuz.eus/es/registro-de-software) and [Gipuzkoa](https://www.gipuzkoa.eus/es/web/ogasuna/ticketbai/listado-software). The entry of the fiskaltrust.Middleware can be found there under the developer *fiskaltrust consulting GmbH* and the software name `fiskaltrust.Middleware`. The registers do not publish licence codes.
 
 ## What the fiskaltrust.Middleware takes care of
 
