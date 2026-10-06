@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/germany/databases/sqlite
 title: SQLite
+description: Configuration parameters of the file-based SQLite storage provider for the German Middleware, including TAR file export mode.
+tags: [Germany, SQLite, Queue, Configuration, Operation Modes]
 ---
 
 # SQLite Storage

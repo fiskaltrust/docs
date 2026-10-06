@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/germany/installation
 title: Installation
+description: Launcher call parameters for fiskaltrust.exe on Windows, Linux and Mac for the German Middleware, plus Mono and .NET prerequisites.
+tags: [Germany, Launcher, Installation, Middleware]
 ---
 
 # Installation

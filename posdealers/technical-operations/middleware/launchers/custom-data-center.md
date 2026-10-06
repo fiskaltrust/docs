@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/technical-operations/middleware/launchers/custom-data-center
 title: Custom data center
+description: Bring your own Data Center for Germany — running the Middleware Launcher in Docker or Kubernetes in private or public clouds, compared to SaaS options.
+tags: [Bring Your Own Data Center, Docker, Launcher, Middleware, Germany, PosDealers]
 ---
 
 # Launcher

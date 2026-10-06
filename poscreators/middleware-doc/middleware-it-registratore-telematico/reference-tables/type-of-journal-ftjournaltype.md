@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/italy/reference-tables/ftjournaltype
 title: 'Type of Journal: ftJournalType'
+description: ftJournalType values specific to the Italian market, extending the general journal type reference table.
+tags: [ftJournalType, Journal, Reference Tables, Italy]
 ---
 
 # Type of Journal: ftJournalType

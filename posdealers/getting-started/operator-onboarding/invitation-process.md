@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/getting-started/operator-onboarding/invitation-process
 title: Invitation process
+description: Inviting a single PosOperator or bulk-inviting several via CSV in the Portal, managing invitations and handling errors.
+tags: [Invitation, Onboarding, Portal, PosDealers, Troubleshooting]
 ---
 # Invitation process
 
@@ -82,13 +84,23 @@ Under country-specific circumstances, when a PosOperator is first registered, th
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import PreviewAT from '../../_markets/at/getting-started/operator-onboarding/invitation-process/_preview-email.mdx';
+import PreviewBE from '../../_markets/be/getting-started/operator-onboarding/invitation-process/_preview-email.mdx';
 import PreviewFR from '../../_markets/fr/getting-started/operator-onboarding/invitation-process/_preview-email.mdx';
 import PreviewDE from '../../_markets/de/getting-started/operator-onboarding/invitation-process/_preview-email.mdx';
+import PreviewGR from '../../_markets/gr/getting-started/operator-onboarding/invitation-process/_preview-email.mdx';
+import PreviewIT from '../../_markets/it/getting-started/operator-onboarding/invitation-process/_preview-email.mdx';
+import PreviewPL from '../../_markets/pl/getting-started/operator-onboarding/invitation-process/_preview-email.mdx';
+import PreviewPT from '../../_markets/pt/getting-started/operator-onboarding/invitation-process/_preview-email.mdx';
+import PreviewES from '../../_markets/es/getting-started/operator-onboarding/invitation-process/_preview-email.mdx';
 
 <Tabs groupId="market">
 
   <TabItem value="AT" label="Austria">
     <PreviewAT />
+  </TabItem>
+
+  <TabItem value="BE" label="Belgium">
+    <PreviewBE />
   </TabItem>
 
   <TabItem value="FR" label="France">
@@ -97,6 +109,26 @@ import PreviewDE from '../../_markets/de/getting-started/operator-onboarding/inv
 
   <TabItem value="DE" label="Germany">
     <PreviewDE />
+  </TabItem>
+
+  <TabItem value="GR" label="Greece">
+    <PreviewGR />
+  </TabItem>
+
+  <TabItem value="IT" label="Italy">
+    <PreviewIT />
+  </TabItem>
+
+  <TabItem value="PL" label="Poland">
+    <PreviewPL />
+  </TabItem>
+
+  <TabItem value="PT" label="Portugal">
+    <PreviewPT />
+  </TabItem>
+
+  <TabItem value="ES" label="Spain">
+    <PreviewES />
   </TabItem>
 
 </Tabs>
@@ -138,13 +170,23 @@ Inviting PosOperators to a PosDealer account with an import file is especially i
 ### Fields of the CSV file
 
 import FieldsAT from '../../_markets/at/getting-started/operator-onboarding/invitation-process/_fields-details.mdx';
+import FieldsBE from '../../_markets/be/getting-started/operator-onboarding/invitation-process/_fields-details.mdx';
 import FieldsFR from '../../_markets/fr/getting-started/operator-onboarding/invitation-process/_fields-details.mdx';
 import FieldsDE from '../../_markets/de/getting-started/operator-onboarding/invitation-process/_fields-details.mdx';
+import FieldsGR from '../../_markets/gr/getting-started/operator-onboarding/invitation-process/_fields-details.mdx';
+import FieldsIT from '../../_markets/it/getting-started/operator-onboarding/invitation-process/_fields-details.mdx';
+import FieldsPL from '../../_markets/pl/getting-started/operator-onboarding/invitation-process/_fields-details.mdx';
+import FieldsPT from '../../_markets/pt/getting-started/operator-onboarding/invitation-process/_fields-details.mdx';
+import FieldsES from '../../_markets/es/getting-started/operator-onboarding/invitation-process/_fields-details.mdx';
 
 <Tabs groupId="market">
 
   <TabItem value="AT" label="Austria">
     <FieldsAT />
+  </TabItem>
+
+  <TabItem value="BE" label="Belgium">
+    <FieldsBE />
   </TabItem>
 
   <TabItem value="FR" label="France">
@@ -153,6 +195,26 @@ import FieldsDE from '../../_markets/de/getting-started/operator-onboarding/invi
 
   <TabItem value="DE" label="Germany">
     <FieldsDE />
+  </TabItem>
+
+  <TabItem value="GR" label="Greece">
+    <FieldsGR />
+  </TabItem>
+
+  <TabItem value="IT" label="Italy">
+    <FieldsIT />
+  </TabItem>
+
+  <TabItem value="PL" label="Poland">
+    <FieldsPL />
+  </TabItem>
+
+  <TabItem value="PT" label="Portugal">
+    <FieldsPT />
+  </TabItem>
+
+  <TabItem value="ES" label="Spain">
+    <FieldsES />
   </TabItem>
 
 </Tabs>
@@ -187,7 +249,7 @@ There are several ways to help.
 
 #### status or error messages 
 
-![8-onboarding](images/8-onboarding-portal.png "https://portal-sandbox.fiskaltrust.TLD/PosOperator/PosOperators")
+![Portal PosOperator Assignments page with invitation status icons and Assign, Edit and Delete buttons marked 1 to 4](images/8-onboarding-portal.png "https://portal-sandbox.fiskaltrust.TLD/PosOperator/PosOperators")
 
 *Figure 6. PosOperator invitation list showing invitation status and error indicators.*
 
@@ -203,7 +265,7 @@ There are several ways to help.
 
 #### Assigning PosOperators in a bulk process
 
-![9-onboarding](images/9-onboarding-portal.png "https://portal-sandbox.fiskaltrust.TLD/PosOperator/PosOperators")
+![Portal PosOperator Assignments page with the Assign all PosOperators, Add and History buttons marked 1 to 3](images/9-onboarding-portal.png "https://portal-sandbox.fiskaltrust.TLD/PosOperator/PosOperators")
 
 *Figure 7. fiskaltrust.Portal screen for assigning PosOperators in a bulk process.*
 
@@ -217,7 +279,7 @@ There are several ways to help.
 
 #### Onboarding of existing PosOperators 
 
-![15-onboarding](images/15-onboarding-already-existing-PosOperators.png "https://portal-sandbox.fiskaltrust.TLD/PosOperator")
+![Flowchart: PosDealer invitation fails with E-mail address already exists, PosOperator searches the PosDealer and requests assignment, PosDealer accepts and can surrogate](images/15-onboarding-already-existing-PosOperators.png "https://portal-sandbox.fiskaltrust.TLD/PosOperator")
 
 *Figure 8. Onboarding an already existing PosOperator in the fiskaltrust.Portal.*
 
@@ -235,7 +297,7 @@ There are several ways to help.
 
 #### Options with invited PosOperators
 
-![10-onboarding](images/10-onboarding-portal.png "https://portal-sandbox.fiskaltrust.TLD/PosOperator/PosOperators")
+![Portal PosOperator Protocol page with the Limit period date fields and per-row info, resend, delete and copy buttons marked 1 to 6](images/10-onboarding-portal.png "https://portal-sandbox.fiskaltrust.TLD/PosOperator/PosOperators")
 
 *Figure 9. History protocol of PosOperator assignments in the fiskaltrust.Portal.*
 

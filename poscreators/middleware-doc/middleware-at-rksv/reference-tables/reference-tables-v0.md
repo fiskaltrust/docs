@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/austria/reference-tables-v0
 title: Reference Tables v0
+description: Austrian v0 values for ftState, ftReceiptCase, ftChargeItemCase, ftPayItemCase, signature types and formats, and ftJournalType.
+tags: [Austria, Reference Tables, RKSV, Receipt Case, Charge Item Case, Pay Item Case]
 ---
 
 # Reference Tables

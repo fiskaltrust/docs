@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/buy-resell/products/digital-receipt
 title: Digital Receipt
+description: Preparations PosDealers and PosOperators need for digital receipts, general and per country, plus how to evaluate digital receipt retrievals.
+tags: [Digital receipt, Portal, PosDealers]
 ---
 
 # Digital Receipt
@@ -18,9 +20,9 @@ With digital receipts, the PosOperator can reduce expenses for printouts and hel
 As a PosDealer, you thus offer a state-of-the-art PosSystem.  
 
 
-![receipt-chaining](../images/buy_resell-digital-receipt-3.png)
+![Flowchart: PosDealer opens the Portal, switches to the PosOperator, checks master data, then edits the outlet and adds an outlet logo](../images/buy_resell-digital-receipt-3.png)
 
-*Figure 1. Example of a digital receipt as shown to the customer.*
+*Figure 1. Portal steps to prepare digital receipts: the PosDealer switches to the PosOperator, checks the master data, then checks the outlet data and adds an outlet logo.*
 
 Please note that the visualization in the sandbox may look different than in the productive system.
 Please also note that different regulations or requirements may apply depending on the country where your PosSystem is used. Please refer to the country-specific regulations. Please understand that we can only describe these details without claiming to be complete.
@@ -45,13 +47,23 @@ We recommend using a file in ~.png-format with transparent background for best r
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import PreviewAT from '../../_markets/at/getting-started/operator-onboarding/master-data/_edit-master.mdx';
+import PreviewBE from '../../_markets/be/getting-started/operator-onboarding/master-data/_edit-master.mdx';
 import PreviewFR from '../../_markets/fr/getting-started/operator-onboarding/master-data/_edit-master.mdx';
 import PreviewDE from '../../_markets/de/getting-started/operator-onboarding/master-data/_edit-master.mdx';
+import PreviewGR from '../../_markets/gr/getting-started/operator-onboarding/master-data/_edit-master.mdx';
+import PreviewIT from '../../_markets/it/getting-started/operator-onboarding/master-data/_edit-master.mdx';
+import PreviewPL from '../../_markets/pl/getting-started/operator-onboarding/master-data/_edit-master.mdx';
+import PreviewPT from '../../_markets/pt/getting-started/operator-onboarding/master-data/_edit-master.mdx';
+import PreviewES from '../../_markets/es/getting-started/operator-onboarding/master-data/_edit-master.mdx';
 
 <Tabs groupId="market">
 
   <TabItem value="AT" label="Austria">
     <PreviewAT />
+  </TabItem>
+
+  <TabItem value="BE" label="Belgium">
+    <PreviewBE />
   </TabItem>
 
   <TabItem value="FR" label="France">
@@ -60,6 +72,26 @@ import PreviewDE from '../../_markets/de/getting-started/operator-onboarding/mas
 
   <TabItem value="DE" label="Germany">
     <PreviewDE />
+  </TabItem>
+
+  <TabItem value="GR" label="Greece">
+    <PreviewGR />
+  </TabItem>
+
+  <TabItem value="IT" label="Italy">
+    <PreviewIT />
+  </TabItem>
+
+  <TabItem value="PL" label="Poland">
+    <PreviewPL />
+  </TabItem>
+
+  <TabItem value="PT" label="Portugal">
+    <PreviewPT />
+  </TabItem>
+
+  <TabItem value="ES" label="Spain">
+    <PreviewES />
   </TabItem>
 
 </Tabs>
@@ -71,13 +103,23 @@ import PreviewDE from '../../_markets/de/getting-started/operator-onboarding/mas
   <summary>Work steps to check outlets</summary>  
 
 import OutletAT from '../../_markets/at/getting-started/operator-onboarding/master-data/_checking-outlets.mdx';
+import OutletBE from '../../_markets/be/getting-started/operator-onboarding/master-data/_checking-outlets.mdx';
 import OutletFR from '../../_markets/fr/getting-started/operator-onboarding/master-data/_checking-outlets.mdx';
 import OutletDE from '../../_markets/de/getting-started/operator-onboarding/master-data/_checking-outlets.mdx';
+import OutletGR from '../../_markets/gr/getting-started/operator-onboarding/master-data/_checking-outlets.mdx';
+import OutletIT from '../../_markets/it/getting-started/operator-onboarding/master-data/_checking-outlets.mdx';
+import OutletPL from '../../_markets/pl/getting-started/operator-onboarding/master-data/_checking-outlets.mdx';
+import OutletPT from '../../_markets/pt/getting-started/operator-onboarding/master-data/_checking-outlets.mdx';
+import OutletES from '../../_markets/es/getting-started/operator-onboarding/master-data/_checking-outlets.mdx';
 
 <Tabs groupId="market">
 
   <TabItem value="AT" label="Austria">
     <OutletAT />
+  </TabItem>
+
+  <TabItem value="BE" label="Belgium">
+    <OutletBE />
   </TabItem>
 
   <TabItem value="FR" label="France">
@@ -86,6 +128,26 @@ import OutletDE from '../../_markets/de/getting-started/operator-onboarding/mast
 
   <TabItem value="DE" label="Germany">
     <OutletDE />
+  </TabItem>
+
+  <TabItem value="GR" label="Greece">
+    <OutletGR />
+  </TabItem>
+
+  <TabItem value="IT" label="Italy">
+    <OutletIT />
+  </TabItem>
+
+  <TabItem value="PL" label="Poland">
+    <OutletPL />
+  </TabItem>
+
+  <TabItem value="PT" label="Portugal">
+    <OutletPT />
+  </TabItem>
+
+  <TabItem value="ES" label="Spain">
+    <OutletES />
   </TabItem>
 
 </Tabs>
@@ -98,13 +160,23 @@ import OutletDE from '../../_markets/de/getting-started/operator-onboarding/mast
 
 
 import EditOutletAT from '../../_markets/at/getting-started/operator-onboarding/master-data/_edit-outlet.mdx';
+import EditOutletBE from '../../_markets/be/getting-started/operator-onboarding/master-data/_edit-outlet.mdx';
 import EditOutletFR from '../../_markets/fr/getting-started/operator-onboarding/master-data/_edit-outlet.mdx';
 import EditOutletDE from '../../_markets/de/getting-started/operator-onboarding/master-data/_edit-outlet.mdx';
+import EditOutletGR from '../../_markets/gr/getting-started/operator-onboarding/master-data/_edit-outlet.mdx';
+import EditOutletIT from '../../_markets/it/getting-started/operator-onboarding/master-data/_edit-outlet.mdx';
+import EditOutletPL from '../../_markets/pl/getting-started/operator-onboarding/master-data/_edit-outlet.mdx';
+import EditOutletPT from '../../_markets/pt/getting-started/operator-onboarding/master-data/_edit-outlet.mdx';
+import EditOutletES from '../../_markets/es/getting-started/operator-onboarding/master-data/_edit-outlet.mdx';
 
 <Tabs groupId="market">
 
   <TabItem value="AT" label="Austria">
     <EditOutletAT />
+  </TabItem>
+
+  <TabItem value="BE" label="Belgium">
+    <EditOutletBE />
   </TabItem>
 
   <TabItem value="FR" label="France">
@@ -113,6 +185,26 @@ import EditOutletDE from '../../_markets/de/getting-started/operator-onboarding/
 
   <TabItem value="DE" label="Germany">
     <EditOutletDE />
+  </TabItem>
+
+  <TabItem value="GR" label="Greece">
+    <EditOutletGR />
+  </TabItem>
+
+  <TabItem value="IT" label="Italy">
+    <EditOutletIT />
+  </TabItem>
+
+  <TabItem value="PL" label="Poland">
+    <EditOutletPL />
+  </TabItem>
+
+  <TabItem value="PT" label="Portugal">
+    <EditOutletPT />
+  </TabItem>
+
+  <TabItem value="ES" label="Spain">
+    <EditOutletES />
   </TabItem>
 
 </Tabs>
