@@ -73,8 +73,8 @@ In a void or refund, **both** quantity and amount of every charge item and pay i
 
 `Quantity` and `Amount` are two separate values with different meanings:
 
-- `Quantity` is the number of units of the goods or service on the line, i.e. the goods that move.
-- `Amount` is the total value of the line, i.e. the money that moves.
+- `Quantity` is the quantity of the line item, i.e. the goods or services that move.
+- `Amount` is the total amount of the line item, i.e. the money that moves.
 
 Because they describe different things, their signs do not have to match. A discount line, for example, has a positive quantity and a negative amount, and a deposit return has a negative quantity and a negative amount. The correction therefore must not simply set both values to negative; it inverts each of them on its own:
 
@@ -114,9 +114,7 @@ The POS system may also set the flag `IsReturn/IsRefund` (`0x0000_0000_0002_0000
 
 **Example**: A customer bought a jacket last week (paid, receipt closed) and returns it today. The POS system sends a full refund with quantity `-1` and the negative amount for the jacket, a negative cash pay item, `IsReturn/IsRefund` set in `ftReceiptCase`, and `cbPreviousReceiptReference` pointing to the original sale. The money is paid back to the customer.
 
-:::info Unreferenced refunds
-Some scenarios require a refund without a reference to an original receipt, for example a goodwill refund or when the original receipt is unknown. Whether unreferenced refunds are supported, and how they are handled, is market specific; see [Market-specific considerations](#market-specific-considerations).
-:::
+A refund does not always have an electronic link to the original receipt; see [Referenced and unreferenced refunds](#referenced-and-unreferenced-refunds).
 
 ## Partial refund
 
@@ -162,6 +160,44 @@ In an exchange, the customer gives back something and gets another product for i
 An exchange is not allowed in many markets. There, the POS system sends the return and the new sale as separate receipts: a [partial refund](#partial-refund) or [full refund](#full-refund) for the returned goods, and a regular receipt for the new goods. See the market pages.
 :::
 
+## Referenced and unreferenced refunds
+
+A refund, partial refund or exchange can be linked to the original receipt in different ways, depending on where the original receipt was issued and what the POS system knows about it. The same reference mechanisms apply to a void.
+
+| Type | Original receipt | How it is referenced | Also known as |
+|------|------------------|----------------------|---------------|
+| [Referenced refund](#referenced-refund) | Processed by the same queue. | `cbPreviousReceiptReference` | Linked refund, return with receipt |
+| [Referenced refund with an external reference](#referenced-refund-with-an-external-reference) | Issued by another device or system, for example another cash register in the same store. | Market-specific reference data in `ftReceiptCaseData` | Cross-device or cross-store return |
+| [Manually referenced refund](#manually-referenced-refund) | Handed to the customer, for example on paper, but not available for an electronic link. | Depending on the market, the data printed on the original receipt | Return with paper receipt |
+| [Unreferenced refund](#unreferenced-refund) | Unknown, or no receipt at all. | None | Unlinked refund, blind refund, return without receipt |
+
+*Table 7. Ways to reference the original receipt in a refund.*
+
+### Referenced refund
+
+The original receipt was processed by the same queue. The POS system sets `cbPreviousReceiptReference` to the `cbReceiptReference` of the original receipt. This is the preferred way of referencing, because the Middleware can check the reference:
+
+- It looks up the original receipt in the queue. Receipts that were answered with an error state are ignored.
+- It rejects the request if no receipt or more than one receipt matches the reference, see [Rules applied by the Middleware](#rules-applied-by-the-middleware).
+- Depending on the market, the `ReceiptResponse` returns the request and the response of the referenced receipt in `ftStateData`, and the Middleware uses the data of the original receipt, for example its signatures or document numbers, for the national reporting of the refund.
+
+### Referenced refund with an external reference
+
+The original receipt was issued by another device or system, for example by another cash register or fiscal printer in the same store, and therefore cannot be found via `cbPreviousReceiptReference`. Depending on the market, the POS system passes the data that identifies the original receipt in `ftReceiptCaseData`, for example the identifier of the issuing device and the document number. The structure of this data is market specific and described in the data structures of the respective market. Markets that do not define such a structure do not support external references.
+
+### Manually referenced refund
+
+The customer brings back a receipt that was handed to them, for example a printed or handwritten receipt, but the receipt is not available for an electronic link. Depending on the market:
+
+- the original document is recorded in the Middleware first, for example as a handwritten receipt, and the refund then references it via `cbPreviousReceiptReference`, or
+- the data printed on the original receipt is passed as an [external reference](#referenced-refund-with-an-external-reference).
+
+If the market supports neither, the refund is an [unreferenced refund](#unreferenced-refund).
+
+### Unreferenced refund
+
+The refund has no reference to an original receipt, for example a goodwill refund or a return without a receipt. There is no separate flag for an unreferenced refund: it is a refund without `cbPreviousReceiptReference` and without an external reference. Whether unreferenced refunds are allowed is market specific: some markets reject them, others accept them and report them as a separate document type. Depending on the market, a void always requires a reference.
+
 ## Position void
 
 A position void cancels a position within the receipt that is currently being created, for example an item that was scanned by mistake. It does not reference another receipt. The receipt contains the original position and a correcting charge item with inverted quantity and amount, marked with the flag `IsVoid` (`0x0000_0000_0001_0000`), which marks it as void of the previous position.
@@ -170,9 +206,9 @@ A position void cancels a position within the receipt that is currently being cr
 
 - **Returnables (deposit)**: Charge items with the flag `Returnable` (`0x0000_0000_0010_0000`) use a positive amount for the handout and a negative amount for the return, for example of empty bottles. A deposit return is therefore a negative `Returnable` item, not a refund. Depending on the market, a negative `Returnable` item is only accepted in a void, full refund, partial refund or exchange, see [Rules applied by the Middleware](#rules-applied-by-the-middleware).
 - **Downpayments**: A downpayment is reduced with a negative `Downpayment` charge item (`0x0000_0000_0008_0000`); see [Reference Tables](../reference-tables/reference-tables.md#type-of-service-ftchargeitemcase). Depending on the market, a negative `Downpayment` item is only accepted in a void, full refund, partial refund or exchange, see [Rules applied by the Middleware](#rules-applied-by-the-middleware).
-- **Handwritten receipts**: A refund of a receipt that was recorded with the flag `Process as Handwritten Receipt` (`0x0000_0000_0008_0000`) does not require `cbPreviousReceiptReference`.
+- **Handwritten receipts**: A refund that is itself recorded with the flag `Process as Handwritten Receipt` (`0x0000_0000_0008_0000`) does not require `cbPreviousReceiptReference`. Depending on the market, combining the handwritten flag with a void or refund is not allowed; see the market pages.
 - **Card payments**: For payments processed through the fiskaltrust payment endpoint, see [Payment](../../experience-middleware/payment.md#payment-service-provider-psp-feature-matrix) for the refund and cancel operations supported per payment service provider.
-- **Voided receipt in another queue or system**: When the receipt to be voided cannot be referenced via `cbReceiptReference` because it was processed by a different queue or system, the reference is passed in `ftReceiptCaseData`; see [ReceiptCaseData](../reference-tables/reference-tables.md#receiptcasedata).
+- **Original receipt from another device or system**: see [Referenced refund with an external reference](#referenced-refund-with-an-external-reference).
 
 ## Market-specific considerations
 
