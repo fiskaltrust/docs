@@ -51,7 +51,7 @@ A TD04 carries **positive** amounts: the sign is expressed by the document type.
 
 | Source | Carries |
 | --- | --- |
-| The merchant's **AdE connection** in fiskaltrust | The seller (`CedentePrestatore`). The P.IVA and the *denominazione* are verified with the Agenzia delle Entrate when the merchant connects their fiskaltrust account to their AdE account from the fiskaltrust.Portal; the *regime fiscale* and the registered seat (*sede*) are configured together with that connection. |
+| The merchant's **eInvoicing enablement** in fiskaltrust | The seller (`CedentePrestatore`): P.IVA, *denominazione*, *codice fiscale*, *regime fiscale* and registered seat (*sede*), configured once for the merchant's account when eInvoicing is enabled. The P.IVA is checked against the EU [VIES](https://ec.europa.eu/taxation_customs/vies/) service, and the registered name VIES returns is used as the *denominazione*. eInvoicing does not need a connection to the merchant's AdE account. |
 | `cbCustomer` | The buyer (`CessionarioCommittente`). It is sent as a JSON object; the fields are described in [Customer data `cbCustomer`](../data-structures/data-structures.md#customer-data-cbcustomer). |
 | `cbChargeItems` | The invoice lines and the VAT summary. |
 | `cbPayItems` | `DatiPagamento`. |
@@ -61,11 +61,11 @@ A TD04 carries **positive** amounts: the sign is expressed by the document type.
 *Table 3. Where the FatturaPA data comes from.*
 
 :::warning The merchant is configured, not sent
-Whose name is on an invoice is not decided by the receipt: the seller always comes from the merchant's AdE connection.
+Whose name is on an invoice is not decided by the receipt: the seller always comes from the merchant's eInvoicing enablement.
 :::
 
 :::note Sandbox seller
-In the sandbox, seller data the merchant's account is missing is filled with a sandbox seller (`SANDBOX MERCHANT S.R.L.`, P.IVA `00000000000`), so invoices can be rendered before the merchant has connected to AdE. Production does not do this: a receipt for an account without seller data is rejected.
+In the sandbox, seller data the merchant's account is missing is filled with a sandbox seller (`SANDBOX MERCHANT S.R.L.`, P.IVA `00000000000`), so invoices can be rendered before eInvoicing is enabled for the merchant. Production does not do this: a receipt for an account without seller data is rejected.
 :::
 
 ## Mapping
@@ -89,12 +89,12 @@ The merchant is `CedentePrestatore` and the buyer is `CessionarioCommittente`.
 
 #### The merchant
 
-| FatturaPA element | Value from the merchant's AdE connection |
+| FatturaPA element | Value from the merchant's eInvoicing enablement |
 | --- | --- |
 | `DatiAnagrafici/IdFiscaleIVA/IdPaese` | `IT` |
-| `DatiAnagrafici/IdFiscaleIVA/IdCodice` | P.IVA, 11 digits; an `IT` prefix is stripped. |
+| `DatiAnagrafici/IdFiscaleIVA/IdCodice` | P.IVA, 11 digits, confirmed by VIES; an `IT` prefix is stripped. |
 | `DatiAnagrafici/CodiceFiscale` | The merchant's codice fiscale; the P.IVA digits when none is configured. |
-| `DatiAnagrafici/Anagrafica/Denominazione` | *Denominazione* |
+| `DatiAnagrafici/Anagrafica/Denominazione` | *Denominazione*: the registered name VIES returns for the P.IVA. |
 | `DatiAnagrafici/RegimeFiscale` | *Regime fiscale*; `RF01` (regime ordinario) when none is configured. |
 | `Sede/Indirizzo`, `Sede/CAP`, `Sede/Comune` | *Sede* `indirizzo`, `cap`, `comune` |
 | `Sede/Provincia` | *Sede* `provincia`, when configured. |
@@ -321,15 +321,15 @@ The validate step checks every rule below and returns **all** violations at once
 
 ### Seller
 
-These rules apply to the merchant's AdE connection. The same rules are applied when the *regime fiscale* and the *sede* are configured, so master data that could never be rendered is normally refused there already.
+These rules apply to the merchant's eInvoicing enablement. The same rules are applied when eInvoicing is enabled, so master data that could never be rendered is normally refused there already.
 
 | Rule | Message |
 | --- | --- |
-| The account must have seller data. | `The seller is unknown: this account has no AdE connection carrying one. Connect it with POST /v0/ade/connection, including regimeFiscale and sede.` |
+| The account must have seller data. | `The seller is unknown: eInvoicing is not enabled for this account. Enable it with POST /v0/einvoicing/enablement.` |
 | P.IVA has 11 digits. | `cedente.partitaIva must be the seller's 11-digit P.IVA (an optional IT prefix is stripped).` |
 | *Denominazione* is set. | `cedente.denominazione is required.` |
 | *Regime fiscale* is a FatturaPA code. | `cedente.regimeFiscale must be a code from the FatturaPA list (e.g. RF01), but is '…'.` |
-| *Sede* has `indirizzo`, a 5-character `cap` and `comune`. | `The seller's sede is missing: the account's AdE connection carries no indirizzo, 5-char cap and comune. Add them with POST /v0/ade/connection.` |
+| *Sede* has `indirizzo`, a 5-character `cap` and `comune`. | `The seller's sede is missing: the account's eInvoicing enablement carries no indirizzo, 5-char cap and comune. Add them with POST /v0/einvoicing/enablement.` |
 | *Denominazione* ≤ 80, `indirizzo` ≤ 60, `comune` ≤ 60 characters. | `cedente.… is … characters; a FatturaPA accepts at most ….` |
 | Latin-1 text only. | `cedente.… contains characters outside Latin-1; a FatturaPA (and SdI) accepts Latin-1 text only.` |
 | No control characters. | `cedente.… contains control characters (tab, line break or others below U+0020), which a FatturaPA does not accept.` |

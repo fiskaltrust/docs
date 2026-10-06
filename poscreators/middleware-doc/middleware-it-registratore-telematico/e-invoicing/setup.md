@@ -21,7 +21,7 @@ eInvoicing rides on calls you already make. Setup is about **configuration** —
 | Existing fiscalization integration | Your POS already fiscalizes in Italy via `/sign`. |
 | fiskaltrust.Middleware country configuration | The fiskaltrust.Middleware's country configuration is set to the **Italian locale**. |
 | PosSystem API (v2) | eInvoicing features are exposed through the **PosSystem API (v2)**. If you are on the v0 interface, plan your [migration](../../possystem-api/migration-guide.md) first. |
-| Merchant master data | The merchant has connected their fiskaltrust account to their AdE account, with **regime fiscale** and **sede**. The seller on every FatturaPA comes from this connection, never from the receipt. See [FatturaPA mapping](./fatturapa-mapping.md#data-sources). |
+| Merchant master data | eInvoicing is enabled for the merchant's account, with the **P.IVA** (checked against VIES), **regime fiscale** and **sede**. The seller on every FatturaPA comes from this enablement, never from the receipt. No connection to the merchant's AdE account is needed. See [FatturaPA mapping](./fatturapa-mapping.md#data-sources). |
 | Buyer routing | For B2B, the buyer's SDI **codice destinatario** or **PEC** is on file. It is sent in `cbCustomer.CustomerEndpointId` as `0205:<codice destinatario>` or `0202:<pec>`. See [SDI routing](./fatturapa-mapping.md#sdi-routing). |
 | Existing arrangement | Ask what the merchant already uses — in Italy this is almost always a **displacement**, not a first-time integration. |
 
