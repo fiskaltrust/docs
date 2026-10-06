@@ -1,7 +1,7 @@
 ---
 slug: /poscreators/middleware-doc/italy/data-structures
 title: Data Structures
-description: Receipt request fields needing special handling in Italy, such as cbTerminalID, cbReceiptReference and cbCustomer customer data.
+description: Receipt request fields needing special handling in Italy, such as cbTerminalID, cbReceiptReference and cbCustomer customer data, and how refunds and voids reference the original receipt.
 tags: [Data Structures, cbCustomer, cbReceiptReference, RT, Italy]
 ---
 
@@ -54,3 +54,9 @@ Each field takes one kind of identifier only. A legal entity that uses its parti
 The *codice lotteria* is sent in `ftReceiptCaseData`, as `{"servizi_lotteriadegliscontrini_gov_it":{"codicelotteria":"XXXXXXXX"}}`, and not in `cbCustomer`. On the *Documento Commerciale*, an identified customer and the lottery data are mutually exclusive: when the customer is identified, the lottery data is omitted.
 
 :::
+
+### Reference to the original receipt in refunds and voids
+
+A refund or void references the original receipt with `cbPreviousReceiptReference`. The Middleware looks up the receipt with this `cbReceiptReference` in the same queue, ignoring receipts that were answered with an error state, and takes the Z-number, the document number and the document date of the original *Documento Commerciale* from its signatures. These values are transmitted to the RT printer or RT server together with the identification of the RT printer or RT server till connected to the queue. If no receipt in the queue matches, the request is rejected with the error `There is no item available with the given cbPreviousReceiptReference '…'`.
+
+A receipt that was issued by another queue, another RT device or another system cannot be referenced: for Italy, `ftReceiptCaseData` does not carry reference data such as the serial number, Z-number or document number of another device. A refund or void without `cbPreviousReceiptReference` is processed as an unreferenced document, for which the Middleware transmits neutral reference values to the RT device.
