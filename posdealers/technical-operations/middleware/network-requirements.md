@@ -55,13 +55,23 @@ In case of connectivity issues, please check out the dedicated chapter [Network 
 This section describes external third-party endpoints that the Middleware uses in some cases. This usage is currently only the case when using cloud TSSs in Germany.
 
 import HostsAT from '../../_markets/at/technical-operations/middleware/network-requirements/_hosts.mdx';
+import HostsBE from '../../_markets/be/technical-operations/middleware/network-requirements/_hosts.mdx';
 import HostsFR from '../../_markets/fr/technical-operations/middleware/network-requirements/_hosts.mdx';
 import HostsDE from '../../_markets/de/technical-operations/middleware/network-requirements/_hosts.mdx';
+import HostsGR from '../../_markets/gr/technical-operations/middleware/network-requirements/_hosts.mdx';
+import HostsIT from '../../_markets/it/technical-operations/middleware/network-requirements/_hosts.mdx';
+import HostsPL from '../../_markets/pl/technical-operations/middleware/network-requirements/_hosts.mdx';
+import HostsPT from '../../_markets/pt/technical-operations/middleware/network-requirements/_hosts.mdx';
+import HostsES from '../../_markets/es/technical-operations/middleware/network-requirements/_hosts.mdx';
 
 <Tabs groupId="market">
 
   <TabItem value="AT" label="Austria">
     <HostsAT />
+  </TabItem>
+
+  <TabItem value="BE" label="Belgium">
+    <HostsBE />
   </TabItem>
 
   <TabItem value="FR" label="France">
@@ -70,6 +80,26 @@ import HostsDE from '../../_markets/de/technical-operations/middleware/network-r
 
   <TabItem value="DE" label="Germany">
     <HostsDE />
+  </TabItem>
+
+  <TabItem value="GR" label="Greece">
+    <HostsGR />
+  </TabItem>
+
+  <TabItem value="IT" label="Italy">
+    <HostsIT />
+  </TabItem>
+
+  <TabItem value="PL" label="Poland">
+    <HostsPL />
+  </TabItem>
+
+  <TabItem value="PT" label="Portugal">
+    <HostsPT />
+  </TabItem>
+
+  <TabItem value="ES" label="Spain">
+    <HostsES />
   </TabItem>
 
 </Tabs>
@@ -155,13 +185,23 @@ Please remember that any changes only take effect after a restart of fiskaltrust
 Depending on your setup, you might also need to grant access to additional network resources.
 
 import ProxyAT from '../../_markets/at/technical-operations/middleware/network-requirements/_proxy.mdx';
+import ProxyBE from '../../_markets/be/technical-operations/middleware/network-requirements/_proxy.mdx';
 import ProxyFR from '../../_markets/fr/technical-operations/middleware/network-requirements/_proxy.mdx';
 import ProxyDE from '../../_markets/de/technical-operations/middleware/network-requirements/_proxy.mdx';
+import ProxyGR from '../../_markets/gr/technical-operations/middleware/network-requirements/_proxy.mdx';
+import ProxyIT from '../../_markets/it/technical-operations/middleware/network-requirements/_proxy.mdx';
+import ProxyPL from '../../_markets/pl/technical-operations/middleware/network-requirements/_proxy.mdx';
+import ProxyPT from '../../_markets/pt/technical-operations/middleware/network-requirements/_proxy.mdx';
+import ProxyES from '../../_markets/es/technical-operations/middleware/network-requirements/_proxy.mdx';
 
 <Tabs groupId="market">
 
   <TabItem value="AT" label="Austria">
     <ProxyAT />
+  </TabItem>
+
+  <TabItem value="BE" label="Belgium">
+    <ProxyBE />
   </TabItem>
 
   <TabItem value="FR" label="France">
@@ -170,6 +210,26 @@ import ProxyDE from '../../_markets/de/technical-operations/middleware/network-r
 
   <TabItem value="DE" label="Germany">
     <ProxyDE />
+  </TabItem>
+
+  <TabItem value="GR" label="Greece">
+    <ProxyGR />
+  </TabItem>
+
+  <TabItem value="IT" label="Italy">
+    <ProxyIT />
+  </TabItem>
+
+  <TabItem value="PL" label="Poland">
+    <ProxyPL />
+  </TabItem>
+
+  <TabItem value="PT" label="Portugal">
+    <ProxyPT />
+  </TabItem>
+
+  <TabItem value="ES" label="Spain">
+    <ProxyES />
   </TabItem>
 
 </Tabs>

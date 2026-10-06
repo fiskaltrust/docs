@@ -48,13 +48,23 @@ Wherever possible, fiskaltrust offers a cloud-hosted version of the Middleware t
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HostedMiddlewareAT from '../../_markets/at/buy-resell/products/_hosted-middleware.mdx';
+import HostedMiddlewareBE from '../../_markets/be/buy-resell/products/_hosted-middleware.mdx';
 import HostedMiddlewareFR from '../../_markets/fr/buy-resell/products/_hosted-middleware.mdx';
 import HostedMiddlewareDE from '../../_markets/de/buy-resell/products/_hosted-middleware.mdx';
+import HostedMiddlewareGR from '../../_markets/gr/buy-resell/products/_hosted-middleware.mdx';
+import HostedMiddlewareIT from '../../_markets/it/buy-resell/products/_hosted-middleware.mdx';
+import HostedMiddlewarePL from '../../_markets/pl/buy-resell/products/_hosted-middleware.mdx';
+import HostedMiddlewarePT from '../../_markets/pt/buy-resell/products/_hosted-middleware.mdx';
+import HostedMiddlewareES from '../../_markets/es/buy-resell/products/_hosted-middleware.mdx';
 
 <Tabs groupId="market">
 
   <TabItem value="AT" label="Austria">
     <HostedMiddlewareAT />
+  </TabItem>
+
+  <TabItem value="BE" label="Belgium">
+    <HostedMiddlewareBE />
   </TabItem>
 
   <TabItem value="FR" label="France">
@@ -63,6 +73,26 @@ import HostedMiddlewareDE from '../../_markets/de/buy-resell/products/_hosted-mi
 
   <TabItem value="DE" label="Germany">
     <HostedMiddlewareDE />
+  </TabItem>
+
+  <TabItem value="GR" label="Greece">
+    <HostedMiddlewareGR />
+  </TabItem>
+
+  <TabItem value="IT" label="Italy">
+    <HostedMiddlewareIT />
+  </TabItem>
+
+  <TabItem value="PL" label="Poland">
+    <HostedMiddlewarePL />
+  </TabItem>
+
+  <TabItem value="PT" label="Portugal">
+    <HostedMiddlewarePT />
+  </TabItem>
+
+  <TabItem value="ES" label="Spain">
+    <HostedMiddlewareES />
   </TabItem>
 
 </Tabs>
