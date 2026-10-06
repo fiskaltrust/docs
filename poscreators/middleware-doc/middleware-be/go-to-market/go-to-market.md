@@ -13,7 +13,7 @@ This page explains where the fiskaltrust.Middleware sits in this setup, what it 
 
 | Party | Role in the Belgian setup |
 | ----- | ------------------------- |
-| **PosCreator** | Produces the cash register system and applies for its certification with the FPS Finance. Responsible for the user interface, user management (including the INSZ of every user), the VAT receipt layout, and the data the cash register system keeps itself. |
+| **PosCreator** | Produces the cash register system and applies for its certification with the FPS Finance. Responsible for the user interface; the VAT receipt layout is provided by the fiskaltrust.Middleware. |
 | **fiskaltrust.Middleware** | Receives every business case from the POS through the [PosSystem API](../../possystem-api/introduction.md), turns it into the FDM event, communicates with the FDM, and returns the FDM's control data to the POS. Stores every request and response in its journals. |
 | **FDM manufacturer** | Provides the certified Fiscal Data Module. The fiskaltrust.Middleware currently connects to the FDM of ZwarteDoos. |
 | **PosDealer / installer** | Sets up the fiskaltrust.Middleware for the merchant in the fiskaltrust.Portal, connects it to the merchant's FDM, and is responsible for the correct and secure installation and configuration. |
@@ -35,7 +35,7 @@ The fiskaltrust.Middleware can be managed by fiskaltrust in the cloud (**fiskalt
 - **One interface for all channels.** POS terminals, kiosks, handhelds, and web shops send the same `ReceiptRequest`; the fiskaltrust.Middleware creates the matching FDM event.
 - **FDM communication.** Building the GraphQL mutation, authentication, time-zone correct `posDateTime`, error handling, and the mapping of FDM errors, warnings, and messages into the response.
 - **Mapping of the fiskaltrust data model to the FDM data model.** VAT codes (A, B, C, D, X), payment types, refund reasons, training mode (event label `T`), and the transaction lines. See [FDM event operations](./fdm-event-operations.md#mapping-of-the-fiskaltrust-data-model).
-- **Control data for the VAT receipt.** The FDM's signature items are returned in `ftSignatures` so that the POS can print them together with the QR code.
+- **The VAT receipt.** The fiskaltrust.Middleware provides the VAT receipt layout. The FDM's signature items are also returned in `ftSignatures`.
 - **Journals.** Every request, every FDM request and response, and the resulting `ReceiptResponse` are stored in the journals of the fiskaltrust.Middleware and can be exported through the journal endpoint. See [FAQ: data retention](./faq.md#does-fiskaltrust-take-over-the-data-retention-and-data-integrity-requirements).
 - **Updates.** Changes to the FDM interface are implemented in the fiskaltrust.Middleware without changes to your PosSystem API integration.
 
@@ -43,7 +43,7 @@ The fiskaltrust.Middleware can be managed by fiskaltrust in the cloud (**fiskalt
 
 - **The certification of the cash register system.** The FPS Finance certifies the cash register system as a whole. The fiskaltrust.Middleware is a component of your system; describe it in your certification application together with your own components. fiskaltrust provides the documentation of the fiskaltrust.Middleware's data storage and FDM communication for this purpose.
 - **User management.** Every user must be logged in and identified by their INSZ (national register or BIS number), which is passed to the fiskaltrust.Middleware in `cbUser`. For orders without human intervention (web shop, kiosk) and automatically created reports, the robot user `00000000029` is used; external technicians use `00000000097`.
-- **The VAT receipt.** Layout, the mandatory mentions (e.g. *VAT RECEIPT*, *PRO FORMA*, *COPY*, *THIS IS NOT A VALID VAT RECEIPT*), the control data returned by the fiskaltrust.Middleware, and the QR code generated from the verification URL.
+- **Handing out the VAT receipt.** The layout is provided by the fiskaltrust.Middleware; the POS hands the VAT receipt to the customer.
 - **The business process.** A VAT receipt may only be handed out once the FDM has signed the event. The POS must wait for the fiskaltrust.Middleware's response and handle errors. See [FAQ: sequence of operations](./faq.md#must-the-pos-wait-for-the-fdm-before-completing-a-transaction-and-what-happens-after-payment).
 - **Cash rounding** to 5 cents and the order in which vouchers, cash, and electronic payments are registered.
 - **Data kept outside the fiskaltrust.Middleware**, such as master data, the link between the user identification on the receipt and the INSZ, and anything the POS stores on its own.
