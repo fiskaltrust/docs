@@ -69,13 +69,14 @@ What the fiskaltrust.Middleware covers:
 - Every `ReceiptRequest`, the GraphQL request sent to the FDM, the FDM's response, and the resulting `ReceiptResponse` are stored in the journals of the fiskaltrust.Middleware, in their original form. The FDM request and response are included in `ftStateData` of each response.
 - The journals are append-only; processed receipts are never changed or deleted.
 - The data can be exported at any time as JSON through the journal endpoint, for example for an inspection.
+- With the **fiskaltrust.PosArchive**, the data transferred by the fiskaltrust.Middleware is archived for the retention period required in the market.
 - fiskaltrust provides the description of the fiskaltrust.Middleware's data storage and security mechanisms for your certification application.
 
 What remains with you and your customers:
 
 - Data the POS keeps outside the fiskaltrust.Middleware: master data, user administration including the INSZ of every user and its link to the identification printed on the receipt, and any event data the POS stores itself.
 - Presenting the data in readable form on request, and the hardware requirement that the cash register provides at least one port for an external data carrier (for example USB).
-- The retention period itself. The taxpayer remains responsible for keeping the data for the legal retention period; agree with fiskaltrust how long the cloud journals are kept for your customers, or export them regularly.
+- The retention period itself. The taxpayer remains responsible for keeping the data for the legal retention period; use the fiskaltrust.PosArchive for this, or export the journals regularly.
 
 ### Does the software version have to be shown in channels other than the POS, e.g. the customer-facing website?
 
