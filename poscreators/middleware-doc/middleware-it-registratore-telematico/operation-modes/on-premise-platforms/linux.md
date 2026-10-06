@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/italy/platforms/linux
 title: Linux
+description: Running the Italian Middleware on Linux and macOS with Launcher 2.0 — supported distributions, versions and local storage options.
+tags: [Linux, Launcher, Operation Modes, Installation, Italy]
 ---
 
 # fiskaltrust.Middleware for Linux and macOS
@@ -16,6 +18,8 @@ In general, it's possible to run the Middleware on each Linux distribution (_Ubu
 | Debian        | >= 10     | 64bit           |
 | Ubuntu        | >= 16.04  | 64bit           |
 
+*Table 1. Supported Linux distributions and required versions and architecture.*
+
 ## Supported packages
 
 ### Local data storage/Linux distribution support matrix
@@ -26,6 +30,7 @@ In general, it's possible to run the Middleware on each Linux distribution (_Ubu
 | **[MySQL-storage](../on-premise-databases/mysql.md)**              | **tested** | **tested** | should work (not tested)         |
 | **[EF-storage](../on-premise-databases/entity-framework.md)**      | not tested | not tested |                                  |
 
+*Table 2. Local data storage support matrix across Linux distributions.*
 
 Both Entity Framework and SQLite queues can be launched on Linux, starting from version 1.3.45.
 

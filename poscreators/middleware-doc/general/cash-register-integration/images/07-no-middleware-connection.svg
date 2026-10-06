@@ -1,0 +1,493 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="1280"
+   height="700"
+   viewBox="-20 -10 1280 700"
+   font-family="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+   version="1.1"
+   id="svg47"
+   sodipodi:docname="07-no-middleware-connection.svg"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <title>Receipt flow when the cash register cannot communicate with the fiskaltrust.Middleware</title>
+  <desc>Flow diagram: POS server&#x27;s sign request cannot reach the Queue, so it marks the data to resend later and applies market-specific receipt handling</desc>
+  <sodipodi:namedview
+     id="namedview47"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.47343146"
+     inkscape:cx="1085.6904"
+     inkscape:cy="337.95811"
+     inkscape:window-width="1470"
+     inkscape:window-height="815"
+     inkscape:window-x="0"
+     inkscape:window-y="33"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg47" />
+  <defs
+     id="defs2">
+    <linearGradient
+       id="linearGradient28"
+       inkscape:swatch="gradient">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop28" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="1"
+         id="stop29" />
+    </linearGradient>
+    <marker
+       id="ah"
+       viewBox="0 0 10 10"
+       refX="9"
+       refY="5"
+       markerWidth="7"
+       markerHeight="7"
+       orient="auto-start-reverse">
+      <path
+         d="M0,0 L10,5 L0,10 z"
+         fill="#002A34"
+         id="path1" />
+    </marker>
+    <marker
+       id="ahr"
+       viewBox="0 0 10 10"
+       refX="9"
+       refY="5"
+       markerWidth="7"
+       markerHeight="7"
+       orient="auto-start-reverse">
+      <path
+         d="M0,0 L10,5 L0,10 z"
+         fill="#ED5565"
+         id="path2" />
+    </marker>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient28"
+       id="linearGradient30"
+       gradientUnits="userSpaceOnUse"
+       x1="-20"
+       y1="340"
+       x2="1820"
+       y2="340"
+       gradientTransform="matrix(1.0391356,0,0,1.0903903,-23.134279,-25.747201)" />
+    <marker
+       id="ahr-4"
+       viewBox="0 0 10 10"
+       refX="9"
+       refY="5"
+       markerWidth="7"
+       markerHeight="7"
+       orient="auto-start-reverse">
+      <path
+         d="M 0,0 10,5 0,10 Z"
+         fill="#ed5565"
+         id="path2-3" />
+    </marker>
+  </defs>
+  <rect
+     x="-43.916992"
+     y="-36.651108"
+     width="1912.0094"
+     height="763.27332"
+     fill="#ffffff"
+     id="rect2"
+     style="stroke:url(#linearGradient30);stroke-width:1.06446" />
+  <path
+     d="m 1041.4548,179.25787 30,32"
+     stroke-width="3"
+     id="path20"
+     style="fill:#ff0000;stroke:#ed5464;stroke-opacity:1" />
+  <path
+     d="m 1071.7254,179.70076 -30,32"
+     stroke-width="3"
+     id="path21"
+     style="fill:#ff0000;stroke:#ed5464;stroke-opacity:1" />
+  <rect
+     x="0"
+     y="20"
+     width="980"
+     height="660"
+     fill="#ffffff"
+     stroke="#002a34"
+     stroke-width="1.5"
+     id="rect3" />
+  <rect
+     x="32"
+     y="92"
+     width="270"
+     height="576"
+     fill="#FFFFFF"
+     stroke="#B9B9BB"
+     stroke-width="1.5"
+     id="rect4"
+     style="stroke:#b9bbb9;stroke-opacity:1" />
+  <rect
+     x="340"
+     y="92"
+     width="608"
+     height="576"
+     fill="#FFFFFF"
+     stroke="#B9B9BB"
+     stroke-width="1.5"
+     id="rect5" />
+  <rect
+     x="24"
+     y="28"
+     width="132"
+     height="24"
+     fill="#FFFFFF"
+     id="rect6" />
+  <text
+     x="36"
+     y="46"
+     font-size="19"
+     font-weight="600"
+     fill="#002A34"
+     id="text6">POS System</text>
+  <rect
+     x="52"
+     y="82"
+     width="86"
+     height="18"
+     fill="#FFFFFF"
+     id="rect7" />
+  <text
+     x="62"
+     y="96"
+     font-family="IBM Plex Mono, monospace"
+     font-size="13"
+     letter-spacing="1.8"
+     fill="#676A69"
+     id="text7">TERMINAL</text>
+  <rect
+     x="360"
+     y="82"
+     width="72"
+     height="18"
+     fill="#FFFFFF"
+     id="rect8" />
+  <text
+     x="370"
+     y="96"
+     font-family="IBM Plex Mono, monospace"
+     font-size="13"
+     letter-spacing="1.8"
+     fill="#676A69"
+     id="text8">SERVER</text>
+  <g
+     fill="none"
+     stroke="#002A34"
+     stroke-width="1.5"
+     id="g16">
+    <path
+       d="M270,215 H372"
+       marker-end="url(#ah)"
+       id="path8" />
+    <path
+       d="M562,215 H610"
+       marker-end="url(#ah)"
+       id="path9" />
+    <path
+       d="M610,565 H562"
+       marker-end="url(#ah)"
+       id="path13" />
+    <path
+       d="M372,565 H270"
+       marker-end="url(#ah)"
+       id="path14" />
+    <path
+       d="M467,340 V290"
+       marker-end="url(#ah)"
+       marker-start="url(#ah)"
+       id="path15" />
+    <path
+       d="M467,440 V490"
+       marker-end="url(#ah)"
+       marker-start="url(#ah)"
+       id="path16" />
+    <circle
+       id="path4"
+       style="fill:#000000;stroke:#ffffff"
+       cx="1007.7419"
+       cy="492.82916"
+       r="1.1117589" />
+  </g>
+  <g
+     fill="none"
+     stroke="#ED5565"
+     stroke-width="1.5"
+     id="g21">
+    <path
+       d="m 799.54199,151.07545 -0.24409,45.72732 344.1518,-1.36441 -0.452,63.02657"
+       marker-end="url(#ahr-4)"
+       id="path17-5"
+       style="stroke-width:1.28002;marker-end:url(#ahr-4)"
+       sodipodi:nodetypes="cccc" />
+  </g>
+  <rect
+     x="64"
+     y="140"
+     width="206"
+     height="150"
+     fill="#FFFFFF"
+     stroke="#B9B9BB"
+     stroke-width="1.5"
+     id="rect21" />
+  <text
+     x="84"
+     y="171"
+     font-family="IBM Plex Mono, monospace"
+     font-size="13"
+     letter-spacing="1.8"
+     fill="#007D9A"
+     id="text21">01</text>
+  <text
+     x="84"
+     y="209"
+     font-size="18"
+     fill="#002A34"
+     id="text22"><tspan
+       x="84"
+       dy="0"
+       id="tspan21">Collect charge and</tspan><tspan
+       x="84"
+       dy="24"
+       id="tspan22">pay items</tspan></text>
+  <rect
+     x="372"
+     y="140"
+     width="190"
+     height="150"
+     fill="#FFFFFF"
+     stroke="#B9B9BB"
+     stroke-width="1.5"
+     id="rect22" />
+  <text
+     x="392"
+     y="171"
+     font-family="IBM Plex Mono, monospace"
+     font-size="13"
+     letter-spacing="1.8"
+     fill="#007D9A"
+     id="text23">02</text>
+  <text
+     x="392"
+     y="209"
+     font-size="18"
+     fill="#002A34"
+     id="text24">Persist data</text>
+  <rect
+     x="610"
+     y="140"
+     width="190"
+     height="150"
+     fill="#FFFFFF"
+     stroke="#B9B9BB"
+     stroke-width="1.5"
+     id="rect24" />
+  <text
+     x="630"
+     y="171"
+     font-family="IBM Plex Mono, monospace"
+     font-size="13"
+     letter-spacing="1.8"
+     fill="#007D9A"
+     id="text25">03</text>
+  <text
+     x="630"
+     y="209"
+     font-size="18"
+     fill="#002A34"
+     id="text26"><tspan
+       x="630"
+       dy="0"
+       id="tspan25">Send sign</tspan><tspan
+       x="630"
+       dy="24"
+       id="tspan26">request</tspan></text>
+  <rect
+     x="372"
+     y="340"
+     width="190"
+     height="100"
+     fill="#E5F6FB"
+     stroke="#7FCBE2"
+     stroke-width="1.5"
+     id="rect26" />
+  <g
+     transform="translate(392,375)"
+     fill="none"
+     stroke="#00A7CE"
+     stroke-width="1.5"
+     id="g27">
+    <ellipse
+       cx="13"
+       cy="6"
+       rx="11"
+       ry="4.5"
+       id="ellipse26" />
+    <path
+       d="M2,6 V24 C2,26.5 6.9,28.5 13,28.5 C19.1,28.5 24,26.5 24,24 V6"
+       id="path26" />
+    <path
+       d="M2,15 C2,17.5 6.9,19.5 13,19.5 C19.1,19.5 24,17.5 24,15"
+       id="path27" />
+  </g>
+  <text
+     x="434"
+     y="396"
+     font-family="IBM Plex Mono, monospace"
+     font-size="15"
+     letter-spacing="2.1"
+     fill="#002A34"
+     id="text27">DB</text>
+  <rect
+     x="372"
+     y="490"
+     width="190"
+     height="150"
+     fill="#FFFFFF"
+     stroke="#B9B9BB"
+     stroke-width="1.5"
+     id="rect27" />
+  <text
+     x="392"
+     y="521"
+     font-family="IBM Plex Mono, monospace"
+     font-size="13"
+     letter-spacing="1.8"
+     fill="#007D9A"
+     id="text28">05</text>
+  <text
+     x="392"
+     y="559"
+     font-size="18"
+     fill="#002A34"
+     id="text29">Persist data</text>
+  <rect
+     x="610"
+     y="490"
+     width="190"
+     height="150"
+     fill="#FFFFFF"
+     stroke="#B9B9BB"
+     stroke-width="1.5"
+     id="rect29" />
+  <text
+     x="630"
+     y="521"
+     font-family="IBM Plex Mono, monospace"
+     font-size="13"
+     letter-spacing="1.8"
+     fill="#007D9A"
+     id="text30">04</text>
+  <text
+     x="630"
+     y="559"
+     font-size="18px"
+     fill="#002a34"
+     id="text31"><tspan
+       sodipodi:role="line"
+       id="tspan30"
+       x="630"
+       y="559">Mark data to be</tspan><tspan
+       sodipodi:role="line"
+       id="tspan31"
+       x="630"
+       y="581.5">sent later again</tspan></text>
+  <rect
+     x="64"
+     y="475"
+     width="206"
+     height="180"
+     fill="#FFFFFF"
+     stroke="#ED5565"
+     stroke-width="1.5"
+     id="rect31"
+     style="fill:none;stroke:#b9b9bb;stroke-opacity:1" />
+  <text
+     x="84"
+     y="506"
+     font-family="IBM Plex Mono, monospace"
+     font-size="13"
+     letter-spacing="1.8"
+     fill="#B2404C"
+     id="text32">06</text>
+  <text
+     x="84"
+     y="544"
+     font-size="18px"
+     fill="#002a34"
+     id="text35"><tspan
+       sodipodi:role="line"
+       id="tspan32"
+       x="84"
+       y="544">Market-specific</tspan><tspan
+       sodipodi:role="line"
+       id="tspan33"
+       x="84"
+       y="566.5">receipt handling</tspan><tspan
+       sodipodi:role="line"
+       x="84"
+       y="589"
+       id="tspan35">(may indicate</tspan><tspan
+       sodipodi:role="line"
+       x="84"
+       y="611.5"
+       id="tspan36">security failure)</tspan></text>
+  <rect
+     x="1060"
+     y="260"
+     width="180"
+     height="140"
+     fill="#E5F6FB"
+     stroke="#7FCBE2"
+     stroke-width="1.5"
+     id="rect35" />
+  <g
+     transform="translate(1080,297)"
+     fill="none"
+     stroke="#00A7CE"
+     stroke-width="1.5"
+     id="g36">
+    <ellipse
+       cx="13"
+       cy="6"
+       rx="11"
+       ry="4.5"
+       id="ellipse35" />
+    <path
+       d="M2,6 V24 C2,26.5 6.9,28.5 13,28.5 C19.1,28.5 24,26.5 24,24 V6"
+       id="path35" />
+    <path
+       d="M2,15 C2,17.5 6.9,19.5 13,19.5 C19.1,19.5 24,17.5 24,15"
+       id="path36" />
+  </g>
+  <text
+     x="1080"
+     y="358"
+     font-family="IBM Plex Mono, monospace"
+     font-size="15"
+     letter-spacing="2.1"
+     fill="#002A34"
+     id="text36">QUEUE</text>
+  <text
+     x="994.32019"
+     y="155.70723"
+     font-size="14px"
+     fill="#676a69"
+     id="text42">Queue is not reachable</text>
+</svg>

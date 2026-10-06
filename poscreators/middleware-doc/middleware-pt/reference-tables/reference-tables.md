@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/portugal/reference-tables
 title: Reference Tables
+description: Overview of the Portuguese reference tables that map the POSSystem API v2 tagging structure to the Portuguese market.
+tags: [Reference Tables, Portugal, POS System API, Middleware]
 ---
 
 # Reference Tables
@@ -27,7 +29,9 @@ _CCCC_vIII_gggg_xxxx
 
 | **Value** | **Description** |   
 | --------- | --------------- |
-| CCCC | (e.g 5054): ASCII of two letter ISO country code (https://en.wikipedia.org/wiki/ISO_3166-1). (e.g. PT = 5054) |
+| CCCC | (e.g 5054): ASCII of two letter ISO country code ([ISO 3166-1](https://en.wikipedia.org/wiki/ISO_3166-1)). (e.g. PT = 5054) |
 | vIII | (e.g. 2000): This section is for versioning the tagging system (currently v2) and for future use. |
 | gggg | (e.g. 0010): These items are used for flags. Flags can change the basic behavior of a given type, but will leave the overall semantical meaning of a type the same. (e.g. voiding of a receipt) |
 | xxxx | (e.g. 0001): The last category is usually case specific but always consists of 4 numbers. |
+
+*Table 1. Structure of the four sections of the Portuguese market tagging format.*

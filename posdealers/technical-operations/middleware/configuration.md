@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/technical-operations/middleware/configuration
 title: Configuration
+description: How to set runtime parameters of a locally deployed .NET Middleware in fiskaltrust.exe.config or through Launcher command-line parameters.
+tags: [fiskaltrust.exe.config, Configuration, Middleware, Launcher, PosDealers]
 ---
 # Configuration
 
@@ -70,6 +72,8 @@ The following table contains the list of all currently supported configuration p
 | scutimeout        | The timeout (in seconds), after which the queue will abort requests to the SCU. | `75`                                   |
 | telemetry-optout  | flag indicating whether the Middleware should disable telemetry. | `false`                                |
 | verbosity         | The level of logging the Middleware should use. Please [Logging](logging.md) for details. | `information`                          |
+
+*Table 1. Supported Middleware configuration parameters.*
 
 ## Changing parameters with the Launcher
 

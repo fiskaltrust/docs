@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/buy-resell/products/signing/rksv
 title: RKSV.Sign
+description: Rollout of the RKSV.Sign signing-only product for Austria — entitlements, creating instances via the API, credentials and instance overview.
+tags: [RKSV Sign, RKSV, Austria, Signature, Signing API, PosDealers]
 ---
 # RKSV.Sign - Receipt signing for Austria
 
@@ -17,7 +19,7 @@ As RKSV.Sign is only available in Austria, this tutorial does not apply to Germa
 :::
 
 
-RKSV.Sign is a _signing-only_ product for the Austrian market, and offers RKSV-compliant receipt signing. This product is primarily meant for users who have already implemented the Austrian fiscalization laws in their POS systems, and are looking for a cloud signing service they can use. RKSV.Sign can be easily embedded into POS systems with our [public API description](https://docs.fiskaltrust.cloud/docs/poscreators/signing/austria) and [samples](https://rksvsign-samples.docs.fiskaltrust.cloud/), and uses a simplified business flow when compared to our other products - which is described in the following sections.
+RKSV.Sign is a _signing-only_ product for the Austrian market, and offers RKSV-compliant receipt signing. This product is primarily meant for users who have already implemented the Austrian fiscalization laws in their POS systems, and are looking for a cloud signing service they can use. RKSV.Sign can be easily embedded into POS systems with our [public API description](../../../../poscreators/middleware-doc/signing-at-rksv/rksv-sign-intro.md) and [samples](https://rksvsign-samples.docs.fiskaltrust.cloud/), and uses a simplified business flow when compared to our other products - which is described in the following sections.
 
 :::tip
 
@@ -37,12 +39,16 @@ An overview of the process is visualized in the following flow chart. Below, the
 
 :::
 
-![rksv-sign-process](../../images/rksv-sign.png)
+![Flow chart: PosDealer enables the PosDealer for RKSV Sign role, fiskaltrust prepares the volume purchase agreement, then entitlements, API instances and CashBox credentials follow](../../images/rksv-sign.png)
+
+*Figure 1. Flow chart of the RKSV.Sign buy, resell and rollout process.*
 
 ### 1. Activate role and obtain entitlements
 In the first step, the _"PosDealer for RKSV.Sign"_ role needs to be activated in the Portal. This can be done by switching the role's slider to the right on the _Account_ -> _Overview_ page, as illustrated in the following screenshot:
 
-![rksv-sign-role](../../images/rksv-sign-role.png)
+![Portal Account Overview page with the PosDealer for RKSV Sign role slider switched on](../../images/rksv-sign-role.png)
+
+*Figure 2. Activating the PosDealer for RKSV.Sign role on the Account Overview page.*
 
 After this role was activated, your account manager at fiskaltrust will reach out to you to agree on a Volume Purchase Agreement.
 
@@ -116,4 +122,6 @@ In case the credentials were not preserved during creating the instance, they ca
 ### 4. Get an overview about RKSV.Sign instances
 When activating the _PosDealer for RKSV.Sign_ role in the Portal, a new product-specific section is added to the navigation bar. The _RKSV.Sign_ -> _RKSV Instances_ page can be used to obtain an overview about the currently existing instances, as well as to obtain the credentials for these CashBoxes.
 
-![rksv-sign-list](../../images/rksv-sign-list.png)
+![Portal RKSV.Sign Instances page listing PosOperators with VAT ID, CashBox ID and Access Token columns](../../images/rksv-sign-list.png)
+
+*Figure 3. RKSV Instances page listing existing RKSV.Sign CashBoxes.*

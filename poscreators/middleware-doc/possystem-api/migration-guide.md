@@ -1,15 +1,17 @@
 ---
 slug: /poscreators/possystem-api/migration-guide-v0-v2
 title: Migration Guide (v0 to v2)
+description: How to migrate from the v0 SignatureCloud and ifPOS.v0 APIs to POSSystem API v2 — base URLs, authentication, and case value mappings.
+tags: [Migration, POS System API, Receipt Case, Charge Item Case, Austria, France]
 ---
 
 # Migrating from API v0 to PosSystem API (v2)
 
-The legacy **v0 SignatureCloud API** (also referred to by its subdomain pattern `signaturcloud-sandbox.*`) and the original synchronous `ifPOS.v0` fiskaltrust.Middleware API — primarily used in Austria (AT) and France (FR) — remain functional but no longer receive new features. All current and future development, including e-invoicing support and upcoming compliance capabilities, is available exclusively through the **POSSystem API (v2)**, making migration strongly recommended.
+The legacy **v0 SignatureCloud API** (also referred to by its subdomain pattern `signaturcloud-sandbox.*`) and the original synchronous `ifPOS.v0` fiskaltrust.Middleware API — primarily used in Austria (AT) and France (FR) — remain functional but no longer receive new features. All current and future development, including eInvoicing support and upcoming compliance capabilities, is available exclusively through the **POSSystem API (v2)**, making migration strongly recommended.
 
 Migrating to v2 gives you:
 
-- **E-invoicing support** — Access to e-invoicing features and all future compliance capabilities.
+- **eInvoicing support** — Access to eInvoicing features and all future compliance capabilities. eInvoicing is currently only available with a CloudCashBox (see [eInvoicing prerequisites](../e-invoicing/overview.md#prerequisites-shared)).
 - **Alignment with fiskaltrust Middleware v2** — the POSSystemAPI interface is designed to remain largely stable when the middleware transitions from v1.2 to v2, making this migration valuable preparation.
 - **Long-term supportability** — v0 is considered deprecated; customers are encouraged to migrate as soon as possible.
 - **Simpler authentication** — PIN-based pairing for simpler, more secure authentication setup.
@@ -45,12 +47,14 @@ If your integration targets a **Cloud CashBox** (for example, your POS system ca
 
 | Environment | v0 base URL | v2 base URL |
 | ----------- | ----------- | ----------- |
-| Sandbox | `https://signaturcloud-sandbox.fiskaltrust.fr` (FR) | `https://possystem-api-sandbox.fiskaltrust.eu/v2`|
-| Sandbox | `https://signaturcloud-sandbox.fiskaltrust.at` (AT) | `https://possystem-api-sandbox.fiskaltrust.eu/v2`|
-| Sandbox | `https://signaturcloud-sandbox.fiskaltrust.de` (DE) | `https://possystem-api-sandbox.fiskaltrust.eu/v2`|
+| Sandbox | `https://signaturcloud-sandbox.fiskaltrust.fr` (FR) | `https://possystem-api-sandbox.fiskaltrust.eu/v2` |
+| Sandbox | `https://signaturcloud-sandbox.fiskaltrust.at` (AT) | `https://possystem-api-sandbox.fiskaltrust.eu/v2` |
+| Sandbox | `https://signaturcloud-sandbox.fiskaltrust.de` (DE) | `https://possystem-api-sandbox.fiskaltrust.eu/v2` |
 | Production | `https://signaturcloud.fiskaltrust.fr` (FR) | `https://possystem-api.fiskaltrust.eu/v2` |
 | Production | `https://signaturcloud.fiskaltrust.at` (AT) | `https://possystem-api.fiskaltrust.eu/v2` |
 | Production | `https://signaturcloud.fiskaltrust.de` (DE) | `https://possystem-api.fiskaltrust.eu/v2` |
+
+*Table 1. v0 and v2 cloud CashBox base URLs per environment and market.*
 
 :::info
 
@@ -74,7 +78,13 @@ Local cashbox migration requires additional configuration steps that are current
 
 :::
 
-The portal-side configuration requires adding a **LocalPosSystemApi Helper** to your CashBox and rebuilding it with Launcher 2.0. Rather than duplicating those steps here, follow the [How to Configure the Local PosSystem API Helper with Launcher 2.0](../../../posdealers/technical-operations/middleware/helper-possystemapi.md) guide, which covers:
+:::info eInvoicing
+
+eInvoicing is currently only available with a CloudCashBox, not with a local CashBox. See the [eInvoicing prerequisites](../e-invoicing/overview.md#prerequisites-shared).
+
+:::
+
+The portal-side configuration requires adding a **LocalPosSystemApi Helper** to your CashBox and rebuilding it with Launcher 2.0. Rather than duplicating those steps here, follow the [How to Configure the Local PosSystem API Helper with Launcher 2.0](../../../posdealers/technical-operations/possystem-api-platforms/localpossystemapi-helper.md) guide, which covers:
 
 1. Adding a `fiskaltrust.Middleware.Helper.LocalPosSystemApi` Helper in the Portal.
 2. Configuring the Helper URL.
@@ -153,6 +163,8 @@ A systematic approach to updating case values:
 | `0x2000_0000_4021` | `0x4154_0000_0000_0002` | Start-migration lifecycle type => no implementation in v0, using zeroreceipt |
 | `0x2000_0000_4022` | `0x4154_0000_0000_0002` | Stop-migration lifecycle type => no implementation in v0, using zeroreceipt |
 
+*Table 2. Austria (AT) ftReceiptCase fixed mappings between v2 and v0 values.*
+
 **Dynamics Mappings**
 
 | **v2 (in)** | **v0 (out)** | **Description** |
@@ -178,9 +190,11 @@ A systematic approach to updating case values:
 | `0x2ooo_oo2o_oooo` | `0xoooo_oooo_oo2o_oooo` | v2 ReceiverIsBusiness => v0 Germany receiver is a company (type0,1) |
 | `0x2ooo_oo4o_oooo` | `0xoooo_oooo_oo4o_oooo` | v2 ReceiverIsKnown => v0 Germany receiver is known (type0,1) |
 | `0x2ooo_oo8o_oooo` | `0xoooo_oooo_oo8o_oooo` | v2 IsSaleInForeignCountry => v0 Germany no action required, handled as indirect translations (type0,1) |
-| `0x2ooo_o1oo_oooo` | `0xoooo_oooo_oooo_oooo` | v2 IsReturn/IsRefund => v0 no action required, <br/>optional verify cbPreviouseReceiptReference set; <br/>optional verify ChargeItem(Amount) == (-1)xcbPreviouseReceiptReference(ChargeItem(Amount)); <br/>optional verify ChargeItem(Quantity) == (-1)xcbPreviouseReceiptReference(ChargeItem(Quantity));  (type0,1) |
+| `0x2ooo_o1oo_oooo` | `0xoooo_oooo_oooo_oooo` | v2 IsReturn/IsRefund => v0 no action required, <br/>optional verify cbPreviouseReceiptReference set; <br/>optional verify ChargeItem(Amount) == (-1)xcbPreviouseReceiptReference(ChargeItem(Amount)); <br/>optional verify ChargeItem(Quantity) == (-1)xcbPreviouseReceiptReference(ChargeItem(Quantity)); (type0,1) |
 | `0x2ooo_o8oo_oooo` | `0xoooo_oooo_oooo_oooo` | v2 Group by Position-Number => v0 not supported |
 | `0x2ooo_8ooo_oooo` | `0xoooo_8ooo_oooo_oooo` | v2 ReceiptRequest => v0 general receipt request |
+
+*Table 3. Austria (AT) ftReceiptCase dynamic mappings between v2 and v0 values.*
 
 </details>
 
@@ -244,6 +258,8 @@ A systematic approach to updating case values:
 | `0x2ooo_o1oo_oooo` | `0xoooo_oooo_oooo_oooo` | v2 IsReturn/IsRefund => v0 no action required, <br/>optional verify cbPreviouseReceiptReference set; <br/>optional verify ChargeItem(Amount) == (-1)xcbPreviouseReceiptReference(ChargeItem(Amount)); <br/>optional verify ChargeItem(Quantity) == (-1)xcbPreviouseReceiptReference(ChargeItem(Quantity)); (type0,1), no implementation in v0 |
 | `0x2ooo_o8oo_oooo` | `0xoooo_oooo_oooo_oooo` | v2 Group by Position-Number => v0 not supported |
 | `0x2ooo_8ooo_oooo` | `0xoooo_8ooo_oooo_oooo` | v2 ReceiptRequest => v0 general receipt request |
+
+*Table 4. France (FR) ftReceiptCase mappings between v2 and v0 values.*
 
 </details>
 
@@ -317,6 +333,8 @@ A systematic approach to updating case values:
 | `0x2ooo_o1oo_oooo` | `0xoooo_oooo_oooo_oooo` | v2 IsReturn/IsRefund => v0 no action required, <br/>optional verify cbPreviouseReceiptReference set; <br/>optional verify ChargeItem(Amount) == (-1)xcbPreviouseReceiptReference(ChargeItem(Amount)); <br/>optional verify ChargeItem(Quantity) == (-1)xcbPreviouseReceiptReference(ChargeItem(Quantity)); (type0,1) |
 | `0x2ooo_o8oo_oooo` | `0xoooo_oooo_oooo_oooo` | v2 Group by Position-Number => v0 not supported |
 | `0x2ooo_8ooo_oooo` | `0xoooo_8ooo_oooo_oooo` | v2 ReceiptRequest => v0 general receipt request |
+
+*Table 5. Germany (DE) ftReceiptCase mappings between v2 and v0 values.*
 
 </details>
 
@@ -434,6 +452,8 @@ A systematic approach to updating case values:
 | `0x2ooo_oo10_oooo` | `0xoooo_oooo_oooo_oooo` | v2 Returnable => v0 general returnable => no implementation in v0 |
 | `0x2ooo_oo20_oooo` | `0xoooo_oooo_oooo_oooo` | v2 Take Away => v0 take away => no implementation in v0 |
 
+*Table 6. Austria (AT) ftChargeItemCase mappings between v2 and v0 values.*
+
 </details>
 
 <details>
@@ -547,6 +567,8 @@ A systematic approach to updating case values:
 | `0x2ooo_ooo4_oooo` | `0xoooo_oooo_oooo_oooo` | v2 Discount => v0 general discount => no implementation in v0 |
 | `0x2ooo_oo10_oooo` | `0xoooo_oooo_oooo_oooo` | v2 Returnable => v0 general returnable => no implementation in v0 |
 | `0x2ooo_oo20_oooo` | `0xoooo_oooo_oooo_oooo` | v2 Take Away => v0 take away => no implementation in v0 |
+
+*Table 7. France (FR) ftChargeItemCase mappings between v2 and v0 values.*
 
 </details>
 
@@ -707,6 +729,8 @@ A systematic approach to updating case values:
 | `0x2ooo_ooo4_oooo` | `0xoooo_oooo_oooo_oooo` | v2 Discount => v0 general discount => no implementation in v0 |
 | `0x2ooo_oo10_oooo` | `0xoooo_oooo_oooo_oooo` | v2 Returnable => v0 general returnable => no implementation in v0 |
 
+*Table 8. Germany (DE) ftChargeItemCase mappings between v2 and v0 values.*
+
 </details>
 
 ### ftPayItemCase
@@ -738,13 +762,15 @@ A systematic approach to updating case values:
 | `0x2000_oo2o_oo01` | `0x4154_0000_0000_0012` | Cash payment, change flag => v0 change / tip |
 | `0x2000_oo4o_oo01` | `0x4154_0000_0040_0012` | Cash payment, tip flag => v0 change / tip |
 
+*Table 9. Austria (AT) ftPayItemCase mappings between v2 and v0 values.*
+
 </details>
 
 <details>
 <summary>France (FR)</summary>
 
 | **v2 (in)** | **v0 (out)** | **Description** |
-| ----------- | ------------ | ----------- |
+| ----------- | ------------ | --------------- |
 | `0x2000_0000_0000` | `0x4652_0000_0000_0000` | Unknown payitem type |
 | `0x2000_oooo_oo01` | `0x4652_0000_0000_0001` | Cash payment |
 | `0x2000_oo1o_oo01` | `0x4652_0000_0000_0002` | Cash payment, in foreign currency |
@@ -766,6 +792,8 @@ A systematic approach to updating case values:
 | `0x2000_ooo8_oo09` | `0x4652_0000_0000_0010` | Accounts receiveable, downpayment flag => v0 levy / downpayment |
 | `0x2000_oo2o_oo01` | `0x4652_0000_0000_0012` | Cash payment, change flag => v0 change / tip |
 | `0x2000_oo4o_oo01` | `0x4652_0000_0040_0012` | Cash payment, tip flag => v0 change / tip |
+
+*Table 10. France (FR) ftPayItemCase mappings between v2 and v0 values.*
 
 </details>
 
@@ -789,7 +817,7 @@ A systematic approach to updating case values:
 | `0x2000_oooo_oo0B` | `0x4445_0000_0000_0009` | Other wire/bank transer |
 | `0x2000_oooo_oo0C` | `0x4445_0000_0000_0012` | Transfer to ... [cashbook / vault / owner / employee], amount negativ, ??? MoneyGroup == "EmptyTill" => v0 cash transfer to empty till |
 | `0x2000_oooo_oo0C` | `0x4445_0000_0000_0013` | Transfer to ... [cashbook / vault / owner / employee], MoneyGroup == ??? "Owner" => v0 cash transfer to owner |
-| `0x2000_oooo_oo0C` | `0x4445_0000_0000_0014` | Transfer to ... [cashbook / vault / owner / employee], MoneyGroup == ??? "Till",  => v0 cash transfer from/to till |
+| `0x2000_oooo_oo0C` | `0x4445_0000_0000_0014` | Transfer to ... [cashbook / vault / owner / employee], MoneyGroup == ??? "Till", => v0 cash transfer from/to till |
 | `0x2000_oooo_oo0C` | `0x4445_0000_0000_0015` | Transfer to ... [cashbook / vault / owner / employee], MoneyGroup == ??? "Employee" => v0 cash transfer to employee |
 | `0x2000_oooo_oo0C` | `0x4445_0000_0000_0016` | Transfer to ... [cashbook / vault / owner / employee], MoneyGroup == ??? "Cashbook" => v0 cash transfer from/to cashbook |
 | `0x2000_oooo_oo0C` | `0x4445_0000_0000_0017` | Transfer to ... [cashbook / vault / owner / employee], MoneyGroup == ??? "CashDifference" => v0 cash difference in till |
@@ -801,12 +829,14 @@ A systematic approach to updating case values:
 | `0x2000_oo3o_oo01` | `0x4445_0000_0000_000C` | Cash payment, in foreign currency, change flag => v0 change in foreign currency |
 | `0x2000_oo4o_oo01` | `0x4445_0000_0040_0012` | Cash payment, tip flag => v0 tip to employee |
 
+*Table 11. Germany (DE) ftPayItemCase mappings between v2 and v0 values.*
+
 </details>
 
 Key differences highlighted:
 1. The base URL changes.
 2. All case numeric values must be remapped.
-3. `ftReceiptCaseData` is now an object keyed by market code instead of a raw string.
+3. `ftReceiptCaseData` and the other object properties are now JSON objects instead of JSON-encoded strings.
 
 :::info Important
 
@@ -818,73 +848,35 @@ For the `ftReceiptCaseFlag`, `ftChargeItemCaseFlag`, and `ftPayItemCaseFlag` fie
 
 ### ftReceiptCaseData Format
 
-The `ftReceiptCaseData` field changes from a **JSON-encoded string** in v0 to a **market-keyed JSON object** in v2.
+The `ftReceiptCaseData` field changes from a **JSON-encoded string** in v0 to a **JSON object** in v2. The same applies to `ftChargeItemCaseData`, `ftPayItemCaseData` and all other object properties.
 
 - **v0 format**: the entire value is a JSON string embedded as a string field.
 
 ```json
 {
   "ftReceiptCase": "...",
-  "ftReceiptCaseData": "{\"Code\":\"20\", \"Message\":\"Archivage fiscal de période\", \"Information\":\"\"}"
+  "ftReceiptCaseData": "{\"ReceiptName\":\"Sonstige Sonderwurst\"}"
 }
 ```
 
-- **v2 format**: the value is a plain JSON object with a market key (`"FR"`, `"AT"`, `"DE"`) whose value is a JSON-encoded string.
+- **v2 format**: the value is a plain JSON object. `ReceiptName` is a German field, so it is placed in the `DE` sub-object.
 
 ```json
 {
   "ftReceiptCase": "...",
   "ftReceiptCaseData": {
-    "FR": "{\"Code\": \"20\", \"Message\": \"Archivage fiscal de période\", \"Information\": \"\"}"
+    "DE": {
+      "ReceiptName": "Sonstige Sonderwurst"
+    }
   }
 }
 ```
 
-Key points:
-- The outer field is now a **JSON object**, not a string.
-- The inner value (per market key) remains a **JSON-encoded string** of the market-specific payload.
-- Use the two-letter ISO market code as the key (`"FR"`, `"AT"`, `"DE"`).
-
-#### Examples by Market
-
-**Austria (AT)**
-
-```json
-"ftReceiptCaseData": {
-  "AT": "{\"Code\": \"20\", \"Message\": \"Jahresbeleg\", \"Information\": \"\"}"
-}
-```
-
-**France (FR)**
-
-```json
-"ftReceiptCaseData": {
-  "FR": "{\"Code\": \"20\", \"Message\": \"Archivage fiscal de période\", \"Information\": \"\"}"
-}
-```
-
-**Germany (DE)**
-
-```json
-"ftReceiptCaseData": {
-  "DE": "{\"Code\": \"20\", \"Message\": \"Jahresabschluss\", \"Information\": \"\"}"
-}
-```
-
-**Multi-market (combined)**
-
-```json
-"ftReceiptCaseData": {
-  "AT": "{\"Code\": \"20\", \"Message\": \"Jahresbeleg\", \"Information\": \"\"}",
-  "FR": "{\"Code\": \"20\", \"Message\": \"Archivage fiscal de période\", \"Information\": \"\"}"
-}
-```
+Market-specific overrides are placed in a sub-object keyed by the two-letter ISO code of the market (for example `"DE"`). For details, see [Object fields](../general/data-structures/data-structures.md#object-fields).
 
 :::warning
 
-If `ftReceiptCaseData` is not needed for a particular receipt, pass an empty object (`{}`) or omit the field entirely. Do not pass a bare empty string (`""`) as the top-level value — that was valid in v0 but is no longer accepted at the outer level in v2.
-
-The inner string value for a given market key may be an empty string (`""`) when no additional case data is required for that market.
+If `ftReceiptCaseData` is not needed for a particular receipt, pass an empty object (`{}`) or omit the field entirely. Do not pass a string (for example `""` or a JSON-encoded string) — that was valid in v0 but is no longer accepted in v2.
 
 :::
 
@@ -893,11 +885,11 @@ The inner string value for a given market key may be an empty string (`""`) when
 The v2 `ReceiptRequest` is a superset of the v0 model. Most existing fields are directly reusable. The key differences are:
 
 | Field | v0 | v2 |
-| ----- | -- | ---|
+| ----- | -- | -- |
 | `cbReceiptReference` | Optional in some flows | **Required** — must be a unique string per request |
-| `Currency` | Not present | Added — ISO 4217 currency code (default: `EUR`) |
-| `DecimalPrecisionMultiplier` | Not present | Added — controls integer vs. floating-point amounts (default: `1`, i.e. floating-point) |
 | `ftPosSystemID` | Optional | Recommended — identifies your POS software |
+
+*Table 12. Key ReceiptRequest field differences between v0 and v2.*
 
 All other fields (`ftCashBoxID`, `cbTerminalID`, `cbReceiptMoment`, `cbChargeItems`, `cbPayItems`, `ftReceiptCase`, etc.) carry over unchanged.
 

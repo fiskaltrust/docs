@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/germany/installation
 title: Installation
+description: Launcher call parameters for fiskaltrust.exe on Windows, Linux and Mac for the German Middleware, plus Mono and .NET prerequisites.
+tags: [Germany, Launcher, Installation, Middleware]
 ---
 
 # Installation
@@ -19,3 +21,5 @@ The following call parameters are available with the launcher `fiskaltrust.exe` 
 |-------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | &#x2011;verbosity=Debug | Shows additional debug information. Can be used in `test.cmd` as well.                                                                                       |
 | &#x2011;info            | Info shows information of Disc space, operating system and ram space. For launcher 1.x this only works for windows as Mono is not providing the information. |
+
+*Table 1. fiskaltrust.exe launcher call parameters for the German market.*

@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/spain/reference-tables/ftjournaltype
 title: 'Type of Journal: ftJournalType'
+description: ftJournalType values applicable to the Spanish market, currently the QueueES status information journal.
+tags: [Spain, ftJournalType, Journal, Reference Tables]
 ---
 
 # Type of Journal: ftJournalType
@@ -10,3 +12,5 @@ This table expands on the values provided in the [Type of Journal: ftJournalType
 | **Value** | **Description** | **Middleware Version** |
 | --------- | --------------- | ---------------------- |
 | `000` | Status Information QueueES | 1.3.45 |
+
+*Table 1. ftJournalType values applicable to the Spanish market.*

@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/business-basics/management-portal
 title: Management Portal
+description: Tasks PosDealers perform in the fiskaltrust.Portal — account, operator and data management, surrogating, CashBox maintenance and the shop.
+tags: [Portal, Surrogating, CashBox, PosDealers]
 ---
 # Management Portal
 
@@ -16,7 +18,9 @@ After reading this, you can explain the tasks performed in the fiskaltrust.Porta
 
 The *fiskaltrust.Portal* is the central **management dashboard** to control all aspects of your *fiskaltrust* account and services. The *fiskaltrust.Portal* includes, for example, your account and company data, Operator associations, configuration and rollout of your *fiskaltrust.Middleware* instances, placing orders for products and services, and more.
 
-![](./images/portal.png "https://portal-SANDBOX.fiskaltrust.TLD/Home/Dashboard")
+![fiskaltrust.Portal dashboard with the navigation menu, user and company master data, and the unfinished validations table](./images/portal.png "https://portal-SANDBOX.fiskaltrust.TLD/Home/Dashboard")
+
+*Figure 1. The dashboard of the fiskaltrust.Portal.*
 
 The following paragraphs will briefly overview the general actions and tasks you can perform in the portal.
 

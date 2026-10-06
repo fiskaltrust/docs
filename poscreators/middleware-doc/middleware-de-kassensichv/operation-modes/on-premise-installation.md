@@ -1,13 +1,17 @@
 ---
 slug: /poscreators/middleware-doc/germany/operation-modes/on-premise-installation
 title: On-Premise Installation
+description: Components, platforms, communication protocols, SCUs and local storage options supported for on-premise Middleware installations in Germany.
+tags: [Germany, Operation Modes, SCU, TSE, Installation]
 ---
 
 # On-Premise Installation
 
 The illustration below shows the components available for the premise installation of the fiskaltrust.Middleware for the German market. For the operation modes available and the description of the components please refer to the [general part](../../general/operation-modes/operation-modes.md) .
 
-![middleware-en](images/middleware-en-market-de.svg)
+![Diagram: POS system calls echo, sign, journal via REST, gRPC or WCF on the Queue IPOS interface; Queue gets signatures from the SCU, which uses a USB, micro-SD or cloud TSE](images/middleware-en-market-de.svg)
+
+*Figure 1. Components of the on-premise fiskaltrust.Middleware installation for the German market.*
 
 ## Supported software platforms
 
@@ -25,6 +29,8 @@ For the German market, depending on the platform, following communication servic
 | **REST** | **supported** | **supported** | **supported** |
 | **WCF**  | **supported** | not supported | not supported |
 
+*Table 1. Communication services available per platform for the German market.*
+
 ## SCU/characteristics & platform support matrix
 
 |                                                              | Type,<br />Form factor | State of certification | Environmental protection    | Max. nr. of registered clients (queues) | Windows                                | Linux, macOS                                                 | Android                                |
@@ -37,6 +43,8 @@ For the German market, depending on the platform, following communication servic
 | [fiskaly Cloud-TSE](scu/fiskaly.md) | Software | **certified**     | unknown | technically unlimited | **supported**                    | **supported**                                          | **supported** |
 | [Swissbit Cloud-TSE](scu/swissbit-cloud.md) | Software | **certified** | required<br />*currently exposed* | 1 | **supported** | **supported**<br />*Ubuntu LTS 20.04 only* | not supported |
 | [Swissbit Hardware-TSE](scu/swissbit.md) | Hardware<br />USB Type A, SD, microSD | **certified** | **not required** | 100 | **supported**                          | **supported**                                                | **supported**                          |
+
+*Table 2. SCU characteristics, certification state and platform support for the German market.*
 
 ## Hardware requirements
 
@@ -53,6 +61,8 @@ Following local data storage options can be configured in the queue:
 | **[MySQL-storage](on-premise-databases/mysql.md)**         | **supported** | **supported** | **supported** |
 | **[SQLite-storage](on-premise-databases/sqlite.md)**       | **supported** | **supported** | **supported** |
 
+*Table 3. Local data storage options and their platform support.*
+
 ## Local data export
 
 -  TAR-File-Export 
@@ -61,7 +71,7 @@ Following local data storage options can be configured in the queue:
 
 ## Configuration Scenarios
 
-For configuration scenarios for operating the fiskaltrust.Middleware, please refer to the [Rollout documentation](https://docs.fiskaltrust.cloud/docs/posdealers/buy-resell/rollout-plans).
+For configuration scenarios for operating the fiskaltrust.Middleware, please refer to the [Rollout documentation](../../../../posdealers/buy-resell/rollout-plans.md).
 
 ## Installation
 

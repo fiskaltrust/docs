@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/france/function-structures
 title: Function Structures
+description: Echo, sign and journal functions of the iPOS interface for France, including the ChaineCloud empty echo queue reinitialization.
+tags: [France, iPOS, Communication, Journal, Middleware]
 ---
 
 # Function structures
@@ -26,6 +28,6 @@ With this function, a variety of information can be retrieved from a fiskaltrust
 Stream stream = proxy.Journal(ftJournalType, 0, DateTime.UtcNow.Ticks);
 ```
 
-<span id="_Toc527986842" class="anchor"></span>*Code 18. Call of iPos Journal (FR – BOI-TVA-DECLA 30-10-30)*
+*Code 18. Call of iPos Journal (FR – BOI-TVA-DECLA 30-10-30)*
 
 A list with various possibilities for the request parameter ftJournalType is included in the reference table ["Type of Journal: ftJournalType"](../reference-tables/reference-tables.md#type-of-journal-ftjournaltype).

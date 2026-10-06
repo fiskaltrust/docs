@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/general/components
 title: Middleware Components
+description: Logical components of fiskaltrust.Middleware — iPOS interface, Queue, SCU, Helipad helper, launcher — plus hardware and platform requirements.
+tags: [Architecture, Queue, SCU, Launcher, Helipad, Middleware]
 ---
 
 # Middleware Components
@@ -11,7 +13,9 @@ Regardless of the characteristics of the product, fiskaltrust.Middleware consist
 
 The on-premise solution of the fiskaltrust.Middleware requires [configuration and installation](../components/components-install-config.md) for the client. Below the most important components of the Middleware are illustrated:
 
-![middleware-en](images/middleware-en.svg)
+![Diagram: POS system sends echo, sign and journal calls to the Queue via the IPOS interface; the Queue security mechanism exchanges signatures with the country-specific SCU](images/middleware-en.svg)
+
+*Figure 1. Overview of the main components of the on-premise fiskaltrust.Middleware.*
 
 ### iPOS Interface
 
@@ -58,6 +62,8 @@ For the operation of the installed components of the fiskaltrust.Middleware foll
 | **Hardware connectivity**         | For the German market: USB, SD, Micro-SD or COM port for a local hardware-based security device (Technische Sicherheitseinrichtung, TSE).<br />For the Austrian market: USB port<br /> | For the French market: not required |
 | **Internet connectivity**         | Optional, but strongly recommended: (WIFI)modem for Internet connectivity to use software-security-, data as a service-, backup,- or configuration-/update services.                   |                                     |
 
+*Table 1. Minimum hardware requirements for operating the installed Middleware components.*
+
 ### Supported software platforms
 
 For detailed information on supported platforms and its restrictions, please refer to the linked appendices of the applicable markets in the table below:
@@ -67,6 +73,8 @@ For detailed information on supported platforms and its restrictions, please ref
 | **Android**     | not supported | [**supported**](../../middleware-de-kassensichv/operation-modes/on-premise-platforms/android.md) | not supported | [**supported**](../../middleware-it-registratore-telematico/operation-modes/on-premise-platforms/android.md) |
 | **Linux/macOS** | **supported** | [**supported**](../../middleware-de-kassensichv/operation-modes/on-premise-platforms/linux.md)   | **supported** | [**supported**](../../middleware-it-registratore-telematico/operation-modes/on-premise-platforms/linux.md)   |
 | **Windows**     | **supported** | [**supported**](../../middleware-de-kassensichv/operation-modes/on-premise-platforms/windows.md) | **supported** | [**supported**](../../middleware-it-registratore-telematico/operation-modes/on-premise-platforms/windows.md) |
+
+*Table 2. Supported software platforms for the Middleware per country.*
 
 ### ARM Processor
 
@@ -83,6 +91,8 @@ From version 1.3.39 it is now possible to run the fiskaltrust.Middleware on ARM 
 | **Swissbit Cloud-TSE**            | supported and tested                                         | supported and tested                                         |
 | **Swissbit Hardware-TSE**         | unsupported                                                  | supported and tested                                         |
 
+*Table 3. Support status of Signature Creation Units on 64-bit and 32-bit ARM processors.*
+
 ### Launcher
 
 The Launcher is a software (file) named `fiskaltrust.exe`, which is used only for the on-premise installed products (e.g. AT product fiskaltrust.SignatureCloud). For Windows, it is a .NET command-line application and a .NET Windows service. For Linux and Mac, the launcher can be executed via Mono, version 3.2.8 or higher, or used as daemon.
@@ -97,7 +107,7 @@ The main tasks of the launcher are:
 
 The executable file `fiskaltrust.exe` and the corresponding DLLs can be distributed via copy-paste and then configured and installed with the help of a command-line parameter. The launcher can be downloaded (incl. configuration) from the configuration page of the fiskaltrust.Portal, or found on [nuget.org](https://www.nuget.org/packages?q=fiskaltrust) and configured manually.
 
-Call parameter of the launcher are documented in the chapter [installation](../installation/installation.md).
+Call parameter of the launcher are documented in the chapter [installation](../components/components-install-config.md).
 
 ## Private cloud (operated by a third party) installed components
 
@@ -107,4 +117,4 @@ The components for the SaaS solution are the same as for the local solution; exc
 
 ## Private cloud (operated by fiskaltrust) installed components
 
-No installation or configuration is required for the client and any platform can use this service. For more details, please refer to the [Product and service part](https://docs.fiskaltrust.cloud/docs/posdealers/buy-resell/products/middleware#country-specific-variants)
+No installation or configuration is required for the client and any platform can use this service. For more details, please refer to the [Product and service part](../../../../posdealers/buy-resell/products/middleware.md#country-specific-variants)

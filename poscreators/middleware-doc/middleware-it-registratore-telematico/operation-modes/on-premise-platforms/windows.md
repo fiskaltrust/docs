@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/italy/platforms/windows
 title: Windows
+description: Windows versions supported by the Italian Middleware, which runs as a service on 32-bit and 64-bit Windows 7 and later.
+tags: [Windows, Operation Modes, Installation, Middleware, Italy]
 ---
 
 # fiskaltrust.Middleware for Windows
@@ -25,3 +27,5 @@ The fiskaltrust.Middleware runs as a service on all 32-bit and 64-bit platforms 
 | Windows 10 IoT Enterprise 2016 LTSB | supported     |
 | Windows Server 2019                 | supported     |
 | Windows 10 IoT Enterprise 2019 LTSC | supported     |
+
+*Table 1. Windows operating system support for the fiskaltrust.Middleware.*

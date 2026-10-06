@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/germany/platforms/linux
 title: Linux
+description: Running the German Middleware on Linux and macOS with Mono — requirements, supported storage and SCUs, and REST and WCF limitations.
+tags: [Germany, Linux, Mono, Operation Modes, Launcher]
 ---
 
 # fiskaltrust.Middleware for Linux and macOs
@@ -26,6 +28,8 @@ Other than that, no specific software needs to be installed (aside from the depe
 | local [EF-Storage](../on-premise-databases/entity-framework.md) | not tested | not tested |                                  |
 | local in-memory storage                                         | not tested | not tested |                                  |
 
+*Table 1. Local data storage options and their support status per Linux distribution.*
+
 Both Entity Framework and SQLite queues can be launched on Linux, starting from version 1.3.3. 
 
 ### SCU/Linux distribution support matrix
@@ -40,6 +44,8 @@ Both Entity Framework and SQLite queues can be launched on Linux, starting from 
 | [fiskaly Cloud-TSE](../scu/fiskaly.md)                    | **tested**                                                   | **tested**                                                   | should work (not tested)                                     |
 | [Swissbit Hardware TSE](../scu/swissbit.md)               | **tested**                                                   | **tested**                                                   | should work (not tested)                                     |
 | [Swissbit Cloud TSE](../scu/swissbit-cloud.md)            | Ubuntu LTS 20.04 certified, not tested                       | not tested                                                   |                                                              |
+
+*Table 2. SCU support status per Linux distribution.*
 
 ## Limitations
 

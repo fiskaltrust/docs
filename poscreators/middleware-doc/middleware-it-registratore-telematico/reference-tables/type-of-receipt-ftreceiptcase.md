@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/italy/reference-tables/ftreceiptcase
 title: 'Type of Receipt: ftReceiptCase'
+description: ftReceiptCase values for Italy (country code 0x4954) — receipt case types, receipt cases and local and global flags.
+tags: [Receipt Case, Reference Tables, RT, Italy]
 ---
 
 # Type of Receipt: ftReceiptCase
@@ -23,6 +25,8 @@ version 2
 | gggg | global tagging/flag |
 | lll | local tagging/flag |
 
+*Table 1. Sections of the ftReceiptCase format for the Italian market.*
+
 #### t - ReceiptCaseType
 
 | **Value** | **Category** | **Description** |
@@ -32,6 +36,8 @@ version 2
 | `2` | DailyOperations | This category contains receipt cases that the Middleware requires for various downstream processes (e.g. book keeping) |
 | `3` | Log | Logs can be used for storing / securing events that need are needed for additional processing or downstream processes. (e.g. log for cash drawer opened) |
 | `4` | Lifecycle | These operations are used for changing the overall state of the Middleware. Depending on the local regulations these receipts are handed over as part of a notification (e.g. FinanzOnline) |
+
+*Table 2. ReceiptCaseType (t) categories of ftReceiptCase.*
 
 #### txcc - ReceiptCase
 
@@ -64,6 +70,8 @@ version 2
 | `4011` | **Initiate SCU-switch** | 1.3.45 |
 | `4012` | **Finish SCU-switch** | 1.3.45 |
 
+*Table 3. ReceiptCase (txcc) values of ftReceiptCase for the Italian market.*
+
 #### gggg - global tagging/flag 
 
 | **Value** | **Description** | **Middleware Version** |
@@ -78,7 +86,9 @@ version 2
 | `0080` | **IsSaleInForeignCountry**<br /> | 1.3.45 |
 | `0100` | **IsReturn/IsRefund**<br />Marks Receipt as Return of good or service. | 1.3.45 |
 | `0800` | **Group by Position-Number / 100**<br />100 = first position, 101 first subitem, 102 second subitem.<br />The sum of all chargeitems within a position must count toward the total receipt amount.<br />If the quantity and amount are 0,00, the quantity and amount will not be visualized for this line on the digital receipt. Independent if main our subitem. | 1.3.45 |
-| `8000` | **ReceiptRequest**<br />If you don’t receive a response, try this flag first before taking any other action.<br />This will return a stored result for example in case of a timeout when cashregister calls queue. | 1.3.45 |
+| `8000` | **ReceiptRequest**<br />Returns the stored response of an already processed receipt with the same `cbReceiptReference` instead of processing it again.<br />To recover from a missing response or a timeout, retry the request with the same `x-operation-id` instead (see [Process-Driven and Idempotent Design](../../possystem-api/introduction.md#process-driven-and-idempotent-design)). | 1.3.45 |
+
+*Table 4. Global tagging/flag (gggg) values of ftReceiptCase for the Italian market.*
 
 #### lll - local tagging/flag 
 
@@ -87,3 +97,5 @@ version 2
 | `001` | **X Report**<br />(Only for RT Devices - only for Zero receipts) Prints the X report containing the snapshot of sales totals and activities | 1.3.45 |
 | `002` | **Print as non fiscal document**<br />(Only for RT Devices - only for Protocol receipts) Prints the protocol receipt | 1.3.67 |
 | `040` | **Printer reboot**<br />(Only for RT Devices - only for Zero receipts) | 1.3.85 |
+
+*Table 5. Local tagging/flag (lll) values of ftReceiptCase for the Italian market.*

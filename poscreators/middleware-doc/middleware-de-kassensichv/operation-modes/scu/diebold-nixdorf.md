@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/germany/scu/diebold-nixdorf
 title: Diebold Nixdorf-TSE
+description: BSI certification, serial COM port parameters and troubleshooting for the Diebold Nixdorf hardware TSE SCU in Germany.
+tags: [Germany, Diebold Nixdorf, TSE, SCU, Certification, Troubleshooting]
 ---
 
 # Diebold Nixdorf Hardware-TSE 
@@ -12,6 +14,8 @@ Certification-ID of TSE according to chapter 9.2.2 of Anwendungserlass zu § 146
 | Certification-ID                                             | Test item                           | Applicant                    | Date       |
 | :----------------------------------------------------------- | :---------------------------------- | :--------------------------- | :--------- |
 | [BSI-K-TR-0393-2020](https://www.bsi.bund.de/SharedDocs/Zertifikate_TR/Technische_Sicherheitseinrichtungen/BSI-K-TR-0393-2020.html) | Diebold Nixdorf TSE-CardVersion 1.0 | Diebold Nixdorf Systems GmbH | 20.02.2020 |
+
+*Table 1. BSI certification details of the Diebold Nixdorf hardware-TSE.*
 
 #### Certification identification
 
@@ -37,9 +41,12 @@ The _fiskaltrust.Middleware.SCU.DE.DieboldNixdorf_ package connects the middlewa
 | _TimeAdminUser_ | The username of the time-admin user. If not specified, the default value defined by the manufacturer is used. | to be documented<br />optional |
 | _TimeAdminPin_ | Time-admin PIN of the TSE. If not specified, the default PIN is used. | to be documented<br />optional |
 
+*Table 2. Configuration parameters for the Diebold Nixdorf SCU.*
 
 ## Troubleshooting
 | Problem                                                      | Possible cause                                               | Solution                                                     |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **When starting the middleware, an error is displayed stating that access to the specified COM port was denied** | Wrong COM port is used in the SCU configuration              | Update SCU configuration with the correct COM port used      |
 |                                                              | COM port is already used by a software (typically by the Diebold Nixdorf Web Service included with the TSE) | The Diebold Nixdorf Web Service is not required as all access is made directly via the COM protocol. Uninstalling the Diebold Nixdorf software eliminates this problem. |
+
+*Table 3. Troubleshooting COM port access errors with the Diebold Nixdorf TSE.*

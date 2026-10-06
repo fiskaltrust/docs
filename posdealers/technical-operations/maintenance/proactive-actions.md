@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/technical-operations/maintenance/proactive-actions
 title: Proactive actions
+description: Overview of proactive actions that keep Middleware installations reliable — backups, updates, receipt archive, monitoring, and logging.
+tags: [Maintenance, Middleware, PosDealers, Troubleshooting]
 ---
 # Proactive actions
 
@@ -15,7 +17,9 @@ Our products keep several ways to support PosDealers in ensuring the functionali
 | Action | Description                                                                                                                |
 |:----------------------------------:|-------------------------------------------------------------------------------------------------------------------------------|
 | **[Backups](./backup-restore.md#backup)**|Backup the database with the data of your queues. |
-| **[Updates](https://docs.fiskaltrust.cloud/docs/release-notes/)** |Check the release notes when you see the message that announces an update. For further steps, read  [updating](../maintenance/updating.md) to decide if you want to update. |
+| **[Updates](https://docs.fiskaltrust.eu/docs/release-notes/)** |Check the release notes when you see the message that announces an update. For further steps, read  [updating](../maintenance/updating.md) to decide if you want to update. |
 | **[Receipt Archive](../../buy-resell/products/revision-safe-archiving.md)** |To store your receipt data in a legally compliant and secure way, you can purchase a product, including a receipt archive.  |
 | **[Monitoring](../troubleshooting/cashbox-failures.md)** |As a PosOperator, you can check the health status of your CashBoxes in the fiskaltrust.Portal. |
 | **[Logging](../middleware/logging.md)** |You can activate logging for the Middleware to collect information about errors directly on your system. You should not exceed a log level of warning as long as you don't try to analyze a specific problem. |
+
+*Table 1. Proactive actions available to PosDealers to maintain their installations.*

@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/germany/databases/ef
 title: Entity Framework
+description: Configuration parameters of the Entity Framework storage provider for running the German Middleware on Microsoft SQL Server.
+tags: [Germany, Entity Framework, Queue, Configuration, Operation Modes]
 ---
 
 # Entity Framework Storage
@@ -20,3 +22,5 @@ This storage provider is particularly suitable for setting up fail-safe systems 
 | _connectionstring_          | EF-compatible connection string to the database system                                                           | mandatory                                  |
 | _TarFileExportMode_         | `All` Enables the automatic TAR File export from the TSE on the Queue level. `None` Disables the automatic TAR File export from the TSE on the Queue level. `Erased` TAR files are only exported and saved when they could be deleted from the TSE. (Values: `All` / `None` / `Erased`)                           | optional (default: `All`)  |
 | _StoreTemporaryExportFiles_ | Enables storage of temporary export files in the `fiskaltrust/service/Exports` folder (Values: `true` / `false`) | `false` <br /> optional                      |
+
+*Table 1. Configuration parameters for the Entity Framework storage provider.*

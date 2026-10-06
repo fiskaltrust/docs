@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/technical-operations/middleware/overview
 title: Overview
+description: Core features of the fiskaltrust.Middleware and its main components — CashBox, Launcher, Queue, and SCU — with on- and off-premise deployment options.
+tags: [Middleware, Architecture, CashBox, Launcher, Queue, SCU]
 ---
 # Overview
 
@@ -59,13 +61,23 @@ The Middleware and the portal follow a conservative change management approach. 
 ### On/Off-premise
 
 import DeploymentAT from '../../_markets/at/technical-operations/middleware/overview/_deployment.mdx';
+import DeploymentBE from '../../_markets/be/technical-operations/middleware/overview/_deployment.mdx';
 import DeploymentFR from '../../_markets/fr/technical-operations/middleware/overview/_deployment.mdx';
 import DeploymentDE from '../../_markets/de/technical-operations/middleware/overview/_deployment.mdx';
+import DeploymentGR from '../../_markets/gr/technical-operations/middleware/overview/_deployment.mdx';
+import DeploymentIT from '../../_markets/it/technical-operations/middleware/overview/_deployment.mdx';
+import DeploymentPL from '../../_markets/pl/technical-operations/middleware/overview/_deployment.mdx';
+import DeploymentPT from '../../_markets/pt/technical-operations/middleware/overview/_deployment.mdx';
+import DeploymentES from '../../_markets/es/technical-operations/middleware/overview/_deployment.mdx';
 
 <Tabs groupId="market">
 
   <TabItem value="AT" label="Austria">
     <DeploymentAT />
+  </TabItem>
+
+  <TabItem value="BE" label="Belgium">
+    <DeploymentBE />
   </TabItem>
 
   <TabItem value="FR" label="France">
@@ -74,6 +86,26 @@ import DeploymentDE from '../../_markets/de/technical-operations/middleware/over
 
   <TabItem value="DE" label="Germany">
     <DeploymentDE />
+  </TabItem>
+
+  <TabItem value="GR" label="Greece">
+    <DeploymentGR />
+  </TabItem>
+
+  <TabItem value="IT" label="Italy">
+    <DeploymentIT />
+  </TabItem>
+
+  <TabItem value="PL" label="Poland">
+    <DeploymentPL />
+  </TabItem>
+
+  <TabItem value="PT" label="Portugal">
+    <DeploymentPT />
+  </TabItem>
+
+  <TabItem value="ES" label="Spain">
+    <DeploymentES />
   </TabItem>
 
 </Tabs>
@@ -126,13 +158,23 @@ The queue is also the authoritative endpoint for your POS System to run direct d
 ### SCU (Signature Creation Unit)
 
 import SCUAT from '../../_markets/at/technical-operations/middleware/overview/_scu.mdx';
+import SCUBE from '../../_markets/be/technical-operations/middleware/overview/_scu.mdx';
 import SCUFR from '../../_markets/fr/technical-operations/middleware/overview/_scu.mdx';
 import SCUDE from '../../_markets/de/technical-operations/middleware/overview/_scu.mdx';
+import SCUGR from '../../_markets/gr/technical-operations/middleware/overview/_scu.mdx';
+import SCUIT from '../../_markets/it/technical-operations/middleware/overview/_scu.mdx';
+import SCUPL from '../../_markets/pl/technical-operations/middleware/overview/_scu.mdx';
+import SCUPT from '../../_markets/pt/technical-operations/middleware/overview/_scu.mdx';
+import SCUES from '../../_markets/es/technical-operations/middleware/overview/_scu.mdx';
 
 <Tabs groupId="market">
 
   <TabItem value="AT" label="Austria">
     <SCUAT />
+  </TabItem>
+
+  <TabItem value="BE" label="Belgium">
+    <SCUBE />
   </TabItem>
 
   <TabItem value="FR" label="France">
@@ -141,6 +183,26 @@ import SCUDE from '../../_markets/de/technical-operations/middleware/overview/_s
 
   <TabItem value="DE" label="Germany">
     <SCUDE />
+  </TabItem>
+
+  <TabItem value="GR" label="Greece">
+    <SCUGR />
+  </TabItem>
+
+  <TabItem value="IT" label="Italy">
+    <SCUIT />
+  </TabItem>
+
+  <TabItem value="PL" label="Poland">
+    <SCUPL />
+  </TabItem>
+
+  <TabItem value="PT" label="Portugal">
+    <SCUPT />
+  </TabItem>
+
+  <TabItem value="ES" label="Spain">
+    <SCUES />
   </TabItem>
 
 </Tabs>

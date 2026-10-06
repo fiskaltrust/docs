@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/germany/platforms/windows
 title: Windows
+description: Supported Windows versions and .NET Framework prerequisites for running the German fiskaltrust.Middleware as a service.
+tags: [Germany, Windows, Operation Modes, Installation]
 ---
 
 # fiskaltrust.Middleware für Windows
@@ -33,3 +35,5 @@ Please be aware that dependent on the TSE used there may be additional requireme
 | Windows 10 IoT Enterprise 2016 LTSB | supported     |
 | Windows Server 2019                 | supported     |
 | Windows 10 IoT Enterprise 2019 LTSC | supported     |
+
+*Table 1. Supported Windows operating systems for the fiskaltrust.Middleware.*

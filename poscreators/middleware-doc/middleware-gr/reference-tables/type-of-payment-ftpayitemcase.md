@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/greece/reference-tables/ftpayitemcase
 title: 'Type of Payment: ftPayItemCase'
+description: ftPayItemCase format and payment type values for Greece, with reserved and local flag fields and global flags.
+tags: [Greece, Pay Item Case, Reference Tables, Payment]
 ---
 
 # Type of Payment: ftPayItemCase
@@ -13,6 +15,14 @@ _CCCC_vlll_gggg_xxPP_
 
 #### v - version
 version 2
+
+#### xx - reserved
+
+Reserved for future use. Not currently assigned for Greece (or any market).
+
+#### lll - local tagging/flag
+
+Greece does not currently define local (`lll`) flags for `ftPayItemCase`.
 
 #### PP - payment type
 | **Value** | **Description** | **Middleware version** |
@@ -31,11 +41,10 @@ version 2
 | `0B` | Maps to **International Business Payment Account** | 1.3.45 |
 | `0C` | **Transfer to Cashbook / Vault / Owner / Employee**<br />Positive (+) amount contributes to cashbox/vault. This higher the amount in cashbox/vault.<br />Negative (-) amount lowers the amount in cashbox/vault. | 1.3.45 |
 | `0D` | Internal / Material consumption | 1.3.45 |
-| `0E` | Grant | | 1.3.45 |
+| `0E` | Grant | 1.3.45 |
 | `0F` | Ticket Restaurant / (Sodexo, Edenred, etc.) | 1.3.45 |
 
-#### v - version
-version 2
+*Table 1. Payment type values (PP) for Greece.*
 
 #### gggg - global tagging/flag
 | **Value**            | **Description**                                                                                | **Middleware version** |
@@ -50,3 +59,5 @@ version 2
 | `0080` | **IsDigital/IsElectronic**<br />Electronic money, digital money  | 1.3.45                    |
 | `0100` | **IsInterface/AmountVerified**<br />Was verified by interface, automated amount transfer | 1.3.45                    |
 | `8000` | **ShowInChargeItems**<br />Visualize the item before Total Amount. This inverts amount and does include the amount into the visualized total amount on the receipt. |1.3.45|
+
+*Table 2. Global tagging/flag values (gggg) for Greece.*

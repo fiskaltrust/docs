@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/austria/data-structures
 title: Data Structures
+description: Austria-specific fields of the receipt response, charge items, pay items and signature entries in the Middleware data structures.
+tags: [Austria, RKSV, Data Structures, Middleware]
 ---
 
 # Data Structures
@@ -20,7 +22,7 @@ This table describes additional fields of the Receipt Response applicable to the
 | `ftCashBoxIdentification` | `string`      | mandatory                         | Cash register identification number in accordance with the RKSV.                                        | 0-          |
 | `ftReceiptIdentification` | `string`      | mandatory                         | Upcounting receipt number allocated through fiskaltrust.SecurityMechanisms in accordance with the RKSV. | 0-          |
 
-<span id="_Toc510009100" class="anchor"></span>*Table 18. Receipt Response (AT - RKSVO)*
+*Table 1. Receipt Response (AT - RKSVO)*
 
 ## Charge Items Entry
 
@@ -32,7 +34,7 @@ This table describes additional fields of the Charge Items Entry applicable to t
 |----------------|---------------|-----------------------------------|--------------------------------------------------------------------------------------------------------|-------------|
 | `Description`  | `string`      | empty-string<br />mandatory       | Name, description of customary indication, or type of the service or item in accordance with the RKSV. | 0-          |
 
-<span id="_Toc510009101" class="anchor"></span>*Table 19. Charge Items Entry (ftChargeItems) (AT - RKSVO)*
+*Table 2. Charge Items Entry (ftChargeItems) (AT - RKSVO)*
 
 ## Pay Items Entry
 
@@ -47,4 +49,4 @@ The Signature Entry for Austrian market may contain a FinanzOnline notification,
 | `ftSignatureFormat` | `Int64`       | 0<br />mandatory                           | Format for displaying signature data according to the reference table in the appendix.                                                        | 0-          |
 | `ftSignatureType`   | `Int64`       | 0<br />mandatory                           | Type of signature according to the reference table in the appendix, for example signature according to the RKSV or FinanzOnline notification. | 0-          |
 
-<span id="_Toc510009102" class="anchor"></span>*Table 20. Signature Entry (AT - RKSVO)*
+*Table 3. Signature Entry (AT - RKSVO)*

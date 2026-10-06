@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/buy-resell/products/middleware
 title: Middleware
+description: The fiskaltrust.Middleware as a product for PosDealers — its security mechanism, deployment options and country-specific variants.
+tags: [Middleware, Signature, PosDealers]
 ---
 
 # Middleware
@@ -23,7 +25,9 @@ First, the fiskaltrust.Middleware ensures that all receipts are processed by a t
 
 As the technical implementation of security, each request and response is hashed to ensure the integrity of the data. To guarantee immutability, another hash value is generated that relates to the entire request-response cycle. This includes the cycle identification, the time of operation, the human-readable document number, and the hash values of the request, response, and the previous receipt, called the document hash value. This concatenation of the receipt hash value provides immutability and the ability to detect any changes or deletions in actions provided by the POS system.
 
-![receipt-chaining](../images/receipt-chain.svg)
+![Receipt chain diagram: each request and response hash plus JournalId, Moment and Identification feed a receipt hash that starts the next chain link](../images/receipt-chain.svg)
+
+*Figure 1. Receipt chaining mechanism used to ensure the immutability of receipts.*
 
 To limit the risk of attacks on the chain originating from the last unlinked hash value, fiskaltrust provides a mechanism that mirrors the current data to the fiskaltrust cloud. This data mirror can detect attacks that would not be visible at the cash register itself.
 
@@ -31,7 +35,9 @@ As the final component of the security mechanism, the fiskaltrust.Middleware als
 
 To remain open to different platforms and operating systems and to act as a stable interface to the POS system, the fiskaltrust.Middleware follows a strict architecture:
 
-![mw-architecture](../images/mw-architecture.png)
+![Architecture diagram: POS system talks over the international iPOS interface to the Middleware CashBox, where the international Queue connects to a market-specific SCU](../images/mw-architecture.svg)
+
+*Figure 2. Architecture of the fiskaltrust.Middleware.*
 
 The configuration container - identified by the unique `CashboxId` - can be integrated into various platforms and operating systems. The management of the configuration and status of these components is handled through the market-related fiskaltrust.Portal. The fiskaltrust security mechanism is provided by the Queue component and the SCU (Signature Creation Unit) component, which implements the market-related security mechanism requirements.
 
@@ -42,13 +48,23 @@ Wherever possible, fiskaltrust offers a cloud-hosted version of the Middleware t
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import HostedMiddlewareAT from '../../_markets/at/buy-resell/products/_hosted-middleware.mdx';
+import HostedMiddlewareBE from '../../_markets/be/buy-resell/products/_hosted-middleware.mdx';
 import HostedMiddlewareFR from '../../_markets/fr/buy-resell/products/_hosted-middleware.mdx';
 import HostedMiddlewareDE from '../../_markets/de/buy-resell/products/_hosted-middleware.mdx';
+import HostedMiddlewareGR from '../../_markets/gr/buy-resell/products/_hosted-middleware.mdx';
+import HostedMiddlewareIT from '../../_markets/it/buy-resell/products/_hosted-middleware.mdx';
+import HostedMiddlewarePL from '../../_markets/pl/buy-resell/products/_hosted-middleware.mdx';
+import HostedMiddlewarePT from '../../_markets/pt/buy-resell/products/_hosted-middleware.mdx';
+import HostedMiddlewareES from '../../_markets/es/buy-resell/products/_hosted-middleware.mdx';
 
 <Tabs groupId="market">
 
   <TabItem value="AT" label="Austria">
     <HostedMiddlewareAT />
+  </TabItem>
+
+  <TabItem value="BE" label="Belgium">
+    <HostedMiddlewareBE />
   </TabItem>
 
   <TabItem value="FR" label="France">
@@ -57,6 +73,26 @@ import HostedMiddlewareDE from '../../_markets/de/buy-resell/products/_hosted-mi
 
   <TabItem value="DE" label="Germany">
     <HostedMiddlewareDE />
+  </TabItem>
+
+  <TabItem value="GR" label="Greece">
+    <HostedMiddlewareGR />
+  </TabItem>
+
+  <TabItem value="IT" label="Italy">
+    <HostedMiddlewareIT />
+  </TabItem>
+
+  <TabItem value="PL" label="Poland">
+    <HostedMiddlewarePL />
+  </TabItem>
+
+  <TabItem value="PT" label="Portugal">
+    <HostedMiddlewarePT />
+  </TabItem>
+
+  <TabItem value="ES" label="Spain">
+    <HostedMiddlewareES />
   </TabItem>
 
 </Tabs>

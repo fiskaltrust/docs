@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/germany/cash-register-integration
 title: Cash Register Integration
+description: Which ftSignatures to print on receipts in Germany, with or without a QR code, and how the printing-optional flag is used.
+tags: [Germany, Printing, Signature, Cash Register Integration, KassenSichV]
 ---
 
 # Cash Register Integration
@@ -35,3 +37,5 @@ For supporting cases where the used printer does not support QR codes, the Middl
 | TSE log time format                     | `<log-time-format>`     | `0x444500000000001C` |
 | TSE signature                           | `<signatur>`            | `0x444500000000001D` |
 | Overall start time of the business case | `<vorgangsbeginn>`      | `0x444500000000001F` |
+
+*Table 1. Signature items to print on receipts without QR codes, with their ftSignatureType values.*

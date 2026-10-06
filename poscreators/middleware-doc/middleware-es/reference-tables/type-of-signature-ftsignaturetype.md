@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/spain/reference-tables/ftsignaturetype
 title: 'Type of Signature: ftSignatureType'
+description: ftSignatureType format for Spain — signature type categories and global flags, with Spanish signature cases still to be defined.
+tags: [Spain, ftSignatureType, Signature, Reference Tables]
 ---
 
 # Type of Signature: ftSignatureType
@@ -25,6 +27,8 @@ version 2
 | `2` | Alert (notification), high priority | 1.3.45 |
 | `3` | Failure (notification), high priority | 1.3.45 |
 
+*Table 1. Signature type/category values (t) for Spain.*
+
 #### gggg - global flags
 
 | **Value** | **Description** | **Middleware Version** |
@@ -35,8 +39,12 @@ version 2
 |  `0040` | Printed receipt only. | 1.3.45 |
 |  `0080` | Digital receipt only. | 1.3.45 |
 
+*Table 2. Global flag values (gggg) for Spain.*
+
 #### sss - SignatureCase
 
 | **Value** | **Description** | **Caption** | **Middleware Version** |
 | --------- | --------------- | ----------- | ---------------------- |
 | TBD | TBD | TBD | TBD |
+
+*Table 3. SignatureCase values (sss) for Spain.*

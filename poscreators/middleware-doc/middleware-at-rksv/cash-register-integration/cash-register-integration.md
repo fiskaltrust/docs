@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/austria/cash-register-integration
 title: Cash Register Integration
+description: Receipt workflows, special receipts, receipt structure and data collection log (RKSV-DEP, E131-DEP) for the Middleware in Austria.
+tags: [Austria, RKSV, Cash Register Integration, Failure Handling, Journal, Closings]
 ---
 
 # Cash Register Integration
@@ -23,53 +25,53 @@ The regular workflow of the fiskaltrust.SecurityMechanism in the Austrian market
   - create all other necessary receipts
   - save all data
 
-![](./images/12.png)
+![Diagram: POS exchanges requests and responses with the fiskaltrust.Middleware via the POS-Interface; the SignatureCard handles RKSV duties like signing, DCL and FinanzOnline](./images/12.png)
 
-<span id="_Toc527986813" class="anchor"></span>*Illustration* *12. Process of the cash register integration (AT) with fiskaltrust.SecurityMechanism (AT - RKSVO)*
+*Figure 1. Process of the cash register integration (AT) with the fiskaltrust.SecurityMechanism (AT - RKSVO).*
 
 ### Workflow - regular operation
 
 The following diagram illustrates the regular creation of a receipt with fiskaltrust.Middleware following Austrian law.
 
-![](./images/13.png)
+![Swimlane flowchart, regular operation: POS sends a ReceiptRequest via iPOS to the Queue, the signature creation unit signs it, and the ReceiptResponse drives receipt generation](./images/13.png)
 
-<span id="_Toc527986814" class="anchor"></span>*Illustration 13. Workflow - regular operation (AT - RKSVO)*
+*Figure 2. Workflow of the regular receipt creation operation (AT - RKSVO).*
 
 ### Workflow - special receipts
 
 The following diagram illustrates the creation of a special receipt with fiskaltrust.Middleware following Austrian law.
 
-![](./images/14.png)
+![Swimlane flowchart for special receipts: a zero-receipt request goes via iPOS to the Queue, which executes it, gets a signature and returns a response, with optional FON report](./images/14.png)
 
-<span id="_Toc52798681511111" class="anchor"></span>*Illustration 14. Workflow - special receipts (AT) (initial-, zero-, collective- , closing-receipt, shift-, daily-, monthly-, yearly-tally) (AT - RKSVO)*
+*Figure 3. Workflow of special receipts (AT): initial-, zero-, collective-, closing-, shift-, daily-, monthly- and yearly-tally receipts (AT - RKSVO).*
 
 ### Workflow - failure of the signature creation unit (queue timeout)
 
 The following diagram illustrates the workflow of a failure of the signature creation device following Austrian law.
 
-![](./images/15.png)
+![Swimlane flowchart, queue timeout: signature retries fail, the Queue returns ftState 0x02 and the receipt is printed as security mechanism failed](./images/15.png)
 
-<span id="_Toc527986815" class="anchor"></span>*Illustration 15. Workflow - failure of the SCD (queue timeout) (AT - RKSVO)*
+*Figure 4. Workflow of a signature creation device failure (queue timeout) (AT - RKSVO).*
 
-![](./images/16.png)
+![Swimlane flowchart, wrong state: with ftState 0x02 the Queue skips signing, marks receipts security mechanism failed and triggers a FON report after 48 hours](./images/16.png)
 
-<span id="_Toc527986816" class="anchor"></span>*Illustration 16. Workflow - failure of the SCD (wrong state) (AT - RKSVO)*
+*Figure 5. Workflow of a signature creation device failure (wrong state) (AT - RKSVO).*
 
-![](./images/17.png)
+![Swimlane flowchart, signature creation unit timeout: after a timeout the Queue enters stop mode, marks receipts security mechanism failed and reports to FON after 48 hours](./images/17.png)
 
-<span id="_Toc527986817" class="anchor"></span>*Illustration 17. Workflow - failure of the SCD (SCD timeout) (AT - RKSVO)*
+*Figure 6. Workflow of a signature creation device failure (SCD timeout) (AT - RKSVO).*
 
 ### Workflow - failure of the fiskaltrust.SecurityMechanism (network error)
 
 The following diagram illustrates the workflow of a failure of the fiskaltrust.SecurityMechanism following the Austrian law.
 
-![](./images/18.png)
+![Swimlane flowchart, network error: the ReceiptRequest times out, the POS marks the receipt for resending, retries, and prints it without a machine-readable code](./images/18.png)
 
-<span id="_Toc527986818" class="anchor"></span>*Illustration 18. Workflow - failure of the fiskaltrust.SecurityMechanism (network error) (AT - RKSVO)*
+*Figure 7. Workflow of a fiskaltrust.SecurityMechanism failure (network error) (AT - RKSVO).*
 
-![](./images/19.png)
+![Swimlane flowchart, recovery after 48+ hours: POS posts outage data via a collective receipt, ends with a zero receipt, and the Queue signs and reports to FON](./images/19.png)
 
-<span id="_Toc527986819" class="anchor"></span>*Illustration 19. Workflow - failure of the fiskaltrust.Middleware (recover after more than 48 hours) (AT - RKSVO)*
+*Figure 8. Workflow of a fiskaltrust.Middleware failure (recovery after more than 48 hours) (AT - RKSVO).*
 
 ## Receipt for special functions
 
@@ -127,9 +129,9 @@ https://www.bmf.gv.at/services/apps.html
 
 This chapter describes the receipt structure applicable to the Austrian market.
 
-![](./images/20.png)
+![Receipt structure: request blocks from POS to fiskaltrust, response blocks back to POS incl. signature block, and the merged printed receipt](./images/20.png)
 
-<span id="_Toc527986820" class="anchor"></span>*Illustration* *20. Receipt Structure (AT); cash register- receipt data (header, charge items, pay items, footer) and fiskaltrust-receipt data (header, charge items, pay items, signature, footer) (AT - RKSVO)*
+*Figure 9. Receipt structure (AT): cash register receipt data (header, charge items, pay items, footer) and fiskaltrust receipt data (header, charge items, pay items, signature, footer) (AT - RKSVO).*
 
 ### Receipt Header
 

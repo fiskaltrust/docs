@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/greece/reference-tables/ftjournaltype
 title: 'Type of Journal: ftJournalType'
+description: ftJournalType values for the Greek market, currently limited to the QueueGR status information journal.
+tags: [Greece, ftJournalType, Journal, Reference Tables]
 ---
 
 # Type of Journal: ftJournalType
@@ -10,3 +12,7 @@ This table expands on the values provided in the [Type of Journal: ftJournalType
 | **Value** | **Description** | **Version** |
 | --------- | --------------- |------------ |
 | `000` | Status Information QueueGR | 1.3.45 |
+
+*Table 1. ftJournalType values for the Greek market.*
+
+No further Greek-specific journal case values are currently defined beyond status information.

@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/information-sources/contacting-support
 title: Contacting support
+description: When and how PosDealers and PosCreators contact the fiskaltrust Customer Success Team, with support addresses per market.
+tags: [Support, PosDealers, Austria, France, Germany]
 ---
 # Contacting support
 
@@ -32,18 +34,30 @@ All our learning in discussions, requests, or how-to`s result in knowledge base 
 |Gathering customer feedback|Please note the sections [knowledge base](../information-sources/knowledge-base.md). Further, please do not hesitate to [share your thoughts](mailto:feedback+portal@fiskaltrust.cloud.) about improvements and fixes, that are described in our release notes.  |
 |Updating customers|Check your inbox for the newsletters, that are sent to PosDealers and posCreators. Further note the section [News](../information-sources/news.md) and the FAQ. |
 
+*Table 1. Support request types and how to handle them.*
+
 ## Country-specific information
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import SupportAT from '../_markets/at/information-sources/contacting-support/_support.mdx';
+import SupportBE from '../_markets/be/information-sources/contacting-support/_support.mdx';
 import SupportFR from '../_markets/fr/information-sources/contacting-support/_support.mdx';
 import SupportDE from '../_markets/de/information-sources/contacting-support/_support.mdx';
+import SupportGR from '../_markets/gr/information-sources/contacting-support/_support.mdx';
+import SupportIT from '../_markets/it/information-sources/contacting-support/_support.mdx';
+import SupportPL from '../_markets/pl/information-sources/contacting-support/_support.mdx';
+import SupportPT from '../_markets/pt/information-sources/contacting-support/_support.mdx';
+import SupportES from '../_markets/es/information-sources/contacting-support/_support.mdx';
 
 <Tabs groupId="market">
 
   <TabItem value="AT" label="Austria">
     <SupportAT />
+  </TabItem>
+
+  <TabItem value="BE" label="Belgium">
+    <SupportBE />
   </TabItem>
 
   <TabItem value="FR" label="France">
@@ -52,6 +66,26 @@ import SupportDE from '../_markets/de/information-sources/contacting-support/_su
 
   <TabItem value="DE" label="Germany">
     <SupportDE />
+  </TabItem>
+
+  <TabItem value="GR" label="Greece">
+    <SupportGR />
+  </TabItem>
+
+  <TabItem value="IT" label="Italy">
+    <SupportIT />
+  </TabItem>
+
+  <TabItem value="PL" label="Poland">
+    <SupportPL />
+  </TabItem>
+
+  <TabItem value="PT" label="Portugal">
+    <SupportPT />
+  </TabItem>
+
+  <TabItem value="ES" label="Spain">
+    <SupportES />
   </TabItem>
 
 </Tabs>

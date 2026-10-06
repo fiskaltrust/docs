@@ -1,11 +1,13 @@
 ---
 slug: /poscreators/middleware-doc/france
 title: Introduction
+description: Entry point to the French market appendix of the Middleware for secured cash desk software under BOI-TVA-DECLA 30-10-30.
+tags: [France, Middleware, PosCreators, Compliance, Legal]
 ---
 
 # Appendix: France (BOI-TVA-DECLA 30-10-30)
 
-This appendix expands on the [General Part](https://docs.fiskaltrust.eu/docs/poscreators/middleware-doc)'s information by adding details specific to the French market. This additional information is provided only where applicable. The remaining chapters, for which there is no further information required, were omitted.
+This appendix expands on the [General Part](../general/general.md)'s information by adding details specific to the French market. This additional information is provided only where applicable. The remaining chapters, for which there is no further information required, were omitted.
 
 The link to the relevant paragraph in the French law regarding the secured cash desk software:
 
@@ -21,12 +23,12 @@ The technical specification of the data interface described in this document pro
 5. Types of communication with fiskaltrust.Service
 6. Operating category
 
-The interface specification is provided by fiskaltrust.Interface NuGet package, which can be found at https://www.nuget.org/packages/fiskaltrust.interface.
+The interface specification is provided by the [fiskaltrust.Interface NuGet package](https://www.nuget.org/packages/fiskaltrust.interface).
 
 :::info Upgrading to PosSystem API (v2)
 
-New features such as e-invoicing are available exclusively through the **PosSystem API (v2)**. If you are currently using the v0 interface (WCF/REST), see the [Migrating from API v0 to PosSystem API (v2)](../possystem-api/migration-guide.md) guide for instructions.
+New features such as eInvoicing are available exclusively through the **PosSystem API (v2)**. If you are currently using the v0 interface (WCF/REST), see the [Migrating from API v0 to PosSystem API (v2)](../possystem-api/migration-guide.md) guide for instructions.
 
 :::
 
-<div class="alert alert--warning" role="alert">Please note that this information is only complete when combined with the <a href="https://docs.fiskaltrust.eu/docs/poscreators/middleware-doc">General Part</a>.<br />To implement the Middleware, users should get themselves familiar with the general information first and then refer to the country-specific details listed here.</div>
+<div class="alert alert--warning" role="alert">Please note that this information is only complete when combined with the [General Part](../general/general.md).<br />To implement the Middleware, users should get themselves familiar with the general information first and then refer to the country-specific details listed here.</div>

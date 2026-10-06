@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/spain/reference-tables/ftreceiptcase
 title: 'Type of Receipt: ftReceiptCase'
+description: ftReceiptCase values for Spain — receipt types, invoices, closings, protocols, queue start/stop and global and local flags.
+tags: [Spain, Receipt Case, Reference Tables, Closings]
 ---
 
 # Type of Receipt: ftReceiptCase
@@ -23,6 +25,8 @@ version 2
 | gggg | global tagging/flag |
 | lll | local tagging/flag |
 
+*Table 1. Structure of the ftReceiptCase value for Spain.*
+
 #### t - ReceiptCaseType
 
 | **Value** | **Category** | **Description** |
@@ -32,6 +36,8 @@ version 2
 | `2` | DailyOperations | This category contains receipt cases that the Middleware requires for various downstream processes (e.g. book keeping) |
 | `3` | Log | Logs can be used for storing / securing events that are needed for additional processing or downstream processes. (e.g. log for cash drawer opened) |
 | `4` | Lifecycle | These operations are used for changing the overall state of the Middleware. Depending on the local regulations these receipts are handed over as part of a notification (e.g. FinanzOnline) |
+
+*Table 2. ReceiptCaseType categories (t) for Spain.*
 
 #### txcc - ReceiptCase
 
@@ -64,6 +70,8 @@ version 2
 | `4011` | **Initiate SCU-switch** | 1.3.45 |
 | `4012` | **Finish SCU-switch** | 1.3.45 |
 
+*Table 3. ReceiptCase values (txcc) for Spain.*
+
 #### gggg - global tagging/flag
 
 | **Value** | **Description** | **Middleware Version** |
@@ -78,10 +86,14 @@ version 2
 | `0080` | **IsSaleInForeignCountry** | 1.3.45 |
 | `0100` | **IsReturn/IsRefund**<br />Marks Receipt as Return of good or service. | 1.3.45 |
 | `0800` | **Group by Position-Number / 100**<br />100 = first position, 101 first subitem, 102 second subitem.<br />The sum of all chargeitems within a position must count toward the total receipt amount.<br />If the quantity and amount are 0,00, the quantity and amount will not be visualized for this line on the digital receipt. Independent if main or subitem. | 1.3.45 |
-| `8000` | **ReceiptRequest**<br />If you don’t receive a response, try this flag first before taking any other action.<br />This will return a stored result for example in case of a timeout when cashregister calls queue. | 1.3.45 |
+| `8000` | **ReceiptRequest**<br />Returns the stored response of an already processed receipt with the same `cbReceiptReference` instead of processing it again.<br />To recover from a missing response or a timeout, retry the request with the same `x-operation-id` instead (see [Process-Driven and Idempotent Design](../../possystem-api/introduction.md#process-driven-and-idempotent-design)). | 1.3.45 |
+
+*Table 4. Global tagging/flag values (gggg) for Spain.*
 
 #### lll - local tagging/flag
 
 | **Value** | **Description** | **Middleware Version** |
 | --------- | --------------- | ---------------------- |
 | TBD | TBD | TBD |
+
+*Table 5. Local tagging/flag values (lll) for Spain.*

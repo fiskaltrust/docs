@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/business-basics/business-model
 title: Business Model
+description: How the partner-based fiskaltrust business model works and what it offers PosDealers, PosCreators, and PosOperators.
+tags: [Pricing, PosDealers, Portal, Onboarding]
 ---
 # Business Model
 
@@ -17,6 +19,8 @@ fiskaltrust is a software company that focuses on developing compliance-as-a-ser
 The distribution of fiskaltrust's _products_ and _product bundles_ is done in partnership with cash register dealers (_PosDealers_). Using existing sales structures in the respective countries, PosDealers can offer a product portfolio that considers and fulfills the individual needs of each of their customers (cash register operators or _PosOperators_).
 
 ![Business Model](images/business-model.png)
+
+*Figure 1. Overview of fiskaltrust's partner-based business model connecting PosCreators, PosDealers and PosOperators.*
 
 In this model, the PosOperator remains the direct customer of the PosDealer. Attractive volume discounts on fiskaltrust's products enable PosDealers to integrate these products into their portfolio and pricing model on their terms.
 
@@ -85,13 +89,23 @@ While our products all contribute to the common goal of carefree international f
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import SalesAT from '../_markets/at/overview/business-model/_sales.mdx';
+import SalesBE from '../_markets/be/overview/business-model/_sales.mdx';
 import SalesFR from '../_markets/fr/overview/business-model/_sales.mdx';
 import SalesDE from '../_markets/de/overview/business-model/_sales.mdx';
+import SalesGR from '../_markets/gr/overview/business-model/_sales.mdx';
+import SalesIT from '../_markets/it/overview/business-model/_sales.mdx';
+import SalesPL from '../_markets/pl/overview/business-model/_sales.mdx';
+import SalesPT from '../_markets/pt/overview/business-model/_sales.mdx';
+import SalesES from '../_markets/es/overview/business-model/_sales.mdx';
 
 <Tabs groupId="market">
 
   <TabItem value="AT" label="Austria">
     <SalesAT />
+  </TabItem>
+
+  <TabItem value="BE" label="Belgium">
+    <SalesBE />
   </TabItem>
 
   <TabItem value="FR" label="France">
@@ -100,6 +114,26 @@ import SalesDE from '../_markets/de/overview/business-model/_sales.mdx';
 
   <TabItem value="DE" label="Germany">
     <SalesDE />
+  </TabItem>
+
+  <TabItem value="GR" label="Greece">
+    <SalesGR />
+  </TabItem>
+
+  <TabItem value="IT" label="Italy">
+    <SalesIT />
+  </TabItem>
+
+  <TabItem value="PL" label="Poland">
+    <SalesPL />
+  </TabItem>
+
+  <TabItem value="PT" label="Portugal">
+    <SalesPT />
+  </TabItem>
+
+  <TabItem value="ES" label="Spain">
+    <SalesES />
   </TabItem>
 
 </Tabs>

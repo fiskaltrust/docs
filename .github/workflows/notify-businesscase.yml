@@ -1,0 +1,104 @@
+# .github/workflows/notify-businesscase.yml
+# Place this file in the fiskaltrust/docs repository.
+#
+# Triggers whenever files under poscreators/middleware-doc/ change on main,
+# then opens a PR in fiskaltrust/businesscase with those changes applied.
+#
+# Since businesscase is the source of truth, this PR serves as a flag:
+# "A direct edit was made in docs — review and decide whether to keep it."
+# The team can merge it into businesscase, or close it and revert docs instead.
+#
+# Required secret in fiskaltrust/docs:
+#   BUSINESSCASE_SYNC_TOKEN — a GitHub PAT (or fine-grained token) with:
+#     - Contents: Read & Write  (on fiskaltrust/businesscase)
+#     - Pull requests: Read & Write (on fiskaltrust/businesscase)
+
+name: Notify businesscase of docs changes
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'poscreators/middleware-doc/**'
+  workflow_dispatch:
+
+jobs:
+  notify:
+    name: Open PR in fiskaltrust/businesscase
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+
+    steps:
+      - name: Checkout docs
+        uses: actions/checkout@v4
+        with:
+          path: docs
+
+      - name: Checkout fiskaltrust/businesscase
+        uses: actions/checkout@v4
+        with:
+          repository: fiskaltrust/businesscase
+          token: ${{ secrets.BUSINESSCASE_SYNC_TOKEN }}
+          path: businesscase
+
+      - name: Apply changes to businesscase
+        run: |
+          # Mirror general/ subfolder
+          rsync -av --delete \
+            docs/poscreators/middleware-doc/general/ \
+            businesscase/doc/compliance-middleware/general/
+
+          # Mirror all middleware-* subfolders
+          for dir in docs/poscreators/middleware-doc/middleware-*/; do
+            folder_name=$(basename "$dir")
+            rsync -av --delete \
+              "$dir" \
+              "businesscase/doc/compliance-middleware/$folder_name/"
+          done
+
+      - name: Check for changes
+        id: diff
+        run: |
+          cd businesscase
+          git diff --quiet && echo "changed=false" >> $GITHUB_OUTPUT || echo "changed=true" >> $GITHUB_OUTPUT
+
+      - name: Get triggering commit info
+        if: steps.diff.outputs.changed == 'true'
+        id: commit_info
+        run: |
+          cd docs
+          echo "sha=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+          echo "msg=$(git log -1 --pretty=%s)" >> $GITHUB_OUTPUT
+          echo "author=$(git log -1 --pretty=%an)" >> $GITHUB_OUTPUT
+
+      - name: Open or update PR in fiskaltrust/businesscase
+        if: steps.diff.outputs.changed == 'true'
+        uses: peter-evans/create-pull-request@v6
+        with:
+          token: ${{ secrets.BUSINESSCASE_SYNC_TOKEN }}
+          path: businesscase
+          branch: sync/docs-middleware-doc
+          base: main
+          commit-message: |
+            sync: middleware-doc change detected in fiskaltrust/docs
+
+            Source commit: fiskaltrust/docs@${{ steps.commit_info.outputs.sha }}
+            Author: ${{ steps.commit_info.outputs.author }}
+            "${{ steps.commit_info.outputs.msg }}"
+          title: "⚠️ sync: direct edit detected in docs — review required"
+          body: |
+            A change was made directly to `poscreators/middleware-doc/` in [fiskaltrust/docs](https://github.com/fiskaltrust/docs).
+
+            Since **`businesscase` is the source of truth**, please review this PR and choose one of:
+
+            - ✅ **Merge** — if the change in `docs` is valid and should be ported to `businesscase`
+            - ❌ **Close & revert** — if the change should not have been made in `docs` directly (revert it there instead)
+
+            ---
+            **Source commit:** fiskaltrust/docs@${{ steps.commit_info.outputs.sha }}
+            **Author:** ${{ steps.commit_info.outputs.author }}
+            **Message:** ${{ steps.commit_info.outputs.msg }}
+          labels: automated-sync,review-required
+          delete-branch: false

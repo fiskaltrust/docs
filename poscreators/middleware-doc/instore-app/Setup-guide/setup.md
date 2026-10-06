@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/instore-app/setup/getting-started
 title: Getting Started
+description: Installing the InStore App, granting permissions and pairing it with a CashBox via a PIN from the fiskaltrust.Portal.
+tags: [InStore App, Installation, CashBox, Pairing, Android]
 ---
 
 # Getting Started
@@ -14,7 +16,9 @@ Refer to the [installation guides](../installation-guides/installation-guides.md
 ## Step 2: Start the app and grant permissions
 
 * Once installed, launch the app.
-* If prompted, enable the **Display over other apps** option (this allows the app to stay in the foreground while you work in other apps).<br/>![DisplayOverApps](./images/DisplayOverApps.png)
+* If prompted, enable the **Display over other apps** option (this allows the app to stay in the foreground while you work in other apps).<br/>![DisplayOverApps](./images/DisplayOverApps.png)<br/>
+
+*Figure 1. Enabling the Display over other apps permission for the InStore App.*
 
 :::tip
 
@@ -35,16 +39,22 @@ In the portal, navigate to **Configuration** > **CashBox** and select your Cashb
   
 ![Cashbox](./images/Cashbox.png)
 
+*Figure 2. Selecting the CashBox in the fiskaltrust Portal Configuration.*
+
 ## Step 5: Copy the PIN for InStore App
 
 In the CashBox overview, you will find your **PIN for InStore App**. This PIN is used to pair your app with the Cashbox. Example pairing PIN: 8639. Copy this code.
 
 ![PIN for InStore App](./images/PINforInstoreApp.png)
 
+*Figure 3. Location of the PIN for InStore App in the CashBox overview.*
+
 ## Step 6: Enter the PIN code in the app
 
 * Open the InStore App on your device and enter the previously copied pairing PIN into the designated field.
-* Click **Pair** to connect the app to your CashBox.<br/>![PairDevice](./images/PairDevice.png)
+* Click **Pair** to connect the app to your CashBox.<br/>![PairDevice](./images/PairDevice.png)<br/>*
+
+Figure 4. Entering the pairing PIN in the InStore App to connect it to the CashBox.*
 
 Once the pairing is successful, your app is connected to your CashBox and ready to use.
 
@@ -83,9 +93,12 @@ If you have any questions or encounter issues during installation, first check t
 
 **Q: Can I use the app without an internet connection?**
 
-- **A:** The app requires an internet connection for initial setup and communication
-    with the fiskaltrust Portal. However, once set up, the app can function offline for
-    day-to-day use, provided it has been previously paired with the CashBox.
+- **A:** Partly. An internet connection is always required for the initial configuration.
+    Actions received via the fiskaltrust cloud backend require a permanent internet
+    connection. Payments triggered via the optional local communication path (a POS app
+    on the same device using the fiskaltrust Android launcher) also work offline.
+    The **Cloud** and **On device** status icons on the home screen show which path is
+    currently available. See the [FAQ](../faq/faq.md#for-developers) for details.
 
 **Q: The app is not responding or freezing. What should I do?**
 

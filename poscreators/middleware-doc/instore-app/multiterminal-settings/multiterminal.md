@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/instore-app/multiterminal-settings
 title: Multi-Terminal Setup
+description: Rules for how Terminal IDs on the POS and InStore App devices decide which devices display a receipt or run a payment.
+tags: [Terminal ID, InStore App, Configuration, Payment]
 ---
 
 # Multi-Terminal Setup
@@ -20,6 +22,8 @@ The following rules apply:
 | POS has Terminal ID “A1”, all devices have different Terminal IDs (e.g., “B1”) | No device displays the receipt |
 | POS has no Terminal ID, one device has Terminal ID “A1” (others have none) | All devices without a Terminal ID display the receipt; the device with “A1” does not |
 | POS has no Terminal ID, all devices have Terminal IDs (e.g., “A1”, “B1”) | No device displays the receipt |
+
+*Table 1. Terminal ID filter rules determining which connected devices display the receipt.*
 
 ---
 

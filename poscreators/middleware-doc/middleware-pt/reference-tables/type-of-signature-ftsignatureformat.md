@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/portugal/reference-tables/ftsignatureformat
 title: 'Format of Signature: ftSignatureFormat'
+description: ftSignatureFormat in Portugal follows the general Middleware definition; Portuguese ftSignatureFormatFlag values are still to be defined.
+tags: [ftSignatureFormat, Portugal, Signature, Reference Tables]
 ---
 
 # Format of Signature: ftSignatureFormat
@@ -12,3 +14,5 @@ The Middleware uses the same ftSignatureFormat in Portugal as in all other count
 | **Value** | **Description** | **Middleware Version** | 
 | --------- | --------------- | ---------------------- |
 | TBD | TBD | TBD |
+
+*Table 1. ftSignatureFormatFlag values for the Portuguese market.*

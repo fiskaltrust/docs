@@ -6,6 +6,7 @@ module.exports = [
     items: [
       "posdealers/business-basics/overview-business-basics",
       "posdealers/business-basics/business-model",
+      "posdealers/business-basics/customer-roles",
       "posdealers/business-basics/services",
       "posdealers/business-basics/countries",
       "posdealers/business-basics/architecture",
@@ -110,6 +111,15 @@ module.exports = [
           "posdealers/technical-operations/middleware/setup",
           "posdealers/technical-operations/middleware/supported-environments",
           "posdealers/technical-operations/middleware/network-requirements",
+        ],
+      },
+      {
+        type: "category",
+        label: "PosSystem API Platforms",
+        items: [
+          "posdealers/technical-operations/possystem-api-platforms/overview",
+          "posdealers/technical-operations/possystem-api-platforms/localpossystemapi-helper",
+          "posdealers/technical-operations/possystem-api-platforms/localpossystemapi-helper-1-2",
         ],
       },
       {

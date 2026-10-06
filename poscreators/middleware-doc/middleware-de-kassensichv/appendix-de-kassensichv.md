@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/germany
 title: Introduction
+description: Entry point for the German KassenSichV appendix, which adds Germany-specific details to the General Part of the Middleware docs.
+tags: [Germany, KassenSichV, Middleware, PosCreators]
 ---
 
 # Appendix: Germany (KassenSichV)
@@ -9,7 +11,7 @@ This appendix expands on the General Part's information by adding details specif
 
 :::info Upgrading to PosSystem API (v2)
 
-New features such as e-invoicing are available exclusively through the **PosSystem API (v2)**. If you are currently using the v0 interface (WCF/REST), see the [Migrating from API v0 to PosSystem API (v2)](../possystem-api/migration-guide.md) guide for instructions.
+New features such as eInvoicing are available exclusively through the **PosSystem API (v2)**. If you are currently using the v0 interface (WCF/REST), see the [Migrating from API v0 to PosSystem API (v2)](../possystem-api/migration-guide.md) guide for instructions.
 
 :::
 

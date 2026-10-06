@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/technical-operations/rollout-automation/api-templating
 title: API Templating
+description: How to create CashBoxes automatically via the fiskaltrust template REST API — request format, template escaping, parameters, variables, and the response.
+tags: [API Templating, Templates, CashBox, Rollout Automation, PosDealers]
 ---
 # API Templating
 
@@ -28,7 +30,9 @@ You'll need at least the following three items to run a request successfully aga
 * Your account's access token
 * The desired template
 
-![](images/account_data.png "https://portal-sandbox.fiskaltrust.TLD/AccountProfile")
+![Portal Company Overview page with the API-Access section showing the AccountId and AccessToken fields](images/account_data.png "https://portal-sandbox.fiskaltrust.TLD/AccountProfile")
+
+*Figure 1. The account profile page in the fiskaltrust.Portal showing the account ID and access token.*
 
 You can obtain the ID and the access token from your portal's company overview at `[COMPANYNAME]` / `Overview` (![Overview](../../images/numbers/1.png)). You'll find your account ID (![account ID](../../images/numbers/2.png)) and the access token (![access token](../../images/numbers/3.png)) for the authentication against the API at the bottom.
 
@@ -143,6 +147,8 @@ There are three main queue parameters, each using a **zero-based** index to indi
 | `queue{0-n}_countrycode`           | [ISO 3166-1 alpha-2](https://en.wikipedia.org/wiki/ISO_3166-1_alpha-2) country code of the queue. |
 | `queue{0-n}_timeout`               | Specifying a millisecond value for the timeout of the queue.                                      |
 
+*Table 1. Queue parameters that can be set via the query string.*
+
 For example, to specify a timeout value of 10,000 milliseconds for the **second** queue in your template, you'd append `queue1_timeout=10000` to the query string of your HTTP call.
 
 
@@ -152,13 +158,23 @@ For example, to specify a timeout value of 10,000 milliseconds for the **second*
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ParametersAT from '../../_markets/at/technical-operations/rollout-automation/api-templating/_parameters.mdx';
+import ParametersBE from '../../_markets/be/technical-operations/rollout-automation/api-templating/_parameters.mdx';
 import ParametersFR from '../../_markets/fr/technical-operations/rollout-automation/api-templating/_parameters.mdx';
 import ParametersDE from '../../_markets/de/technical-operations/rollout-automation/api-templating/_parameters.mdx';
+import ParametersGR from '../../_markets/gr/technical-operations/rollout-automation/api-templating/_parameters.mdx';
+import ParametersIT from '../../_markets/it/technical-operations/rollout-automation/api-templating/_parameters.mdx';
+import ParametersPL from '../../_markets/pl/technical-operations/rollout-automation/api-templating/_parameters.mdx';
+import ParametersPT from '../../_markets/pt/technical-operations/rollout-automation/api-templating/_parameters.mdx';
+import ParametersES from '../../_markets/es/technical-operations/rollout-automation/api-templating/_parameters.mdx';
 
 <Tabs groupId="market">
 
   <TabItem value="AT" label="Austria">
     <ParametersAT />
+  </TabItem>
+
+  <TabItem value="BE" label="Belgium">
+    <ParametersBE />
   </TabItem>
 
   <TabItem value="FR" label="France">
@@ -167,6 +183,26 @@ import ParametersDE from '../../_markets/de/technical-operations/rollout-automat
 
   <TabItem value="DE" label="Germany">
     <ParametersDE />
+  </TabItem>
+
+  <TabItem value="GR" label="Greece">
+    <ParametersGR />
+  </TabItem>
+
+  <TabItem value="IT" label="Italy">
+    <ParametersIT />
+  </TabItem>
+
+  <TabItem value="PL" label="Poland">
+    <ParametersPL />
+  </TabItem>
+
+  <TabItem value="PT" label="Portugal">
+    <ParametersPT />
+  </TabItem>
+
+  <TabItem value="ES" label="Spain">
+    <ParametersES />
   </TabItem>
 
 </Tabs>
@@ -190,6 +226,8 @@ If your response indicates a status code `200`, the request properly went throug
 | `cashBoxId`     | The ID of the created CashBox.                                                                          |
 | `accessToken`   | The access token of the created CashBox.                                                                |
 | `configuration` | The configuration object of the new CashBox, as escaped JSON string and based on the provided template. |
+
+*Table 2. Fields returned in the response body of a successful request.*
 
 Here, in particular, `cashBoxId` and `accessToken` are interesting, as they allow you to provision the CashBox automatically. To do that, please deploy a vanilla [Launcher](../middleware/launchers/desktop.md) instance on the destination system and set its [CashBox ID and Access Token parameters](../middleware/configuration.md) to the values you received in the response.
 
@@ -220,7 +258,7 @@ You can also use the query string to override the values of system variables. An
 
 Postman is a popular HTTP client and is often used to run REST requests manually. You can use it to try out and fine-tune your requests to the template API.
 
-To download Postman, please go to https://www.postman.com/downloads and select the appropriate package for your system. _fiskaltrust_ also provides a [Postman collection](../../assets/template_postman.zip) with pre-configured request settings, which you can import and use as a foundation to customize your API requests.
+To download Postman, please go to the [Postman download page](https://www.postman.com/downloads) and select the appropriate package for your system. _fiskaltrust_ also provides a [Postman collection](../../assets/template_postman.zip) with pre-configured request settings, which you can import and use as a foundation to customize your API requests.
 
 
 
@@ -241,3 +279,5 @@ import ReactPlayer from "react-player"
 | ![](../../images/numbers/9.png)  | Send the request using the `Send` button.                                                    |
 | ![](../../images/numbers/10.png) | Check if the response indicated a successful request.                                        |
 | ![](../../images/numbers/11.png) | In the portal, verify if the CashBox was properly created under `Configuration` / `CashBox`. |
+
+*Table 3. Steps to try the template API with the Postman demo collection.*

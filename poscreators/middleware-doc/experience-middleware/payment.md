@@ -1,5 +1,7 @@
 ---
 title: Payment
+description: Unified payment endpoint of the Experience Middleware, its design principles, integration flow and a feature matrix per payment service provider.
+tags: [Payment, PSP, Experience Middleware, InStore App, POS System API]
 slug: /poscreators/experience-middleware/payment
 ---
 
@@ -10,6 +12,8 @@ The **Payment** component of the Experience Middleware allows POS systems to int
 Rather than replacing existing POS payment logic, fiskaltrust provides a **unified payment endpoint** that can be used alongside fiscalization and digital receipt features. This keeps integrations flexible and avoids vendor lock-in.
 
 Payments are integrated through the **InStore App** and the POS System API, allowing transactions, fiscal receipts, and optional digital receipts to be handled in a coordinated flow.
+
+Payment requests are sent via the POS System API in the cloud. Optionally, a POS app running on the same Android device as the InStore App can also trigger payments locally via the fiskaltrust Android launcher (see [Android IPC](../possystem-api/android-ipc.md)).
 
 ## Key Design Principles
 
@@ -46,23 +50,44 @@ Payment integration is primarily relevant for:
 
 The matrix below shows which payment features are supported per vendor. Use it to plan integrations and to spot gaps where fiskaltrust can help.
 
-| PSP                             | payment | refund | unreferenced-refund | cancel | Transaction Status Check | TIP<br />(pay-app → fiskaltrust) | TIP<br />(fiskaltrust → pay-app) | under-payment | batch processing<br />(close-batch) | merchant receipt support<br />(in addition to customer receipt) |
-|-------------------------------------------------|---------|--------|---------------------|--------|--------------------------|----------------------------------|----------------------------------|---------------|--------------------------------------|----------------------------------------------------------------|
-| Viva                                            | 1.2.5+  | 1.3.0+ | –                   | 1.3.0+ | ?                        | 1.3.0+                           | –                                | ?             | ?                                    | ?                                                              |
-| Hobex POSit                                     | 1.2.8+  | 1.3.0+ | –                   | 1.3.0+ | 1.3.0+                   | 1.3.0+                           | ?                                | ?             | yes (auto)                           | ?                                                              |
-| Hobex ECR                                       | 1.2.5+  | 1.3.0+ | –                   | 1.3.0+ | 1.3.0+                   | 1.3.0+                           | ?                                | ?             | ?                                    | ?                                                              |
-| Worldline / PayOne WPI<br />(TOM + SmartPOS)    | 1.2.5+  | 1.3.0+ | n/a                 | 1.3.0+ | 1.3.0+                   | 1.3.0+                           | –                                | ?             | n/a                                  | ?                                                              |
-| Softpay\.io                                     | 1.2.8+  | 1.3.0+ | –                   | 1.3.0+ | 1.3.0+                   | 1.3.0+                           | ?                                | ?             | yes (auto)                           | ?                                                              |
-| Global Payments<br />GPtom                      | 1.2.5+  | 1.3.0+ | ?                   | 1.3.0+ | 1.2.8+                   | 1.3.0+                           | ?                                | ?             | –                                    | ?                                                              |
-| Global Payments<br />GP Pay                     | 1.2.5+  | 1.3.0+ | ?                   | 1.3.0+ | ?                        | 1.3.0+                           | ?                                | ?             | ?                                    | ?                                                              |
-| Shift4                                          | 1.2.8+  | 1.2.8+ | n/a                 | 1.2.8+ | 1.3.0+                   | 1.3.0+                           | –                                | –             | n/a                                  | ?                                                              |
+| PSP | payment | refund | unreferenced-refund | cancel | Transaction Status Check | TIP<br />(pay-app → fiskaltrust) | TIP<br />(fiskaltrust → pay-app) | under-payment | batch processing<br />(close-batch) | merchant receipt support<br />(in addition to customer receipt) |
+| --- | ------- | ------ | ------------------- | ------ | -------------------------- | ---------------------------------- | ---------------------------------- | --------------- | -------------------------------------- | ----------------------------- |
+| Viva | 1.2.5+ | 1.3.0+ | – | 1.3.0+ | ? | 1.3.0+ | – | ? | ? | ? |
+| Hobex POSit | 1.2.8+ | 1.3.0+ | – | 1.3.0+ | 1.3.0+ | 1.3.0+ | ? | ? | yes (auto) | ? |
+| Hobex ECR | 1.2.5+ | 1.3.0+ | – | 1.3.0+ | 1.3.0+ | 1.3.0+ | ? | ? | ? | ? |
+| Worldline / PayOne WPI<br />(TOM + SmartPOS) | 1.2.5+ | 1.3.0+ | n/a | 1.3.0+ | 1.3.0+ | 1.3.0+ | – | ? | n/a | ? |
+| Softpay\.io | 1.2.8+ | 1.3.0+ | – | 1.3.0+ | 1.3.0+ | 1.3.0+ | ? | ? | yes (auto) | ? |
+| Global Payments<br />GPtom | 1.2.5+ | 1.3.0+ | ? | 1.3.0+ | 1.2.8+ | 1.3.0+ | ? | ? | – | ? |
+| Global Payments<br />GP Pay | 1.2.5+ | 1.3.0+ | ? | 1.3.0+ | ? | 1.3.0+ | ? | ? | ? | ? |
+| Shift4 | 1.2.8+ | 1.2.8+ | n/a | 1.2.8+ | 1.3.0+ | 1.3.0+ | – | – | n/a | ? |
+| SumUp (PaymentSwitch) <sup>1)</sup> | 1.3.2+ | 1.3.2+ | ? | 1.3.2+ | ? | ? | ? | ? | ? | ? |
+| Nexi SoftPOS<br />(MyPayments) | 1.3.2+ | 1.3.2+ | ? | 1.3.2+ | ? | ? | ? | ? | ? | ? |
+
+*Table 1. Payment feature support per payment service provider, by InStore App release.*
+
+### Notes
+
+**1) SumUp**
+
+- `payment` is performed via the installed [SumUp Android app](https://play.google.com/store/apps/details?id=com.kaching.merchant) (see also [SumUp: download the app](https://help.sumup.com/en-US/articles/7mfghXVvILv2QJW3RyJlF9-app-herunterladen)).
+- `refund` and `cancel` are performed via the SumUp cloud API, which requires a configured API key (see [SumUp: API keys](https://developer.sumup.com/tools/authorization/api-keys)).
+- The extended receipt information required in most countries is also retrieved via the SumUp cloud API and therefore also requires an API key.
+- Without a configured API key, only the `payment` action is supported via the installed SumUp app.
+
+:::tip Recommended setup
+
+Install the SumUp Android app and configure the merchant's API key for the full feature support. See the [SumUp documentation](https://developer.sumup.com/) for further details.
+
+:::
 
 ### Legend
 
-| Value        | Meaning                                                                            |
-|--------------|------------------------------------------------------------------------------------|
-| `1.x.y+`     | Available from this InStore App release onwards.                                   |
-| `yes (auto)` | Is supported by the PSP in an automatic way. No intervention from our side needed. |
-| `–`          | Supported by the PSP but not on our roadmap (yet).                                 |
-| `?`          | We do not know whether it is supported by the PSP as of today.                     |
-| `n/a`        | Not supported by the PSP.                                                          |
+| Value | Meaning |
+| ----- | ------- |
+| `1.x.y+` | Available from this InStore App release onwards. |
+| `yes (auto)` | Supported and handled automatically by the PSP; no configuration in fiskaltrust required. |
+| `–` | Supported by the PSP, but not yet implemented by fiskaltrust and not currently planned. |
+| `?` | Not yet confirmed with the PSP. |
+| `n/a` | Not supported by the PSP. |
+
+*Table 2. Legend for the values used in the PSP feature matrix (Table 1).*

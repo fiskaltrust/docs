@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/italy/scu/customprinter
 title: Custom-Printer
+description: Configuration parameters of the Custom RT Printer SCU package that connects the Italian Middleware to a Custom fiscal printer.
+tags: [Custom, SCU, RT, Configuration, Italy]
 ---
 
 # Custom Printer
@@ -23,5 +25,7 @@ The _fiskaltrust.Middleware.SCU.IT.CustomRTPrinter_ package connects the middlew
 | Username| The deviceId (Matricola fiscale) | mandatory |
 | Password| The deviceId (Matricola fiscale) | mandatory |
 | ClientTimeoutMs | The HTTP client timeout used when communicating with the RT Printer or Server. | `15000`<br />optional |
+
+*Table 1. Configuration parameters for the Custom-Printer SCU package.*
 
 Please pay attention to the case-sensitive use of the parameters.

@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/italy/databases/mysql
 title: MySQL
+description: MySQL storage provider for running the Italian Middleware with an external MySQL database, and its connection string parameter.
+tags: [MySQL, Queue, Configuration, Operation Modes, Italy]
 ---
 
 # MySQL Storage
@@ -18,3 +20,5 @@ This storage provider is particularly suitable for setting up fail-safe systems 
 | Name               | Description                                    | **Default Value**<br />**Mandatory Field** |
 |--------------------|------------------------------------------------|--------------------------------------------|
 | _connectionstring_ | MySQL connection string to the database system | mandatory                                  |
+
+*Table 1. MySQL storage provider parameters.*

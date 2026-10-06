@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/technical-operations/troubleshooting/troubleshooting-guide
 title: Troubleshooting Guide
+description: Step-by-step approach to narrowing down Middleware problems before contacting the fiskaltrust Customer Success Team, with country-specific resources.
+tags: [Troubleshooting, Support, Middleware, PosDealers]
 ---
 
 # Troubleshooting Guide
@@ -26,6 +28,8 @@ In case users run into issues or problems while using our products, we recommend
 |![Number 3](../../images/numbers/circle-3o.png) |Among other things, fiskaltrust.Portal also offers you an overview of the status of cashboxes, lists exception errors and provides detailed information for error analysis. Please note [CashBox failures](../troubleshooting/cashbox-failures.md) |
 |![Number 4](../../images/numbers/circle-4o.png) | If the steps mentioned above are not sufficient to solve the problem, please feel free to [reach out to fiskaltrust Customer Success Team](../../information-sources/contacting-support.md).<br/>In some cases, fiskaltrust.Support will ask for a [log file](../../technical-operations/middleware/logging.md) or a memory dump to investigate a problem in more detail. If required, our Customer Success Team can provide you with a link to where you can deposit the data and inform you what data you should collect. |
 
+*Table 1. Recommended troubleshooting steps in order.*
+
 
 ## Country-specific information
 Knowledge base articles and FAQs may differ per country, as users may run into problems that are often related to country-specific fiscalization regulations or specific products. Therefore, please refer to the information sources for the respective country listed below.
@@ -33,13 +37,23 @@ Knowledge base articles and FAQs may differ per country, as users may run into p
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TroubleAT from '../../_markets/at/technical-operations/troubleshooting/troubleshooting-guide/_trouble.mdx';
+import TroubleBE from '../../_markets/be/technical-operations/troubleshooting/troubleshooting-guide/_trouble.mdx';
 import TroubleFR from '../../_markets/fr/technical-operations/troubleshooting/troubleshooting-guide/_trouble.mdx';
 import TroubleDE from '../../_markets/de/technical-operations/troubleshooting/troubleshooting-guide/_trouble.mdx';
+import TroubleGR from '../../_markets/gr/technical-operations/troubleshooting/troubleshooting-guide/_trouble.mdx';
+import TroubleIT from '../../_markets/it/technical-operations/troubleshooting/troubleshooting-guide/_trouble.mdx';
+import TroublePL from '../../_markets/pl/technical-operations/troubleshooting/troubleshooting-guide/_trouble.mdx';
+import TroublePT from '../../_markets/pt/technical-operations/troubleshooting/troubleshooting-guide/_trouble.mdx';
+import TroubleES from '../../_markets/es/technical-operations/troubleshooting/troubleshooting-guide/_trouble.mdx';
 
 <Tabs groupId="market">
 
   <TabItem value="AT" label="Austria">
     <TroubleAT />
+  </TabItem>
+
+  <TabItem value="BE" label="Belgium">
+    <TroubleBE />
   </TabItem>
 
   <TabItem value="FR" label="France">
@@ -48,6 +62,26 @@ import TroubleDE from '../../_markets/de/technical-operations/troubleshooting/tr
 
   <TabItem value="DE" label="Germany">
     <TroubleDE />
+  </TabItem>
+
+  <TabItem value="GR" label="Greece">
+    <TroubleGR />
+  </TabItem>
+
+  <TabItem value="IT" label="Italy">
+    <TroubleIT />
+  </TabItem>
+
+  <TabItem value="PL" label="Poland">
+    <TroublePL />
+  </TabItem>
+
+  <TabItem value="PT" label="Portugal">
+    <TroublePT />
+  </TabItem>
+
+  <TabItem value="ES" label="Spain">
+    <TroubleES />
   </TabItem>
 
 </Tabs>

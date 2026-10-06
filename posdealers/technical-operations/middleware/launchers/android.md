@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/technical-operations/middleware/launchers/android
 title: Android
+description: How the Android Launcher hosts the Middleware as a foreground service, where to download it (Portal or Google Play), and how updates work.
+tags: [Android, Launcher, Middleware, Installation, PosDealers]
 ---
 
 # Launcher for Android
@@ -25,7 +27,9 @@ The Android Launcher is available for download as an app for both the HTTP varia
 
 | fiskaltrust.Middleware for Android (HTTP)   | fiskaltrust.Middleware for Android (gRPC) |
 | ------------------------------------------- | ----------------------------------------- |
-| [![http](../images/google-play-badge.png)](https://play.google.com/store/apps/details?id=eu.fiskaltrust.androidlauncher.http) | [![grpc](../images/google-play-badge.png)](https://play.google.com/store/apps/details?id=eu.fiskaltrust.androidlauncher.grpc)       |
+| [![Get it on Google Play: Android Launcher HTTP variant](../images/google-play-badge.png)](https://play.google.com/store/apps/details?id=eu.fiskaltrust.androidlauncher.http) | [![Get it on Google Play: Android Launcher gRPC variant](../images/google-play-badge.png)](https://play.google.com/store/apps/details?id=eu.fiskaltrust.androidlauncher.grpc)       |
+
+*Table 1. Google Play Store download links for the HTTP and gRPC variants of the Android Launcher.*
 
 
 ## Updates

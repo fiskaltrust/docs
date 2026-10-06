@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/technical-operations/middleware/setup
 title: Setup
+description: Structure of a locally deployed .NET Middleware — the files in the installation directory and the contents of the data directory.
+tags: [Data Directory, Installation, Middleware, PosDealers]
 ---
 # Setup
 
@@ -35,6 +37,8 @@ After deploying your Middleware package, you will find the following list of fil
 | `configuration.json`                                         | The [CashBox configuration](cashbox.md#configuration-sample) (*only for offline packages*) |
 | `fiskaltrust*.dll`                                           | Package libraries of the different CashBox components        |
 | `*.dll`                                                      | General runtime libraries                                    |
+
+*Table 1. Files found in the Middleware installation directory.*
 
 
 

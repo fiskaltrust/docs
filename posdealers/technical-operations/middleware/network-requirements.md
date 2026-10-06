@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/technical-operations/middleware/network-requirements
 title: Network Requirements
+description: Inbound and outbound network access the Middleware needs, including required hostnames and ports, plus how to set up and edit proxy configurations.
+tags: [Network Requirements, Proxy, Middleware, Installation, PosDealers]
 ---
 # Network Requirements
 
@@ -22,8 +24,21 @@ A fully functioning Middleware setup requires a few **outbound** connections (e.
 | Hostname                     | Protocol | Port(s) | Description                                                                                                                    |
 |------------------------------|----------|---------|--------------------------------------------------------------------------------------------------------------------------------|
 | packages.fiskaltrust.cloud   | TCP      | 443     | Provides the required binary packages of the CashBox components                                                                |
-| helipad.fiskaltrust.cloud    | TCP      | 443     | Provides the CashBox configuration and the archive service                                                                     |
+| helipad.fiskaltrust.eu       | TCP      | 443     | Archive service: the Middleware uploads receipt data to this endpoint                                                          |
+| helipad.fiskaltrust.cloud    | TCP      | 443     | Provides the CashBox configuration; fallback endpoint for the receipt data upload                                              |
 | dc.services.visualstudio.com | TCP      | 443     | Error reporting (Microsoft provides a [list of IP addresses](https://docs.microsoft.com/azure/azure-monitor/app/ip-addresses)) |
+
+*Table 1. Outbound hostnames the Middleware must be able to reach.*
+
+:::caution both helipad hostnames are required
+
+The Middleware uploads receipt data to `helipad.fiskaltrust.eu`. If the device cannot reach this endpoint at all (DNS resolution fails, the connection is blocked or refused by a firewall, or the TLS handshake fails), the upload automatically falls back to `helipad.fiskaltrust.cloud` and retries `helipad.fiskaltrust.eu` again in the next upload interval. Each fallback is logged as a warning (`Helipad endpoint https://helipad.fiskaltrust.eu/ cannot be reached (...)`) in the Middleware log. Error responses and timeouts from `helipad.fiskaltrust.eu` do not trigger the fallback.
+
+Please allow **both** hostnames in your firewall and proxy configuration. If only `helipad.fiskaltrust.cloud` is allowed, every upload interval starts with a failed connection attempt before the fallback takes over; if only `helipad.fiskaltrust.eu` is allowed, the CashBox configuration cannot be downloaded.
+
+The sandbox environment uses `helipad-sandbox.fiskaltrust.eu` and `helipad-sandbox.fiskaltrust.cloud` accordingly.
+
+:::
 
 
 
@@ -40,13 +55,23 @@ In case of connectivity issues, please check out the dedicated chapter [Network 
 This section describes external third-party endpoints that the Middleware uses in some cases. This usage is currently only the case when using cloud TSSs in Germany.
 
 import HostsAT from '../../_markets/at/technical-operations/middleware/network-requirements/_hosts.mdx';
+import HostsBE from '../../_markets/be/technical-operations/middleware/network-requirements/_hosts.mdx';
 import HostsFR from '../../_markets/fr/technical-operations/middleware/network-requirements/_hosts.mdx';
 import HostsDE from '../../_markets/de/technical-operations/middleware/network-requirements/_hosts.mdx';
+import HostsGR from '../../_markets/gr/technical-operations/middleware/network-requirements/_hosts.mdx';
+import HostsIT from '../../_markets/it/technical-operations/middleware/network-requirements/_hosts.mdx';
+import HostsPL from '../../_markets/pl/technical-operations/middleware/network-requirements/_hosts.mdx';
+import HostsPT from '../../_markets/pt/technical-operations/middleware/network-requirements/_hosts.mdx';
+import HostsES from '../../_markets/es/technical-operations/middleware/network-requirements/_hosts.mdx';
 
 <Tabs groupId="market">
 
   <TabItem value="AT" label="Austria">
     <HostsAT />
+  </TabItem>
+
+  <TabItem value="BE" label="Belgium">
+    <HostsBE />
   </TabItem>
 
   <TabItem value="FR" label="France">
@@ -55,6 +80,26 @@ import HostsDE from '../../_markets/de/technical-operations/middleware/network-r
 
   <TabItem value="DE" label="Germany">
     <HostsDE />
+  </TabItem>
+
+  <TabItem value="GR" label="Greece">
+    <HostsGR />
+  </TabItem>
+
+  <TabItem value="IT" label="Italy">
+    <HostsIT />
+  </TabItem>
+
+  <TabItem value="PL" label="Poland">
+    <HostsPL />
+  </TabItem>
+
+  <TabItem value="PT" label="Portugal">
+    <HostsPT />
+  </TabItem>
+
+  <TabItem value="ES" label="Spain">
+    <HostsES />
   </TabItem>
 
 </Tabs>
@@ -79,7 +124,7 @@ Suppose your network requires a proxy for outbound connections. In that case, yo
 
 ### Setting the proxy configuration
 
-Setting the configuration parameters can be done using the Launcher's [`-proxy` parameter](https://docs.fiskaltrust.cloud/docs/poscreators/middleware-doc/general/installation#launcher-configuration). This parameter takes a semicolon-separated connection string with **five arguments**, specifying the address of the proxy, an optional username and password for authentication, as well as two exception settings.
+Setting the configuration parameters can be done using the Launcher's [`-proxy` parameter](../../../poscreators/middleware-doc/general/components/components-install-config.md#launcher-configuration). This parameter takes a semicolon-separated connection string with **five arguments**, specifying the address of the proxy, an optional username and password for authentication, as well as two exception settings.
 
 | Value           | Description                                                                                                                | Required |
 |-----------------|----------------------------------------------------------------------------------------------------------------------------|----------|
@@ -88,6 +133,8 @@ Setting the configuration parameters can be done using the Launcher's [`-proxy` 
 | password        | The password of the proxy user                                                                                             | No       |
 | bypass          | A regular expression with host addresses and names that ought to be exempt from proxying<br />*Can be used more than once* | No       |
 | bypasslocalhost | Indicates whether local connections require proxying as well (`false` or `true`)                                           | No       |
+
+*Table 2. Arguments of the Launcher `-proxy` connection string.*
 
 #### Example Proxy Strings
 
@@ -138,13 +185,23 @@ Please remember that any changes only take effect after a restart of fiskaltrust
 Depending on your setup, you might also need to grant access to additional network resources.
 
 import ProxyAT from '../../_markets/at/technical-operations/middleware/network-requirements/_proxy.mdx';
+import ProxyBE from '../../_markets/be/technical-operations/middleware/network-requirements/_proxy.mdx';
 import ProxyFR from '../../_markets/fr/technical-operations/middleware/network-requirements/_proxy.mdx';
 import ProxyDE from '../../_markets/de/technical-operations/middleware/network-requirements/_proxy.mdx';
+import ProxyGR from '../../_markets/gr/technical-operations/middleware/network-requirements/_proxy.mdx';
+import ProxyIT from '../../_markets/it/technical-operations/middleware/network-requirements/_proxy.mdx';
+import ProxyPL from '../../_markets/pl/technical-operations/middleware/network-requirements/_proxy.mdx';
+import ProxyPT from '../../_markets/pt/technical-operations/middleware/network-requirements/_proxy.mdx';
+import ProxyES from '../../_markets/es/technical-operations/middleware/network-requirements/_proxy.mdx';
 
 <Tabs groupId="market">
 
   <TabItem value="AT" label="Austria">
     <ProxyAT />
+  </TabItem>
+
+  <TabItem value="BE" label="Belgium">
+    <ProxyBE />
   </TabItem>
 
   <TabItem value="FR" label="France">
@@ -153,6 +210,26 @@ import ProxyDE from '../../_markets/de/technical-operations/middleware/network-r
 
   <TabItem value="DE" label="Germany">
     <ProxyDE />
+  </TabItem>
+
+  <TabItem value="GR" label="Greece">
+    <ProxyGR />
+  </TabItem>
+
+  <TabItem value="IT" label="Italy">
+    <ProxyIT />
+  </TabItem>
+
+  <TabItem value="PL" label="Poland">
+    <ProxyPL />
+  </TabItem>
+
+  <TabItem value="PT" label="Portugal">
+    <ProxyPT />
+  </TabItem>
+
+  <TabItem value="ES" label="Spain">
+    <ProxyES />
   </TabItem>
 
 </Tabs>

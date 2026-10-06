@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/italy/reference-tables/ftsignaturetype
 title: 'Type of Signature: ftSignatureType'
+description: ftSignatureType values for Italy — format, flags and signature cases such as RT serial number, Z-number and document number.
+tags: [ftSignatureType, Signature, Reference Tables, RT, Italy]
 ---
 
 # Type of Signature: ftSignatureType
@@ -25,6 +27,8 @@ version 2
 | `2` | Alert (notification), high priority | 1.3.45 |
 | `3` | Failure (notification), high priority | 1.3.45 |
 
+*Table 1. Type/Category (t) values of ftSignatureType for the Italian market.*
+
 #### gggg - global flags
 
 | **Value** | **Description** | **Middleware Version** |
@@ -34,6 +38,8 @@ version 2
 | `0020` | Do not print/visualize. | 1.3.45 |
 | `0040` | Printed receipt only. | 1.3.45 |
 | `0080` | Digital receipt only. | 1.3.45 |
+
+*Table 2. Global flag (gggg) values of ftSignatureType for the Italian market.*
 
 #### sss - SignatureCase
 
@@ -53,3 +59,5 @@ version 2
 | `020` | RT Reference ZNumber |  | 1.3.45 |
 | `021` | RT Reference DocNumber |  | 1.3.45 |
 | `022` | RT Reference Document Moment |  | 1.3.45 |
+
+*Table 3. SignatureCase (sss) values of ftSignatureType for the Italian market.*

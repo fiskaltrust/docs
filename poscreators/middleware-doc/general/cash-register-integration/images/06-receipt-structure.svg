@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1660" height="1378" viewBox="0 0 1660 1378" font-family="IBM Plex Sans, Helvetica Neue, Arial, sans-serif" xmlns:c2pa="http://c2pa.org/manifest">
+  <title>Receipt Structure – The POS receipt consists of header, charge items, pay items, and footer. fiskaltrust enriches the receipt during fiscalization by adding receipt number, tax-related data, signature, and fiscal metadata. The POSSystem API V2 further produces an issued receipt including digital receipt information</title>
+  <desc>Diagram: receipt request blocks sent to /sign, response with signature block and fiscal metadata added by fiskaltrust, and the /issue output with digital receipt data</desc><metadata><c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTo2ZDc4YWU5Ni0zY2MzLTRhMTUtOWYwMy1hYzBjOWU3NTAwNGIAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaPktQG5CbkFnoATi4axBguIAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDpmZjcxMjZkYS1iN2E0LTRkZTktODRkMC0wZDgyYWFmNzc1OGJscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNo+WbVsuLC7R0cwzD8lXBpXQAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggewYnjfWGABbWgW3KgSKND4A9/dV9bsfokgDeETcxSJGkZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaCt3rjQObh5M/YaFlUxXKasAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRNAAAAAAAAAAAAAAAAAGRoYXNoWCAQhwLwu8/NK1xAXNCdUwE8gpJx3FFyeygZJOR9jYAawmRuYW1lbmp1bWJmIG1hbmlmZXN0amV4Y2x1c2lvbnOBomVzdGFydBjZZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOjZkNzhhZTk2LTNjYzMtNGExNS05ZjAzLWFjMGM5ZTc1MDA0Yi9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOmY3MTlhYzkyLWRiZGQtNGVhMC1hOGVmLTg5MDVlMzM5ZDM3Y3JjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCB7BieN9YYAFtaBbcqBIo0PgD391X1ux+iSAN4RNzFIkaJjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFgg/tIMmX/KZ8JsA9RmTLa72axQNk1P3zV/7zmU9XLMxsSiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFggdKzg0z3CX3eB735cPG4sgnNymMt50cDq09gW+AEXntd0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQCA5Gx7DSSw6lr36xCFkWGRcLsjk0SzUsC+9gE0/Cy7OO9pp0bmT1hUDIgmswiQyhiJTOpr5zYkcBNsJPF5nH1w=</c2pa:manifest></metadata>
+  <rect width="1660" height="1378" fill="#FFFFFF"></rect>
+  <rect x="56.75" y="48.75" width="490.5" height="1231.5" fill="#FFFFFF" stroke="#002A34" stroke-width="1.5"></rect>
+  <rect x="85" y="181" width="435" height="58" fill="none" stroke="#BF8500" stroke-width="2"></rect>
+  <rect x="85" y="464" width="435" height="73" fill="none" stroke="#BF8500" stroke-width="2"></rect>
+  <rect x="85" y="614" width="435" height="109" fill="none" stroke="#E8A33D" stroke-width="2" stroke-dasharray="8 6"></rect>
+  <rect x="85" y="915" width="435" height="73" fill="none" stroke="#BF8500" stroke-width="2"></rect>
+  <rect x="85" y="1066" width="435" height="50" fill="none" stroke="#E8A33D" stroke-width="2" stroke-dasharray="8 6"></rect>
+  <rect x="85" y="1193" width="435" height="58" fill="none" stroke="#BF8500" stroke-width="2"></rect>
+  <rect x="584.75" y="48.75" width="490.5" height="1231.5" fill="#FFFFFF" stroke="#002A34" stroke-width="1.5"></rect>
+  <rect x="613" y="181" width="435" height="58" fill="none" stroke="#00A7CE" stroke-width="2"></rect>
+  <rect x="613" y="300" width="435" height="58" fill="none" stroke="#00A7CE" stroke-width="2"></rect>
+  <rect x="613" y="420" width="435" height="58" fill="none" stroke="#00A7CE" stroke-width="2"></rect>
+  <rect x="613" y="539" width="435" height="58" fill="none" stroke="#00A7CE" stroke-width="2"></rect>
+  <rect x="612.75" y="658.75" width="435.5" height="178.5" fill="#EFF9FC" stroke="#7FCBE2" stroke-width="1.5"></rect>
+  <rect x="612.75" y="982.75" width="435.5" height="147.5" fill="#EFF9FC" stroke="#7FCBE2" stroke-width="1.5"></rect>
+  <rect x="613" y="1193" width="435" height="58" fill="none" stroke="#00A7CE" stroke-width="2"></rect>
+  <rect x="1112.75" y="48.75" width="490.5" height="1231.5" fill="#FFFFFF" stroke="#002A34" stroke-width="1.5"></rect>
+  <rect x="1141" y="181" width="435" height="58" fill="none" stroke="#BF8500" stroke-width="2"></rect>
+  <rect x="1141" y="254" width="435" height="46" fill="none" stroke="#00A7CE" stroke-width="2"></rect>
+  <rect x="1141" y="407" width="435" height="58" fill="none" stroke="#BF8500" stroke-width="2"></rect>
+  <rect x="1141" y="480" width="435" height="46" fill="none" stroke="#00A7CE" stroke-width="2"></rect>
+  <rect x="1141" y="542" width="435" height="79" fill="none" stroke="#E8A33D" stroke-width="2" stroke-dasharray="8 6"></rect>
+  <rect x="1141" y="686" width="435" height="58" fill="none" stroke="#BF8500" stroke-width="2"></rect>
+  <rect x="1141" y="760" width="435" height="46" fill="none" stroke="#00A7CE" stroke-width="2"></rect>
+  <rect x="1141" y="821" width="435" height="54" fill="none" stroke="#00A7CE" stroke-width="2"></rect>
+  <rect x="1141" y="891" width="435" height="58" fill="none" stroke="#BF8500" stroke-width="2"></rect>
+  <rect x="1141" y="964" width="435" height="46" fill="none" stroke="#00A7CE" stroke-width="2"></rect>
+  <rect x="1140.75" y="1071.75" width="435.5" height="178.5" fill="#F3F8E7" stroke="#BEDB7C" stroke-width="1.5"></rect>
+  <rect x="169" y="1310" width="32" height="18" fill="none" stroke="#BF8500" stroke-width="2"></rect>
+  <rect x="655" y="1310" width="32" height="18" fill="none" stroke="#00A7CE" stroke-width="2"></rect>
+  <rect x="1166" y="1310" width="32" height="18" fill="none" stroke="#709117" stroke-width="2"></rect>
+  <text x="303" y="104" text-anchor="middle" font-size="26" font-weight="700" fill="#002A34">POS → fiskaltrust (/sign)</text>
+  <text x="303" y="149" text-anchor="middle" font-size="17" font-weight="600" fill="#BF8500">receipt request</text>
+  <text x="303" y="216" text-anchor="middle" font-size="18" font-weight="600" fill="#002A34">receipt header</text>
+  <text x="303" y="340" text-anchor="middle" font-size="18" font-weight="600" fill="#002A34">receipt number</text>
+  <text x="303" y="374" text-anchor="middle" font-size="18" font-weight="600" fill="#002A34">receipt date</text>
+  <text x="303" y="497" text-anchor="middle" font-size="18" font-weight="600" fill="#002A34">charge items block</text>
+  <text x="303" y="517" text-anchor="middle" font-size="15" fill="#002A34">(ftChargeItem)</text>
+  <text x="303" y="644" text-anchor="middle" font-size="15" fill="#002A34">value-added tax table</text>
+  <text x="303" y="674" text-anchor="middle" font-size="15" fill="#002A34">industry-specific data</text>
+  <text x="303" y="703" text-anchor="middle" font-size="15" fill="#002A34">sector-specific data (optional)</text>
+  <text x="303" y="825" text-anchor="middle" font-size="18" font-weight="600" fill="#002A34">receipt total amount</text>
+  <text x="303" y="948" text-anchor="middle" font-size="18" font-weight="600" fill="#002A34">pay item block</text>
+  <text x="303" y="969" text-anchor="middle" font-size="15" fill="#002A34">(ftPayItem)</text>
+  <text x="303" y="1096" text-anchor="middle" font-size="15" fill="#002A34">customer / buyer data (optional)</text>
+  <text x="303" y="1228" text-anchor="middle" font-size="18" font-weight="600" fill="#002A34">receipt footer</text>
+  <text x="831" y="104" text-anchor="middle" font-size="26" font-weight="700" fill="#002A34">fiskaltrust → POS (/sign)</text>
+  <text x="831" y="149" text-anchor="middle" font-size="17" font-weight="600" fill="#007D9A">receipt response (fiscal data)</text>
+  <text x="831" y="216" text-anchor="middle" font-size="18" font-weight="600" fill="#002A34">receipt header</text>
+  <text x="831" y="335" text-anchor="middle" font-size="18" font-weight="600" fill="#002A34">charge items block</text>
+  <text x="831" y="455" text-anchor="middle" font-size="18" font-weight="600" fill="#002A34">pay item block</text>
+  <text x="831" y="574" text-anchor="middle" font-size="18" font-weight="600" fill="#002A34">signature block</text>
+  <text x="631" y="691" text-anchor="start" font-size="16" fill="#002A34">• signature / seal</text>
+  <text x="631" y="722" text-anchor="start" font-size="16" fill="#002A34">• queue item ID</text>
+  <text x="631" y="753" text-anchor="start" font-size="16" fill="#002A34">• timestamp</text>
+  <text x="631" y="784" text-anchor="start" font-size="16" fill="#002A34">• certificate information</text>
+  <text x="631" y="815" text-anchor="start" font-size="16" fill="#002A34">• signature algorithm</text>
+  <text x="612" y="917" text-anchor="start" font-size="19" font-weight="700" fill="#007D9A">fiscal metadata</text>
+  <text x="631" y="1016" text-anchor="start" font-size="16" fill="#002A34">• receipt number (fiscal)</text>
+  <text x="631" y="1047" text-anchor="start" font-size="16" fill="#002A34">• fiscalization time</text>
+  <text x="631" y="1078" text-anchor="start" font-size="16" fill="#002A34">• country / system-specific data</text>
+  <text x="631" y="1109" text-anchor="start" font-size="16" fill="#002A34">• hash chain / previous signature</text>
+  <text x="831" y="1228" text-anchor="middle" font-size="18" font-weight="600" fill="#002A34">receipt footer</text>
+  <text x="1359" y="104" text-anchor="middle" font-size="26" font-weight="700" fill="#002A34">POS → Output (/issue)</text>
+  <text x="1359" y="149" text-anchor="middle" font-size="17" font-weight="600" fill="#709117">issued receipt (customer output)</text>
+  <text x="1359" y="216" text-anchor="middle" font-size="18" font-weight="600" fill="#002A34">receipt header</text>
+  <text x="1359" y="282" text-anchor="middle" font-size="15" fill="#002A34">receipt header (fiscal)</text>
+  <text x="1359" y="343" text-anchor="middle" font-size="18" font-weight="600" fill="#002A34">receipt number</text>
+  <text x="1359" y="376" text-anchor="middle" font-size="18" font-weight="600" fill="#002A34">receipt date</text>
+  <text x="1359" y="442" text-anchor="middle" font-size="18" font-weight="600" fill="#002A34">charge items block</text>
+  <text x="1359" y="508" text-anchor="middle" font-size="15" fill="#002A34">charge items block</text>
+  <text x="1359" y="572" text-anchor="middle" font-size="15" fill="#002A34">value-added tax table</text>
+  <text x="1359" y="601" text-anchor="middle" font-size="15" fill="#002A34">sector-specific data (optional)</text>
+  <text x="1359" y="660" text-anchor="middle" font-size="18" font-weight="600" fill="#002A34">receipt total amount</text>
+  <text x="1359" y="721" text-anchor="middle" font-size="18" font-weight="600" fill="#002A34">pay item block</text>
+  <text x="1359" y="788" text-anchor="middle" font-size="15" fill="#002A34">pay item block</text>
+  <text x="1359" y="854" text-anchor="middle" font-size="18" font-weight="600" fill="#002A34">signature block</text>
+  <text x="1359" y="926" text-anchor="middle" font-size="18" font-weight="600" fill="#002A34">receipt footer</text>
+  <text x="1359" y="992" text-anchor="middle" font-size="15" fill="#002A34">receipt footer</text>
+  <text x="1140" y="1048" text-anchor="start" font-size="19" font-weight="700" fill="#002A34">issue / digital receipt data</text>
+  <text x="1159" y="1105" text-anchor="start" font-size="16" fill="#002A34">• Digital receipt reference / ID</text>
+  <text x="1159" y="1136" text-anchor="start" font-size="16" fill="#002A34">• Receipt URL (retrieval link)</text>
+  <text x="1159" y="1167" text-anchor="start" font-size="16" fill="#002A34">• Delivery channel (email, SMS, app)</text>
+  <text x="1159" y="1198" text-anchor="start" font-size="16" fill="#002A34">• Issue timestamp</text>
+  <text x="1159" y="1229" text-anchor="start" font-size="16" fill="#002A34">• Status (issued / delivered / failed)</text>
+  <text x="214" y="1325" text-anchor="start" font-size="16" fill="#002A34">POS content (provided by POS)</text>
+  <text x="700" y="1325" text-anchor="start" font-size="16" fill="#002A34">fiskaltrust fiscal data (added by fiskaltrust)</text>
+  <text x="1211" y="1325" text-anchor="start" font-size="16" fill="#002A34">Issue / digital receipt data (POS System API v2)</text>
+</svg>

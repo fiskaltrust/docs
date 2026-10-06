@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/instore-app/setup/dummy-payment-provider
 title: Dummy Payment Provider (Developer Mode)
+description: Using the hidden Dummy Payment Provider in InStore App developer mode with a sandbox CashBox to test payment success and error scenarios.
+tags: [Dummy Payment Provider, InStore App, Payment, Sandbox, Android]
 ---
 
 # Dummy Payment Provider for Simplified Integration (InStore App Developer Mode)
@@ -41,5 +43,7 @@ Any payment amount will return a SUCCESS response, except for the following defi
 | 30000,70 | SUCCESS after 3-minute delay |
 | 30000,80 | SUCCESS after 6-minute delay |
 | 30000,90 | SUCCESS, but only 15000,50 will be approved |
+
+*Table 1. Special payment amounts that trigger defined result scenarios in the Dummy Payment Provider.*
 
 For more information, see the [fiskaltrust POS System API - Development Kit](https://github.com/fiskaltrust/possystemapi-devkit/blob/main/README.MD).

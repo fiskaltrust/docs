@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/technical-operations/rollout-automation/templates
 title: Templates
+description: How CashBox templates work — instantiation via shop or API, pre-defined system and custom variables, and the template JSON structure.
+tags: [Templates, CashBox, Rollout Automation, Configuration, PosDealers]
 ---
 # Templates
 
@@ -66,16 +68,28 @@ The following variables are pre-defined and will be populated automatically by a
 | `scu{0-9}_id`                             | Ten random UUIDs for SCU components. Used to set or reference SCU IDs. |
 | `scu{0-9}_url`                            | Ten SCU URLs, defaulting to `net.pipe://localhost/{scuX_id}`. |
 
+*Table 1. Pre-defined system variables and their content.*
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import VariablesAT from '../../_markets/at/technical-operations/rollout-automation/templates/_variables.mdx';
+import VariablesBE from '../../_markets/be/technical-operations/rollout-automation/templates/_variables.mdx';
 import VariablesFR from '../../_markets/fr/technical-operations/rollout-automation/templates/_variables.mdx';
 import VariablesDE from '../../_markets/de/technical-operations/rollout-automation/templates/_variables.mdx';
+import VariablesGR from '../../_markets/gr/technical-operations/rollout-automation/templates/_variables.mdx';
+import VariablesIT from '../../_markets/it/technical-operations/rollout-automation/templates/_variables.mdx';
+import VariablesPL from '../../_markets/pl/technical-operations/rollout-automation/templates/_variables.mdx';
+import VariablesPT from '../../_markets/pt/technical-operations/rollout-automation/templates/_variables.mdx';
+import VariablesES from '../../_markets/es/technical-operations/rollout-automation/templates/_variables.mdx';
 
 <Tabs groupId="market">
 
   <TabItem value="AT" label="Austria">
     <VariablesAT />
+  </TabItem>
+
+  <TabItem value="BE" label="Belgium">
+    <VariablesBE />
   </TabItem>
 
   <TabItem value="FR" label="France">
@@ -84,6 +98,26 @@ import VariablesDE from '../../_markets/de/technical-operations/rollout-automati
 
   <TabItem value="DE" label="Germany">
     <VariablesDE />
+  </TabItem>
+
+  <TabItem value="GR" label="Greece">
+    <VariablesGR />
+  </TabItem>
+
+  <TabItem value="IT" label="Italy">
+    <VariablesIT />
+  </TabItem>
+
+  <TabItem value="PL" label="Poland">
+    <VariablesPL />
+  </TabItem>
+
+  <TabItem value="PT" label="Portugal">
+    <VariablesPT />
+  </TabItem>
+
+  <TabItem value="ES" label="Spain">
+    <VariablesES />
   </TabItem>
 
 </Tabs>
@@ -124,6 +158,8 @@ Templates are classic JSON documents with a root object and five root-level fiel
 | `helpers`                   | Array of [package objects](#package-object) |    no    | A list of all helpers managed by this CashBox.               |
 | `TimeStamp`                 | Number                                      |    no    | The time when the CashBox was updated. Please see [DateTime](https://docs.microsoft.com/dotnet/api/system.datetime.ticks) for more details on the format. |
 
+*Table 2. Root-level fields of a template.*
+
 The arrays `ftSignaturCreationDevices`, `ftQueues`, and `helpers` each contain package object entries for each component the Middleware is supposed to service for the given component type.
 
 
@@ -151,3 +187,5 @@ A package object specifies the entire setup configuration of an individual compo
 | `Version`       | String           |    no    | The package version to be used. If not specified, you will use the current version. |
 | `Configuration` | Object           |    no    | The configuration data for this component.                   |
 | `Description`   | String           |    no    | A description of this component.                             |
+
+*Table 3. Fields of a package object.*
