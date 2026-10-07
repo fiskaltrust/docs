@@ -63,7 +63,7 @@ The API exposes a compact, consistent set of endpoints that cover the full fisca
 
 *Table 1. Core POS System API endpoints and their typical use cases.*
 
-Not every integration needs all five groups. The minimum is `/echo` (connectivity check on startup) plus `/sign` (every transaction, including the daily closing). `/pay` is used only when electronic payments are processed through the Middleware — cash transactions skip it. `/issue` is optional and used for digital receipt distribution. `/journal` is used for audit exports and closings.
+Not every integration needs all five groups. The minimum is `/echo` (connectivity check on startup) plus `/sign` (every transaction, including the daily closing). `/pay` is used only when electronic payments are processed through the Middleware — cash transactions skip it. `/issue` is optional and used for digital receipt distribution. `/journal` is used for audit exports and closings. For the output formats in which an issued receipt can be retrieved (PNG, PDF, JSON, ESC/POS), see [Receipt Formats](./receipt-formats.md).
 
 For the full request/response models, payload schemas and per-endpoint error codes, see the [POS System API reference (v2.1)](https://docs.fiskaltrust.eu/apis/pos-system-api).
 
