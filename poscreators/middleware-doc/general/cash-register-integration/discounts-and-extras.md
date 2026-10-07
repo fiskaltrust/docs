@@ -1,7 +1,7 @@
 ---
 slug: /poscreators/middleware-doc/general/cash-register-integration/discounts-and-extras
 title: Discounts and Extras
-description: How to record discounts and extras (surcharges) on a receipt with the Discount flag of ftChargeItemCase, including percentage discounts, multi-buy offers, discounts in refunds and voids, and how they differ from vouchers.
+description: How to record discounts and extras (surcharges) on a receipt with the Discount flag of ftChargeItemCase, including percentage discounts, discounts in refunds and voids, and how they differ from vouchers.
 tags: [Discount, Extra, Surcharge, ftChargeItemCase, Cash Register Integration]
 ---
 
@@ -19,7 +19,7 @@ This page describes how the POS system records discounts and extras, and which r
 | **`ftChargeItemCase` flag** | `0004` Discount | `0004` Discount |
 | **`Quantity`** | Positive | Positive |
 | **`Amount`** | Negative | Positive |
-| **Examples** | Percentage discount, staff discount, "buy 3, pay 2" | Surcharge on a position |
+| **Examples** | Percentage discount, staff discount | Surcharge on a position |
 
 *Table 1. Discounts and extras use the same flag; the sign of the amount distinguishes them.*
 
@@ -45,7 +45,7 @@ Outside of voids and refunds, a negative `Amount` on a charge item is only accep
 
 ## Examples
 
-The discount examples are taken from the business cases `SignRequestReceipt_Discount` and `SignRequestReceipt_CashSaleDiscount`. All positions use the normal VAT rate and are paid in cash.
+The discount example is taken from the business case `SignRequestReceipt_Discount`. All positions use the normal VAT rate and are paid in cash.
 
 ### Percentage discount on every position
 
@@ -61,22 +61,6 @@ The customer gets 10 % off the whole purchase. Because a discount always belongs
 
 *Table 2. A 10 % discount on the whole purchase, sent as one discount per position.*
 
-### Multi-buy offer ("buy 3, pay 2")
-
-The customer buys three dresses and gets the cheapest one for free. The POS system sends all three positions with their regular price and a discount on the free one:
-
-| `Position` | Description | `Quantity` | `Amount` | `ftChargeItemCase` |
-|-----------:|-------------|-----------:|---------:|--------------------|
-| 1.0 | Dress | 1 | 87.00 | `0xCCCC_2000_0000_0013` |
-| 2.0 | Dress | 1 | 95.00 | `0xCCCC_2000_0000_0013` |
-| 3.0 | Dress | 1 | 69.00 | `0xCCCC_2000_0000_0013` |
-| 3.1 | Buy 3, pay 2 | 1 | -69.00 | `0xCCCC_2000_0004_0013` |
-| | **Cash** (pay item) | | 182.00 | `0xCCCC_2000_0000_0001` |
-
-*Table 3. A multi-buy offer, sent as a discount of the full price on one position.*
-
-Whether a discount may reduce a position to zero is market specific; see [Market-specific considerations](#market-specific-considerations).
-
 ### Extra on a position
 
 An extra is sent in the same way as a discount, with a positive amount. For example, a surcharge of 2.00 on a position:
@@ -87,7 +71,7 @@ An extra is sent in the same way as a discount, with a positive amount. For exam
 | 1.1 | Surcharge | 1 | 2.00 | `0xCCCC_2000_0004_0013` |
 | | **Cash** (pay item) | | 14.00 | `0xCCCC_2000_0000_0001` |
 
-*Table 4. An extra that increases the price of one position.*
+*Table 3. An extra that increases the price of one position.*
 
 ## Discounts on several positions or on the whole receipt
 
@@ -105,7 +89,7 @@ In a void or refund, every charge item is inverted, including the discounts and 
 | 10% off | 1 | -15.00 | -1 | 15.00 |
 | **Cash** (pay item) | 1 | 135.00 | -1 | -135.00 |
 
-*Table 5. A discounted position and its full refund.*
+*Table 4. A discounted position and its full refund.*
 
 In a partial refund, the POS system sends the returned positions together with their discounts, so that the customer gets back the price that was actually paid. See [Partial refund](refunds-and-voids.md#partial-refund).
 
@@ -120,7 +104,7 @@ Not every reduction of the amount to pay is a discount. The following cases have
 | **Downpayment** deducted from the final receipt | Charge item with the flag `Downpayment` (`0x0000_0000_0008_0000`) and a negative amount. |
 | **Tip** | Charge item with type of service `3` Tip, or pay item with the flag `IsTip`. |
 
-*Table 6. Price reductions that are not discounts.*
+*Table 5. Price reductions that are not discounts.*
 
 The type of service `4` Voucher and the payment type `06` Voucher are described in the [Reference Tables](../reference-tables/reference-tables.md#type-of-service-ftchargeitemcase). The business cases `SignRequestReceipt_SinglePurposeVoucher` and `SignRequestReceipt_MultiPurposeVoucher` show the sale and the redemption of both voucher types.
 
