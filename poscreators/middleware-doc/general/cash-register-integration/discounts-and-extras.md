@@ -1,8 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/general/cash-register-integration/discounts-and-extras
 title: Discounts and Extras
-description: How to record discounts and extras (surcharges) on a receipt with the Discount flag of ftChargeItemCase, including percentage discounts, coupons, multi-buy offers, discounts in refunds and voids, and how they differ from vouchers.
-tags: [Discount, Extra, Surcharge, Coupon, ftChargeItemCase, Cash Register Integration]
+description: How to record discounts and extras (surcharges) on a receipt with the Discount flag of ftChargeItemCase, including percentage discounts, multi-buy offers, discounts in refunds and voids, and how they differ from vouchers.
+tags: [Discount, Extra, Surcharge, ftChargeItemCase, Cash Register Integration]
 ---
 
 # Discounts and Extras
@@ -19,7 +19,7 @@ This page describes how the POS system records discounts and extras, and which r
 | **`ftChargeItemCase` flag** | `0004` Discount | `0004` Discount |
 | **`Quantity`** | Positive | Positive |
 | **`Amount`** | Negative | Positive |
-| **Examples** | Percentage discount, coupon, staff discount, "buy 3, pay 2" | Surcharge on a position |
+| **Examples** | Percentage discount, staff discount, "buy 3, pay 2" | Surcharge on a position |
 
 *Table 1. Discounts and extras use the same flag; the sign of the amount distinguishes them.*
 
@@ -33,7 +33,7 @@ The POS system sends the discount or extra as its own charge item with:
 - the same type of service and the same VAT rate in `ftChargeItemCase` as the position it belongs to, and the same `VATRate`; for example, a discount on a position with `ftChargeItemCase` `0xCCCC_2000_0000_0013` uses `0xCCCC_2000_0004_0013`,
 - a positive `Quantity`,
 - a negative `Amount` for a discount, or a positive `Amount` for an extra; `Amount` is the gross amount of the reduction or increase, not the resulting price,
-- a `Description` that explains the discount or extra, for example `10% off` or `Coupon 2345`.
+- a `Description` that explains the discount or extra, for example `10% off` or `Staff discount`.
 
 The discount or extra follows directly after the position it belongs to in `cbChargeItems`. If the POS system uses `Position`, it can number the discount as a sub-position of the item, for example `1.1` for a discount on position `1.0`.
 
@@ -45,7 +45,7 @@ Outside of voids and refunds, a negative `Amount` on a charge item is only accep
 
 ## Examples
 
-The following examples are taken from the business cases `SignRequestReceipt_Discount` and `SignRequestReceipt_CashSaleDiscount`. All positions use the normal VAT rate and are paid in cash.
+The discount examples are taken from the business cases `SignRequestReceipt_Discount` and `SignRequestReceipt_CashSaleDiscount`. All positions use the normal VAT rate and are paid in cash.
 
 ### Percentage discount on every position
 
@@ -61,21 +61,6 @@ The customer gets 10 % off the whole purchase. Because a discount always belongs
 
 *Table 2. A 10 % discount on the whole purchase, sent as one discount per position.*
 
-### Coupon on a single position
-
-The customer redeems a coupon worth 50.00 for the dress. Only the dress is followed by a discount:
-
-| `Position` | Description | `Quantity` | `Amount` | `ftChargeItemCase` |
-|-----------:|-------------|-----------:|---------:|--------------------|
-| 1.0 | Dress | 1 | 150.00 | `0xCCCC_2000_0000_0013` |
-| 1.1 | Coupon 2345 | 1 | -50.00 | `0xCCCC_2000_0004_0013` |
-| 2.0 | Shoes | 1 | 70.00 | `0xCCCC_2000_0000_0013` |
-| | **Cash** (pay item) | | 170.00 | `0xCCCC_2000_0000_0001` |
-
-*Table 3. A coupon that reduces the price of one position.*
-
-A coupon that only reduces the price is a discount. A voucher that was sold before and is redeemed now is not a discount, see [Discounts, vouchers and other price reductions](#discounts-vouchers-and-other-price-reductions).
-
 ### Multi-buy offer ("buy 3, pay 2")
 
 The customer buys three dresses and gets the cheapest one for free. The POS system sends all three positions with their regular price and a discount on the free one:
@@ -88,7 +73,7 @@ The customer buys three dresses and gets the cheapest one for free. The POS syst
 | 3.1 | Buy 3, pay 2 | 1 | -69.00 | `0xCCCC_2000_0004_0013` |
 | | **Cash** (pay item) | | 182.00 | `0xCCCC_2000_0000_0001` |
 
-*Table 4. A multi-buy offer, sent as a discount of the full price on one position.*
+*Table 3. A multi-buy offer, sent as a discount of the full price on one position.*
 
 Whether a discount may reduce a position to zero is market specific; see [Market-specific considerations](#market-specific-considerations).
 
@@ -102,7 +87,7 @@ An extra is sent in the same way as a discount, with a positive amount. For exam
 | 1.1 | Surcharge | 1 | 2.00 | `0xCCCC_2000_0004_0013` |
 | | **Cash** (pay item) | | 14.00 | `0xCCCC_2000_0000_0001` |
 
-*Table 5. An extra that increases the price of one position.*
+*Table 4. An extra that increases the price of one position.*
 
 ## Discounts on several positions or on the whole receipt
 
@@ -120,7 +105,7 @@ In a void or refund, every charge item is inverted, including the discounts and 
 | 10% off | 1 | -15.00 | -1 | 15.00 |
 | **Cash** (pay item) | 1 | 135.00 | -1 | -135.00 |
 
-*Table 6. A discounted position and its full refund.*
+*Table 5. A discounted position and its full refund.*
 
 In a partial refund, the POS system sends the returned positions together with their discounts, so that the customer gets back the price that was actually paid. See [Partial refund](refunds-and-voids.md#partial-refund).
 
@@ -135,7 +120,7 @@ Not every reduction of the amount to pay is a discount. The following cases have
 | **Downpayment** deducted from the final receipt | Charge item with the flag `Downpayment` (`0x0000_0000_0008_0000`) and a negative amount. |
 | **Tip** | Charge item with type of service `3` Tip, or pay item with the flag `IsTip`. |
 
-*Table 7. Price reductions that are not discounts.*
+*Table 6. Price reductions that are not discounts.*
 
 The type of service `4` Voucher and the payment type `06` Voucher are described in the [Reference Tables](../reference-tables/reference-tables.md#type-of-service-ftchargeitemcase). The business cases `SignRequestReceipt_SinglePurposeVoucher` and `SignRequestReceipt_MultiPurposeVoucher` show the sale and the redemption of both voucher types.
 
