@@ -19,7 +19,7 @@ A Polish fiscal document must not mix sale and return positions: the register pr
 
 ## Discounts and extras
 
-The [POSNET register](../operation-modes/scu/posnet.md) prints a charge item with the flag `Discount` (`0x0000_0000_0004_0000`) as a discount (rabat, negative amount) or an extra (narzut, positive amount) on the sale line it belongs to. In addition to the general rules in [Discounts and Extras](../../general/cash-register-integration/discounts-and-extras.md), the following rules apply:
+The [POSNET register](../operation-modes/scu/posnet.md) prints a charge item with the flag `Discount` (`0x0000_0000_0004_0000`) as a discount (rabat, negative amount) or an extra (narzut, positive amount) on the sale line it belongs to. In addition to the general rules in [Discounts and Extras](../../general/cash-register-integration/discounts-and-extras.md), the following rules apply. They describe the POSNET SCU, which is in preview; see [Scope of the preview](../operation-modes/scu/posnet.md#scope-of-the-preview).
 
 - **Assignment by `Position`**: if the discount or extra has a `Position`, it belongs to the sale line whose `Position` has the same integer part; for example, `1.1` belongs to position `1`, even if another position was sent in between. A fractional `Position` whose integer part matches no sale line of the receipt is rejected.
 - **Assignment by order**: without a `Position`, the discount or extra belongs to the sale line before it.
