@@ -58,8 +58,6 @@ version 2
 | `01A` | **QRCode**<br />The `qrUrl` returned by myDATA for the document. Flagged *Do not print* (`0020`); the QR code to print is item `001`. | `qrUrl` |
 | `01B` | **HandwrittenSignature**<br />Link for a receipt recovered with the handwritten flag (`0008`). Format link, flagged *Do not print*. | *(empty)* |
 
-*Table 3. ftSignatureType SignatureCase (sss) values.*
-
 *Table 3. Greece-specific SignatureCase codes (sss) of the ftSignatureType field.*
 
-The types `010`, `016`, `017`, `018`, `01A` and `01B` are returned since Middleware version 1.3.83. See [Receipt Printing](../receipt-printing/receipt-printing.md) for the print rules of every item.
+The dedicated types `010` to `01B` are returned since Middleware version 1.3.83. Earlier versions returned these items with type `010`, and the handwritten link with type `000`. See [Receipt Printing](../receipt-printing/receipt-printing.md) for the print rules of every item.

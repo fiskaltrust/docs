@@ -7,13 +7,13 @@ title: Licensing
 
 In Greece there is no register of certified invoicing programs as in Portugal. Instead, a business may issue its retail receipts and invoices either through a certified fiscal device (*Φορολογικός Ηλεκτρονικός Μηχανισμός*, ΦΗΜ) or through a **licensed electronic invoicing provider** (*Υπηρεσίες Παρόχου Ηλεκτρονικής Έκδοσης Στοιχείων*, ΥΠΑΗΕΣ, licensed by the Independent Authority for Public Revenue, AADE, under decision *Α.1035/2020*). The provider issues the document, transmits it to AADE's **myDATA** platform (*Α.1138/2020*), receives the registration number (**MARK**) and returns the document with its QR code. A POS system that uses a provider needs no fiscal device.
 
-The fiskaltrust.Middleware implements this provider flow. Every request sent to a Greek queue is mapped to a myDATA document, transmitted through the provider API (`/myDataProvider/SendInvoices`, myDATA API for providers, schema version 2.0.2) and enriched with the identifiers myDATA returns.
+The fiskaltrust.Middleware implements this provider flow. Every fiscal document request sent to a Greek queue (see [Supported document types](#supported-document-types)) is mapped to a myDATA document, transmitted through the provider API (`/myDataProvider/SendInvoices`, myDATA API for providers, schema version 2.0.2) and enriched with the identifiers myDATA returns. Requests that fail validation are rejected without transmission (see [Boundaries](#boundaries)), and some operations, such as protocol, copy and closing requests, are stored in the queue without transmission (see [Other operations](#other-operations)).
 
 :::info Under whose licence documents are issued today
 
 The fiskaltrust.Middleware for Cloud currently issues Greek documents under the AADE provider licence of **Viva** (licensee *VIVABANK ΑΝΩΝΥΜΗ ΤΡΑΠΕΖΙΚΗ ΕΤΑΙΡΕΙΑ*, product *Viva Fiscal*), **provider ID 126**, licence identifier `2024_12_126VIVA_001_ Viva Fiscal_V1_23122024`. fiskaltrust operates the technical platform behind this licence: the mapping to myDATA, the transmission with the provider credentials, the provider signature on card payments and the digital receipt.
 
-fiskaltrust's **own** AADE provider licence for B2C/B2B documents, and a separate licence for B2G e-invoicing, are being pursued but have not been granted yet. Until then, the licence identifiers on the documents are Viva's, and the Middleware is available for the Greek market through the fiskaltrust.Middleware for Cloud only. PosCreators who want to enter the Greek market should contact [sales@fiskaltrust.eu](mailto:sales@fiskaltrust.eu) to clarify the contractual setup.
+The status of fiskaltrust's **own** AADE provider licence for B2C/B2B documents, and of a separate licence for B2G e-invoicing, is being clarified with the Greek market team. Today, the licence identifiers on the documents are Viva's, and the Middleware is available for the Greek market through the fiskaltrust.Middleware for Cloud only. PosCreators who want to enter the Greek market should contact [sales@fiskaltrust.eu](mailto:sales@fiskaltrust.eu) to clarify the contractual setup.
 
 :::
 
@@ -40,9 +40,9 @@ Sandbox queues transmit to the myDATA test environment. They return the **same**
 With the fiskaltrust.Middleware for Cloud, the whole provider flow happens inside the Middleware. Based on the existing implementation, fiskaltrust takes care of:
 
 - **Mapping to myDATA.** Receipt cases, charge items and pay items are mapped to the myDATA invoice type, income classifications (E3 categories and types), VAT categories and exemption categories, payment methods, withholding taxes, fees, stamp duty and other taxes. The mapping rules are described in the [reference tables](../reference-tables/reference-tables.md).
-- **Document numbering.** Every queue owns an invoice series (by default the cash box identification) and a sequential number (`aa`) that the Middleware reserves for each document and commits only when myDATA returns a MARK. Duplicate-number rejections by myDATA are healed automatically. The series and number are appended to `ftReceiptIdentification` after the `#`.
+- **Document numbering.** Every queue owns an invoice series (by default the cash box identification) and a sequential number (`aa`) that the Middleware reserves for each document and commits only when myDATA returns a MARK. If myDATA rejects a document because its number was already used, the Middleware advances the counter and returns the error: the receipt fails, and the POS must resend it, which reserves a fresh number. The series and number are appended to `ftReceiptIdentification` after the `#`.
 - **Transmission and identifiers.** The document is transmitted synchronously to myDATA with the provider credentials. MARK, UID, authentication code and the myDATA QR URL are returned as signature items, together with the full myDATA XML for audit purposes.
-- **Provider signature and EFTPOS data.** For card payments through an interconnected terminal (Viva protocols `viva_eft_pos`, `viva_eft_pos_implicit`, the Viva App2App flow, or the generic `aadeSignatureData` payload), the payment signature, the AADE transaction ID and the tip amount are transmitted with the document, with the provider ID as signing author.
+- **Provider signature and EFTPOS data.** For card payments through an interconnected terminal (the Viva cloud REST API, the Viva App2App flow or the generic `aadeSignatureData` payload; see [ftPayItemCaseData for terminal payments](../reference-tables/type-of-payment-ftpayitemcase.md#ftpayitemcasedata-for-terminal-payments)), the payment signature, the AADE transaction ID and the tip amount are transmitted with the document, with the provider ID as signing author.
 - **QR code and digital receipt.** The QR code content is the URL of the digital receipt rendered by fiskaltrust (`https://receipts.fiskaltrust.eu/{ftQueueID}/{ftQueueItemID}`; the `receipts-sandbox` host in the sandbox, or a partner-specific receipt host configured for the queue). This URL is also transmitted to myDATA as the document download URL.
 - **Customer and master data.** The issuer (VAT number, branch) comes from the master data configured in the fiskaltrust.Portal; the counterpart of invoices from `cbCustomer`, including the country category (domestic, EU, third country) that drives the invoice type and classification.
 - **Offline handling.** Receipts sent with the *late signing* flag are transmitted with `transmissionFailure = 1` (loss of connection between the entity and the provider) and carry the corresponding notice. Handwritten receipts issued during an outage can be recovered with their own series.
@@ -86,7 +86,9 @@ The following myDATA invoice types are produced by the Middleware from the `ftRe
 
 Every other myDATA invoice type (for example `1.5`, `1.6`, `2.4`, `3.1`, `3.2`, `6.2`, `7.1`, `8.1`, `8.2`, `11.3`) can be requested explicitly through the `invoiceType` override in `ftReceiptCaseData` (`GR.mydataoverride.invoice.invoiceHeader.invoiceType`), together with the matching income or expense classification on every charge item. These types are accepted by myDATA in the acceptance tests of the Middleware, but the POS is responsible for choosing them correctly; ask fiskaltrust before using them productively.
 
-In addition, the following operations are supported but do not create a myDATA document:
+### Other operations
+
+The following operations are handled in addition to the document types above. The result column states whether they are transmitted to myDATA.
 
 | Operation | `ftReceiptCase` | Result |
 | --------- | --------------- | ------ |

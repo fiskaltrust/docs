@@ -22,7 +22,7 @@ Every fiscal document (retail receipts 11.x, invoices 1.x and 2.x, credit docume
 | Element | Source | Notes |
 | ------- | ------ | ----- |
 | Issuer | Master data | Company name, address, VAT number (ΑΦΜ) and branch of the issuer, as configured in the account and outlet master data of the fiskaltrust.Portal; further header data required by law 4308/2014 (e.g. tax office, activity) from the POS master data. |
-| Document type and designation | Derived from `ftReceiptCase` | Print the Greek designation of the myDATA type, e.g. *Απόδειξη Λιανικής Πώλησης* (11.1), *Απόδειξη Παροχής Υπηρεσιών* (11.2), *Τιμολόγιο Πώλησης* (1.1), *Πιστωτικό Στοιχείο Λιανικής* (11.4). The type code is contained in the unique document identifier. |
+| Document type and designation | `invoiceType` in the signature item `MyDataXML` | Print the Greek designation of the myDATA type that was actually transmitted, e.g. *Απόδειξη Λιανικής Πώλησης* (11.1), *Απόδειξη Παροχής Υπηρεσιών* (11.2), *Τιμολόγιο Πώλησης* (1.1), *Πιστωτικό Στοιχείο Λιανικής* (11.4). The type is usually derived from `ftReceiptCase`, but an `invoiceType` override in `ftReceiptCaseData` replaces it (see [Supported document types](../licensing/licensing.md#supported-document-types)), so do not derive the designation from the receipt case alone. |
 | Series and number | `ftReceiptIdentification` | The part after the `#`, e.g. `ft2A#ftCashBox01-17` (series, sequential number). Print it unchanged. |
 | Unique document identifier | Signature item `UniqueDocumentIdentifier` | Caption *Μοναδικός αριθμός παραστατικού*, data `AFM\|dd/MM/yyyy\|branch\|type\|series\|aa`. |
 | Date and time | `cbReceiptMoment` | In Greek local time (the Middleware converts UTC to Europe/Athens for myDATA). |

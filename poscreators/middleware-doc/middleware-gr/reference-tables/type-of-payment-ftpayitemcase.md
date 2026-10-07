@@ -20,7 +20,11 @@ Reserved for future use. Not currently assigned for Greece (or any market).
 
 #### lll - local tagging/flag
 
-Greece does not currently define local (`lll`) flags for `ftPayItemCase`.
+| **Value** | **Description** | **Middleware version** |
+| --------- | --------------- | ---------------------- |
+| `001` | **Payment for an already transmitted invoice**<br />Used with the Pay receipt case (`3005`) and `cbPreviousReceiptReference` to report a payment through the myDATA `SendPaymentsMethod` call, for example `0x4752_2001_0000_0004` for a card payment. See [Type of Receipt: ftReceiptCase](type-of-receipt-ftreceiptcase.md). | 1.3.83 |
+
+*Table 1. Local tagging/flag values (lll) for Greece.*
 
 #### PP - payment type
 | **Value** | **Description** | **Middleware version** |
@@ -42,7 +46,7 @@ Greece does not currently define local (`lll`) flags for `ftPayItemCase`.
 | `0E` | Grant | 1.3.45 |
 | `0F` | Ticket Restaurant / (Sodexo, Edenred, etc.) | 1.3.45 |
 
-*Table 1. Payment type values (PP) for Greece.*
+*Table 2. Payment type values (PP) for Greece.*
 
 #### gggg - global tagging/flag
 | **Value**            | **Description**                                                                                | **Middleware version** |
@@ -58,4 +62,45 @@ Greece does not currently define local (`lll`) flags for `ftPayItemCase`.
 | `0100` | **IsInterface/AmountVerified**<br />Was verified by interface, automated amount transfer | 1.3.45                    |
 | `8000` | **ShowInChargeItems**<br />Visualize the item before Total Amount. This inverts amount and does include the amount into the visualized total amount on the receipt. |1.3.45|
 
-*Table 2. Global tagging/flag values (gggg) for Greece.*
+*Table 3. Global tagging/flag values (gggg) for Greece.*
+
+## ftPayItemCaseData for terminal payments
+
+For card payments through an interconnected terminal, the POS hands over the terminal data in `ftPayItemCaseData`. The Middleware reads the **provider signature** and the **AADE transaction ID** from it and transmits them with the document; the provider ID of the licence is transmitted as signing author (see [Licensing](../licensing/licensing.md#where-the-licence-appears-on-documents)). Property names are matched case-insensitively. Three payload shapes are supported; which one applies is determined by the content of `Provider.ProtocolRequest`.
+
+**Viva App2App.** `ProtocolRequest` and `ProtocolResponse` are the request and result URIs as strings. The provider signature is read from the `aadeProviderSignature` query parameter of `ProtocolRequest`, the transaction ID from the `aadeTransactionId` query parameter of `ProtocolResponse`.
+
+```json
+{
+  "Provider": {
+    "Protocol": "use_auto",
+    "ProtocolRequest": "vivapayclient://pay/v1?amount=1000&aadeProviderSignature=<signature>",
+    "ProtocolResponse": "instoreapp://result?status=success&aadeTransactionId=<transaction-id>"
+  }
+}
+```
+
+**Viva cloud REST API.** `ProtocolRequest` is the payment request object and `ProtocolResponse` the payment session object of the Viva API. The provider signature is read from `ProtocolRequest.aadeProviderSignature`, the transaction ID from `ProtocolResponse.aadeTransactionId`.
+
+```json
+{
+  "Provider": {
+    "Protocol": "",
+    "ProtocolVersion": "1.0",
+    "Action": "",
+    "ProtocolRequest": { "aadeProviderSignatureData": "<signature-data>", "aadeProviderSignature": "<signature>" },
+    "ProtocolResponse": { "aadeTransactionId": "<transaction-id>" }
+  }
+}
+```
+
+**Generic.** For any other terminal, the values are passed in an `aadeSignatureData` object at the root of `ftPayItemCaseData`.
+
+```json
+{
+  "aadeSignatureData": {
+    "aadeProviderSignature": "<signature>",
+    "aadeTransactionId": "<transaction-id>"
+  }
+}
+```
