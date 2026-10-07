@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/poland/reference-tables/ftsignatureformat
 title: 'Format of Signature: ftSignatureFormat'
+description: ftSignatureFormat in Poland follows the general Middleware definition; Polish ftSignatureFormatFlag values are still to be defined.
+tags: [ftSignatureFormat, Poland, Signature, Reference Tables]
 ---
 
 # Format of Signature: ftSignatureFormat

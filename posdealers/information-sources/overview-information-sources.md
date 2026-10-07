@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/information-sources/overview-information-sources
 title: Overview - Information Sources
+description: Where PosDealers find help and resources — knowledge base, support cases, downloads, third-party partner status, news, videos, and webinars.
+tags: [PosDealers, Portal, Onboarding]
 ---
 
 # Overview - Information Sources

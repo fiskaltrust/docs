@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/austria
 title: Introduction
+description: What the Austrian RKSV requires of a POS system — signing, DEP-7 exports, FinanzOnline — and where to start in the Austrian Middleware docs.
+tags: [Austria, RKSV, Middleware, Compliance, Legal]
 ---
 
 # Introduction

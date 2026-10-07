@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/germany/reference-tables/ftsignaturetype
 title: 'Type of Signature: ftSignatureType'
+description: ftSignatureType values returned by the German Middleware, including KassenSichV QR code content and TSE transaction data.
+tags: [Germany, ftSignatureType, Signature, Reference Tables, TSE]
 ---
 
 # Type of Signature: ftSignatureType

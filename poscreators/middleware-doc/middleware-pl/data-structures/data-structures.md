@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/poland/data-structures
 title: Data Structures
+description: Data structure rules for Poland — mandatory PLN currency on every request and separating return positions from sales.
+tags: [Data Structures, Currency, Receipt Case, Poland]
 ---
 
 # Data Structures

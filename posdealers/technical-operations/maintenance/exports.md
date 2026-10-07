@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/technical-operations/maintenance/exports
 title: Exports
+description: How PosDealers and PosOperators create and download data exports (CSV, XML, country-specific formats) for queues in the fiskaltrust.Portal.
+tags: [Exports, Journal, Portal, PosDealers]
 ---
 # Exports
 
@@ -51,13 +53,23 @@ Most countries require specific export formats in their fiscalization laws and r
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ExportsAT from '../../_markets/at/technical-operations/maintenance/exports/_exports.mdx';
+import ExportsBE from '../../_markets/be/technical-operations/maintenance/exports/_exports.mdx';
 import ExportsFR from '../../_markets/fr/technical-operations/maintenance/exports/_exports.mdx';
 import ExportsDE from '../../_markets/de/technical-operations/maintenance/exports/_exports.mdx';
+import ExportsGR from '../../_markets/gr/technical-operations/maintenance/exports/_exports.mdx';
+import ExportsIT from '../../_markets/it/technical-operations/maintenance/exports/_exports.mdx';
+import ExportsPL from '../../_markets/pl/technical-operations/maintenance/exports/_exports.mdx';
+import ExportsPT from '../../_markets/pt/technical-operations/maintenance/exports/_exports.mdx';
+import ExportsES from '../../_markets/es/technical-operations/maintenance/exports/_exports.mdx';
 
 <Tabs groupId="market">
 
   <TabItem value="AT" label="Austria">
     <ExportsAT />
+  </TabItem>
+
+  <TabItem value="BE" label="Belgium">
+    <ExportsBE />
   </TabItem>
 
   <TabItem value="FR" label="France">
@@ -66,6 +78,26 @@ import ExportsDE from '../../_markets/de/technical-operations/maintenance/export
 
   <TabItem value="DE" label="Germany">
     <ExportsDE />
+  </TabItem>
+
+  <TabItem value="GR" label="Greece">
+    <ExportsGR />
+  </TabItem>
+
+  <TabItem value="IT" label="Italy">
+    <ExportsIT />
+  </TabItem>
+
+  <TabItem value="PL" label="Poland">
+    <ExportsPL />
+  </TabItem>
+
+  <TabItem value="PT" label="Portugal">
+    <ExportsPT />
+  </TabItem>
+
+  <TabItem value="ES" label="Spain">
+    <ExportsES />
   </TabItem>
 
 </Tabs>

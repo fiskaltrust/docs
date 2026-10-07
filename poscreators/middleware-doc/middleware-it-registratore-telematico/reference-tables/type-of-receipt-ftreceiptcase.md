@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/italy/reference-tables/ftreceiptcase
 title: 'Type of Receipt: ftReceiptCase'
+description: ftReceiptCase values for Italy (country code 0x4954) — receipt case types, receipt cases and local and global flags.
+tags: [Receipt Case, Reference Tables, RT, Italy]
 ---
 
 # Type of Receipt: ftReceiptCase
