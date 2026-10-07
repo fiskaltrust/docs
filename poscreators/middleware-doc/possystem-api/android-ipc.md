@@ -24,9 +24,7 @@ padding. If your platform only offers plain base64, this means replacing `+`→`
 and `/`→`_` and stripping the trailing `=` padding (and the reverse when
 decoding).
 
-<a id="request-fields"></a>
-
-#### Request (`Message.What = 1`)
+#### Request (`Message.What = 1`) {#request-fields}
 
 | Bundle key | Content |
 | --- | --- |
@@ -35,9 +33,7 @@ decoding).
 | `HeaderJsonObjectBase64Url` | Headers as a JSON object of string key/value pairs, base64url-encoded |
 | `BodyBase64Url` | Optional request body, base64url-encoded |
 
-<a id="reply-fields"></a>
-
-#### Reply (`Message.What = 2`)
+#### Reply (`Message.What = 2`) {#reply-fields}
 
 | Bundle key | Content |
 | --- | --- |
@@ -45,8 +41,6 @@ decoding).
 | `ContentBase64Url` | Response content, base64url-encoded |
 | `ContentTypeBase64Url` | Content type, base64url-encoded |
 | `HeaderJsonObjectBase64Url` | Response headers as a JSON object of string key/value pairs, base64url-encoded |
-
-<a id="choosing-a-transport"></a>
 
 ### Choosing a transport
 
@@ -62,9 +56,7 @@ The launcher offers two transports for this API, and they differ operationally:
 is explained first below. The Activity Intent transport is documented in its
 own section at the end, for existing integrations that still rely on it.
 
-<a id="bound-service-ipc"></a>
-
-## Bound Service IPC
+## Bound Service IPC 
 
 _Recommended, see [Choosing a transport](#choosing-a-transport) above._
 
@@ -303,8 +295,6 @@ implementation](#full-reference-implementation) below (C#), or the real,
 working Java client in the
 [middleware-demo-android](https://github.com/fiskaltrust/middleware-demo-android/tree/master/java/app/src/main/java/eu/fiskaltrust/middleware/demo/transport)
 repo (`BoundServiceTransport.java`).
-
-<a id="full-reference-implementation"></a>
 
 ### Full reference implementation
 
