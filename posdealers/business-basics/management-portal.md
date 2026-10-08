@@ -20,7 +20,7 @@ The fiskaltrust.Portal is the central **management dashboard** for your fiskaltr
 
 | Task | Portal area |
 |---|---|
-| [Account Management](#account-management) | _Company info_ and _User info_ |
+| [Account Management](#account-management) | _Company info_ and the user menu (top right) |
 | [Operator Management](#operator-management) | _PosDealer_ |
 | [Surrogating](#surrogating) | Switching into a PosOperator account |
 | [Data Management](#data-management) | _Tools_ > _Exports_ |
@@ -44,7 +44,7 @@ In _Company info_:
 3. In `Outlets`, add your company's **outlets** and their configurations.
 4. In `Employees`, create accounts for your **employees** and manage their permissions.
 
-In _User info_, manage your user data: `Edit profile` (**contact and address details**), `Change password` and `Change user name`.
+Open the user menu at the top right to manage your user data: `Edit profile` (**contact and address details**), `Change password` and `Change user name`.
 
 ## Operator Management
 
