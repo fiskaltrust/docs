@@ -1,8 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/greece/data-structures
 title: Data Structures
-description: How cbCustomer fields are transmitted to myDATA as the document counterpart for Greece, how refunds and voids reference documents from other systems by their MARK, and how discounts are transmitted to myDATA.
-tags: [Greece, cbCustomer, ftReceiptCaseData, MARK, Discount, Data Structures, myDATA, Middleware]
+description: How cbCustomer fields are transmitted to myDATA as the document counterpart for Greece, how cbArea is transmitted as the table number of restaurant orders, how refunds and voids reference documents from other systems by their MARK, and how discounts are transmitted to myDATA.
+tags: [Greece, cbCustomer, cbArea, tableAA, ftReceiptCaseData, MARK, Discount, Data Structures, myDATA, Middleware]
 ---
 
 # Data Structures
@@ -22,6 +22,13 @@ This chapter expands on the descriptions of the country-specific Data Structures
 | `CustomerCity`        | City of the counterpart's address. The address is only transmitted when both `CustomerZip` and `CustomerCity` are set. |
 
 *Table 1. cbCustomer fields read by the Middleware for the Greek market.*
+
+## cbArea
+
+`cbArea` is transmitted to myDATA as the table number (`tableAA`) of restaurant orders (myDATA document type 8.6), including the void of an order. It is not transmitted for other document types.
+
+- myDATA accepts at most **50 characters** in `tableAA`. The Middleware does not shorten the value; a longer `cbArea` is rejected by myDATA.
+- The void of an order requires `cbArea`; see [PreviousReceiptReference](#previousreceiptreference).
 
 ## ftReceiptCaseData
 
