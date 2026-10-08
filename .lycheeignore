@@ -40,3 +40,4 @@ https?://(www\.)?geregistreerdkassasysteem\.be(/.*)?
 https?://bofip\.impots\.gouv\.fr/bofip/10693-PGP\?branch=2
 https?://(www\.)?lindeverlag\.at/.*
 https?://(www\.)?youtube\.com/c/fiskaltrust/videos
+^https://www\.ris\.bka\.gv\.at/GeltendeFassung\.wxe\?Abfrage=Bundesnormen&Gesetzesnummer=(10003940|20009390)$
