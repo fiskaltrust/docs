@@ -14,8 +14,6 @@ After reading this, you can explain the three customer roles fiskaltrust uses an
 
 :::
 
-## Introduction
-
 In this documentation and in its other material, fiskaltrust assigns products, features and content to **three customer groups**. This tells each reader which content is relevant to them.
 
 | Role | Who | Relationship to fiskaltrust |

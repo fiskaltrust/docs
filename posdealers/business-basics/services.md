@@ -12,8 +12,6 @@ After reading this, you can explain what kind of products _fiskaltrust_ offers.
 
 :::
 
-## Introduction
-
 fiskaltrust offers an end-to-end solution that makes your POS system issue receipts in a legally and fiscally compliant way. The portfolio is a stack of software and services for **fiscal compliance** with a **unified approach** across countries and markets.
 
 | Service | Purpose | Type |

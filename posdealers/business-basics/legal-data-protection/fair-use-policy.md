@@ -11,7 +11,6 @@ tags: [Fair Use Policy, Legal, PosDealers, Austria, France, Germany]
 After reading this, you can follow the Fair Use Policy.
 
 :::
-## Introduction
 
 **Fair use** means that your use of fiskaltrust services and products is subject to usage parameters. The Fair Use Policy defines these parameters per country; they may differ or not apply at all depending on the country. Select your country below.
 

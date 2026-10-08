@@ -13,8 +13,6 @@ After reading this, you can explain the basic architecture of the fiskaltrust.Mi
 
 :::
 
-## Introduction
-
 A fiskaltrust setup consists of three tiers:
 
 1. **Your POS system**

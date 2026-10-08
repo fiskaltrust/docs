@@ -12,8 +12,6 @@ After reading this, you can explain how fiskaltrust's partner-based business mod
 
 :::
 
-## Introduction
-
 fiskaltrust is a software company that develops Compliance-as-a-Service and add-on products for cash registers (_POS systems_) in Europe. The core product is the fiskaltrust.Middleware. Cash register manufacturers (_PosCreators_) integrate the Middleware directly to make their POS systems compliant with local fiscalization laws.
 
 fiskaltrust distributes its _products_ and _product bundles_ in partnership with cash register dealers (_PosDealers_). Through their existing sales structures in each country, PosDealers offer a product portfolio tailored to the needs of each of their customers (cash register operators or _PosOperators_).

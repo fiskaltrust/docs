@@ -12,8 +12,6 @@ After reading this, you can explain the tasks performed in the fiskaltrust.Porta
 
 :::
 
-## Introduction
-
 The fiskaltrust.Portal is the central **management dashboard** for your fiskaltrust account and services. It covers your account and company data, PosOperator associations, configuration and rollout of your Middleware instances, and orders for products and services.
 
 ![fiskaltrust.Portal dashboard with the navigation menu, user and company master data, and the unfinished validations table](./images/portal.png "https://portal-SANDBOX.fiskaltrust.TLD/Home/Dashboard")
