@@ -65,7 +65,7 @@ See [Revision-safe archiving](../buy-resell/products/revision-safe-archiving.md)
 
 ### Exports & third-party Interfaces
 
-With an active archive service, you can export your data in the fiskaltrust.Portal in the **formats** required by the applicable national regulations. In `Tools` / `Exports`, you select the export type, the range by receipt date or number, and the `Export target`, for example `Azure Storage` or `DATEV MeinFiskal`. See [Exports](../technical-operations/maintenance/exports.md).
+With an active archive service, you can export your data in the fiskaltrust.Portal in the **formats** required by the applicable national regulations. In `Tools` > `Exports`, you select the export type, the range by receipt date or number, and the `Export target`, for example `Azure Storage` or `DATEV MeinFiskal`. See [Exports](../technical-operations/maintenance/exports.md).
 
 The fiskaltrust.Portal also connects to third-party services, for example DATEV MeinFiskal or FinanzOnline management (Austria only). Availability depends on the country, and some services require an additional subscription. See [Third party integrations](../buy-resell/products/3rd-party/3rd-party-overview.md).
 

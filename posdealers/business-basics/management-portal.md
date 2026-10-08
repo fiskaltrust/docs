@@ -23,7 +23,7 @@ The fiskaltrust.Portal is the central **management dashboard** for your fiskaltr
 | [Account Management](#account-management) | `Company info` and the user menu (top right) |
 | [Operator Management](#operator-management) | `PosDealer` |
 | [Surrogating](#surrogating) | Switching into a PosOperator account |
-| [Data Management](#data-management) | `Tools` / `Exports` |
+| [Data Management](#data-management) | `Tools` > `Exports` |
 | [CashBox Maintenance](#cashbox-maintenance) | `Configuration` |
 | [Shop](#shop) | `Shop` |
 
@@ -64,7 +64,7 @@ Surrogating is an essential feature for PosDealers to establish and expand their
 
 ## Data Management
 
-In `Tools` / `Exports`, you **export your data** by export type and by a range of receipt dates or numbers. As `Export target`, select for example `Azure Storage` or `DATEV MeinFiskal`. Availability depends on the country. See [Exports](../technical-operations/maintenance/exports.md).
+In `Tools` > `Exports`, you **export your data** by export type and by a range of receipt dates or numbers. As `Export target`, select for example `Azure Storage` or `DATEV MeinFiskal`. Availability depends on the country. See [Exports](../technical-operations/maintenance/exports.md).
 
 ## CashBox Maintenance
 
