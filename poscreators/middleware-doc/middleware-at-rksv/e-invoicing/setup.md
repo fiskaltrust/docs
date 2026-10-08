@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/austria/e-invoicing/setup
 title: "Setup & testing"
+description: Prerequisites, Portal activation and sandbox validation for eInvoicing in Austria, with an end-to-end request example.
+tags: [Austria, eInvoicing, Configuration, Portal, ebInterface]
 ---
 
 # Set up and test eInvoicing (Austria)
@@ -98,7 +100,7 @@ Deliver the document with `PUT /issue/{queueId}/{queueItemId}`, choosing a deliv
 
 Poll `GET /issue/{queueId}/{queueItemId}` for the status until it reports **delivered**. There is **no callback or webhook**.
 
-See the [POS System API reference](https://docs.fiskaltrust.cloud/apis/pos-system-api) for the full `/issue` request/response schemas.
+See the [POS System API reference](https://docs.fiskaltrust.eu/apis/pos-system-api) for the full `/issue` request/response schemas.
 
 ## Related pages
 

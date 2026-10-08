@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/technical-operations/middleware/launchers/cloudcashbox
 title: CloudCashbox
+description: What the hosted CloudCashbox is, how to order and create CloudCashboxes in the fiskaltrust.Portal, and how to migrate existing CashBoxes to it.
+tags: [CloudCashBox, CashBox, Middleware, Migration, Portal, PosDealers]
 ---
 
 # CloudCashbox
@@ -232,7 +234,7 @@ After this, you can then come back to the request to perform the migration for t
 :::info
 
 If you're running Bring Your Own Datacenter it might not be possible to change the url for a single Cashbox which is why
-BYODC will automatically redirect to the CloudCashbox (Starting with [v1.3.65](https://docs.fiskaltrust.cloud/changelog/middleware/1.3.65#-feature-byodc-now-automatically-acts-as-a-proxy-when-mistakenly-used-with-a-cloudcashbox-queue)) when a migrated Queue is used.
+BYODC will automatically redirect to the CloudCashbox (Starting with [v1.3.65](https://docs.fiskaltrust.eu/changelog/middleware/1.3.65#-feature-byodc-now-automatically-acts-as-a-proxy-when-mistakenly-used-with-a-cloudcashbox-queue)) when a migrated Queue is used.
 
 This means that BYODC will not process the request itself, but it will already be processed in the CloudCashbox and the response is forwarded back.
 

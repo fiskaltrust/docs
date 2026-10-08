@@ -1,5 +1,6 @@
 Url,Code,Purpose
-https://helipad.fiskaltrust.cloud/version,200,ft cashbox download & upload receipt data
+https://helipad.fiskaltrust.eu/version,200,ft upload receipt data
+https://helipad.fiskaltrust.cloud/version,200,ft cashbox download & upload receipt data (fallback)
 https://packages.fiskaltrust.cloud/version,200,ft download packages
 https://dc.services.visualstudio.com/,404,ft error reporting
 https://kassensichv-middleware.fiskaly.com/api/v2,200,fiskaly TSE

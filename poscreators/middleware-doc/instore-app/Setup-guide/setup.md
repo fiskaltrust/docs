@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/instore-app/setup/getting-started
 title: Getting Started
+description: Installing the InStore App, granting permissions and pairing it with a CashBox via a PIN from the fiskaltrust.Portal.
+tags: [InStore App, Installation, CashBox, Pairing, Android]
 ---
 
 # Getting Started
@@ -91,9 +93,12 @@ If you have any questions or encounter issues during installation, first check t
 
 **Q: Can I use the app without an internet connection?**
 
-- **A:** The app requires an internet connection for initial setup and communication
-    with the fiskaltrust Portal. However, once set up, the app can function offline for
-    day-to-day use, provided it has been previously paired with the CashBox.
+- **A:** Partly. An internet connection is always required for the initial configuration.
+    Actions received via the fiskaltrust cloud backend require a permanent internet
+    connection. Payments triggered via the optional local communication path (a POS app
+    on the same device using the fiskaltrust Android launcher) also work offline.
+    The **Cloud** and **On device** status icons on the home screen show which path is
+    currently available. See the [FAQ](../faq/faq.md#for-developers) for details.
 
 **Q: The app is not responding or freezing. What should I do?**
 

@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/germany/reference-tables/ftreceiptcase
 title: 'Type of Receipt: ftReceiptCase'
+description: ftReceiptCase values for Germany with their DSFinV-K BON_TYP and TSE processType mapping, plus the ftReceiptCaseFlag values.
+tags: [Germany, Receipt Case, Reference Tables, DSFinV-K]
 ---
 
 # Type of Receipt: ftReceiptCase

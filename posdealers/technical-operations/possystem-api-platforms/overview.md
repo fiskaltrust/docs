@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/technical-operations/possystem-api-platforms/overview
 title: Overview
+description: Cloud-hosted vs. local PosSystem API options (CloudCashbox, LocalPosSystemApi Helper, Android launcher) and which setup guide to use per market.
+tags: [POS System API, CloudCashBox, LocalPosSystemApi Helper, Android, PosDealers]
 ---
 
 # Overview 
@@ -36,7 +38,7 @@ The full Local PosSystem API experience is also provided on Android through our 
 
 :::info
 
-No additional configuration is required. Communication is handled through the [Android Intent Integration](../../../poscreators/possystem-api/android-intent).
+No additional configuration is required. Communication is handled through [Android IPC](../../../poscreators/possystem-api/android-ipc).
 
 :::
 
@@ -49,7 +51,7 @@ Depending on your market and mode of operation, choose the correct setup from th
 | | AT | FR | DE | IT | GR, PT, ES, BE |
 |-|----|----|----|----|----------------|
 | **Local** | [1.3 CashBox Setup](./localpossystemapi-helper.md) | [1.2 CashBox Setup](./localpossystemapi-helper-1-2.md) | [1.3 CashBox Setup](./localpossystemapi-helper.md) | [1.3 CashBox Setup](./localpossystemapi-helper.md) | Currently not available |
-| **Android** | [Android](../../../poscreators/possystem-api/android-intent) | Currently not available | [Android](../../../poscreators/possystem-api/android-intent) | [Android](../../../poscreators/possystem-api/android-intent) | Currently not available |
+| **Android** | [Android](../../../poscreators/possystem-api/android-ipc) | Currently not available | [Android](../../../poscreators/possystem-api/android-ipc) | [Android](../../../poscreators/possystem-api/android-ipc) | Currently not available |
 | **Cloud** | [CloudCashbox](../middleware/launchers/cloudcashbox.md#introduction) | [CloudCashbox](../middleware/launchers/cloudcashbox.md#introduction) | [CloudCashbox](../middleware/launchers/cloudcashbox.md#introduction) | [CloudCashbox](../middleware/launchers/cloudcashbox.md#introduction) | [CloudCashbox](../middleware/launchers/cloudcashbox.md#introduction) |
 
 *Table 1. Setup guides per market and mode of operation.*

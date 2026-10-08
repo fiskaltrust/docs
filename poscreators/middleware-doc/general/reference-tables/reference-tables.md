@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/general/reference-tables
 title: Reference Tables
+description: The v2 hex tagging system and values for ftReceiptCase, ftChargeItemCase, ftPayItemCase and related flags, including local flags per market.
+tags: [Reference Tables, Receipt Case, Charge Item Case, Pay Item Case, Middleware]
 ---
 
 # Reference Tables
@@ -95,7 +97,7 @@ The fiskaltrust receipt case field (`ftReceiptCase`) is of utmost importance for
 | `0001` | **Process as Late Signing Receipt**<br />The cash register lost connection to the queue and processed receipts without communicating with the it. All processed receipts marked with the hint "Security mechanism not reachable" must be sent to the queue with this maker. | 
 | `0002` | Training Receipt. |
 | `0800` | **Group by Position-Number**<br />Position fields are represented as decimal numbers: the whole number indicates the grouped line item, and the fractional part is used within that group. The sum of all `ChargeItems` within a position must count toward the total receipt amount. If the quantity and amount are 0,00, the quantity and amount will not be visualized for this line on the digital receipt, regardless of whether it is a main item or a subitem. |
-| `8000` | **ReceiptRequest**<br />If you don’t receive a response, try this flag first before taking any other action. This will return a stored result, for example in case of a timeout when cash register calls the queue. |
+| `8000` | **ReceiptRequest**<br />Returns the stored response of an already processed receipt with the same `cbReceiptReference` instead of processing it again.<br />To recover from a missing response or a timeout, retry the request with the same `x-operation-id` instead (see [Process-Driven and Idempotent Design](../../possystem-api/introduction.md#process-driven-and-idempotent-design)). |
 
 *Table 4. Global tagging flags (gggg) of the ftReceiptCase format.*
 
@@ -115,6 +117,10 @@ The fiskaltrust receipt case field (`ftReceiptCase`) is of utmost importance for
 | `0400` | **HasTransportInformation**<br />If used, transport information is included in the document. |
 
 *Table 5. Invoice-only PosReceipt flags of the ftReceiptCase format.*
+
+:::tip Void vs. Refund/Return
+`IsVoid` cancels a receipt before goods and money were exchanged, usually because of a technical problem; `IsReturn/IsRefund` reverses an already paid sale as a new business case. The flags are not interchangeable; if in doubt, use a refund. See [Refunds and Voids](../cash-register-integration/refunds-and-voids.md#void-or-refund).
+:::
 
 
 ##### ZeroReceipt (Dailyoperation only)
@@ -197,8 +203,6 @@ cba … c=reserved ; b=reporting ; a = scu related
 
 
 ##### ReceiptCaseData
-
-- **Reference in case of "Void"** - when `cbReceiptReference` cannot be used because of source receipt is in a different queue or system. Fields included: `{ RT-Device-Serialnumber, Z-Number, Document-Number, Document-Moment }`
 
 - **Reference in case of "InvoicePayment"**
 
@@ -294,6 +298,14 @@ For more information, see [VAT rules and rates](https://europa.eu/youreurope/bus
 
 *Table 17. Global tagging flags (gggg) of the ftChargeItemCase format.*
 
+:::tip Discounts and extras
+A charge item with the flag `Discount` follows directly after the position it belongs to and uses the same type of service and VAT rate. A discount on several positions or on the whole receipt is distributed to the positions. See [Discounts and Extras](../cash-register-integration/discounts-and-extras.md).
+:::
+
+:::tip Void vs. Refund/Return
+`IsVoid` and `IsReturn/IsRefund` are not interchangeable: a void cancels a position before goods and money were exchanged, a return/refund reverses an already paid sale; if in doubt, use a refund. Choosing the wrong flag produces a receipt that passes validation but misrepresents the business case. See [Refunds and Voids](../cash-register-integration/refunds-and-voids.md#void-or-refund).
+:::
+
 
 #### lll - Local tagging/flags
 
@@ -348,6 +360,10 @@ version 2
 
 *Table 19. Global tagging flags (gggg) of the ftPayItemCase format.*
 
+:::tip Void vs. Refund/Return
+On pay items the distinction is explicit: `IsVoid` is used when the exchange of money has not been executed yet, `IsReturn/IsRefund` when it has already been executed. See [Refunds and Voids](../cash-register-integration/refunds-and-voids.md#void-or-refund).
+:::
+
 
 ## ReceiptResponse related mapping
 
@@ -380,7 +396,7 @@ version 2
 | `0000_0200` | `MonthlyClosing` due.<br />When the first `cbReceiptMoment` used since last `MonthlyClosing` and the current/latest `cbReceiptMoment` in the `ReceiptRequest` are different, this state indicates a `MonthlyClosing` should be done. |
 | `0000_0400` | `YearlyClosing` due. |
 | `EEEE_EEEE` | Error.<br />Something went wrong while processing the last request. `QueueItem` exists but didn’t reach the state of a `ReceiptItem` and didn’t consume a `ftReceiptNumber` within the chain. Error reason is shown within the responded `ftSignatureItems`. This happens, for example, if the `ReceiptCase` is not recognized or is wrong. |
-| `FFFF_FFFF` | Fail.<br />Something went wrong while processing the last request, and nothing persisted within the Queue. Fail reason is shown within the responded `ftSignatureItems`. This happens, for example, when the flag `ReceiptRequest` is used after a communication outage, and no properly processed item is found. |
+| `FFFF_FFFF` | Fail.<br />Something went wrong while processing the last request, and nothing persisted within the Queue. Fail reason is shown within the responded `ftSignatureItems`. This happens, for example, when the flag `ReceiptRequest` is used after a communication outage, and no properly processed item is found. It also happens if the fiskaltrust.Middleware has no access to its database and therefore cannot store the request. |
 
 *Table 20. Global status flags (gggg_gggg) of the ftState field.*
 

@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/austria/reference-tables/ftstate
 title: 'Service Status: ftState'
+description: ftState global and local flag values returned by the Middleware in Austria, and how they combine with OR.
+tags: [ftState, Austria, Reference Tables, RKSV]
 ---
 
 # Service Status: ftState
@@ -24,7 +26,7 @@ version 2
 | `0000_0040` | **Message Pending** <br />Optional: Middleware/Queue is a headless background service, but there are situations where communication with the cashier/operator or the cash register is necessary. For example, if the last daily closing was missed or if a special condition related to the signature creation unit or service happened. This is the moment when the message pending flag is set by the middleware, which should be signalled to the cashier by the POS system. By executing a ZeroReceipt, the cashier can read the message or instruction on the printed or displayed receipt.<br />Related to local regulations, this receipt may be stored/archived with/for bookkeeping purposes; if this is the case, this is also visualized.  | 1.3.45                 |
 | `0000_0080` | **Backup SSCD in use** <br />Optional: The receipt was signed by a signature creation unit configured for backup use.  | 1.3.45                 |
 | `EEEE_EEEE` | **Error** <br />Implementation mandatory: Something went wrong while processing the last request. QueueItem exists but didn’t reach the state of a ReceiptItem and didn’t consume a ftReceiptNumber within the chain. Error reason is shown within the responded ftSignatureItems.  <br />This happens, for example, if the ReceiptCase is not recognized or is wrong.   | 1.3.45                 |
-| `FFFF_FFFF` | **Fail** <br />Implementation mandatory: Something went wrong while processing the last request, and nothing persisted within the Queue. Fail reason is shown within the responded ftSignatureItems. <br />This happens, for example, when the flag ReceiptRequest is used after a communication outage, and no properly processed item is found.  | 1.3.45                 |
+| `FFFF_FFFF` | **Fail** <br />Implementation mandatory: Something went wrong while processing the last request, and nothing persisted within the Queue. Fail reason is shown within the responded ftSignatureItems. <br />This happens, for example, when the flag ReceiptRequest is used after a communication outage, and no properly processed item is found. It also happens if the fiskaltrust.Middleware has no access to its database and therefore cannot store the request.  | 1.3.45                 |
 
 
 #### llll -local flags

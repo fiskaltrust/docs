@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/greece/reference-tables/ftreceiptcase
 title: 'Type of Receipt: ftReceiptCase'
+description: ftReceiptCase values for Greece — receipt case types, receipt cases and global and local flags under Greek law.
+tags: [Greece, Receipt Case, Reference Tables]
 ---
 
 # Type of Receipt: ftReceiptCase
@@ -85,7 +87,7 @@ version 2
 | `0100` | **IsReturn/IsRefund**<br />Marks Receipt as Return of good or service. | 1.3.45 |
 | `0400` | **HasTransportInformation** <br />Marks the receipt as carrying transport/delivery details (dispatch date/time, vehicle number, loading and delivery addresses, purpose of movement). Required together with Delivery Note (`0005`) to produce myDATA document type 9.3 (Δελτίο Αποστολής). Combine with `0100` (IsReturn/IsRefund) to produce a 9.3 reverse delivery note. | 1.3.45 |
 | `0800` | **Group by Position-Number / 100**<br />100 = first position, 101 first subitem, 102 second subitem.<br />The sum of all chargeitems within a position must count toward the total receipt amount.<br />If the quantity and amount are 0,00, the quantity and amount will not be visualized for this line on the digital receipt. Independent if main or subitem. | 1.3.45 |
-| `8000` | **ReceiptRequest**<br />If you don’t receive a response, try this flag first before taking any other action.<br />This will return a stored result for example in case of a timeout when cashregister calls queue. | 1.3.45 |
+| `8000` | **ReceiptRequest**<br />Returns the stored response of an already processed receipt with the same `cbReceiptReference` instead of processing it again.<br />To recover from a missing response or a timeout, retry the request with the same `x-operation-id` instead (see [Process-Driven and Idempotent Design](../../possystem-api/introduction.md#process-driven-and-idempotent-design)). | 1.3.45 |
 
 *Table 4. Global tagging/flag values (gggg) for Greece.*
 

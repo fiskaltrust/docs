@@ -1,5 +1,7 @@
 ---
 title: Terminology
+description: Definitions of terms used with the Experience Middleware, such as bundle, digital receipt, InStore App, multi-terminal setup and PSP.
+tags: [Terminology, Glossary, Experience Middleware, Digital receipt, InStore App]
 slug: /poscreators/experience-middleware/terminology
 ---
 
@@ -14,7 +16,7 @@ These terms relate to customer-facing features such as Digital Receipt, InStore 
 | Bundle | A predefined configuration package that groups digital receipt features and behavior for simplified rollout and setup. |
 | Digital Receipt | A receipt generated after fiscalization and delivered to the consumer in a digital format (for example via QR code or HTTPS link), while remaining linked to the fiscal receipt. |
 | HTTPS Receipt | A digitally accessible receipt delivered via a secure HTTPS link, typically accessed through a QR code displayed at checkout. |
-| InStore App | A customer-facing application provided by **fiskaltrust** that displays receipts and receipt interaction options on a device at the point of sale. |
+| InStore App | A customer-facing application provided by **fiskaltrust** that displays receipts and receipt interaction options and executes payments on a device at the point of sale. |
 | Multi-Terminal Setup | A configuration where multiple InStore App instances receive receipts from one or more CashBoxes, typically distinguished by terminal identification. |
 | Payment Provider (PSP) | A third-party service responsible for processing payment transactions, which can be accessed through the fiskaltrust payment integration. |
 | POS (Point of Sale) | The system used by merchants to process sales, initiate payments, and communicate with the fiskaltrust.Middleware. |

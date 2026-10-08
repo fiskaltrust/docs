@@ -1,4 +1,5 @@
 Url,Code,Purpose
-https://helipad-sandbox.fiskaltrust.cloud/version,200,ft cashbox download & upload receipt data
+https://helipad-sandbox.fiskaltrust.eu/version,200,ft upload receipt data
+https://helipad-sandbox.fiskaltrust.cloud/version,200,ft cashbox download & upload receipt data (fallback)
 https://packages-sandbox.fiskaltrust.cloud/version,200,ft download packages
 https://dc.services.visualstudio.com/,404,ft error reporting

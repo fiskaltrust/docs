@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/poland/e-invoicing/setup
 title: "Setup & testing"
+description: Prerequisites, Portal activation and sandbox validation for eInvoicing in Poland (preview), with an end-to-end KSeF FA(3) example.
+tags: [eInvoicing, KSeF, Configuration, POS System API, Poland]
 ---
 
 # Set up and test eInvoicing (Poland)
@@ -105,7 +107,7 @@ Deliver the document with `PUT /issue/{queueId}/{queueItemId}`, choosing a deliv
 
 Poll `GET /issue/{queueId}/{queueItemId}` for the status until KSeF returns the **clearance number**. There is **no callback or webhook**.
 
-See the [POS System API reference](https://docs.fiskaltrust.cloud/apis/pos-system-api) for the full `/issue` request/response schemas.
+See the [POS System API reference](https://docs.fiskaltrust.eu/apis/pos-system-api) for the full `/issue` request/response schemas.
 
 ## Related pages
 

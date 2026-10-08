@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/technical-operations/manual-cashbox-creation
 title: Manual CashBox Creation
+description: Step-by-step manual creation of an SCU, Queue, CashBox, and optional Helper in the fiskaltrust.Portal, then downloading and deploying the CashBox.
+tags: [CashBox, SCU, Queue, Configuration, Portal, PosDealers]
 ---
 # Manual CashBox Creation
 

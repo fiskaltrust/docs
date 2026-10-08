@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/technical-operations/rollout-automation/templates
 title: Templates
+description: How CashBox templates work — instantiation via shop or API, pre-defined system and custom variables, and the template JSON structure.
+tags: [Templates, CashBox, Rollout Automation, Configuration, PosDealers]
 ---
 # Templates
 
@@ -71,13 +73,23 @@ The following variables are pre-defined and will be populated automatically by a
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import VariablesAT from '../../_markets/at/technical-operations/rollout-automation/templates/_variables.mdx';
+import VariablesBE from '../../_markets/be/technical-operations/rollout-automation/templates/_variables.mdx';
 import VariablesFR from '../../_markets/fr/technical-operations/rollout-automation/templates/_variables.mdx';
 import VariablesDE from '../../_markets/de/technical-operations/rollout-automation/templates/_variables.mdx';
+import VariablesGR from '../../_markets/gr/technical-operations/rollout-automation/templates/_variables.mdx';
+import VariablesIT from '../../_markets/it/technical-operations/rollout-automation/templates/_variables.mdx';
+import VariablesPL from '../../_markets/pl/technical-operations/rollout-automation/templates/_variables.mdx';
+import VariablesPT from '../../_markets/pt/technical-operations/rollout-automation/templates/_variables.mdx';
+import VariablesES from '../../_markets/es/technical-operations/rollout-automation/templates/_variables.mdx';
 
 <Tabs groupId="market">
 
   <TabItem value="AT" label="Austria">
     <VariablesAT />
+  </TabItem>
+
+  <TabItem value="BE" label="Belgium">
+    <VariablesBE />
   </TabItem>
 
   <TabItem value="FR" label="France">
@@ -86,6 +98,26 @@ import VariablesDE from '../../_markets/de/technical-operations/rollout-automati
 
   <TabItem value="DE" label="Germany">
     <VariablesDE />
+  </TabItem>
+
+  <TabItem value="GR" label="Greece">
+    <VariablesGR />
+  </TabItem>
+
+  <TabItem value="IT" label="Italy">
+    <VariablesIT />
+  </TabItem>
+
+  <TabItem value="PL" label="Poland">
+    <VariablesPL />
+  </TabItem>
+
+  <TabItem value="PT" label="Portugal">
+    <VariablesPT />
+  </TabItem>
+
+  <TabItem value="ES" label="Spain">
+    <VariablesES />
   </TabItem>
 
 </Tabs>
