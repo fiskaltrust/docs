@@ -75,7 +75,6 @@ Work through the steps of the [Troubleshooting Guide](technical-operations/troub
 | Problem | Where to look | Action |
 |---|---|---|
 | Middleware or related services have no internet connection | [Network troubleshooting](technical-operations/troubleshooting/network-troubleshooting.md) | Check the [network requirements](technical-operations/middleware/network-requirements.md), then work through the DNS, network, SSL and Queue/SCU connection checks. |
-| CashBox requests fail | [CashBox failures](technical-operations/troubleshooting/cashbox-failures.md) | In the fiskaltrust.Portal, open `Metrics` > `CashBox` and click `Go to failed requests`. Not available if the launcher runs offline or with `--telemetry-opt-out`. |
 | Purchase or rollout blocked by the credit limit | [Credit limit](buy-resell/overview.md#credit-limit) | Settle open invoices, or contact fiskaltrust to request a higher credit limit. |
 | A PosOperator or employee forgot their password | [Contacting support](information-sources/contacting-support.md#work-steps) | Use the password reset link on the fiskaltrust.Portal login page. |
 | Problem not solved by the steps above | [Contacting support](information-sources/contacting-support.md) | Contact the fiskaltrust Customer Success Team at your country-specific address and track the request under [Cases](information-sources/cases.md). |

@@ -32,7 +32,7 @@ The fiskaltrust.Middleware is a **multi-platform** software that complements you
 * **Tracks receipts** in a secure and auditable way.
 * Keeps the related fiskaltrust.Portal information up to date.
 
-The Middleware is available for all supported countries. It provides a **single, standardized communication interface**, which simplifies rollouts in new markets. Your POS system communicates with it through a **REST interface**.
+The Middleware is available for all supported countries. It provides a **single, standardized communication interface**, which simplifies rollouts in new markets. Your POS system communicates with it via **gRPC, REST or SOAP (WCF)**.
 
 | Deployment | Platforms |
 |---|---|
@@ -40,6 +40,12 @@ The Middleware is available for all supported countries. It provides a **single,
 | Off-premise | SaaS; see [Hosted Middleware](#hosted-middleware) |
 
 *Table 2. Deployment options of the fiskaltrust.Middleware.*
+
+:::info Middleware versions
+
+Austria and France continue to use Middleware version 1.2. A unified version for all markets is in development.
+
+:::
 
 For the Middleware components, see [Architecture](architecture.md).
 
@@ -59,9 +65,9 @@ See [Revision-safe archiving](../buy-resell/products/revision-safe-archiving.md)
 
 ### Exports & third-party Interfaces
 
-With an active archive service, you can export your data in the fiskaltrust.Portal in the **formats** required by the applicable national regulations. See [Exports](../technical-operations/maintenance/exports.md).
+With an active archive service, you can export your data in the fiskaltrust.Portal in the **formats** required by the applicable national regulations. In `Tools` > `Exports`, you select the export type, the range by receipt date or number, and the export target, for example Azure Storage or DATEV MeinFiskal. See [Exports](../technical-operations/maintenance/exports.md).
 
-The fiskaltrust.Portal also integrates third-party services, which replicate data from fiskaltrust accounts to accounts at other service providers. Availability depends on the country, and some services require an additional subscription. See [Third party integrations](../buy-resell/products/3rd-party/3rd-party-overview.md).
+The fiskaltrust.Portal also connects to third-party services, for example DATEV MeinFiskal or FinanzOnline management (Austria only). Availability depends on the country, and some services require an additional subscription. See [Third party integrations](../buy-resell/products/3rd-party/3rd-party-overview.md).
 
 ## Hosted Middleware
 

@@ -26,7 +26,8 @@ A fiskaltrust setup consists of three tiers:
 The fiskaltrust.Middleware is the autonomous service that provides the **core fiscalization functionality**:
 
 * Your POS system connects to the Middleware to **sign and persist its receipts**.
-* The Middleware connects to the fiskaltrust.Portal to upload its receipt chain and to receive the configuration changes you make in the Portal.
+* The Middleware uploads its receipt chain to fiskaltrust.
+* The Launcher fetches the CashBox configuration you set in the fiskaltrust.Portal each time the Middleware starts. Configuration changes take effect after a restart.
 
 | Component | Purpose |
 |---|---|
@@ -35,7 +36,7 @@ The fiskaltrust.Middleware is the autonomous service that provides the **core fi
 | [Launcher](#launcher) | Bootstraps the Middleware instance |
 | [Queue](#queue) | Communication interface, receipt datastore and signing requests |
 | [SCU](#scu) | Creates the legally compliant receipt signature |
-| [Helpers](#helpers) | Additional components, for example Portal communication |
+| [Helpers](#helpers) | Additional components, for example data upload to fiskaltrust |
 
 *Table 1. Components of a fiskaltrust setup.*
 
@@ -46,7 +47,7 @@ The fiskaltrust.Portal is the central **management hub**. In it, you:
 * Control your fiskaltrust account and, subject to their authorization, the accounts of your associated PosOperators.
 * Set up and update your Middleware instances (_CashBoxes_).
 
-The **Middleware** uses the fiskaltrust.Portal to receive its CashBox configuration, for package management, and to update its receipt chain.
+The **Middleware** fetches the CashBox configuration you set in the Portal and uploads its receipt chain to fiskaltrust.
 
 :::info
 
@@ -59,7 +60,8 @@ fiskaltrust operates a Portal in each country at `https://portal.fiskaltrust.[CC
 The CashBox is the **configuration set** of a Middleware instance. It contains all details the Middleware needs to run.
 
 * You **configure CashBoxes in the fiskaltrust.Portal**.
-* The Middleware fetches the latest CashBox configuration on each start.
+* The Launcher fetches the latest CashBox configuration on each start. If the download fails, it uses the locally cached configuration.
+* Configuration changes take effect after the Middleware restarts.
 
 See [CashBox](../technical-operations/middleware/cashbox.md).
 
@@ -71,17 +73,24 @@ The Middleware is the **fiskaltrust service** your POS system uses directly. It 
 
 The Launcher is the bootstrap component of a Middleware instance. On start, it:
 
-1. Downloads the **latest CashBox configuration** from the fiskaltrust.Portal.
-2. Performs the necessary **maintenance**.
+1. Downloads the **latest CashBox configuration**.
+2. Downloads the required **packages** and **updates itself** if a new version is available.
 3. **Starts** the configured components.
 
 | Launcher | Use case |
 |---|---|
 | [Desktop Launchers](../technical-operations/middleware/launchers/desktop.md) | On-premise installation on Windows, Linux and macOS |
 | [Android Launcher](../technical-operations/middleware/launchers/android.md) | On-premise installation on Android |
-| [Container setup (Helm chart)](../technical-operations/middleware/launchers/custom-data-center.md) | Container-based environments such as Kubernetes |
+| [Custom data center (Helm chart)](../technical-operations/middleware/launchers/custom-data-center.md) | Germany: _Bring your own data center_ product, in Kubernetes clusters |
 
 *Table 2. Launcher types.*
+
+:::info Middleware and Launcher versions
+
+* Austria and France continue to use Middleware version 1.2. A unified version for all markets is in development.
+* The desktop Launcher 2.0 is a release candidate. A migration path from Launcher 1.3 is described in the [middleware-launcher repository](https://github.com/fiskaltrust/middleware-launcher).
+
+:::
 
 Wherever legally possible, fiskaltrust also offers a fully cloud-based, hosted Middleware. See [CloudCashbox](../technical-operations/middleware/launchers/cloudcashbox.md).
 
@@ -89,7 +98,7 @@ Wherever legally possible, fiskaltrust also offers a fully cloud-based, hosted M
 
 The Queue is the **central component** of your fiskaltrust setup. It:
 
-* Provides the **communication interface** (for example REST) for your POS system.
+* Provides the **communication interface** (gRPC, REST or SOAP) for your POS system.
 * Manages the **receipt datastore**.
 * Handles the signing requests from your POS system.
 
@@ -105,4 +114,4 @@ Depending on your market's regulations, the SCU may require an additional [SSCD]
 
 ### Helpers
 
-Depending on the use case, you can configure helper components in addition to Queues and SCUs. The **Helipad** helper is deployed by default and handles the Middleware's communication with the fiskaltrust.Portal. See [Helper](../technical-operations/middleware/helper.md).
+Depending on the use case, you can configure helper components in addition to Queues and SCUs. The **Helipad** helper is deployed by default and uploads the Middleware's Queue and SCU data to fiskaltrust. See [Helper](../technical-operations/middleware/helper.md).
