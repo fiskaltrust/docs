@@ -20,12 +20,12 @@ The fiskaltrust.Portal is the central **management dashboard** for your fiskaltr
 
 | Task | Portal area |
 |---|---|
-| [Account Management](#account-management) | _Company info_ and the user menu (top right) |
-| [Operator Management](#operator-management) | _PosDealer_ |
+| [Account Management](#account-management) | `Company info` and the user menu (top right) |
+| [Operator Management](#operator-management) | `PosDealer` |
 | [Surrogating](#surrogating) | Switching into a PosOperator account |
-| [Data Management](#data-management) | _Tools_ > _Exports_ |
-| [CashBox Maintenance](#cashbox-maintenance) | _Configuration_ |
-| [Shop](#shop) | Add-on products and rollout plans |
+| [Data Management](#data-management) | `Tools` / `Exports` |
+| [CashBox Maintenance](#cashbox-maintenance) | `Configuration` |
+| [Shop](#shop) | `Shop` |
 
 *Table 1. Tasks in the fiskaltrust.Portal.*
 
@@ -37,10 +37,10 @@ The fiskaltrust.Portal is the central **management dashboard** for your fiskaltr
 
 ## Account Management
 
-In _Company info_:
+In `Company info`:
 
 1. In `Overview`, select the applicable **roles** and sign the **contractual agreements** for your company. See [Company Roles](../getting-started/company-roles.md).
-2. In `master data`, check the data for completeness and the business data for validity.
+2. In `Master data`, check the data for completeness and the business data for validity.
 3. In `Outlets`, add your company's **outlets** and their configurations.
 4. In `Employees`, create accounts for your **employees** and manage their permissions.
 
@@ -48,7 +48,7 @@ Open the user menu at the top right to manage your user data: `Edit profile` (**
 
 ## Operator Management
 
-In the _PosDealer_ menu, you **invite** your customers to fiskaltrust (`Invitation`) and manage their accounts (`PosOperators`). Once a PosOperator accepts your invitation and signs a **contract** for the PosOperator role, their **account is associated** with yours, which enables [surrogating](#surrogating).
+In the `PosDealer` menu, you **invite** your customers to fiskaltrust (`Invitation`) and manage their accounts (`PosOperators`). Once a PosOperator accepts your invitation and signs a **contract** for the PosOperator role, their **account is associated** with yours, which enables [surrogating](#surrogating).
 
 See [Invitation process](../getting-started/operator-onboarding/invitation-process.md).
 
@@ -64,11 +64,11 @@ Surrogating is an essential feature for PosDealers to establish and expand their
 
 ## Data Management
 
-In `Tools` > `Exports`, you **export your data** by export type and by a range of receipt dates or numbers. As export target, select for example Azure Storage or **DATEV MeinFiskal**. Availability depends on the country. See [Exports](../technical-operations/maintenance/exports.md).
+In `Tools` / `Exports`, you **export your data** by export type and by a range of receipt dates or numbers. As `Export target`, select for example `Azure Storage` or `DATEV MeinFiskal`. Availability depends on the country. See [Exports](../technical-operations/maintenance/exports.md).
 
 ## CashBox Maintenance
 
-The _Configuration_ menu is the starting point for every CashBox. It contains `CashBoxes`, `Queues`, `Helpers`, `Signature creation unit`, `Template` and `Update Configuration`.
+The `Configuration` menu is the starting point for every CashBox. It contains `CashBoxes`, `Queues`, `Helpers`, `Signature creation unit`, `Template` and `Update Configuration`.
 
 1. Create and configure the **CashBox components** (Queue, SCU, and Helpers if needed).
 2. **Assemble** the components into a CashBox in `CashBoxes`.
@@ -80,4 +80,4 @@ See [Manual Configuration](../technical-operations/middleware/manual-configurati
 
 ## Shop
 
-The shop gives access to all fiskaltrust **add-on products and services**, for example product bundles, hardware solutions and archives. Purchase items individually or as part of pre-configured **rollout plans**. See [Shop](../buy-resell/shop.md) and [Rollout Plans](../buy-resell/rollout-plans.md).
+The `Shop` menu gives access to all fiskaltrust **add-on products and services**, for example product bundles, hardware solutions and archives. Purchase items individually or as part of pre-configured **rollout plans**. See [Shop](../buy-resell/shop.md) and [Rollout Plans](../buy-resell/rollout-plans.md).

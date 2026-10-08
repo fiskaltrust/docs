@@ -8,7 +8,7 @@ tags: [PosDealers, Austria, France, Germany, Data Protection]
 
 :::info summary
 
-After reading this, you can explain in which countries _fiskaltrust_ operates.
+After reading this, you can explain in which countries fiskaltrust operates.
 
 :::
 

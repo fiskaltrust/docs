@@ -6,7 +6,7 @@ tags: [PosDealers, Onboarding, Portal]
 ---
 # Introduction
 
-This documentation is for cash register dealers (_PosDealers_). It covers the fiskaltrust-recommended steps to purchase, resell, roll out and support fiskaltrust products at your customers (_PosOperators_).
+This documentation is for cash register dealers (**PosDealers**). It covers the fiskaltrust-recommended steps to purchase, resell, roll out and support fiskaltrust products at your customers (**PosOperators**).
 
 For the terms used throughout, see [Terminology](../poscreators/middleware-doc/general/terminology/terminology.md).
 

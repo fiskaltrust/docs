@@ -16,7 +16,7 @@ After reading this, you can explain the basic architecture of the fiskaltrust.Mi
 A fiskaltrust setup consists of three tiers:
 
 1. **Your POS system**
-2. **fiskaltrust.Middleware**, which runs your _CashBox_ and provides the service
+2. **fiskaltrust.Middleware**, which runs your **CashBox** and provides the service
 3. **fiskaltrust.Portal**, which manages your setup
 
 ![Overview of three tiers interaction](./images/arch.png "Overview of three tiers interaction")
@@ -45,7 +45,7 @@ The fiskaltrust.Middleware is the autonomous service that provides the **core fi
 The fiskaltrust.Portal is the central **management hub**. In it, you:
 
 * Control your fiskaltrust account and, subject to their authorization, the accounts of your associated PosOperators.
-* Set up and update your Middleware instances (_CashBoxes_).
+* Set up and update your Middleware instances (**CashBoxes**).
 
 The **Middleware** fetches the CashBox configuration you set in the Portal and uploads its receipt chain to fiskaltrust.
 
@@ -67,7 +67,7 @@ See [CashBox](../technical-operations/middleware/cashbox.md).
 
 ## Middleware
 
-The Middleware is the **fiskaltrust service** your POS system uses directly. It is modular: you combine components in a Middleware instance (_CashBox_) to fit your setup and requirements.
+The Middleware is the **fiskaltrust service** your POS system uses directly. It is modular: you combine components in a Middleware instance (**CashBox**) to fit your setup and requirements.
 
 ### Launcher
 
@@ -81,7 +81,7 @@ The Launcher is the bootstrap component of a Middleware instance. On start, it:
 |---|---|
 | [Desktop Launchers](../technical-operations/middleware/launchers/desktop.md) | On-premise installation on Windows, Linux and macOS |
 | [Android Launcher](../technical-operations/middleware/launchers/android.md) | On-premise installation on Android |
-| [Custom data center (Helm chart)](../technical-operations/middleware/launchers/custom-data-center.md) | Germany: _Bring your own data center_ product, in Kubernetes clusters |
+| [Custom data center (Helm chart)](../technical-operations/middleware/launchers/custom-data-center.md) | Germany: **Bring your own data center** product, in Kubernetes clusters |
 
 *Table 2. Launcher types.*
 
@@ -104,7 +104,7 @@ The Queue is the **central component** of your fiskaltrust setup. It:
 
 ### SCU
 
-The _Signature Creation Unit_ (SCU) supports the Queue. It provides the Queue with the **legally compliant receipt signature** required by national regulations.
+The **Signature Creation Unit** (SCU) supports the Queue. It provides the Queue with the **legally compliant receipt signature** required by national regulations.
 
 :::info
 

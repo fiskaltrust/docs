@@ -8,7 +8,7 @@ tags: [Services, Middleware, Portal, Signature, PosDealers]
 
 :::info summary
 
-After reading this, you can explain what kind of products _fiskaltrust_ offers.
+After reading this, you can explain what kind of products fiskaltrust offers.
 
 :::
 
@@ -55,7 +55,7 @@ The fiskaltrust.Portal is the web-based management tool for the entire fiskaltru
 
 ## Revision-Safe Receipt Archive
 
-The _archive service_ is an optional, chargeable add-on that enables archive functions in your Middleware instance.
+The **archive service** is an optional, chargeable add-on that enables archive functions in your Middleware instance.
 
 * After you activate the archive service, the Middleware saves new receipts in the archive, which persists them in a **secure, tamper-proof receipt chain**.
 * You can **retrieve and export** the receipt chain via the fiskaltrust.Portal at any time, for example for a tax audit.
@@ -65,7 +65,7 @@ See [Revision-safe archiving](../buy-resell/products/revision-safe-archiving.md)
 
 ### Exports & third-party Interfaces
 
-With an active archive service, you can export your data in the fiskaltrust.Portal in the **formats** required by the applicable national regulations. In `Tools` > `Exports`, you select the export type, the range by receipt date or number, and the export target, for example Azure Storage or DATEV MeinFiskal. See [Exports](../technical-operations/maintenance/exports.md).
+With an active archive service, you can export your data in the fiskaltrust.Portal in the **formats** required by the applicable national regulations. In `Tools` / `Exports`, you select the export type, the range by receipt date or number, and the `Export target`, for example `Azure Storage` or `DATEV MeinFiskal`. See [Exports](../technical-operations/maintenance/exports.md).
 
 The fiskaltrust.Portal also connects to third-party services, for example DATEV MeinFiskal or FinanzOnline management (Austria only). Availability depends on the country, and some services require an additional subscription. See [Third party integrations](../buy-resell/products/3rd-party/3rd-party-overview.md).
 
