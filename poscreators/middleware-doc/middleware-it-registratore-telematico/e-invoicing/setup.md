@@ -39,7 +39,7 @@ Validate the end-to-end flow against a sandbox-scoped fiskaltrust.Middleware —
 
 1. Provision a **sandbox fiskaltrust.Middleware** in the fiskaltrust.Portal — this yields the `x-cashbox-id` and `x-cashbox-accesstoken` used on every request. See [Portal registration](../../../getting-started/portal-registration.md).
 2. Confirm your integration against the [Integration checklist](../../../getting-started/integration-checklist.md).
-3. Run one invoice through the full flow below: `/sign` (generation) → `/issue` (transmission to SDI) → poll until **cleared by SDI**.
+3. Run one invoice through the full flow below: `/sign` (generation) → `/issue` (transmission to SDI) → check the delivery status.
 
 :::note The FatturaPA is returned unsigned
 The FatturaPA XML is returned unsigned by `/sign`. `POST /issue` sends it to the fiskaltrust SDI service, which transmits it to SDI and completes the transmission data (`DatiTrasmissione`, the file name). See [Transmission data](./fatturapa-mapping.md#transmission-data).
@@ -58,7 +58,7 @@ x-operation-id: <fresh UUID per operation>
 
 **Step 1 — Sign (`/sign`)** — generates the FatturaPA
 
-Call `/sign` as you do today, with the buyer's master data, using the **B2B invoice** receipt case. The response carries the fiscalized receipt and, in the `einvoice-fattura-pa` signature, the FatturaPA XML. See [FatturaPA mapping](./fatturapa-mapping.md) for how each field is mapped and which validation rules apply.
+Call `/sign` as you do today, with the buyer's master data, using the **B2B invoice** receipt case. You do not send an invoice number: the fiskaltrust eInvoicing service assigns it from the merchant's progressive series (see [Invoice numbers](./fatturapa-mapping.md#invoice-numbers)). The response carries the fiscalized receipt and, in the `einvoice-fattura-pa` signature, the FatturaPA XML. See [FatturaPA mapping](./fatturapa-mapping.md) for how each field is mapped and which validation rules apply.
 
 ```json
 // POST https://possystem-api-sandbox.fiskaltrust.eu/v2/sign
@@ -105,9 +105,15 @@ To transmit the FatturaPA generated in Step 1 to SDI, call `/issue` with the **o
 
 In addition to SDI, deliver the document with `PUT /issue/{queueId}/{queueItemId}`, choosing a delivery method: `IssueUpdateSend` (email/SMS), `IssueUpdatePrint`, `IssueUpdateDownload`, `IssueUpdateUpload`, or `IssueUpdateLink`.
 
-**Step 4 — Check clearance status**
+**Step 4 — Check the delivery status**
 
-Poll `GET /issue/{queueId}/{queueItemId}` for the status until it reports **cleared by SDI**. There is **no callback or webhook**.
+Check whether the document was delivered with `GET /issue/{queueId}/{queueItemId}/delivered`: it returns `200` when the document was delivered and `204` while it is still pending. To wait for the delivery instead of polling, call `GET /BlockIssueRequest/{queueId}/{queueItemId}/WhileDelivered`. There is **no callback or webhook**.
+
+`GET /issue/{queueId}/{queueItemId}` without `/delivered` is not a status call: it returns the issued document itself, in the format requested with the `Accept` header.
+
+:::note SDI outcome
+The SDI outcome of a transmission (for example the *ricevuta di consegna* or a *notifica di scarto*) is currently not returned by the POS System API. In the sandbox, `/delivered` stays at `204`.
+:::
 
 See the [POS System API reference](https://docs.fiskaltrust.eu/apis/pos-system-api) for the full `/issue` request/response schemas.
 
