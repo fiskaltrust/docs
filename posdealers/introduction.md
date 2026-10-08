@@ -36,7 +36,7 @@ Run all first steps in the Sandbox. Sandbox signatures are for testing only, are
 
 ## Recommended path
 
-1. **Learn the business basics.** Read how fiskaltrust's business model, services, supported countries and the fiskaltrust.Portal work. Start at [Overview - Business Basics](business-basics/overview-business-basics.md).
+1. **Learn the business basics.** Read how fiskaltrust's business model, services, supported countries and the fiskaltrust.Portal work. Start at the Business Basics [Overview](business-basics/overview-business-basics.md).
 2. **Set up the Sandbox.** Register a Sandbox account free of charge and activate the PosDealer role. See [Sandbox](getting-started/sandbox.md) and [Registration](getting-started/registration.md).
 3. **Onboard a PosOperator.** Invite a PosOperator, or act on their behalf by surrogating, and verify their master data. See [Operator Onboarding](getting-started/operator-onboarding/invitation-process.md).
 4. **Create your first CashBox.** Use a Rollout Plan (recommended) or a manual configuration, then run a test request. See [My First Cashbox](getting-started/my-first-cashbox.md).
@@ -47,7 +47,7 @@ Run all first steps in the Sandbox. Sandbox signatures are for testing only, are
 
 | Section | Contents | Start here |
 |---|---|---|
-| **Business Basics** | Business model, company roles, services, supported countries, architecture, fiskaltrust.Portal, Fair Use Policy. | [Overview - Business Basics](business-basics/overview-business-basics.md) |
+| **Business Basics** | Business model, company roles, services, supported countries, architecture, fiskaltrust.Portal, Fair Use Policy. | [Overview](business-basics/overview-business-basics.md) |
 | **Getting Started** | Sandbox, registration, company roles, PosOperator onboarding (invitation, surrogating, master data), first CashBox. | [Overview - Getting Started](getting-started/overview-getting-started.md) |
 | **Buy & Resell** | Entitlements, credit limit, volume purchase agreements, rollout plans, Shop, subscription management, products and bundles. | [Overview - Buy & Resell](buy-resell/overview.md) |
 | **Technical Operations** | Rollout scenarios, Middleware launchers and configuration, PosSystem API platforms, rollout automation, troubleshooting, maintenance and exports. | [Overview - Technical Operations](technical-operations/overview-technical-operations.md) |

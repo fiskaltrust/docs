@@ -1,6 +1,6 @@
 ---
 slug: /posdealers/business-basics/customer-roles
-title: Customer roles at fiskaltrust
+title: Customer roles
 description: Explains the three customer roles fiskaltrust uses — PosCreator, PosDealer and PosOperator — and which content is relevant to each.
 tags: [Roles, PosCreators, PosDealers, PosOperators]
 ---
