@@ -19,9 +19,9 @@ A fiskaltrust setup consists of three tiers:
 2. **fiskaltrust.Middleware**, which runs your **CashBox** and provides the service
 3. **fiskaltrust.Portal**, which manages your setup
 
-![Overview of three tiers interaction](./images/arch.png "Overview of three tiers interaction")
+![Diagram: the POS system connects to the fiskaltrust.Middleware via the IPOS interface; the Middleware runs Queue, SCU and optional Helpers and connects to the fiskaltrust.Portal](./images/architecture.svg)
 
-*Figure 1. Overview of the interaction between the three tiers of a fiskaltrust setup.*
+*Figure 1. The three tiers of a fiskaltrust setup: POS system, fiskaltrust.Middleware and fiskaltrust.Portal.*
 
 The fiskaltrust.Middleware is the autonomous service that provides the **core fiscalization functionality**:
 
