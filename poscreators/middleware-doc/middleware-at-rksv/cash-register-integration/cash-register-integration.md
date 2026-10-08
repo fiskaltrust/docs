@@ -112,7 +112,7 @@ If a cryptographic signature is required by §131b para. 2 BAO the signature blo
 
 ## Data Collection Log
 
-The RKSV defines the following logging features as obligatory for cash registers. The corresponding journal call is described in [RKSV-DEP Export](../function-structures/function-structures.md#rksv-dep-export); the records must be retained for seven years (§132 BAO), and how the PosOperator creates those exports in case of an audit is described in [Exports](../../../../posdealers/technical-operations/maintenance/exports.md) and [Revision-safe archiving](../../../../posdealers/buy-resell/products/revision-safe-archiving.md).
+The RKSV defines the following logging features as obligatory for cash registers. The records must be retained for seven years (§132 BAO). How the PosOperator creates those exports in case of an audit is described in [Exports](../../../../posdealers/technical-operations/maintenance/exports.md) and [Revision-safe archiving](../../../../posdealers/buy-resell/products/revision-safe-archiving.md).
 
 ### Data Collection Log according to RKSV (DEP 7)
 
