@@ -13,7 +13,7 @@ The FatturaPA is **generated as part of `/sign`** by the fiskaltrust eInvoicing 
 
 The fiskaltrust.Middleware calls the service twice for every receipt you send to `/sign`:
 
-1. **Validate — before fiscalization.** The service receives the `ReceiptRequest`, decides whether the receipt gets a FatturaPA, and checks it against the [validation rules](#validation-rules). A receipt that breaks a rule is **rejected and not fiscalized**: the response carries an error state and a signature naming the reason. Correct the receipt and send it again.
+1. **Validate — before fiscalization.** The service receives the `ReceiptRequest`, decides whether the receipt gets a FatturaPA, and checks it against the [validation rules](#validation-rules). A receipt that breaks a rule is **rejected and not fiscalized**: the response carries an error state and an `einvoicing-rejected` signature listing every broken rule, separated by `; `. Correct the receipt and send it again.
 2. **Process — after fiscalization.** The service receives the `ReceiptRequest` and the fiscalized `ReceiptResponse`, runs the same rules again, builds the FatturaPA XML, checks the built document against the FatturaPA rules, and appends the result to `ftSignatures` (see [Output](#output)).
 
 Everything that can be decided from the request and the merchant's account is checked in the validate step, so a receipt is rejected before a fiscal record exists.
@@ -55,6 +55,7 @@ A TD04 carries **positive** amounts: the sign is expressed by the document type.
 | `cbCustomer` | The buyer (`CessionarioCommittente`). It is sent as a JSON object; the fields are described in [Customer data `cbCustomer`](../data-structures/data-structures.md#customer-data-cbcustomer). |
 | `cbChargeItems` | The invoice lines and the VAT summary. |
 | `cbPayItems` | `DatiPagamento`. |
+| `ftReceiptCaseData` | The invoice number (`Numero`), sent as `{"IT":{"einvoicing":{"numero":"…"}}}`. See [Invoice numbers](#invoice-numbers). |
 | `cbPreviousReceiptReference` | `DatiFattureCollegate` of a TD04. |
 | The fiscalized `ReceiptResponse` | The document date (`ftReceiptMoment`). |
 
@@ -146,14 +147,22 @@ How SDI delivers the invoice to the buyer is sent in `cbCustomer` as **`Customer
 | `TipoDocumento` | `TD04` for a refund receipt, `TD01` for any other. See [Document types](#document-types). |
 | `Divisa` | `EUR` |
 | `Data` | Date part of `ftReceiptMoment` of the `ReceiptResponse`. |
-| `Numero` | The invoice number from the merchant's own progressive series. |
+| `Numero` | `ftReceiptCaseData` `IT.einvoicing.numero`: the invoice number from the merchant's own progressive series. |
 | `ImportoTotaleDocumento` | Sum of `ImponibileImporto` + `Imposta` over all `DatiRiepilogo` blocks. |
 
 *Table 9. Mapping of `DatiGeneraliDocumento`.*
 
 #### Invoice numbers
 
-An invoice number must not have been issued already for the same merchant and year (SdI 00404). Credit notes (TD04) have a number space of their own. If another receipt with the same number is processed at the same moment and registers it first, the process step of the second one fails with an `einvoice-error` naming SdI 00404, and no FatturaPA is returned for it. The fiskaltrust `ftReceiptIdentification` is not used as the number: it is a receipt counter, not a per-year series, and it collides across the cashboxes of one merchant.
+The invoice number is sent with every invoice receipt in `ftReceiptCaseData`:
+
+```json
+"ftReceiptCaseData": { "IT": { "einvoicing": { "numero": "1/2026" } } }
+```
+
+It comes from the merchant's own progressive series, which nothing else in the receipt or the account holds, so a receipt without it is rejected (see [Invoice number](#invoice-number)).
+
+An invoice number must not have been issued already for the same merchant and year (SdI 00404); a number already used for a document rendered by this service is rejected in the validate step. Credit notes (TD04) have a number space of their own. If another receipt with the same number is processed at the same moment and registers it first, the process step of the second one fails with an `einvoice-error` naming SdI 00404, and no FatturaPA is returned for it. The fiskaltrust `ftReceiptIdentification` is not used as the number: it is a receipt counter, not a per-year series, and it collides across the cashboxes of one merchant.
 
 ### Body — `DatiFattureCollegate`
 
@@ -392,6 +401,15 @@ These rules apply to the merchant's AdE connection. The same rules are applied w
 | A linked invoice is not dated after the TD04 (SdI 00418). | `The linked document … is dated …, after this document (…); a document cannot refer to a later one (SdI control 00418).` |
 
 *Table 21. Validation rules for linked invoices.*
+
+### Invoice number
+
+| Rule | Message |
+| --- | --- |
+| The invoice number is sent. | `ftReceiptCaseData must carry the invoice number as {"IT":{"einvoicing":{"numero":"..."}}}: it comes from the cedente's own progressive series, which nothing else in the receipt or the account holds.` |
+| The number was not used yet for the same seller and year (SdI 00404). | `einvoicing.numero '…' is already the number of the … of … rendered from receipt '…'; SdI rejects a second document with the same cedente, year and number (control 00404).` |
+
+*Table 22. Validation rules for the invoice number.*
 
 :::info Latin-1 only, without control characters
 FatturaPA and SdI accept Latin-1 text only. Any character outside Latin-1 (above `U+00FF`) — for example emoji, or characters of non-Latin scripts — in a name, address or description rejects the receipt. So does a control character (below `U+0020`, for example a tab or a line break).
