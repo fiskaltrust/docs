@@ -63,7 +63,8 @@ The following rules apply:
 
 - The property name `cbChargeItemLines` is case-sensitive, and its value must be an array of strings. If `ftChargeItemCaseData` is not valid JSON or the property has another type, the receipt shows no sublines.
 - On 80 mm receipts, the sublines are printed in a smaller font than the description.
-- Charge items with the same `Description`, unit price and `ftChargeItemCase` can be accumulated into one line for visualization, see [ChargeItem](../data-structures/data-structures.md#chargeitem). The accumulated line shows the sublines of the charge item with the lowest `Position` only. To keep different sublines, for example different serial numbers, the charge items must differ in one of these values.
+- Charge items can be accumulated into one line for visualization, see [ChargeItem](../data-structures/data-structures.md#chargeitem). The accumulated line shows the sublines of the charge item with the lowest `Position` only. To keep different sublines, for example different serial numbers, send charge items that are not accumulated, for example with different descriptions.
+- The ESC/POS output of the POS System API does not print `cbChargeItemLines`.
 - Do not use line breaks in `Description` to create additional lines. Depending on the output, a line break is ignored or breaks the column layout of the receipt.
 
 ## Lines for the whole receipt
@@ -104,11 +105,10 @@ The lines are printed in a separate block after the payments.
 
 ## Market-specific considerations
 
-The fields on this page are the interface default. How a market renders them depends on the national receipt format and on the fiscal device or service that prints the receipt:
+The fields on this page are the interface default. Markets restrict them or add options, depending on the national receipt format and on the fiscal device or service that prints the receipt. Before implementing, consult the market pages:
 
-- **Italy:** receipts are printed by the RT printer or RT server. `cbChargeItemLines` is not printed; text lines between the charge items are created with charge items without amount. See [Additional lines on the RT receipt](../../middleware-it-registratore-telematico/data-structures/data-structures.md#additional-lines-on-the-rt-receipt).
-- **Portugal:** the lines must not replace or imitate a mandatory element of the certified document. The Middleware adds the VAT exemption reason as a subline automatically. See [Receipt options, configuration, and extension points](../../middleware-pt/certification/certification.md#receipt-options-configuration-and-extension-points).
-- **ESC/POS output** of the POS System API does not print `cbChargeItemLines`.
+- Italy: [Additional lines on the RT receipt](../../middleware-it-registratore-telematico/data-structures/data-structures.md#additional-lines-on-the-rt-receipt)
+- Portugal: [Receipt options, configuration, and extension points](../../middleware-pt/certification/certification.md#receipt-options-configuration-and-extension-points)
 
 ## Related pages
 
