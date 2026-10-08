@@ -15,7 +15,7 @@ After reading this, you can explain fiskaltrust's business basics.
 
 ## Introduction
 
-fiskaltrust provides a solution for the checkout and receipt processes of POS Systems. As a PosDealer, you use it to offer your customers (PosOperators) Compliance-as-a-Service and add-on products.
+fiskaltrust provides a solution for the checkout and receipt processes of POS systems. As a PosDealer, you use it to offer your customers (PosOperators) Compliance-as-a-Service and add-on products.
 
 The **Business Basics** section covers the following topics:
 

@@ -14,7 +14,7 @@ After reading this, you can explain how fiskaltrust's partner-based business mod
 
 ## Introduction
 
-fiskaltrust is a software company that develops Compliance-as-a-Service and add-on products for cash registers (_POS Systems_) in Europe. The core product is the fiskaltrust.Middleware. Cash register manufacturers (_PosCreators_) integrate the Middleware directly to make their POS Systems compliant with local fiscalization laws.
+fiskaltrust is a software company that develops Compliance-as-a-Service and add-on products for cash registers (_POS systems_) in Europe. The core product is the fiskaltrust.Middleware. Cash register manufacturers (_PosCreators_) integrate the Middleware directly to make their POS systems compliant with local fiscalization laws.
 
 fiskaltrust distributes its _products_ and _product bundles_ in partnership with cash register dealers (_PosDealers_). Through their existing sales structures in each country, PosDealers offer a product portfolio tailored to the needs of each of their customers (cash register operators or _PosOperators_).
 
@@ -37,7 +37,7 @@ In this model:
 | **Fiscalization from a single source** | fiskaltrust is an all-in-one fiscalization partner and your single point of contact for legally compliant fiscalization. |
 | **Compliance-as-a-Service** | fiskaltrust keeps fiscalization up to date and legally compliant in the background, also when legal requirements change. You and your PosOperators can focus on your core business. |
 | **Product bundles** | Market-specific bundles contain all products required for legally compliant fiscalization and follow a service model. Standalone products are available wherever possible. |
-| **Flexibility** | You can configure the products to fit existing infrastructure and POS Systems. PosCreators can configure Middleware packages for anything from standalone POS Systems to highly interconnected cloud systems. |
+| **Flexibility** | You can configure the products to fit existing infrastructure and POS systems. PosCreators can configure Middleware packages for anything from standalone POS systems to highly interconnected cloud systems. |
 
 *Table 1. Product advantages for PosDealers.*
 

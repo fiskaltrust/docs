@@ -14,7 +14,7 @@ After reading this, you can explain in which countries _fiskaltrust_ operates.
 
 ## Introduction
 
-fiskaltrust is an IT service provider that supports PosCreators and PosDealers in fiscalizing POS Systems in compliance with tax regulations. fiskaltrust serves more than 25,000 companies in several countries.
+fiskaltrust is an IT service provider that supports PosCreators and PosDealers in fiscalizing POS systems in compliance with tax regulations. fiskaltrust serves more than 25,000 companies in several countries.
 
 * **PosCreators** get a license-free interface for a simple, legally compliant cash register connection.
 * **PosDealers** get additional functions to automate and optimize fiscalization.

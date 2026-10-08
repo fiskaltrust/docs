@@ -12,7 +12,7 @@ For the terms used throughout, see [Terminology](../poscreators/middleware-doc/g
 
 ## Prerequisites
 
-Before you roll out a POS System at a PosOperator, make sure the following is in place:
+Before you roll out a POS system at a PosOperator, make sure the following is in place:
 
 | Requirement | Details | Reference |
 |---|---|---|

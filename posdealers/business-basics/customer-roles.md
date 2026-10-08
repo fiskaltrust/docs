@@ -22,7 +22,7 @@ In this documentation and in its other material, fiskaltrust assigns products, f
 |---|---|---|
 | [PosCreator](#poscreator) | Manufacturers of POS software and, in some cases, hardware | Integrates the fiskaltrust.Middleware; development partnership |
 | [PosDealer](#posdealer) | Independent distributors and system integrators | Resells and rolls out fiskaltrust products; supported by fiskaltrust |
-| [PosOperator](#posoperator) | Businesses that operate the POS System | Supported by their PosDealer, not by fiskaltrust directly |
+| [PosOperator](#posoperator) | Businesses that operate the POS system | Supported by their PosDealer, not by fiskaltrust directly |
 
 *Table 1. Overview of the customer roles.*
 
@@ -30,7 +30,7 @@ For the company roles you activate in the fiskaltrust.Portal, see [Company Roles
 
 ## PosCreator
 
-_PosCreators develop software, and in some cases hardware, for POS Systems or cash registers._
+_PosCreators develop software, and in some cases hardware, for POS systems or cash registers._
 
 * PosCreators integrate the fiskaltrust.Middleware into their software via the IPOS interface and have a high level of technical expertise.
 * They usually distribute their products via PosDealers. A PosCreator that distributes its products itself holds both roles: PosCreator _and_ PosDealer.
@@ -43,14 +43,14 @@ fiskaltrust focuses on documentation, integration support and products for this 
 _PosDealers are independent distributors who sell POS hardware and software to PosOperators._
 
 * PosDealers are often _system integrators_ who combine POS hardware, software and operational services into the products they offer.
-* They resell POS Systems from multiple PosCreators and support their customers in using them. Their expertise lies in sales, project management and customer service.
+* They resell POS systems from multiple PosCreators and support their customers in using them. Their expertise lies in sales, project management and customer service.
 * They can add fiskaltrust add-on products, for example the carefree package, to their software bundles.
 
 fiskaltrust focuses on simplifying rollouts for this group by providing services, tools, documentation and APIs.
 
 ## PosOperator
 
-_PosOperators are the end users of POS Systems: the businesses and persons who operate the POS System in shops, restaurants or hotels._
+_PosOperators are the end users of POS systems: the businesses and persons who operate the POS system in shops, restaurants or hotels._
 
 * PosOperators usually have no direct relationship with fiskaltrust. Their contact for sales and support is the PosDealer.
 * The fiskaltrust.Middleware runs in the background, integrated into the POS software.

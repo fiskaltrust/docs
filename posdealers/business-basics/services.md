@@ -14,7 +14,7 @@ After reading this, you can explain what kind of products _fiskaltrust_ offers.
 
 ## Introduction
 
-fiskaltrust offers an end-to-end solution that makes your POS System issue receipts in a legally and fiscally compliant way. The portfolio is a stack of software and services for **fiscal compliance** with a **unified approach** across countries and markets.
+fiskaltrust offers an end-to-end solution that makes your POS system issue receipts in a legally and fiscally compliant way. The portfolio is a stack of software and services for **fiscal compliance** with a **unified approach** across countries and markets.
 
 | Service | Purpose | Type |
 |---|---|---|
@@ -28,13 +28,13 @@ fiskaltrust offers an end-to-end solution that makes your POS System issue recei
 
 ## Middleware
 
-The fiskaltrust.Middleware is a **multi-platform** software that complements your POS System. It:
+The fiskaltrust.Middleware is a **multi-platform** software that complements your POS system. It:
 
 * **Signs POS receipts** using the signing mechanisms required in each country.
 * **Tracks receipts** in a secure and auditable way.
 * Keeps the related fiskaltrust.Portal information up to date.
 
-The Middleware is available for all supported countries. It provides a **single, standardized communication interface**, which simplifies rollouts in new markets. Your POS System communicates with it through a **REST interface**.
+The Middleware is available for all supported countries. It provides a **single, standardized communication interface**, which simplifies rollouts in new markets. Your POS system communicates with it through a **REST interface**.
 
 | Deployment | Platforms |
 |---|---|
@@ -67,9 +67,9 @@ The fiskaltrust.Portal also integrates third-party services, which replicate dat
 
 ## Hosted Middleware
 
-In some countries, fiskaltrust offers the Middleware as SaaS. Your POS System signs and manages receipts **without installing or maintaining additional software**:
+In some countries, fiskaltrust offers the Middleware as SaaS. Your POS system signs and manages receipts **without installing or maintaining additional software**:
 
-* The POS System connects to the fiskaltrust-hosted Middleware over an encrypted **HTTPS** Internet connection.
+* The POS system connects to the fiskaltrust-hosted Middleware over an encrypted **HTTPS** Internet connection.
 * You manage these setups exclusively in the fiskaltrust.Portal.
 
 See [CloudCashbox](../technical-operations/middleware/launchers/cloudcashbox.md).

@@ -17,7 +17,7 @@ After reading this, you can explain the basic architecture of the fiskaltrust.Mi
 
 A fiskaltrust setup consists of three tiers:
 
-1. **Your POS System**
+1. **Your POS system**
 2. **fiskaltrust.Middleware**, which runs your _CashBox_ and provides the service
 3. **fiskaltrust.Portal**, which manages your setup
 
@@ -27,7 +27,7 @@ A fiskaltrust setup consists of three tiers:
 
 The fiskaltrust.Middleware is the autonomous service that provides the **core fiscalization functionality**:
 
-* Your POS System connects to the Middleware to **sign and persist its receipts**.
+* Your POS system connects to the Middleware to **sign and persist its receipts**.
 * The Middleware connects to the fiskaltrust.Portal to upload its receipt chain and to receive the configuration changes you make in the Portal.
 
 | Component | Purpose |
@@ -67,7 +67,7 @@ See [CashBox](../technical-operations/middleware/cashbox.md).
 
 ## Middleware
 
-The Middleware is the **fiskaltrust service** your POS System uses directly. It is modular: you combine components in a Middleware instance (_CashBox_) to fit your setup and requirements.
+The Middleware is the **fiskaltrust service** your POS system uses directly. It is modular: you combine components in a Middleware instance (_CashBox_) to fit your setup and requirements.
 
 ### Launcher
 
@@ -91,9 +91,9 @@ Wherever legally possible, fiskaltrust also offers a fully cloud-based, hosted M
 
 The Queue is the **central component** of your fiskaltrust setup. It:
 
-* Provides the **communication interface** (for example REST) for your POS System.
+* Provides the **communication interface** (for example REST) for your POS system.
 * Manages the **receipt datastore**.
-* Handles the signing requests from your POS System.
+* Handles the signing requests from your POS system.
 
 ### SCU
 
