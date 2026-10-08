@@ -1,19 +1,19 @@
 ---
 slug: /posdealers/business-basics/legal-data-protection/fair-use-policy
-title: Fair-use-Policy
-description: Usage parameters that apply to fiskaltrust services and products, with the fair use policy per market for Austria, France and Germany.
+title: Fair Use Policy
+description: Usage parameters that apply to fiskaltrust services and products, with the Fair Use Policy per market.
 tags: [Fair Use Policy, Legal, PosDealers, Austria, France, Germany]
 ---
-# Fair-use-Policy
+# Fair Use Policy
 
 :::info summary
 
-After reading this, you can follow the fair-use policies.
+After reading this, you can follow the Fair Use Policy.
 
 :::
 ## Introduction
 
-**Fair use** means that your use of _fiskaltrusts_ services or products is subject to certain usage parameters. We explain these parameters in the Fair Use Policy. Please note, that they may apply differently or be non-existent depending on the country.
+**Fair use** means that your use of fiskaltrust services and products is subject to usage parameters. The Fair Use Policy defines these parameters per country; they may differ or not apply at all depending on the country. Select your country below.
 
 ## Country-specific information
 
