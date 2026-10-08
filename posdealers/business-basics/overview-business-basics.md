@@ -5,7 +5,7 @@ description: Introduction to the PosDealer business basics section — supported
 tags: [PosDealers, Portal, Middleware, Onboarding]
 ---
 
-# Overview - Business Basics
+# Overview
 
 :::info summary
 
@@ -34,7 +34,7 @@ The **Business Basics** section covers the following topics:
 Before you use fiskaltrust at a PosOperator, make sure that:
 
 * A **PosCreator** has integrated the PosSystem in the fiskaltrust.Portal.
-* The **master data** of both the PosDealer and the PosOperator in the fiskaltrust.Portal is complete and matches their registration with the tax authorities. See [Master Data](../getting-started/operator-onboarding/master-data.md).
+* The **Master data** of both the PosDealer and the PosOperator in the fiskaltrust.Portal is complete and matches their registration with the tax authorities. See [Master Data](../getting-started/operator-onboarding/master-data.md).
 
 :::tip
 
