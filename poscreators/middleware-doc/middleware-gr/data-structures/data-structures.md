@@ -45,19 +45,18 @@ A refund, a void or a follow-up document, for example an invoice issued for a de
 }
 ```
 
-The MARKs in `invoiceMark` are added to the MARKs of the receipts referenced in `cbPreviousReceiptReference`, so both can be used in the same request. The Middleware does not look up an external MARK; it is transmitted to myDATA as given. The MARKs are transmitted as `correlatedInvoices` or `multipleConnectedMarks`. The field is selected by the myDATA document type of the new document, not by the type of the referenced document:
+The MARKs in `invoiceMark` are added to the MARKs of the receipts referenced in `cbPreviousReceiptReference`, so both can be used in the same request. The Middleware does not look up an external MARK; it is transmitted to myDATA as given. The MARKs are transmitted as `correlatedInvoices` or `multipleConnectedMarks`. The field is selected by the `IsReturn/IsRefund` flag and the myDATA document type of the new document, not by the type of the referenced document:
 
-| Request | myDATA document type | Field |
-|---------|----------------------|-------|
-| Receipt with the `IsReturn/IsRefund` flag (retail refund) | 11.4 | `multipleConnectedMarks` |
-| Invoice with the `IsReturn/IsRefund` flag | 5.1 with a reference, 5.2 without a reference | `correlatedInvoices` |
-| Order (`0x3004`) with the `IsVoid` flag | 8.6 | `multipleConnectedMarks` |
-| Document of type 1.6 or 2.4 | 1.6, 2.4 | `correlatedInvoices` |
-| Any other document, for example an invoice (1.1) that references a POS receipt (8.4, 8.5), an order (8.6) or a delivery note (9.3) | | `multipleConnectedMarks` |
+| Request | myDATA document type of the new document | Field |
+|---------|------------------------------------------|-------|
+| With the `IsReturn/IsRefund` flag | 11.1 to 11.5, for example a retail refund (11.4) | `multipleConnectedMarks` |
+| With the `IsReturn/IsRefund` flag | Any other type, for example a correlated credit note (5.1) | `correlatedInvoices` |
+| Without the `IsReturn/IsRefund` flag | 1.6, 2.4, 5.1 | `correlatedInvoices` |
+| Without the `IsReturn/IsRefund` flag | Any other type, for example the void of an order (8.6) or an invoice (1.1) that references a POS receipt (8.4, 8.5), an order (8.6) or a delivery note (9.3) | `multipleConnectedMarks` |
 
 *Table 3. myDATA fields for referenced MARKs.*
 
-To transmit a reference as `correlatedInvoices` instead, set `correlatedInvoices` in `ftReceiptCaseData.GR.mydataoverride.invoice.invoiceHeader`.
+An invoice refund without a reference becomes a non-correlated credit note (5.2). To transmit a MARK in the other field, set `correlatedInvoices` or `multipleConnectedMarks` in `ftReceiptCaseData.GR.mydataoverride.invoice.invoiceHeader` and do not reference the document in `cbPreviousReceiptReference` or `invoiceMark`; otherwise the MARK is also transmitted in the field from Table 3.
 
 - An invoice refund becomes a correlated credit note (5.1) as soon as it carries a reference, whether in `cbPreviousReceiptReference`, in `invoiceMark`, or as `correlatedInvoices` or `multipleConnectedMarks` in `ftReceiptCaseData.GR.mydataoverride.invoice.invoiceHeader`.
 - The void of an Order (8.6) requires one of these references and `cbArea` (the table number); otherwise the request is rejected. The `IsVoid` flag is not supported for other document types; use a refund instead.
