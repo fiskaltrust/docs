@@ -58,7 +58,7 @@ x-operation-id: <fresh UUID per operation>
 
 **Step 1 — Sign (`/sign`)** — generates the FatturaPA
 
-Call `/sign` as you do today, with the buyer's master data, using the **B2B invoice** receipt case, and send the **invoice number** in `ftReceiptCaseData` as `{"IT":{"einvoicing":{"numero":"…"}}}`. The number comes from the merchant's own progressive series; a receipt without it is rejected (see [Invoice numbers](./fatturapa-mapping.md#invoice-numbers)). The response carries the fiscalized receipt and, in the `einvoice-fattura-pa` signature, the FatturaPA XML. See [FatturaPA mapping](./fatturapa-mapping.md) for how each field is mapped and which validation rules apply.
+Call `/sign` as you do today, with the buyer's master data, using the **B2B invoice** receipt case. You do not send an invoice number: the fiskaltrust eInvoicing service assigns it from the merchant's progressive series (see [Invoice numbers](./fatturapa-mapping.md#invoice-numbers)). The response carries the fiscalized receipt and, in the `einvoice-fattura-pa` signature, the FatturaPA XML. See [FatturaPA mapping](./fatturapa-mapping.md) for how each field is mapped and which validation rules apply.
 
 ```json
 // POST https://possystem-api-sandbox.fiskaltrust.eu/v2/sign
@@ -81,10 +81,7 @@ Call `/sign` as you do today, with the buyer's master data, using the **B2B invo
   ],
   "cbPayItems": [
     { "Description": "Bank transfer", "Amount": 1220.00, "ftPayItemCase": 35184372088842 }
-  ],
-  "ftReceiptCaseData": {
-    "IT": { "einvoicing": { "numero": "1/2026" } }
-  }
+  ]
 }
 ```
 

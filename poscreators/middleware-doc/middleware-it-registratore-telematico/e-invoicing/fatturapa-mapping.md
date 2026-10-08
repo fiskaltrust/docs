@@ -55,7 +55,6 @@ A TD04 carries **positive** amounts: the sign is expressed by the document type.
 | `cbCustomer` | The buyer (`CessionarioCommittente`). It is sent as a JSON object; the fields are described in [Customer data `cbCustomer`](../data-structures/data-structures.md#customer-data-cbcustomer). |
 | `cbChargeItems` | The invoice lines and the VAT summary. |
 | `cbPayItems` | `DatiPagamento`. |
-| `ftReceiptCaseData` | The invoice number (`Numero`), sent as `{"IT":{"einvoicing":{"numero":"…"}}}`. See [Invoice numbers](#invoice-numbers). |
 | `cbPreviousReceiptReference` | `DatiFattureCollegate` of a TD04. |
 | The fiscalized `ReceiptResponse` | The document date (`ftReceiptMoment`). |
 
@@ -147,22 +146,20 @@ How SDI delivers the invoice to the buyer is sent in `cbCustomer` as **`Customer
 | `TipoDocumento` | `TD04` for a refund receipt, `TD01` for any other. See [Document types](#document-types). |
 | `Divisa` | `EUR` |
 | `Data` | Date part of `ftReceiptMoment` of the `ReceiptResponse`. |
-| `Numero` | `ftReceiptCaseData` `IT.einvoicing.numero`: the invoice number from the merchant's own progressive series. |
+| `Numero` | Assigned by the fiskaltrust eInvoicing service: the next number of the merchant's progressive series. See [Invoice numbers](#invoice-numbers). |
 | `ImportoTotaleDocumento` | Sum of `ImponibileImporto` + `Imposta` over all `DatiRiepilogo` blocks. |
 
 *Table 9. Mapping of `DatiGeneraliDocumento`.*
 
 #### Invoice numbers
 
-The invoice number is sent with every invoice receipt in `ftReceiptCaseData`:
+You do not send an invoice number. The fiskaltrust eInvoicing service assigns it in the process step: the next number of the merchant's progressive series — `1`, `2`, `3` … — per merchant and year. All cashboxes of the merchant share the series, and credit notes (TD04) have a series of their own. A retried receipt keeps the number it was given, so no number is issued twice (SdI 00404).
 
-```json
-"ftReceiptCaseData": { "IT": { "einvoicing": { "numero": "1/2026" } } }
-```
+The number is in the returned FatturaPA (`DatiGeneraliDocumento/Numero`). It is not known in the validate step, which runs before the receipt is fiscalized.
 
-It comes from the merchant's own progressive series, which nothing else in the receipt or the account holds, so a receipt without it is rejected (see [Invoice number](#invoice-number)).
+If the merchant also issues invoices from another system, those must use a separate series: the fiskaltrust eInvoicing service does not know about them.
 
-An invoice number must not have been issued already for the same merchant and year (SdI 00404); a number already used for a document rendered by this service is rejected in the validate step. Credit notes (TD04) have a number space of their own. If another receipt with the same number is processed at the same moment and registers it first, the process step of the second one fails with an `einvoice-error` naming SdI 00404, and no FatturaPA is returned for it. The fiskaltrust `ftReceiptIdentification` is not used as the number: it is a receipt counter, not a per-year series, and it collides across the cashboxes of one merchant.
+The fiskaltrust `ftReceiptIdentification` is not used as the number: it is a receipt counter, not a per-year series, and it collides across the cashboxes of one merchant.
 
 ### Body — `DatiFattureCollegate`
 
@@ -401,15 +398,6 @@ These rules apply to the merchant's AdE connection. The same rules are applied w
 | A linked invoice is not dated after the TD04 (SdI 00418). | `The linked document … is dated …, after this document (…); a document cannot refer to a later one (SdI control 00418).` |
 
 *Table 21. Validation rules for linked invoices.*
-
-### Invoice number
-
-| Rule | Message |
-| --- | --- |
-| The invoice number is sent. | `ftReceiptCaseData must carry the invoice number as {"IT":{"einvoicing":{"numero":"..."}}}: it comes from the cedente's own progressive series, which nothing else in the receipt or the account holds.` |
-| The number was not used yet for the same seller and year (SdI 00404). | `einvoicing.numero '…' is already the number of the … of … rendered from receipt '…'; SdI rejects a second document with the same cedente, year and number (control 00404).` |
-
-*Table 22. Validation rules for the invoice number.*
 
 :::info Latin-1 only, without control characters
 FatturaPA and SdI accept Latin-1 text only. Any character outside Latin-1 (above `U+00FF`) — for example emoji, or characters of non-Latin scripts — in a name, address or description rejects the receipt. So does a control character (below `U+0020`, for example a tab or a line break).
