@@ -29,6 +29,7 @@ https?://fiskaltrust\.../
 https?://github\.com/fiskaltrust/service-docs-ui.*
 https://www\.freeformatter\.com/json-escape\.html
 https://www\.bundesfinanzministerium\.de/Content/DE/Downloads/BMF_Schreiben/Weitere_Steuerthemen/Abgabenordnung/AO-Anwendungserlass/2023-06-30-AEAO-Par-146-AO\.pdf\?__blob=publicationFile&v=1
+^https://www\.bundesfinanzministerium\.de/Content/DE/Downloads/Steuern/FAQ-Ausfuellanleitung\.pdf\?__blob=publicationFile&v=2$
 
 https?://www\.fiskaltrust\.at/rechtsgrundlagen.*
 https?://www\.fiskaltrust\.at/products/.*
