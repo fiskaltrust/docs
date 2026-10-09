@@ -37,12 +37,22 @@ The fiskaltrust.Portal is the central **management dashboard** for your fiskaltr
 
 ## Account Management
 
-In `Company info`:
+### Company Info
 
-1. In `Overview`, select the applicable **roles** and sign the **contractual agreements** for your company. For more information, see [Company Roles](../getting-started/company-roles.md).
-2. In `Master data`, check the data for completeness and the business data for validity.
-3. In `Outlets`, add your company's **outlets** and their configurations.
-4. In `Employees`, create accounts for your **employees** and manage their permissions.
+The `Company info` menu contains your company's settings.
+
+| Menu item | Use |
+|---|---|
+| `Overview` | Select the applicable **roles** and sign the **contractual agreements** for your company. For more information, see [Company Roles](../getting-started/company-roles.md). |
+| `Master data` | Check the data for completeness and the business data for validity. |
+| `Account settings` | Show or hide the receipt check on the Queue configuration page. The receipt check displays potential issues in a Queue. |
+| `Sales areas` | Select your company's sales areas, including their sub-areas. |
+| `Employees` | Create accounts for your **employees** and manage their permissions. |
+| `Payment methods` | View your payment methods and your `Credit Limit`. |
+| `Outlets` | Add your company's **outlets** and their configurations. |
+| `Agencies` | Create and edit agencies with their name, address and tax identification numbers. |
+
+*Table 2. Menu items in `Company info`.*
 
 ### User Menu
 
