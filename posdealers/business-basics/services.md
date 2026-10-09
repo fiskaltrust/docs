@@ -8,47 +8,75 @@ tags: [Services, Middleware, Portal, Signature, PosDealers]
 
 :::info summary
 
-After reading this, you can explain what kind of products _fiskaltrust_ offers.
+After reading this, you can explain what kind of products fiskaltrust offers.
 
 :::
 
+fiskaltrust offers an end-to-end solution that makes your POS system issue receipts in a legally and fiscally compliant way. The portfolio is a stack of software and services for **fiscal compliance** with a **unified approach** across countries and markets.
 
+| Service | Purpose | Type |
+|---|---|---|
+| [Middleware](#middleware) | Signs and tracks receipts | Core component |
+| [Portal](#portal) | Manages the service | Core component |
+| [Revision-Safe Receipt Archive](#revision-safe-receipt-archive) | Stores receipts tamper-proof; enables exports and third-party interfaces | Optional, chargeable add-on |
+| [Hosted Middleware](#hosted-middleware) | Runs the Middleware as [SaaS](https://en.wikipedia.org/wiki/Software_as_a_service) | Available in some countries |
+| [Signing](#signing) | Provides the receipt signature required by national regulations | Subscription, where applicable |
 
-## Introduction
-
-*fiskaltrust* offers an end-to-end solution for your POS System to ensure it issues receipts in a legal and fiscally compliant way. The portfolio comprises a comprehensive stack of software and services around **fiscal compliance**** and provides a **unified approach** across countries and markets.
-
-The core components are the Middleware for **signing and tracking receipts** and the portal for **managing the service**. Additionally, a range of supporting services, third-party interfaces, and [SaaS](https://en.wikipedia.org/wiki/Software_as_a_service) subscriptions are offered. 
-
-The following paragraphs will provide you with a brief overview on these topics.
-
+*Table 1. Overview of fiskaltrust services.*
 
 ## Middleware
 
-The Middleware is a **multi-platform** software solution that complements your POS System and provides the core service of **signing POS receipts** using the relevant and required national signing mechanisms. The fiskaltrust.Middleware also **keeps track of receipts in a secure and auditable fashion** and ensures its relevant portal information is kept up to date.
+The fiskaltrust.Middleware is a **multi-platform** software that complements your POS system. It:
 
-The fiskaltrust.Middleware is one of the centerpieces of the *fiskaltrust* stack and is available for all supported countries. It provides a **single, standardized, and unified** communication interface, which significantly simplifies rollouts in new markets.
+* **Signs POS receipts** using the signing mechanisms required in each country.
+* **Tracks receipts** in a secure and auditable way.
+* Keeps the related fiskaltrust.Portal information up to date.
 
-The fiskaltrust.Middleware features a **REST interface** for communication with your POS Systems. It is available for **on-premise** deployment on platforms supporting **.NET** and **Android** and an **off-premise** SaaS solution. For the latter, please see [Hosted Middleware](#hosted-middleware) for further details.
+The Middleware is available for all supported countries. It provides a **single, standardized communication interface**, which simplifies rollouts in new markets. Your POS system communicates with it via **gRPC, REST or SOAP (WCF)**.
+
+| Deployment | Platforms |
+|---|---|
+| On-premise | Platforms supporting **.NET** and **Android** |
+| Off-premise | SaaS; see [Hosted Middleware](#hosted-middleware) |
+
+*Table 2. Deployment options of the fiskaltrust.Middleware.*
+
+:::info Middleware versions
+
+Austria and France continue to use Middleware version 1.2. A unified version for all markets is in development.
+
+:::
+
+For the Middleware components, see [Architecture](architecture.md).
 
 ## Portal
 
-The fiskaltrust.Portal is your central management tool for the entire *fiskaltrust* stack. It is a web-based platform and allows you to e.g. manage your account, configure your Middleware instances, download deployment packages, and access and process your business data.
+The fiskaltrust.Portal is the web-based management tool for the entire fiskaltrust stack. Use it to manage your account, configure your Middleware instances, download deployment packages, and access and process your business data. For more information, see [Management Portal](management-portal.md).
 
 ## Revision-Safe Receipt Archive
 
-The _archive service_ is an optional and chargeable add-on product. It enables your middleware instance to use archive functions. After activating an archive service, the middleware saves new receipts in the archive, which persists them in a **secure** and **tamper-proof** receipt chain.  
-The receipt chain can be **retrieved and exported at any time** via the portal (e.g., for a tax audit) and stored as **long as national regulations require**.
+The **archive service** is an optional, chargeable add-on that enables archive functions in your Middleware instance.
+
+* After you activate the archive service, the Middleware saves new receipts in the archive, which persists them in a **secure, tamper-proof receipt chain**.
+* You can **retrieve and export** the receipt chain via the fiskaltrust.Portal at any time, for example for a tax audit.
+* The archive stores receipts **as long as national regulations require**.
+
+For more information, see [Revision-safe archiving](../buy-resell/products/revision-safe-archiving.md).
 
 ### Exports & third-party Interfaces
 
-An active _archive service_ package will allow you to export your data using the portal in various **formats** relevant to the applicable national regulations.
+With an active archive service, you can export your data in the fiskaltrust.Portal in the **formats** required by the applicable national regulations. In `Tools` > `Exports`, you select the export type, the range by receipt date or number, and the `Export target`, for example `Azure Storage` or `DATEV MeinFiskal`. For more information, see [Exports](../technical-operations/maintenance/exports.md).
 
-In addition to manual exports, the fiskaltrust.Portal supports the integration of third-party services. This integration transparently allows data to be replicated from *fiskaltrust* accounts to accounts at other service providers. The availability of third-party services depends on your country and may require additional service subscriptions.
+The fiskaltrust.Portal also connects to third-party services, for example DATEV MeinFiskal or FinanzOnline management (Austria only). Availability depends on the country, and some services require an additional subscription. For more information, see [Third party integrations](../buy-resell/products/3rd-party/3rd-party-overview.md).
 
 ## Hosted Middleware
 
-In some countries, *fiskaltrust* offers a [SaaS](https://en.wikipedia.org/wiki/Software_as_a_service) version of the Middleware, allowing your POS System to sign and manage receipts **without **the need of installing** and maintaining additional software**. In this case, your POS System will connect to the *fiskaltrust*-hosted Middleware via an encrypted, **HTTPS-secured** Internet connection. These setups are managed exclusively via the fiskaltrust.Portal.
+In some countries, fiskaltrust offers the Middleware as SaaS. Your POS system signs and manages receipts **without installing or maintaining additional software**:
+
+* The POS system connects to the fiskaltrust-hosted Middleware over an encrypted **HTTPS** Internet connection.
+* You manage these setups exclusively in the fiskaltrust.Portal.
+
+For more information, see [CloudCashbox](../technical-operations/middleware/launchers/cloudcashbox.md).
 
 :::info Service Availability
 
@@ -58,7 +86,12 @@ Service availability is subject to national requirements and restrictions in eac
 
 ## Signing
 
-Where applicable, *fiskaltrust* offers dedicated **signing services** as backend for the Middleware, providing the required receipt signature data blocks according to the relevant national regulations. These are subscription-based services which, typically, come in the form of leased hardware dongles ([SSCDs](https://en.wikipedia.org/wiki/Secure_signature_creation_device)) or access to SaaS platforms.
+Where applicable, fiskaltrust offers **signing services** as a backend for the Middleware. They provide the receipt signature data blocks required by national regulations. Signing services are subscription-based and come as either:
+
+* leased hardware dongles ([SSCDs](https://en.wikipedia.org/wiki/Secure_signature_creation_device)), or
+* access to SaaS platforms.
+
+For more information, see [Signing devices and services](../buy-resell/products/signing/signing-overview.md).
 
 :::info Service Availability
 
