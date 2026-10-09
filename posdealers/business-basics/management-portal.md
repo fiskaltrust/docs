@@ -14,7 +14,7 @@ After reading this, you can explain the tasks performed in the fiskaltrust.Porta
 
 The fiskaltrust.Portal is the central **management dashboard** for your fiskaltrust account and services. It covers your account and company data, PosOperator associations, configuration and rollout of your Middleware instances, and orders for products and services.
 
-![fiskaltrust.Portal Overview page: the sidebar menu (including Overview, Company info, PosOperator, PosDealer, Rollout management, Tools, PosSystems, Configuration and Shop), the Master data of User and Master data of company panels, and the user menu at the top right](./images/portal.png "https://portal-sandbox.fiskaltrust.TLD/#/")
+![fiskaltrust.Portal Overview page: the sidebar menu (including Overview, Company info, PosOperator, PosDealer, Rollout management, Tools, PosSystems, Configuration and Shop), the Master data of User and Master data of company panels, and the user menu at the top right](./images/management-dashboard.png)
 
 *Figure 1. The `Overview` page of the fiskaltrust.Portal with the sidebar menu, the user and company master data, and the user menu at the top right.*
 
