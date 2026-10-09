@@ -48,7 +48,7 @@ In `Company info`:
 
 Open the user menu under your name at the top right to manage your personal settings: `Edit profile` (**contact and address details**), `Change password` and `Change username`. The user menu also contains the `Language` section, where you switch the language of the fiskaltrust.Portal, and `Sign out`.
 
-<img src={require("./images/user-menu.png").default} alt="fiskaltrust.Portal user menu opened under the user name at the top right, with Overview, Edit profile, Change password and Change username, the Language section with the available languages, and Sign out" width="321" />
+<p><img src={require("./images/user-menu.png").default} alt="fiskaltrust.Portal user menu opened under the user name at the top right, with Overview, Edit profile, Change password and Change username, the Language section with the available languages, and Sign out" width="321" /></p>
 
 *Figure 2. The user menu with the personal settings, the `Language` section and `Sign out`.*
 
