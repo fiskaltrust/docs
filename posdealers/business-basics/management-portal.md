@@ -14,9 +14,9 @@ After reading this, you can explain the tasks performed in the fiskaltrust.Porta
 
 The fiskaltrust.Portal is the central **management dashboard** for your fiskaltrust account and services. It covers your account and company data, PosOperator associations, configuration and rollout of your Middleware instances, and orders for products and services.
 
-![fiskaltrust.Portal dashboard with the navigation menu, user and company master data, and the unfinished validations table](./images/portal.png "https://portal-SANDBOX.fiskaltrust.TLD/Home/Dashboard")
+![fiskaltrust.Portal Overview page: the sidebar menu (including Overview, Company info, PosOperator, PosDealer, Rollout management, Tools, PosSystems, Configuration and Shop), the Master data of User and Master data of company panels, and the user menu at the top right](./images/portal.png "https://portal-sandbox.fiskaltrust.TLD/#/")
 
-*Figure 1. The dashboard of the fiskaltrust.Portal.*
+*Figure 1. The `Overview` page of the fiskaltrust.Portal with the sidebar menu, the user and company master data, and the user menu at the top right.*
 
 | Task | Portal area |
 |---|---|
@@ -44,7 +44,13 @@ In `Company info`:
 3. In `Outlets`, add your company's **outlets** and their configurations.
 4. In `Employees`, create accounts for your **employees** and manage their permissions.
 
-Open the user menu at the top right to manage your user data: `Edit profile` (**contact and address details**), `Change password` and `Change user name`.
+### User Menu
+
+Open the user menu under your name at the top right to manage your personal settings: `Edit profile` (**contact and address details**), `Change password` and `Change username`. The user menu also contains the `Language` section, where you switch the language of the fiskaltrust.Portal, and `Sign out`.
+
+<img src={require("./images/user-menu.png").default} alt="fiskaltrust.Portal user menu opened under the user name at the top right, with Overview, Edit profile, Change password and Change username, the Language section with the available languages, and Sign out" width="321" />
+
+*Figure 2. The user menu with the personal settings, the `Language` section and `Sign out`.*
 
 ## Operator Management
 
