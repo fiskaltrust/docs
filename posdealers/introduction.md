@@ -26,7 +26,7 @@ Before you roll out a POS system at a PosOperator, make sure the following is in
 
 *Table 1. Prerequisites for a first rollout.*
 
-To **buy and resell** in the live system, you additionally need to sign the cooperation agreement as PosDealer. See [Overview - Buy & Resell](buy-resell/overview.md).
+To **buy and resell** in the live system, you additionally need to sign the cooperation agreement as PosDealer. For more information, see [Overview - Buy & Resell](buy-resell/overview.md).
 
 :::caution
 
@@ -37,11 +37,11 @@ Run all first steps in the Sandbox. Sandbox signatures are for testing only, are
 ## Recommended path
 
 1. **Learn the business basics.** Read how fiskaltrust's business model, services, supported countries and the fiskaltrust.Portal work. Start at the Business Basics [Overview](business-basics/overview-business-basics.md).
-2. **Set up the Sandbox.** Register a Sandbox account free of charge and activate the PosDealer role. See [Sandbox](getting-started/sandbox.md) and [Registration](getting-started/registration.md).
-3. **Onboard a PosOperator.** Invite a PosOperator, or act on their behalf by surrogating, and verify their master data. See [Operator Onboarding](getting-started/operator-onboarding/invitation-process.md).
-4. **Create your first CashBox.** Use a Rollout Plan (recommended) or a manual configuration, then run a test request. See [My First Cashbox](getting-started/my-first-cashbox.md).
-5. **Plan purchasing.** Buy Entitlements and transfer them to PosOperators. If you plan to buy ten or more product bundles, consider a volume purchase agreement. See [Overview - Buy & Resell](buy-resell/overview.md).
-6. **Roll out and operate.** Choose a rollout scenario, automate rollouts with templates, and set up monitoring and maintenance. See [Overview - Technical Operations](technical-operations/overview-technical-operations.md).
+2. **Set up the Sandbox.** Register a Sandbox account free of charge and activate the PosDealer role. For more information, see [Sandbox](getting-started/sandbox.md) and [Registration](getting-started/registration.md).
+3. **Onboard a PosOperator.** Invite a PosOperator, or act on their behalf by surrogating, and verify their master data. For more information, see [Operator Onboarding](getting-started/operator-onboarding/invitation-process.md).
+4. **Create your first CashBox.** Use a Rollout Plan (recommended) or a manual configuration, then run a test request. For more information, see [My First Cashbox](getting-started/my-first-cashbox.md).
+5. **Plan purchasing.** Buy Entitlements and transfer them to PosOperators. If you plan to buy ten or more product bundles, consider a volume purchase agreement. For more information, see [Overview - Buy & Resell](buy-resell/overview.md).
+6. **Roll out and operate.** Choose a rollout scenario, automate rollouts with templates, and set up monitoring and maintenance. For more information, see [Overview - Technical Operations](technical-operations/overview-technical-operations.md).
 
 ## Documentation sections
 

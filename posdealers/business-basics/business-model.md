@@ -46,7 +46,7 @@ In this model:
 | **New customer segments** | Compliance-as-a-Service extends your product portfolio and lets you address new customer segments. |
 | **Integration into your portfolio** | fiskaltrust develops its products for resale. You can configure and install them without involving the PosOperator, and bundle them into your own offering. |
 | **Yearly recurring revenue** | Products are sold as subscriptions. PosOperators pay a fixed yearly price for fiscal compliance, also when legal requirements change; you receive calculable, recurring annual revenue. |
-| **Volume discounts** | A volume purchase agreement gives you discounts starting from low purchase quantities. See [Volume purchase agreement](../buy-resell/overview.md#volume-purchase-agreement). |
+| **Volume discounts** | A volume purchase agreement gives you discounts starting from low purchase quantities. For more information, see [Volume purchase agreement](../buy-resell/overview.md#volume-purchase-agreement). |
 
 *Table 2. Distribution model advantages for PosDealers.*
 
@@ -55,7 +55,7 @@ In this model:
 | Advantage | Description |
 |---|---|
 | **Single point of purchase** | Buy digital and physical products, such as hardware signing devices from different manufacturers, in the fiskaltrust.Portal. |
-| **Automation** | For large rollouts, use templates for CashBox configurations, bulk imports of customers and outlets, bulk purchases and assignments of products, and automated Middleware rollout. See [Rollout Automation](../technical-operations/rollout-automation/templates.md). |
+| **Automation** | For large rollouts, use templates for CashBox configurations, bulk imports of customers and outlets, bulk purchases and assignments of products, and automated Middleware rollout. For more information, see [Rollout Automation](../technical-operations/rollout-automation/templates.md). |
 | **Remote rollout preparation** | Prepare the commercial and technical prerequisites of a rollout remotely in the fiskaltrust.Portal. Configuration, purchase and resale are independent of on-site commissioning. |
 | **After-sales support** | After a rollout, apply mass updates to configurations and Middleware versions. How-to guides and documentation templates help you support PosOperators. |
 

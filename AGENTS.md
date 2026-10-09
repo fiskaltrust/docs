@@ -30,8 +30,9 @@ A reader integrating one market needs layers 1 and 2 and the pages of that marke
 - Admonitions use Docusaurus syntax (`:::info`, `:::warning`, `:::tip`).
 - Write Portal menu names and UI labels in backticks, for example `Edit profile`.
 - Write a path through nested menus with `>` between the backticked labels, for example `Tools` > `Exports`.
-- Spell Portal labels with the capitalization the Portal shows, for example `Master data`, not `master data`.
+- **The docs must match the UI.** Write every Portal label exactly as the Portal shows it, including spelling and capitalization, even when the source code or a release note spells it differently. For example, `Master data`, not `master data`, and `Change username`, not `Change user name`.
 - Highlight in **bold**, not in italics. Figure and table captions stay italic (see above).
+- To refer to another page in the docs, write "For more information, see [Page title](path.md).", not only "See [Page title](path.md)."
 - Existing pages link to other pages in this repo with relative paths to the `.md` file (for example `../faq/faq.md#for-developers`); follow that convention. Absolute `https://docs.fiskaltrust.eu/...` URLs are only used for pages outside this repo (for example the API reference).
 - Always use `docs.fiskaltrust.eu` as the docs domain, never `docs.fiskaltrust.cloud`. This does not apply to other hosts under `docs.fiskaltrust.cloud` (for example `middleware-samples.docs.fiskaltrust.cloud`), which have no `.eu` equivalent.
 - Docusaurus generates anchors from **headings** only. Bold FAQ questions (`**Q: ...**`) are not headings and have no anchor, so link to the nearest `##` heading instead.

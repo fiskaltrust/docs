@@ -39,7 +39,7 @@ The fiskaltrust.Portal is the central **management dashboard** for your fiskaltr
 
 In `Company info`:
 
-1. In `Overview`, select the applicable **roles** and sign the **contractual agreements** for your company. See [Company Roles](../getting-started/company-roles.md).
+1. In `Overview`, select the applicable **roles** and sign the **contractual agreements** for your company. For more information, see [Company Roles](../getting-started/company-roles.md).
 2. In `Master data`, check the data for completeness and the business data for validity.
 3. In `Outlets`, add your company's **outlets** and their configurations.
 4. In `Employees`, create accounts for your **employees** and manage their permissions.
@@ -56,7 +56,7 @@ Open the user menu under your name at the top right to manage your personal sett
 
 In the `PosDealer` menu, you **invite** your customers to fiskaltrust (`Invitation`) and manage their accounts (`PosOperators`). Once a PosOperator accepts your invitation and signs a **contract** for the PosOperator role, their **account is associated** with yours, which enables [surrogating](#surrogating).
 
-See [Invitation process](../getting-started/operator-onboarding/invitation-process.md).
+For more information, see [Invitation process](../getting-started/operator-onboarding/invitation-process.md).
 
 ## Surrogating
 
@@ -66,11 +66,11 @@ As a PosDealer, you can switch into the accounts of your PosOperators. Depending
 * `Write/Read` access, or
 * `Full (Write/Read, Contract Conclusion)`: write access plus the authority to sign contracts on behalf of the PosOperator.
 
-Surrogating is an essential feature for PosDealers to establish and expand their business collaboration with PosOperators. See [Surrogating](../getting-started/operator-onboarding/surrogating.md).
+Surrogating is an essential feature for PosDealers to establish and expand their business collaboration with PosOperators. For more information, see [Surrogating](../getting-started/operator-onboarding/surrogating.md).
 
 ## Data Management
 
-In `Tools` > `Exports`, you **export your data** by export type and by a range of receipt dates or numbers. As `Export target`, select for example `Azure Storage` or `DATEV MeinFiskal`. Availability depends on the country. See [Exports](../technical-operations/maintenance/exports.md).
+In `Tools` > `Exports`, you **export your data** by export type and by a range of receipt dates or numbers. As `Export target`, select for example `Azure Storage` or `DATEV MeinFiskal`. Availability depends on the country. For more information, see [Exports](../technical-operations/maintenance/exports.md).
 
 ## CashBox Maintenance
 
@@ -82,8 +82,8 @@ The `Configuration` menu is the starting point for every CashBox. It contains `C
 
 To update the configuration of several CashBoxes at once, use `Update Configuration`.
 
-See [Manual Configuration](../technical-operations/middleware/manual-configuration.md).
+For more information, see [Manual Configuration](../technical-operations/middleware/manual-configuration.md).
 
 ## Shop
 
-The `Shop` menu gives access to all fiskaltrust **add-on products and services**, for example product bundles, hardware solutions and archives. Purchase items individually or as part of pre-configured **rollout plans**. See [Shop](../buy-resell/shop.md) and [Rollout Plans](../buy-resell/rollout-plans.md).
+The `Shop` menu gives access to all fiskaltrust **add-on products and services**, for example product bundles, hardware solutions and archives. Purchase items individually or as part of pre-configured **rollout plans**. For more information, see [Shop](../buy-resell/shop.md) and [Rollout Plans](../buy-resell/rollout-plans.md).

@@ -51,7 +51,7 @@ The **Middleware** fetches the CashBox configuration you set in the Portal and u
 
 :::info
 
-fiskaltrust operates a Portal in each country at `https://portal.fiskaltrust.[CCTLD]`. See [Countries](countries.md).
+fiskaltrust operates a Portal in each country at `https://portal.fiskaltrust.[CCTLD]`. For more information, see [Countries](countries.md).
 
 :::
 
@@ -63,7 +63,7 @@ The CashBox is the **configuration set** of a Middleware instance. It contains a
 * The Launcher fetches the latest CashBox configuration on each start. If the download fails, it uses the locally cached configuration.
 * Configuration changes take effect after the Middleware restarts.
 
-See [CashBox](../technical-operations/middleware/cashbox.md).
+For more information, see [CashBox](../technical-operations/middleware/cashbox.md).
 
 ## Middleware
 
@@ -92,7 +92,7 @@ The Launcher is the bootstrap component of a Middleware instance. On start, it:
 
 :::
 
-Wherever legally possible, fiskaltrust also offers a fully cloud-based, hosted Middleware. See [CloudCashbox](../technical-operations/middleware/launchers/cloudcashbox.md).
+Wherever legally possible, fiskaltrust also offers a fully cloud-based, hosted Middleware. For more information, see [CloudCashbox](../technical-operations/middleware/launchers/cloudcashbox.md).
 
 ### Queue
 
@@ -114,4 +114,4 @@ Depending on your market's regulations, the SCU may require an additional [SSCD]
 
 ### Helpers
 
-Depending on the use case, you can configure helper components in addition to Queues and SCUs. The **Helipad** helper is deployed by default and uploads the Middleware's Queue and SCU data to fiskaltrust. See [Helper](../technical-operations/middleware/helper.md).
+Depending on the use case, you can configure helper components in addition to Queues and SCUs. The **Helipad** helper is deployed by default and uploads the Middleware's Queue and SCU data to fiskaltrust. For more information, see [Helper](../technical-operations/middleware/helper.md).

@@ -51,7 +51,7 @@ For the Middleware components, see [Architecture](architecture.md).
 
 ## Portal
 
-The fiskaltrust.Portal is the web-based management tool for the entire fiskaltrust stack. Use it to manage your account, configure your Middleware instances, download deployment packages, and access and process your business data. See [Management Portal](management-portal.md).
+The fiskaltrust.Portal is the web-based management tool for the entire fiskaltrust stack. Use it to manage your account, configure your Middleware instances, download deployment packages, and access and process your business data. For more information, see [Management Portal](management-portal.md).
 
 ## Revision-Safe Receipt Archive
 
@@ -61,13 +61,13 @@ The **archive service** is an optional, chargeable add-on that enables archive f
 * You can **retrieve and export** the receipt chain via the fiskaltrust.Portal at any time, for example for a tax audit.
 * The archive stores receipts **as long as national regulations require**.
 
-See [Revision-safe archiving](../buy-resell/products/revision-safe-archiving.md).
+For more information, see [Revision-safe archiving](../buy-resell/products/revision-safe-archiving.md).
 
 ### Exports & third-party Interfaces
 
-With an active archive service, you can export your data in the fiskaltrust.Portal in the **formats** required by the applicable national regulations. In `Tools` > `Exports`, you select the export type, the range by receipt date or number, and the `Export target`, for example `Azure Storage` or `DATEV MeinFiskal`. See [Exports](../technical-operations/maintenance/exports.md).
+With an active archive service, you can export your data in the fiskaltrust.Portal in the **formats** required by the applicable national regulations. In `Tools` > `Exports`, you select the export type, the range by receipt date or number, and the `Export target`, for example `Azure Storage` or `DATEV MeinFiskal`. For more information, see [Exports](../technical-operations/maintenance/exports.md).
 
-The fiskaltrust.Portal also connects to third-party services, for example DATEV MeinFiskal or FinanzOnline management (Austria only). Availability depends on the country, and some services require an additional subscription. See [Third party integrations](../buy-resell/products/3rd-party/3rd-party-overview.md).
+The fiskaltrust.Portal also connects to third-party services, for example DATEV MeinFiskal or FinanzOnline management (Austria only). Availability depends on the country, and some services require an additional subscription. For more information, see [Third party integrations](../buy-resell/products/3rd-party/3rd-party-overview.md).
 
 ## Hosted Middleware
 
@@ -76,7 +76,7 @@ In some countries, fiskaltrust offers the Middleware as SaaS. Your POS system si
 * The POS system connects to the fiskaltrust-hosted Middleware over an encrypted **HTTPS** Internet connection.
 * You manage these setups exclusively in the fiskaltrust.Portal.
 
-See [CloudCashbox](../technical-operations/middleware/launchers/cloudcashbox.md).
+For more information, see [CloudCashbox](../technical-operations/middleware/launchers/cloudcashbox.md).
 
 :::info Service Availability
 
@@ -91,7 +91,7 @@ Where applicable, fiskaltrust offers **signing services** as a backend for the M
 * leased hardware dongles ([SSCDs](https://en.wikipedia.org/wiki/Secure_signature_creation_device)), or
 * access to SaaS platforms.
 
-See [Signing devices and services](../buy-resell/products/signing/signing-overview.md).
+For more information, see [Signing devices and services](../buy-resell/products/signing/signing-overview.md).
 
 :::info Service Availability
 
