@@ -7,64 +7,79 @@ tags: [Onboarding, PosDealers, Portal, Company Roles]
 
 # PosDealer Onboarding Guide
 
-As a PosDealer, you are responsible for deploying compliant fiscalization solutions by connecting PosCreators' POS systems with PosOperators' daily operations.
+:::info summary
 
-While **fiskaltrust** provides the fiscalization infrastructure and PosCreators deliver the technical integration, you are responsible for configuring, deploying, and supporting compliant systems for your PosOperators. In some cases, a PosCreator may also take on the commercial role of a PosDealer.
-
-This guide provides a step-by-step checklist for the onboarding process, from initial account setup to successful operator rollout. Completing each step helps ensure a smooth, compliant, and scalable deployment for your customers.
-
-## PosDealer Onboarding Checklist
-
-### 1. Account and Roles
-
-Verify that your initial configuration in the [Portal](https://portal.fiskaltrust.de/) is set up as follows:
-
-* The fiskaltrust account is successfully created in the Portal once the [Registration](./registration.md) is complete.
-* Ensure the **PosDealer** is assigned. Assign the **PosCreator** only if you implemented your own POS system. For more information, see [How to activate a role](./company-roles.md#how-to-activate-a-role).
-
-### 2. Invitation Process
-
-Connect your customer (PosOperator) to the system:
-
-* The account link is sent to the new operator through the [Invitation](./operator-onboarding/invitation-process.md) process.
-* To check the status, navigate to **PosOperator > Overview** in the Portal. Once the link is marked as **Active**, the operator is successfully connected.
-
-:::tip
-
-For guidance on managing operators, see [Surrogating](./operator-onboarding/surrogating.md).
+After reading, you know the onboarding steps from your initial account setup to a successful PosOperator rollout.
 
 :::
 
-### 3. Operator Roles and Master Data
+As a PosDealer, you deploy compliant fiscalization solutions by connecting the POS systems of PosCreators with the daily operations of PosOperators.
 
-Verify that the operator account is configured as follows:
+| Party | Responsibility |
+| ----- | -------------- |
+| **fiskaltrust** | Provides the fiscalization infrastructure. |
+| **PosCreator** | Delivers the technical integration. |
+| **PosDealer** | Configures, deploys and supports compliant systems for PosOperators. |
 
-* The operator has assigned the [Operator](./company-roles.md#how-to-activate-a-role) role.
-* The tax number and address are correctly entered in the account. To validate them, navigate to **Company Info > Master Data > Tax Number** and confirm that the **Data Check** (blue checkmark) on the right is present.
+*Table 1. Responsibilities in a fiskaltrust rollout.*
 
-### 4. Operator Architecture
+In some cases, a PosCreator also takes on the commercial role of a PosDealer.
 
-Set up the operator’s environment architecture:
+Work through the following checklist in order. Completing each step helps ensure a smooth, compliant and scalable deployment for your customers.
 
-* Provide an introduction to the operator [architecture](../business-basics/architecture.md).
-* Create operator locations in **Company Info > Outlets > Add new outlet**.
-* After creating a location, assign cash registers, add SCUs, and link products or entitlements.
+## 1. Account and roles
 
-### 5. Technical Implementation
+Check your initial configuration in the [fiskaltrust.Portal](https://portal.fiskaltrust.de/):
 
-Align on rollout and technical requirements by:
+1. Complete the [Registration](./registration.md). Your fiskaltrust account is created in the Portal.
+2. Make sure the **PosDealer** role is assigned. Assign the **PosCreator** role only if you implemented your own POS system. For more information, see [How to activate a role](./company-roles.md#how-to-activate-a-role).
 
-* Discussing technical implementation needs. For more informaton, see [Rollout Scenarios](../technical-operations/rollout-scenarios.md).
-* Clarifying required products and service packages. For more information, see [Products & Services Overview](../buy-resell/products/overview.md).
+## 2. Invitation process
 
-### 6. Procurement and Subscription
+Connect your customer (PosOperator):
 
-The [procurement process](../buy-resell/overview.md) is fully understood through **Entitlements** and **Business Rollout**.
+1. Send the account link to the new PosOperator through the invitation process. For more information, see [Invitation process](./operator-onboarding/invitation-process.md).
+2. To check the status, open `PosDealer` > `PosOperators` in the Portal. When the link is marked as **Active**, the PosOperator is connected.
 
-### 7. Contracts
+:::tip
 
-The **Contract Partner Agreement** [(VPA)](../buy-resell/overview.md#volume-purchase-agreement) has been received and signed.
+To manage PosOperators on their behalf, see [Surrogating](./operator-onboarding/surrogating.md).
 
-### 8. Knowledge and Documentation
+:::
 
-Know where to locate [knowledge articles](https://portal.fiskaltrust.de/#/KBArticles) in the portal and fiskaltrust [documentation](https://docs.fiskaltrust.eu/).
+## 3. PosOperator role and master data
+
+Check that the PosOperator account is configured as follows:
+
+- The **PosOperator** role is assigned. For more information, see [Company Roles](./company-roles.md#principal-roles).
+- The tax number and address are entered correctly. To validate them, open `Company info` > `Master data`, go to the tax number, and check that the `Data Check` (blue checkmark) on the right is present. For more information, see [Master Data](./operator-onboarding/master-data.md).
+
+## 4. PosOperator architecture
+
+Set up the environment of the PosOperator:
+
+1. Introduce the PosOperator to the fiskaltrust architecture. For more information, see [Architecture](../business-basics/architecture.md).
+2. Create the PosOperator's locations in `Company info` > `Outlets` > `Add new outlet`.
+3. For each location, assign cash registers, add SCUs, and link products or entitlements.
+
+## 5. Technical implementation
+
+Align on rollout and technical requirements:
+
+- Discuss the technical implementation needs. For more information, see [Rollout Scenarios](../technical-operations/rollout-scenarios.md).
+- Clarify the required products and service packages. For more information, see [Product overview](../buy-resell/products/overview.md).
+
+## 6. Procurement and subscription
+
+Make sure you understand the procurement process through **Entitlements** and **Business Rollout**. For more information, see [Overview - Buy & Resell](../buy-resell/overview.md).
+
+## 7. Contracts
+
+Receive and sign the **Contract Partner Agreement** (VPA). For more information, see [Volume purchase agreement](../buy-resell/overview.md#volume-purchase-agreement).
+
+## 8. Knowledge and documentation
+
+Know where to find help:
+
+- Knowledge articles in the Portal: `Help` > `Knowledge articles` ([direct link](https://portal.fiskaltrust.de/#/KBArticles)).
+- The fiskaltrust documentation: `Help` > `Documentation`, or [docs.fiskaltrust.eu](https://docs.fiskaltrust.eu/).

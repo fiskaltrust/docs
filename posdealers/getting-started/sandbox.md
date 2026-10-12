@@ -4,6 +4,7 @@ title: Sandbox
 description: What the fiskaltrust Sandbox offers for testing and demos, how it differs from the live system, and its URLs per market.
 tags: [Sandbox, Portal, Onboarding, PosDealers]
 ---
+
 # Sandbox
 
 :::info summary
@@ -12,18 +13,19 @@ After reading this, you can set up and use the Sandbox for testing and demos.
 
 :::
 
-## Introduction
+The Sandbox is the fiskaltrust "playground": a full copy of the live system where you can **explore the Middleware, the Portal and all associated systems freely and at no cost**. Use it to test integrations, build proof-of-concept setups and run demos before going live.
 
-The Sandbox is *fiskaltrust's* "playground": a full copy of the live system where you can **explore the Middleware, the Portal, and all associated systems freely and at no cost**. Use it to test integrations, build proof-of-concept setups, and run demos before going live.
+## Differences from the live system
 
-Compared to the live system, the Sandbox has a few key differences:
-
-* **No credit limits** — nothing needs to be set up by the sales team.
+* **No credit limits**: nothing needs to be set up by the sales team.
 * **No payment** is required to activate paid features.
 * Signatures are for **testing only** and are **not fiscally compliant**.
 * **No SLA** applies.
 
-The Sandbox is entirely separate from the live system, and no data is transferred between the two. As a result, you need **separate accounts** for each, and a CashBox created in the Sandbox **cannot be used in production** — or the other way around.
+The Sandbox is entirely separate from the live system, and no data is transferred between the two. As a result:
+
+* You need **separate accounts** for the Sandbox and the live system.
+* A CashBox created in the Sandbox **cannot be used in production**, and a live CashBox cannot be used in the Sandbox.
 
 :::caution
 
@@ -33,10 +35,9 @@ Never deploy a Sandbox CashBox on a production system. Its signatures are not fi
 
 :::
 
-### How to reach the Sandbox
+## How to reach the Sandbox
 
-All Sandbox systems follow the same naming as their live counterparts, with a `-sandbox` suffix added (for example, `portal` &rarr; `portal-sandbox`). The exact URL depends on your market — select your country below.
-
+All Sandbox systems use the same names as their live counterparts, with a `-sandbox` suffix (for example, `portal` &rarr; `portal-sandbox`). The exact URL depends on your market. Select your country:
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
