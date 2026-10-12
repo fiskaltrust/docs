@@ -253,11 +253,11 @@ If the preparation is complete, the invitation process runs automatically. If pr
 
 *Table 5. Checking the invitation status and handling error messages.*
 
-#### Assigning PosOperators in a bulk process
+#### Inviting PosOperators in a bulk process
 
 ![Invitation page in the fiskaltrust.Portal with the buttons to send all invitations, add a PosOperator and open the history marked 1 to 3](images/9-onboarding-portal.png)
 
-*Figure 7. Buttons for assigning PosOperators in a bulk process.*
+*Figure 7. Buttons for inviting PosOperators in a bulk process.*
 
 | Button | Description |
 |:------:|-------------|
@@ -265,7 +265,7 @@ If the preparation is complete, the invitation process runs automatically. If pr
 |![Number 2](../../images/numbers/circle-2o.png) |`Add`: adds a single PosOperator manually. For more information, see [Invitation of a single PosOperator](#invitation-of-a-single-posoperator). |
 |![Number 3](../../images/numbers/circle-3o.png) |`History`: opens the invitation history to check or repair e-mail invitations (see [Options with invited PosOperators](#options-with-invited-posoperators)). |
 
-*Table 6. Buttons for assigning PosOperators in a bulk process.*
+*Table 6. Buttons for inviting PosOperators in a bulk process.*
 
 #### Onboarding of existing PosOperators
 
