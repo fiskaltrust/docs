@@ -321,7 +321,7 @@ Since they all describe a cash transfer, the respective **cbPayItemCase: 0x2000_
 | `095`                | DifferenzSollIst            | Records the difference between the calculated (expected) and the counted (actual) cash balance when the cash is counted or checked. It can be a shortage or a surplus. It lets differences be found, logged and balanced, and they must be documented further in the cash book.                                                                                                                                                                                                                         | `+` (to till)<br/> `-` (from till) |
 | `090`, `096` - `09F` | _reserved_                  |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         |                                    |
 
-*Table 18. Germany-only cash transfer types (nn) for the ftChargeItemCase.*
+*Table 18. Germany-only cash transfer types (lll) for the ftChargeItemCase.*
 
 ### Type of Payment: ftPayItemCase
 
