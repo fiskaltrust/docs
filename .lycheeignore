@@ -12,6 +12,7 @@ https?://signing(-sandbox)?\.fiskaltrust\.at/.*
 
 https?://github\.com/fiskaltrust/fiskaltrust-instore-app
 https?://github\.com/fiskaltrust/service-possystem-api
+https://github\.com/fiskaltrust/possystemapi-devkit/blob/main/README\.MD
 https://github\.com/fiskaltrust/possystemapi-devkit/blob/main/HOWTO_01_Payment_csharp/README\.MD
 https://github\.com/fiskaltrust/middleware-interface-dotnet/blob/master/src/fiskaltrust\.ifPOS/v1/de/Models/TseInfo\.cs
 https?://github\.com/PowerShell/PowerShell/releases/.*
