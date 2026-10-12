@@ -28,7 +28,8 @@ module.exports = [
     collapsed: true,
     items: [
       "poscreators/middleware-doc/possystem-api/introduction",
-      "poscreators/middleware-doc/possystem-api/android-intent",
+      "poscreators/middleware-doc/possystem-api/receipt-formats",
+      "poscreators/middleware-doc/possystem-api/android-ipc",
       "poscreators/middleware-doc/possystem-api/migration-guide",
     ],
   },
@@ -53,6 +54,8 @@ module.exports = [
             items: [
               "poscreators/middleware-doc/general/cash-register-integration/cash-register-integration-regular-workflow",
               "poscreators/middleware-doc/general/cash-register-integration/cash-register-integration-failure-scenarios",
+              "poscreators/middleware-doc/general/cash-register-integration/refunds-and-voids",
+              "poscreators/middleware-doc/general/cash-register-integration/discounts-and-extras",
               "poscreators/middleware-doc/general/cash-register-integration/error-handling",
             ],
           },
@@ -179,6 +182,15 @@ module.exports = [
     className: "sidebar-country sidebar-country--be",
     items: [
       "poscreators/middleware-doc/middleware-be/appendix-be",
+      {
+        type: "category",
+        label: "Go-to-Market",
+        key: "be-go-to-market",
+        items: [
+          "poscreators/middleware-doc/middleware-be/go-to-market/go-to-market",
+          "poscreators/middleware-doc/middleware-be/go-to-market/faq",
+        ],
+      },
       "poscreators/middleware-doc/middleware-be/terminology/terminology",
       "poscreators/middleware-doc/middleware-be/cash-register-integration/cash-register-integration",
       "poscreators/middleware-doc/middleware-be/data-structures/data-structures",
@@ -448,6 +460,7 @@ module.exports = [
         items: [
           "poscreators/middleware-doc/middleware-it-registratore-telematico/e-invoicing/overview",
           "poscreators/middleware-doc/middleware-it-registratore-telematico/e-invoicing/setup",
+          "poscreators/middleware-doc/middleware-it-registratore-telematico/e-invoicing/fatturapa-mapping",
         ],
       },
     ],
@@ -507,7 +520,15 @@ module.exports = [
       },
       "poscreators/middleware-doc/middleware-pt/certification/certification",
       "poscreators/middleware-doc/middleware-pt/terminology/terminology",
-      "poscreators/middleware-doc/middleware-pt/cash-register-integration/cash-register-integration",
+      {
+        type: "category",
+        label: "Cash Register Integration",
+        key: "pt-cash-register-integration",
+        items: [
+          "poscreators/middleware-doc/middleware-pt/cash-register-integration/cash-register-integration",
+          "poscreators/middleware-doc/middleware-pt/cash-register-integration/error-handling",
+        ],
+      },
       "poscreators/middleware-doc/middleware-pt/receipt-printing/receipt-printing",
       "poscreators/middleware-doc/middleware-pt/data-structures/data-structures",
       {

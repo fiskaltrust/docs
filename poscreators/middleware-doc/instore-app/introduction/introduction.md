@@ -132,7 +132,7 @@ The [POS System API development kit](https://github.com/fiskaltrust/possystemapi
 
 The fiskaltrust InStore App requires an internet connection for the initial configuration, and a permanent and stable internet connection for actions received via the fiskaltrust cloud backend.
 
-Since version 1.3.2, payments can optionally also be triggered locally by a POS app on the same device via the fiskaltrust Android launcher (see [Android Intent Integration](../../possystem-api/android-intent.md)). This local communication path works offline and requires a fiskaltrust Android launcher version that supports it.
+Since version 1.3.2, payments can optionally also be triggered locally by a POS app on the same device via the fiskaltrust Android launcher (see [Android IPC](../../possystem-api/android-ipc.md)). This local communication path works offline and requires a fiskaltrust Android launcher version that supports it.
 
 :::
 

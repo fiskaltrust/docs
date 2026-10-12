@@ -84,13 +84,23 @@ Under country-specific circumstances, when a PosOperator is first registered, th
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import PreviewAT from '../../_markets/at/getting-started/operator-onboarding/invitation-process/_preview-email.mdx';
+import PreviewBE from '../../_markets/be/getting-started/operator-onboarding/invitation-process/_preview-email.mdx';
 import PreviewFR from '../../_markets/fr/getting-started/operator-onboarding/invitation-process/_preview-email.mdx';
 import PreviewDE from '../../_markets/de/getting-started/operator-onboarding/invitation-process/_preview-email.mdx';
+import PreviewGR from '../../_markets/gr/getting-started/operator-onboarding/invitation-process/_preview-email.mdx';
+import PreviewIT from '../../_markets/it/getting-started/operator-onboarding/invitation-process/_preview-email.mdx';
+import PreviewPL from '../../_markets/pl/getting-started/operator-onboarding/invitation-process/_preview-email.mdx';
+import PreviewPT from '../../_markets/pt/getting-started/operator-onboarding/invitation-process/_preview-email.mdx';
+import PreviewES from '../../_markets/es/getting-started/operator-onboarding/invitation-process/_preview-email.mdx';
 
 <Tabs groupId="market">
 
   <TabItem value="AT" label="Austria">
     <PreviewAT />
+  </TabItem>
+
+  <TabItem value="BE" label="Belgium">
+    <PreviewBE />
   </TabItem>
 
   <TabItem value="FR" label="France">
@@ -99,6 +109,26 @@ import PreviewDE from '../../_markets/de/getting-started/operator-onboarding/inv
 
   <TabItem value="DE" label="Germany">
     <PreviewDE />
+  </TabItem>
+
+  <TabItem value="GR" label="Greece">
+    <PreviewGR />
+  </TabItem>
+
+  <TabItem value="IT" label="Italy">
+    <PreviewIT />
+  </TabItem>
+
+  <TabItem value="PL" label="Poland">
+    <PreviewPL />
+  </TabItem>
+
+  <TabItem value="PT" label="Portugal">
+    <PreviewPT />
+  </TabItem>
+
+  <TabItem value="ES" label="Spain">
+    <PreviewES />
   </TabItem>
 
 </Tabs>
@@ -140,13 +170,23 @@ Inviting PosOperators to a PosDealer account with an import file is especially i
 ### Fields of the CSV file
 
 import FieldsAT from '../../_markets/at/getting-started/operator-onboarding/invitation-process/_fields-details.mdx';
+import FieldsBE from '../../_markets/be/getting-started/operator-onboarding/invitation-process/_fields-details.mdx';
 import FieldsFR from '../../_markets/fr/getting-started/operator-onboarding/invitation-process/_fields-details.mdx';
 import FieldsDE from '../../_markets/de/getting-started/operator-onboarding/invitation-process/_fields-details.mdx';
+import FieldsGR from '../../_markets/gr/getting-started/operator-onboarding/invitation-process/_fields-details.mdx';
+import FieldsIT from '../../_markets/it/getting-started/operator-onboarding/invitation-process/_fields-details.mdx';
+import FieldsPL from '../../_markets/pl/getting-started/operator-onboarding/invitation-process/_fields-details.mdx';
+import FieldsPT from '../../_markets/pt/getting-started/operator-onboarding/invitation-process/_fields-details.mdx';
+import FieldsES from '../../_markets/es/getting-started/operator-onboarding/invitation-process/_fields-details.mdx';
 
 <Tabs groupId="market">
 
   <TabItem value="AT" label="Austria">
     <FieldsAT />
+  </TabItem>
+
+  <TabItem value="BE" label="Belgium">
+    <FieldsBE />
   </TabItem>
 
   <TabItem value="FR" label="France">
@@ -155,6 +195,26 @@ import FieldsDE from '../../_markets/de/getting-started/operator-onboarding/invi
 
   <TabItem value="DE" label="Germany">
     <FieldsDE />
+  </TabItem>
+
+  <TabItem value="GR" label="Greece">
+    <FieldsGR />
+  </TabItem>
+
+  <TabItem value="IT" label="Italy">
+    <FieldsIT />
+  </TabItem>
+
+  <TabItem value="PL" label="Poland">
+    <FieldsPL />
+  </TabItem>
+
+  <TabItem value="PT" label="Portugal">
+    <FieldsPT />
+  </TabItem>
+
+  <TabItem value="ES" label="Spain">
+    <FieldsES />
   </TabItem>
 
 </Tabs>

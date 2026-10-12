@@ -39,7 +39,7 @@ The SCU never silently retries an ambiguous outcome, because a retry can produce
 
 ### Scope of the preview
 
-The preview covers the POS sale receipt path (`0x0000`/`0x0001`/`0x0004`) and the register status read behind the zero receipt. Device fiscalization and one-time setup (header, VAT table) remain certified-technician (serwis) acts, and daily/periodic reports, returns and non-fiscal printouts are added iteratively — see [fiskaltrust/middleware#751](https://github.com/fiskaltrust/middleware/issues/751) for the current scope.
+The preview covers the POS sale receipt path (`0x0000`/`0x0001`/`0x0004`), including discounts and extras on sale lines and on the subtotal (see [Discounts and extras](../../data-structures/data-structures.md#discounts-and-extras)), and the register status read behind the zero receipt. Device fiscalization and one-time setup (header, VAT table) remain certified-technician (serwis) acts, and daily/periodic reports, returns and non-fiscal printouts are added iteratively — see [fiskaltrust/middleware#751](https://github.com/fiskaltrust/middleware/issues/751) for the current scope.
 
 ### Development without a device
 

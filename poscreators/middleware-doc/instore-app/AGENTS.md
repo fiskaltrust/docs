@@ -25,7 +25,7 @@ Describe this consistently in the introduction, the FAQ and the setup guide:
 
 - Payment requests are supported via two paths:
   - **Cloud backend** (POS System API in the cloud): requires a permanent internet connection.
-  - **Local communication** (optional): a POS app on the same device triggers payments via the fiskaltrust Android launcher ([Android Intent Integration](../possystem-api/android-intent.md)). This works offline and requires a fiskaltrust Android launcher version that supports it.
+  - **Local communication** (optional): a POS app on the same device triggers payments via the fiskaltrust Android launcher ([Android IPC](../possystem-api/android-ipc.md)). This works offline and requires a fiskaltrust Android launcher version that supports it.
 - An internet connection is **always** required for the initial configuration, even if payments are later triggered only locally.
 - Always write **"fiskaltrust Android launcher"**, never just "Android launcher", to avoid confusion with the Android system launcher (home screen app).
 - The home screen status icons **Cloud** and **On device** show which path is available (see the introduction).
@@ -41,4 +41,4 @@ Describe this consistently in the introduction, the FAQ and the setup guide:
 - [experience-middleware/payment.md](../experience-middleware/payment.md): PSP feature matrix and notes (see the [AGENTS.md there](../experience-middleware/AGENTS.md)).
 - [experience-middleware/terminology.md](../experience-middleware/terminology.md): InStore App definition.
 - [digital-receipt/receive-receipts.md](../digital-receipt/receive-receipts.md): only a short summary of the InStore App receipt flow that links to [introduction/introduction.md](introduction/introduction.md). Keep the details in the introduction; do not duplicate them there again.
-- [possystem-api/android-intent.md](../possystem-api/android-intent.md): the cloud-based `/pay` supports more payment variants than the InStore App executes directly. Do not change its `/pay` section or its requirements and limitations to match the InStore App.
+- [possystem-api/android-ipc.md](../possystem-api/android-ipc.md): the cloud-based `/pay` supports more payment variants than the InStore App executes directly. Do not change its `/pay` section or its requirements and limitations to match the InStore App.

@@ -6,6 +6,7 @@ module.exports = [
     items: [
       "posdealers/business-basics/overview-business-basics",
       "posdealers/business-basics/business-model",
+      "posdealers/business-basics/customer-roles",
       "posdealers/business-basics/services",
       "posdealers/business-basics/countries",
       "posdealers/business-basics/architecture",

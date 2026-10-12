@@ -18,7 +18,7 @@ Please check the country-specific notes for further details. Unfortunately, not 
 
 ### Explanation of terms and graphics
 
-Please note our [terminology](../../faq/terms.md) for the terms used in our application and this documentation.
+Please note our [terminology](../../poscreators/middleware-doc/general/terminology/terminology.md) for the terms used in our application and this documentation.
 
 
 Pros and cons describe the scenarios. The term _POS-System fails_ means that the Queue will switch into a failure mode but is still operational until you, as a PosDealer or PosOperator, restore the connection by a zero receipt. 

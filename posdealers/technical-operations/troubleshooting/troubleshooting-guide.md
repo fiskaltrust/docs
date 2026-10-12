@@ -37,13 +37,23 @@ Knowledge base articles and FAQs may differ per country, as users may run into p
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import TroubleAT from '../../_markets/at/technical-operations/troubleshooting/troubleshooting-guide/_trouble.mdx';
+import TroubleBE from '../../_markets/be/technical-operations/troubleshooting/troubleshooting-guide/_trouble.mdx';
 import TroubleFR from '../../_markets/fr/technical-operations/troubleshooting/troubleshooting-guide/_trouble.mdx';
 import TroubleDE from '../../_markets/de/technical-operations/troubleshooting/troubleshooting-guide/_trouble.mdx';
+import TroubleGR from '../../_markets/gr/technical-operations/troubleshooting/troubleshooting-guide/_trouble.mdx';
+import TroubleIT from '../../_markets/it/technical-operations/troubleshooting/troubleshooting-guide/_trouble.mdx';
+import TroublePL from '../../_markets/pl/technical-operations/troubleshooting/troubleshooting-guide/_trouble.mdx';
+import TroublePT from '../../_markets/pt/technical-operations/troubleshooting/troubleshooting-guide/_trouble.mdx';
+import TroubleES from '../../_markets/es/technical-operations/troubleshooting/troubleshooting-guide/_trouble.mdx';
 
 <Tabs groupId="market">
 
   <TabItem value="AT" label="Austria">
     <TroubleAT />
+  </TabItem>
+
+  <TabItem value="BE" label="Belgium">
+    <TroubleBE />
   </TabItem>
 
   <TabItem value="FR" label="France">
@@ -52,6 +62,26 @@ import TroubleDE from '../../_markets/de/technical-operations/troubleshooting/tr
 
   <TabItem value="DE" label="Germany">
     <TroubleDE />
+  </TabItem>
+
+  <TabItem value="GR" label="Greece">
+    <TroubleGR />
+  </TabItem>
+
+  <TabItem value="IT" label="Italy">
+    <TroubleIT />
+  </TabItem>
+
+  <TabItem value="PL" label="Poland">
+    <TroublePL />
+  </TabItem>
+
+  <TabItem value="PT" label="Portugal">
+    <TroublePT />
+  </TabItem>
+
+  <TabItem value="ES" label="Spain">
+    <TroubleES />
   </TabItem>
 
 </Tabs>

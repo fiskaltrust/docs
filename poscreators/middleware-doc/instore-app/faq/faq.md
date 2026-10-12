@@ -53,7 +53,7 @@ Some payment providers also expose the terminal's integrated printer to the app 
 
 A: The POS system needs to be able to send HTTP/JSON requests to the [fiskaltrust POS System API](../../possystem-api/introduction.md) (v2). Every request carries the CashBox credentials from the fiskaltrust.Portal as headers (`x-cashbox-id`, `x-cashbox-accesstoken`, `x-possystem-id`) and a unique `x-operation-id` per operation so calls can be safely retried. The POS system should also be able to set a terminal identification (`cbTerminalID` in the request body, or the `x-terminal-id` header) so that requests reach the right device in [multi-terminal setups](../multiterminal-settings/multiterminal.md).
 
-No SDK, no device-side integration, and no direct network connection between the POS and the InStore App are needed. The app is paired with the CashBox and receives its actions from the fiskaltrust backend. Optionally, a POS app on the same Android device can also trigger payments locally via the fiskaltrust Android launcher (see [Android Intent Integration](../../possystem-api/android-intent.md)).
+No SDK, no device-side integration, and no direct network connection between the POS and the InStore App are needed. The app is paired with the CashBox and receives its actions from the fiskaltrust backend. Optionally, a POS app on the same Android device can also trigger payments locally via the fiskaltrust Android launcher (see [Android IPC](../../possystem-api/android-ipc.md)).
 
 **Q: Is a connection to the fiskaltrust POS System API sufficient?**
 
@@ -180,7 +180,7 @@ A: fiskaltrust acts as the receipt platform: it stores the receipt document tamp
 
 **Q: Which APIs must be integrated for the InStore App?**
 
-A: Only the [fiskaltrust POS System API](../../possystem-api/introduction.md) (v2). There is no separate InStore App SDK. The relevant endpoints are `/echo` for the connectivity check, `/pay` for payments, `/sign` for fiscalization, and `/issue` for receipt delivery. `/journal` is used for exports and closings and is not InStore App specific. The request and response models are documented in the [POS System API reference](https://docs.fiskaltrust.eu/apis/pos-system-api); ready-to-run receipt examples per market and business case are published on the [Development Platform](https://developer.fiskaltrust.eu/). For Android POS apps running next to the local Middleware, the same endpoints are also reachable via [Android Intents](../../possystem-api/android-intent.md).
+A: Only the [fiskaltrust POS System API](../../possystem-api/introduction.md) (v2). There is no separate InStore App SDK. The relevant endpoints are `/echo` for the connectivity check, `/pay` for payments, `/sign` for fiscalization, and `/issue` for receipt delivery. `/journal` is used for exports and closings and is not InStore App specific. The request and response models are documented in the [POS System API reference](https://docs.fiskaltrust.eu/apis/pos-system-api); ready-to-run receipt examples per market and business case are published on the [Development Platform](https://developer.fiskaltrust.eu/). For Android POS apps running next to the local Middleware, the same endpoints are also reachable via [Android IPC](../../possystem-api/android-ipc.md).
 
 **Q: Which endpoints are relevant for Payment, Receipt, and Loyalty?**
 
@@ -209,7 +209,7 @@ For cloud-triggered actions, the POS and InStore App communicate through the fis
 A: Partly. Since version 1.3.2, payment requests are supported via two paths:
 
 - **Cloud backend** (POS System API in the cloud): requires a permanent internet connection.
-- **Local communication** (optional): a POS app on the same device triggers payments via the POS System API of the fiskaltrust Android launcher (see [Android Intent Integration](../../possystem-api/android-intent.md)). Works offline. Requires a fiskaltrust Android launcher version that supports this path.
+- **Local communication** (optional): a POS app on the same device triggers payments via the POS System API of the fiskaltrust Android launcher (see [Android IPC](../../possystem-api/android-ipc.md)). Works offline. Requires a fiskaltrust Android launcher version that supports this path.
 
 An internet connection is always required for the initial configuration, even if payments are later triggered only locally.
 
