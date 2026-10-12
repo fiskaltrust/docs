@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/greece/reference-tables
 title: Reference Tables
+description: Overview of the hex-based tagging format behind the Greek reference tables for receipt, charge item and pay item cases.
+tags: [Greece, Reference Tables, POS System API, Middleware]
 ---
 
 # Reference Tables

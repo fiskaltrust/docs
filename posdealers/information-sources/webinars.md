@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/information-sources/webinars
 title: Webinars
+description: How PosDealers join and take part in free fiskaltrust webinars, with links to country-specific webinar information for Austria, France, and Germany.
+tags: [Webinars, PosDealers, Onboarding, Austria, France, Germany]
 ---
 # Webinars
 
@@ -31,13 +33,23 @@ fiskaltrust offers free webinars. We aim primarily at PosCreators. For PosDealer
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import VideoAT from '../_markets/at/information-sources/webinars/_webinar.mdx';
+import VideoBE from '../_markets/be/information-sources/webinars/_webinar.mdx';
 import VideoFR from '../_markets/fr/information-sources/webinars/_webinar.mdx';
 import VideoDE from '../_markets/de/information-sources/webinars/_webinar.mdx';
+import VideoGR from '../_markets/gr/information-sources/webinars/_webinar.mdx';
+import VideoIT from '../_markets/it/information-sources/webinars/_webinar.mdx';
+import VideoPL from '../_markets/pl/information-sources/webinars/_webinar.mdx';
+import VideoPT from '../_markets/pt/information-sources/webinars/_webinar.mdx';
+import VideoES from '../_markets/es/information-sources/webinars/_webinar.mdx';
 
 <Tabs groupId="market">
 
   <TabItem value="AT" label="Austria">
     <VideoAT />
+  </TabItem>
+
+  <TabItem value="BE" label="Belgium">
+    <VideoBE />
   </TabItem>
 
   <TabItem value="FR" label="France">
@@ -46,6 +58,26 @@ import VideoDE from '../_markets/de/information-sources/webinars/_webinar.mdx';
 
   <TabItem value="DE" label="Germany">
     <VideoDE />
+  </TabItem>
+
+  <TabItem value="GR" label="Greece">
+    <VideoGR />
+  </TabItem>
+
+  <TabItem value="IT" label="Italy">
+    <VideoIT />
+  </TabItem>
+
+  <TabItem value="PL" label="Poland">
+    <VideoPL />
+  </TabItem>
+
+  <TabItem value="PT" label="Portugal">
+    <VideoPT />
+  </TabItem>
+
+  <TabItem value="ES" label="Spain">
+    <VideoES />
   </TabItem>
 
 </Tabs>

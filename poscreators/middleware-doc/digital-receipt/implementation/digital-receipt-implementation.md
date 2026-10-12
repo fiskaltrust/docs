@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/digital-receipt/implementation/digital-receipt-implementation
 title: Digital Receipt Implementation
+description: Implementing digital receipts via the POS API Helper or the print endpoint — sign, print, response and status calls, QR-Code and QR-Label versions.
+tags: [Digital receipt, POS System API, POS API Helper, QR Code, Experience Middleware]
 ---
 
 # Digital Receipt Implementation
@@ -11,7 +13,7 @@ Before start implementing, please read the getting started section first.
 
 :::
 
-fiskaltrust provides two implementing methods for the digital receipt via QR-Code and via Give-Away (QR-Label). The first approach is the POS API Helper, which is primarily recommended for testing/sandbox environments and the InStore App. Configuring the POS API Helper within the fiskaltrust.Portal requires no implementation effort in your Point of Sale software.
+fiskaltrust provides two implementing methods for the digital receipt via QR-Code and via Give-Away (QR-Label). The first approach is the POS API Helper, which is intended for Point of Sale software that is already integrated with the classic Middleware interface (`/sign` via IPOS v0 or the SignatureCloud API). The POS API Helper is configured on the CashBox in the fiskaltrust.Portal and makes the signed receipts available as digital receipts without changing that existing integration. It is a bridge for existing integrations and for testing/sandbox environments, not a replacement for the POS System API; for production rollouts, migrate to the POS System API following the [Migration Guide](../../possystem-api/migration-guide.md).
 
 However, it's important to highlight that the POS API Helper does not log the delivery statuses of the digital receipt, as mentioned in the section Evaluation of document retrievals for financial administration ("Finanzverwaltung"). The absence of these logs prevents a tax auditor from reviewing the statuses of printing, acceptance, and submission in the event of an audit. This could result in non-compliance, particularly in Austria, due to the lack of logged records for the obligation to issue receipts ("Belegausgabepflicht") and the obligation to accept receipts ("Belegannahmepflicht"), rendering verification impossible.
 
@@ -21,7 +23,7 @@ To address this, the POS API provides comprehensive logging of digital receipt i
 
 This sequence diagram describes the process of generating a digital receipt with the sign endpoint and the POS API Helper. The participants in the process are the Point of Sale software, fiskaltrust.Middleware, POS API Helper, fiskaltrust and the consumer. 
 
-![pos_api_helper_sequence](./images/POS_API_Helper_sequence.png)
+![Sequence diagram: POS software calls /sign on the Middleware, POS API Helper sends the receipt to fiskaltrust, POS shows a QR code the consumer scans to get the receipt](./images/POS_API_Helper_sequence.png)
 
 *Figure 1. Sequence diagram of generating a digital receipt with the sign endpoint and the POS API Helper.*
 

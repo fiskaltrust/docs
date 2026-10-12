@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/greece/receipt-case-definitions
 title: Receipt Case Definitions
+description: Placeholder for Greek receipt case definitions that extend the general receipt case definitions of the Middleware.
+tags: [Greece, Receipt Case, Middleware, PosCreators]
 ---
 
 # Receipt Case Definitions

@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/france/communication
 title: Communication
+description: REST communication with fiskaltrust.ChaineCloud for France — base URL, JSON/XML content types, headers and echo, sign and journal calls.
+tags: [France, Communication, REST, Middleware]
 ---
 
 # Communication

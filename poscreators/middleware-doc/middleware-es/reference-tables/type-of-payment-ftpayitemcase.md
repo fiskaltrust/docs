@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/spain/reference-tables/ftpayitemcase
 title: 'Type of Payment: ftPayItemCase'
+description: ftPayItemCase format and payment type values for Spain, such as cash, non-cash, cheque and card payments, plus global flags.
+tags: [Spain, Pay Item Case, Reference Tables, Payment]
 ---
 
 # Type of Payment: ftPayItemCase

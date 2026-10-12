@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/france/operation-modes
 title: Operation Modes
+description: Middleware components and configuration for France, managed via the French fiskaltrust.Portal at portal.fiskaltrust.fr.
+tags: [France, Operation Modes, Portal, Configuration, Middleware]
 ---
 
 # Operation Modes

@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/getting-started/operator-onboarding/surrogating
 title: Surrogating
+description: Prerequisites and steps for PosDealers to act on behalf of a PosOperator in the Portal, using a master data check as example.
+tags: [Surrogating, Onboarding, Portal, PosDealers]
 ---
 # Surrogating
 

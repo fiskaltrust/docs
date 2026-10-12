@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/information-sources/cases
 title: Cases
+description: Viewing and following up support cases created by the Customer Success Team in the Help section of the fiskaltrust.Portal.
+tags: [Support Cases, Support, Portal, PosDealers]
 ---
 # Cases
 

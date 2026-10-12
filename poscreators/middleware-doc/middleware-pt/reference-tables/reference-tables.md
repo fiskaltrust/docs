@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/portugal/reference-tables
 title: Reference Tables
+description: Overview of the Portuguese reference tables that map the POSSystem API v2 tagging structure to the Portuguese market.
+tags: [Reference Tables, Portugal, POS System API, Middleware]
 ---
 
 # Reference Tables

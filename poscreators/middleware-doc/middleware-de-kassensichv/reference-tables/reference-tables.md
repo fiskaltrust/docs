@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/germany/reference-tables
 title: Reference Tables
+description: Overview of the German reference tables that map receipts, charge items and pay items to the Middleware tagging system.
+tags: [Germany, Reference Tables, KassenSichV, Middleware]
 ---
 
 # Reference Tables

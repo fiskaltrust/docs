@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/spain/reference-tables/ftstate
 title: 'Service Status: ftState'
+description: ftState values for Spain — global and local flags signalling queue, SCU and late signing status in receipt responses.
+tags: [Spain, ftState, Reference Tables, Middleware]
 ---
 
 # Service Status: ftState
@@ -22,7 +24,7 @@ version 2
 | `0000_0040 ` | **Message Pending** <br />Middleware/Queue is a headless background service, but there are situations where communication with the cashier/operator or the cash register is necessary. For example, if the last daily closing was missed or if a special condition related to the signature creation unit or service happened. This is the moment when the message pending flag is set by the middleware, which should be signalled to the cashier by the POS system. By executing a ZeroReceipt, the cashier can read the message or instruction on the printed or displayed receipt.<br />Related to local regulations, this receipt may be stored/archived with/for bookkeeping purposes; if this is the case, this is also visualized. | 1.3.45 |
 | `0000_0100 ` | **DailyClosing due** <br />When the first cbReceiptMoment used since the last DailyClosing and the current/latest cbReceiptMoment in the ReceiptRequest have a date-gap of more than two days (for example, the first since the last daily closing is 24/08 and the current is 26/08), then this state indicates, a Daily Closing should be done. <br />DailyClosing is an essential part of the security mechanism and also executes additional market-specific cleanup tasks. Therefore, each queue should do a DailyClosing to clear persistent changes in business data and also changes in the business period. | 1.3.45 |
 | `EEEE_EEEE ` | **Error** <br />Something went wrong while processing the last request. QueueItem exists but didn’t reach the state of a ReceiptItem and didn’t consume a ftReceiptNumber within the chain. Error reason is shown within the responded ftSignatureItems. <br />This happens, for example, if the ReceiptCase is not recognized or is wrong. | 1.3.45 |
-| `FFFF_FFFF ` | **Fail** <br />Something went wrong while processing the last request, and nothing persisted within the Queue. Fail reason is shown within the responded ftSignatureItems. <br />This happens, for example, when the flag ReceiptRequest is used after a communication outage, and no properly processed item is found. | 1.3.45 |
+| `FFFF_FFFF ` | **Fail** <br />Something went wrong while processing the last request, and nothing persisted within the Queue. Fail reason is shown within the responded ftSignatureItems. <br />This happens, for example, when the flag ReceiptRequest is used after a communication outage, and no properly processed item is found. It also happens if the fiskaltrust.Middleware has no access to its database and therefore cannot store the request. | 1.3.45 |
 
 *Table 1. Global ftState tagging and flag values for the Spanish market.*
 

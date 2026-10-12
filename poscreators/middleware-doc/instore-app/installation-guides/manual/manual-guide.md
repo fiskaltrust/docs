@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/instore-app/installation-guides/manual
 title: Manual Installation Guide
+description: Download and install the InStore App APK manually on an Android device, using the stable or preview channel link.
+tags: [InStore App, Installation, Android, APK]
 ---
 
 # Manual Installation Guide

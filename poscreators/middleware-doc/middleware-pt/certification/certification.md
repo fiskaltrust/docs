@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/portugal/certification
 title: Certification
+description: What the AT certification (certificate 3535) of the fiskaltrust.CloudCashBox covers in Portugal — document types, layout, options, and boundaries.
+tags: [Certification, Portugal, CashBox, Compliance, Printing]
 ---
 
 # Certification of the fiskaltrust.Middleware (CloudCashBox)
@@ -41,9 +43,9 @@ The certification covers the fiskaltrust.Middleware as a **cloud-hosted invoicin
 - **Digital signature (hash chain).** Every document is signed with an RSA private key held by fiskaltrust, chained to the previous document of the same series. The four characters extracted from the hash and the certificate line are returned as signature items and must be printed.
 - **QR code.** The Middleware generates the mandatory QR code content according to *Portaria n.º 195/2020*, including ATCUD, totals per VAT rate, hash extract, and certificate number.
 - **SAF-T (PT) export.** The Middleware produces the SAF-T (PT) audit file in structure 1.04_01 (*Portaria n.º 302/2016*) containing all documents, customers, products, tax table, and working documents. It is exported through the journal endpoint with the Portuguese SAF-T journal type `0x5054200000000001` (see [Type of Journal: ftJournalType](../reference-tables/type-of-journal-ftjournaltype.md)).
-- **Validation rules.** The Middleware enforces the AT's business rules before signing (see [Boundaries](#boundaries-of-the-certification)), so that non-compliant requests are rejected instead of being turned into invalid fiscal documents.
+- **Validation rules.** The Middleware enforces the AT's business rules before signing (see [Validation errors](../cash-register-integration/error-handling.md#validation-errors)), so that non-compliant requests are rejected instead of being turned into invalid fiscal documents.
 - **Document copies and voids.** Reprints are marked as copies (*Duplicado*), voided documents are exported with status `A` and their copies are marked *Documento anulado*.
-- **Document layout.** The rendering of the document (PDF, digital receipt, ESC-POS) produced by the fiskaltrust.Middleware for Experience is part of the certified program; see [Certified document layout](#certified-document-layout).
+- **Document layout.** The rendering of the document (PDF, digital receipt, ESC-POS) produced by the fiskaltrust.Middleware for Experience is part of the certified program; see [Certified document layout](#certified-document-layout) and [Receipt options, configuration, and extension points](#receipt-options-configuration-and-extension-points).
 
 The certification was carried out with the fiskaltrust.CloudCashBox environment operated by fiskaltrust in the Microsoft Azure cloud. POS systems that integrate through the [PosSystem API](../../possystem-api/introduction.md) act as the front end of this certified program; the fiscal document itself is created and secured by the Middleware.
 
@@ -59,7 +61,7 @@ The following components are part of the fiskaltrust.Middleware itself. They are
 
 | Component | What the Middleware does |
 | --------- | ------------------------ |
-| **Validation** | Every request is checked against the Portuguese business rules before anything is signed (see [Boundaries](#boundaries-of-the-certification)); non-compliant requests are rejected with a validation code and message. |
+| **Validation** | Every request is checked against the Portuguese business rules before anything is signed; non-compliant requests are rejected (see [Validation errors](../cash-register-integration/error-handling.md#validation-errors)). |
 | **Numbering and series** | Documents are numbered sequentially per series and document type, the chronology of the series is enforced, and the ATCUD validation code of the series is applied to every document. |
 | **Signature and hash chain** | Each document is signed with the RSA key of the program and chained to the previous document of its series; the four hash characters and the certificate line are returned as signature items. |
 | **QR code** | The QR code content according to *Portaria n.º 195/2020* (ATCUD, totals per VAT rate, hash extract, certificate number) is generated for every document. |
@@ -106,6 +108,76 @@ The conditions under which a POS system may render the document itself from the 
 
 :::
 
+## Receipt options, configuration, and extension points
+
+The certified document is rendered by the fiskaltrust receipt service from the signed request and response pair. Every rendering of a document is addressed by the same URL, which the Middleware returns as the caption of the QR code signature item:
+
+```
+https://receipts.fiskaltrust.eu/{ftQueueID}/{ftQueueItemID}            (production, certificate 3535)
+https://receipts-sandbox.fiskaltrust.eu/{ftQueueID}/{ftQueueItemID}    (sandbox, placeholder 9999)
+```
+
+This section lists the output formats that are available for the document, what a PosOperator or PosCreator can configure without leaving the certified layout, which fields of the request are reflected on the document, and how the document is handed over through the `/issue` endpoint of the [PosSystem API](../../possystem-api/introduction.md).
+
+### Rendering options
+
+Both formats are produced from the same data and the same certified layout; they differ only in the medium. Select the format with a path suffix, with the `format` query parameter, or with the HTTP `Accept` header.
+
+| Format | How to request it | Use it for | Notes |
+| ------ | ----------------- | ---------- | ----- |
+| **Digital receipt** | URL without suffix | The customer opens the link behind the QR code on a phone or a browser; the POS shows it on a customer display. | Interactive: download as PDF, send by e-mail, share with partner apps. Rendered with the Portuguese layout, labels, and the *Original* / *Duplicado* / *Documento anulado* markers. |
+| **PDF** | `/pdf`, `?format=pdf`, or `Accept: application/pdf` | Sending the document by e-mail, archiving, the merchant copy, printing on an office printer. | Same content and layout as the digital receipt, rendered server-side. An A4 multi-page invoice layout exists and is currently enabled per POS system by fiskaltrust; contact fiskaltrust if you need it. |
+
+### What can be configured
+
+The certified layout itself is fixed. Within it, the following elements are taken from the queue's receipt settings and can be adapted per outlet without affecting the certificate:
+
+| Element | Source | How to change it |
+| ------- | ------ | ---------------- |
+| Merchant header: name, street, postal code, city, NIF | Outlet master data of the PosOperator in the fiskaltrust.Portal | Edit the outlet in the portal; the receipt service picks the data up for every queue of the outlet. |
+| Logo | Image uploaded on the outlet in the fiskaltrust.Portal (*Select Image File*) | Upload or replace the image on the outlet. |
+| Website link on the logo | Receipt settings of the queue | Configured by fiskaltrust on request. |
+| Footer text | Receipt settings of the queue | Free text printed after the last mandatory element, e.g. a thank-you line or return conditions. Configured by fiskaltrust on request. This is the place for the footer the AT requires after the mandatory elements; it must not look like one of them. |
+| Feedback and sharing on the digital receipt | Receipt settings of the queue | Digital receipt only; these features do not appear on the PDF. Configured by fiskaltrust on request. |
+
+### Extension points in the request
+
+The POS influences the content of the document only through the request it sends to the Middleware. Besides the fiscal fields, the following optional fields are rendered on the document. They are meant for information that belongs to the transaction; none of them may be used to replace or imitate a mandatory element.
+
+| Field | Where it appears | Typical use |
+| ----- | ---------------- | ----------- |
+| `cbCustomer` (name, street, zip, city, country, `CustomerVATId`) | Customer block | Identified customer. Without `CustomerVATId` the document shows *Consumidor final*. |
+| `cbUser` | Operator line | The operator who issued the document, as a string with at least 3 characters. JSON objects are rejected. A hash of the value is exported to the SAF-T as `SourceID`. |
+| `ftReceiptCaseData.cbReceiptLines` (array of strings) | Below the customer block, before the footer | Document-level free text: table number, order reference, delivery information, loyalty balance. |
+| `ftChargeItemCaseData.cbChargeItemLines` (array of strings) | Below the article description | Line-level details: serial number, size, deposit information, promotion text. |
+| `ftPayItemCaseData.cbPayItemLines` (array of strings) | *Dados da transação* block after the payments | Card payment details returned by the terminal (masked PAN, authorisation code, terminal ID). |
+| `ReceiptTag` in `ftReceiptCaseData`, `ftChargeItemCaseData`, or `ftPayItemCaseData` | Not printed | Links the document to a pre-printed give-away QR label, see [Digital Receipt Implementation](../../digital-receipt/implementation/digital-receipt-implementation.md). |
+| `ftReceiptCaseData.PT.Series` and `.Number` | Manual-document notice | Only with the `Handwritten` flag, see [Copies, voids, and manual documents](../receipt-printing/receipt-printing.md#copies-voids-and-manual-documents). |
+
+Everything else on the document, in particular the document type, number, ATCUD, hash characters, certificate line, QR code, cash box identification (`ftCashBoxIdentification`), VAT summary, and the mandatory texts, is derived from the signed response and cannot be influenced by the request.
+
+### Handing the document over with the issue endpoint
+
+After `/sign`, the POS hands the signed request and response pair to `/issue`. The receipt service stores the pair, makes the URL above resolvable, and offers the following actions on `PUT /v2/issue/{ftQueueID}/{ftQueueItemID}`:
+
+| `Action` | Effect |
+| -------- | ------ |
+| `print` | Records that the document was printed physically. |
+| `accept` | Records that the customer accepted the digital receipt (e.g. scanned the QR code). |
+| `send` with `Target.Scheme` `email`, `sms`, or `peppol` and `Target.Address` | Sends the document to the given address: by e-mail with the PDF attached, by SMS with the link, or as e-invoice through the Peppol network (Peppol is not part of the certified scope). |
+| `link` with `Target.Alias` or `Target.Scheme` + `Target.Address` | Binds the document to a give-away QR label or another alias. |
+| `download` with `Format` | Returns the document (e.g. `Format`: `pdf`) through the POS connection instead of the public URL. |
+
+`GET /v2/issue/{ftQueueID}/{ftQueueItemID}` returns the delivery state (`None`, `Submitted`, `Printed` with the delivery method). The [Delivery](../../experience-middleware/delivery.md) chapter describes the delivery concept; the request and response models are in the PosSystem API reference.
+
+### Samples
+
+The following documents were rendered by the receipt service in the sandbox environment; they therefore carry the placeholder certificate number `9999` instead of `3535`. Production documents are identical apart from the number.
+
+![Sample document rendered by the receipt service in the sandbox](https://receipts-sandbox.fiskaltrust.eu/1def4d45-ae9f-4562-a548-b8f5e84b88fb/f186b146-9bf7-44c6-86e8-fb3322e87e22/png)
+
+*Figure 1. Sample document as rendered in the sandbox. Open the [digital receipt](https://receipts-sandbox.fiskaltrust.eu/1def4d45-ae9f-4562-a548-b8f5e84b88fb/f186b146-9bf7-44c6-86e8-fb3322e87e22) or the [PDF](https://receipts-sandbox.fiskaltrust.eu/1def4d45-ae9f-4562-a548-b8f5e84b88fb/f186b146-9bf7-44c6-86e8-fb3322e87e22/pdf) of the same document.*
+
 ## Certified document types
 
 The following SAF-T (PT) document types were part of the certification and are issued by the Middleware. The table shows how they map to the `ftReceiptCase` values described in [Type of Receipt: ftReceiptCase](../reference-tables/type-of-receipt-ftreceiptcase.md).
@@ -142,38 +214,30 @@ The certificate covers the functionality described above and nothing beyond it. 
 - Transport documents under the *Regime de Bens em Circulação* (`GR`, `GT`, `GA`, `GC`, `GD`) are not issued. The delivery-note receipt case (`0x0005`) has no fiscal effect in Portugal, and requests carrying the `HasTransportInformation` flag are rejected.
 - Documents from other systems are not integrated (no import of third-party documents into the SAF-T).
 
-**Amounts, currency, and tax**
+**Currency and tax**
 
-- Only `EUR` is supported. Documents in a foreign currency are rejected.
+- Only `EUR` is supported.
 - Only the mainland Portuguese tax region (`PT`) is supported. The Azores (`PT-AC`) and Madeira (`PT-MA`) rates are not available.
-- Only the reduced, intermediate, and normal VAT rates plus VAT-exempt items are supported. Exempt items (0 %) must carry a supported exemption reason via the nature-of-VAT segment of the `ftChargeItemCase`; unknown exemption codes are rejected.
-- Simplified invoices (`FS`) are limited to a net amount of 100 EUR. Individual cash payments are limited to 3 000 EUR.
-- Negative quantities, negative amounts, and positive discount lines are not allowed except where they result from a refund. A discount must not exceed the amount of the article it belongs to.
-
-**Data quality rules**
-
-- `cbUser` is mandatory and must be at least three characters long; it is exported as the user who issued the document.
-- Article descriptions must be at least three characters long and representable in Windows-1252 encoding. Leading and trailing whitespace is trimmed.
-- A `cbCustomer` with a `CustomerVATId` must carry a valid Portuguese NIF and a `CustomerCountry`. Without a NIF, the document is issued to *Consumidor final* (NIF `999999990`).
-- `cbReceiptMoment` must be UTC, must not be in the future, must be within ten minutes of the server time, and must not be earlier than the previous document of the same series.
-- Item positions must start at 1 and increase without gaps; lines are exported in this order.
+- Only the reduced, intermediate, and normal VAT rates plus VAT-exempt items are supported.
 
 **Operational boundaries**
 
 - Series, ATCUD, and the signing key are managed exclusively by fiskaltrust. There is no way for a PosCreator or merchant to configure series or to sign documents locally.
-- Daily, monthly, and yearly closing receipts as well as the zero receipt have no fiscal function in Portugal and are accepted as no-ops.
+- The numbering series and their starting numbers are set by fiskaltrust and cannot be configured by the PosCreator or the merchant.
+- Daily, monthly, and yearly closing receipts are part of the fiskaltrust.Middleware and must be integrated by the POS system in Portugal as in every other market, see [Closing Receipts](../../general/cash-register-integration/cash-register-integration-regular-workflow.md#closing-receipts).
+- The zero receipt is part of the fiskaltrust.Middleware and must be integrated as in every other market. Among other things, it is used to gather information about the installation and to recover from failure states such as late signing or an unreachable signature creation unit, see [Zero Receipt](../../general/cash-register-integration/cash-register-integration-regular-workflow.md#zero-receipt) and [Service Status: ftState](../reference-tables/service-status-ftstate.md).
 - Training mode is only available on queues where it has been explicitly enabled; the sandbox environment must not be used for productive documents.
 - The PDF rendered by fiskaltrust is not signed with a qualified electronic signature or seal. Under the current transitional rule, plain PDF invoices are accepted until 31 December 2026; from 1 January 2027 a qualified signature or seal is required for PDF invoices sent electronically to customers. B2G invoicing (CIUS-PT / EDI) is not part of the certified scope.
 - Down payments, multi-use vouchers, and payments under the cash VAT regime are not covered.
 
-Requests that violate one of these rules are not signed. The response carries the error state `EEEE_EEEE` (see [Service Status: ftState](../reference-tables/service-status-ftstate.md)) and the validation code and message in the `ftSignatures`, so the POS can show the reason to the operator and correct the request.
+Requests outside these boundaries are rejected and not signed. What the Middleware validates, and how to correct a rejected request, is described in [Validation errors](../cash-register-integration/error-handling.md#validation-errors).
 
 ## What this means for PosCreators
 
 - **You integrate a certified program; you do not become one.** Your POS sends the business case to the fiskaltrust.CloudCashBox through the [PosSystem API](../../possystem-api/introduction.md). The Middleware numbers, signs, and exports the document under certificate 3535. Your software must not create, number, or sign fiscal documents itself.
 - **Use the certified document.** Hand the customer the document rendered by fiskaltrust: the PDF or digital receipt reachable through the link in the QR code signature item, or the ESC-POS stream from the `/issue` endpoint. A layout drawn by your own software is not covered by the certificate (see [Certified document layout](#certified-document-layout)).
 - **Print what you receive, unchanged.** If you display or print any returned element (document number, ATCUD, certificate line, QR code, mandatory texts), reproduce it exactly as returned. Never replace the certificate number, the hash characters, or the document number with your own values.
-- **Send complete and valid requests.** The Middleware rejects requests that would produce a non-compliant document (see [Boundaries](#boundaries-of-the-certification)). Show the returned error to the operator and correct the request; do not retry with altered fiscal data.
+- **Send complete and valid requests.** The Middleware rejects requests that would produce a non-compliant document (see [Validation errors](../cash-register-integration/error-handling.md#validation-errors)). Show the returned error to the operator and correct the request; do not retry with altered fiscal data.
 - **Respect the document flow.** Refunds, voids, copies, and payments reference the original document via `cbPreviousReceiptReference`. Working documents (pro forma, budget, table check) carry no payment and are invoiced by reference. Series and ATCUD are assigned by the Middleware; there is no way to choose them.
 - **Sandbox is not production.** Sandbox queues emit the placeholder certificate number `9999` and sandbox documents are never valid invoices. Use the sandbox for integration tests only; productive documents must be created on a production queue.
 - **Self-hosted deployments need their own certification.** Running the Middleware on your own infrastructure or on a device (e.g. the Android launcher) is outside certificate 3535.
@@ -186,4 +250,4 @@ Requests that violate one of these rules are not signed. The response carries th
 - **Corrections go through the program.** A wrong document is voided or credited through the POS, which creates the corresponding void or credit note; documents cannot be edited or deleted. A reprint is always marked as a copy.
 - **The certificate number on your documents is 3535.** Documents that show `9999` were created in the sandbox and are not valid invoices.
 - **Electronic delivery.** Documents you send as PDF are accepted as electronic invoices until 31 December 2026. From 1 January 2027 a qualified electronic signature or seal is required for PDF invoices sent electronically; fiskaltrust does not currently apply one.
-- **Limits you will encounter.** Simplified invoices are limited to 100 EUR net, cash payments to 3 000 EUR per payment, only EUR is supported, and only the mainland tax region is available. Ask your POS provider to issue an invoice (FT) when a simplified invoice is not permitted.
+- **Limits you will encounter.** Simplified invoices are limited to 100 EUR net, cash payments to 3 000 EUR, only EUR is supported, and only the mainland tax region is available. Ask your POS provider to issue an invoice (FT) when a simplified invoice is not permitted.

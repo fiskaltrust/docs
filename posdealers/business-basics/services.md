@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/business-basics/services
 title: Services
+description: fiskaltrust product portfolio for PosDealers — Middleware, Portal, revision-safe receipt archive, exports, hosted Middleware and signing.
+tags: [Services, Middleware, Portal, Signature, PosDealers]
 ---
 # Services
 
