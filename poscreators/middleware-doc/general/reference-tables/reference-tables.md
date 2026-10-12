@@ -274,30 +274,6 @@ For more information, see [VAT rules and rates](https://europa.eu/youreurope/bus
 
 *Table 16. Nature-of-non-VAT codes (nn) for super-specific taxes in the ftChargeItemCase format.*
 
-
-The following table is relevant only for the German market. Germany differentiates various cash transfers from/to a cash till (Kassenlade) depending on the purpose of the transfer.
-
-| nn (Germany only, SV=A8)<br />Cash transfer types | GV-Typ (defined by DSFinVK) | Description                                                                                                                                                                                                                                                                                                                            | Transfer direction                  |
-|---------------------------------------------------|-----------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------|
-| 00                                                | Ein- and Auszahlung         | A catch-all for cash coming in or out that no other GV-Typ covers (e.g. paying for office supplies in cash or getting money back for returning a good to a supplier).                                                                                                                                                                  | `+` (to till)<br/> `-` (from till)  |
-| 91                                                | Geldtransit                 | Moves all or part of the cash or cheques out of or into the register, for example to the bank or a safe. It also covers moving cash between registers and topping up the drawer after it was emptied. Money going into the private sphere must be recorded as _Privatentnahme_ instead.                                                | `+` (to till)<br/> `-` (from till)  |
-| 92                                                | Privateinlage and -entnahme | The owner takes cash out of the register for private, non-business purposes, or puts it from private funds into the register.                                                                                                                                                                                                          | `+` (to till)<br/> `-` (from till)  |
-| 93                                                | Lohnzahlung                 | The employer pays all or part of an employee's wages from the register, for example a salary advance.                                                                                                                                                                                                                                  | `-` (from till)                     |
-| 94                                                | Anfangsbestand              | Records the cash already in the drawer when the register is opened at the start of a period (this can also happen during the day). This is a purely technical entry. It is optional.<br/> <br/>If the drawer was emptied at the last closing, the starting balance is 0.00, and any new cash put in must be recorded as _Geldtransit_. | `+` (to till)                       |
-| 95                                                | DifferenzSollIst            | Records the difference between the calculated (expected) and the counted (actual) cash balance when the cash is counted or checked. It can be a shortage or a surplus. It lets differences be found, logged and balanced, and they must be documented further in the cash book.                                                        | `+` (to till)<br/> `-` (from till)  |
-
-*Table 17. Germany-only cash transfer types (nn) for the ftChargeItemCase.*
-
-:::info important
-
-The German cash transfer types must be used exclusively with **ftReceiptCase: 0x2000_0000_0002** (payment transfer receipt). 
-Since they all describe a cash transfer, the respective **cbPayItemCase: 0x2000_0000_0001** (Cash) is expected 
-
-:::
-
-<!-- TODO: research a possibility to make the .md file automatically generate a table number count -->
-<!-- TODO: check if we can use the German flag icon in order to highlight Germany-only documentation better -->
-
 #### gggg - Global tagging/flags
 
 | Value | Description |
@@ -311,7 +287,7 @@ Since they all describe a cash transfer, the respective **cbPayItemCase: 0x2000_
 | `4000` | **RespondInReceiptResponse**<br />Respond in **ReceiptResponse**. |
 | `8000` | **ShowInPayments**<br />Visualize the item after Total Amount. Amount is inverted and not included in the visualized total amount on the receipt. |
 
-*Table 18. Global tagging flags (gggg) of the ftChargeItemCase format.*
+*Table 17. Global tagging flags (gggg) of the ftChargeItemCase format.*
 
 :::tip Discounts and extras
 A charge item with the flag `Discount` follows directly after the position it belongs to and uses the same type of service and VAT rate. A discount on several positions or on the whole receipt is distributed to the positions. See [Discounts and Extras](../cash-register-integration/discounts-and-extras.md).
@@ -324,7 +300,28 @@ A charge item with the flag `Discount` follows directly after the position it be
 
 #### lll - Local tagging/flags
 
-TBD
+##### Germany (DE)
+
+The following table is relevant only for the German market. Germany differentiates various cash transfers from/to a cash till (Kassenlade) depending on the purpose of the transfer.
+
+:::info important
+
+The German cash transfer types must be used exclusively with **ftReceiptCase: 0x2000_0000_0002** (payment transfer receipt).
+Since they all describe a cash transfer, the respective **cbPayItemCase: 0x2000_0000_0001** (Cash) is expected
+
+:::
+
+| lll                  | GV-Typ (defined by DSFinVK) | Description                                                                                                                                                                                                                                                                                                                                            | Transfer direction                 |
+|----------------------|-----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------|
+| `000`                | Ein- and Auszahlung         | A catch-all for cash coming in or out that no other GV-Typ covers (e.g. paying for office supplies in cash or getting money back for returning a good to a supplier).<br/><br/>**Important**: If an Ein- or Auszahlung contains multiple VAT positions (e.g. 19% and 7%), these should be declared as separate charge items with respective VAT rates. | `+` (to till)<br/> `-` (from till) |
+| `091`                | Geldtransit                 | Moves all or part of the cash or cheques out of or into the register, for example to the bank or a safe. It also covers moving cash between registers and topping up the drawer after it was emptied. Money going into the private sphere must be recorded as _Privatentnahme_ instead.                                                                | `+` (to till)<br/> `-` (from till) |
+| `092`                | Privateinlage and -entnahme | The owner takes cash out of the register for private, non-business purposes, or puts it from private funds into the register.                                                                                                                                                                                                                          | `+` (to till)<br/> `-` (from till) |
+| `093`                | Lohnzahlung                 | The employer pays all or part of an employee's wages from the register, for example a salary advance.                                                                                                                                                                                                                                                  | `-` (from till)                    |
+| `094`                | Anfangsbestand              | Records the cash already in the drawer when the register is opened at the start of a period (this can also happen during the day). This is a purely technical entry. It is optional.<br/> <br/>If the drawer was emptied at the last closing, the starting balance is 0.00, and any new cash put in must be recorded as _Geldtransit_.                 | `+` (to till)                      |
+| `095`                | DifferenzSollIst            | Records the difference between the calculated (expected) and the counted (actual) cash balance when the cash is counted or checked. It can be a shortage or a surplus. It lets differences be found, logged and balanced, and they must be documented further in the cash book.                                                                        | `+` (to till)<br/> `-` (from till) |
+| `090`, `096` - `09F` | _reserved_                  |                                                                                                                                                                                                                                                                                                                                                        |                                    |
+
+*Table 18. Germany-only cash transfer types (nn) for the ftChargeItemCase.*
 
 ### Type of Payment: ftPayItemCase
 
