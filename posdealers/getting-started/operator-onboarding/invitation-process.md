@@ -71,7 +71,7 @@ Depending on the country, when a PosOperator is registered for the first time, f
    - `User data`: first name, last name, contact e-mail address
 5. Fill in the tax identification numbers. They are not mandatory for the invitation, but they and their validation are **essential** for the correct management of the cash register systems (for example AccountIdVat, AccountIdGln, AccountUStIdNr).
 6. Choose `Save`. The PosOperator is added to the list `PosOperators that should be invited`.
-7. Choose `Assign all cash register users` to send the e-mail invitation.
+7. Choose `Invite all PosOperators` to send the e-mail invitation.
 
 If the invitation does not reach the PosOperator, see [Managing the invitations](#managing-the-invitations).
 
@@ -153,7 +153,7 @@ Import a CSV file to invite many business partners at once. The fiskaltrust.Port
 |![Number 6](../../images/numbers/circle-6o.png) |Go back to the fiskaltrust.Portal and choose `PosDealer` > `Invitation`. |
 |![Number 7](../../images/numbers/circle-7o.png) |In `PosOperators that should be invited`, under `Import CSV file`, select your CSV file with `Choose file`. |
 |![Number 8](../../images/numbers/circle-8o.png) |Choose `Import`. The data is uploaded and checked for duplicate or incomplete records. You can check and complete each record. If records are incomplete, the import error page opens (see [Handling error messages](#handling-error-messages)). |
-|![Number 9](../../images/numbers/circle-9o.png) |Choose `Assign all cash register users` to send the e-mail invitation to each business partner in your CSV file. For a preview of the e-mail, see [Preview of the e-mail invitation](#preview-of-the-e-mail-invitation). |
+|![Number 9](../../images/numbers/circle-9o.png) |Choose `Invite all PosOperators` to send the e-mail invitation to each business partner in your CSV file. For a preview of the e-mail, see [Preview of the e-mail invitation](#preview-of-the-e-mail-invitation). |
 
 *Table 3. Steps of the bulk invitation, shown in Figure 4.*
 
@@ -233,7 +233,7 @@ If mandatory fields in the CSV file are empty or wrong, the import error page li
 
 ## Managing the invitations
 
-If the preparation is complete, the invitation process runs automatically. If problems arise, you can fix most of them yourself. For example, if a PosOperator says that no e-mail invitation arrived, check the protocol of invitations.
+If the preparation is complete, the invitation process runs automatically. If problems arise, you can fix most of them yourself. For example, if a PosOperator says that no e-mail invitation arrived, check the invitation history.
 
 ### Troubleshooting
 
@@ -246,7 +246,7 @@ If the preparation is complete, the invitation process runs automatically. If pr
 | Step | Description |
 |:----:|-------------|
 |![Number 1](../../images/numbers/circle-1o.png) |Check the `Status` of the invitation: `Invitation Sent`, `Press "Send" to invite PosOperator` (not sent yet), or `Failed sending` (red symbol; hover over it to see the reason). |
-|![Number 2](../../images/numbers/circle-2o.png) |Choose `Send Invitation to this PosOperator` (envelope icon) to send this single e-mail invitation, or `Assign all cash register users` to send all. For an invitation that was already sent, the row shows `Resend invitation to this PosOperator` instead. |
+|![Number 2](../../images/numbers/circle-2o.png) |Choose `Send Invitation to this PosOperator` (envelope icon) to send this single e-mail invitation, or `Invite all PosOperators` to send all. For an invitation that was already sent, the row shows `Resend invitation to this PosOperator` instead. |
 |![Number 3](../../images/numbers/circle-3o.png) |If the invitation cannot be assigned to your account because the PosOperator's data is incorrect or incomplete, choose `Edit` to correct it. |
 |![Number 4](../../images/numbers/circle-4o.png) |Choose `Delete` to remove the data of a PosOperator who is not yet assigned. |
 | |If `This E-Mail address already exists` appears, see [Onboarding of existing PosOperators](#onboarding-of-existing-posoperators). |
@@ -255,15 +255,15 @@ If the preparation is complete, the invitation process runs automatically. If pr
 
 #### Assigning PosOperators in a bulk process
 
-![Invitation page in the fiskaltrust.Portal with the buttons to send all invitations, add a PosOperator and open the protocol marked 1 to 3](images/9-onboarding-portal.png)
+![Invitation page in the fiskaltrust.Portal with the buttons to send all invitations, add a PosOperator and open the history marked 1 to 3](images/9-onboarding-portal.png)
 
 *Figure 7. Buttons for assigning PosOperators in a bulk process.*
 
 | Button | Description |
 |:------:|-------------|
-|![Number 1](../../images/numbers/circle-1o.png) |`Assign all cash register users`: sends the e-mail invitation to **all** PosOperators in the list who have not yet been invited. |
+|![Number 1](../../images/numbers/circle-1o.png) |`Invite all PosOperators`: sends the e-mail invitation to **all** PosOperators in the list who have not yet been invited. |
 |![Number 2](../../images/numbers/circle-2o.png) |`Add`: adds a single PosOperator manually. For more information, see [Invitation of a single PosOperator](#invitation-of-a-single-posoperator). |
-|![Number 3](../../images/numbers/circle-3o.png) |`Protocol`: opens the protocol of invitations to check or repair e-mail invitations (see [Options with invited PosOperators](#options-with-invited-posoperators)). |
+|![Number 3](../../images/numbers/circle-3o.png) |`History`: opens the invitation history to check or repair e-mail invitations (see [Options with invited PosOperators](#options-with-invited-posoperators)). |
 
 *Table 6. Buttons for assigning PosOperators in a bulk process.*
 
@@ -281,7 +281,7 @@ If the message `This E-Mail address already exists` appears, another PosDealer h
 
 | Step | Description |
 |:----:|-------------|
-|![Number 1](../../images/numbers/circle-1o.png) |You choose `Assign all cash register users` (`PosDealer` > `Invitation`) and get the message `This E-Mail address already exists`. |
+|![Number 1](../../images/numbers/circle-1o.png) |You choose `Invite all PosOperators` (`PosDealer` > `Invitation`) and get the message `This E-Mail address already exists`. |
 |![Number 2](../../images/numbers/circle-2o.png) |Do not invite this PosOperator again with a different e-mail address. |
 |![Number 3](../../images/numbers/circle-3o.png) |Ask the PosOperator to add your account as a new or further PosDealer. |
 |![Number 4](../../images/numbers/circle-4o.png) |The PosOperator opens the fiskaltrust.Portal and chooses `PosOperator` > `Search dealer/consultant`. |
@@ -293,21 +293,21 @@ If the message `This E-Mail address already exists` appears, another PosDealer h
 
 #### Options with invited PosOperators
 
-Choose `PosDealer` > `Invitation` > `Protocol` to open the protocol of invitations (`Protocol-Overview`).
+Choose `PosDealer` > `Invitation` > `History` to open the invitation history.
 
-![Protocol of invitations in the fiskaltrust.Portal with the date fields and the row buttons marked 1 to 6](images/10-onboarding-portal.png)
+![Invitation history in the fiskaltrust.Portal with the date fields and the row buttons marked 1 to 6](images/10-onboarding-portal.png)
 
-*Figure 9. Protocol of invitations.*
+*Figure 9. Invitation history.*
 
 | Option | Description |
 |:------:|-------------|
-|![Number 1](../../images/numbers/circle-1o.png) |Start date: restricts the protocol to invitations from this date. |
-|![Number 2](../../images/numbers/circle-2o.png) |End date (after `until`): restricts the protocol to invitations up to this date. Without dates, the whole protocol is shown. To narrow down the list further, enter text in the search field (`Search...`); clear the field to see all entries again. |
+|![Number 1](../../images/numbers/circle-1o.png) |Start date: restricts the history to invitations from this date. |
+|![Number 2](../../images/numbers/circle-2o.png) |End date (after `until`): restricts the history to invitations up to this date. Without dates, the whole history is shown. To narrow down the list further, enter text in the search field (`Search...`); clear the field to see all entries again. |
 |![Number 3](../../images/numbers/circle-3o.png) |`Details`: shows the data of the invitation. |
 |![Number 4](../../images/numbers/circle-4o.png) |`Send invitation again`: resends the e-mail invitation for this record. |
 |![Number 5](../../images/numbers/circle-5o.png) |Delete the record. You cannot delete an e-mail address entirely in the fiskaltrust.Portal, so you cannot transfer an e-mail address that was used once to any other account. |
 |![Number 6](../../images/numbers/circle-6o.png) |`Copy link to Clipboard`: shows the direct invitation link. Copy it and send it to your PosOperator by direct message. |
 
-*Table 8. Options in the protocol of invitations.*
+*Table 8. Options in the invitation history.*
 
 To return to the invitation page, choose `Overview of PosOperator`.
