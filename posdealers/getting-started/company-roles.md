@@ -68,7 +68,7 @@ You can select more than one role. **Only pick the roles that apply to your busi
 
 The Portal opens the agreement page of the role.
 
-![Portal role agreement page with the Signatory field, T&C and Privacy Policy checkbox and Sign button highlighted](./images/company-roles/sign-contract.png)
+![Portal role agreement page with the Signatory field, Terms and Conditions and Privacy Policy checkbox and Sign button highlighted](./images/company-roles/sign-contract.png)
 
 *Figure 3. Agreement page shown after switching on a role.*
 

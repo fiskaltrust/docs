@@ -104,7 +104,7 @@ The first step is headed **Find your company** and contains a single search fiel
 
 To enter all company data manually, leave the field empty and select `Next`.
 
-![Registration wizard, step Company identification: the "Find your company" search field with the Next button](./images/registration/company_identification.png "Company identification")
+![Registration wizard, step Company identification: the Find your company search field with the Next button](./images/registration/company_identification.png "Company identification")
 
 *Figure 1. Company identification: the "Find your company" search step.*
 
@@ -197,7 +197,7 @@ The last step shows a summary of the company and user data you entered.
 1. Read the Terms & Conditions and the Privacy Policy and accept them with the checkbox. The `Submit` button stays disabled until you do.
 2. Select `Submit` to create the registration.
 
-![Registration wizard, step Confirmation: data summary with the Terms & Conditions checkbox and the Submit button](images/registration/confirmation.png "Confirmation")
+![Registration wizard, step Confirmation: data summary with the Terms and Conditions checkbox and the Submit button](images/registration/confirmation.png "Confirmation")
 
 *Figure 5. Confirmation step with the data summary and the Terms & Conditions checkbox.*
 
@@ -343,9 +343,9 @@ To download the list of employees as a CSV file, select **`Export as CSV`** belo
 
 ### Employees complain about access
 
-![Flowchart for access complaints: if there is no access, check the employee's E-Mail address, that at least Read is enabled, that the E-Mail invitation was confirmed and that the correct link is used; if there are error messages when using the Portal, check the employee's authorizations](images/registration/user_rights_employee.png "Access employee")
+![Workflow with two swimlanes, PosDealer in the fiskaltrust.Portal and Employee by E-Mail: if the employee has no access, the PosDealer checks the Employees page under Company info, the E-Mail address and that at least Read is enabled, then the employee confirms the E-Mail invitation and uses the correct link for the employee assignment; if the employee has access but gets error messages, the PosDealer checks the Employees page under Company info and the authorizations of the employee](images/registration/employee-access-flowchart.svg)
 
-*Figure 9. Flowchart for diagnosing access complaints of employees.*
+*Figure 9. Workflow for diagnosing access complaints of employees.*
 
 ### Employees of PosOperators complain about access
 
@@ -363,7 +363,11 @@ Each E-Mail address maps one-to-one to a single account. The same address theref
 
 #### Solution for employees
 
-**We strongly recommend testing this process in the Sandbox first.**
+:::tip
+
+We strongly recommend testing this process in the Sandbox first.
+
+:::
 
 1. Select `Company info` > `Employees` > `Add`.
 2. Add data records, if necessary with fictitious information. Only the E-Mail address must be correct, for example `peter.pattern@mycompany.com`.
@@ -371,7 +375,11 @@ Each E-Mail address maps one-to-one to a single account. The same address theref
 
 #### Solution for Primary Contacts
 
-**We strongly recommend testing this process in the Sandbox first.**
+:::tip
+
+We strongly recommend testing this process in the Sandbox first.
+
+:::
 
 You can use one E-Mail address to access different companies, but only if all of these prerequisites are met:
 

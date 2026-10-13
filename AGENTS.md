@@ -35,6 +35,7 @@ A reader integrating one market needs layers 1 and 2 and the pages of that marke
 - State only facts from the source (release notes, the app, the user). Do not add assumptions or caveats that the source does not contain; ask instead.
 - Prefer a single source of truth. If content is duplicated elsewhere, replace the copy with a short summary and a link rather than maintaining both.
 - For where to place screenshots in procedures, see [Screenshot placement](#screenshot-placement).
+- Do not use `"`, `'`, `&`, `<` or `>` in image alt text: the site build escapes them twice, so they show up as entities such as `&#39;`. Reword instead, for example "the authorizations of the employee", "Terms and Conditions".
 
 ### Screenshot placement
 

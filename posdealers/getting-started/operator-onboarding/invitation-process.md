@@ -275,7 +275,7 @@ If the message `This E-Mail address already exists` appears, another PosDealer h
 **Do not, under any circumstances, invite this PosOperator again using a different e-mail address.** This causes problems when verifying the business identifications used to authenticate with tax authorities or third-party services.
 :::
 
-![Flowchart: the PosDealer's invitation fails with "E-mail address already exists", the PosOperator searches for the PosDealer and requests the assignment, the PosDealer accepts and can then surrogate](images/15-onboarding-already-existing-PosOperators.png)
+![Flowchart: the invitation of the PosDealer fails with E-mail address already exists, the PosOperator searches for the PosDealer and requests the assignment, the PosDealer accepts and can then surrogate](images/15-onboarding-already-existing-PosOperators.png)
 
 *Figure 8. Onboarding a PosOperator who already has an account.*
 
