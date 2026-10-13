@@ -39,6 +39,34 @@ A reader integrating one market needs layers 1 and 2 and the pages of that marke
 - After editing, verify that every new link target file and anchor exists (for example with `grep -n "^#" <file>`).
 - State only facts from the source (release notes, the app, the user). Do not add assumptions or caveats that the source does not contain; ask instead.
 - Prefer a single source of truth. If content is duplicated elsewhere, replace the copy with a short summary and a link rather than maintaining both.
+- For where to place screenshots in procedures, see [Screenshot placement](#screenshot-placement).
+- Do not use `"`, `'`, `&`, `<` or `>` in image alt text: the site build escapes them twice, so they show up as entities such as `&#39;`. Reword instead, for example "the authorizations of the employee", "Terms and Conditions".
+
+### Screenshot placement
+
+Place each screenshot as close as possible to the instruction it supports, while keeping the procedure easy to scan. Highlight UI elements in the text (label in bold or a tip admonition), not with boxes or number markers drawn on the screenshot.
+
+| Screenshot shows | Placement |
+|---|---|
+| One step (an action or its direct result) | Directly after that step, indented under it so the list numbering continues. Use this for most procedures. |
+| Several related steps | After the last of those steps. |
+| The final result of the procedure | After the last step. |
+| The page or interface as a whole, to help readers recognize it before they start | Before the first step. |
+
+Do not group several screenshots before a long numbered list: readers then have to scroll back and forth to match text and interface.
+
+Example of a screenshot after a specific step (caption below the image, image and caption indented by three spaces):
+
+```markdown
+1. Select `Configuration` > `Signature creation unit`.
+
+   ![Signature creation unit page in the fiskaltrust.Portal with the list of SCUs and the Add button](images/scu-list.png)
+
+   *Figure 1. The `Signature creation unit` page.*
+
+2. Enter the required configuration details.
+3. Select `Save`.
+```
 
 ## Area-specific guidance
 

@@ -12,6 +12,10 @@ https?://signing(-sandbox)?\.fiskaltrust\.at/.*
 
 https?://github\.com/fiskaltrust/fiskaltrust-instore-app
 https?://github\.com/fiskaltrust/service-possystem-api
+https://github\.com/fiskaltrust/possystemapi-devkit/blob/main/README\.MD
+https://github\.com/fiskaltrust/possystemapi-devkit/blob/main/HOWTO_01_Payment_csharp/README\.MD
+https://github\.com/fiskaltrust/middleware-interface-dotnet/blob/master/src/fiskaltrust\.ifPOS/v0/at/IATSSCD\.cs
+https://github\.com/fiskaltrust/middleware-interface-dotnet/blob/master/src/fiskaltrust\.ifPOS/v1/de/Models/TseInfo\.cs
 https?://github\.com/PowerShell/PowerShell/releases/.*
 
 https?://localhost(:[0-9]+)?/.*
@@ -29,6 +33,7 @@ https?://fiskaltrust\.../
 https?://github\.com/fiskaltrust/service-docs-ui.*
 https://www\.freeformatter\.com/json-escape\.html
 https://www\.bundesfinanzministerium\.de/Content/DE/Downloads/BMF_Schreiben/Weitere_Steuerthemen/Abgabenordnung/AO-Anwendungserlass/2023-06-30-AEAO-Par-146-AO\.pdf\?__blob=publicationFile&v=1
+https?://www\.bundesfinanzministerium\.de/Content/DE/Downloads/Steuern/FAQ-Ausfuellanleitung\.pdf.*
 ^https://www\.bundesfinanzministerium\.de/Content/DE/Downloads/Steuern/FAQ-Ausfuellanleitung\.pdf\?__blob=publicationFile&v=2$
 
 https?://www\.fiskaltrust\.at/rechtsgrundlagen.*

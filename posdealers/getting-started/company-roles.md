@@ -1,7 +1,7 @@
 ---
 slug: /posdealers/getting-started/company-roles
 title: Company Roles
-description: The four company roles in the fiskaltrust.Portal, what each one can do, and how to activate or deactivate a role.
+description: The principal company roles in the fiskaltrust.Portal, what each one can do, and how to activate or deactivate a role.
 tags: [Company Roles, Portal, Onboarding, PosDealers]
 ---
 # Company Roles
@@ -12,91 +12,91 @@ After reading, you can activate or deactivate appropriate roles for customers an
 
 :::
 
-## Introduction
-
-*fiskaltrust* distinguishes between four principal **company roles** in the portal context and its role management.
+fiskaltrust distinguishes between four principal **company roles** in the fiskaltrust.Portal. Each role has its own audience, features and permissions. You find the roles of your company in `Company info` > `Overview`, in the `Roles` section.
 
 ![Portal company overview with role sliders for PosOperator, PosDealer, PosDealer auto-invitation, PosCreator and Consultant](./images/company-roles/roles.png)
 
-*Figure 1. Overview of the four principal company roles in the fiskaltrust.Portal.*
+*Figure 1. Overview of the principal company roles in the fiskaltrust.Portal.*
 
-Each role's specific audience has a distinct set of features and permissions.
+## Principal roles
 
-
-|                  Type                   | Description                                                  |
+|                  Role                   | Description                                                  |
 | :-------------------------------------: | ------------------------------------------------------------ |
-|![](../images/numbers/1.png)       | **PosOperator**<br />This role is for **end-users of POS Systems** who manage their POS receipts in the context of the services of *fiskaltrust*. They purchased the POS platform from their *PosDealer* and operate the POS System.<br /><br />*Accounts with this role use the portal primarily to access their fiscal data and perform maintenance steps not covered by their PosDealer.* |
-|      ![](../images/numbers/2.png)       | **PosDealer**<br />This role is for **POS System distributors** who sell POS Systems to *PosOperators* and support and maintain these setups.<br /><br />*Accounts with this role use the portal primarily to act on behalf of their PosOperators. The PosDealers Role includes invitation management, a credit limit, rollouts of CashBox setups and maintenance for PosOperators.* |
-| ![Number 2.5](./images/company-roles/twofive.png) | **PosDealer auto-invitation** (Germany-only)<br />This is an *optional* add-on role for **German POS System distributors** who wish to automate the onboarding of their customers/operators as much as possible.<br /><br />*Accounts with this role will have an extended onboarding user interface, allowing them to fully and legally activate an operator's account, as opposed to a regular invitation the operator first has to accept.*<br /><br />**Please note that this role is only available on the German market and may require particular attention to legal aspects on your side.** |
-|      ![](../images/numbers/3.png)       | **PosCreator**<br />This role is intended for manufacturers who develop PosSystems. They are not involved in the rollout at PosOperators but focus on the technical integration of the middleware.<br /><br />PosCreators use the fiskaltrust.Portal primarily to enter their PosSystems and invite PosDealers to use them. In addition to information about business areas and properties of the PosSystems, a PosSystemID is created as a unique identifier. <br /><br />**This PosSystemID is currently not mandatory in every country, but its use in the fiskaltrust.Portal is crucial for our compliance service.** |
-|      ![](../images/numbers/4.png)       | **Consultant**<br />This role is for **tax consultants** who advise *PosOperators* on related topics.<br /><br />*Accounts with this role use the portal primarily to access fiscal data of the associated (and authorized) operator accounts.* |
+| ![Number 1](../images/numbers/1.png) | **PosOperator**<br />For **end users of POS systems** who manage their POS receipts in the context of the fiskaltrust services. They purchased the POS platform from their PosDealer and operate the POS system.<br /><br />Accounts with this role use the Portal primarily to access their fiscal data and to perform maintenance steps not covered by their PosDealer. |
+| ![Number 2](../images/numbers/2.png) | **PosDealer**<br />For **POS system distributors** who sell POS systems to PosOperators and support and maintain these setups.<br /><br />Accounts with this role use the Portal primarily to act on behalf of their PosOperators. The PosDealer role includes invitation management, a credit limit, rollouts of CashBox setups and maintenance for PosOperators. |
+| ![Number 2.5](./images/company-roles/twofive.png) | **PosDealer auto-invitation (opt-in)** (Germany and Italy only)<br />An **optional add-on** to the PosDealer role for POS system distributors who want to automate the onboarding of their PosOperators as much as possible.<br /><br />Accounts with this role get an extended onboarding user interface. It allows them to fully and legally activate a PosOperator's account by signing the PosOperator's partner contracts as a representative, instead of sending a regular invitation that the PosOperator must accept first.<br /><br />The slider is only shown when the PosDealer role is active. **This role may require particular attention to legal aspects on your side.** |
+| ![Number 3](../images/numbers/3.png) | **PosCreator**<br />For **manufacturers who develop POS systems**. PosCreators are not involved in the rollout at PosOperators; they focus on the technical integration of the Middleware.<br /><br />PosCreators use the Portal primarily to enter their POS systems and to invite PosDealers to use them. In addition to the business areas and properties of the POS system, the Portal creates a `PosSystemId` as a unique identifier.<br /><br />**The `PosSystemId` is currently not mandatory in every country, but its use in the fiskaltrust.Portal is crucial for our compliance service.** |
+| ![Number 4](../images/numbers/4.png) | **Consultant**<br />For **tax consultants** who advise PosOperators on related topics.<br /><br />Accounts with this role use the Portal primarily to access the fiscal data of associated and authorized PosOperator accounts. |
 
-*Table 1. Company roles and their descriptions.*
+*Table 1. Principal company roles.*
 
-<br />
+## Additional roles
+
+Depending on the market and the features enabled for your account, the `Roles` section can show further roles.
+
+| Role | Shown in | Description |
+| ---- | -------- | ----------- |
+| **AppCreator** | Accounts with the AppCreator feature enabled | For individuals or entities that register and integrate third-party applications in the fiskaltrust.Portal. |
+| **PosDealer for RKSV Sign** | Austria | Adds the capability to manage RKSV.Sign products in the account. RKSV.Sign is a sign-only product in Austria that replaces HSMs and smart cards in existing implementations for POS systems where the Middleware cannot be used. |
+| **PosOperatorOptInIVAServizi** | Italy | For PosOperators who manage the provision of access credentials or delegation. To deactivate the PosOperator role, deactivate this role first. |
+
+*Table 2. Additional roles shown depending on market and enabled features.*
 
 :::caution
 
-While you can select more than one role, please **only pick roles applicable to your business case** and no others, as each role entails different contractual requirements and obligations.
+You can select more than one role. **Only pick the roles that apply to your business case**, because each role entails different contractual requirements and obligations.
 
 :::
 
-<br />
+## Prerequisites
 
-
+- Your user has the permission to conclude contracts for the company. Without it, the role sliders are disabled.
+- If **PosOperator** is the only principal role of your company, you cannot activate PosDealer, PosCreator, Consultant or AppCreator. The Portal shows the tooltip "When PosOperator role is enabled, you can't sign any other roles."
 
 ## How to activate a role
 
-The following steps will activate a new role for your account.
+![Portal company overview page with the Overview menu item and the role sliders highlighted](./images/company-roles/role-activate.png)
 
-
-
-![Portal company overview page with the Overview menu item and the role sliders highlighted](./images/company-roles/role-activate.png "https://portal-sandbox.fiskaltrust.TLD/AccountProfile")
-
-*Figure 2. Company profile page in the fiskaltrust.Portal used to activate a role.*
+*Figure 2. Company overview page in the fiskaltrust.Portal used to activate a role.*
 
 |             Step             | Description                                                  |
 | :--------------------------: | ------------------------------------------------------------ |
-| ![](../images/numbers/1.png) | Open your **company profile page** from `[COMPANYNAME]` / `Overview` in the left-hand navigation menu |
-| ![](../images/numbers/2.png) | **Set the slider** of the role you'd like to activate from right ![Role slider switched off](./images/company-roles/slider-off.png) to left ![Role slider switched on](./images/company-roles/slider-on.png) |
+| ![Number 1](../images/numbers/1.png) | In the left-hand navigation, open `Company info` > `Overview`. |
+| ![Number 2](../images/numbers/2.png) | In the `Roles` section, **switch on the slider** of the role you want to activate: from ![Role slider switched off](./images/company-roles/slider-off.png) to ![Role slider switched on](./images/company-roles/slider-on.png). |
 
-*Table 2. Steps to activate a role.*
+*Table 3. Steps to activate a role.*
 
-After enabling the switch, a new page will load where you need to sign the respective agreement.
+The Portal opens the agreement page of the role.
 
-![Portal role agreement page with the Signatory field, T&C and Privacy Policy checkbox and Sign button highlighted](./images/company-roles/sign-contract.png "https://portal-sandbox.fiskaltrust.TLD/AccountProfile")
+![Portal role agreement page with the Signatory field, Terms and Conditions and Privacy Policy checkbox and Sign button highlighted](./images/company-roles/sign-contract.png)
 
-*Figure 3. Agreement signing page shown after enabling a role.*
+*Figure 3. Agreement page shown after switching on a role.*
 
 |             Step             | Description                                                  |
 | :--------------------------: | ------------------------------------------------------------ |
-| ![](../images/numbers/3.png) | Read the **agreement**                                       |
-| ![](../images/numbers/4.png) | Enter your **legal name** in the signature field at the bottom of the page |
-| ![](../images/numbers/5.png) | Check the box that you read and accepted the **terms and conditions** |
-| ![](../images/numbers/6.png) | **Click** the `Sign` button                                  |
+| ![Number 3](../images/numbers/3.png) | Read the **agreement**. |
+| ![Number 4](../images/numbers/4.png) | Enter your **legal name** in the `Signatory` field at the bottom of the page. |
+| ![Number 5](../images/numbers/5.png) | Select the checkbox `Read and accepted T&C and Privacy Policy`. |
+| ![Number 6](../images/numbers/6.png) | Click `Sign`. |
 
-*Table 3. Steps to sign the role agreement.*
+*Table 4. Steps to sign the role agreement.*
 
-**Done**, the selected role is active for your account. You'll also receive an additional E-Mail confirming the activation of that role.<br /><br />
+**Result:** The role is active for your account. You receive an email confirming the activation of the role. In the `Roles` section, you can download the signed contract with `Download Contract`.
 
 ## How to deactivate a role
 
-The following steps will deactivate an existing role of your account.
+![Portal company overview page with the active PosDealer role slider highlighted](./images/company-roles/role-deactivate.png)
 
-
-
-![Portal company overview page with the active PosDealer role slider highlighted](./images/company-roles/role-deactivate.png "https://portal-sandbox.fiskaltrust.TLD/AccountProfile")
-
-*Figure 4. Company profile page used to deactivate a role.*
+*Figure 4. Company overview page used to deactivate a role.*
 
 |             Step             | Description                                                  |
 | :--------------------------: | ------------------------------------------------------------ |
-| ![](../images/numbers/1.png) | Open your **company profile page** from `[COMPANYNAME]` / `Overview` in the left-hand navigation menu |
-| ![](../images/numbers/2.png) | **Switch the slider** of the role you'd like to deactivate from left ![Role slider switched on](./images/company-roles/slider-on.png) to right ![Role slider switched off](./images/company-roles/slider-off.png) |
+| ![Number 1](../images/numbers/1.png) | In the left-hand navigation, open `Company info` > `Overview`. |
+| ![Number 2](../images/numbers/2.png) | In the `Roles` section, **switch off the slider** of the role you want to deactivate: from ![Role slider switched on](./images/company-roles/slider-on.png) to ![Role slider switched off](./images/company-roles/slider-off.png). |
 
-*Table 4. Steps to deactivate a role.*
+*Table 5. Steps to deactivate a role.*
 
-After disabling the switch, a new page will load where you must confirm the step.
+The Portal opens the confirmation page for the termination of the role contract.
 
 ![Portal contract termination page for the PosDealer role with the Signatory field and Sign button highlighted](./images/company-roles/cancel-contract.png)
 
@@ -104,9 +104,9 @@ After disabling the switch, a new page will load where you must confirm the step
 
 |             Step             | Description                                                  |
 | :--------------------------: | ------------------------------------------------------------ |
-| ![](../images/numbers/3.png) | Enter your **legal name** in the signature box at the bottom of the page |
-| ![](../images/numbers/4.png) | **Click** the `Sign` button                                  |
+| ![Number 3](../images/numbers/3.png) | Enter your **legal name** in the `Signatory` field at the bottom of the page. |
+| ![Number 4](../images/numbers/4.png) | Click `Sign`. |
 
-*Table 5. Steps to confirm role deactivation.*
+*Table 6. Steps to confirm the role deactivation.*
 
-**Done**, the selected role is inactive for your account. You'll also receive an additional E-Mail confirming the deactivation of that role.
+**Result:** The role is inactive for your account. You receive an email confirming the deactivation of the role. To activate the role again, switch on its slider and sign the agreement again.
