@@ -39,7 +39,7 @@ Validate the end-to-end flow against a sandbox-scoped fiskaltrust.Middleware —
 
 1. Provision a **sandbox fiskaltrust.Middleware** in the fiskaltrust.Portal — this yields the `x-cashbox-id` and `x-cashbox-accesstoken` used on every request. See [Portal registration](../../../getting-started/portal-registration.md).
 2. Confirm your integration against the [Integration checklist](../../../getting-started/integration-checklist.md).
-3. Run one invoice through the full flow below: `/sign` (generation) → `/issue` (transmission to SDI) → check the delivery status.
+3. Run one invoice through the full flow below: `/sign` (generation) → `/issue` (transmission to SDI). There is currently no status check for the SDI transmission itself.
 
 :::note The FatturaPA is returned unsigned
 The FatturaPA XML is returned unsigned by `/sign`. `POST /issue` sends it to the fiskaltrust SDI service, which transmits it to SDI and completes the transmission data (`DatiTrasmissione`, the file name). See [Transmission data](./fatturapa-mapping.md#transmission-data).
@@ -105,15 +105,13 @@ To transmit the FatturaPA generated in Step 1 to SDI, call `/issue` with the **o
 
 In addition to SDI, deliver the document with `PUT /issue/{queueId}/{queueItemId}`, choosing a delivery method: `IssueUpdateSend` (email/SMS), `IssueUpdatePrint`, `IssueUpdateDownload`, `IssueUpdateUpload`, or `IssueUpdateLink`.
 
-**Step 4 — Check the delivery status**
+**Step 4 — Check the status**
 
-Check whether the document was delivered with `GET /issue/{queueId}/{queueItemId}/delivered`: it returns `200` when the document was delivered and `204` while it is still pending. To wait for the delivery instead of polling, call `GET /BlockIssueRequest/{queueId}/{queueItemId}/WhileDelivered`. There is **no callback or webhook**.
+There is currently **no status check for the SDI transmission**: the POS System API does not return the SDI outcome (for example the *ricevuta di consegna* or a *notifica di scarto*), and there is no callback or webhook.
+
+For the optional channels of Step 3, check whether the document was delivered with `GET /issue/{queueId}/{queueItemId}/delivered`: it returns `200` when the document was delivered and `204` while it is still pending. To wait for the delivery instead of polling, call `GET /BlockIssueRequest/{queueId}/{queueItemId}/WhileDelivered`. These calls do not report the SDI transmission: after an SDI-only `/issue` they stay at `204`.
 
 `GET /issue/{queueId}/{queueItemId}` without `/delivered` is not a status call: it returns the issued document itself, in the format requested with the `Accept` header.
-
-:::note SDI outcome
-The SDI outcome of a transmission (for example the *ricevuta di consegna* or a *notifica di scarto*) is currently not returned by the POS System API. In the sandbox, `/delivered` stays at `204`.
-:::
 
 See the [POS System API reference](https://docs.fiskaltrust.eu/apis/pos-system-api) for the full `/issue` request/response schemas.
 
