@@ -387,16 +387,17 @@ You can use one E-Mail address to access different companies, but only if all of
 * You avoid creating companies more than once.
 * The E-Mail address is used exclusively as the Primary Contact in the new companies.
 
-![Sidebar header with the drop-down under the company name opened: Profile, the list of companies, Add another account and Logout; markers 1, 2 and 6 match the steps](images/registration/user_companies_management-23-02-21.png "Switching companies")
+1. In the sidebar header (top left), click your user name below the company name to open the drop-down.
 
-*Figure 10. Switching between companies with the drop-down under the company name in the sidebar header.*
+   ![Company page in the fiskaltrust.Portal with the drop-down under the user name in the sidebar header opened, listing the companies PosDealer, PosDealer 1 and PosDealer 2, the entry Add another account and Logout](images/registration/company-drop-down.png)
 
-1. In the sidebar header (top left), click your company name to open the drop-down.
+   *Figure 10. The drop-down under the user name in the sidebar header, with your companies, `Add another account` and `Logout`.*
+
 2. Select `Add another account`.
 3. Add the desired data for the E-Mail address of the current registration.
 4. Add an existing, correct VAT number to prevent problems with orders and commissioning.
 5. Create the new company with the `Create` button.
-6. To switch from company to company, open the drop-down under your company name again and select the company.
+6. To switch from company to company, open the drop-down under your user name again and select the company.
 7. Make sure **not to create the same company** more than once.
 8. Note that several companies mean **different legal bindings**, for example separate contracts.
 
