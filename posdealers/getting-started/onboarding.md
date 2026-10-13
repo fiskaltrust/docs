@@ -59,7 +59,7 @@ Check that the PosOperator account is configured as follows:
 Set up the environment of the PosOperator:
 
 1. Introduce the PosOperator to the fiskaltrust architecture. For more information, see [Architecture](../business-basics/architecture.md).
-2. Create the PosOperator's locations in `Company info` > `Outlets` > `Add new outlet`.
+2. Create the PosOperator's locations in `Company info` > `Outlets` > `+Add new outlet`.
 3. For each location, assign cash registers, add SCUs, and link products or entitlements.
 
 ## 5. Technical implementation
