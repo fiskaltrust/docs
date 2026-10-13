@@ -35,9 +35,9 @@ fiskaltrust has registered the fiskaltrust.Middleware as *software garante* with
 | ----- | ----- |
 | Developer (*entidad desarrolladora*) | fiskaltrust consulting GmbH, Spanish NIF `N0286342A` |
 | Software name (*nombre del software*) | `fiskaltrust.Middleware` |
-| Licence code (*LicenciaTBAI*) | One licence code per province, configured by fiskaltrust. |
+| Licence code (*LicenciaTBAI*) | One licence code, shared by all three provinces and configured by fiskaltrust. |
 
-The provincial tax authorities publish the registered software in their registers of *software garante*: [Araba](https://web.araba.eus/es/hacienda/ticketbai/listado-de-software), [Bizkaia](https://www.batuz.eus/es/registro-de-software) and [Gipuzkoa](https://www.gipuzkoa.eus/es/web/ogasuna/ticketbai/listado-software). The entry of the fiskaltrust.Middleware can be found there under the developer *fiskaltrust consulting GmbH* and the software name `fiskaltrust.Middleware`. The registers do not publish licence codes.
+The provincial tax authorities publish the registered software in their registers of *software garante*: [Araba](https://web.araba.eus/es/hacienda/ticketbai/listado-de-software), [Bizkaia](https://www.batuz.eus/es/registro-de-software) and [Gipuzkoa](https://www.gipuzkoa.eus/es/web/ogasuna/ticketbai/listado-software). The entry of the fiskaltrust.Middleware can be found there under the developer *fiskaltrust consulting GmbH* and the software name `fiskaltrust.Middleware`. The registers do not publish the licence code.
 
 ## What the fiskaltrust.Middleware takes care of
 
@@ -67,7 +67,7 @@ The following document types are produced by the fiskaltrust.Middleware from the
 | Simplified invoice (*factura simplificada*) | `0x0001` POS receipt (`0x0000` is treated the same) | *Registro de alta*, `TipoFactura` `F2` | *Alta*, `FacturaSimplificada` = `S` | Numbered in the simplified-invoice sequence. A customer is optional. |
 | Complete invoice (*factura completa*) | `0x1000`, `0x1001`, `0x1002`, `0x1003` | *Registro de alta*, currently `TipoFactura` `F2` without recipient data | *Alta*, `FacturaSimplificada` = `N`, with *Destinatarios* from `cbCustomer` | Numbered in the invoice sequence. Pass the recipient in `cbCustomer` with name, street and postcode; Spanish customers need a NIF in a valid format, foreign customers are identified by VAT ID, tax ID or passport. TicketBAI files carry the recipient; the VERI\*FACTU record is currently transmitted as `F2` without *Destinatarios*. |
 | Cancellation (*anulación*) | Any of the above with flag `0x0004` (IsVoid) and `cbPreviousReceiptReference` | *Registro de anulación* referencing the original record | Not yet available (see [Boundaries](#boundaries)) | The void must repeat the original document exactly; only one void per document. |
-| Refund / return (*devolución*) | Any of the above with flag `0x0100` (IsRefund) and `cbPreviousReceiptReference` | *Registro de alta* with negative amounts | *Alta* with negative amounts | The refund references the original document; send the returned lines with negative quantities and amounts (all lines for a full refund, the affected lines with the charge-item refund flag for a partial refund). Corrective invoice types (`R1` to `R5`, *factura rectificativa*) are not emitted yet; see [Boundaries](#boundaries). |
+| Refund / return (*devolución*) | Any of the above with flag `0x0100` (IsRefund) and `cbPreviousReceiptReference` | *Registro de alta* with negative amounts | *Alta* with negative amounts | The refund references the original document; send the returned lines with negative quantities and amounts (all lines for a full refund, the affected lines with the charge-item refund flag for a partial refund). Corrections are always handled through refunds; corrective invoices (*facturas rectificativas*) are not supported. |
 
 The following operations are accepted but do not create a fiscal document:
 
@@ -87,7 +87,7 @@ The fiskaltrust.Middleware rejects requests that fall outside the supported scop
 
 - Only simplified invoices (`0x0001`) and complete invoices (`0x1xxx`) are fiscal documents. All other receipt cases are stored without transmission.
 - Cancellations (`IsVoid`) are transmitted to the AEAT as *registro de anulación*. For TicketBAI the cancellation file (*anulación*) is not yet implemented; a void on a TicketBAI queue is rejected by the provincial web service.
-- Refunds are transmitted as ordinary records with negative amounts. Corrective invoice types (*facturas rectificativas*) are not emitted yet. Ask fiskaltrust before you go live with returns whether this covers your use case.
+- Corrective invoices (*facturas rectificativas*, `R1` to `R5`) are not supported. Corrections are handled through refunds, which are transmitted as ordinary records with negative amounts and reference the original document.
 - Invoices issued by a third party or by the recipient and invoices with several recipients are not supported.
 
 **Amounts, currency and tax**
@@ -108,7 +108,7 @@ The fiskaltrust.Middleware rejects requests that fall outside the supported scop
 
 **Operation**
 
-- Series, numbers, certificates and licence codes are managed by fiskaltrust; a PosCreator or merchant cannot set the document number or sign records locally.
+- Series, numbers, certificates and the licence code are managed by fiskaltrust; a PosCreator or merchant cannot set the document number or sign records locally.
 - Training mode is not supported in Spain.
 - Documents can only be numbered while the fiskaltrust.Middleware is reachable; see [What you need to know](../go-to-market/go-to-market.md#what-you-need-to-know).
 - SII (*Suministro Inmediato de Información*) and e-invoicing (Facturae / FACe, the upcoming mandatory B2B e-invoice) are not part of the current scope.

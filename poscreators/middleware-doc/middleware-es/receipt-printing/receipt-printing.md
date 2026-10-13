@@ -7,7 +7,10 @@ title: Receipt Printing
 
 In Spain the printed or electronically delivered document is the invoice (*factura*) or simplified invoice (*factura simplificada*) of the merchant. On top of the usual invoice content it carries the elements that link it to the transmitted record: the **QR code** and the **VERI\*FACTU legend** in the common territory, the **TBAI identifier** and the **TicketBAI QR code** in the Basque Country.
 
-The fiskaltrust.Middleware numbers the document, generates and transmits the record and returns everything that must appear on the document in the `ftSignatures` of the response. The fiskaltrust.Middleware also renders this into the digital receipt (`https://receipts.fiskaltrust.eu/{ftQueueID}/{ftQueueItemID}`, the `receipts-sandbox` host in the sandbox) and into the ESC-POS stream of the `/issue` endpoint. This page describes which elements the document must contain and which signature items carry them, so that PosCreators who print the document themselves know what to print and which values they must never alter.
+The fiskaltrust.Middleware numbers the document, generates and transmits the record and returns everything that must appear on the document in the `ftSignatures` of the response. For the layout of the receipt or invoice you have two options:
+
+- **Use the layout of the fiskaltrust.Middleware.** The `/issue` endpoint of the [PosSystem API](../../possystem-api/introduction.md#core-api-endpoints) renders the receipt or invoice as a digital receipt (`https://receipts.fiskaltrust.eu/{ftQueueID}/{ftQueueItemID}`, the `receipts-sandbox` host in the sandbox) and as an ESC-POS stream for printing. These documents already contain every element that VERI\*FACTU and TicketBAI require; there is nothing on this page you have to implement.
+- **Use your own layout.** If your POS prints or displays the document itself, it is responsible for the layout. This page describes which elements the document must contain and which signature items carry them, and which values you must never alter.
 
 :::tip Use the returned values
 
@@ -78,7 +81,7 @@ The recommended print order is: issuer, document type, series and number, date a
 
 ## Checklist for PosCreators
 
-Before going live, verify one printed sample of every document type against this list:
+If you use your own layout, verify one printed sample of every document type against this list before going live:
 
 1. Issuer data with NIF, document type (*Factura simplificada* / *Factura*), series and number as returned in `ftReceiptIdentification`.
 2. Date and time in Spanish local time.

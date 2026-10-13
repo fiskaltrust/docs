@@ -5,25 +5,26 @@ title: Go-to-Market
 
 # Go-to-Market in Spain
 
-Spain has two fiscal systems for invoicing software: **VERI\*FACTU** in the common territory (all of Spain except the Basque Country and Navarre, including the Canary Islands, Ceuta and Melilla) and **TicketBAI** in the three Basque provinces Araba/Álava, Bizkaia and Gipuzkoa. Both require that every invoice is recorded, secured and reported to the tax authority, and both put the compliance obligation on the producer of the invoicing software.
+Spain has two fiscal systems for invoicing software: **VERI\*FACTU** in the common territory (all of Spain except the Basque Country and Navarre, including the Canary Islands, Ceuta and Melilla) and **TicketBAI** in the three Basque provinces Araba/Álava, Bizkaia and Gipuzkoa. Both require that every invoice is recorded, secured and reported to the tax authority, and both put the compliance obligation on the producer of the invoicing software. In addition, large companies (turnover above 6 million EUR, VAT groups, companies in the monthly VAT refund register and voluntary participants) report their invoices through **SII** (*Suministro Inmediato de Información*) and are exempt from VERI\*FACTU; the fiskaltrust.Middleware does not support SII today.
 
-With fiskaltrust, **the fiskaltrust.Middleware takes care of this**. fiskaltrust has signed the *declaración responsable* for VERI\*FACTU and has registered the fiskaltrust.Middleware as TicketBAI software (see [Declaration and Registration](../declaration/declaration.md)). Your POS sends its business cases to the fiskaltrust.Middleware and prints what comes back. You do not sign a declaration, register software or implement fiscal logic yourself.
+With fiskaltrust, **the fiskaltrust.Middleware takes care of this**. fiskaltrust has signed the *declaración responsable* for VERI\*FACTU and has registered the fiskaltrust.Middleware as TicketBAI software (see [Declaration and Registration](../declaration/declaration.md)). Your POS sends its business cases to the fiskaltrust.Middleware and hands out the receipt or invoice, either as rendered by the fiskaltrust.Middleware or in its own layout. You do not sign a declaration, register software or implement fiscal logic yourself.
 
 ## Who does what
 
 | Topic | Handled by |
 | ----- | ---------- |
 | Declaración responsable (VERI\*FACTU) | fiskaltrust |
-| TicketBAI software registration and licence codes | fiskaltrust |
+| TicketBAI software registration and licence code | fiskaltrust |
 | Validation of every request against the Spanish rules | fiskaltrust.Middleware |
 | Series and numbering | fiskaltrust.Middleware |
 | VERI\*FACTU record with hash chain, signed TicketBAI file with chaining | fiskaltrust.Middleware |
 | Transmission to the AEAT and to the provincial tax authorities | fiskaltrust.Middleware |
-| QR code, VERI\*FACTU legend and TBAI identifier | fiskaltrust.Middleware generates them, your POS prints them |
+| QR code, VERI\*FACTU legend and TBAI identifier | fiskaltrust.Middleware |
+| Receipt and invoice layout with all mandatory elements | fiskaltrust.Middleware (`/issue` endpoint), or your POS if you use your own layout |
 | Storage and use of the merchant's certificates | fiskaltrust.Middleware; the merchant uploads the certificate in the fiskaltrust.Portal |
 | Regulatory updates | fiskaltrust |
 | Sending the business cases through the PosSystem API | Your POS |
-| Printing or displaying the document | Your POS |
+| Handing the receipt or invoice to the customer | Your POS |
 | Showing validation errors and handling outages | Your POS |
 
 The steps on your side are described in [Integrating under fiskaltrust's declaration and registration](./fiskaltrust-declaration.md).
@@ -38,7 +39,7 @@ The steps on your side are described in [Integrating under fiskaltrust's declara
 
 **The merchant needs a certificate.** Transmission and signature use a qualified electronic certificate of the merchant that is accepted by the tax authority of its territory (for TicketBAI, for example, a device certificate issued by Izenpe). The merchant uploads it in the Spanish fiskaltrust.Portal (`portal.fiskaltrust.es`) during onboarding; your POS never handles it.
 
-**Supported scope.** The fiskaltrust.Middleware issues simplified invoices, complete invoices, cancellations and refunds. Corrective invoice types, TicketBAI cancellations, vouchers, the equivalence surcharge and SII are not available yet. See [Supported document types](../declaration/declaration.md#supported-document-types) and [Boundaries](../declaration/declaration.md#boundaries).
+**Supported scope.** The fiskaltrust.Middleware issues simplified invoices, complete invoices, cancellations and refunds. Corrective invoices are not supported; corrections are handled through refunds. TicketBAI cancellations, vouchers, the equivalence surcharge and SII are not available yet. See [Supported document types](../declaration/declaration.md#supported-document-types) and [Boundaries](../declaration/declaration.md#boundaries).
 
 ## Deadlines
 
@@ -59,7 +60,7 @@ No. fiskaltrust's declaración responsable and TicketBAI registration cover the 
 No. In Spain the fiskaltrust.Middleware runs in the fiskaltrust cloud.
 
 **Does this restrict how my POS looks?**
-No. Your POS can look and behave as you like. The QR code, the legend and the identifiers on the document are the ones returned by the fiskaltrust.Middleware; see [Receipt Printing](../receipt-printing/receipt-printing.md).
+No. Your POS can look and behave as you like. For receipts and invoices you can use the layout of the fiskaltrust.Middleware, which already meets all regulatory requirements, or your own layout; see [Receipt Printing](../receipt-printing/receipt-printing.md).
 
 **Where do I get help?**
 Contact [sales@fiskaltrust.eu](mailto:sales@fiskaltrust.eu) for the commercial setup in Spain.

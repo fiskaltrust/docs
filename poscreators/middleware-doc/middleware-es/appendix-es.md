@@ -17,8 +17,8 @@ Please note that this information is only complete when combined with the **Gene
 
 ## Declared and registered invoicing system
 
-The fiskaltrust.Middleware covers both Spanish fiscal systems: **VERI\*FACTU** in the common territory and **TicketBAI** in the Basque provinces of Araba, Bizkaia and Gipuzkoa. fiskaltrust has signed the *declaración responsable* for VERI\*FACTU and has registered the fiskaltrust.Middleware as TicketBAI software, so PosCreators do not sign or register anything themselves. The fiskaltrust.Middleware numbers, secures and transmits every document; your POS sends the business cases and prints what comes back.
+The fiskaltrust.Middleware covers both Spanish fiscal systems: **VERI\*FACTU** in the common territory and **TicketBAI** in the Basque provinces of Araba, Bizkaia and Gipuzkoa. fiskaltrust has signed the *declaración responsable* for VERI\*FACTU and has registered the fiskaltrust.Middleware as TicketBAI software, so PosCreators do not sign or register anything themselves. The fiskaltrust.Middleware numbers, secures and transmits every document and can also render the receipt or invoice with all mandatory elements; your POS sends the business cases and hands out the document.
 
 - [Go-to-Market](./go-to-market/go-to-market.md): who does what, what you need to know about the Spanish market, and the integration and onboarding steps.
 - [Declaration and Registration](./declaration/declaration.md): what fiskaltrust holds, the supported document types and the boundaries of the implementation.
-- [Receipt Printing](./receipt-printing/receipt-printing.md): the mandatory elements of the printed or digital document.
+- [Receipt Printing](./receipt-printing/receipt-printing.md): the receipts and invoices rendered by the fiskaltrust.Middleware, and the mandatory elements if you use your own layout.
