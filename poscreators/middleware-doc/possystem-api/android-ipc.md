@@ -3,6 +3,9 @@ slug: /poscreators/possystem-api/android-ipc
 title: Android IPC Transport
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Android IPC Transport
 
 ## Overview
@@ -132,6 +135,9 @@ Binding requires an `IServiceConnection` implementation that receives Android's
 connect/disconnect callbacks. Bind with an explicit intent; `Bind.AutoCreate`
 starts the service if needed. Wrap the returned binder in a `Messenger`:
 
+<Tabs groupId="language">
+<TabItem value="csharp" label="C#">
+
 ```csharp
 class ServiceBinding : Java.Lang.Object, IServiceConnection
 {
@@ -158,6 +164,41 @@ class ServiceBinding : Java.Lang.Object, IServiceConnection
 }
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java
+class ServiceBinding implements ServiceConnection {
+    private Messenger messenger;
+
+    public void bind(Context context) {
+        Intent intent = new Intent();
+        intent.setClassName("eu.fiskaltrust.androidlauncher",
+                            "eu.fiskaltrust.androidlauncher.PosSystemAPIService");
+
+        // BIND_AUTO_CREATE starts the service if it isn't running yet.
+        if (!context.bindService(intent, this, Context.BIND_AUTO_CREATE)) {
+            throw new IllegalStateException("Could not bind to the PosSystemAPIService.");
+        }
+    }
+
+    // Called by Android when the binding succeeds; the Messenger is used to send requests.
+    @Override
+    public void onServiceConnected(ComponentName name, IBinder service) {
+        messenger = new Messenger(service);
+    }
+
+    // Called by Android when the connection is lost (e.g. the service process crashed).
+    @Override
+    public void onServiceDisconnected(ComponentName name) {
+        messenger = null; // rebind before the next request
+    }
+}
+```
+
+</TabItem>
+</Tabs>
+
 Note that `OnServiceConnected` is called asynchronously — wait for it before
 sending (the reference implementation below uses a `TaskCompletionSource` for
 this). Keep the binding alive across requests and rebind if
@@ -168,6 +209,9 @@ this). Keep the binding alive across requests and rebind if
 Each request is one `Message` with `What = 1`, the HTTP-style request data in
 `Message.Data`, and a `ReplyTo` messenger that tells the service where to send
 the response:
+
+<Tabs groupId="language">
+<TabItem value="csharp" label="C#">
 
 ```csharp
 // messenger:    obtained in OnServiceConnected above
@@ -190,11 +234,42 @@ void SendRequest(Messenger messenger, Handler.ICallback replyHandler,
 }
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java
+// messenger:    obtained in onServiceConnected above
+// replyHandler: receives the reply, see step 3
+void sendRequest(Messenger messenger, Handler.Callback replyHandler,
+                 String method, String path, String headersBase64Url, String bodyBase64Url) throws RemoteException {
+    Message msg = Message.obtain();
+    msg.what = 1; // request
+    msg.replyTo = new Messenger(new Handler(Looper.getMainLooper(), replyHandler));
+
+    Bundle data = new Bundle();
+    data.putString("Method", method);                              // e.g. "POST"
+    data.putString("Path", path);                                  // e.g. "/v2/..."
+    data.putString("HeaderJsonObjectBase64Url", headersBase64Url); // base64url-encoded JSON object
+    if (bodyBase64Url != null) {
+        data.putString("BodyBase64Url", bodyBase64Url);            // optional, base64url-encoded
+    }
+    msg.setData(data);
+
+    messenger.send(msg);
+}
+```
+
+</TabItem>
+</Tabs>
+
 #### 3. Receive the reply
 
 The service processes the request asynchronously and sends a `Message` with
 `What = 2` to the `ReplyTo` messenger. The reply is received by a
 `Handler.ICallback` implementation and mirrors an HTTP response:
+
+<Tabs groupId="language">
+<TabItem value="csharp" label="C#">
 
 ```csharp
 class ReplyHandler : Java.Lang.Object, Handler.ICallback
@@ -213,6 +288,30 @@ class ReplyHandler : Java.Lang.Object, Handler.ICallback
 }
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java
+class ReplyHandler implements Handler.Callback {
+    @Override
+    public boolean handleMessage(Message msg) {
+        if (msg.what != 2) { // ignore anything that is not a reply
+            return false;
+        }
+
+        Bundle data = msg.getData();
+        String statusCode = data.getString("StatusCode");                 // e.g. "200"
+        String contentB64 = data.getString("ContentBase64Url");           // base64url-encoded
+        String contentTypeB64 = data.getString("ContentTypeBase64Url");   // base64url-encoded
+        // decode base64url → UTF-8 strings, then process the content
+        return true;
+    }
+}
+```
+
+</TabItem>
+</Tabs>
+
 ### Notes
 
 - The service promotes itself to a foreground service on bind, so the middleware
@@ -226,9 +325,6 @@ class ReplyHandler : Java.Lang.Object, Handler.ICallback
 
 Stripped down to the essentials, with no reconnection or error handling, this
 is the whole mechanism in one bind + send + receive:
-
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
 
 <Tabs groupId="language">
 <TabItem value="csharp" label="C#">
@@ -291,18 +387,22 @@ service.send(message);
 
 For a complete, production-ready implementation (connection reuse, rebinding,
 error handling), see the [full reference
-implementation](#full-reference-implementation) below (C#), or the real,
-working Java client in the
-[middleware-demo-android](https://github.com/fiskaltrust/middleware-demo-android/tree/master/java/app/src/main/java/eu/fiskaltrust/middleware/demo/transport)
-repo (`BoundServiceTransport.java`).
+implementation](#full-reference-implementation) below.
 
 ### Full reference implementation
 
-_This matches the real, working MAUI client in the
-[middleware-demo-android](https://github.com/fiskaltrust/middleware-demo-android/tree/master/maui/Services)
-repo (`BoundServiceTransport.cs`, `IPosSystemTransport.cs`)._
+_This matches the real, working clients in the
+[middleware-demo-android](https://github.com/fiskaltrust/middleware-demo-android)
+repo: the [MAUI client](https://github.com/fiskaltrust/middleware-demo-android/tree/master/maui/Services)
+(`BoundServiceTransport.cs`, `IPosSystemTransport.cs`) and the
+[Java client](https://github.com/fiskaltrust/middleware-demo-android/tree/master/java/app/src/main/java/eu/fiskaltrust/middleware)
+(`BoundServiceTransport.java`, `PosSystemTransport.java`,
+`PosSystemApiServiceContract.java`, `Base64UrlUtil.java`)._
 
 #### Transport
+
+<Tabs groupId="language">
+<TabItem value="csharp" label="C#">
 
 ```csharp
 using Android.Content;
@@ -483,7 +583,190 @@ public class BoundServiceTransport
 }
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java
+import android.app.Activity;
+
+import java.util.Map;
+
+public interface PosSystemTransport {
+
+    interface Callback {
+        void onSuccess(String content);
+        void onError(Exception error);
+    }
+
+    void send(Activity activity, String method, String path, Map<String, String> headers, String body, Callback callback);
+}
+```
+
+```java
+import android.app.Activity;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.IBinder;
+import android.os.Looper;
+import android.os.Message;
+import android.os.Messenger;
+import android.os.RemoteException;
+
+import com.google.gson.Gson;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+public class BoundServiceTransport implements PosSystemTransport {
+
+    private static final Gson gson = new Gson();
+
+    private static final class PendingSend {
+        final Message message;
+        final Callback callback;
+
+        PendingSend(Message message, Callback callback) {
+            this.message = message;
+            this.callback = callback;
+        }
+    }
+
+    private final Object lock = new Object();
+    private final List<PendingSend> pending = new ArrayList<>();
+    private Context boundContext;
+    private ServiceConnection connection;
+    private Messenger service;
+
+    @Override
+    public void send(Activity activity, String method, String path, Map<String, String> headers, String body, Callback callback) {
+        Bundle data = new Bundle();
+        data.putString(PosSystemApiServiceContract.KEY_METHOD, method);
+        data.putString(PosSystemApiServiceContract.KEY_PATH, path);
+        data.putString(PosSystemApiServiceContract.KEY_HEADER_JSON_BASE64URL, Base64UrlUtil.encode(gson.toJson(headers)));
+        if (body != null) {
+            data.putString(PosSystemApiServiceContract.KEY_BODY_BASE64URL, Base64UrlUtil.encode(body));
+        }
+
+        Message message = Message.obtain();
+        message.what = PosSystemApiServiceContract.MSG_REQUEST;
+        message.setData(data);
+        message.replyTo = new Messenger(new Handler(Looper.getMainLooper(), incoming -> handleReply(incoming, callback)));
+
+        enqueue(activity.getApplicationContext(), new PendingSend(message, callback));
+    }
+
+    private boolean handleReply(Message incoming, Callback callback) {
+        if (incoming.what != PosSystemApiServiceContract.MSG_REPLY) {
+            return false;
+        }
+        Bundle data = incoming.getData();
+        String statusCode = data != null ? data.getString(PosSystemApiServiceContract.KEY_STATUS_CODE) : null;
+        String contentBase64Url = data != null ? data.getString(PosSystemApiServiceContract.KEY_CONTENT_BASE64URL) : null;
+        String content = contentBase64Url != null ? Base64UrlUtil.decode(contentBase64Url) : "";
+
+        if (statusCode == null || !statusCode.startsWith("2")) {
+            callback.onError(new IllegalStateException("PosSystemAPIService returned status " + statusCode + ": " + content));
+        } else {
+            callback.onSuccess(content);
+        }
+        return true;
+    }
+
+    private void enqueue(Context context, PendingSend send) {
+        synchronized (lock) {
+            if (service != null) {
+                trySend(context, send);
+                return;
+            }
+
+            pending.add(send);
+            if (connection == null) {
+                bind(context);
+            }
+        }
+    }
+
+    private void trySend(Context context, PendingSend send) {
+        try {
+            synchronized (lock) {
+                service.send(send.message);
+            }
+        } catch (RemoteException e) {
+            reset(context);
+            send.callback.onError(e);
+        }
+    }
+
+    private void bind(Context context) {
+        boundContext = context;
+        connection = new ServiceConnection() {
+            @Override
+            public void onServiceConnected(ComponentName name, IBinder binder) {
+                List<PendingSend> toSend;
+                synchronized (lock) {
+                    service = new Messenger(binder);
+                    toSend = new ArrayList<>(pending);
+                    pending.clear();
+                }
+                for (PendingSend send : toSend) {
+                    trySend(context, send);
+                }
+            }
+
+            @Override
+            public void onServiceDisconnected(ComponentName name) {
+                synchronized (lock) {
+                    service = null;
+                }
+            }
+        };
+
+        Intent intent = new Intent();
+        intent.setClassName(PosSystemApiServiceContract.LAUNCHER_PACKAGE, PosSystemApiServiceContract.SERVICE_CLASS);
+        boolean bound = context.bindService(intent, connection, Context.BIND_AUTO_CREATE);
+        if (!bound) {
+            List<PendingSend> failed;
+            synchronized (lock) {
+                connection = null;
+                failed = new ArrayList<>(pending);
+                pending.clear();
+            }
+            for (PendingSend send : failed) {
+                send.callback.onError(new IllegalStateException("Could not bind to " + PosSystemApiServiceContract.SERVICE_CLASS));
+            }
+        }
+    }
+
+    private void reset(Context context) {
+        ServiceConnection toUnbind;
+        synchronized (lock) {
+            service = null;
+            toUnbind = connection;
+            connection = null;
+        }
+        if (toUnbind != null) {
+            try {
+                context.unbindService(toUnbind);
+            } catch (IllegalArgumentException ignored) {
+                // already unbound
+            }
+        }
+    }
+}
+```
+
+</TabItem>
+</Tabs>
+
 #### Request/response models
+
+<Tabs groupId="language">
+<TabItem value="csharp" label="C#">
 
 ```csharp
 using System.Text;
@@ -543,7 +826,64 @@ public class PosSystemApiResponse
 }
 ```
 
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java
+public final class PosSystemApiServiceContract {
+
+    public static final String LAUNCHER_PACKAGE = "eu.fiskaltrust.androidlauncher";
+    public static final String ACTIVITY_CLASS = "eu.fiskaltrust.androidlauncher.PosSystemAPI";
+    public static final String SERVICE_CLASS = "eu.fiskaltrust.androidlauncher.PosSystemAPIService";
+
+    public static final int MSG_REQUEST = 1;
+    public static final int MSG_REPLY = 2;
+
+    public static final String KEY_METHOD = "Method";
+    public static final String KEY_PATH = "Path";
+    public static final String KEY_HEADER_JSON_BASE64URL = "HeaderJsonObjectBase64Url";
+    public static final String KEY_BODY_BASE64URL = "BodyBase64Url";
+
+    public static final String KEY_STATUS_CODE = "StatusCode";
+    public static final String KEY_CONTENT_BASE64URL = "ContentBase64Url";
+
+    private PosSystemApiServiceContract() { }
+}
+```
+
+```java
+import android.util.Base64;
+
+import java.nio.charset.StandardCharsets;
+
+public final class Base64UrlUtil {
+
+    private static final int ENCODE_FLAGS = Base64.URL_SAFE | Base64.NO_WRAP | Base64.NO_PADDING;
+
+    private Base64UrlUtil() { }
+
+    public static String encode(String text) {
+        return Base64.encodeToString(text.getBytes(StandardCharsets.UTF_8), ENCODE_FLAGS);
+    }
+
+    // Tolerant decoder: accepts both the base64url and the standard base64 alphabet,
+    // with or without padding. The launcher does not guarantee a strictly url-safe
+    // encoding for response content (e.g. the Restart & Pull Config response contains
+    // '+'/'/'), and a strict URL_SAFE decode throws IllegalArgumentException.
+    public static String decode(String base64Url) {
+        String base64 = base64Url.replace('-', '+').replace('_', '/');
+        return new String(Base64.decode(base64, Base64.DEFAULT), StandardCharsets.UTF_8);
+    }
+}
+```
+
+</TabItem>
+</Tabs>
+
 #### Usage
+
+<Tabs groupId="language">
+<TabItem value="csharp" label="C#">
 
 ```csharp
 var transport = new BoundServiceTransport();
@@ -566,6 +906,48 @@ if (!response.IsSuccess)
 
 var content = response.Content; // e.g. deserialize JSON
 ```
+
+</TabItem>
+<TabItem value="java" label="Java">
+
+```java
+public PosSystemApiClient(String cashboxId, String accessToken, boolean useBoundService) {
+    this.cashboxId = cashboxId;
+    this.accessToken = accessToken;
+    this.transport = PosSystemTransportFactory.getInstance(useBoundService);
+}
+
+public void echo(Activity activity, String operationId, String message, Callback callback) {
+    Map<String, String> body = new LinkedHashMap<>();
+    body.put("Message", message);
+    send(activity, "POST", "/v2/echo", authHeaders(operationId), gson.toJson(body), callback);
+}
+
+private Map<String, String> authHeaders(String operationId) {
+    Map<String, String> headers = new LinkedHashMap<>();
+    headers.put("x-cashbox-id", cashboxId);
+    headers.put("x-cashbox-accesstoken", accessToken);
+    headers.put("x-operation-id", operationId);
+    return headers;
+}
+
+private void send(Activity activity, String method, String path, Map<String, String> headers, String body, Callback callback) {
+    transport.send(activity, method, path, headers, body, new PosSystemTransport.Callback() {
+        @Override
+        public void onSuccess(String content) {
+            callback.onSuccess(content);
+        }
+
+        @Override
+        public void onError(Exception error) {
+            callback.onError(error);
+        }
+    });
+}
+```
+
+</TabItem>
+</Tabs>
 
 ## Activity Intent
 
