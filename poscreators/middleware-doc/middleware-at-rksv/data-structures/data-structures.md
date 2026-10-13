@@ -1,7 +1,7 @@
 ---
 slug: /poscreators/middleware-doc/austria/data-structures
 title: Data Structures
-description: Austria-specific fields of the receipt response, charge items, pay items and signature entries in the Middleware data structures.
+description: Austria-specific behaviour of the receipt request, receipt response, ftState and ftStateData, charge items, pay items and signature entries in the Middleware data structures, including the RKSV machine-readable code (QR code).
 tags: [Austria, RKSV, Data Structures, Middleware]
 ---
 
@@ -17,11 +17,10 @@ The Austrian Queue does not add fields to the Receipt Request, but the following
 
 | **Field Name**     | **Description** |
 |--------------------|-----------------|
-| `ftCashBoxID`      | Must be the ID of the CashBox the Queue belongs to; otherwise the request is rejected. |
-| `ftReceiptCase`    | Selects the type of receipt, including the special receipts described in ["Receipt for special functions"](../cash-register-integration/cash-register-integration.md#receipt-for-special-functions). Its flags mark training receipts, void receipts and receipts entered subsequently after a failure or from handwritten receipts; these change the signature, see [Machine-readable code](#machine-readable-code-qr-code). |
-| `cbReceiptMoment`  | The moment of the business transaction. It decides when a monthly or annual receipt is due and determines the time range covered by subsequently entered receipts. For a subsequently entered receipt, send the moment of the original transaction. The date and time in the machine-readable code are the processing time instead (`ftReceiptMoment`). |
+| `ftReceiptCase`    | Selects the type of receipt, see ["Basic receipts"](../cash-register-integration/cash-register-integration.md#basic-receipts) and ["Operational receipts"](../cash-register-integration/cash-register-integration.md#operational-receipts). The training and void flags change the machine-readable code, see [Machine-readable code](#machine-readable-code-qr-code). Late signing and handwritten receipts are closed by a zero receipt, which returns the range of receipts covered, see [Signature entries returned by the Queue](#signature-entries-returned-by-the-queue). |
+| `cbReceiptMoment`  | Decides when a monthly or annual receipt is due and determines the time range covered by late signing and handwritten receipts. For a late signing or handwritten receipt, send the moment of the original transaction. The date and time in the machine-readable code are the processing time instead (`ftReceiptMoment`). |
 | `cbChargeItems`    | Decide the amounts of the RKSV tax sets and the Umsatzzähler, see [Charge Items Entry](#charge-items-entry). |
-| `cbPayItems`       | Decide whether the receipt is a cash transaction that must be signed, see [Pay Items Entry](#pay-items-entry). |
+| `cbPayItems`       | Together with the charge items, decide whether the receipt is signed, see [Pay Items Entry](#pay-items-entry). |
 
 *Table 1. Receipt Request fields relevant for signing (AT - RKSVO)*
 
@@ -29,38 +28,56 @@ The Austrian Queue does not add fields to the Receipt Request, but the following
 
 The following fields of the Receipt Response have Austria-specific content.
 
-| **Field Name**            | **Data Type**     | **Default Value** | **Nullable** | **Description** |
-|---------------------------|-------------------|-------------------|--------------|-----------------|
-| `ftCashBoxIdentification` | `string`          | -                 | false        | The cash register identification number (Kassenidentifikationsnummer) in accordance with the RKSV. It is the CashBoxIdentification configured for the Queue in the fiskaltrust.Portal, which requires it to be unique within the account and does not allow the characters `_`, `/` and `\`. It is part of the machine-readable code and of the RKSV-DEP, and it identifies the cash register in FinanzOnline. |
-| `ftReceiptIdentification` | `string`          | -                 | false        | Starts, as in all markets, with `ft`, the row number of the Queue in hexadecimal and `#`. For a signed receipt, the Queue appends its cash receipt counter, for example `ft1A3#42`; this complete value is the receipt number (Belegnummer) in the machine-readable code. For a receipt that is not signed, nothing is appended, for example `ft1A4#`. |
-| `ftSignatures`            | `SignatureItem[]` | `[]`              | false        | The signature entries to print on the receipt, see [Signature Entry](#signature-entry). |
+| **Field Name**            | **Description** |
+|---------------------------|-----------------|
+| `ftCashBoxIdentification` | The cash register identification number (Kassenidentifikationsnummer) in accordance with the RKSV. It is the CashBoxIdentification configured for the Queue in the fiskaltrust.Portal, which does not allow the characters `_`, `/` and `\`. It is part of the machine-readable code and of the RKSV-DEP, and it identifies the cash register in FinanzOnline. |
+| `ftReceiptIdentification` | Starts with `ft`, the receipt counter of the Queue in hexadecimal and `#`. This receipt counter is not the same as `ftQueueRow` and can differ from it. For a signed receipt, the Queue appends its RKSV cash receipt counter, for example `ft1A3#42`; this complete value is the receipt number (Belegnummer) in the machine-readable code. For a receipt that is not signed, nothing is appended, for example `ft1A4#`. |
 
 *Table 2. Receipt Response fields with Austria-specific content (AT - RKSVO)*
 
-The Austrian Queue does not return `ftReceiptHeader`, `ftChargeItems`, `ftChargeLines`, `ftPayItems`, `ftPayLines` or `ftReceiptFooter`. The POS system prints the receipt from its own data and adds the returned signature entries, see ["Receipt structure"](../cash-register-integration/cash-register-integration.md#receipt-structure).
+The Austrian Queue does not return `ftReceiptHeader`, `ftChargeItems`, `ftChargeLines`, `ftPayItems`, `ftPayLines` or `ftReceiptFooter`.
+
+### ftState and ftStateData
+
+The Austrian Queue returns `ftState` with every response. Its value starts with the Austrian country code `0x4154`, and the flags below are combined with OR. Through the PosSystem API (v2), the value also carries the version `2000`: a Queue without any flag set returns `0x4154_2000_0000_0000`, and a due monthly receipt returns `0x4154_2000_0000_0010`.
+
+| **Flag** | **Meaning** | **Cleared by** |
+|----------|-------------|----------------|
+| `0x01` | The Queue has not been started yet, or it has been stopped. | Start receipt. A Queue stopped with a stop receipt cannot be started again. |
+| `0x02` | The signature creation device failed for at least one receipt. | Zero receipt |
+| `0x04` | The signature creation device has been failing for more than 48 hours; a FinanzOnline notification has been created. | Zero receipt |
+| `0x08` | Late signing or handwritten receipts have been sent and are not yet closed. | Zero receipt |
+| `0x10` | A monthly receipt is due. | Monthly receipt |
+| `0x20` | An annual receipt is due. | Annual receipt |
+| `0x40` | A message is pending (Middleware 1.2 only). | Zero receipt, which returns the message |
+| `0x80` | The receipt was signed by a backup SCU. Middleware 1.2 sets this flag as soon as it tries a backup SCU, Middleware 1.3 only after a backup SCU has signed. | Set per response |
+
+*Table 3. ftState flags of the Austrian Queue (AT - RKSVO)*
+
+The Austrian Queue does not fill `ftStateData`, so the field is not included in the response. Only in the sandbox does it contain debugging information about the signing decision (through the PosSystem API (v2) under an `"AT"` key), which must not be relied on.
 
 ## Charge Items Entry
 
 The charge items decide the amounts that the Queue adds up per RKSV tax set (normal, discounted-1, discounted-2, zero and special) for the signature, and the amount added to the Umsatzzähler.
 
-The tax set is taken from the VAT part of `ftChargeItemCase`. Only when `ftChargeItemCase` does not specify a VAT type does the Queue fall back to `VATRate`: 20 is counted as normal, 10 as discounted-1, 13 as discounted-2, 0 as zero, and any other rate as special. Some types of service, such as not own sales and obligations, are recorded in the zero tax set without increasing the Umsatzzähler.
+The tax set is taken from the VAT part of `ftChargeItemCase`. Only when `ftChargeItemCase` does not specify a VAT type does the Queue fall back to `VATRate`: 20 is counted as normal, 10 as discounted-1, 13 as discounted-2, 0 as zero, and any other rate as special. Not own sales, including collections on account of a third party, and obligations without RKSV requirement are recorded in the zero tax set.
 
-| **Field Name**     | **Data Type**      | **Default Value** | **Nullable** | **Description** |
-|--------------------|--------------------|-------------------|--------------|-----------------|
-| `Amount`           | `number($decimal)` | 0                 | false        | Gross amount of the line; added to the tax set selected by `ftChargeItemCase`. |
-| `ftChargeItemCase` | `integer($uint64)` | 0                 | false        | Selects the RKSV tax set through its VAT type. |
-| `VATRate`          | `number($decimal)` | 0                 | false        | Used to select the tax set only if `ftChargeItemCase` does not specify a VAT type. |
-| `Description`      | `string`           | -                 | false        | Customary description of the goods or type of the service. It is mandatory in the interface and required on the receipt by §132a para. 3 Z 4 BAO, see ["Charge Items Block"](../cash-register-integration/cash-register-integration.md#charge-items-block). The Queue does not validate its content. |
+| **Field Name**     | **Description** |
+|--------------------|-----------------|
+| `Amount`           | Gross amount of the line; added to the tax set selected by `ftChargeItemCase`. |
+| `ftChargeItemCase` | Selects the RKSV tax set through its VAT type. |
+| `VATRate`          | Used to select the tax set only if `ftChargeItemCase` does not specify a VAT type. |
+| `Description`      | The Austrian Queue does not use or validate its content, and it is not part of the machine-readable code. |
 
-*Table 3. Charge Items Entry fields relevant for signing (AT - RKSVO)*
+*Table 4. Charge Items Entry fields relevant for signing (AT - RKSVO)*
 
 ## Pay Items Entry
 
-The Austrian Queue does not add fields to the Pay Items Entry. The `ftPayItemCase` of each pay item decides whether the receipt is a cash transaction (Barumsatz) under the RKSV and therefore has to be signed: cash, crossed cheques, card, voucher, online and customer card payments count as cash transactions; receivables and transfers do not.
+The Austrian Queue does not add fields to the Pay Items Entry. The `ftPayItemCase` of each pay item decides whether it counts as a cash payment: unknown payment types, cash in national or foreign currency, crossed cheques, debit and credit cards, vouchers, online payments and customer cards do; all other payment types, such as receivables, transfers and cash book entries, do not. Together with the types of service in the charge items, this decides whether the receipt is signed and counted.
 
 ## Signature Entry
 
-The Austrian Queue returns the signature entries described in [SignatureItem](../../general/data-structures/data-structures.md#signatureitem) in the General Part; the fields and their data types are the same. A response can contain several signature entries, and the POS system must print each of them in the format given by `ftSignatureFormat`, see ["Signature Block"](../cash-register-integration/cash-register-integration.md#signature-block).
+The fields of a signature entry are described in [SignatureItem](../../general/data-structures/data-structures.md#signatureitem) in the General Part; the Austrian Queue returns the following entries.
 
 ### Signature entries returned by the Queue
 
@@ -69,13 +86,13 @@ The Austrian Queue returns the signature entries described in [SignatureItem](..
 | Signed receipt | `www.fiskaltrust.at` | Machine-readable code, see below | QR code | Signature according to RKSV |
 | Receipt that could not be signed because the signature creation device failed | `Sicherheitseinrichtung ausgefallen` | Machine-readable code, with the signature value the RKSV prescribes for a failed signature creation device | QR code | Signature according to RKSV |
 | Every receipt while the Queue is in signature creation device failure mode (Middleware 1.2 only) | `Sicherheitseinrichtung ausgefallen` | `Sicherheitseinrichtung ausgefallen` | Text | Signature according to RKSV |
-| Start receipt / stop receipt | `Startbeleg` / `Stopbeleg` | `Startbeleg` / `Stopbeleg` | Text | Archiving required |
+| Start receipt / stop receipt (Schlussbeleg) | `Startbeleg` / `Stopbeleg` | `Startbeleg` / `Stopbeleg` | Text | Archiving required |
 | Monthly receipt / annual receipt | `Monatsbeleg #<month>` / `Jahresbeleg` | Current value of the Umsatzzähler | Text | Archiving required |
-| Zero receipt that closes a period of subsequently entered receipts or a failure | `Mobil-Nacherfassung` (handwritten receipts), `Ausfall-Nacherfassung` (receipts entered after a failure) or `Sammelbeleg` | Time range covered (`von … bis …`) | Text | Archiving required |
-| FinanzOnline notification | Description of the notification | Notification data, to execute the FinanzOnline notification manually, for example in offline or pure open-source setups | AZTEC (2D code) | FinanzOnline notification |
+| Zero receipt that closes a period of late signing or handwritten receipts, or a failure of the signature creation device | `Mobil-Nacherfassung` (handwritten receipts), `Ausfall-Nacherfassung` (late signing receipts) or `Sammelbeleg` | Range of receipts covered (`von <first ftReceiptIdentification> bis <ftReceiptIdentification of the zero receipt>`) | Text | Archiving required |
+| Zero receipt, while FinanzOnline notifications are pending | Description of the notification | Notification data, to execute the FinanzOnline notification manually, for example in offline or pure open-source setups | AZTEC (2D code) | FinanzOnline notification; other pending messages are returned with the type unknown |
 | Response while a message is pending (Middleware 1.2 only) | `fiskaltrust-Meldung anstehend` | `Null-Beleg erstellen` - send a zero receipt to retrieve the message | Text | Information |
 
-*Table 4. Signature entries returned by the Austrian Queue (AT - RKSVO)*
+*Table 5. Signature entries returned by the Austrian Queue (AT - RKSVO)*
 
 The receipts listed here are described in ["Receipt for special functions"](../cash-register-integration/cash-register-integration.md#receipt-for-special-functions).
 
@@ -89,7 +106,7 @@ _R1-<ZDA>_<Kassen-ID>_<Belegnummer>_<Beleg-Datum-Uhrzeit>_<Betrag-Satz-Normal>_<
 
 | **Field** | **Content** |
 |-----------|-------------|
-| `R1-<ZDA>` | Algorithm identifier and the short name of the certificate service provider of the signature creation device. |
+| `R1-<ZDA>` | Algorithm identifier and the short name of the certification service provider (ZDA; the current RKSV uses VDA, see [Terminology](../terminology/terminology.md)) that issued the certificate of the signature creation device. |
 | `Kassen-ID` | `ftCashBoxIdentification`. |
 | `Belegnummer` | `ftReceiptIdentification`, for example `ft1A3#42`. |
 | `Beleg-Datum-Uhrzeit` | `ftReceiptMoment` (the processing time) in Austrian local time, format `yyyy-MM-ddTHH:mm:ss`. |
@@ -99,7 +116,7 @@ _R1-<ZDA>_<Kassen-ID>_<Belegnummer>_<Beleg-Datum-Uhrzeit>_<Betrag-Satz-Normal>_<
 | `Sig-Voriger-Beleg` | Chaining value: Base64 of the first 8 bytes of the SHA-256 hash of the previous receipt's signed data. |
 | `Signaturwert` | The Base64-encoded signature value. |
 
-*Table 5. Fields of the machine-readable code (AT - RKSVO)*
+*Table 6. Fields of the machine-readable code (AT - RKSVO)*
 
 :::note Middleware 1.3
 
