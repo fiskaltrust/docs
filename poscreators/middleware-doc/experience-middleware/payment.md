@@ -1,5 +1,7 @@
 ---
 title: Payment
+description: Unified payment endpoint of the Experience Middleware, its design principles, integration flow and a feature matrix per payment service provider.
+tags: [Payment, PSP, Experience Middleware, InStore App, POS System API]
 slug: /poscreators/experience-middleware/payment
 ---
 
@@ -11,7 +13,7 @@ Rather than replacing existing POS payment logic, fiskaltrust provides a **unifi
 
 Payments are integrated through the **InStore App** and the POS System API, allowing transactions, fiscal receipts, and optional digital receipts to be handled in a coordinated flow.
 
-Payment requests are sent via the POS System API in the cloud. Optionally, a POS app running on the same Android device as the InStore App can also trigger payments locally via the fiskaltrust Android launcher (see [Android Intent Integration](../possystem-api/android-intent.md)).
+Payment requests are sent via the POS System API in the cloud. Optionally, a POS app running on the same Android device as the InStore App can also trigger payments locally via the fiskaltrust Android launcher (see [Android IPC](../possystem-api/android-ipc.md)).
 
 ## Key Design Principles
 

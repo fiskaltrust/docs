@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/technical-operations/troubleshooting/cashbox-failures
 title: CashBox failures
+description: How to analyze CashBox failures remotely in the fiskaltrust.Portal Metrics section, and why offline mode or telemetry opt-out disables it.
+tags: [CashBox Failures, Monitoring, CashBox, Portal, Troubleshooting, PosDealers]
 ---
 # CashBox failures
 

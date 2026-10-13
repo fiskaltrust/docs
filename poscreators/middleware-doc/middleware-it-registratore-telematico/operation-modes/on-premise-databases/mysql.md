@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/italy/databases/mysql
 title: MySQL
+description: MySQL storage provider for running the Italian Middleware with an external MySQL database, and its connection string parameter.
+tags: [MySQL, Queue, Configuration, Operation Modes, Italy]
 ---
 
 # MySQL Storage

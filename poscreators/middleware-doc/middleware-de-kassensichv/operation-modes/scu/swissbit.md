@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/germany/scu/swissbit
 title: Swissbit hardware-TSE
+description: BSI certification, SCU parameters and troubleshooting for the Swissbit USB, SD and microSD hardware TSE in Germany.
+tags: [Germany, Swissbit, TSE, SCU, Certification, Troubleshooting]
 ---
 
 # Swissbit Hardware-TSE

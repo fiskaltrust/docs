@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/italy/scu/epsonserver
 title: Epson-Server
+description: Configuration of the Epson RT Server SCU for Italy — parameters, till identification and synchronous vs. asynchronous signing.
+tags: [Epson, SCU, RT, Configuration, Italy]
 ---
 
 # Epson Server

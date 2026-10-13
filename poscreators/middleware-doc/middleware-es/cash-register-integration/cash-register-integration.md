@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/spain/cash-register-integration
 title: Cash Register Integration
+description: Cash register integration in accordance with Spanish law, extending the general integration workflow of the Middleware.
+tags: [Spain, Cash Register Integration, Middleware, PosCreators]
 ---
 
 # Cash Register Integration

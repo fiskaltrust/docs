@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/italy/operation-modes/installation
 title: Installation
+description: On-premise and cloud components of the Italian Middleware, with support matrices for platforms, communication, SCUs and local storage.
+tags: [Operation Modes, Installation, SCU, RT, Italy]
 ---
 
 # Installation
@@ -9,7 +11,7 @@ title: Installation
 
 The illustration below shows the components available for the premise installation of the fiskaltrust.Middleware for the Italian market. For the operation modes available and the description of the components please refer to the [general part](../../general/operation-modes/operation-modes.md) .
 
-![middleware-en](images/middleware-onpremise-en-market-it.png)
+![Diagram: POS system calls echo, sign and journal on the IT Queue, which gets signatures from the SCU connected to an RT Printer or RT Server](images/middleware-onpremise-en-market-it.png)
 
 *Figure 1. Components of the on-premise installation of the fiskaltrust.Middleware for the Italian market.*
 
@@ -17,7 +19,7 @@ The illustration below shows the components available for the premise installati
 
 The illustration below shows the components available for the cloud solution of the fiskaltrust.Middleware for the Italian market. For the operation modes available and the description of the components please refer to the [general part](../../general/operation-modes/operation-modes.md) .
 
-![middleware-en](images/middleware-cloudsolution-en-market-it.png)
+![Diagram: POS system calls echo, sign and journal on the IT Queue, which gets signatures from the SCU connected to an RT Printer, RT Server or Cloud CashBox](images/middleware-cloudsolution-en-market-it.png)
 
 *Figure 2. Components of the cloud solution of the fiskaltrust.Middleware for the Italian market.*
 

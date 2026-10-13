@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/france/terminology
 title: Terminology
+description: French market terms for the Middleware, such as fiskaltrust.Queue period totals and DGFiP, extending the general terminology.
+tags: [France, Terminology, Glossary, Middleware]
 ---
 
 # Terminology

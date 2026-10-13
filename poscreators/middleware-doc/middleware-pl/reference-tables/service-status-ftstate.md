@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/poland/reference-tables/ftstate
 title: 'Service Status: ftState'
+description: ftState values for Poland — global flags and the Polish local flag for an unreachable fiscal register (Art. 111(3) VAT Act).
+tags: [ftState, Poland, Reference Tables, Failure Handling]
 ---
 
 # Service Status: ftState
@@ -21,7 +23,7 @@ version 2
 | `0000_0040` | **Message Pending**<br />Middleware/Queue is a headless background service, but there are situations where communication with the cashier/operator or the cash register is necessary. By executing a ZeroReceipt, the cashier can read the message or instruction on the printed or displayed receipt. | preview |
 | `0000_0100` | **DailyClosing due**<br />When the first cbReceiptMoment used since the last DailyClosing and the current/latest cbReceiptMoment in the ReceiptRequest have a date-gap of more than two days, then this state indicates, a Daily Closing should be done.<br />In Poland the daily closing triggers the daily (Z) report on the register. | preview |
 | `EEEE_EEEE` | **Error**<br />Something went wrong while processing the last request. QueueItem exists but didn’t reach the state of a ReceiptItem. Error reason is shown within the responded ftSignatureItems.<br />This happens, for example, if the ReceiptCase is not recognized or is wrong. | preview |
-| `FFFF_FFFF` | **Fail**<br />Something went wrong while processing the last request, and nothing persisted within the Queue. Fail reason is shown within the responded ftSignatureItems. | preview |
+| `FFFF_FFFF` | **Fail**<br />Something went wrong while processing the last request, and nothing persisted within the Queue. Fail reason is shown within the responded ftSignatureItems.<br />This happens, for example, if the fiskaltrust.Middleware has no access to its database and therefore cannot store the request. | preview |
 
 #### lll - local flags
 

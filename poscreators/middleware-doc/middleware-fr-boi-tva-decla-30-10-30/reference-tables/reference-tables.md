@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/france/reference-tables
 title: Reference Tables
+description: French values for ftState, ftReceiptCase, ftChargeItemCase, ftPayItemCase, ftSignatureType and ftJournalType.
+tags: [France, Reference Tables, Receipt Case, Charge Item Case, Pay Item Case]
 ---
 
 # Reference Tables

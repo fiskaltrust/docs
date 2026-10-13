@@ -1,19 +1,20 @@
 :::caution
 
-This example uses REST as a communication protocol and requires your queue to have a configured `rest://` URL.
+This example uses REST as a communication protocol and requires your Queue to have a configured `rest://` URL.
 
 :::
 
-To perform an "echo" request, you will need to send a `POST` request to the configured Middleware URL, with the path `/v1/Echo`.
+To send an echo request, send a `POST` request to the path `/v1/Echo` of the configured Middleware URL.
 
-You can get the middleware URL from the portal cashbox configuration page.
-![](./media/cloudcashbox-url.png)
+You find the Middleware URL on the CashBox configuration page in the Portal.
 
-*Figure 1. Middleware URL on the CashBox configuration page in the fiskaltrust.Portal.*
+![Portal CashBox configuration page showing the Queue entry with its cloud Middleware URL highlighted](./media/cloudcashbox-url.png)
 
-That request takes a JSON object in its request body, with one single string field named `Message`, containing the message string you'd like to receive back from the Middleware.
+*Figure 2. Middleware URL on the CashBox configuration page in the fiskaltrust.Portal.*
 
-```JSON
+The request body is a JSON object with a single string field, `Message`, that contains the message you want the Middleware to return:
+
+```json
 {
     "Message": "Hello fiskaltrust.Middleware!"
 }
@@ -21,12 +22,11 @@ That request takes a JSON object in its request body, with one single string fie
 
 :::info
 
-For the cloudcashbox you need to provide the `cashboxid` and `accesstoken` headers in the request.
-You can also get them from the cashbox configuration page.
+For a CloudCashbox, add the `cashboxid` and `accesstoken` headers to the request. You also find both values on the CashBox configuration page.
 
 :::
 
-The following HTTP request example would take the (minified) JSON object from above and send `Hello fiskaltrust.Middleware!` to a CloudCashbox.
+The following HTTP request sends the minified JSON object from above, with the message `Hello fiskaltrust.Middleware!`, to a CloudCashbox:
 
 ```http
 POST  https://cloudcashbox-sandbox.fiskaltrust.de/v1/Echo HTTP/1.1
@@ -39,10 +39,10 @@ accesstoken: XXXX
 { "Message": "Hello fiskaltrust.Middleware!" }
 ```
 
-The response to your request should have a status code of 200 and contain the same object and the exact string you sent in the request in the response body.
+The response has the status code `200` and contains the same object, with the exact string you sent, in the response body.
 
 :::info
 
-You can find the full details on the request and its parameters (along with a curl example) [here](https://middleware-samples.docs.fiskaltrust.cloud/#11f73789-cf7d-4510-bf2c-d3698e954dac).
+For the full request details, parameters and a curl example, see the [Echo request in the Middleware samples](https://middleware-samples.docs.fiskaltrust.cloud/#11f73789-cf7d-4510-bf2c-d3698e954dac).
 
 :::

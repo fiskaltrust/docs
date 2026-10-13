@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/france/cash-register-integration
 title: Cash Register Integration
+description: Receipt creation, special receipts such as daily, monthly, annual and archive receipts, receipt structure and journals for France.
+tags: [France, Cash Register Integration, Closings, Journal, Middleware]
 ---
 
 # Cash Register Integration
@@ -83,7 +85,7 @@ The action journal request call is of type 1 and returns a list of entries. If o
 
 This chapter describes the receipt structure applicable to the French market.
 
-![](./images/24.png)
+![Receipt structure: request blocks from POS to fiskaltrust, response blocks back to POS incl. signature block, and the merged printed receipt](./images/24.png)
 
 *Figure 1. Receipt structure (FR); cash register-receipt data (header, charge items, pay items, footer) and fiskaltrust-receipt data (header, charge items, pay items, signature, footer).*
 

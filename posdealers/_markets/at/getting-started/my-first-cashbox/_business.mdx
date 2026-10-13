@@ -1,25 +1,22 @@
-For this setup, we choose a fiskaltrust.Carefree plan. The fiskaltrust.Carefree plan will create a Carefree bundle including an OnlineSignature SCU. For a quick tutorial, we refrain from choosing a PosOperator and its outlets but assign the bundle to your account and outlet. 
+This example uses a fiskaltrust.Carefree plan. The plan creates a Carefree bundle, including an OnlineSignature SCU, and a CloudCashbox for immediate use. To keep the tutorial short, you roll out the bundle to your own account and outlet instead of to a PosOperator.
 
-To start the Business rollout, **log into your portal account** and proceed with the following steps.
+1. Sign in to the [Sandbox Portal](https://portal-sandbox.fiskaltrust.at).
+2. In the left-hand navigation menu, click `Rollout management`.
+3. On the `Business Rollout` card (`Rolling out products`), click `Choose`.
+4. On the `Select Product` page, search for `CloudCashbox`.
+5. On plan **4154-0005**, click `Choose`.
+6. On the `Select PosOperators` page, select your own account, marked `My Account`, and click `Rollout 1 PosOperators`.
+7. On the `Select Outlet` page, select the outlet where you want to roll out the product and click `Rollout 1 outlets`.
+8. On the `Summary` page, check the plan and the outlet, enter a name under `Define a name for the quote`, and click `Create quote & go to basket`. Creating the quote takes a few seconds.
+9. In the shopping cart, verify that the items match the selected products and click `Checkout`.
+10. Click `Order bindingly` to complete the order.
 
-1. Open the **rollout management page** from [`Rollout Management` / `Plan`](https://portal-sandbox.fiskaltrust.at/RolloutManagement/Plan) (*Sandbox link*) in the left-hand navigation menu.
-2. Select `Business Rollout - Rolling out products`.
-3. **Filter** for `CloudCashbox`.
-4. Select the plan **4154-0005**. This plan will create **a Carefree bundle** and a CloudCashbox for immediate use.
-5. Instead of selecting a PosOperator, choose `Perform the rollout for the current account` on top.
-6. Tick the **desired outlet** where you would like to roll out the product.
-7. Click `Submit Selection`.
-8. Click `Create quote` - *this will take a few seconds. Once the quote is ready, the button will change to `Load quote into cart`.*
-9. Click `Load quote into cart` to **place the quote** into your shopping cart.
-10. Verify that the items in your shopping cart match the selected products.
-11. Click `Checkout`.
-12. Click `binding order` to **complete the order**.
+The order is listed under `Shop` > `Orders`. Completing the order can take a few minutes. After that, the following items are active in your account:
 
------
+| Item | Location in the Portal |
+|---|---|
+| A new Queue | `Configuration` > `Queues` |
+| A new CashBox | `Configuration` > `CashBoxes` |
+| Two new demo subscriptions | `Shop` > `Subscriptions` |
 
-At this point, should have the order listed under [`Shop` / `Orders`](https://portal-sandbox.fiskaltrust.at/Shop/Orders). Finishing the order can take a couple of minutes, but once it has been completed, there should be the following items active in your account
-
-* a **new queue** under [`Configuration` / `Queue`](https://portal-sandbox.fiskaltrust.at/Queue)
-* a **new CashBox** under [`Configuration` / `CashBox`](https://portal-sandbox.fiskaltrust.at/CashBox)
-* two **new demo subscriptions** under [`Shop` / `Subscriptions`](https://portal-sandbox.fiskaltrust.at/Shop/Subscriptions)
-* the 'Carefree' column for the selected outlet under [`Company Name` / `Outlets`](https://portal-sandbox.fiskaltrust.at/AccountOutlet) shows a symbol for an active Carefree subscription.
+*Table 1. Items created by the Business Rollout.*

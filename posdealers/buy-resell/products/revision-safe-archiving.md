@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/buy-resell/products/revision-safe-archiving
 title: Revision-safe archiving
+description: Cloud-based revision-safe receipt archiving mirrored from the Middleware, with country-specific storage variants for Austria, France and Germany.
+tags: [Revision-Safe Archiving, Journal, PosDealers, Austria, France, Germany]
 ---
 
 # Revision-safe archiving in fiskaltrust's cloud
@@ -22,13 +24,23 @@ Depending on the market's requirements, we offer different kinds of revision-saf
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ArchiveAT from '../../_markets/at/buy-resell/products/_archive.mdx';
+import ArchiveBE from '../../_markets/be/buy-resell/products/_archive.mdx';
 import ArchiveFR from '../../_markets/fr/buy-resell/products/_archive.mdx';
 import ArchiveDE from '../../_markets/de/buy-resell/products/_archive.mdx';
+import ArchiveGR from '../../_markets/gr/buy-resell/products/_archive.mdx';
+import ArchiveIT from '../../_markets/it/buy-resell/products/_archive.mdx';
+import ArchivePL from '../../_markets/pl/buy-resell/products/_archive.mdx';
+import ArchivePT from '../../_markets/pt/buy-resell/products/_archive.mdx';
+import ArchiveES from '../../_markets/es/buy-resell/products/_archive.mdx';
 
 <Tabs groupId="market">
 
   <TabItem value="AT" label="Austria">
     <ArchiveAT />
+  </TabItem>
+
+  <TabItem value="BE" label="Belgium">
+    <ArchiveBE />
   </TabItem>
 
   <TabItem value="FR" label="France">
@@ -37,6 +49,26 @@ import ArchiveDE from '../../_markets/de/buy-resell/products/_archive.mdx';
 
   <TabItem value="DE" label="Germany">
     <ArchiveDE />
+  </TabItem>
+
+  <TabItem value="GR" label="Greece">
+    <ArchiveGR />
+  </TabItem>
+
+  <TabItem value="IT" label="Italy">
+    <ArchiveIT />
+  </TabItem>
+
+  <TabItem value="PL" label="Poland">
+    <ArchivePL />
+  </TabItem>
+
+  <TabItem value="PT" label="Portugal">
+    <ArchivePT />
+  </TabItem>
+
+  <TabItem value="ES" label="Spain">
+    <ArchiveES />
   </TabItem>
 
 </Tabs>

@@ -1,91 +1,95 @@
 ---
 slug: /posdealers/getting-started/operator-onboarding/surrogating
 title: Surrogating
+description: Prerequisites and steps for PosDealers to act on behalf of a PosOperator in the Portal, using a master data check as example.
+tags: [Surrogating, Onboarding, Portal, PosDealers]
 ---
 # Surrogating
 
 :::info summary
-After reading this, you can explain the prerequisites to act in the fiskaltrust.Portal on behalf of a PosOperator and can do it.
+After reading this, you can explain the prerequisites for acting on behalf of a PosOperator in the fiskaltrust.Portal, and you can do it.
 :::
 
-## Introduction
+fiskaltrust distinguishes company roles in the fiskaltrust.Portal. The end users of POS systems activate the role contract of a **PosOperator**; distributors of POS systems activate the role contract of a **PosDealer**. For more information, see [Company Roles](../company-roles.md).
 
-As mentioned in the section [Company Roles](../company-roles.md), _fiskaltrust_ distinguishes company roles in the context of the fiskaltrust.Portal and its role management. The end-users of the POS-Systems activate the role contract of a **PosOperator**, and POS-System distributors activate the role contract of a **PosDealer**.
+To support and maintain a PosOperator's POS system, you, as a PosDealer, switch from your account to the PosOperator's account, change settings, assign contracts or order products, and switch back to your account. This is called **surrogating**.
 
-To support and maintain a PosOperator's POS-System, PosDealers switch from their account to the PosOperator's account, change settings, assign contracts or order products and switch back to their account - they use **surrogating**.
-We use the example of checking the master data of a PosOperator to describe Surrogating. Please note that there is no bulk action; surrogating is a method to work with your account and one PosOperators account only.
+Surrogating always works with your account and one PosOperator account; there is no bulk action. This page uses checking a PosOperator's master data as the example.
 
-### Prerequisites
+## Prerequisites
 
-1. You, as a PosDealer, have prepared your account ready to use.
-2. You have configured invitations to PosOperators as described under [Preparation of Invitations](invitation-process.md#preparation-of-invitations).
-3. The PosOperator followed the invitation by activating the role contract.
-4. There have been no changes with other role contracts or your authorizations.
-5. You, as a PosDealer, check the status of our invited PosOperators with `PosOperator` / `Overview`:
-   * If the name of the PosOperator is an active link, the account is active.
-   * If the name of the PosOperator is an inactive link, your invitation is not yet accepted. Please read and follow the instructions at [Invitation process / Troubleshooting](invitation-process.md#troubleshooting).
-6. You will find a download opportunity under the table of PosOperators (`PosOperator` / `Overview`). The downloaded list may help you with an overview of active and inactive PosOperator-Accounts and to contact them.  
+1. Your PosDealer account is set up and ready to use.
+2. You have configured the invitation settings as described in [Preparation of invitations](invitation-process.md#preparation-of-invitations). The `Surrogate rights` setting defines your permission level in the PosOperator's account.
+3. The PosOperator has accepted the invitation by activating the role contract.
+4. There have been no changes to other role contracts or to your authorizations.
+5. The PosOperator's account is active. To check, choose `PosDealer` > `PosOperators`:
+   - If the PosOperator's name is an active link, the account is active.
+   - If the PosOperator's name is not an active link, your invitation has not been accepted yet. Follow the instructions in [Troubleshooting](invitation-process.md#troubleshooting).
 
-### Work steps for surrogating
+:::tip
+To get an overview of active and inactive PosOperator accounts, for example to contact them, choose `Export as CSV` on the list of PosOperators (`PosDealer` > `PosOperators`).
+:::
 
-![surrogating accounts](images/2-surrogating-accounts.png "surrogating accounts")
+## Switch to a PosOperator account
 
-*Figure 1. Searching for and selecting a PosOperator in the fiskaltrust.Portal PosOperator overview; steps are listed in Table 1.*
+![PosOperator list in the fiskaltrust.Portal with the menu entry, the search field, the search button and a PosOperator name link marked 1 to 4](images/2-surrogating-accounts.png "surrogating accounts")
 
-| Steps | Description                                                                                                                |
-|:----------------------:|-------------------------------------------------------------------------------------------------------------------------------------|
-|![Number 1](images/Numbers/circle-1o.png) |Choose `PosOperator` / `Overview`  |
-|![Number 2](images/Numbers/circle-2o.png) |Enter a search term for the desired PosOperator.  |
-|![Number 3](images/Numbers/circle-3o.png) |Use `Enter` or the Symbol for `Search` and get the datasets of those PosOperators, whose names or E-Mail addresses match your criteria. Without a search term, you get all PosOperators.  |
-|![Number 4](images/Numbers/circle-4o.png) |If the name of the PosOperator is an active link, the account is active. Choose that link to switch to the PosOperators account.  |
+*Figure 1. Finding and selecting a PosOperator.*
 
-*Table 1. Steps for finding and switching to a PosOperator account, shown in Figure 1.*
+| Step | Description |
+|:----:|-------------|
+|![Number 1](images/Numbers/circle-1o.png) |Choose `PosDealer` > `PosOperators`. |
+|![Number 2](images/Numbers/circle-2o.png) |Enter a search term for the PosOperator. |
+|![Number 3](images/Numbers/circle-3o.png) |Press `Enter` or choose the search icon. The list shows the PosOperators whose name or e-mail address matches the search term. Without a search term, all PosOperators are shown. |
+|![Number 4](images/Numbers/circle-4o.png) |If the PosOperator's name is an active link, the account is active. Choose the link to switch to the PosOperator's account. |
 
-![surrogating accounts](images/3-surrogating-accounts.png "https://portal-sandbox.fiskaltrust.TLD/PosOperator")
+*Table 1. Steps to find and switch to a PosOperator account, shown in Figure 1.*
 
-*Figure 2. The fiskaltrust.Portal after surrogating into a PosOperator account; steps are listed in Table 2.*
+## Work in the PosOperator account
 
-| Steps | Description                                                                                                                |
-|:----------------------:|-------------------------------------------------------------------------------------------------------------------------------------|
-|![Number 1](images/Numbers/circle-1o.png) |In the Account of the chosen PosOperator, you act with your user. Note the displayed original `USERNAME` and E-Mail address.  |
-|![Number 2](images/Numbers/circle-2o.png) |After switching to the account of a PosOperator, the view is similar. You recognize by the PosOperators COMPANY NAME that you use another account. |
-|![Number 3](images/Numbers/circle-3o.png) |Every product you as a surrogated PosDealer buy in the store will be added to the **shopping cart** and will be available after you switch to your account.   |
-|![Number 4](images/Numbers/circle-4o.png) |You switch to your account with the `Switch to your account`- button on the right upper corner.   |
-|![Number 5](images/Numbers/circle-5.png) |Avoid leaving the account of a PosOperator by signing out because your **shopping cart** would get lost.   |
+![fiskaltrust.Portal after switching to a PosOperator account, with the user name, the PosOperator company name, the shopping cart, the button to return to your account and the sign-out link marked 1 to 5](images/3-surrogating-accounts.png)
 
-*Table 2. Steps for working within and leaving a surrogated PosOperator account, shown in Figure 2.*
+*Figure 2. The fiskaltrust.Portal after switching to a PosOperator account.*
 
-### Check PosOperators Master data
+| Step | Description |
+|:----:|-------------|
+|![Number 1](images/Numbers/circle-1o.png) |In the PosOperator's account, you act with your own user. Your user name and e-mail address are still displayed. |
+|![Number 2](images/Numbers/circle-2o.png) |The view is similar to your own account. The PosOperator's company name shows that you are working in another account. A banner also states that you are acting on behalf of the PosOperator. |
+|![Number 3](images/Numbers/circle-3o.png) |Every product you buy in the shop while surrogating is added to the **shopping cart** and is available after you switch back to your account. |
+|![Number 4](images/Numbers/circle-4o.png) |To switch back to your account, choose `Back to your account` in the upper right corner. |
+|![Number 5](images/Numbers/circle-5.png) |Do not leave the PosOperator's account by signing out, because your **shopping cart** would be lost. |
 
-![surrogating accounts](images/5-surrogating-accounts.png "https://portal-sandbox.fiskaltrust.TLD/AccountProfile")
+*Table 2. Working in and leaving a PosOperator account, shown in Figure 2.*
 
-*Figure 3. The PosOperator account profile overview used to verify activated roles; steps are listed in Table 3.*
+## Check the PosOperator's master data
 
-| Steps | Description                                                                                                                |
-|:----------------------:|-------------------------------------------------------------------------------------------------------------------------------------|
-|![Number 1](images/Numbers/circle-1o.png) |After signing in (for PosOperators) or surrogating in the Account of a PosOperator (for PosDealers), choose `[COMPANY NAME]`/ `Overview`.  |
-|![Number 2](images/Numbers/circle-2o.png) |Determine if the role PosOperator has been activated as well as no other. Otherwise, cancel the undesired role. Please check [Company Roles](../company-roles.md) for further questions |
+![Company overview page of the PosOperator account listing the assigned roles, with the Overview menu entry and the activated PosOperator role switch marked 1 and 2](images/5-surrogating-accounts.png)
 
-*Table 3. Steps for checking the PosOperator's activated roles, shown in Figure 3.*
+*Figure 3. Overview of the PosOperator account.*
 
-![surrogating accounts](images/6-surrogating-accounts.png "https://portal-sandbox.fiskaltrust.TLD/AccountProfile/Edit")
+| Step | Description |
+|:----:|-------------|
+|![Number 1](images/Numbers/circle-1o.png) |After signing in (PosOperators) or switching to the PosOperator's account (PosDealers), choose `Company info` > `Overview`. |
+|![Number 2](images/Numbers/circle-2o.png) |Check that the PosOperator role, and no other role, is activated. Otherwise, cancel the undesired role. For more information, see [Company Roles](../company-roles.md). |
 
-*Figure 4. The PosOperator master data edit page; steps are listed in Table 4.*
+*Table 3. Checking the PosOperator's activated roles, shown in Figure 3.*
 
-| Steps | Description                                                                                                                |
-|:----------------------:|-------------------------------------------------------------------------------------------------------------------------------------|
-|![Number 1](images/Numbers/circle-1o.png) |After checking, the roles change to `[COMPANY NAME]`/ `Master data`.  |
-|![Number 2](images/Numbers/circle-2o.png) |Check the values in the address fields. Optionally, you can provide a dedicated billing address at `E-Mail for Invoices`. |
-|![Number 3](images/Numbers/circle-3o.png) |The fields for tax identification numbers are not mandatory for the invitation process. But these identification criteria are the basis for correct cash management and a prerequisite for using third-party services. Control the completeness of the values.|
-|![Number 4](images/Numbers/circle-4o.png) |Validate the values with `Data Check`. Save your changes before you leave this page.  |
-|![Number 5](images/Numbers/circle-5o.png) |Do not yet return to your account as a PosDealer with `Switch to your own account` or sign out as a PosOperator. |
-|![Number 6](images/Numbers/circle-6o.png) |Choose `Outlets` to check these for completeness and correctness. |
-|  |Choose `Switch to your own account` to get back to your account and check other accounts of other PosOperators. |
+![Master data page of the PosOperator account with the menu entry, mandatory address fields, tax identification number fields, Data Check buttons, the button to return to your account and the Outlets menu entry marked 1 to 6](images/6-surrogating-accounts.png)
 
-*Table 4. Steps for checking and validating the PosOperator's master data, shown in Figure 4.*
+*Figure 4. Master data page of the PosOperator account.*
 
-:::caution No access to employee data for PosDealer
+| Step | Description |
+|:----:|-------------|
+|![Number 1](images/Numbers/circle-1o.png) |After checking the roles, choose `Company info` > `Master data`. |
+|![Number 2](images/Numbers/circle-2o.png) |Check the address fields. Optionally, enter a dedicated e-mail address for invoices in `Primary Billing E-Mail`. |
+|![Number 3](images/Numbers/circle-3o.png) |Check that the tax identification numbers are complete. They are not mandatory for the invitation process, but they are the basis for correct cash register management and a prerequisite for using third-party services. |
+|![Number 4](images/Numbers/circle-4o.png) |Validate the values with `Data Check`. Save your changes before you leave the page. |
+|![Number 5](images/Numbers/circle-5o.png) |Do not return to your account with `Back to your account` yet (PosDealers), and do not sign out yet (PosOperators). |
+|![Number 6](images/Numbers/circle-6o.png) |Choose `Outlets` and check the outlets for completeness and correctness. For more information, see [Master data](master-data.md). |
+| |Choose `Back to your account` to return to your account and check the accounts of other PosOperators. |
 
-Please note that as a PosDealer, you cannot manage the data of employees in the fiskaltrust.Portal if you switch to a PosOperator account due to data privacy reasons.
+*Table 4. Checking and validating the PosOperator's master data, shown in Figure 4.*
 
+:::caution No access to employee data for PosDealers
+For data privacy reasons, you cannot manage the PosOperator's employee data in the fiskaltrust.Portal when you have switched to a PosOperator account as a PosDealer.
 :::

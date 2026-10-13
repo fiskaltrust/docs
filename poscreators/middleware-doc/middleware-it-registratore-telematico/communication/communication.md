@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/italy/communication
 title: Communication
+description: Communication protocols supported by the Italian Middleware — REST, gRPC and WCF — with details on gRPC proto files and the .NET client package.
+tags: [Communication, gRPC, REST, Middleware, Italy]
 ---
 
 # Communication

@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/technical-operations/maintenance/updating
 title: Updating
+description: How to bulk update CashBox packages and configurations in the fiskaltrust.Portal, control updates, and restart the Middleware afterwards.
+tags: [Updating, CashBox, Middleware, Portal, PosDealers]
 ---
 # Updating
 
@@ -12,7 +14,7 @@ After reading this, you can perform updates of the Middleware efficiently.
 
 ## Information about updates
 
-We announce the availability of a new update on the fiskaltrust.Portal. Check the [release notes](https://docs.fiskaltrust.cloud/docs/release-notes/) for details about the update and decide whether you want to update.
+We announce the availability of a new update on the fiskaltrust.Portal. Check the [release notes](https://docs.fiskaltrust.eu/docs/release-notes/) for details about the update and decide whether you want to update.
 
 import ReactPlayer from "react-player"
 

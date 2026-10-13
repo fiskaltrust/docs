@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/technical-operations/middleware/helper
 title: Helper
+description: What Middleware Helpers do, examples such as the POS-API Helper and HelipadHelper, and how to add, configure, and assign a Helper to a CashBox.
+tags: [LocalPosSystemApi Helper, Helipad, CashBox, Middleware, Configuration, PosDealers]
 ---
 
 # Helper
@@ -128,13 +130,23 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 import HelperAT from '../../_markets/at/technical-operations/middleware/overview/_Helper.mdx';
+import HelperBE from '../../_markets/be/technical-operations/middleware/overview/_Helper.mdx';
 import HelperFR from '../../_markets/fr/technical-operations/middleware/overview/_Helper.mdx';
 import HelperDE from '../../_markets/de/technical-operations/middleware/overview/_Helper.mdx';
+import HelperGR from '../../_markets/gr/technical-operations/middleware/overview/_Helper.mdx';
+import HelperIT from '../../_markets/it/technical-operations/middleware/overview/_Helper.mdx';
+import HelperPL from '../../_markets/pl/technical-operations/middleware/overview/_Helper.mdx';
+import HelperPT from '../../_markets/pt/technical-operations/middleware/overview/_Helper.mdx';
+import HelperES from '../../_markets/es/technical-operations/middleware/overview/_Helper.mdx';
 
 <Tabs groupId="market">
 
   <TabItem value="AT" label="Austria">
     <HelperAT />
+  </TabItem>
+
+  <TabItem value="BE" label="Belgium">
+    <HelperBE />
   </TabItem>
 
   <TabItem value="FR" label="France">
@@ -143,6 +155,26 @@ import HelperDE from '../../_markets/de/technical-operations/middleware/overview
 
   <TabItem value="DE" label="Germany">
     <HelperDE />
+  </TabItem>
+
+  <TabItem value="GR" label="Greece">
+    <HelperGR />
+  </TabItem>
+
+  <TabItem value="IT" label="Italy">
+    <HelperIT />
+  </TabItem>
+
+  <TabItem value="PL" label="Poland">
+    <HelperPL />
+  </TabItem>
+
+  <TabItem value="PT" label="Portugal">
+    <HelperPT />
+  </TabItem>
+
+  <TabItem value="ES" label="Spain">
+    <HelperES />
   </TabItem>
 
 </Tabs>

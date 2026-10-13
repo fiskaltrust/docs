@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/spain/reference-tables
 title: Reference Tables
+description: Overview of the hex-based tagging format behind the Spanish reference tables for receipt, charge item and pay item cases.
+tags: [Spain, Reference Tables, POS System API, Middleware]
 ---
 
 # Reference Tables
@@ -13,7 +15,7 @@ The Compliance Middleware [Reference Tables](../../general/reference-tables/refe
 
 :::
 
-As the Middleware abstracts processes and data over multiple markets/countries, there is a specific mapping for the Spanish market. This mapping is based upon the overall tagging system which gives the additional benefit of giving all receipts, chargeitems and payitems also a semantical value. The following section describes the overall format.
+As the fiskaltrust.Middleware abstracts processes and data over multiple markets/countries, there is a specific mapping for the Spanish market. This mapping is based upon the overall tagging system which gives the additional benefit of giving all receipts, chargeitems and payitems also a semantical value. The following section describes the overall format.
 
 ## Format
 

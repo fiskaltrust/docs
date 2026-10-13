@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/italy/databases/ef
 title: Entity Framework
+description: Entity Framework storage provider for running the Italian Middleware with an external Microsoft SQL Server database, and its connection string.
+tags: [Entity Framework, SQL Server, Queue, Configuration, Italy]
 ---
 
 # Entity Framework Storage

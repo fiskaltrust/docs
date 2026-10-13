@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/germany/scu/diebold-nixdorf
 title: Diebold Nixdorf-TSE
+description: BSI certification, serial COM port parameters and troubleshooting for the Diebold Nixdorf hardware TSE SCU in Germany.
+tags: [Germany, Diebold Nixdorf, TSE, SCU, Certification, Troubleshooting]
 ---
 
 # Diebold Nixdorf Hardware-TSE 

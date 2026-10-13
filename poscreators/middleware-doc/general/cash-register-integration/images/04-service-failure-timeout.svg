@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="1290"
+   height="1390"
+   viewBox="-30 -30 1290 1390"
+   font-family="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+   version="1.1"
+   id="svg63"
+   sodipodi:docname="04-service-failure-timeout.svg"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns:c2pa="http://c2pa.org/manifest">
+  <title>Workflow when the fiskaltrust.Middleware call times out</title>
+  <desc>Swimlane workflow: on timeout or network error the POS marks the receipt for later, retries, and prints a security mechanism failed receipt</desc>
+  <sodipodi:namedview
+     id="namedview63"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.67821307"
+     inkscape:cx="657.61045"
+     inkscape:cy="341.33816"
+     inkscape:window-width="1432"
+     inkscape:window-height="816"
+     inkscape:window-x="0"
+     inkscape:window-y="33"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg63" />
+  <metadata
+     id="metadata1">
+    <c2pa:manifest>AAAWgmp1bWIAAAAeanVtZGMycGEAEQAQgAAAqgA4m3EDYzJwYQAAABZcanVtYgAAAEdqdW1kYzJtYQARABCAAACqADibcQN1cm46YzJwYTplOGNjNjA4NS04YzZiLTRiNTUtYWE2Yi03M2NjNWUzZWRmNzYAAAADl2p1bWIAAAApanVtZGMyYXMAEQAQgAAAqgA4m3EDYzJwYS5hc3NlcnRpb25zAAAAALxqdW1iAAAARGp1bWRjYm9yABEAEIAAAKoAOJtxE2MycGEuaW5ncmVkaWVudC52MwAAAAAYYzJzaGpKNitBVQUe5Et8UkmdVTwAAABwY2JvcqNpZGM6Zm9ybWF0bWltYWdlL3N2Zyt4bWxqaW5zdGFuY2VJRHgseG1wOmlpZDpkMzFjZmZiYS0wNmRlLTQxMzMtOTViNS0yYzcyNDNkYWM3MzBscmVsYXRpb25zaGlwaHBhcmVudE9mAAAB4mp1bWIAAABBanVtZGNib3IAEQAQgAAAqgA4m3ETYzJwYS5hY3Rpb25zLnYyAAAAABhjMnNoCxiRvz5CnZ+PyUMNJxM1ngAAAZljYm9yomdhY3Rpb25zgqJmYWN0aW9ua2MycGEub3BlbmVkanBhcmFtZXRlcnOha2luZ3JlZGllbnRzgaJjdXJseC1zZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmluZ3JlZGllbnQudjNkaGFzaFggVNAaD5qB/NXkHK2vmhd5gSHpdf4gkukOKSgRU1QqklOkZmFjdGlvbngdY29tLmFudGhyb3BpYy5jbGF1ZGUucHJvdmlkZWRqcGFyYW1ldGVyc6F4H2NvbS5hbnRocm9waWMub3JpZ2luLWNvbmZpZGVuY2VndW5rbm93bmtkZXNjcmlwdGlvbnhmQ2xhdWRlIHByb3ZpZGVkIHRoaXMgZmlsZSBhdCB0aGUgcmVxdWVzdCBvZiBhIHVzZXIgYW5kIG1heSBoYXZlIGNyZWF0ZWQgb3IgbW9kaWZpZWQgdGhlIGZpbGUgY29udGVudHMubXNvZnR3YXJlQWdlbnShZG5hbWVmQ2xhdWRlcmFsbEFjdGlvbnNJbmNsdWRlZPUAAADIanVtYgAAAEBqdW1kY2JvcgARABCAAACqADibcRNjMnBhLmhhc2guZGF0YQAAAAAYYzJzaAcNCnlS7ekkCMWPZzCNhCwAAACAY2JvcqVjYWxnZnNoYTI1NmNwYWRNAAAAAAAAAAAAAAAAAGRoYXNoWCCW6CDBmxcJADoz6SZPo6ty4zWeS5mCVUIS4gUQWevyTWRuYW1lbmp1bWJmIG1hbmlmZXN0amV4Y2x1c2lvbnOBomVzdGFydBjdZmxlbmd0aBkeBAAAAj5qdW1iAAAAJ2p1bWRjMmNsABEAEIAAAKoAOJtxA2MycGEuY2xhaW0udjIAAAACD2Nib3KlY2FsZ2ZzaGEyNTZpc2lnbmF0dXJleE1zZWxmI2p1bWJmPS9jMnBhL3VybjpjMnBhOmU4Y2M2MDg1LThjNmItNGI1NS1hYTZiLTczY2M1ZTNlZGY3Ni9jMnBhLnNpZ25hdHVyZWppbnN0YW5jZUlEeCx4bXA6aWlkOmFjZTc4ZGM0LWExYTktNDUzMi1hZmM3LWRjMWVmZDNlYTMwZXJjcmVhdGVkX2Fzc2VydGlvbnODomN1cmx4LXNlbGYjanVtYmY9YzJwYS5hc3NlcnRpb25zL2MycGEuaW5ncmVkaWVudC52M2RoYXNoWCBU0BoPmoH81eQcra+aF3mBIel1/iCS6Q4pKBFTVCqSU6JjdXJseCpzZWxmI2p1bWJmPWMycGEuYXNzZXJ0aW9ucy9jMnBhLmFjdGlvbnMudjJkaGFzaFggoA/2PdyMQCZ4i2xfZ7M583r3IoeQ57GHc9W0U8gWqSSiY3VybHgpc2VsZiNqdW1iZj1jMnBhLmFzc2VydGlvbnMvYzJwYS5oYXNoLmRhdGFkaGFzaFgg422VJHigs3YSuzMLnPG/7CLUCeFq4RslAxebLM+AYMl0Y2xhaW1fZ2VuZXJhdG9yX2luZm+jZG5hbWVvQW50aHJvcGljIEZpbGVzZ3ZlcnNpb25lMS4wLjBrc3BlY1ZlcnNpb25lMi40LjAAABA4anVtYgAAAChqdW1kYzJjcwARABCAAACqADibcQNjMnBhLnNpZ25hdHVyZQAAABAIY2JvctKEWQISogEmGCFZAgowggIGMIIBjaADAgECAhRA5aAK7sI50L64g/oGQgU9Z1UTADAKBggqhkjOPQQDAzBJMRcwFQYDVQQKEw5BbnRocm9waWMsIFBCQzEuMCwGA1UEAxMlQW50aHJvcGljIENvbnRlbnQgQ3JlZGVudGlhbHMgUm9vdCBDQTAeFw0yNjA4MDcxODQzNTZaFw0yODA4MDYxOTQzNTZaMEQxFzAVBgNVBAoTDkFudGhyb3BpYywgUEJDMSkwJwYDVQQDEyBBbnRocm9waWMgQ2xhdWRlIENvbnRlbnQgU2lnbmluZzBZMBMGByqGSM49AgEGCCqGSM49AwEHA0IABJh6CmvLUBgFFNU0vUKlOVtE6djd17L5SuwX0LemFisBM3dkd/3cyjxFA3Qo5S46fX0/ihY0VZ7mfb9KF703t5OjWDBWMA4GA1UdDwEB/wQEAwIHgDAVBgNVHSUEDjAMBgorBgEEAYPoXgIBMAwGA1UdEwEB/wQCMAAwHwYDVR0jBBgwFoAUzlHiBIFOZFsj+OPEz5o+nMHXXMIwCgYIKoZIzj0EAwMDZwAwZAIwMXMdFJ4BetLLVY7ORuE9noqbbAZOZn/aArXyTwFAZfKrPzxF2vPoJNf1+UCdg1XGAjBwX1zd9WGqYkqmL5SFqw1QySjr1zJfpJM9+1rdDwSPLMOPOjKuiXjoU/pUUeG9RwmhY3BhZFkNngAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAPZYQOY6SlQ/kxI4ev3G7fr51pfOS7bJ6Ezu1eFlelxT6YwVaiD/EjYg4tx3eMPwtsvU/cPo+/WR4uxwqbdkvAvqoPg=</c2pa:manifest>
+  </metadata>
+  <rect
+     x="-30"
+     y="-30"
+     width="1290"
+     height="1390"
+     fill="#FFFFFF"
+     id="rect1" />
+  <defs
+     id="defs1">
+    <marker
+       id="ah"
+       viewBox="0 0 10 10"
+       refX="9"
+       refY="5"
+       markerWidth="7"
+       markerHeight="7"
+       orient="auto-start-reverse">
+      <path
+         d="M0,0 L10,5 L0,10 z"
+         fill="#002A34"
+         id="path1" />
+    </marker>
+  </defs>
+  <rect
+     x="0"
+     y="0"
+     width="1228"
+     height="1330"
+     fill="#FFFFFF"
+     stroke="#002A34"
+     stroke-width="1.5"
+     id="rect2" />
+  <rect
+     x="48"
+     y="50"
+     width="572"
+     height="60"
+     fill="#E5E6E7"
+     id="rect3" />
+  <rect
+     x="48"
+     y="110"
+     width="232"
+     height="55"
+     fill="#F1F2F2"
+     id="rect4" />
+  <rect
+     x="280"
+     y="110"
+     width="340"
+     height="55"
+     fill="#F1F2F2"
+     id="rect5" />
+  <rect
+     x="620"
+     y="50"
+     width="260"
+     height="115"
+     fill="#E5F6FB"
+     id="rect6" />
+  <rect
+     x="880"
+     y="50"
+     width="348"
+     height="60"
+     fill="#E5F6FB"
+     id="rect7" />
+  <rect
+     x="880"
+     y="110"
+     width="348"
+     height="55"
+     fill="#EFF9FC"
+     id="rect8" />
+  <g
+     fill="none"
+     stroke="#002A34"
+     stroke-width="1.5"
+     id="g15">
+    <path
+       d="M0,50 H1228"
+       id="path8" />
+    <path
+       d="M48,50 V1330"
+       id="path9" />
+    <path
+       d="M48,110 H620"
+       id="path10" />
+    <path
+       d="M880,110 H1228"
+       id="path11" />
+    <path
+       d="M48,165 H1228"
+       id="path12" />
+    <path
+       d="M280,110 V1330"
+       id="path13" />
+    <path
+       d="M620,50 V1330"
+       id="path14" />
+    <path
+       d="M880,50 V1330"
+       id="path15" />
+  </g>
+  <rect
+     x="95"
+     y="250"
+     width="150"
+     height="80"
+     rx="22"
+     ry="22"
+     fill="#FFFFFF"
+     stroke="#002A34"
+     stroke-width="1.5"
+     id="rect15" />
+  <rect
+     x="95"
+     y="993"
+     width="145"
+     height="60"
+     rx="30"
+     ry="30"
+     fill="#FFFFFF"
+     stroke="#002A34"
+     stroke-width="1.5"
+     id="rect16" />
+  <g
+     fill="#E5F6FB"
+     stroke="#002A34"
+     stroke-width="1.5"
+     id="g17">
+    <path
+       d="M400,255 V308 C400,317 427,324 460,324 C493,324 520,317 520,308 V255"
+       id="path16" />
+    <ellipse
+       cx="460"
+       cy="255"
+       rx="60"
+       ry="15"
+       id="ellipse16" />
+    <path
+       d="M400,990 V1040 C400,1049 427,1056 460,1056 C493,1056 520,1049 520,1040 V990"
+       id="path17" />
+    <ellipse
+       cx="460"
+       cy="990"
+       rx="60"
+       ry="15"
+       id="ellipse17" />
+  </g>
+  <polygon
+     points="460,380 522,435 460,490 398,435"
+     fill="#FDF0D6"
+     stroke="#002A34"
+     stroke-width="1.5"
+     id="polygon17" />
+  <polygon
+     points="775,685 860,745 775,805 690,745"
+     fill="#FDF0D6"
+     stroke="#002A34"
+     stroke-width="1.5"
+     id="polygon18" />
+  <polygon
+     points="700,390 870,390 830,480 660,480"
+     fill="#E5F6FB"
+     stroke="#002A34"
+     stroke-width="1.5"
+     id="polygon19" />
+  <g
+     fill="#FFFFFF"
+     stroke="#002A34"
+     stroke-width="1.5"
+     id="g19">
+    <rect
+       x="330"
+       y="700"
+       width="270"
+       height="95"
+       id="rect19" />
+    <path
+       d="M348,700 V795 M582,700 V795"
+       id="path19" />
+  </g>
+  <polygon
+     points="1000,820 1130,820 1130,900 1065,950 1000,900"
+     fill="#E5F6FB"
+     stroke="#002A34"
+     stroke-width="1.5"
+     id="polygon20" />
+  <path
+     d="M100,1160 H235 V1230 Q201,1210 167,1230 Q134,1250 100,1230 Z"
+     fill="#FFFFFF"
+     stroke="#002A34"
+     stroke-width="1.5"
+     id="path20" />
+  <g
+     fill="none"
+     stroke="#002A34"
+     stroke-width="1.5"
+     id="g31">
+    <path
+       d="M245,290 H396"
+       marker-end="url(#ah)"
+       id="path21" />
+    <path
+       d="M460,324 V376"
+       marker-end="url(#ah)"
+       id="path22" />
+    <path
+       d="M522,435 H656"
+       marker-end="url(#ah)"
+       id="path23" />
+    <path
+       d="M775,480 V681"
+       marker-end="url(#ah)"
+       id="path24" />
+    <path
+       d="M690,745 H604"
+       marker-end="url(#ah)"
+       id="path25" />
+    <path
+       d="M860,745 H1065 V816"
+       marker-end="url(#ah)"
+       id="path26" />
+    <path
+       d="M 461,700 V 494"
+       marker-end="url(#ah)"
+       id="path27" />
+    <path
+       d="M 461,795 V 975"
+       marker-end="url(#ah)"
+       id="path28" />
+    <path
+       d="M400,1023 H244"
+       marker-end="url(#ah)"
+       id="path29" />
+    <path
+       d="M398,435 H167 V989"
+       marker-end="url(#ah)"
+       id="path30" />
+    <path
+       d="M167,1053 V1156"
+       marker-end="url(#ah)"
+       id="path31" />
+  </g>
+  <text
+     x="20"
+     y="33"
+     text-anchor="start"
+     font-size="17"
+     font-weight="600"
+     fill="#002A34"
+     id="text31"><tspan
+       x="20"
+       dy="0"
+       id="tspan31">Workflow - failure of the fiskaltrust.Middleware</tspan></text>
+  <text
+     x="-730"
+     y="28"
+     text-anchor="middle"
+     font-size="17px"
+     fill="#002a34"
+     transform="rotate(-90)"
+     id="text32"><tspan
+       x="-730"
+       dy="0"
+       id="tspan32">Receipt failing to reach the fiskaltrust.Service</tspan></text>
+  <text
+     x="334"
+     y="82"
+     text-anchor="middle"
+     font-size="19"
+     fill="#002A34"
+     id="text33"><tspan
+       x="334"
+       dy="0"
+       id="tspan33">POS System</tspan></text>
+  <text
+     x="164"
+     y="142"
+     text-anchor="middle"
+     font-size="17"
+     fill="#002A34"
+     id="text34"><tspan
+       x="164"
+       dy="0"
+       id="tspan34">Input station</tspan></text>
+  <text
+     x="450"
+     y="142"
+     text-anchor="middle"
+     font-size="17"
+     fill="#002A34"
+     id="text35"><tspan
+       x="450"
+       dy="0"
+       id="tspan35">Server</tspan></text>
+  <text
+     x="750"
+     y="112"
+     text-anchor="middle"
+     font-size="19"
+     fill="#002A34"
+     id="text36"><tspan
+       x="750"
+       dy="0"
+       id="tspan36">fiskaltrust.iPOS</tspan></text>
+  <text
+     x="1054"
+     y="82"
+     text-anchor="middle"
+     font-size="19"
+     fill="#002A34"
+     id="text37"><tspan
+       x="1054"
+       dy="0"
+       id="tspan37">fiskaltrust.SecurityMechanism</tspan></text>
+  <text
+     x="1054"
+     y="142"
+     text-anchor="middle"
+     font-size="17"
+     fill="#002A34"
+     id="text38"><tspan
+       x="1054"
+       dy="0"
+       id="tspan38">Queue</tspan></text>
+  <text
+     x="170"
+     y="275"
+     text-anchor="middle"
+     font-size="15px"
+     fill="#002a34"
+     id="text41"><tspan
+       x="170"
+       dy="0"
+       id="tspan39">Collect</tspan><tspan
+       x="170"
+       dy="20"
+       id="tspan40">charge items</tspan><tspan
+       x="170"
+       dy="20"
+       id="tspan41">and pay items</tspan></text>
+  <text
+     x="460"
+     y="290"
+     text-anchor="middle"
+     font-size="15"
+     fill="#002A34"
+     id="text43"><tspan
+       x="460"
+       dy="0"
+       id="tspan42">Database</tspan><tspan
+       x="460"
+       dy="20"
+       id="tspan43">cash register</tspan></text>
+  <text
+     x="460"
+     y="430"
+     text-anchor="middle"
+     font-size="14"
+     fill="#002A34"
+     id="text45"><tspan
+       x="460"
+       dy="0"
+       id="tspan44">Business</tspan><tspan
+       x="460"
+       dy="19"
+       id="tspan45">transaction</tspan></text>
+  <text
+     x="765"
+     y="431"
+     text-anchor="middle"
+     font-size="15"
+     fill="#002A34"
+     id="text47"><tspan
+       x="765"
+       dy="0"
+       id="tspan46">fiskaltrust.</tspan><tspan
+       x="765"
+       dy="20"
+       id="tspan47">ReceiptRequest</tspan></text>
+  <text
+     x="775"
+     y="730"
+     text-anchor="middle"
+     font-size="14"
+     fill="#002A34"
+     id="text50"><tspan
+       x="775"
+       dy="0"
+       id="tspan48">Timeout</tspan><tspan
+       x="775"
+       dy="19"
+       id="tspan49">ReceiptRequest==null</tspan><tspan
+       x="775"
+       dy="19"
+       id="tspan50">Network error</tspan></text>
+  <text
+     x="465"
+     y="732"
+     text-anchor="middle"
+     font-size="15px"
+     fill="#002a34"
+     id="text53"><tspan
+       x="465"
+       dy="0"
+       id="tspan51">Mark receipt to be used later as</tspan><tspan
+       x="465"
+       dy="20"
+       id="tspan52">proof of loss, send again to the</tspan><tspan
+       x="465"
+       dy="20"
+       id="tspan53">fiskaltrust.Service</tspan></text>
+  <text
+     x="1065"
+     y="867"
+     text-anchor="middle"
+     font-size="15px"
+     fill="#002a34"
+     id="text55"><tspan
+       x="1065"
+       dy="0"
+       id="tspan54">regular</tspan><tspan
+       x="1065"
+       dy="20"
+       id="tspan55">operation</tspan></text>
+  <text
+     x="460"
+     y="1024"
+     text-anchor="middle"
+     font-size="15"
+     fill="#002A34"
+     id="text57"><tspan
+       x="460"
+       dy="0"
+       id="tspan56">Database</tspan><tspan
+       x="460"
+       dy="20"
+       id="tspan57">cash register</tspan></text>
+  <text
+     x="167"
+     y="1029"
+     text-anchor="middle"
+     font-size="15"
+     fill="#002A34"
+     id="text58"><tspan
+       x="167"
+       dy="0"
+       id="tspan58">Receipt generation</tspan></text>
+  <text
+     x="167"
+     y="1188"
+     text-anchor="middle"
+     font-size="15px"
+     fill="#002a34"
+     id="text60"><tspan
+       x="167"
+       dy="0"
+       id="tspan59">Receipt „security</tspan><tspan
+       x="167"
+       dy="20"
+       id="tspan60">mechanism failed“</tspan></text>
+  <rect
+     x="604"
+     y="731"
+     width="40"
+     height="22"
+     fill="#FFFFFF"
+     id="rect60" />
+  <text
+     x="624"
+     y="747"
+     text-anchor="middle"
+     font-family="IBM Plex Mono, monospace"
+     font-size="14"
+     fill="#002A34"
+     id="text61">YES</text>
+  <rect
+     x="960"
+     y="731"
+     width="34"
+     height="22"
+     fill="#FFFFFF"
+     id="rect61" />
+  <text
+     x="977"
+     y="747"
+     text-anchor="middle"
+     font-family="IBM Plex Mono, monospace"
+     font-size="14"
+     fill="#002A34"
+     id="text62">NO</text>
+  <rect
+     x="430"
+     y="586"
+     width="48"
+     height="22"
+     fill="#FFFFFF"
+     id="rect62" />
+  <text
+     x="460"
+     y="602"
+     text-anchor="middle"
+     font-size="15px"
+     fill="#002a34"
+     id="text63">Retry</text>
+</svg>

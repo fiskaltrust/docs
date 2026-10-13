@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/portugal/go-to-market/own-certificate
 title: 'Route 2: Certifying your own solution'
+description: Route 2 in Portugal — obtaining your own AT certificate on top of the Middleware, with responsibilities, procedure phases, AT findings, and effort.
+tags: [Certification, Portugal, Compliance, PosCreators]
 ---
 
 # Route 2: Certifying your own solution
@@ -126,7 +128,7 @@ The following findings cost us submission rounds. Check them before your first s
 - Documents for domestic operations must be in Portuguese; a bilingual layout is allowed, a foreign-language-only layout is not.
 - Multi-page documents must repeat type, number, ATCUD, and page count on every page and carry the transported amounts.
 
-The fiskaltrust.Middleware enforces most of these rules today (see [Boundaries of the certification](../certification/certification.md#boundaries-of-the-certification)), so on this route they mainly concern the parts you build yourself: the layout and the user interface.
+The fiskaltrust.Middleware enforces most of these rules today (see [Validation errors](../cash-register-integration/error-handling.md#validation-errors)), so on this route they mainly concern the parts you build yourself: the layout and the user interface.
 
 ## Effort
 
