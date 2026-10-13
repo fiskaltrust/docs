@@ -38,6 +38,8 @@ A typical payment-enabled flow consists of the following steps:
 
 This approach ensures that fiscalization, receipts, and payments remain technically linked while staying modular.
 
+The pay items returned by the payment endpoint can carry the payment receipt in `ftPayItemCaseData`. When the POS system takes them over unchanged into the receipt request, the payment receipt is printed on the receipts rendered by fiskaltrust; see [Payment receipts](../general/cash-register-integration/additional-lines.md#payment-receipts).
+
 ## Intended Audience for Payment Integration
 
 Payment integration is primarily relevant for:
