@@ -1,0 +1,94 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1070" height="1360" viewBox="-20 -20 1070 1360" font-family="IBM Plex Sans, Helvetica Neue, Arial, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">Digital receipt via QR code on a customer-facing display</title>
+  <desc id="d">The merchant signs and issues the receipt through fiskaltrust and shows its QR code on a customer-facing display or handheld. The consumer scans the QR code and the HTML receipt opens immediately. The consumer can give feedback later.</desc>
+  <defs>
+    <marker id="open" viewBox="0 0 12 12" refX="11" refY="6" markerWidth="9" markerHeight="9" orient="auto-start-reverse">
+      <path d="M1,1 L11,6 L1,11" fill="none" stroke="#002A34" stroke-width="1.5"></path>
+    </marker>
+    <marker id="solid" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#002A34"></path>
+    </marker>
+  </defs>
+  <rect x="-20" y="-20" width="1070" height="1360" fill="#FFFFFF"></rect>
+
+  <g fill="none" stroke-width="1.5" stroke-dasharray="8 6">
+    <path d="M330,56 V1320" stroke="#002A34"></path>
+    <path d="M620,56 V1320" stroke="#007D9A"></path>
+    <path d="M900,56 V1320" stroke="#002A34"></path>
+  </g>
+
+  <rect x="240" y="0" width="180" height="56" fill="#FFFFFF" stroke="#002A34" stroke-width="1.5"></rect>
+  <text x="330" y="34" text-anchor="middle" font-size="18" font-weight="600" fill="#002A34">merchant</text>
+  <rect x="530" y="0" width="180" height="56" fill="#E5F6FB" stroke="#7FCBE2" stroke-width="1.5"></rect>
+  <text x="620" y="34" text-anchor="middle" font-size="18" font-weight="600" fill="#002A34">fiskaltrust</text>
+  <rect x="810" y="0" width="180" height="56" fill="#FFFFFF" stroke="#002A34" stroke-width="1.5"></rect>
+  <text x="900" y="34" text-anchor="middle" font-size="18" font-weight="600" fill="#002A34">consumer</text>
+
+  <!-- instore frame now also holds the HTML receipt -->
+  <rect x="20" y="110" width="990" height="960" fill="none" stroke="#002A34" stroke-width="1.5"></rect>
+  <path d="M20,110 H130 V128 L118,140 H20 Z" fill="#E5E6E7" stroke="#002A34" stroke-width="1.5"></path>
+  <text x="32" y="131" font-family="IBM Plex Mono, monospace" font-size="14" font-weight="600" fill="#002A34">instore</text>
+
+  <!-- later frame now holds only the feedback -->
+  <rect x="470" y="1110" width="540" height="170" fill="none" stroke="#002A34" stroke-width="1.5"></rect>
+  <path d="M470,1110 H580 V1128 L568,1140 H470 Z" fill="#E5E6E7" stroke="#002A34" stroke-width="1.5"></path>
+  <text x="482" y="1131" font-family="IBM Plex Mono, monospace" font-size="14" font-weight="600" fill="#002A34">later</text>
+
+  <!-- merchant activation: from signing until the QR code is shown -->
+  <rect x="322" y="360" width="16" height="320" fill="#FFFFFF" stroke="#002A34" stroke-width="1.5"></rect>
+
+  <g fill="none" stroke="#002A34" stroke-width="1.5">
+    <path d="M300,235 H330"></path>
+    <path d="M338,600 H360"></path>
+    <path d="M870,775 H900"></path>
+    <path d="M870,995 H900"></path>
+  </g>
+
+  <g fill="#E5E6E7" stroke="#B9B9BB" stroke-width="1.5">
+    <path d="M50,180 H282 L300,198 V290 H50 Z"></path>
+    <path d="M360,530 H562 L580,548 V670 H360 Z"></path>
+    <path d="M640,720 H852 L870,738 V830 H640 Z"></path>
+    <path d="M660,940 H852 L870,958 V1050 H660 Z"></path>
+  </g>
+  <g fill="none" stroke="#B9B9BB" stroke-width="1.5">
+    <path d="M282,180 V198 H300"></path>
+    <path d="M562,530 V548 H580"></path>
+    <path d="M852,720 V738 H870"></path>
+    <path d="M852,940 V958 H870"></path>
+  </g>
+  <g font-size="16" fill="#002A34">
+    <text x="72" y="218">collect items,</text>
+    <text x="72" y="240">process payment</text>
+    <text x="72" y="262">or checkout</text>
+
+    <text x="382" y="570">show qr-code</text>
+    <text x="382" y="592">on consumer</text>
+    <text x="382" y="614">facing display</text>
+    <text x="382" y="636">or handheld</text>
+
+    <text x="662" y="760">scan qr-code</text>
+    <text x="662" y="782">on display</text>
+    <text x="662" y="804">with mobile phone</text>
+
+    <text x="682" y="980">html receipt</text>
+    <text x="682" y="1002">document opens</text>
+    <text x="682" y="1024">immediately</text>
+  </g>
+
+  <g fill="none" stroke="#002A34" stroke-width="1.5">
+    <path d="M338,360 H618" marker-end="url(#open)"></path>
+    <path d="M338,420 H618" marker-end="url(#open)"></path>
+    <path d="M622,480 H340" marker-end="url(#open)" stroke-dasharray="6 5"></path>
+    <path d="M900,870 H622" marker-end="url(#solid)"></path>
+    <path d="M622,920 H898" marker-end="url(#open)" stroke-dasharray="6 5"></path>
+    <path d="M900,1220 H622" marker-end="url(#open)" stroke-dasharray="6 5"></path>
+  </g>
+  <g text-anchor="middle" font-size="16" fill="#002A34">
+    <text x="479" y="348">sign receipt</text>
+    <text x="479" y="408">issue receipt</text>
+    <text x="479" y="468">qr-code (receipt link)</text>
+    <text x="760" y="858">get receipt</text>
+    <text x="760" y="908">html receipt</text>
+    <text x="760" y="1208">feedback</text>
+  </g>
+</svg>
