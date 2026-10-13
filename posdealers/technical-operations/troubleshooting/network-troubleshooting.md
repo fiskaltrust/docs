@@ -180,7 +180,7 @@ If the screen immediately clears and only shows a text cursor, you have establis
 
 All outbound connections established by the Middleware are HTTPS-protected and require a properly configured SSL setup, particularly regarding the SSL version and the root certificates of the involved certificate authorities.
 
-If your Middleware instance provided you with error messages which indicate possible SSL issues, you could first run the check from [Checking web services](#checking-web-services) (please make sure to use an HTTPS URL). Depending on its output, you can also use additional tools, such as [OpenSSL](https://wiki.openssl.org/index.php/Binaries), to run other checks. For example, the following command would try to establish an SSL connection to `packages.fiskaltrust.cloud` on port 443 (i.e. `https://packages.fiskaltrust.cloud`)
+If your Middleware instance provided you with error messages which indicate possible SSL issues, you could first run the check from [Checking web services](#checking-web-services) (please make sure to use an HTTPS URL). Depending on its output, you can also use additional tools, such as [OpenSSL](https://github.com/openssl/openssl/wiki/Binaries), to run other checks. For example, the following command would try to establish an SSL connection to `packages.fiskaltrust.cloud` on port 443 (i.e. `https://packages.fiskaltrust.cloud`)
 
 ```console
 openssl s_client -connect packages.fiskaltrust.cloud:443 -servername packages.fiskaltrust.cloud

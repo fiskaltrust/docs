@@ -5,34 +5,84 @@ description: Introduction to the PosDealer documentation — sections on busines
 tags: [PosDealers, Onboarding, Portal]
 ---
 # Introduction
-We created this documentation for cash register dealers (_PosDealers_). It describes the steps recommended by fiskaltrust for the successful purchase, resale, rollout and support of our products.
 
-## Sections of this documentation
+This documentation is for cash register dealers (**PosDealers**). It covers the fiskaltrust-recommended steps to purchase, resell, roll out and support fiskaltrust products at your customers (**PosOperators**).
 
-You, as a PosDealer, can learn more about our business fundamentals in the **Business Basics** section or look them up later. There, you will also find details about the fiskaltrust.Portal, the countries where we offer our services and their Fair Use Policies.
+For the terms used throughout, see [Terminology](../poscreators/middleware-doc/general/terminology/terminology.md).
 
-Before rolling out a POS System at a customer site, you need a playground to thoroughly test the services and products. At **Getting Started**, we explain the concept of our _Sandbox_. _Registration_ and use are free of charge. After that, you will get familiar with _Company Roles_ and _Operator Onboarding_ and follow _My First Cashbox_ to create your first demo setup.
+## Prerequisites
 
-With **Buy/Resell**, you can expand your knowledge of our business model. You will learn how to make a _Volume purchase agreement_ for which _Products_. With _Rollout Management_, rollouts at the PosOperator succeed in a standardized manner and with the _Shop_ in a highly individualized way.  
+Before you roll out a POS system at a PosOperator, make sure the following is in place:
 
-In the **Technical Operations** section, you will find _Scenarios_ for using our products for different requirements. Also, in-depth details on _Middleware_ and _Rollout Automation_ avoid time-consuming problems with _Troubleshooting_ or _Maintenance_.
+| Requirement | Details | Reference |
+|---|---|---|
+| **fiskaltrust.Portal account (Sandbox)** | Register your company yourself or accept an invitation from your PosCreator. Sandbox and live system are separate; you need a separate account for each. | [Registration](getting-started/registration.md), [Sandbox](getting-started/sandbox.md) |
+| **PosDealer company role** | Activate only the roles that apply to your business case; each role entails different contractual requirements and obligations. | [Company Roles](getting-started/company-roles.md) |
+| **Integrated PosSystem** | A PosCreator must have integrated the PosSystem in the fiskaltrust.Portal. Check `PosSystems` in your PosDealer account to confirm a `PosSystemId` is available. | [My First Cashbox](getting-started/my-first-cashbox.md#prerequisites) |
+| **Complete master data** | Master data must be complete, match the registration with the tax authorities, and include at least one outlet. | [Master Data](getting-started/operator-onboarding/master-data.md) |
+| **Internet connection** | Required by the Middleware. | [Network Requirements](technical-operations/middleware/network-requirements.md) |
+| **Supported environment** | Only for a local Middleware installation: the system must meet the hardware and software requirements. | [Supported Environments](technical-operations/middleware/supported-environments.md) |
+| **SSCD components** | Hardware or SaaS credentials required for the setup, unless created during the setup itself. | [Signing devices and services](buy-resell/products/signing/signing-overview.md) |
 
-_fiskaltrust_ provides you as PosDealer with **Information sources**. On the one hand, you will find the _Knowledge Base_ in the fiskaltrust.Portal,
-possible _Cases_ at our support, contractual information and various exports for download. On the other hand, efficiently using this _documentation_, read our _News_ and learn more about other information sources such as _Webinars_ and _Videos_. If _Contacting support_ should be necessary, we will help you prepare your request to best support the process.
+*Table 1. Prerequisites for a first rollout.*
 
-If you are still getting familiar with the used expressions or want to reassure your understanding of our usage of them, look at the [Terminology](../poscreators/middleware-doc/general/terminology/terminology.md).
+To **buy and resell** in the live system, you additionally need to sign the cooperation agreement as PosDealer. For more information, see [Overview - Buy & Resell](buy-resell/overview.md).
 
-## Target audience
-We created this documentation for all employees of PosDealers that are involved in working with fiskaltrust's products. While most of the information published here is technical- or business-driven, distinctive sections may be relevant for other target audiences like members of legal departments.
+:::caution
 
-Below, we've composed a list of specific reader groups and the recommended reading for those:
+Run all first steps in the Sandbox. Sandbox signatures are for testing only, are not fiscally compliant and must never be used on a production system.
 
-| Target audience                             | Overview | Get started | Buy / Resell | Technical Operations | Information Sources |
-|---------------------------------------------|----------|-------------|--------------|----------------------|---------------------|
-| **Project Managers and support staff**      | ✔️       | ✔️          | ✔️           | ✔️                   | ✔️                  |
-| **Rollout technicians and testers**         | ✔️       | ✔️          | ---          | ✔️                   | ✔️                  |
-| **Procurement, Sales and Account Managers** | ✔️       | ---         | ✔️           | ---                  | ---                 |
-| **Legal department**                        | ✔️       | ---         | ✔️           | ---                  | ---                 |
+:::
 
-*Table 1. Recommended reading sections per PosDealer reader group.*
+## Recommended path
 
+1. **Learn the business basics.** Read how fiskaltrust's business model, services, supported countries and the fiskaltrust.Portal work. Start at the Business Basics [Overview](business-basics/overview-business-basics.md).
+2. **Set up the Sandbox.** Register a Sandbox account free of charge and activate the PosDealer role. For more information, see [Sandbox](getting-started/sandbox.md) and [Registration](getting-started/registration.md).
+3. **Onboard a PosOperator.** Invite a PosOperator, or act on their behalf by surrogating, and verify their master data. For more information, see [Operator Onboarding](getting-started/operator-onboarding/invitation-process.md).
+4. **Create your first CashBox.** Use a Rollout Plan (recommended) or a manual configuration, then run a test request. For more information, see [My First Cashbox](getting-started/my-first-cashbox.md).
+5. **Plan purchasing.** Buy Entitlements and transfer them to PosOperators. If you plan to buy ten or more product bundles, consider a volume purchase agreement. For more information, see [Overview - Buy & Resell](buy-resell/overview.md).
+6. **Roll out and operate.** Choose a rollout scenario, automate rollouts with templates, and set up monitoring and maintenance. For more information, see [Overview - Technical Operations](technical-operations/overview-technical-operations.md).
+
+## Documentation sections
+
+| Section | Contents | Start here |
+|---|---|---|
+| **Business Basics** | Business model, company roles, services, supported countries, architecture, fiskaltrust.Portal, Fair Use Policy. | [Overview](business-basics/overview-business-basics.md) |
+| **Getting Started** | Sandbox, registration, company roles, PosOperator onboarding (invitation, surrogating, master data), first CashBox. | [Overview - Getting Started](getting-started/overview-getting-started.md) |
+| **Buy & Resell** | Entitlements, credit limit, volume purchase agreements, rollout plans, Shop, subscription management, products and bundles. | [Overview - Buy & Resell](buy-resell/overview.md) |
+| **Technical Operations** | Rollout scenarios, Middleware launchers and configuration, PosSystem API platforms, rollout automation, troubleshooting, maintenance and exports. | [Overview - Technical Operations](technical-operations/overview-technical-operations.md) |
+| **Information Sources** | Knowledge base, support cases, downloads, third-party partner status, news, videos, webinars, contacting support. | [Overview - Information Sources](information-sources/overview-information-sources.md) |
+
+*Table 2. Sections of the PosDealer documentation.*
+
+## Recommended reading by role
+
+This documentation is for all PosDealer employees who work with fiskaltrust products. Most content is technical or business-related; individual sections are also relevant for other audiences, for example legal departments.
+
+| Reader group | Business Basics | Getting Started | Buy & Resell | Technical Operations | Information Sources |
+|---|:---:|:---:|:---:|:---:|:---:|
+| **Project managers and support staff** | ✔️ | ✔️ | ✔️ | ✔️ | ✔️ |
+| **Rollout technicians and testers** | ✔️ | ✔️ | — | ✔️ | ✔️ |
+| **Procurement, sales and account managers** | ✔️ | — | ✔️ | — | — |
+| **Legal department** | ✔️ | — | ✔️ | — | — |
+
+*Table 3. Recommended reading sections per PosDealer reader group.*
+
+## When something goes wrong
+
+Work through the steps of the [Troubleshooting Guide](technical-operations/troubleshooting/troubleshooting-guide.md) in order. Table 4 maps common problems to the page that resolves them.
+
+| Problem | Where to look | Action |
+|---|---|---|
+| Middleware or related services have no internet connection | [Network troubleshooting](technical-operations/troubleshooting/network-troubleshooting.md) | Check the [network requirements](technical-operations/middleware/network-requirements.md), then work through the DNS, network, SSL and Queue/SCU connection checks. |
+| Purchase or rollout blocked by the credit limit | [Credit limit](buy-resell/overview.md#credit-limit) | Settle open invoices, or contact fiskaltrust to request a higher credit limit. |
+| A PosOperator or employee forgot their password | [Contacting support](information-sources/contacting-support.md#work-steps) | Use the password reset link on the fiskaltrust.Portal login page. |
+| Problem not solved by the steps above | [Contacting support](information-sources/contacting-support.md) | Contact the fiskaltrust Customer Success Team at your country-specific address and track the request under [Cases](information-sources/cases.md). |
+
+*Table 4. Common problems and where to resolve them.*
+
+:::info
+
+The fiskaltrust Customer Success Team handles requests from PosDealers and PosCreators. PosOperators are referred to their PosDealer.
+
+:::

@@ -12,48 +12,88 @@ After reading this, you can explain the tasks performed in the fiskaltrust.Porta
 
 :::
 
+The fiskaltrust.Portal is the central **management dashboard** for your fiskaltrust account and services. It covers your account and company data, PosOperator associations, configuration and rollout of your Middleware instances, and orders for products and services.
 
+![fiskaltrust.Portal Overview page: the sidebar menu (including Overview, Company info, PosOperator, PosDealer, Rollout management, Tools, PosSystems, Configuration and Shop), the Master data of User and Master data of company panels, and the user menu at the top right](./images/management-dashboard.png)
 
-## Introduction
+*Figure 1. The `Overview` page of the fiskaltrust.Portal with the sidebar menu, the user and company master data, and the user menu at the top right.*
 
-The *fiskaltrust.Portal* is the central **management dashboard** to control all aspects of your *fiskaltrust* account and services. The *fiskaltrust.Portal* includes, for example, your account and company data, Operator associations, configuration and rollout of your *fiskaltrust.Middleware* instances, placing orders for products and services, and more.
+| Task | Portal area |
+|---|---|
+| [Account Management](#account-management) | `Company info` and the user menu (top right) |
+| [Operator Management](#operator-management) | `PosDealer` |
+| [Surrogating](#surrogating) | Switching into a PosOperator account |
+| [Data Management](#data-management) | `Tools` > `Exports` |
+| [CashBox Maintenance](#cashbox-maintenance) | `Configuration` |
+| [Shop](#shop) | `Shop` |
 
-![fiskaltrust.Portal dashboard with the navigation menu, user and company master data, and the unfinished validations table](./images/portal.png "https://portal-SANDBOX.fiskaltrust.TLD/Home/Dashboard")
-
-*Figure 1. The dashboard of the fiskaltrust.Portal.*
-
-The following paragraphs will briefly overview the general actions and tasks you can perform in the portal.
+*Table 1. Tasks in the fiskaltrust.Portal.*
 
 :::tip surrogating
 
-Please pay particular attention to the [surrogating](#surrogating) feature, which enables you - as a PosDealer - to perform many steps for associated PosOperators.
+[Surrogating](#surrogating) lets you, as a PosDealer, perform many steps for your associated PosOperators.
 
 :::
 
 ## Account Management
 
-In the *Company* section, you select first from the appropriate **Roles** (_PosCreator_, _PosDealer_, or _PosOperator_) and sign the **Contractual Agreements** for your company. Then you have to check the master data for completeness and, especially the business data, for validity. The next step is to add your company's **outlets** with their configurations in this section. You also can configure accounts for your **employees** and manage their permissions.  
-The section for the *user* account allows you to manage user data, like **contact and address details**, username and password.  
+### Company Info
+
+The `Company info` menu contains your company's settings.
+
+| Menu item | Use |
+|---|---|
+| `Overview` | Select the applicable **roles** and sign the **contractual agreements** for your company. For more information, see [Company Roles](../getting-started/company-roles.md). |
+| `Master data` | Check the data for completeness and the business data for validity. |
+| `Account settings` | Show or hide the receipt check on the Queue configuration page. The receipt check displays potential issues in a Queue. |
+| `Sales areas` | Select your company's sales areas, including their sub-areas. |
+| `Employees` | Create accounts for your **employees** and manage their permissions. |
+| `Payment methods` | View your payment methods and your `Credit Limit`. |
+| `Outlets` | Add your company's **outlets** and their configurations. |
+| `Agencies` | Create and edit agencies with their name, address and tax identification numbers. |
+
+*Table 2. Menu items in `Company info`.*
+
+### User Menu
+
+Open the user menu under your name at the top right to manage your personal settings: `Edit profile` (**contact and address details**), `Change password` and `Change username`. The user menu also contains the `Language` section, where you switch the language of the fiskaltrust.Portal, and `Sign out`.
+
+<p><img src={require("./images/user-menu.png").default} alt="fiskaltrust.Portal user menu opened under the user name at the top right, with Overview, Edit profile, Change password and Change username, the Language section with the available languages, and Sign out" width="321" /></p>
+
+*Figure 2. The user menu with the personal settings, the `Language` section and `Sign out`.*
 
 ## Operator Management
 
-The *PosOperator* section is where you **invite** your customers to *fiskaltrust* and manage their accounts. Having accepted your invitation and signed a **Contract** for a role as PosOperator, their **account will be associated** with yours, which will make [surrogating](#surrogating) possible.
+In the `PosDealer` menu, you **invite** your customers to fiskaltrust (`Invitation`) and manage their accounts (`PosOperators`). Once a PosOperator accepts your invitation and signs a **contract** for the PosOperator role, their **account is associated** with yours, which enables [surrogating](#surrogating).
 
+For more information, see [Invitation process](../getting-started/operator-onboarding/invitation-process.md).
 
 ## Surrogating
 
-You, as a PosDealer can switch into the account of your PosOperators. Depending on permissions, you may use **read-only** access, **write** access, or have the authority to sign contracts on behalf of your PosOperators. For *PosDealers*, this is an **essential benefit** of the *fiskaltrust.Portal* for establishing and expanding business collaboration.
+As a PosDealer, you can switch into the accounts of your PosOperators. Depending on the permission granted, you have:
 
-More information is available in the chapter [Surrogating](../getting-started/operator-onboarding/surrogating.md).
+* `Read Only` access,
+* `Write/Read` access, or
+* `Full (Write/Read, Contract Conclusion)`: write access plus the authority to sign contracts on behalf of the PosOperator.
+
+Surrogating is an essential feature for PosDealers to establish and expand their business collaboration with PosOperators. For more information, see [Surrogating](../getting-started/operator-onboarding/surrogating.md).
 
 ## Data Management
 
- The *fiskaltrust.Portal* allows you to **export your data** by various selection criteria and in **different export formats**. Depending on their availability, it is also possible to configure data replication to **third-party service providers**.
+In `Tools` > `Exports`, you **export your data** by export type and by a range of receipt dates or numbers. As `Export target`, select for example `Azure Storage` or `DATEV MeinFiskal`. Availability depends on the country. For more information, see [Exports](../technical-operations/maintenance/exports.md).
 
 ## CashBox Maintenance
 
-The *Configuration* section in the portal is the starting point for any *fiskaltrust.CashBox*. In this section, you first create and configure the individual **CashBox components** (queue, SCU) and **assemble** these into your final CashBox setup. Then, having finalized your CashBox, you can download **deployment packages** for several different target systems.
+The `Configuration` menu is the starting point for every CashBox. It contains `CashBoxes`, `Queues`, `Helpers`, `Signature creation unit`, `Template` and `Update Configuration`.
+
+1. Create and configure the **CashBox components** (Queue, SCU, and Helpers if needed).
+2. **Assemble** the components into a CashBox in `CashBoxes`.
+3. In the `CashBoxes` list, click `Download` to get the **Launcher** for your target system.
+
+To update the configuration of several CashBoxes at once, use `Update Configuration`.
+
+For more information, see [Manual Configuration](../technical-operations/middleware/manual-configuration.md).
 
 ## Shop
 
-The shop is another crucial feature of the *fiskaltrust.Portal* and provides access to all additional **add-on products and services** offered by *fiskaltrust*. For example, various product bundles, hardware solutions, archives and other services. Items can be purchased either individually or as part of pre-configured **rollout plans**.
+The `Shop` menu gives access to all fiskaltrust **add-on products and services**, for example product bundles, hardware solutions and archives. Purchase items individually or as part of pre-configured **rollout plans**. For more information, see [Shop](../buy-resell/shop.md) and [Rollout Plans](../buy-resell/rollout-plans.md).
