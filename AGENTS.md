@@ -34,6 +34,7 @@ A reader integrating one market needs layers 1 and 2 and the pages of that marke
 - After editing, verify that every new link target file and anchor exists (for example with `grep -n "^#" <file>`).
 - State only facts from the source (release notes, the app, the user). Do not add assumptions or caveats that the source does not contain; ask instead.
 - Prefer a single source of truth. If content is duplicated elsewhere, replace the copy with a short summary and a link rather than maintaining both.
+- Place a screenshot directly after the step it shows, indented under that step so the list numbering continues. Place a screenshot with number markers, or one that covers the whole procedure, before the steps. Place a screenshot of a result (for example a confirmation message) after the step that produces it.
 
 ## Area-specific guidance
 

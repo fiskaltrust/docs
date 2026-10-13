@@ -290,21 +290,16 @@ You can create another user for yourself, for example for security reasons, and 
 
 **Prerequisite:** your user has the `Manage` authorization.
 
-With the authorizations shown in Figure 7, an employee can read and change content, switch to the accounts of PosOperators, conclude contracts and create or change POS systems. However, this user has access to neither `Company info` > `Employees` nor `Configuration` in their own company.
+1. Select `Company info` > `Employees`, then `Add`.
+2. Enter the E-Mail address of the new user in `E-Mail` and select `Search`.
+3. On the `Add employee` page, complete the **required** master data `First name` and `Last Name`. Optionally, add `Title`, `Suffix` and `Mobile phone number`.
 
-![Add employee form with the E-Mail, the master data fields and the Access rights switches; markers 1 to 5 match Table 5](images/registration/user_data_employee-23-02-20.png "Add employee form")
+   ![Add employee page in the fiskaltrust.Portal with the E-Mail address, the master data fields Title, First name, Last Name, Suffix and Mobile phone number, the Default Access Rights note, and the Access rights switches with Read and Write enabled](images/registration/user-data-employee.png)
 
-*Figure 7. Employee master data and authorizations for a new user.*
+   *Figure 7. The `Add employee` page with the default access rights `Read` and `Write` enabled.*
 
-| Steps | Description |
-|:-----:|-------------|
-|![Number 1](../images/numbers/circle-1o.png) | Select `Company info` > `Employees`, then `Add`. |
-|![Number 2](../images/numbers/circle-2o.png) | Enter the E-Mail address of the new user in `E-Mail` and select `Search`. |
-|![Number 3](../images/numbers/circle-3o.png) | Complete the **required** master data `First name` and `Last name`. Optionally, add `Title`, `Suffix` and `Mobile phone number`. |
-|![Number 4](../images/numbers/circle-4o.png) | Under `Access rights`, set the authorizations: switch to the right to enable a right, to the left to disable it. `Read` and `Write` are enabled by default. At least `Read` must be enabled. |
-|![Number 5](../images/numbers/circle-5o.png) | Select `Save`. The new user receives an invitation to their E-Mail address. Inform them about the next steps and ask them to check their spam folder in case the invitation is filtered out. The new user must use this invitation to confirm their E-Mail address, set a password and link their account in the fiskaltrust.Portal with your company. |
-
-*Table 5. Steps to invite a new user, shown in Figure 7.*
+4. Under `Access rights`, set the authorizations: switch to the right to enable a right, to the left to disable it. `Read` and `Write` are enabled by default, so new employees can view company data and perform basic operations immediately. At least `Read` must be enabled.
+5. Select `Save`. The new user receives an invitation to their E-Mail address. Inform them about the next steps and ask them to check their spam folder in case the invitation is filtered out. The new user must use this invitation to confirm their E-Mail address, set a password and link their account in the fiskaltrust.Portal with your company.
 
 ### Activate the invitation (new user)
 
@@ -317,7 +312,7 @@ From then on, all users log in through the links listed in [Portal URLs](#portal
 
 ### Change user rights
 
-![Employees page with the authorizations description, the list of employees and the expanded authorization switches of one employee; markers 1 to 7 match Table 6](images/registration/user_management-23-02-20.png "Employee authorizations")
+![Employees page with the authorizations description, the list of employees and the expanded authorization switches of one employee; markers 1 to 7 match Table 5](images/registration/user_management-23-02-20.png "Employee authorizations")
 
 *Figure 8. Employee authorizations management in the fiskaltrust.Portal.*
 
@@ -331,7 +326,7 @@ From then on, all users log in through the links listed in [Portal URLs](#portal
 |![Number 6](../images/numbers/circle-6o.png) | At `Set to new Primary Contact`, select `Primary Contact` **only if you want to hand over all** authorizations. Only employees with the `Manage` right can be set as the Primary Contact. |
 |![Number 7](../images/numbers/circle-7o.png) | Select `Remove assignment` to remove the user's assignment to your company. You cannot remove the assignment of the Primary Contact. |
 
-*Table 6. Steps to change user rights, shown in Figure 8.*
+*Table 5. Steps to change user rights, shown in Figure 8.*
 
 ### Remove access rights
 
@@ -340,7 +335,7 @@ From then on, all users log in through the links listed in [Portal URLs](#portal
 | `Remove assignment` | Removes only the assignment of the E-Mail address to the company. For security reasons, the user is not deleted. |
 | `Set to new Primary Contact` | **Immediately and completely** withdraws the access rights of the previous Primary Contact. After the next logout, the former Primary Contact cannot log in to the fiskaltrust.Portal at all. The new Primary Contact must grant the former contact access to the company again. |
 
-*Table 7. Actions for removing access rights.*
+*Table 6. Actions for removing access rights.*
 
 ## Troubleshooting
 
