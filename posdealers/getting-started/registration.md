@@ -312,21 +312,22 @@ From then on, all users log in through the links listed in [Portal URLs](#portal
 
 ### Change user rights
 
-![Employees page with the authorizations description, the list of employees and the expanded authorization switches of one employee; markers 1 to 7 match Table 5](images/registration/user_management-23-02-20.png "Employee authorizations")
+![Employees page in the fiskaltrust.Portal with the Authorizations for the employee descriptions, the employee list with one row expanded to show its authorization switches and the Primary Contact button, the Remove assignment button, and the Export as CSV button highlighted](images/registration/employee-authorizations.png)
 
-*Figure 8. Employee authorizations management in the fiskaltrust.Portal.*
+*Figure 8. The `Employees` page with the authorization switches of one employee and the `Export as CSV` button.*
 
-| Steps | Description |
-|:-----:|-------------|
-|![Number 1](../images/numbers/circle-1o.png) | Select `Company info` > `Employees`. |
-|![Number 2](../images/numbers/circle-2o.png) | `Authorizations for the employee` explains each authorization. |
-|![Number 3](../images/numbers/circle-3o.png) | Check the existing rights in the `Authorizations` column. Inactive rights have a black symbol, active rights a blue symbol. |
-|![Number 4](../images/numbers/circle-4o.png) | To change the authorizations of a user, expand the line with the arrow on its left edge. |
-|![Number 5](../images/numbers/circle-5o.png) | Switch to the right to activate a right, to the left to deactivate it. A confirmation message appears at the top right. |
-|![Number 6](../images/numbers/circle-6o.png) | At `Set to new Primary Contact`, select `Primary Contact` **only if you want to hand over all** authorizations. Only employees with the `Manage` right can be set as the Primary Contact. |
-|![Number 7](../images/numbers/circle-7o.png) | Select `Remove assignment` to remove the user's assignment to your company. You cannot remove the assignment of the Primary Contact. |
+1. Select `Company info` > `Employees`. The section `Authorizations for the employee` explains each authorization.
+2. Check the existing rights in the `Authorizations` column. Inactive rights have a black symbol, active rights a blue symbol.
+3. To change the authorizations of a user, expand the line with the arrow on its left edge.
+4. Switch to the right to activate a right, to the left to deactivate it. A confirmation message appears at the top right.
+5. At `Set to new Primary Contact`, select `Primary Contact` **only if you want to hand over all** authorizations. Only employees with the `Manage` right can be set as the Primary Contact.
+6. To remove the user's assignment to your company, select `Remove assignment`. You cannot remove the assignment of the Primary Contact.
 
-*Table 5. Steps to change user rights, shown in Figure 8.*
+:::tip Export the employee list
+
+To download the list of employees as a CSV file, select **`Export as CSV`** below the list.
+
+:::
 
 ### Remove access rights
 
@@ -335,7 +336,7 @@ From then on, all users log in through the links listed in [Portal URLs](#portal
 | `Remove assignment` | Removes only the assignment of the E-Mail address to the company. For security reasons, the user is not deleted. |
 | `Set to new Primary Contact` | **Immediately and completely** withdraws the access rights of the previous Primary Contact. After the next logout, the former Primary Contact cannot log in to the fiskaltrust.Portal at all. The new Primary Contact must grant the former contact access to the company again. |
 
-*Table 6. Actions for removing access rights.*
+*Table 5. Actions for removing access rights.*
 
 ## Troubleshooting
 
