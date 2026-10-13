@@ -53,7 +53,7 @@ version 2
 | `1000` | **Unknown invoice type**<br />Handled like `1001`. | 1.3.45 |
 | `1001` | **B2C invoice type**<br />All invoice cases are transmitted as myDATA type **1.1** (goods, domestic), **1.2** (goods, EU customer) or **1.3** (goods, third-country customer); with only service items as **2.1** / **2.2** / **2.3**; with only *not own sales* items (`S` = `6`) as **1.4**; with only *own consumption* items (`S` = `7`) as **6.1**. With the IsRefund flag (`0100`) a credit note **5.1** (with a reference to the original) or **5.2** (without reference) is issued. A `cbCustomer` with VAT number and country is mandatory. | 1.3.45 |
 | `1002` | **B2B invoice type**<br />See `1001`. | 1.3.45 |
-| `1003` | **B2G invoice type**<br />See `1001`. Transmission to the public sector through the national interoperability centre is not part of the current scope. | 1.3.45 |
+| `1003` | **B2G invoice type**<br />See `1001`. Transmission to the public sector through the national interoperability centre is not supported. | 1.3.45 |
 | `2000` | **Zero Receipt**<br />Used for communication test and functional test of the fiskaltrust.SecurityMechanism. The request is only valid when the charge items block (ftChargeItems) and the pay items block (ftPayItems) in the ftReceiptRequest are empty arrays. In Greece the zero receipt and all closing receipts (`2001` to `2013`) are accepted as no-ops; no myDATA document is created. | 1.3.45 |
 | `2001` | **(reserved) One Receipt** | 1.3.45 |
 | `2010` | **Shift Closing Receipt** | 1.3.45 |

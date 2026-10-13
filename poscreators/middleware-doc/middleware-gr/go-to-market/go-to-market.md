@@ -46,9 +46,9 @@ Whichever route you take, these are the factors that shape a POS product for Gre
 
 **Digital receipt and QR code.** The QR code on the receipt links to the digital document. The Middleware returns it as signature item and renders the digital receipt at `https://receipts.fiskaltrust.eu/{ftQueueID}/{ftQueueItemID}`; myDATA additionally returns its own QR URL.
 
-**Restaurant orders.** In hospitality, an order slip (8.6) is issued before the receipt. Order slips are not fiscal documents, must be turned into a receipt or invoice within 24 hours, and a provider must block further issuing for a merchant with older open orders (*Α.1112/2025*). The Middleware issues and cancels orders; the monitoring of open orders is being implemented.
+**Restaurant orders.** In hospitality, an order slip (8.6) is issued before the receipt. Order slips are not fiscal documents, must be turned into a receipt or invoice within 24 hours, and a provider must block further issuing for a merchant with older open orders (*Α.1112/2025*). The Middleware issues and cancels orders.
 
-**Invoices and e-invoicing.** B2B invoices (1.x, 2.x) are transmitted through the same channel as receipts and need the customer's VAT number. B2G invoices (to the public sector) require an additional licence and transmission through the national interoperability centre; B2G e-invoicing is on the roadmap. Mandatory electronic B2B invoicing is being rolled out in Greece in stages; the current dates and the exact obligations for your customers should be confirmed with fiskaltrust before you plan the release.
+**Invoices and e-invoicing.** B2B invoices (1.x, 2.x) are transmitted through the same channel as receipts and need the customer's VAT number. B2G invoices (to the public sector) require an additional licence and transmission through the national interoperability centre; B2G e-invoicing is not supported.
 
 **e-Delivery.** Delivery notes (9.3) are transmitted to myDATA as digital delivery notes with the transport details (phase A). Phase B, the tracking of the goods movement through AADE's Digital Shipping Note API, involves several parties (issuer, carrier, recipient); the Middleware supports the e-invoicing provider side.
 
@@ -79,7 +79,7 @@ Yes. The API integration is the same, and the switch changes the credentials the
 No. A provider licence is obtained from AADE by the company that operates the platform; fiskaltrust does not take partners through that procedure. If your goal is to avoid a provider on the document, the ERP route is the path to discuss.
 
 **Can I run the Middleware on my own infrastructure?**
-Not in Greece today. The provider credentials are part of the fiskaltrust cloud deployment.
+No. The provider credentials are part of the fiskaltrust cloud deployment.
 
 **Does Route 1 restrict how my POS looks?**
 No. The licence covers the document and its transmission, not your user interface. Your POS can look and behave as you like; the identifiers and the provider footer on the receipt are the ones returned by the Middleware.

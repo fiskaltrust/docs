@@ -9,11 +9,11 @@ In Greece there is no register of certified invoicing programs as in Portugal. I
 
 The fiskaltrust.Middleware implements this provider flow. Every fiscal document request sent to a Greek queue (see [Supported document types](#supported-document-types)) is mapped to a myDATA document, transmitted through the provider API (`/myDataProvider/SendInvoices`, myDATA API for providers, schema version 2.0.2) and enriched with the identifiers myDATA returns. Requests that fail validation are rejected without transmission (see [Boundaries](#boundaries)), and some operations, such as protocol, copy and closing requests, are stored in the queue without transmission (see [Other operations](#other-operations)).
 
-:::info Under whose licence documents are issued today
+:::info Under whose licence documents are issued
 
 The fiskaltrust.Middleware for Cloud currently issues Greek documents under the AADE provider licence of **Viva** (licensee *VIVABANK ΑΝΩΝΥΜΗ ΤΡΑΠΕΖΙΚΗ ΕΤΑΙΡΕΙΑ*, product *Viva Fiscal*), **provider ID 126**, licence identifier `2024_12_126VIVA_001_ Viva Fiscal_V1_23122024`. fiskaltrust operates the technical platform behind this licence: the mapping to myDATA, the transmission with the provider credentials, the provider signature on card payments and the digital receipt.
 
-Viva's licence covers B2C and B2B documents; B2G e-invoicing is on the roadmap. The Middleware is available for the Greek market through the fiskaltrust.Middleware for Cloud only. PosCreators who want to enter the Greek market should contact [sales@fiskaltrust.eu](mailto:sales@fiskaltrust.eu) to clarify the contractual setup.
+Viva's licence covers B2C and B2B documents; B2G e-invoicing is not supported. The Middleware is available for the Greek market through the fiskaltrust.Middleware for Cloud only. PosCreators who want to enter the Greek market should contact [sales@fiskaltrust.eu](mailto:sales@fiskaltrust.eu) to clarify the contractual setup.
 
 :::
 
@@ -134,7 +134,7 @@ The Middleware actively rejects requests that fall outside the supported scope o
 - The provider credentials, the invoice series and the numbering are managed by fiskaltrust; there is no way for a PosCreator or merchant to configure them.
 - Sandbox queues transmit to the myDATA test environment and must not be used for productive documents.
 - The Greek journal type returns no market-specific export; queue items are exported with the common `QueueItemJournal` type (see [Type of Journal: ftJournalType](../reference-tables/type-of-journal-ftjournaltype.md)). Exports for tax audits are provided through the fiskaltrust.Portal, and the complete myDATA XML of every document is returned in the response.
-- B2G e-invoicing (transmission to the public sector through the national interoperability centre) is not supported yet; it is on the roadmap.
+- B2G e-invoicing (transmission to the public sector through the national interoperability centre) is not supported.
 - Phase B of the digital delivery note (movement tracking through the Digital Shipping Note API) involves several parties; the Middleware supports the e-invoicing provider side.
 
 ## What this means for PosCreators
@@ -146,7 +146,7 @@ The Middleware actively rejects requests that fall outside the supported scope o
 - **Respect the document flow.** Refunds and credit notes reference the original document; orders are cancelled, not deleted; payments on invoices are reported through the pay case. Series and numbers are assigned by the Middleware.
 - **Handle outages correctly.** Receipts issued while the Middleware was unreachable are sent afterwards with the late-signing flag; handwritten receipts with the handwritten flag and their own series. Restaurant orders must be turned into a fiscal document within 24 hours (*Α.1112/2025*).
 - **Sandbox is not production.** Sandbox documents carry the same footer as production documents but are transmitted to the myDATA test environment and are never valid.
-- **Cloud only.** Self-hosted or on-device installations are not available under the current licence.
+- **Cloud only.** Self-hosted or on-device installations are not available for Greece.
 
 ## What this means for PosOperators
 
@@ -156,4 +156,4 @@ The Middleware actively rejects requests that fall outside the supported scope o
 - **Corrections go through the POS.** A wrong document is refunded or credited through the POS, which creates the corresponding credit document referencing the original. Documents cannot be edited or deleted.
 - **Card payments need an interconnected terminal.** The payment signature and the unique payment ID of the terminal are part of your receipts and are transmitted to myDATA.
 - **Exports for audits** are available through the fiskaltrust.Portal, or on request from fiskaltrust's Greek support.
-- **Limits you will encounter.** Only EUR, no document-level discounts, no B2G invoicing yet, no voids except for orders and delivery notes. Ask your POS provider to issue a credit document when a correction is needed.
+- **Limits you will encounter.** Only EUR, no document-level discounts, no B2G invoicing, no voids except for orders and delivery notes. Ask your POS provider to issue a credit document when a correction is needed.
