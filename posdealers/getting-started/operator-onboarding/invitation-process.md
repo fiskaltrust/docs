@@ -65,7 +65,7 @@ Depending on the country, when a PosOperator is registered for the first time, f
 
 1. Choose `PosDealer` > `Invitation`.
 2. Check the settings as described in [Preparation of invitations](#preparation-of-invitations).
-3. Choose `Add`.
+3. Choose `+Add`.
 4. Fill in the mandatory fields. They are required so that the PosOperator can be found and assigned correctly in the fiskaltrust.Portal via the e-mail address:
    - `Company data`: company name, e-mail address, address line 1, postal code, city, country
    - `User data`: first name, last name, contact e-mail address
@@ -262,7 +262,7 @@ If the preparation is complete, the invitation process runs automatically. If pr
 | Button | Description |
 |:------:|-------------|
 |![Number 1](../../images/numbers/circle-1o.png) |`Invite all PosOperators`: sends the e-mail invitation to **all** PosOperators in the list who have not yet been invited. |
-|![Number 2](../../images/numbers/circle-2o.png) |`Add`: adds a single PosOperator manually. For more information, see [Invitation of a single PosOperator](#invitation-of-a-single-posoperator). |
+|![Number 2](../../images/numbers/circle-2o.png) |`+Add`: adds a single PosOperator manually. For more information, see [Invitation of a single PosOperator](#invitation-of-a-single-posoperator). |
 |![Number 3](../../images/numbers/circle-3o.png) |`History`: opens the invitation history to check or repair e-mail invitations (see [Options with invited PosOperators](#options-with-invited-posoperators)). |
 
 *Table 6. Buttons for inviting PosOperators in a bulk process.*

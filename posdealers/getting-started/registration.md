@@ -290,7 +290,7 @@ You can create another user for yourself, for example for security reasons, and 
 
 **Prerequisite:** your user has the `Manage` authorization.
 
-1. Select `Company info` > `Employees`, then `Add`.
+1. Select `Company info` > `Employees`, then `+Add`.
 2. Enter the E-Mail address of the new user in `E-Mail` and select `Search`.
 3. On the `Add employee` page, complete the **required** master data `First name` and `Last Name`. Optionally, add `Title`, `Suffix` and `Mobile phone number`.
 
@@ -349,7 +349,7 @@ To download the list of employees as a CSV file, select **`Export as CSV`** belo
 
 ### Employees of PosOperators complain about access
 
-The process in [Create new users](#create-new-users) (`Company info` > `Employees` > `Add`) also applies to adding employees to PosOperator accounts.
+The process in [Create new users](#create-new-users) (`Company info` > `Employees` > `+Add`) also applies to adding employees to PosOperator accounts.
 
 :::caution No access to employee data for PosDealers
 
@@ -369,7 +369,7 @@ We strongly recommend testing this process in the Sandbox first.
 
 :::
 
-1. Select `Company info` > `Employees` > `Add`.
+1. Select `Company info` > `Employees` > `+Add`.
 2. Add data records, if necessary with fictitious information. Only the E-Mail address must be correct, for example `peter.pattern@mycompany.com`.
 3. If employees are assigned to several accounts, create alias addresses and use these, for example `peter.pattern+1@mycompany.com`, `peter.pattern+2@mycompany.com` and so on.
 
@@ -409,7 +409,7 @@ You received your company's first invitation to the fiskaltrust.Portal, but you 
 
 1. You, as a new user, check the inbox of the E-Mail address used for the invitation.
 2. Use the confirmation link to activate the invitation. Read and accept the T&C and the Privacy Policy and add a password.
-3. Select `Company info` > `Employees` > `Add`.
+3. Select `Company info` > `Employees` > `+Add`.
 4. Enter the E-Mail address of the desired user and select `Search`.
 5. Complete the **required** master data.
 6. Enable all access rights, including `Manage`, and select `Save`. Note that this alone does not make the new user the Primary Contact.
