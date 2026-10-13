@@ -13,11 +13,11 @@ The fiskaltrust.Middleware implements this provider flow. Every fiscal document 
 
 The fiskaltrust.Middleware for Cloud currently issues Greek documents under the AADE provider licence of **Viva** (licensee *VIVABANK ΑΝΩΝΥΜΗ ΤΡΑΠΕΖΙΚΗ ΕΤΑΙΡΕΙΑ*, product *Viva Fiscal*), **provider ID 126**, licence identifier `2024_12_126VIVA_001_ Viva Fiscal_V1_23122024`. fiskaltrust operates the technical platform behind this licence: the mapping to myDATA, the transmission with the provider credentials, the provider signature on card payments and the digital receipt.
 
-The status of fiskaltrust's **own** AADE provider licence for B2C/B2B documents, and of a separate licence for B2G e-invoicing, is being clarified with the Greek market team. Today, the licence identifiers on the documents are Viva's, and the Middleware is available for the Greek market through the fiskaltrust.Middleware for Cloud only. PosCreators who want to enter the Greek market should contact [sales@fiskaltrust.eu](mailto:sales@fiskaltrust.eu) to clarify the contractual setup.
+Viva's licence covers B2C and B2B documents; B2G e-invoicing is on the roadmap. The Middleware is available for the Greek market through the fiskaltrust.Middleware for Cloud only. PosCreators who want to enter the Greek market should contact [sales@fiskaltrust.eu](mailto:sales@fiskaltrust.eu) to clarify the contractual setup.
 
 :::
 
-This page describes only the setup in which the documents are transmitted under the licence that the fiskaltrust.Middleware for Cloud operates under. The alternative, transmitting under the merchant's own myDATA credentials through the ERP API, is described in [Route 2](../go-to-market/route-2-erp-api.md); it is planned for the Middleware but not available today. Obtaining a provider licence of your own is a matter between the applicant and AADE and is not a route fiskaltrust offers.
+This page describes only the setup in which the documents are transmitted under the licence that the fiskaltrust.Middleware for Cloud operates under. The alternative, transmitting under the merchant's own myDATA credentials through the ERP API, is described in [Route 2](../go-to-market/route-2-erp-api.md). Obtaining a provider licence of your own is a matter between the applicant and AADE and is not a route fiskaltrust offers.
 
 ## Where the licence appears on documents
 
@@ -60,7 +60,7 @@ The provider credentials that authenticate against myDATA are held by fiskaltrus
 
 The licensing of the provider platform was carried out with AADE on the basis of demonstration scenarios prescribed by AADE: a sales invoice (1.1) with goods and services, withholding tax and several VAT rates; a retail receipt (11.1) with an interconnected payment terminal, online and in the offline scenario of *Α.1155/2023*; a POS payment receipt (8.4) classified as other income information without VAT; the creation, encryption and transmission of the provider signature to the ERP and the terminal; the exchange of the unique payment ID between terminal and ERP; the MARK, UID and authentication sequence; QR code generation; anonymous retail receipts; and data access for the provider, the provider's customer and the recipient of a wholesale invoice. The same scenarios are kept as acceptance tests in the Middleware repository and are re-run against the myDATA test environment.
 
-Which of the myDATA document types beyond these scenarios were part of the licence audit, as opposed to being supported by the implementation and accepted by myDATA, is being clarified with the Greek market team.
+All document types described on this page are supported, including the types requested through the `invoiceType` override.
 
 ## Supported document types
 
@@ -80,11 +80,11 @@ The following myDATA invoice types are produced by the Middleware from the `ftRe
 | `6.1` | Στοιχείο Αυτοπαράδοσης | `0x0001` or `0x1xxx` with only *own consumption* items (`S` = `7`) | Self-supply / own use. |
 | `8.4` | Απόδειξη Είσπραξης POS | `0x0002` Payment transfer | POS payment receipt, classified as other income information (`category1_95`). |
 | `8.5` | Απόδειξη Επιστροφής POS | `0x0002` with flag `0x0100` | POS refund receipt. |
-| `8.6` | Δελτίο Παραγγελίας Εστίασης | `0x3004` Order | Restaurant order slip. `cbArea` is transmitted as table number. Not a fiscal receipt; the response carries the informational notice that must be printed. With flag `0x0004` (IsVoid), a reference to the original order and `cbArea`, the order is cancelled. |
+| `8.6` | Δελτίο Παραγγελίας Εστίασης | `0x3004` Order, `0x0006` Table check | Restaurant order slip. `cbArea` is transmitted as table number. Not a fiscal receipt; the response carries the informational notice that must be printed. With flag `0x0004` (IsVoid), a reference to the original order and `cbArea`, the order is cancelled. |
 | `9.3` | Δελτίο Αποστολής | `0x0005` Delivery note with flag `0x0400` (HasTransportInformation) | Delivery note with transport details (dispatch date and time, vehicle, addresses, purpose of movement) from `ftReceiptCaseData`. With flag `0x0100` a reverse delivery note is issued; with flag `0x0004` the referenced delivery note is cancelled. Sale documents that carry flag `0x0400` are transmitted as combined document and delivery note. |
 | Payment methods | Μέθοδοι πληρωμής (`SendPaymentsMethod`) | `0x3005` Pay with a Greek pay item flag and `cbPreviousReceiptReference` | Reports a payment for an already transmitted invoice (for example a card payment after an invoice on credit). No MARK of its own. |
 
-Every other myDATA invoice type (for example `1.5`, `1.6`, `2.4`, `3.1`, `3.2`, `6.2`, `7.1`, `8.1`, `8.2`, `11.3`) can be requested explicitly through the `invoiceType` override in `ftReceiptCaseData` (`GR.mydataoverride.invoice.invoiceHeader.invoiceType`), together with the matching income or expense classification on every charge item. These types are accepted by myDATA in the acceptance tests of the Middleware, but the POS is responsible for choosing them correctly; ask fiskaltrust before using them productively.
+Every other myDATA invoice type (for example `1.5`, `1.6`, `2.4`, `3.1`, `3.2`, `6.2`, `7.1`, `8.1`, `8.2`, `11.3`) can be requested explicitly through the `invoiceType` override in `ftReceiptCaseData` (`GR.mydataoverride.invoice.invoiceHeader.invoiceType`), together with the matching income or expense classification on every charge item. The POS is responsible for choosing the type and the classifications correctly.
 
 ### Other operations
 
@@ -106,7 +106,7 @@ The Middleware actively rejects requests that fall outside the supported scope o
 
 **Receipt cases that are not supported**
 
-- POS receipt without fiscalization obligation (`0x0003`), table check (`0x0006`), pro forma (`0x0007`) and internal usage / material consumption (`0x3003`) are rejected. Use an order (`0x3004`) for restaurant order slips and own-consumption charge items for self-supply.
+- POS receipt without fiscalization obligation (`0x0003`), pro forma (`0x0007`) and internal usage / material consumption (`0x3003`) are rejected. Use an order (`0x3004`) for restaurant order slips and own-consumption charge items for self-supply.
 - A delivery note (`0x0005`) without the `HasTransportInformation` flag is rejected.
 - Voids (flag `0x0004`) are only supported for restaurant orders (8.6) and delivery notes (9.3). This is an AADE rule, not a limitation of the Middleware: the myDATA API for providers offers cancellation only for these two non-fiscal documents, while the generic `CancelInvoice` call is reserved for ERP users transmitting their own books. Every other correction is a refund (flag `0x0100`) that creates a credit document referencing the original; issued documents cannot be edited or deleted.
 
@@ -133,9 +133,9 @@ The Middleware actively rejects requests that fall outside the supported scope o
 
 - The provider credentials, the invoice series and the numbering are managed by fiskaltrust; there is no way for a PosCreator or merchant to configure them.
 - Sandbox queues transmit to the myDATA test environment and must not be used for productive documents.
-- The journal endpoint returns no market-specific export yet (see [Type of Journal: ftJournalType](../reference-tables/type-of-journal-ftjournaltype.md)); exports for tax audits are provided through the fiskaltrust.Portal, and the complete myDATA XML of every document is returned in the response.
-- B2G e-invoicing (transmission to the public sector through the national interoperability centre) is not part of the current scope.
-- Phase B of the digital delivery note (movement tracking through the Digital Shipping Note API, inbound documents) is not yet implemented.
+- The Greek journal type returns no market-specific export; queue items are exported with the common `QueueItemJournal` type (see [Type of Journal: ftJournalType](../reference-tables/type-of-journal-ftjournaltype.md)). Exports for tax audits are provided through the fiskaltrust.Portal, and the complete myDATA XML of every document is returned in the response.
+- B2G e-invoicing (transmission to the public sector through the national interoperability centre) is not supported yet; it is on the roadmap.
+- Phase B of the digital delivery note (movement tracking through the Digital Shipping Note API) involves several parties; the Middleware supports the e-invoicing provider side.
 
 ## What this means for PosCreators
 
@@ -151,9 +151,9 @@ The Middleware actively rejects requests that fall outside the supported scope o
 ## What this means for PosOperators
 
 - **You remain the taxpayer.** The documents are issued in your name, with your VAT number, and transmitted to your myDATA books. You are responsible for handing them to your customers and for keeping them for the statutory retention period.
-- **You must declare the provider.** A business that issues its documents through a licensed provider must submit the corresponding statement to AADE within ten days of starting (*Α.1112/2025*, art. 6; myDATA call `SendStatement`). fiskaltrust intends to submit this statement on your behalf as part of the onboarding; until this is live, the statement has to be submitted through myDATA, so ask your PosDealer before the first productive document.
+- **You must declare the provider.** A business that issues its documents through a licensed provider must submit the corresponding statement to AADE within ten days of starting (*Α.1112/2025*, art. 6; myDATA call `SendStatement`). The statement is submitted in the fiskaltrust.Portal, either by fiskaltrust on your behalf or by you in self-service.
 - **Your master data must be complete.** Your VAT number and, where applicable, the branch number must be configured in the fiskaltrust.Portal before the first document is issued.
 - **Corrections go through the POS.** A wrong document is refunded or credited through the POS, which creates the corresponding credit document referencing the original. Documents cannot be edited or deleted.
 - **Card payments need an interconnected terminal.** The payment signature and the unique payment ID of the terminal are part of your receipts and are transmitted to myDATA.
 - **Exports for audits** are available through the fiskaltrust.Portal, or on request from fiskaltrust's Greek support.
-- **Limits you will encounter.** Only EUR, no document-level discounts, no B2G invoicing, no voids except for orders and delivery notes. Ask your POS provider to issue a credit document when a correction is needed.
+- **Limits you will encounter.** Only EUR, no document-level discounts, no B2G invoicing yet, no voids except for orders and delivery notes. Ask your POS provider to issue a credit document when a correction is needed.

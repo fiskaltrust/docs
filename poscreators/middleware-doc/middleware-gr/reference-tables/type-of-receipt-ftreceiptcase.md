@@ -49,6 +49,7 @@ version 2
 | `0003` | **Point-Of-Sale receipt without fiscalization**<br />Obligation or with exception on fiscalization regulation.<br />**Not supported in Greece**: the request is rejected with an error. | 1.3.45 |
 | `0004` | **E-Commerce receipt type**<br />Transmitted to myDATA only when an `invoiceType` override is present in `ftReceiptCaseData` (`GR.mydataoverride.invoice.invoiceHeader.invoiceType`). Without an override the receipt is stored in the queue and no myDATA document is created. | 1.3.45 |
 | `0005` | **Delivery Note**<br />Transmitted as myDATA type **9.3** (Δελτίο Αποστολής) only together with the `HasTransportInformation` flag (`0400`); the transport details come from `ftReceiptCaseData`. With the IsRefund flag (`0100`) a reverse delivery note is issued, with the IsVoid flag (`0004`) and a `cbPreviousReceiptReference` the referenced delivery note is cancelled at myDATA. **Without the `0400` flag the request is rejected.** | 1.3.45 |
+| `0006` | **Table check**<br />Transmitted as myDATA type **8.6** (Δελτίο Παραγγελίας Εστίασης), like an order (`3004`); `cbArea` is transmitted as table number. The response carries the informational notice that must be printed. | |
 | `1000` | **Unknown invoice type**<br />Handled like `1001`. | 1.3.45 |
 | `1001` | **B2C invoice type**<br />All invoice cases are transmitted as myDATA type **1.1** (goods, domestic), **1.2** (goods, EU customer) or **1.3** (goods, third-country customer); with only service items as **2.1** / **2.2** / **2.3**; with only *not own sales* items (`S` = `6`) as **1.4**; with only *own consumption* items (`S` = `7`) as **6.1**. With the IsRefund flag (`0100`) a credit note **5.1** (with a reference to the original) or **5.2** (without reference) is issued. A `cbCustomer` with VAT number and country is mandatory. | 1.3.45 |
 | `1002` | **B2B invoice type**<br />See `1001`. | 1.3.45 |
@@ -73,7 +74,7 @@ version 2
 
 *Table 3. ReceiptCase values (txcc) for Greece.*
 
-The receipt cases `0006` (Table check) and `0007` (Pro forma) of the general part are **not supported in Greece** and are rejected by the Middleware since version 1.3.81. Restaurant order slips are issued with the order case `3004`. See [Licensing](../licensing/licensing.md#supported-document-types) for the complete mapping to myDATA document types and the [boundaries](../licensing/licensing.md#boundaries) of the implementation.
+The receipt case `0007` (Pro forma) of the general part is **not supported in Greece** and is rejected by the Middleware since version 1.3.81. Restaurant order slips are issued with the order case `3004`. See [Licensing](../licensing/licensing.md#supported-document-types) for the complete mapping to myDATA document types and the [boundaries](../licensing/licensing.md#boundaries) of the implementation.
 
 #### gggg - global tagging/flag
 
