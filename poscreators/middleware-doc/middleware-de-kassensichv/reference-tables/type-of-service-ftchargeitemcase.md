@@ -129,10 +129,21 @@ This table expands on the values provided in the [Type of Service: ftChargeItemC
 | `0x4445000000000095` | Cash transfer to cash book not taxable | 5 | Einzahlung | 1.3- |
 | `0x4445000000000096` | Cash transfer from cash book not taxable | 5 | Auszahlung | 1.3- |
 | `0x4445000000000097` | Cash amount difference from/to till not taxable | 5 | DifferenzSollIst | 1.3- |
+| `0x44450000000000B1` | Cash transfer to/from cash book with VAT normal (e.g. purchase of goods paid from the till). 1.1.2019: 19,00% (DE: Regelsteuersatz) | 1 | Einzahlung / Auszahlung<sup>2</sup> | 1.3.91- |
+| `0x44450000000000B2` | Cash transfer to/from cash book with VAT discounted-1. 1.1.2019: 7% (DE: Ermäßigter Steuersatz) | 2 | Einzahlung / Auszahlung<sup>2</sup> | 1.3.91- |
+| `0x44450000000000B3` | Cash transfer to/from cash book with VAT special-1. 1.1.2019: 10,70% (DE: Durchschnittsatz (§ 24 Abs. 1 Nr. 3 UStG) übrige Fälle) | 3 | Einzahlung / Auszahlung<sup>2</sup> | 1.3.91- |
+| `0x44450000000000B4` | Cash transfer to/from cash book with VAT special-2. 1.1.2019: 5,50% (DE: Durchschnittsatz (§ 24 Abs. 1 Nr. 1 UStG)) | 4 | Einzahlung / Auszahlung<sup>2</sup> | 1.3.91- |
+| `0x44450000000000B5` | Cash transfer to/from cash book with VAT not taxable | 5 | Einzahlung / Auszahlung<sup>2</sup> | 1.3.91- |
+| `0x44450000000000B6` | Cash transfer to/from cash book with VAT zero | 6 | Einzahlung / Auszahlung<sup>2</sup> | 1.3.91- |
+| `0x44450000000000B7` | Cash transfer to/from cash book with VAT unknown vat. <br /> <br />`chargeItem.VATRate == 0.0 ? UST_SCHLUESSEL = 7 : UST_SCHLUESSEL = (chargeItem.VATRate * 100) + 1000` | 7 or > 1000 | Einzahlung / Auszahlung<sup>2</sup> | 1.3.91- |
 | `0x44450000000000A1` | Reverse charge | 5 | Umsatz | 1.3- |
 | `0x44450000000000A2` | Not own sales | 5 | Umsatz | 1.3- |
 
 *Table 1. ftChargeItemCase values with their DSFinV-K tax key (UST_SCHLUESSEL) and business case type (GV_TYP) for the German market.*
+
+<sup>2</sup> The cases `0x44450000000000B1` - `0x44450000000000B7` are used for cash flows into or out of the till that are subject to VAT and cannot be mapped to another business case, e.g. goods or office supplies bought and paid from the till (Eingangsbeleg) or the cash refund of such a purchase. Unlike `0x4445000000000095` and `0x4445000000000096`, which are always not taxable, the VAT is signed in the matching VAT rate of the process data (`Beleg^...`). The direction is defined by the sign of the amount: a negative amount (or a negative quantity) is exported as **Auszahlung**, a positive amount as **Einzahlung**. On a void receipt, the sign is reversed, so the void of an Auszahlung is still exported as Auszahlung.
+
+Example: an Auszahlung of 50,00 at 19% and 50,00 at 7% from the till is signed as `Beleg^-50.00_-50.00_0.00_0.00_0.00^-100.00:Bar` and exported with GV_TYP `Auszahlung` and UST_SCHLUESSEL 1 and 2.
 
 ## ftChargeItemCaseFlag
 
