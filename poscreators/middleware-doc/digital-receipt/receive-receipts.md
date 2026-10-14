@@ -11,7 +11,7 @@ There are various ways receipts are provided and transported towards the consume
 
 ## With customer facing display/device 
 
-![Sequence diagram: merchant fiscalizes the receipt via fiskaltrust and shows a QR code; the consumer scans it, gets the HTML receipt and sends feedback](./images/sequenz_diagramm_qr-code_display.png)
+![Sequence diagram: merchant fiscalizes the receipt via fiskaltrust and shows a QR code; the consumer scans it, gets the HTML receipt and sends feedback](./images/qr-code-display-sequence.svg)
 
 *Figure 1. Sequence diagram of providing a digital receipt via a QR-Code on a customer-facing display or device.*
 
@@ -41,7 +41,7 @@ The merchants PosDealer can participate by means of placing orders and intermedi
 
 ## With InStore App
 
-![Sequence diagram: merchant fiscalizes via fiskaltrust, the InStore App shows a receipt QR code for the consumer to scan, with acknowledge and print receipt flows](./images/sequenze_diagramm_instore_app.png)
+![Sequence diagram: merchant fiscalizes via fiskaltrust, the InStore App shows a receipt QR code for the consumer to scan, with acknowledge and print receipt flows](../instore-app/introduction/images/instore-app-sequence.svg)
 
 *Figure 3. Sequence diagram of providing a digital receipt via the InStore App.*
 
