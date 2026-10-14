@@ -68,6 +68,42 @@ Example of a screenshot after a specific step (caption below the image, image an
 3. Select `Save`.
 ```
 
+### UI interaction verbs
+
+Use consistent, precise verbs when describing user interactions.
+
+| Verb | Use when the user… |
+|---|---|
+| **Select** | picks a value or item inside an open drop-down, list, menu or radio-button group, or a checkbox or tab |
+| **Click** | activates a button, link or other clickable element |
+| **Enter** | provides a value in a text field or input |
+| **Type** | types text, when the physical input action matters |
+| **Open** | goes to a page or section, including a full sidebar path such as `PosDealer` > `Invitation`, or expands a drop-down, menu or dialog |
+| **Choose** | makes a decision, or when the specific interaction is not important |
+| **Enable / Disable** | changes a feature's state |
+| **Turn on / Turn off** | operates a toggle switch |
+| **Clear** | deselects a checkbox or removes a selected value |
+| **Browse** | navigates to or locates a file or folder |
+| **Drag and drop** | moves a file or item into a designated area |
+
+- Prefer **Select** over **Click** when the purpose is to choose an option or value, whatever the input device.
+- Do not use **Click** as a generic verb for every interaction, and do not use **Select** and **Click** interchangeably. Keep the verbs consistent within a page and across related pages.
+- **Open** gets the user to something; **Select** picks one item inside it. For one control, the first action is Open and the second is Select: "Open the `Surrogate rights` drop-down and select `Full (Write/Read, Contract Conclusion)`."
+- For Portal navigation, write the whole sidebar path with **Open**: "Open `PosDealer` > `Invitation`", not "Open `PosDealer` and select `Invitation`".
+- When one instruction opens a control and chooses a value, combine both: "Open the `Country` drop-down and select `Germany`."
+- Use the exact UI labels, formatted as described above (backticks).
+- Do not describe a control's behavior or state unless the UI or a reliable source confirms it.
+- Use platform-neutral language. Avoid mouse-specific instructions unless the interaction requires a mouse.
+
+| Preferred | Avoid |
+|---|---|
+| Select `Germany` from the `Country` drop-down. | Click `Germany` in the `Country` drop-down. |
+| Select the `Enable e-invoicing` checkbox. | Click the `Enable e-invoicing` checkbox. |
+| Click `Save` to apply the changes. | Select `Save` to apply the changes. |
+| Enter your API key in the `API key` field. | Click the `API key` field and type your API key. |
+| Open `Configuration` > `Queues`. | Click `Configuration` and click `Queues`. |
+| Turn on the `PosDealer` toggle. | Click the `PosDealer` toggle. |
+
 ## Area-specific guidance
 
 - InStore App: [poscreators/middleware-doc/instore-app/AGENTS.md](poscreators/middleware-doc/instore-app/AGENTS.md)

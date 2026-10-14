@@ -38,7 +38,7 @@ Check your initial configuration in the [fiskaltrust.Portal](https://portal.fisk
 
 Connect your customer (PosOperator):
 
-1. Send the account link to the new PosOperator through the invitation process. For more information, see [Invitation process](./operator-onboarding/invitation-process.md).
+1. Send the account link to the new PosOperator through the invitation process. For more information, see [Invitation](./operator-onboarding/invitation-process.md).
 2. To check the status, open `PosDealer` > `PosOperators` in the Portal. When the link is marked as **Active**, the PosOperator is connected.
 
 :::tip

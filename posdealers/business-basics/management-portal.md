@@ -66,7 +66,7 @@ Open the user menu under your name at the top right to manage your personal sett
 
 In the `PosDealer` menu, you **invite** your customers to fiskaltrust (`Invitation`) and manage their accounts (`PosOperators`). Once a PosOperator accepts your invitation and signs a **contract** for the PosOperator role, their **account is associated** with yours, which enables [surrogating](#surrogating).
 
-For more information, see [Invitation process](../getting-started/operator-onboarding/invitation-process.md).
+For more information, see [Invitation](../getting-started/operator-onboarding/invitation-process.md).
 
 ## Surrogating
 

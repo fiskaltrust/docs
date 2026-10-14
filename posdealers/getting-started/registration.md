@@ -428,4 +428,4 @@ You sent an invitation to a PosOperator with the wrong E-Mail address. As a PosD
 3. Change the E-Mail address in both `Email-address` and `Contact Email-address`, and select `Save`.
 4. Resend the invitation E-Mail with the resend action in the invitation's line (tooltip `Resend invitation to this PosOperator`).
 
-For more information, see [Invitation process](operator-onboarding/invitation-process.md).
+For more information, see [Invitation](operator-onboarding/invitation-process.md).
