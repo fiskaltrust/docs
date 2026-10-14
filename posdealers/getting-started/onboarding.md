@@ -52,14 +52,14 @@ To manage PosOperators on their behalf, see [Surrogating](./operator-onboarding/
 Check that the PosOperator account is configured as follows:
 
 - The **PosOperator** role is assigned. For more information, see [Company Roles](./company-roles.md#principal-roles).
-- The tax number and address are entered correctly. To validate them, open `Company info` > `Master data`, go to the tax number, and check that the `Data Check` (blue checkmark) on the right is present. For more information, see [Master Data](./operator-onboarding/master-data.md).
+- The tax number and address are entered correctly. To validate them, open `Company info` > `Master data`, find the tax number, and check that the `Data Check` (blue checkmark) on the right is present. For more information, see [Master Data](./operator-onboarding/master-data.md).
 
 ## 4. PosOperator architecture
 
 Set up the environment of the PosOperator:
 
 1. Introduce the PosOperator to the fiskaltrust architecture. For more information, see [Architecture](../business-basics/architecture.md).
-2. Create the PosOperator's locations in `Company info` > `Outlets` > `+Add new outlet`.
+2. Open `Company info` > `Outlets` and click `+Add new outlet` to create the PosOperator's locations.
 3. For each location, assign cash registers, add SCUs, and link products or entitlements.
 
 ## 5. Technical implementation
@@ -81,5 +81,5 @@ Receive and sign the **Contract Partner Agreement** (VPA). For more information,
 
 Know where to find help:
 
-- Knowledge articles in the Portal: `Help` > `Knowledge articles` ([direct link](https://portal.fiskaltrust.de/#/KBArticles)).
-- The fiskaltrust documentation: `Help` > `Documentation`, or [docs.fiskaltrust.eu](https://docs.fiskaltrust.eu/).
+- Open `Help` > `Knowledge articles` in the Portal for the knowledge articles ([direct link](https://portal.fiskaltrust.de/#/KBArticles)).
+- Open `Help` > `Documentation` for the fiskaltrust documentation, or go to [docs.fiskaltrust.eu](https://docs.fiskaltrust.eu/).
