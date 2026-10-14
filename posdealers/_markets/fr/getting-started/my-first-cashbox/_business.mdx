@@ -1,33 +1,31 @@
-The *Business rollout* used in this tutorial will acquire entitlements, transfer them to the PosOperators outlets, activate them and eventually create necessary backend components for the CashBox (in this case, a fully operational CashBox). 
+The Business Rollout acquires entitlements, transfers them to the PosOperator's outlets, activates them and creates the backend components for the CashBox. In this example, the result is a fully operational CashBox.
 
-For this setup, we choose a fiskaltrust.ChaîneCloud plan. The fiskaltrust.ChaîneCloud plan will create a ChaîneCloud. For a quick tutorial, we refrain from choosing a PosOperator and its outlets but assign the ChaîneCloud to your account and outlet. 
-
-To start the Business rollout, **log into your portal account** and proceed with the following steps.
+This example uses a fiskaltrust.ChaîneCloud plan, which creates a ChaîneCloud. To keep the tutorial short, you roll out the ChaîneCloud to your own account and outlet instead of to a PosOperator.
 
 :::caution
 
-Please ensure the outlet selected in step 6 has a **valid SIRET code** configured before you create the CashBox.
+The outlet you select in step 7 must have a **valid SIRET code** configured before you create the CashBox.
 
 :::
 
-1. Open the **rollout management page** from [`Rollout Management` / `Plan`](https://portal-sandbox.fiskaltrust.fr/RolloutManagement/Plan) (*Sandbox link*) in the left-hand navigation menu.
-2. Select `Business Rollout - Rolling out products`.
-3. **Filter** for `ChaîneCloud`.
-4. Select the plan **4652-0005**. This plan will create **a ChaîneCloud** for immediate use.
-5. Instead of selecting a PosOperator, choose `Perform the rollout for the current account` on top.
-6. Tick the **desired outlet** where you would like to roll out the product.
-7. Click `Submit Selection`.
-8. Click `Create quote` - *this will take a few seconds. Once the quote is ready, the button will change to `Load quote into cart`.*
-9. Click `Load quote into cart` to **place the quote** into your shopping cart.
-10. Verify that the items in your shopping cart match the selected products.
-11. Click `Checkout`.
-12. Click `binding order` to **complete the order**.
+1. Sign in to the [Sandbox Portal](https://portal-sandbox.fiskaltrust.fr).
+2. In the left-hand navigation menu, click `Rollout management`.
+3. On the `Business Rollout` card (`Rolling out products`), click `Choose`.
+4. On the `Select Product` page, search for `ChaîneCloud`.
+5. On plan **4652-0005**, click `Choose`.
+6. On the `Select PosOperators` page, select your own account, marked `My Account`, and click `Rollout 1 PosOperators`.
+7. On the `Select Outlet` page, select the outlet where you want to roll out the product and click `Rollout 1 outlets`.
+8. On the `Summary` page, check the plan and the outlet, enter a name under `Define a name for the quote`, and click `Create quote & go to basket`. Creating the quote takes a few seconds.
+9. In the shopping cart, verify that the items match the selected products and click `Checkout`.
+10. Click `Order bindingly` to complete the order.
 
------
+The order is listed under `Shop` > `Orders`. Completing the order can take a few minutes. After that, the following items are active in your account:
 
-At this point, should have the order listed under [`Shop` / `Orders`](https://portal-sandbox.fiskaltrust.fr/Shop/Orders). Finishing the order can take a couple of minutes, but once it has been completed, there should be the following items active in your account
+| Item | Location in the Portal |
+|---|---|
+| A new Queue | `Configuration` > `Queues` |
+| A new CashBox | `Configuration` > `CashBoxes` |
+| A new SCU | `Configuration` > `Signature creation unit` |
+| A new demo subscription | `Shop` > `Subscriptions` |
 
-* a **new queue** under [`Configuration` / `Queue`](https://portal-sandbox.fiskaltrust.fr/Queue)
-* a **new CashBox** under [`Configuration` / `CashBox`](https://portal-sandbox.fiskaltrust.fr/CashBox)
-* a **new SCU** under [`Configuration` / `Signature creation unit`](https://portal-sandbox.fiskaltrust.fr/SignatureCreationUnitFR)
-* a **new demo subscriptions** under [`Shop` / `Subscriptions`](https://portal-sandbox.fiskaltrust.fr/Shop/Subscriptions)
+*Table 1. Items created by the Business Rollout.*

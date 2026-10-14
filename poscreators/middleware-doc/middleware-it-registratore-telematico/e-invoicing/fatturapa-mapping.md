@@ -13,7 +13,7 @@ The FatturaPA is **generated as part of `/sign`** by the fiskaltrust eInvoicing 
 
 The fiskaltrust.Middleware calls the service twice for every receipt you send to `/sign`:
 
-1. **Validate — before fiscalization.** The service receives the `ReceiptRequest`, decides whether the receipt gets a FatturaPA, and checks it against the [validation rules](#validation-rules). A receipt that breaks a rule is **rejected and not fiscalized**: the response carries an error state and a signature naming the reason. Correct the receipt and send it again.
+1. **Validate — before fiscalization.** The service receives the `ReceiptRequest`, decides whether the receipt gets a FatturaPA, and checks it against the [validation rules](#validation-rules). A receipt that breaks a rule is **rejected and not fiscalized**: the response carries an error state and an `einvoicing-rejected` signature listing every broken rule, separated by `; `. Correct the receipt and send it again.
 2. **Process — after fiscalization.** The service receives the `ReceiptRequest` and the fiscalized `ReceiptResponse`, runs the same rules again, builds the FatturaPA XML, checks the built document against the FatturaPA rules, and appends the result to `ftSignatures` (see [Output](#output)).
 
 Everything that can be decided from the request and the merchant's account is checked in the validate step, so a receipt is rejected before a fiscal record exists.
@@ -146,14 +146,20 @@ How SDI delivers the invoice to the buyer is sent in `cbCustomer` as **`Customer
 | `TipoDocumento` | `TD04` for a refund receipt, `TD01` for any other. See [Document types](#document-types). |
 | `Divisa` | `EUR` |
 | `Data` | Date part of `ftReceiptMoment` of the `ReceiptResponse`. |
-| `Numero` | The invoice number from the merchant's own progressive series. |
+| `Numero` | Assigned by the fiskaltrust eInvoicing service: the next number of the merchant's progressive series. See [Invoice numbers](#invoice-numbers). |
 | `ImportoTotaleDocumento` | Sum of `ImponibileImporto` + `Imposta` over all `DatiRiepilogo` blocks. |
 
 *Table 9. Mapping of `DatiGeneraliDocumento`.*
 
 #### Invoice numbers
 
-An invoice number must not have been issued already for the same merchant and year (SdI 00404). Credit notes (TD04) have a number space of their own. If another receipt with the same number is processed at the same moment and registers it first, the process step of the second one fails with an `einvoice-error` naming SdI 00404, and no FatturaPA is returned for it. The fiskaltrust `ftReceiptIdentification` is not used as the number: it is a receipt counter, not a per-year series, and it collides across the cashboxes of one merchant.
+You do not send an invoice number. The fiskaltrust eInvoicing service assigns it in the process step: the next number of the merchant's progressive series — `1`, `2`, `3` … — per merchant and year. All cashboxes of the merchant share the series, and credit notes (TD04) have a series of their own. A retried receipt keeps the number it was given, so no number is issued twice (SdI 00404).
+
+The number is in the returned FatturaPA (`DatiGeneraliDocumento/Numero`). It is not known in the validate step, which runs before the receipt is fiscalized.
+
+If the merchant also issues invoices from another system, those must use a separate series: the fiskaltrust eInvoicing service does not know about them.
+
+The fiskaltrust `ftReceiptIdentification` is not used as the number: it is a receipt counter, not a per-year series, and it collides across the cashboxes of one merchant.
 
 ### Body — `DatiFattureCollegate`
 

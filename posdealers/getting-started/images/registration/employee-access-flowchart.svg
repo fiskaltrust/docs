@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1180" height="940" viewBox="0 0 1180 940" font-family="IBM Plex Sans, Helvetica Neue, Arial, sans-serif">
+  <title>Workflow for diagnosing access complaints of employees in the fiskaltrust.Portal</title>
+  <desc>Flowchart: if the employee has no access, the PosDealer checks Company info &gt; Employees, the E-Mail address and that at least Read is enabled, then checks that the employee confirmed the E-Mail invitation and uses the correct link for the employee assignment. If the employee has access but gets error messages, the PosDealer checks Company info &gt; Employees and the employee's authorizations.</desc>
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#002A34"/></marker>
+  </defs>
+    <rect x="0" y="0" width="1180" height="940" fill="#FFFFFF"/>
+  <rect x="20" y="20" width="1140" height="900" fill="#FFFFFF" stroke="#002A34" stroke-width="1.5"/>
+  <line x1="20" y1="56" x2="1160" y2="56" stroke="#002A34" stroke-width="1.5"/>
+  <text text-anchor="start" font-size="18" font-weight="600" fill="#002A34"><tspan x="36" y="44.3">Workflow - employees complain about access</tspan></text>
+  <rect x="20" y="56" width="780" height="34" fill="#E5E6E7" stroke="#002A34" stroke-width="1.5"/>
+  <rect x="800" y="56" width="360" height="34" fill="#E5F6FB" stroke="#002A34" stroke-width="1.5"/>
+  <text text-anchor="middle" font-size="16" font-weight="600" fill="#002A34"><tspan x="410.0" y="78.6">PosDealer · fiskaltrust.Portal</tspan></text>
+  <text text-anchor="middle" font-size="16" font-weight="600" fill="#002A34"><tspan x="980.0" y="78.6">Employee · E-Mail</tspan></text>
+  <line x1="800" y1="90" x2="800" y2="920" stroke="#002A34" stroke-width="1.5"/>
+  <rect x="260.0" y="118.0" width="300" height="64" rx="32" fill="#FFFFFF" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="410" y="145.2">Employees complain about access</tspan><tspan x="410" y="166.0">to the fiskaltrust.Portal</tspan></text>
+  <path d="M410,182 V222" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+  <polygon points="410,224 560,300 410,376 260,300" fill="#FDF0D6" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="15" fill="#002A34"><tspan x="410" y="285.8">Access to the</tspan><tspan x="410" y="305.2">fiskaltrust.Portal</tspan><tspan x="410" y="324.8">is given?</tspan></text>
+  <path d="M260,300 H170 V342" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+  <text text-anchor="middle" font-size="13" font-family="IBM Plex Mono, monospace" letter-spacing="1.8" fill="#676A69"><tspan x="220" y="292.6">NO</tspan></text>
+  <rect x="60.0" y="344.0" width="220" height="72" rx="10" fill="#FFFFFF" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="170" y="375.2">Check</tspan><tspan x="170" y="396.0">Company info > Employees</tspan></text>
+  <path d="M170,416 V462" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+  <rect x="60.0" y="464.0" width="220" height="72" rx="10" fill="#FFFFFF" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="170" y="495.2">Check that the E-Mail</tspan><tspan x="170" y="516.0">address is correct</tspan></text>
+  <path d="M170,536 V582" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+  <rect x="60.0" y="584.0" width="220" height="72" rx="10" fill="#FFFFFF" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="170" y="615.2">Check that at least</tspan><tspan x="170" y="636.0">Read is enabled</tspan></text>
+  <path d="M170,656 V720 H858" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+  <polygon points="888.0,684.0 1108.0,684.0 1072.0,756.0 852.0,756.0" fill="#E5F6FB" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="980" y="715.2">Check that the E-Mail</tspan><tspan x="980" y="736.0">invitation was confirmed</tspan></text>
+  <path d="M980,756 V802" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+  <polygon points="878.0,804.0 1118.0,804.0 1082.0,876.0 842.0,876.0" fill="#E5F6FB" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="980" y="824.8">Check that the correct link</tspan><tspan x="980" y="845.6">for the employee</tspan><tspan x="980" y="866.4">assignment is used</tspan></text>
+  <path d="M560,300 H650 V342" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+  <text text-anchor="middle" font-size="13" font-family="IBM Plex Mono, monospace" letter-spacing="1.8" fill="#676A69"><tspan x="600" y="292.6">YES</tspan></text>
+  <rect x="540.0" y="344.0" width="220" height="72" rx="10" fill="#FFFFFF" stroke="#ED5565" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="650" y="375.2">Error messages when</tspan><tspan x="650" y="396.0">using the Portal</tspan></text>
+  <path d="M650,416 V462" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+  <rect x="540.0" y="464.0" width="220" height="72" rx="10" fill="#FFFFFF" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="650" y="495.2">Check</tspan><tspan x="650" y="516.0">Company info > Employees</tspan></text>
+  <path d="M650,536 V582" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+  <rect x="540.0" y="584.0" width="220" height="72" rx="10" fill="#FFFFFF" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="650" y="615.2">Check the employee's</tspan><tspan x="650" y="636.0">authorizations</tspan></text>
+</svg>

@@ -8,24 +8,22 @@ tags: [CashBox, Rollout Plans, Middleware, Onboarding, PosDealers]
 
 :::info summary
 
-After reading this, you can create a CashBox and have a functioning fiskaltrust.Middleware instance.
+After reading this, you can create a CashBox in the Sandbox and have a functioning fiskaltrust.Middleware instance.
 
 :::
 
-## Introduction
+As a PosDealer, you have two options to create your first CashBox in the fiskaltrust.Portal:
 
-Our fiskaltrust.Portal supports you as a PosDealer with two options to create your first CashBox.  
-We recommend [Rollout plans](#business-rollout) as our **deployment wizards** in the fiskaltrust.Portal. With Rollout Plans, you enjoy high security when creating, buying and setting up CashBoxes and related components for your PosOperators. Additionally, you save time by being able to select several PosOperators as well as several outlets at the same time.  
+- **Rollout plans (recommended)**: the deployment wizards of the Portal. They create, buy and set up CashBoxes and related components for your PosOperators, and you can select several PosOperators and outlets at the same time. For more information, see [Rollout plans](#rollout-plans).
+- **Manual configuration**: you create the components yourself. First read [Architecture](../business-basics/architecture.md) to learn which components a CashBox needs, then follow [Manual CashBox Creation](../technical-operations/middleware/manual-configuration.md).
 
-If you want to create a configuration manually, first read the [Architecture](../business-basics/architecture.md) section to learn more about the components needed to create a CashBox then follow the guide for [Manual Configuration](../technical-operations/middleware/manual-configuration.md).
-
-Both options require legally or commercially necessary preparations. These have been described and explained previously in this documentation. In the section [Prerequisites](#prerequisites), you will find them again summarized.
+Both options require the legal and commercial preparations described earlier in this documentation. They are summarized under [Prerequisites](#prerequisites).
 
 :::tip
 
-Please make sure you use your [Sandbox](sandbox.md) account. So you avoid a bill on your account. 
+Use your [Sandbox](sandbox.md) account to avoid charges on your account.
 
-If you don't have one yet, please get in touch with your *PosCreator* for invitation details or [register](registration.md) a new PosDealer Sandbox account yourself.
+If you do not have a Sandbox account yet, ask your PosCreator for an invitation or [register](registration.md) a new PosDealer Sandbox account yourself.
 
 :::
 
@@ -35,25 +33,27 @@ If you don't have one yet, please get in touch with your *PosCreator* for invita
 
 ## Prerequisites
 
-Before we roll out our Middleware instance, the following prerequisites must be in place:
+Before you roll out a Middleware instance, make sure that the following prerequisites are in place:
 
-* A working **Internet connection** (_please see [Network Requirements](../technical-operations/middleware/network-requirements.md)_)
-* An active **PosDealer account** (*either by [registration](registration.md) or by invitation through your PosCreator*) at the fiskaltrust.Portal (Sandbox). Then, as a PosDealer, you can check `PosSystems` too to ensure that a `PosSystemId` is available. Note that this menu item is not available in the account of PosOperators.
-* A checked set of Master Data and at least one outlet (_please see [Master Data](../getting-started/operator-onboarding/master-data.md)_)
-* If you use a local middleware installation, a system meeting the hardware and software **[requirements](../technical-operations/middleware/supported-environments.md)**
-* Any **SSCD components** (*hardware or SaaS credentials*) required for the setup, unless created during the setup itself
+- A working **Internet connection**. For more information, see [Network Requirements](../technical-operations/middleware/network-requirements.md).
+- An active **PosDealer account** in the fiskaltrust.Portal (Sandbox), either by [registration](registration.md) or by invitation through your PosCreator. In the `PosSystems` menu, check that a `PosSystemId` is available. This menu is not available in PosOperator accounts.
+- Checked **master data** and at least one **outlet**. For more information, see [Master Data](operator-onboarding/master-data.md).
+- For a local Middleware installation: a system that meets the **hardware and software requirements**. For more information, see [Supported Environments](../technical-operations/middleware/supported-environments.md).
+- Any **SSCD components** (hardware or SaaS credentials) that the setup requires, unless the setup itself creates them.
 
-## Rollout Plans
+## Rollout plans
 
-### Business Rollout 
+### Business Rollout
 
-A rollout plan typically follows these five steps:
+A Business Rollout follows these steps:
 
-1. Select the **product** you'd like to roll out.
-2. Select one or more **PosOperators** for which you plan the rollout.
-3. Select one or more **outlets** where you want to perform the rollout.
-4. Create a **quote** and load the quote into your **shopping cart**
-5. Perform the **checkout**
+1. Select the **product** you want to roll out.
+2. Select one or more **PosOperators** for the rollout.
+3. Select one or more **outlets** for the rollout.
+4. Create a **quote** and load it into your **shopping cart**.
+5. Complete the **checkout**.
+
+The following example walks through these steps for your own account in the Sandbox.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
@@ -108,15 +108,22 @@ import BusinessRolloutES from '../_markets/es/getting-started/my-first-cashbox/_
 
 </Tabs>
 
+## Start the Middleware
+
+The CashBox configuration determines how the Middleware runs:
+
+- **CloudCashbox**: fiskaltrust operates the Middleware, so you do not download anything. To connect, use the URL in the Queue configuration. For more information, see [CloudCashbox](../technical-operations/middleware/launchers/cloudcashbox.md).
+- **Local Middleware**: in `Configuration` > `CashBoxes`, click `Download` in the row of your CashBox to download the Launcher, then start it. The Launcher fetches the CashBox configuration each time it starts, so configuration changes apply after a restart. For more information, see [Windows, Linux & macOS](../technical-operations/middleware/launchers/desktop.md) and [Android](../technical-operations/middleware/launchers/android.md).
+
 ## Running a test request
 
-Once the Middleware has been deployed and started, it is advisable to perform a quick check if the Middleware is generally available and responds to requests.
+After the Middleware is deployed and started, check that it is available and responds to requests.
 
-For that purpose, the Middleware features an echo/ping request type that responds with the received data. If you successfully get a response, the Middleware should also be ready to accept your signing requests.
+The Middleware provides an echo request that returns the data it receives. If you get a response, the Middleware is also ready to accept signing requests.
 
-:::tip postman collection
+:::tip Postman collection
 
-For Postman, you can download a request collection from the [Github repository](https://github.com/fiskaltrust/middleware-demo-postman).
+For Postman, you can download a request collection from the [GitHub repository](https://github.com/fiskaltrust/middleware-demo-postman).
 
 :::
 
