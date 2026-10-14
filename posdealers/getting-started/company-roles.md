@@ -14,9 +14,9 @@ After reading, you can activate or deactivate appropriate roles for customers an
 
 fiskaltrust distinguishes between four principal **company roles** in the fiskaltrust.Portal. Each role has its own audience, features and permissions. You find the roles of your company in `Company info` > `Overview`, in the `Roles` section.
 
-![Portal company overview with role sliders for PosOperator, PosDealer, PosDealer auto-invitation, PosCreator and Consultant](./images/company-roles/roles.png)
+![Roles section on the Company overview page in the fiskaltrust.Portal, with the role descriptions and sliders for PosOperator, PosDealer, PosCreator, Consultant and AppCreator, all switched off](./images/company-roles/roles.png)
 
-*Figure 1. Overview of the principal company roles in the fiskaltrust.Portal.*
+*Figure 1. The `Roles` section in `Company info` > `Overview`.*
 
 ## Principal roles
 
