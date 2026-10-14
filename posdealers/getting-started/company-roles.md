@@ -12,7 +12,7 @@ After reading, you can activate or deactivate appropriate roles for customers an
 
 :::
 
-fiskaltrust distinguishes between four principal **company roles** in the fiskaltrust.Portal. Each role has its own audience, features and permissions. You find the roles of your company in `Company info` > `Overview`, in the `Roles` section.
+fiskaltrust distinguishes between five principal **company roles** in the fiskaltrust.Portal. Each role has its own audience, features and permissions. You find the roles of your company in `Company info` > `Overview`, in the `Roles` section.
 
 ![Roles section on the Company overview page in the fiskaltrust.Portal, with the role descriptions and sliders for PosOperator, PosDealer, PosCreator, Consultant and AppCreator, all switched off](./images/company-roles/roles.png)
 
@@ -24,23 +24,23 @@ fiskaltrust distinguishes between four principal **company roles** in the fiskal
 | ---- | ----------- |
 | **PosOperator** | For **end users of POS systems** who manage their POS receipts in the context of the fiskaltrust services. They purchased the POS platform from their PosDealer and operate the POS system.<br /><br />Accounts with this role use the Portal primarily to access their fiscal data and to perform maintenance steps not covered by their PosDealer. |
 | **PosDealer** | For **POS system distributors** who sell POS systems to PosOperators and support and maintain these setups.<br /><br />Accounts with this role use the Portal primarily to act on behalf of their PosOperators. The PosDealer role includes invitation management, a credit limit, rollouts of CashBox setups and maintenance for PosOperators. |
-| **PosDealer auto-invitation (opt-in)** (Germany and Italy only) | An **optional add-on** to the PosDealer role for POS system distributors who want to automate the onboarding of their PosOperators as much as possible.<br /><br />Accounts with this role get an extended onboarding user interface. It allows them to fully and legally activate a PosOperator's account by signing the PosOperator's partner contracts as a representative, instead of sending a regular invitation that the PosOperator must accept first.<br /><br />The slider is only shown when the PosDealer role is active. **This role may require particular attention to legal aspects on your side.** |
 | **PosCreator** | For **manufacturers who develop POS systems**. PosCreators are not involved in the rollout at PosOperators; they focus on the technical integration of the Middleware.<br /><br />PosCreators use the Portal primarily to enter their POS systems and to invite PosDealers to use them. In addition to the business areas and properties of the POS system, the Portal creates a `PosSystemId` as a unique identifier.<br /><br />**The `PosSystemId` is currently not mandatory in every country, but its use in the fiskaltrust.Portal is crucial for our compliance service.** |
 | **Consultant** | For **tax consultants** who advise PosOperators on related topics.<br /><br />Accounts with this role use the Portal primarily to access the fiscal data of associated and authorized PosOperator accounts. |
+| **AppCreator** | For individuals or entities that register and integrate third-party applications in the fiskaltrust.Portal. |
 
 *Table 1. Principal company roles.*
 
 ## Additional roles
 
-Depending on the market and the features enabled for your account, the `Roles` section can show further roles.
+Depending on the market, the `Roles` section can show further roles.
 
 | Role | Shown in | Description |
 | ---- | -------- | ----------- |
-| **AppCreator** | Accounts with the AppCreator feature enabled | For individuals or entities that register and integrate third-party applications in the fiskaltrust.Portal. |
+| **PosDealer auto-invitation (opt-in)** | Germany and Italy | An **optional add-on** to the PosDealer role for POS system distributors who want to automate the onboarding of their PosOperators as much as possible.<br /><br />Accounts with this role get an extended onboarding user interface. It allows them to fully and legally activate a PosOperator's account by signing the PosOperator's partner contracts as a representative, instead of sending a regular invitation that the PosOperator must accept first.<br /><br />The slider is only shown when the PosDealer role is active. **This role may require particular attention to legal aspects on your side.** |
 | **PosDealer for RKSV Sign** | Austria | Adds the capability to manage RKSV.Sign products in the account. RKSV.Sign is a sign-only product in Austria that replaces HSMs and smart cards in existing implementations for POS systems where the Middleware cannot be used. |
 | **PosOperatorOptInIVAServizi** | Italy | For PosOperators who manage the provision of access credentials or delegation. To deactivate the PosOperator role, deactivate this role first. |
 
-*Table 2. Additional roles shown depending on market and enabled features.*
+*Table 2. Additional roles shown depending on the market.*
 
 :::caution
 
