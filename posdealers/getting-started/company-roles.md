@@ -56,12 +56,12 @@ You can select more than one role. **Only pick the roles that apply to your busi
 ## How to activate a role
 
 1. In the left-hand navigation, open `Company info` > `Overview`.
-2. In the `Roles` section, **switch on the toggle** of the role you want to activate: from <em><img src={require("./images/company-roles/toggle-off.png").default} alt="Role toggle switched off" width="34" style={{verticalAlign: "middle"}} /></em> to <em><img src={require("./images/company-roles/toggle-on.png").default} alt="Role toggle switched on" width="34" style={{verticalAlign: "middle"}} /></em>. The Portal opens the agreement page of the role.
+2. In the `Roles` section, **turn on the toggle** of the role you want to activate: from <em><img src={require("./images/company-roles/toggle-off.png").default} alt="Role toggle switched off" width="34" style={{verticalAlign: "middle"}} /></em> to <em><img src={require("./images/company-roles/toggle-on.png").default} alt="Role toggle switched on" width="34" style={{verticalAlign: "middle"}} /></em>. The Portal opens the agreement page of the role.
 
 3. Read the **agreement**.
 4. Enter your **legal name** in the `Signatory` field at the bottom of the page.
 5. Select the checkbox `Read and accepted T&C and Privacy Policy`.
-6. Select `Sign`.
+6. Click `Sign`.
 
    ![PosDealer Contract page in the fiskaltrust.Portal with the contract text (blurred), the Signatory field, the checkbox to accept the terms and conditions and the privacy policy, and the Cancel and Sign buttons](./images/company-roles/sign-contract.png)
 
@@ -72,7 +72,7 @@ You can select more than one role. **Only pick the roles that apply to your busi
 ## How to deactivate a role
 
 1. In the left-hand navigation, open `Company info` > `Overview`.
-2. In the `Roles` section, **switch off the toggle** of the role you want to deactivate: from <em><img src={require("./images/company-roles/toggle-on.png").default} alt="Role toggle switched on" width="34" style={{verticalAlign: "middle"}} /></em> to <em><img src={require("./images/company-roles/toggle-off.png").default} alt="Role toggle switched off" width="34" style={{verticalAlign: "middle"}} /></em>. The Portal opens the confirmation page for the termination of the role contract.
+2. In the `Roles` section, **turn off the toggle** of the role you want to deactivate: from <em><img src={require("./images/company-roles/toggle-on.png").default} alt="Role toggle switched on" width="34" style={{verticalAlign: "middle"}} /></em> to <em><img src={require("./images/company-roles/toggle-off.png").default} alt="Role toggle switched off" width="34" style={{verticalAlign: "middle"}} /></em>. The Portal opens the confirmation page for the termination of the role contract.
 
    ![Roles section on the Company overview page in the fiskaltrust.Portal with the PosDealer toggle switched on, the confirmation that the company is assigned as PosDealer and the Download Contract button; PosOperator shows the note that the role was disabled, and the toggles for PosCreator, Consultant and AppCreator are switched off](./images/company-roles/role-deactivate.png)
 
@@ -80,10 +80,10 @@ You can select more than one role. **Only pick the roles that apply to your busi
 
 3. Enter your **legal name** in the `Signatory` field at the bottom of the page.
 4. Select the checkbox `Read and accepted T&C and Privacy Policy`.
-5. Select `Sign`.
+5. Click `Sign`.
 
    ![PosDealer Contract termination page in the fiskaltrust.Portal with the note that the existing contract is terminated, the company address, the termination text (blurred), the Signatory field, the checkbox to accept the terms and conditions and the privacy policy, and the Cancel and Sign buttons](./images/company-roles/cancel-contract.png)
 
    *Figure 4. Termination page of a role, here for the PosDealer role, with the `Signatory` field and the `Sign` button.*
 
-**Result:** The role is inactive for your account. You receive an email confirming the deactivation of the role. To activate the role again, switch on its toggle and sign the agreement again.
+**Result:** The role is inactive for your account. You receive an email confirming the deactivation of the role. To activate the role again, turn on its toggle and sign the agreement again.
