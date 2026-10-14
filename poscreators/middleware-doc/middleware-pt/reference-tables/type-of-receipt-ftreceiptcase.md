@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/portugal/reference-tables/ftreceiptcase
 title: 'Type of Receipt: ftReceiptCase'
+description: ftReceiptCase format, receipt case types, and global and local flags for Portugal (country code 0x5054).
+tags: [Receipt Case, Portugal, Reference Tables]
 ---
 
 # Type of Receipt: ftReceiptCase
@@ -47,6 +49,8 @@ version 2
 | `0003` | **Point-Of-Sale receipt without fiscalization**<br />Obligation or with exception on fiscalization regulation | 1.3.45 |
 | `0004` | **E-Commerce receipt type** | 1.3.45 |
 | `0005` | **Delivery Note** | 1.3.45 |
+| `0006` | **Table check (*Consulta de mesa*, SAF-T type `CM`)**<br />Working document that records the open items of a table or order and can be handed to the customer to check goods or services before invoicing. Must not contain `cbPayItems`. Is numbered in its own series, signed, and exported as a `WorkingDocument`; the response carries the notice *Este documento não serve de fatura*. An invoice (`1xxx`) that references the table check via `cbPreviousReceiptReference` sets its status to invoiced; only the last table check of a chain may be invoiced, and an invoiced or voided table check cannot be used again. | 1.3.83 |
+| `0007` | **Pro forma invoice (*Fatura pró-forma*, SAF-T type `PF`)**<br />Working document offered to the customer before the sale. Must not contain `cbPayItems` and must not carry the `HasTransportInformation` flag. Is numbered in its own series, signed, and exported as a `WorkingDocument`; the response carries the notice *Este documento não serve de fatura*. Referencing it from an invoice generates `OrderReferences` and sets the pro forma to invoiced.<br /><br />With the local flag `002` (see Table 5) the same receipt case issues a **budget** (*Orçamento*, SAF-T type `OR`) in a separate series. | 1.3.83 |
 | `1000` | **Unknown invoice type** | 1.3.45 |
 | `1001` | **B2C invoice type** | 1.3.45 |
 | `1002` | **B2B invoice type** | 1.3.45 |
@@ -84,7 +88,7 @@ version 2
 | `0080` | **IsSaleInForeignCountry** | 1.3.45 |
 | `0100` | **IsReturn/IsRefund**<br />Marks Receipt as Return of good or service. | 1.3.45 |
 | `0800` | **Group by Position-Number / 100**<br />100 = first position, 101 first subitem, 102 second subitem.<br />The sum of all chargeitems within a position must count toward the total receipt amount.<br />If the quantity and amount are 0,00, the quantity and amount will not be visualized for this line on the digital receipt. Independent if main or subitem. | 1.3.45 |
-| `8000` | **ReceiptRequest**<br />If you don’t receive a response, try this flag first before taking any other action.<br />This will return a stored result for example in case of a timeout when cashregister calls queue. | 1.3.45 |
+| `8000` | **ReceiptRequest**<br />Returns the stored response of an already processed receipt with the same `cbReceiptReference` instead of processing it again.<br />To recover from a missing response or a timeout, retry the request with the same `x-operation-id` instead (see [Process-Driven and Idempotent Design](../../possystem-api/introduction.md#process-driven-and-idempotent-design)). | 1.3.45 |
 
 *Table 4. Global tagging/flag (gggg) values of ftReceiptCase for Portugal.*
 
@@ -92,6 +96,6 @@ version 2
 
 | **Value** | **Description** | **Middleware version** |
 | --------- | --------------- | ---------------------- |
-| TBD | TBD | TBD |
+| `002` | **Budget (*Orçamento*)**<br />Only valid together with the pro forma receipt case `0007`: `0x5054_2002_0000_0007` issues a budget (SAF-T type `OR`) in the budget series instead of a pro forma. All other rules of the pro forma apply. | 1.3.83 |
 
-*Table 5. Local tagging/flag (lll) values of ftReceiptCase for Portugal (to be defined).*
+*Table 5. Local tagging/flag (lll) values of ftReceiptCase for Portugal.*

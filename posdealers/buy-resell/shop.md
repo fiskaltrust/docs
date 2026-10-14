@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/buy-resell/shop
 title: Shop
+description: Buying products and entitlements manually in the Portal shop, transferring them to PosOperator outlets, and finding orders and invoices.
+tags: [Shop, Entitlements, Portal, PosDealers]
 ---
 # Shop
 

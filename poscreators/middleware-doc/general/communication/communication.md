@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/general/communication
 title: Communication
+description: Communication protocols supported by fiskaltrust.Middleware — gRPC, REST, WCF and user-specific — and how to set them in the Portal.
+tags: [Communication, gRPC, REST, WCF, Middleware]
 ---
 
 # Communication
@@ -15,7 +17,7 @@ The fiskaltrust.Middleware supports different communication protocols, effective
 
 The communication protocol is specified by setting the respective URL in the package configuration of the fiskaltrust.Portal. The buttons to the right of the URL field can be used to quickly insert the respective URL:
 
-![queue-configuration](./images/url-configuration.png)
+![Portal Queue package configuration with the URL field and gRPC, http (REST), http (SOAP) and net.pipe (SOAP) buttons](./images/url-configuration.png)
 
 *Figure 1. Package configuration page in the fiskaltrust.Portal where the communication protocol URL is set.*
 
@@ -51,7 +53,7 @@ We recommend using REST in case you're already familiar with its principles and 
 
 ### Country specifics
 
-In Austria and France, REST can currently only be used by adding a _helper_ package provided by fiskaltrust. For more information, see the [Austrian appendix](../../middleware-at-rksv/communication/communication.md). In Germany, the Middleware natively supports REST without using a helper.
+In Austria and France, REST can currently only be used by adding a _helper_ package provided by fiskaltrust. In Germany, the Middleware natively supports REST without using a helper.
 
 ## WCF Web Service
 

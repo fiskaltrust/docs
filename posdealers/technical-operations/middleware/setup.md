@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/technical-operations/middleware/setup
 title: Setup
+description: Structure of a locally deployed .NET Middleware — the files in the installation directory and the contents of the data directory.
+tags: [Data Directory, Installation, Middleware, PosDealers]
 ---
 # Setup
 

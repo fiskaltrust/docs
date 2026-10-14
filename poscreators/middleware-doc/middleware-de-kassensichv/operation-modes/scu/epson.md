@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/germany/scu/epson
 title: Epson-TSE
+description: BSI certification, SCU parameters, configuration and troubleshooting for connecting the German Middleware to an Epson hardware TSE.
+tags: [Germany, Epson, TSE, SCU, Certification, Troubleshooting]
 ---
 
 # Epson Hardware-TSE
@@ -44,7 +46,7 @@ Please pay attention to the case-sensitive use of the parameters.
 
 ### Configuration
 
-![scu-de-epson-config](../images/scu-de-epson-config.png)
+![Portal Epson SCU configuration form with Host, Port, DeviceId, Description, Package version and endpoint URL fields](../images/scu-de-epson-config.png)
 
 *Figure 1. Configuration settings for the Epson SCU in the fiskaltrust.Portal.*
 
@@ -57,7 +59,7 @@ Please pay attention to the case-sensitive use of the parameters.
 | Problem                                                      | Possible cause                                               | Solution                                                     |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **The Developer TSE requests a self-test even though it has been unplugged and plugged in** |                                                              | Please perform a factory reset on the Developer TSE according to the manufacturer's instructions. |
-| **Connection with the USB Epson TSE directly plugged into the cash register cannot be established** |                                                              | Please ensure that the Epson driver for the TSE has been installed. You can download the driver from the following URL: https://download.epson-biz.com/modules/pos/?page=prod&pcat=51&pid=6397. <br />This does not apply to the use of the USB Epson TSE in an Epson server. |
+| **Connection with the USB Epson TSE directly plugged into the cash register cannot be established** |                                                              | Please ensure that the Epson driver for the TSE has been installed. You can [download the driver](https://download.epson-biz.com/modules/pos/?page=prod&pcat=51&pid=6397) from Epson. <br />This does not apply to the use of the USB Epson TSE in an Epson server. |
 | **USB Epson TSE do not work on a printer.**                  | For use on the printer, Epson only supports MicroSD Epson TSE. | Please use MicroSD Epson TSE for the use on the printer.     |
 
 *Table 3. Troubleshooting common issues with the Epson TSE.*

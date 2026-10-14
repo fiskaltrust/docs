@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/technical-operations/troubleshooting/network-troubleshooting
 title: Network troubleshooting
+description: How to diagnose Middleware network issues — verifying online mode, the fiskaltrust firewall script, and common DNS, network, SSL, and Queue/SCU errors.
+tags: [Network Troubleshooting, Troubleshooting, Middleware, Proxy, PosDealers]
 ---
 # Network troubleshooting
 
@@ -72,16 +74,18 @@ Full                             4.8.04084      528372
 Client                           4.0.0.0
 
 We're all good!
-Status: (SUCCESS) -- Purpose: ft cashbox download & upload receipt data
+Status: (SUCCESS) -- Purpose: ft upload receipt data
+Status: (SUCCESS) -- Purpose: ft cashbox download & upload receipt data (fallback)
 Status: (SUCCESS) -- Purpose: ft download packages
 Status: (SUCCESS) -- Purpose: ft error reporting
 Full Results below:
 
-Url                                        Purpose                                   Notes From
----                                        -------                                   ----- ----
-https://helipad.fiskaltrust.cloud/version  ft cashbox download & upload receipt data okay  COMPUTER-NAME
-https://packages.fiskaltrust.cloud/version ft download packages                      okay  COMPUTER-NAME
-https://dc.services.visualstudio.com/      ft error reporting                        okay  COMPUTER-NAME
+Url                                        Purpose                                              Notes From
+---                                        -------                                              ----- ----
+https://helipad.fiskaltrust.eu/version     ft upload receipt data                               okay  COMPUTER-NAME
+https://helipad.fiskaltrust.cloud/version  ft cashbox download & upload receipt data (fallback) okay  COMPUTER-NAME
+https://packages.fiskaltrust.cloud/version ft download packages                                 okay  COMPUTER-NAME
+https://dc.services.visualstudio.com/      ft error reporting                                   okay  COMPUTER-NAME
 ```
 
 The output's last table (with `Url`) is attractive, as it indicates which network connections succeeded. Analyzing the log
@@ -96,6 +100,7 @@ If you find any of the following error messages in the log output, it may sugges
 | Unable to connect to the remote server                           | [General network issues](#network) (e.g., ports blocked)       |
 | The request was aborted: Could not create SSL/TLS secure channel | [SSL issues](#ssl)                                             |
 | Failed to connect to all addresses                               | [Connection issue between queue and SCU](#queuescu-connection) |
+| `Helipad endpoint https://helipad.fiskaltrust.eu/ cannot be reached` | `helipad.fiskaltrust.eu` is blocked; uploads fall back to `helipad.fiskaltrust.cloud` (see [Network Requirements](../middleware/network-requirements.md)) |
 
 *Table 1. Common error messages and the network issues they typically indicate.*
 
@@ -175,7 +180,7 @@ If the screen immediately clears and only shows a text cursor, you have establis
 
 All outbound connections established by the Middleware are HTTPS-protected and require a properly configured SSL setup, particularly regarding the SSL version and the root certificates of the involved certificate authorities.
 
-If your Middleware instance provided you with error messages which indicate possible SSL issues, you could first run the check from [Checking web services](#checking-web-services) (please make sure to use an HTTPS URL). Depending on its output, you can also use additional tools, such as [OpenSSL](https://wiki.openssl.org/index.php/Binaries), to run other checks. For example, the following command would try to establish an SSL connection to `packages.fiskaltrust.cloud` on port 443 (i.e. `https://packages.fiskaltrust.cloud`)
+If your Middleware instance provided you with error messages which indicate possible SSL issues, you could first run the check from [Checking web services](#checking-web-services) (please make sure to use an HTTPS URL). Depending on its output, you can also use additional tools, such as [OpenSSL](https://github.com/openssl/openssl/wiki/Binaries), to run other checks. For example, the following command would try to establish an SSL connection to `packages.fiskaltrust.cloud` on port 443 (i.e. `https://packages.fiskaltrust.cloud`)
 
 ```console
 openssl s_client -connect packages.fiskaltrust.cloud:443 -servername packages.fiskaltrust.cloud

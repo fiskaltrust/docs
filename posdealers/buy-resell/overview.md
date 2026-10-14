@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/buy-resell/overview
 title: Overview - Buy & Resell
+description: How PosDealers buy entitlements and resell fiskaltrust products, including credit limits, volume purchase agreements and price lists.
+tags: [Entitlements, Volume Purchase Agreement, Pricing, PosDealers, Portal]
 ---
 # Overview - Buy & Resell
 
@@ -51,13 +53,23 @@ import TabItem from '@theme/TabItem';
 ## Contact information and pricelists
 
 import VolumePurchaseAT from '../_markets/at/buy-resell/volume-purchase-agreement/_volume.mdx';
+import VolumePurchaseBE from '../_markets/be/buy-resell/volume-purchase-agreement/_volume.mdx';
 import VolumePurchaseFR from '../_markets/fr/buy-resell/volume-purchase-agreement/_volume.mdx';
 import VolumePurchaseDE from '../_markets/de/buy-resell/volume-purchase-agreement/_volume.mdx';
+import VolumePurchaseGR from '../_markets/gr/buy-resell/volume-purchase-agreement/_volume.mdx';
+import VolumePurchaseIT from '../_markets/it/buy-resell/volume-purchase-agreement/_volume.mdx';
+import VolumePurchasePL from '../_markets/pl/buy-resell/volume-purchase-agreement/_volume.mdx';
+import VolumePurchasePT from '../_markets/pt/buy-resell/volume-purchase-agreement/_volume.mdx';
+import VolumePurchaseES from '../_markets/es/buy-resell/volume-purchase-agreement/_volume.mdx';
 
 <Tabs groupId="market">
 
   <TabItem value="AT" label="Austria">
     <VolumePurchaseAT />
+  </TabItem>
+
+  <TabItem value="BE" label="Belgium">
+    <VolumePurchaseBE />
   </TabItem>
 
   <TabItem value="FR" label="France">
@@ -66,6 +78,26 @@ import VolumePurchaseDE from '../_markets/de/buy-resell/volume-purchase-agreemen
 
   <TabItem value="DE" label="Germany">
     <VolumePurchaseDE />
+  </TabItem>
+
+  <TabItem value="GR" label="Greece">
+    <VolumePurchaseGR />
+  </TabItem>
+
+  <TabItem value="IT" label="Italy">
+    <VolumePurchaseIT />
+  </TabItem>
+
+  <TabItem value="PL" label="Poland">
+    <VolumePurchasePL />
+  </TabItem>
+
+  <TabItem value="PT" label="Portugal">
+    <VolumePurchasePT />
+  </TabItem>
+
+  <TabItem value="ES" label="Spain">
+    <VolumePurchaseES />
   </TabItem>
 
 </Tabs>

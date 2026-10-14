@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/information-sources/status-of-third-party-partners
 title: Status of third-party partners
+description: Where PosDealers find the connection status of third-party partners set up in the fiskaltrust.Portal, with details for Austria, France, and Germany.
+tags: [Third-Party Partners, PosDealers, Portal, Austria, France, Germany]
 ---
 # Status of third-party partners
 
@@ -28,13 +30,23 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
 import ThirdPartyStatusAT from '../_markets/at/buy-resell/products/_third-party-status.mdx';
+import ThirdPartyStatusBE from '../_markets/be/buy-resell/products/_third-party-status.mdx';
 import ThirdPartyStatusFR from '../_markets/fr/buy-resell/products/_third-party-status.mdx';
 import ThirdPartyStatusDE from '../_markets/de/buy-resell/products/_third-party-status.mdx';
+import ThirdPartyStatusGR from '../_markets/gr/buy-resell/products/_third-party-status.mdx';
+import ThirdPartyStatusIT from '../_markets/it/buy-resell/products/_third-party-status.mdx';
+import ThirdPartyStatusPL from '../_markets/pl/buy-resell/products/_third-party-status.mdx';
+import ThirdPartyStatusPT from '../_markets/pt/buy-resell/products/_third-party-status.mdx';
+import ThirdPartyStatusES from '../_markets/es/buy-resell/products/_third-party-status.mdx';
 
 <Tabs groupId="market">
 
   <TabItem value="AT" label="Austria">
     <ThirdPartyStatusAT />
+  </TabItem>
+
+  <TabItem value="BE" label="Belgium">
+    <ThirdPartyStatusBE />
   </TabItem>
 
   <TabItem value="FR" label="France">
@@ -43,6 +55,26 @@ import ThirdPartyStatusDE from '../_markets/de/buy-resell/products/_third-party-
 
   <TabItem value="DE" label="Germany">
     <ThirdPartyStatusDE />
+  </TabItem>
+
+  <TabItem value="GR" label="Greece">
+    <ThirdPartyStatusGR />
+  </TabItem>
+
+  <TabItem value="IT" label="Italy">
+    <ThirdPartyStatusIT />
+  </TabItem>
+
+  <TabItem value="PL" label="Poland">
+    <ThirdPartyStatusPL />
+  </TabItem>
+
+  <TabItem value="PT" label="Portugal">
+    <ThirdPartyStatusPT />
+  </TabItem>
+
+  <TabItem value="ES" label="Spain">
+    <ThirdPartyStatusES />
   </TabItem>
 
 </Tabs>

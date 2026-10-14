@@ -1,6 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/italy/terminology
 title: Terminology
+description: Key Italian Registratore Telematico terms — Agenzia delle Entrate, Documento Commerciale and Documento Commerciale Online.
+tags: [Terminology, RT, Agenzia delle Entrate, Glossary, Italy]
 ---
 
 # Terminology

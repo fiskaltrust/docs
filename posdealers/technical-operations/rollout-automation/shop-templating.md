@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/technical-operations/rollout-automation/shop-templating
 title: Shop Templating
+description: How to create, clone, and edit CashBox templates in the fiskaltrust.Portal and create CashBoxes from a shop template.
+tags: [Shop Templating, Templates, CashBox, Portal, Rollout Automation, PosDealers]
 ---
 # Shop Templating
 

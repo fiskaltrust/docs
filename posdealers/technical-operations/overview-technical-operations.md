@@ -1,6 +1,8 @@
 ---
 slug: /posdealers/technical-operations/overview-technical-operations
 title: Overview - Technical Operations
+description: Overview of the Technical Operations section for PosDealers — rollout scenarios, Middleware integration, monitoring, troubleshooting, and maintenance.
+tags: [PosDealers, Middleware, Installation, Troubleshooting]
 ---
 
 # Overview - Technical Operations

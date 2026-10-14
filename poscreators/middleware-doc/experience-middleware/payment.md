@@ -1,5 +1,7 @@
 ---
 title: Payment
+description: Unified payment endpoint of the Experience Middleware, its design principles, integration flow and a feature matrix per payment service provider.
+tags: [Payment, PSP, Experience Middleware, InStore App, POS System API]
 slug: /poscreators/experience-middleware/payment
 ---
 
@@ -10,6 +12,8 @@ The **Payment** component of the Experience Middleware allows POS systems to int
 Rather than replacing existing POS payment logic, fiskaltrust provides a **unified payment endpoint** that can be used alongside fiscalization and digital receipt features. This keeps integrations flexible and avoids vendor lock-in.
 
 Payments are integrated through the **InStore App** and the POS System API, allowing transactions, fiscal receipts, and optional digital receipts to be handled in a coordinated flow.
+
+Payment requests are sent via the POS System API in the cloud. Optionally, a POS app running on the same Android device as the InStore App can also trigger payments locally via the fiskaltrust Android launcher (see [Android IPC](../possystem-api/android-ipc.md)).
 
 ## Key Design Principles
 
@@ -33,6 +37,8 @@ A typical payment-enabled flow consists of the following steps:
 4. The receipt can optionally be displayed or handed over via InStore App, QR code, or Digital receipt channels.
 
 This approach ensures that fiscalization, receipts, and payments remain technically linked while staying modular.
+
+The pay items returned by the payment endpoint can carry the payment receipt in `ftPayItemCaseData`. When the POS system takes them over unchanged into the receipt request, the payment receipt is printed on the receipts rendered by fiskaltrust; see [Payment receipts](../general/cash-register-integration/additional-lines.md#payment-receipts).
 
 ## Intended Audience for Payment Integration
 
