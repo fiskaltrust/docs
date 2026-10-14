@@ -14,7 +14,7 @@ After reading, you can activate or deactivate appropriate roles for customers an
 
 fiskaltrust distinguishes between five principal **company roles** in the fiskaltrust.Portal. Each role has its own audience, features and permissions. You find the roles of your company in `Company info` > `Overview`, in the `Roles` section.
 
-![Roles section on the Company overview page in the fiskaltrust.Portal, with the role descriptions and sliders for PosOperator, PosDealer, PosCreator, Consultant and AppCreator, all switched off](./images/company-roles/roles.png)
+![Roles section on the Company overview page in the fiskaltrust.Portal, with the role descriptions and toggles for PosOperator, PosDealer, PosCreator, Consultant and AppCreator, all switched off](./images/company-roles/roles.png)
 
 *Figure 1. The `Roles` section in `Company info` > `Overview`.*
 
@@ -36,7 +36,7 @@ Depending on the market, the `Roles` section can show further roles.
 
 | Role | Shown in | Description |
 | ---- | -------- | ----------- |
-| **PosDealer auto-invitation (opt-in)** | Germany and Italy | An **optional add-on** to the PosDealer role for POS system distributors who want to automate the onboarding of their PosOperators as much as possible.<br /><br />Accounts with this role get an extended onboarding user interface. It allows them to fully and legally activate a PosOperator's account by signing the PosOperator's partner contracts as a representative, instead of sending a regular invitation that the PosOperator must accept first.<br /><br />The slider is only shown when the PosDealer role is active. **This role may require particular attention to legal aspects on your side.** |
+| **PosDealer auto-invitation (opt-in)** | Germany and Italy | An **optional add-on** to the PosDealer role for POS system distributors who want to automate the onboarding of their PosOperators as much as possible.<br /><br />Accounts with this role get an extended onboarding user interface. It allows them to fully and legally activate a PosOperator's account by signing the PosOperator's partner contracts as a representative, instead of sending a regular invitation that the PosOperator must accept first.<br /><br />The toggle is only shown when the PosDealer role is active. **This role may require particular attention to legal aspects on your side.** |
 | **PosDealer for RKSV Sign** | Austria | Adds the capability to manage RKSV.Sign products in the account. RKSV.Sign is a sign-only product in Austria that replaces HSMs and smart cards in existing implementations for POS systems where the Middleware cannot be used. |
 | **PosOperatorOptInIVAServizi** | Italy | For PosOperators who manage the provision of access credentials or delegation. To deactivate the PosOperator role, deactivate this role first. |
 
@@ -50,43 +50,39 @@ You can select more than one role. **Only pick the roles that apply to your busi
 
 ## Prerequisites
 
-- Your user has the `Contract conclusion` authorization. Without it, the role sliders are disabled. For more information, see [Manage user rights](registration.md#manage-user-rights).
+- Your user has the `Contract conclusion` authorization. Without it, the role toggles are disabled. For more information, see [Manage user rights](registration.md#manage-user-rights).
 - If **PosOperator** is the only principal role of your company, you cannot activate PosDealer, PosCreator, Consultant or AppCreator. The Portal shows the tooltip "When PosOperator role is enabled, you can't sign any other roles."
 
 ## How to activate a role
 
 1. In the left-hand navigation, open `Company info` > `Overview`.
-2. In the `Roles` section, **switch on the slider** of the role you want to activate: from ![Role slider switched off](./images/company-roles/slider-off.png) to ![Role slider switched on](./images/company-roles/slider-on.png). The Portal opens the agreement page of the role.
-
-   ![Portal company overview page with the Overview menu item and the role sliders highlighted](./images/company-roles/role-activate.png)
-
-   *Figure 2. Company overview page in the fiskaltrust.Portal used to activate a role.*
+2. In the `Roles` section, **switch on the toggle** of the role you want to activate: from <em><img src={require("./images/company-roles/toggle-off.png").default} alt="Role toggle switched off" width="34" style={{verticalAlign: "middle"}} /></em> to <em><img src={require("./images/company-roles/toggle-on.png").default} alt="Role toggle switched on" width="34" style={{verticalAlign: "middle"}} /></em>. The Portal opens the agreement page of the role.
 
 3. Read the **agreement**.
 4. Enter your **legal name** in the `Signatory` field at the bottom of the page.
 5. Select the checkbox `Read and accepted T&C and Privacy Policy`.
 6. Select `Sign`.
 
-   ![Portal role agreement page with the Signatory field, Terms and Conditions and Privacy Policy checkbox and Sign button highlighted](./images/company-roles/sign-contract.png)
+   ![PosDealer Contract page in the fiskaltrust.Portal with the contract text (blurred), the Signatory field, the checkbox to accept the terms and conditions and the privacy policy, and the Cancel and Sign buttons](./images/company-roles/sign-contract.png)
 
-   *Figure 3. Agreement page shown after switching on a role.*
+   *Figure 2. Agreement page of a role, here the `PosDealer Contract`, with the `Signatory` field and the `Sign` button.*
 
 **Result:** The role is active for your account. You receive an email confirming the activation of the role. In the `Roles` section, you can download the signed contract with `Download Contract`.
 
 ## How to deactivate a role
 
 1. In the left-hand navigation, open `Company info` > `Overview`.
-2. In the `Roles` section, **switch off the slider** of the role you want to deactivate: from ![Role slider switched on](./images/company-roles/slider-on.png) to ![Role slider switched off](./images/company-roles/slider-off.png). The Portal opens the confirmation page for the termination of the role contract.
+2. In the `Roles` section, **switch off the toggle** of the role you want to deactivate: from <em><img src={require("./images/company-roles/toggle-on.png").default} alt="Role toggle switched on" width="34" style={{verticalAlign: "middle"}} /></em> to <em><img src={require("./images/company-roles/toggle-off.png").default} alt="Role toggle switched off" width="34" style={{verticalAlign: "middle"}} /></em>. The Portal opens the confirmation page for the termination of the role contract.
 
-   ![Portal company overview page with the active PosDealer role slider highlighted](./images/company-roles/role-deactivate.png)
+   ![Portal company overview page with the active PosDealer role toggle highlighted](./images/company-roles/role-deactivate.png)
 
-   *Figure 4. Company overview page used to deactivate a role.*
+   *Figure 3. Company overview page used to deactivate a role.*
 
 3. Enter your **legal name** in the `Signatory` field at the bottom of the page.
 4. Select `Sign`.
 
    ![Portal contract termination page for the PosDealer role with the Signatory field and Sign button highlighted](./images/company-roles/cancel-contract.png)
 
-   *Figure 5. Confirmation page shown when deactivating a role.*
+   *Figure 4. Confirmation page shown when deactivating a role.*
 
-**Result:** The role is inactive for your account. You receive an email confirming the deactivation of the role. To activate the role again, switch on its slider and sign the agreement again.
+**Result:** The role is inactive for your account. You receive an email confirming the deactivation of the role. To activate the role again, switch on its toggle and sign the agreement again.
