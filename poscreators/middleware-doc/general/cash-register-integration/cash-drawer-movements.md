@@ -110,7 +110,7 @@ If the customer pays in a foreign currency and gets change in the national curre
 
 ## Reversing a cash movement
 
-A cash movement is reversed like any other receipt: the POS system sends the payment transfer receipt again with the flag `IsVoid`, references the original receipt in `cbPreviousReceiptReference`, and inverts the amounts of the charge item and the pay item, marking them with the flag `IsVoid`. For more information, see [Refunds and Voids](refunds-and-voids.md#void).
+A cash movement is reversed like any other receipt: the POS system sends the payment transfer receipt again with the flag `IsVoid`, references the original receipt in `cbPreviousReceiptReference`, and inverts the amounts of the charge item and the pay item, marking them with the flag `IsVoid`. For more information, see [Refunds and Voids](refunds-and-voids.md#void). Markets can define other rules for the amounts of a void; see [Market-specific considerations](#market-specific-considerations).
 
 ## Market-specific considerations
 
@@ -120,6 +120,7 @@ The model on this page is the interface default. Markets add constraints, depend
 - whether a purpose is only allowed in one direction, for example only out of the drawer,
 - whether a cash payout that contains VAT, for example a purchase paid from the drawer, may use a VAT rate other than `8` Not taxable,
 - which purpose the market assigns to the [transfer with pay items only](#transfer-between-drawer-and-vault-with-pay-items-only),
+- how the amounts of a void are sent,
 - how the movements are reported, for example in a national export format.
 
 For the market rules, see:

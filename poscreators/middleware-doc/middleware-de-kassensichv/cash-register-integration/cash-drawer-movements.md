@@ -70,6 +70,10 @@ The business case contains one example for each purpose in Table 1 except Einzah
 
 A [transfer with pay items only](../../general/cash-register-integration/cash-drawer-movements.md#transfer-between-drawer-and-vault-with-pay-items-only) uses the payment type `0C` Transfer to cashbook/vault/owner/employee. In Germany, this payment type is always mapped to the purpose _Geldtransit_. To record any other purpose, use a charge item with the matching local flag from Table 1.
 
+## Reversing a cash movement
+
+A cash movement is reversed with the receipt flag for a reverse or voided receipt. In Germany, this flag does not follow the general rule of inverting all items: it requires **only one** of `cbChargeItems` or `cbPayItems` to be negative, and **both must not be negative at the same time**. In the DSFinV-K export, the flag sets the column `BON_STORNO` to `true`. For more information, see the flag `0x0000000000040000` in [Type of Receipt: ftReceiptCase](../reference-tables/type-of-receipt-ftreceiptcase.md).
+
 ## Change
 
 Change paid out in a sale (payment type `01` Cash with the flag `IsChange`) is mapped by the PosSystem API to the German `ftPayItemCase` `0x4445_0000_0000_000B` (change in national currency) and is a cash payment (ZAHLART_TYP `Bar`) in the DSFinV-K. Change for a payment in a foreign currency (flags `IsChange` and `IsForeignCurrency`) is mapped to `0x4445_0000_0000_000C`. Change is not a cash movement of its own and needs no local flag.
