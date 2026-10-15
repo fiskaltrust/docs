@@ -47,6 +47,7 @@ Use only the following values:
 
 ```yaml
 ---
+slug: /poscreators/configure-the-middleware
 title: Configure the Middleware
 description: Learn how to configure the middleware.
 type: guide
