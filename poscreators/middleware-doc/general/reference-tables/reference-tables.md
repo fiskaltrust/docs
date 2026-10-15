@@ -250,6 +250,10 @@ For more information, see [VAT rules and rates](https://europa.eu/youreurope/bus
 
 *Table 14. Service type codes (S) of the ftChargeItemCase format.*
 
+:::tip Cash drawer movements
+Cash put into or taken out of the cash drawer without a sale is sent as a payment transfer receipt with a charge item of the type of service `A` Cash transfer and a cash pay item. For more information, see [Cash Drawer Movements](../cash-register-integration/cash-drawer-movements.md).
+:::
+
 
 #### NN - Nature of VAT
 
@@ -302,12 +306,12 @@ A charge item with the flag `Discount` follows directly after the position it be
 
 ##### Germany (DE)
 
-The following table is relevant only for the German market. Germany differentiates various cash transfers from/to a cash till (Kassenlade) depending on the purpose of the transfer.
+The following table is relevant only for the German market. Germany differentiates various cash transfers from/to a cash till (Kassenlade) depending on the purpose of the transfer. For how to record them, which sign each purpose allows, and the DSFinV-K mapping, see [Cash Drawer Movements (Kassenlade)](../../middleware-de-kassensichv/cash-register-integration/cash-drawer-movements.md).
 
 :::info important
 
-The German cash transfer types must be used exclusively with **ftReceiptCase: 0x2000_0000_0002** (payment transfer receipt).
-Since they all describe a cash transfer, the respective **cbPayItemCase: 0x2000_0000_0001** (Cash) is expected
+The German cash transfer types must be used exclusively with **ftReceiptCase: 0x4445_2000_0000_0002** (payment transfer receipt).
+Since they all describe a cash transfer, the respective **ftPayItemCase: 0x4445_2000_0000_0001** (Cash) is expected.
 
 :::
 
