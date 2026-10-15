@@ -699,6 +699,7 @@ A systematic approach to updating case values:
 | `0x2000_ooo8_ooo7` | `0x4445_0000_0000_008E` | Downpayment (amount > 0) type of service, zero type of vat |
 | `0x2000_ooo8_ooo8` | `0x4445_0000_0000_008D` | Downpayment (amount > 0) type of service, not taxable type of vat |
 | `0x2lll_oooo_ooA8` | `0x4445_0000_0000_0090` to `0x4445_0000_0000_0097` | Cash transfer type of service, not taxable type of vat. The local flag `lll` and the sign of the amount select the v0 value, see [Cash Drawer Movements (Kassenlade)](../middleware-de-kassensichv/cash-register-integration/cash-drawer-movements.md#integrations-with-v0-case-values) |
+| `0x2000_oooo_ooAV` (V = 0 to 7) | `0x4445_0000_0000_00B1` to `0x4445_0000_0000_00B7` | Cash transfer type of service with a VAT rate (Einzahlung/Auszahlung with VAT); the sign of the amount decides between Einzahlung and Auszahlung, see [Cash Drawer Movements (Kassenlade)](../middleware-de-kassensichv/cash-register-integration/cash-drawer-movements.md#einzahlung-and-auszahlung-with-vat) |
 | `0x2000_oooo_5oo8` | `0x4445_0000_0000_00A1` | Not taxable type of vat, reverse charge => v0 specific implementation |
 | `0x2000_oooo_oo61` | `0x4445_0000_0000_00A2` | Agency business type of service, discounted1 type of vat |
 | `0x2000_oooo_oo62` | `0x4445_0000_0000_00A2` | Agency business type of service, discounted2 type of vat |

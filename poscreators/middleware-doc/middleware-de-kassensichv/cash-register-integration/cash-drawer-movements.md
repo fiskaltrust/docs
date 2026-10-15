@@ -28,7 +28,7 @@ A cash movement is sent as a payment transfer receipt (`ftReceiptCase` `0x4445_2
 
 *Table 1. Purposes of a cash movement in Germany, their local flags and their DSFinV-K business case type.*
 
-The values `090` and `096` to `09F` of `lll` are reserved. All cash movements are not taxable: they are exported with the DSFinV-K VAT key (UST_SCHLUESSEL) `5`, and the receipt is a regular DSFinV-K receipt (BON_TYP `Beleg`) that is signed by the TSE with the process type `Kassenbeleg-V1`. A purpose with a sign that is not allowed, or a reserved value of `lll`, is not mapped to a cash movement.
+The values `090` and `096` to `09F` of `lll` are reserved. Cash movements are not taxable: they are exported with the DSFinV-K VAT key (UST_SCHLUESSEL) `5`, except an [Einzahlung or Auszahlung with VAT](#einzahlung-and-auszahlung-with-vat). The receipt is a regular DSFinV-K receipt (BON_TYP `Beleg`) that is signed by the TSE with the process type `Kassenbeleg-V1`. A purpose with a sign that is not allowed, or a reserved value of `lll`, is not mapped to a cash movement.
 
 The local flags are also listed in the [Reference Tables](../../general/reference-tables/reference-tables.md#germany-de) of the general part.
 
@@ -46,6 +46,12 @@ The DSFinV-K defines the purposes as follows:
 :::tip Refilling the drawer
 Putting change money (DE: Wechselgeld) from the safe into an emptied drawer is a _Geldtransit_, not an _Anfangsbestand_. Use _Anfangsbestand_ only for cash that is already in the drawer.
 :::
+
+## Einzahlung and Auszahlung with VAT
+
+An Einzahlung or Auszahlung can contain VAT, for example when office supplies are paid from the drawer. The POS system then sends the VAT rate of the purchase in the last digit of `ftChargeItemCase` instead of `8` Not taxable, for example `0x4445_2000_0000_00A3` for the normal VAT rate (19 %) or `0x4445_2000_0000_00A1` for the discounted VAT rate (7 %). If the payment contains several VAT rates, the POS system sends one charge item per VAT rate, each with its amount, together with one cash pay item for the total.
+
+The VAT rate is exported as the DSFinV-K VAT key of the business case Einzahlung or Auszahlung, and the sign of the amount decides between the two, as in Table 1. A VAT rate is only taken into account with `lll` `000`; all other purposes are not taxable.
 
 ## Example
 
@@ -82,6 +88,12 @@ POS systems that send the German v0 case values (`0x4445_0000_...`) record a cas
 | `0x4445_2000_0000_00A8` | `+` | `0x4445_0000_0000_0095` | Einzahlung |
 | `0x4445_2000_0000_00A8` | `-` | `0x4445_0000_0000_0096` | Auszahlung |
 | `0x4445_2095_0000_00A8` | `+` and `-` | `0x4445_0000_0000_0097` | DifferenzSollIst |
+| `0x4445_2000_0000_00A3` | `+` and `-` | `0x4445_0000_0000_00B1` | Einzahlung (`+`) or Auszahlung (`-`) with VAT, normal VAT rate |
+| `0x4445_2000_0000_00A1` | `+` and `-` | `0x4445_0000_0000_00B2` | Einzahlung (`+`) or Auszahlung (`-`) with VAT, discounted VAT rate |
+| `0x4445_2000_0000_00A4` | `+` and `-` | `0x4445_0000_0000_00B3` | Einzahlung (`+`) or Auszahlung (`-`) with VAT, average rate 10.7 % |
+| `0x4445_2000_0000_00A5` | `+` and `-` | `0x4445_0000_0000_00B4` | Einzahlung (`+`) or Auszahlung (`-`) with VAT, average rate 5.5 % |
+| `0x4445_2000_0000_00A7` | `+` and `-` | `0x4445_0000_0000_00B6` | Einzahlung (`+`) or Auszahlung (`-`) with VAT, zero VAT rate |
+| `0x4445_2000_0000_00A0`, `00A2`, `00A6` | `+` and `-` | `0x4445_0000_0000_00B7` | Einzahlung (`+`) or Auszahlung (`-`), VAT rate unknown |
 
 *Table 3. Mapping of the v2 cash movement values to the German v0 `ftChargeItemCase` values.*
 
