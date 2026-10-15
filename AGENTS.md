@@ -9,7 +9,7 @@ Guidance for AI agents working in this repository. See [README.md](README.md) fo
 
 ## Repository basics
 
-- Content only; the site is built by [fiskaltrust/service-docs-ui](https://github.com/fiskaltrust/service-docs-ui) (Docusaurus). A local build is usually not available here, so verify links and anchors manually (see below).
+- Content only; the site is built by [fiskaltrust/service-docs-ui](https://github.com/fiskaltrust/service-docs-ui) (Docusaurus). A local build is usually not available here, so verify links and anchors manually, as described in [Writing conventions](#writing-conventions).
 - The sidebar is defined manually in `poscreators/toc.js` and `posdealers/toc.js`. A page that is not listed there is still built and reachable by URL. Check `toc.js` and search for incoming links before deleting or renaming a page.
 - Documentation pages should start with front matter with the fields `slug`, `title`, `description`, `tags` and `type`. For `slug`, `title`, `description` and `tags`, see [Writing Documentation Pages](README.md#writing-documentation-pages) in the README. For `type`, see [Document type](#document-type).
 - Agent instruction files (`AGENTS.md`, `CLAUDE.md`) are excluded from the site build by the docs plugin configuration in service-docs-ui (`docusaurus.config.js`, `exclude`). Do not add front matter to them.
@@ -159,7 +159,7 @@ Use consistent, precise verbs when describing user interactions.
 | Select the `Enable e-invoicing` checkbox. | Click the `Enable e-invoicing` checkbox. |
 | Click `Save` to apply the changes. | Select `Save` to apply the changes. |
 | Enter your API key in the `API key` field. | Click the `API key` field and type your API key. |
-| Open `Configuration` > `Queues`. | Click `Configuration` and click `Queues`. |
+| In the Portal, open `Configuration` > `Queues` in the left sidebar. | Click `Configuration` and click `Queues`. |
 | Turn on the `PosDealer` toggle. | Click the `PosDealer` toggle. |
 
 ## Area-specific guidance
