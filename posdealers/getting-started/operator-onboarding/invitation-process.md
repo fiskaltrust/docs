@@ -58,9 +58,9 @@ Invite a single PosOperator, for example, when you give on-site support to a Pos
 
 Depending on the country, when a PosOperator is registered for the first time, further master data can be retrieved from the relevant authority and checked by entering a tax number.
 
-![Flowchart of the single invitation: the PosDealer configures the invitation, adds the PosOperator and sends the invitation; the PosOperator accepts it, activates the PosOperator role and verifies master data and outlets; the PosDealer then checks whether the PosOperator name is an active link and either surrogates or resends the invitation](images/1-onboarding-individual-relaunch.png)
+![Workflow with two swimlanes, PosDealer and PosOperator: the PosDealer opens the Invitation page, checks the invitation settings, clicks +Add, enters the PosOperator details and clicks Invite all PosOperators; the PosOperator accepts the e-mail invitation, activates the PosOperator role and verifies master data and outlets; the PosDealer then checks in PosOperators whether the PosOperator name is an active link and either is ready to surrogate or resends the invitation from the invitation history](images/invitation-single-flowchart.svg)
 
-*Figure 2. Process of inviting a single PosOperator.*
+*Figure 2. Workflow for inviting a single PosOperator.*
 
 ### Steps
 
@@ -134,9 +134,9 @@ import PreviewES from '../../_markets/es/getting-started/operator-onboarding/inv
 
 Import a CSV file to invite many business partners at once. The fiskaltrust.Portal creates and sends the invitations automatically, so the data of your business partners must be correct. Check the [preparation](#preparation-of-invitations) first, so that invitations are not mistakenly treated as spam. The fiskaltrust.Portal provides a demo CSV file with the required structure; the columns are described in [Fields of the CSV file](#fields-of-the-csv-file).
 
-![Flowchart of the bulk invitation of PosOperators from a CSV file](images/2-onboarding-bulk-relaunch.png "Invitation of PosOperators in a bulk process")
+![Workflow with two swimlanes, PosDealer and PosOperator: the PosDealer opens the Invitation page, checks the invitation settings, downloads the demo CSV file, enters the data, imports the CSV file and clicks Invite all PosOperators; each PosOperator accepts the e-mail invitation, activates the PosOperator role and verifies master data and outlets; the PosDealer then checks in PosOperators whether the PosOperator name is an active link and either is ready to surrogate or resends the invitation from the invitation history](images/invitation-bulk-flowchart.svg)
 
-*Figure 3. Process of the bulk invitation of PosOperators.*
+*Figure 3. Workflow for inviting PosOperators in a bulk process.*
 
 ### Steps
 
@@ -276,9 +276,9 @@ If the message `This E-Mail address already exists` appears, another PosDealer h
 **Do not, under any circumstances, invite this PosOperator again using a different e-mail address.** This causes problems when verifying the business identifications used to authenticate with tax authorities or third-party services.
 :::
 
-![Flowchart: the invitation of the PosDealer fails with E-mail address already exists, the PosOperator searches for the PosDealer and requests the assignment, the PosDealer accepts and can then surrogate](images/15-onboarding-already-existing-PosOperators.png)
+![Workflow with two swimlanes, PosDealer and PosOperator: the invitation of the PosDealer fails with the error that the e-mail address already exists; the PosOperator searches for the PosDealer, checks name, e-mail address and access rights and requests the assignment; the PosDealer finds the PosOperator in PosOperators, clicks Accept and is then ready to surrogate](images/invitation-existing-posoperator-flowchart.svg)
 
-*Figure 8. Onboarding a PosOperator who already has an account.*
+*Figure 8. Workflow for onboarding a PosOperator who already has an account.*
 
 | Step | Description |
 |:----:|-------------|
