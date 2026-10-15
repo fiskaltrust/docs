@@ -56,6 +56,7 @@ module.exports = [
               "poscreators/middleware-doc/general/cash-register-integration/cash-register-integration-failure-scenarios",
               "poscreators/middleware-doc/general/cash-register-integration/refunds-and-voids",
               "poscreators/middleware-doc/general/cash-register-integration/discounts-and-extras",
+              "poscreators/middleware-doc/general/cash-register-integration/cash-drawer-movements",
               "poscreators/middleware-doc/general/cash-register-integration/additional-lines",
               "poscreators/middleware-doc/general/cash-register-integration/error-handling",
             ],
@@ -227,6 +228,7 @@ module.exports = [
           "poscreators/middleware-doc/middleware-de-kassensichv/cash-register-integration/cash-register-integration",
           "poscreators/middleware-doc/middleware-de-kassensichv/cash-register-integration/single-receipt-creation",
           "poscreators/middleware-doc/middleware-de-kassensichv/cash-register-integration/receipt-sequences-creation",
+          "poscreators/middleware-doc/middleware-de-kassensichv/cash-register-integration/cash-drawer-movements",
         ],
       },
       {
