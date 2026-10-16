@@ -58,4 +58,21 @@ For commercial limits, for example the number of fiskaltrust.Middleware instance
 
 ## When the fiskaltrust.Middleware is not reachable
 
-Whether the fiskaltrust.Middleware runs on-premise or in the cloud, the POS system must handle the case that the fiskaltrust.Middleware is not reachable. The required steps depend on the market regulations; in general, the receipts are re-sent to the fiskaltrust.Middleware in late-signing mode once it is reachable again. For more information, see [Failure Scenarios](../cash-register-integration/cash-register-integration-failure-scenarios.md) and [Error Handling](../cash-register-integration/error-handling.md).
+Whether the fiskaltrust.Middleware runs on-premise or in the cloud, the POS system must handle the case that the fiskaltrust.Middleware is not reachable.
+
+As the fiskaltrust.Middleware is the cash register, a receipt only becomes part of the fiscal records once the fiskaltrust.Middleware has processed it. While the fiskaltrust.Middleware is not reachable, the receipts created by the input devices:
+
+- have no receipt number of the fiskaltrust.Middleware and are not part of the receipt chain,
+- are not signed by the signing device or service,
+- are not stored in the journals of the fiskaltrust.Middleware,
+- are not counted in the closings and are not contained in the exports.
+
+The POS system must therefore consider the following:
+
+- **Buffer every receipt.** Store all receipts that could not be sent, so that none is lost, for example on a restart of the POS system.
+- **Re-send all buffered receipts** as soon as the fiskaltrust.Middleware is reachable again, flagged as failed receipts so that the fiskaltrust.Middleware processes them in late-signing mode. Re-send them in the order in which they were created.
+- **Avoid processing a receipt twice.** If no response was received, the fiskaltrust.Middleware may already have processed the receipt. Retry the original request before sending it as a failed receipt. For more information, see [Error Handling](../cash-register-integration/error-handling.md#how-the-pos-system-should-react).
+- **Send all buffered receipts before a closing**, so that the closing covers them.
+- **Issue receipts according to the market regulations.** The receipts handed out during the failure do not contain the data returned by the fiskaltrust.Middleware. What these receipts must contain depends on the market regulations; some markets require the POS system to continue operating while the fiskaltrust.Middleware is not reachable.
+
+For more information, see [Failure Scenarios](../cash-register-integration/cash-register-integration-failure-scenarios.md).
