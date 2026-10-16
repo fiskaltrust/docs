@@ -7,7 +7,7 @@ tags: [Architecture, Queue, cbTerminalID, Rollout, Middleware]
 
 # Queues, Terminals and Locations
 
-This page describes the role of the fiskaltrust.Middleware from a regulatory point of view and how to decide how many Middleware instances (queues) to roll out per location. For the components themselves, see [Middleware Components](components.md).
+This page describes the role of the fiskaltrust.Middleware from a regulatory point of view and how to decide how many Middleware instances (queues) to roll out per location. For more information on the components themselves, see [Middleware Components](components.md).
 
 ## The Middleware is the electronic recording system
 
@@ -15,11 +15,11 @@ The fiskaltrust.Middleware (queue) is the electronic recording system (ECR) in t
 
 - the numbering of receipts,
 - the chaining of receipts (receipt chain),
-- the communication with the signing device or service (via the [SCU](components.md#scu)).
+- the communication with the signing device or service (via the SCU).
 
 The Middleware is therefore the system that is registered with the authorities.
 
-Every device, client or POS terminal that sends requests to the Middleware is an **input device** (input station). From a regulatory point of view, an input device is not the electronic recording system. Several input devices can send their receipts to the same queue. The POS system identifies the sending input device in the `ReceiptRequest` with `cbTerminalID` (see [Data Structures](../data-structures/data-structures.md)).
+Every device, client or POS terminal that sends requests to the Middleware is an **input device** (input station). From a regulatory point of view, an input device is not the electronic recording system. Several input devices can send their receipts to the same queue. The POS system identifies the sending input device in the `ReceiptRequest` with `cbTerminalID`. For more information, see [Data Structures](../data-structures/data-structures.md).
 
 This model is shared across markets: in every market, the queue is the central unit for fiscalization, number series and receipt chaining. It is also independent of the platform and the [operation mode](../operation-modes/operation-modes.md): the same applies to an on-premise Middleware and to a Middleware hosted in the cloud.
 
