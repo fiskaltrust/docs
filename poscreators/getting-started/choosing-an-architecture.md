@@ -129,6 +129,67 @@ Where the Middleware runs and which signature device it uses are separate choice
 
 *Table 2. Comparison of the three architecture models.*
 
+## SCU models
+
+Independently of where the Queue runs, you decide **where the SCU runs** and **how many Queues use it**.
+
+### Local or managed SCU
+
+- **Local SCU**: The SCU runs in a CashBox that you operate, usually together with the Queue on the POS device or on a local server. It connects to the signature device, either a hardware device on site (local model) or a cloud signature service (hybrid model). You configure the connection in the SCU, for example the drive of a hardware TSE or the credentials of a cloud TSE.
+- **Managed SCU**: fiskaltrust operates the SCU as a signing service, for example the Austrian signing service at `signing.fiskaltrust.at`. The Middleware reaches it over the internet. You install and configure no SCU and no signature device yourself.
+
+```mermaid
+flowchart LR
+    subgraph Outlet
+        POS[POS system] --> Q[Queue]
+    end
+    subgraph fiskaltrust
+        SCU[Managed SCU - signing service]
+    end
+    Q -- internet --> SCU
+```
+
+*Figure 4. Managed SCU: the Queue uses a signing service operated by fiskaltrust.*
+
+### Dedicated or shared SCU
+
+- **Dedicated SCU**: Each Queue has its own SCU and signature device. This is the simplest and most reliable setup: a failing SCU affects one Queue only. You need one signature device per Queue.
+- **Shared SCU**: Several Queues use the same SCU. The Queues can run in the same CashBox, or in several Middleware instances that reach the SCU over the network, for example several POS devices that use one SCU on a back-office server. You need fewer signature devices, but the shared SCU becomes a single point of failure and a possible performance bottleneck, and the network between the instances has to be set up and maintained.
+
+```mermaid
+flowchart LR
+    subgraph Outlet
+        subgraph P1[POS device 1]
+            Q1[Queue 1]
+        end
+        subgraph P2[POS device 2]
+            Q2[Queue 2]
+        end
+        subgraph S[Back-office server]
+            SCU[SCU] --> DEV[Signature device]
+        end
+        Q1 --> SCU
+        Q2 --> SCU
+    end
+```
+
+*Figure 5. Shared SCU: two Middleware instances use one SCU on a local server.*
+
+Sharing an SCU has limits:
+
+- An SCU and its signature device can only be shared within one physical outlet, never between outlets.
+- The signature device limits the number of Queues. Some German cloud TSEs accept only one Queue and cannot be shared at all. For the limit of each device, see the [SCU/characteristics & platform support matrix](../middleware-doc/middleware-de-kassensichv/operation-modes/on-premise-installation.md#scucharacteristics--platform-support-matrix) for Germany.
+- Sharing one external signature service between several CashBoxes is only available with cloud signing in Austria or with the fiskaly cloud TSE in Germany.
+
+| | Dedicated | Shared |
+|---|---|---|
+| **Local SCU** | One SCU and signature device per Queue, on the same device as the Queue. Simplest setup, no network dependency between devices. | One SCU and signature device for several Queues of an outlet, for example on a back-office server or the main POS device. Fewer devices, but a single point of failure. |
+| **Managed SCU** | A signing service operated by fiskaltrust, used by one Queue. Nothing to install, but needs internet. | A signing service operated by fiskaltrust, used by several Queues. Nothing to install, but needs internet, and the market must allow sharing the service. |
+
+*Table 3. SCU models by location and sharing.*
+
+For example layouts of dedicated and shared SCUs with pros and cons, see [Rollout Scenarios](../../posdealers/technical-operations/rollout-scenarios.md).
+
 ## Decision factors
 
 ### 1. Operating system
@@ -164,7 +225,7 @@ Where a signature device is required, the type limits your options:
 | **Sharing** | One device can serve several Queues in the same outlet, up to the device limit | Depends on the service; some cloud TSEs accept only one Queue |
 | **Platform** | Needs a supported port and driver on the device | Needs network access; some services need an additional local component |
 
-*Table 3. Hardware compared with cloud signature devices.*
+*Table 4. Hardware compared with cloud signature devices.*
 
 Check the limits of each device before you decide. For Germany, see the [SCU/characteristics & platform support matrix](../middleware-doc/middleware-de-kassensichv/operation-modes/on-premise-installation.md#scucharacteristics--platform-support-matrix). For Italy, see the [SCU/characteristics & platform support matrix](../middleware-doc/middleware-it-registratore-telematico/operation-modes/installation.md#scucharacteristics--platform-support-matrix).
 
@@ -194,7 +255,7 @@ Not every model is available in every market, for legal or technical reasons. Th
 | Portugal | None (key held by fiskaltrust) | Only with your own certificate (route 2) | Yes; cloud only with the fiskaltrust certificate (route 1) | [The two routes](../middleware-doc/middleware-pt/go-to-market/go-to-market.md#the-two-routes) |
 | Spain | None (qualified certificate held in the fiskaltrust cloud) | Not available | Yes, cloud only | [Go-to-Market in Spain](../middleware-doc/middleware-es/go-to-market/go-to-market.md#frequently-asked-questions) |
 
-*Table 4. Signature devices and available architecture models per market.*
+*Table 5. Signature devices and available architecture models per market.*
 
 The hybrid model needs a cloud signature service, so it applies to markets where such a service is offered, for example Germany (cloud TSE) and Austria (online signing).
 
@@ -219,7 +280,7 @@ flowchart TD
     H -- No --> HYBRID[Hybrid: Launcher and cloud signature service]
 ```
 
-*Figure 4. Decision diagram for choosing a Middleware architecture.*
+*Figure 6. Decision diagram for choosing a Middleware architecture.*
 
 Different outlets of the same POS system can use different models. For example, a cloud POS system can use the CloudCashbox by default and a local installation only for outlets that must work offline.
 
@@ -229,7 +290,7 @@ The architecture also affects how you group Queues and signature devices:
 
 - A Queue is a receipt chain and always belongs to one physical outlet. Queues and signature devices cannot be shared between outlets, because fiscal reporting is based on the physical outlet.
 - Within one outlet, several terminals can share one Queue, or each terminal can have its own Queue. A separate Queue per terminal is more robust: a defective terminal cannot block the other terminals. Use separate Queues as well if an outlet needs several daily closings.
-- In the local and hybrid models, several Queues in one CashBox can share one SCU and signature device, up to the limit of the device.
+- In the local and hybrid models, several Queues can share one SCU and signature device, up to the limit of the device. For more information, see [Dedicated or shared SCU](#dedicated-or-shared-scu).
 
 For example layouts with pros and cons, see [Rollout Scenarios](../../posdealers/technical-operations/rollout-scenarios.md).
 
@@ -249,9 +310,10 @@ Use this checklist to document your decision before you start the integration:
 | **Cloud-only features** required, for example eInvoicing | |
 | **API**: POS System API or classic Middleware API, and whether it is available locally in your markets | |
 | **Queue layout** per outlet: one Queue per outlet or one per terminal | |
+| **SCU model**: local or managed, dedicated or shared | |
 | **Chosen model** per market: local, hybrid or cloud | |
 
-*Table 5. Checklist for documenting the architecture decision.*
+*Table 6. Checklist for documenting the architecture decision.*
 
 When the decision is made, continue with the [Integration Steps](./middleware-integration.md) and the [Integration Checklist](./integration-checklist.md).
 
