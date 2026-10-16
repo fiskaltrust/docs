@@ -37,7 +37,7 @@ Before you roll out a Middleware instance, make sure that the following prerequi
 
 - A working **Internet connection**. For more information, see [Network Requirements](../technical-operations/middleware/network-requirements.md).
 - An active **PosDealer account** in the fiskaltrust.Portal (Sandbox), either by [registration](registration.md) or by invitation through your PosCreator. In the `PosSystems` menu, check that a `PosSystemId` is available. This menu is not available in PosOperator accounts.
-- Checked **master data** and at least one **outlet**. For more information, see [Master Data](operator-onboarding/master-data.md).
+- Checked **master data** and at least one **outlet**. For more information, see [Master data](operator-onboarding/master-data.md).
 - For a local Middleware installation: a system that meets the **hardware and software requirements**. For more information, see [Supported Environments](../technical-operations/middleware/supported-environments.md).
 - Any **SSCD components** (hardware or SaaS credentials) that the setup requires, unless the setup itself creates them.
 

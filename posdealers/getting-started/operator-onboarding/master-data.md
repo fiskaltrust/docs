@@ -1,10 +1,10 @@
 ---
 slug: /posdealers/getting-started/operator-onboarding/master-data
-title: Master Data
+title: Master data
 description: Why complete master data matters and how to check company data, tax numbers and outlets in the fiskaltrust.Portal.
 tags: [Master Data, Onboarding, Portal, PosDealers]
 ---
-# Master Data
+# Master data
 
 :::info summary
 After reading this, you can keep your own and your PosOperators' master data up to date and explain why that is important.
@@ -23,7 +23,7 @@ The **master data** of a company is essential in the fiskaltrust.Portal:
 - **Tax regulations** in some countries require exact data on the primary outlet and further outlets.
 - **Shipping hardware** via the fiskaltrust.Portal requires exact address details.
 
-## Which data to check
+## Which data to review
 
 - **Company master data**: check it for completeness and use the available check mechanisms. Country-specific check mechanisms verify, depending on the legal situation and the technical equipment of the fiscal administration, whether an entered value meets the formal requirements. Depending on the country, when a PosOperator is registered for the first time, further master data can be retrieved from the relevant authority and checked by entering a tax number.
 - **User data** (user menu at the top right > `Edit profile`): only needed for using the fiskaltrust.Portal. For data protection reasons, you can use function designations (like **fiscalizing**) or fictitious names instead of real names. The e-mail address, however, must be real and working, because it is used to sign in to the fiskaltrust.Portal. To avoid real names, use a functional address (like fiscalizing@PosOperator.TLD).
@@ -31,61 +31,25 @@ The **master data** of a company is essential in the fiskaltrust.Portal:
 
 The following sections show how to check your own master data. After you have done this and invited your PosOperators, switch to each PosOperator's account and check their master data the same way. For more information, see [Surrogating](surrogating.md).
 
-## Check the master data
+## Review the master data
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import PreviewAT from '../../_markets/at/getting-started/operator-onboarding/master-data/_edit-master.mdx';
-import PreviewBE from '../../_markets/be/getting-started/operator-onboarding/master-data/_edit-master.mdx';
-import PreviewFR from '../../_markets/fr/getting-started/operator-onboarding/master-data/_edit-master.mdx';
-import PreviewDE from '../../_markets/de/getting-started/operator-onboarding/master-data/_edit-master.mdx';
-import PreviewGR from '../../_markets/gr/getting-started/operator-onboarding/master-data/_edit-master.mdx';
-import PreviewIT from '../../_markets/it/getting-started/operator-onboarding/master-data/_edit-master.mdx';
-import PreviewPL from '../../_markets/pl/getting-started/operator-onboarding/master-data/_edit-master.mdx';
-import PreviewPT from '../../_markets/pt/getting-started/operator-onboarding/master-data/_edit-master.mdx';
-import PreviewES from '../../_markets/es/getting-started/operator-onboarding/master-data/_edit-master.mdx';
+The steps are the same in all markets. Only the tax identification numbers and their format depend on the country. The `Master data` page explains them below the fields.
 
-<Tabs groupId="market">
+1. In the Portal, open `Company info` > `Master data` in the left sidebar.
+2. Check that the fields marked with * contain correct and complete data.
+3. In `Identification numbers`, check the tax identification numbers against the explanations below the fields. Observe the notes on notation, such as the number of digits and the omission of spaces, and whether one or more values are required.
+4. Click `Data Check` for each tax identification number. The symbol shows the result, as described in *Table 1*.
+5. Save your changes before you leave the page.
 
-  <TabItem value="AT" label="Austria">
-    <PreviewAT />
-  </TabItem>
+| Data check result | Meaning |
+|:-----------------:|---------|
+|![Data Check symbol for an unchecked value](../../_markets/at/getting-started/operator-onboarding/master-data/images/data-undone.png) |The value in the data field has not been checked yet. |
+|![Data Check symbol for an invalid value](../../_markets/at/getting-started/operator-onboarding/master-data/images/data-invalid.png) |The value is invalid. Hover over the symbol to see the description, change the value accordingly and run the data check again. |
+|![Data Check symbol for a valid value](../../_markets/at/getting-started/operator-onboarding/master-data/images/data-valid.png) |The value is valid. This does not protect against duplicates. |
 
-  <TabItem value="BE" label="Belgium">
-    <PreviewBE />
-  </TabItem>
+*Table 1. Data check result symbols and their meaning.*
 
-  <TabItem value="FR" label="France">
-    <PreviewFR />
-  </TabItem>
-
-  <TabItem value="DE" label="Germany">
-    <PreviewDE />
-  </TabItem>
-
-  <TabItem value="GR" label="Greece">
-    <PreviewGR />
-  </TabItem>
-
-  <TabItem value="IT" label="Italy">
-    <PreviewIT />
-  </TabItem>
-
-  <TabItem value="PL" label="Poland">
-    <PreviewPL />
-  </TabItem>
-
-  <TabItem value="PT" label="Portugal">
-    <PreviewPT />
-  </TabItem>
-
-  <TabItem value="ES" label="Spain">
-    <PreviewES />
-  </TabItem>
-
-</Tabs>
-
-## Check the outlets
+## Manage the outlets
 
 :::info Outlet numbers
 - `Outlet number 1` is assigned automatically when an account is created in the fiskaltrust.Portal.
@@ -94,104 +58,32 @@ import PreviewES from '../../_markets/es/getting-started/operator-onboarding/mas
 - Once an `Outlet number` has been set, it cannot be changed.
 :::
 
-import OutletAT from '../../_markets/at/getting-started/operator-onboarding/master-data/_checking-outlets.mdx';
-import OutletBE from '../../_markets/be/getting-started/operator-onboarding/master-data/_checking-outlets.mdx';
-import OutletFR from '../../_markets/fr/getting-started/operator-onboarding/master-data/_checking-outlets.mdx';
-import OutletDE from '../../_markets/de/getting-started/operator-onboarding/master-data/_checking-outlets.mdx';
-import OutletGR from '../../_markets/gr/getting-started/operator-onboarding/master-data/_checking-outlets.mdx';
-import OutletIT from '../../_markets/it/getting-started/operator-onboarding/master-data/_checking-outlets.mdx';
-import OutletPL from '../../_markets/pl/getting-started/operator-onboarding/master-data/_checking-outlets.mdx';
-import OutletPT from '../../_markets/pt/getting-started/operator-onboarding/master-data/_checking-outlets.mdx';
-import OutletES from '../../_markets/es/getting-started/operator-onboarding/master-data/_checking-outlets.mdx';
+The steps are the same in all markets.
 
-<Tabs groupId="market">
+1. In the Portal, open `Company info` > `Outlets` in the left sidebar. The page shows your primary outlet and the list of all other outlets. Check that their data is complete and correct.
 
-  <TabItem value="AT" label="Austria">
-    <OutletAT />
-  </TabItem>
+   ![Outlets page in the fiskaltrust.Portal for the German market with the primary outlet and the Edit Primary Outlet button, the Import CSV file controls, the Download demo CSV file and Add new outlet buttons, the list of outlets with the German Carefree and AKO columns and their edit buttons, and the Export as CSV button](images/outlets-page.png)
 
-  <TabItem value="BE" label="Belgium">
-    <OutletBE />
-  </TabItem>
+   *Figure 1. The `Outlets` page in the German market, as an example. The `Carefree` and `AKO` columns are specific to this market.*
 
-  <TabItem value="FR" label="France">
-    <OutletFR />
-  </TabItem>
+2. To add several outlets at once, import them from a CSV file:
+   1. Click `Download demo CSV file`.
+   2. Open the CSV file, add the values and save it.
+   3. In `Import CSV file`, click `Choose` and browse to the CSV file.
+   4. Click `Import`. The data is checked and listed on the `Bulk import of outlets` page.
+   5. Click `Proceed with valid outlets`.
+3. To add a single outlet, click `+ Add new outlet`.
+4. To change the address of the primary outlet, click `Edit Primary Outlet`. This changes the address values in `Company info` > `Master data`.
+5. To change the data of another outlet, click the edit button (pencil icon) in its row. For more information, see [Edit outlets](#edit-outlets).
+6. To export the list of outlets, click `Export as CSV`.
 
-  <TabItem value="DE" label="Germany">
-    <OutletDE />
-  </TabItem>
-
-  <TabItem value="GR" label="Greece">
-    <OutletGR />
-  </TabItem>
-
-  <TabItem value="IT" label="Italy">
-    <OutletIT />
-  </TabItem>
-
-  <TabItem value="PL" label="Poland">
-    <OutletPL />
-  </TabItem>
-
-  <TabItem value="PT" label="Portugal">
-    <OutletPT />
-  </TabItem>
-
-  <TabItem value="ES" label="Spain">
-    <OutletES />
-  </TabItem>
-
-</Tabs>
+:::caution France
+The **SIRET is mandatory for each outlet**. To import several outlets with their SIRET, use the `LocationId` column of the CSV file.
+:::
 
 ### Edit outlets
 
-import EditOutletAT from '../../_markets/at/getting-started/operator-onboarding/master-data/_edit-outlet.mdx';
-import EditOutletBE from '../../_markets/be/getting-started/operator-onboarding/master-data/_edit-outlet.mdx';
-import EditOutletFR from '../../_markets/fr/getting-started/operator-onboarding/master-data/_edit-outlet.mdx';
-import EditOutletDE from '../../_markets/de/getting-started/operator-onboarding/master-data/_edit-outlet.mdx';
-import EditOutletGR from '../../_markets/gr/getting-started/operator-onboarding/master-data/_edit-outlet.mdx';
-import EditOutletIT from '../../_markets/it/getting-started/operator-onboarding/master-data/_edit-outlet.mdx';
-import EditOutletPL from '../../_markets/pl/getting-started/operator-onboarding/master-data/_edit-outlet.mdx';
-import EditOutletPT from '../../_markets/pt/getting-started/operator-onboarding/master-data/_edit-outlet.mdx';
-import EditOutletES from '../../_markets/es/getting-started/operator-onboarding/master-data/_edit-outlet.mdx';
-
-<Tabs groupId="market">
-
-  <TabItem value="AT" label="Austria">
-    <EditOutletAT />
-  </TabItem>
-
-  <TabItem value="BE" label="Belgium">
-    <EditOutletBE />
-  </TabItem>
-
-  <TabItem value="FR" label="France">
-    <EditOutletFR />
-  </TabItem>
-
-  <TabItem value="DE" label="Germany">
-    <EditOutletDE />
-  </TabItem>
-
-  <TabItem value="GR" label="Greece">
-    <EditOutletGR />
-  </TabItem>
-
-  <TabItem value="IT" label="Italy">
-    <EditOutletIT />
-  </TabItem>
-
-  <TabItem value="PL" label="Poland">
-    <EditOutletPL />
-  </TabItem>
-
-  <TabItem value="PT" label="Portugal">
-    <EditOutletPT />
-  </TabItem>
-
-  <TabItem value="ES" label="Spain">
-    <EditOutletES />
-  </TabItem>
-
-</Tabs>
+1. In the Portal, open `Company info` > `Outlets` in the left sidebar and click the edit button (pencil icon) of the outlet you want to check or edit.
+2. Check the address data. It is relevant for the automated invoice generation between PosDealer and PosOperators and for the digital receipt.
+3. Optionally, under `Outlet Logo`, click `Select Image File` to upload an image that customizes the digital receipts of this outlet.
+4. Click `Save` to save your changes, or `Cancel` to return to `Company info` > `Outlets`.
