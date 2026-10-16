@@ -72,9 +72,19 @@ As the fiskaltrust.Middleware is the cash register, a receipt only becomes part 
 Where the market allows sales to continue, the POS system must consider the following:
 
 - **Buffer every receipt.** Store all receipts that could not be sent, so that none is lost, for example on a restart of the POS system.
-- **Re-send all buffered receipts** as soon as the fiskaltrust.Middleware is reachable again, flagged as failed receipts so that the fiskaltrust.Middleware processes them in late-signing mode. Re-send them in the order in which they were created.
+- **Re-send all buffered receipts** as soon as the fiskaltrust.Middleware is reachable again, so that the fiskaltrust.Middleware processes them in late-signing mode (see below).
 - **Avoid processing a receipt twice.** If no response was received, the fiskaltrust.Middleware may already have processed the receipt. Retry the original request before sending it as a failed receipt. For more information, see [Error Handling](../cash-register-integration/error-handling.md#how-the-pos-system-should-react).
 - **Send all buffered receipts before a closing**, so that the closing covers them.
 - **Issue receipts according to the market regulations.** The receipts handed out during the failure do not contain the data returned by the fiskaltrust.Middleware. What these receipts must contain depends on the market regulations.
 
-For more information, see [Failure Scenarios](../cash-register-integration/cash-register-integration-failure-scenarios.md).
+### Late-signing mode
+
+Late-signing mode is the mode in which the fiskaltrust.Middleware processes the receipts that the POS system created while the fiskaltrust.Middleware was not reachable. It works as follows:
+
+1. **Re-send the buffered receipts.** The POS system sends each buffered receipt with the `ftReceiptCaseFlag` `0x0000000000010000` (**Process as Late Signing Receipt**). Keep the original `cbReceiptMoment` of each receipt and send the receipts in ascending order of `cbReceiptMoment`.
+2. **The fiskaltrust.Middleware enters late-signing mode.** It processes each of these receipts like a regular receipt: it assigns the receipt number, adds the receipt to the receipt chain, stores it and, where the market regulations require it, signs it afterwards. The response contains the `ftState` flag `0000_0008` (Late Signing Mode is active).
+3. **End late-signing mode with a Zero-Receipt.** After all buffered receipts have been sent successfully, the POS system sends a Zero-Receipt. The response contains the normal `ftState` again, and the fiskaltrust.Middleware is back in normal operation.
+
+From the moment they are processed in late-signing mode, the receipts are part of the receipt chain, the closings and the exports of the fiskaltrust.Middleware.
+
+For more information, see [Failure Scenarios](../cash-register-integration/cash-register-integration-failure-scenarios.md#middleware-not-reachable-or-failing), [ftReceiptCaseFlag](../reference-tables/reference-tables.md#ftreceiptcaseflag) and [Service Status: ftState](../reference-tables/reference-tables.md#service-status-ftstate).
