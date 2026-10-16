@@ -30,6 +30,15 @@ Two failure situations must be distinguished:
 
 In Germany, both situations must be resolved immediately (DE: unverzüglich) after the PosOperator has fixed the technical problem. The law does not define a time frame. Configure the buffering of receipts on the POS system accordingly, so that the buffered receipts are sent to the Middleware as soon as it is reachable again.
 
+### Resending receipts without signing them twice
+
+If the POS system did not receive a response, it cannot know whether the Middleware has already processed the receipt. To find out, send the receipt again with the flag `0x0000800000000000` (**Receipt request**) set in the `ftReceiptCase`:
+
+- Use the same `cbReceiptReference` and, if used, the same `cbTerminalID` as in the original request.
+- The ChargeItems and PayItems must be exactly the same as in the original request.
+
+If the queue has already processed a matching receipt, it returns the stored response of that receipt, and the receipt is not processed a second time. If no matching receipt is found, the queue returns no response; in this case, send the receipt as a new request, flagged as described in [Middleware not reachable or failing](../../general/cash-register-integration/cash-register-integration-failure-scenarios.md#middleware-not-reachable-or-failing). For more information, see [ftReceiptCaseFlag](../reference-tables/type-of-receipt-ftreceiptcase.md#ftreceiptcaseflag).
+
 ## Printing receipts
 Like in all other supported countries, the German Middleware returns all compliance-relevant data that need to be printed onto the receipt. In Germany, it's either possible to print a QR code **or** to print the data otherwise contained in this QR code as text. 
 
