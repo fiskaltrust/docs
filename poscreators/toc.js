@@ -67,6 +67,7 @@ module.exports = [
             key: "general-components",
             items: [
               "poscreators/middleware-doc/general/components/components",
+              "poscreators/middleware-doc/general/components/queues-terminals-locations",
               "poscreators/middleware-doc/general/components/components-install-config",
             ],
           },

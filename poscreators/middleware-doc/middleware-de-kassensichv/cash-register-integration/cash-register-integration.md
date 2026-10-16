@@ -9,6 +9,27 @@ tags: [Germany, Printing, Signature, Cash Register Integration, KassenSichV]
 
 This chapter describes the cash register integration in accordance with German law. The general rules for cash register integration are described in the Chapter [Cash Register Integration](../../general/cash-register-integration/cash-register-integration-regular-workflow.md) of the general part.
 
+## Queues, terminals and the TSE
+
+The general model of queues, input devices and locations applies to Germany as well: the queue is the electronic recording system, and the POS terminals connected to it are input devices. For more information, see [Queues, Terminals and Locations](../../general/components/queues-terminals-locations.md).
+
+In addition, the following applies to the TSE in Germany:
+
+- Every TSE is bound to one location. A PosOperator with several locations needs at least one TSE per location.
+- Several on-premise queues can share one TSE, within the number of clients the TSE supports (see [SCU/characteristics & platform support matrix](../operation-modes/on-premise-installation.md#scucharacteristics--platform-support-matrix)).
+- A queue hosted in the cloud (CloudCashBox) needs its own TSE per installation.
+
+The `cbTerminalID` sent by the POS system is not part of the DSFinV-K export (see [DSFinV-K generation](../procedural-documentation/dsfinv-k-generation.md)).
+
+### Resolving failures
+
+Two failure situations must be distinguished:
+
+- The POS system cannot reach the fiskaltrust.Middleware (see [Middleware not reachable or failing](../../general/cash-register-integration/cash-register-integration-failure-scenarios.md#middleware-not-reachable-or-failing)).
+- The fiskaltrust.Middleware cannot reach the TSE (see [Signature Creation Unit not reachable or failing](../../general/cash-register-integration/cash-register-integration-failure-scenarios.md#signature-creation-unit-not-reachable-or-failing)).
+
+In Germany, both situations must be resolved immediately (DE: unverzüglich) after the PosOperator has fixed the technical problem. The law does not define a time frame. Configure the buffering of receipts on the POS system accordingly, so that the buffered receipts are sent to the Middleware as soon as it is reachable again.
+
 ## Printing receipts
 Like in all other supported countries, the German Middleware returns all compliance-relevant data that need to be printed onto the receipt. In Germany, it's either possible to print a QR code **or** to print the data otherwise contained in this QR code as text. 
 
