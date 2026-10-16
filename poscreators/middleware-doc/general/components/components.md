@@ -33,7 +33,7 @@ More detailed information, including the data flow, you can find in the [communi
 
 In addition to enable the communication with the cash register via iPOS Interface, the queue also serves to encapsulate the functionality of a receipt chain: All regular receipts created by the POS-System and sent to the fiskaltrust.Middleware are processed in the fiskaltrust.SecurityMechanism. This mechanism takes care of the creation of the unique, consecutive receipt number, the chaining and the persistence of the data.  After getting secured and stored in the queue, the response of the fiskaltrust.SecurityMechanism is sent back to the POS-System. All special receipts (for example the periodical closings) are sent as "requests to execute a special function" to the fiskaltrust.Middleware and get responded by it. 
 
-From a regulatory point of view, the fiskaltrust.Middleware (queue) is the electronic recording system (cash register), and the POS terminals connected to it are input devices. For more information, see [fiskaltrust.Middleware, Terminals and Locations](queues-terminals-locations.md).
+From a regulatory point of view, the fiskaltrust.Middleware (queue) is the cash register in the regulatory sense, and the POS terminals connected to it are input devices. For more information, see [fiskaltrust.Middleware, Terminals and Locations](queues-terminals-locations.md).
 
 ### SCU
 

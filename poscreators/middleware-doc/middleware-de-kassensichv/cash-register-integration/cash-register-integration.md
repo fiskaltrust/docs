@@ -11,7 +11,7 @@ This chapter describes the cash register integration in accordance with German l
 
 ## fiskaltrust.Middleware, terminals and the TSE
 
-The general model of the fiskaltrust.Middleware, input devices and locations applies to Germany as well: the fiskaltrust.Middleware is the electronic recording system, and the POS terminals connected to it are input devices. For more information, see [fiskaltrust.Middleware, Terminals and Locations](../../general/components/queues-terminals-locations.md).
+The general model of the fiskaltrust.Middleware, input devices and locations applies to Germany as well: the fiskaltrust.Middleware is the electronic recording system (DE: elektronisches Aufzeichnungssystem) in the terms of §146a AO, and the POS terminals connected to it are input devices. For more information, see [fiskaltrust.Middleware, Terminals and Locations](../../general/components/queues-terminals-locations.md).
 
 In addition, the following applies to the TSE in Germany:
 

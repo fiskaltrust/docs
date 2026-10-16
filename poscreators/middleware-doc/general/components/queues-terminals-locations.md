@@ -1,7 +1,7 @@
 ---
 slug: /poscreators/middleware-doc/general/components/queues-terminals-locations
 title: fiskaltrust.Middleware, Terminals and Locations
-description: Why the fiskaltrust.Middleware is the electronic recording system, how POS terminals connect to it, and how many fiskaltrust.Middleware instances a location needs.
+description: Why the fiskaltrust.Middleware is the cash register in the regulatory sense, how POS terminals connect to it, and how many fiskaltrust.Middleware instances a location needs.
 tags: [Architecture, Queue, cbTerminalID, Rollout, Middleware]
 ---
 
@@ -9,17 +9,19 @@ tags: [Architecture, Queue, cbTerminalID, Rollout, Middleware]
 
 This page describes the role of the fiskaltrust.Middleware from a regulatory point of view and how to decide how many fiskaltrust.Middleware instances to roll out per location. For more information on the components themselves, see [Middleware Components](components.md).
 
-## The fiskaltrust.Middleware is the electronic recording system
+## The fiskaltrust.Middleware is the cash register
 
-The fiskaltrust.Middleware (queue) is the electronic recording system (ECR) in the regulatory sense, that is, the cash register. It is the authoritative system for:
+The fiskaltrust.Middleware (queue) is the cash register in the regulatory sense. The national regulations use their own terms for it, which are described in the market appendices. The fiskaltrust.Middleware is the authoritative system for:
 
 - the numbering of receipts,
 - the chaining of receipts (receipt chain),
 - the communication with the signing device or service (via the SCU).
 
-The fiskaltrust.Middleware is therefore the system that is registered with the authorities.
+Wherever national regulations require the cash register itself to be registered with the authorities, the fiskaltrust.Middleware is the authoritative system for this registration.
 
-Every device, client or POS terminal that sends requests to the fiskaltrust.Middleware is an **input device** (input station). From a regulatory point of view, an input device is not the electronic recording system. Several input devices can send their receipts to the same fiskaltrust.Middleware. The POS system identifies the sending input device in the `ReceiptRequest` with `cbTerminalID`. For more information, see [Data Structures](../data-structures/data-structures.md).
+Every device, client or POS terminal that sends requests to the fiskaltrust.Middleware is an **input device** (input station). From a regulatory point of view, an input device is not the cash register. Several input devices can send their receipts to the same fiskaltrust.Middleware.
+
+Integrators can optionally use `cbTerminalID` in the `ReceiptRequest` to differentiate between the input devices. `cbTerminalID` has no effect on the numbering of receipts or on any other mechanism of the fiskaltrust.Middleware. For more information, see [Data Structures](../data-structures/data-structures.md).
 
 This model is shared across markets: in every market, the fiskaltrust.Middleware is the central unit for fiscalization, number series and receipt chaining. It is also independent of the platform and the [operation mode](../operation-modes/operation-modes.md): the same applies to an on-premise fiskaltrust.Middleware and to a fiskaltrust.Middleware hosted in the cloud.
 
