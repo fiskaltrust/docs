@@ -15,7 +15,11 @@ The fiskaltrust.Middleware (queue) is the cash register in the regulatory sense.
 
 - the numbering of receipts,
 - the chaining of receipts (receipt chain),
-- the communication with the signing device or service (via the SCU).
+- the cumulative counters (for example totals),
+- the storage of receipts and journals,
+- the communication with the signing device or service (via the SCU),
+- the closings (for example daily, monthly and yearly closings),
+- the exports required by the national regulations (for example the DSFinV-K in Germany or the DEP 7 in Austria).
 
 Wherever national regulations require the cash register itself to be registered with the authorities, the fiskaltrust.Middleware is the authoritative system for this registration.
 
@@ -25,12 +29,13 @@ Integrators can optionally use `cbTerminalID` in the `ReceiptRequest` to differe
 
 This model is shared across markets: in every market, the fiskaltrust.Middleware is the central unit for fiscalization, number series and receipt chaining. It is also independent of the platform and the [operation mode](../operation-modes/operation-modes.md): the same applies to an on-premise fiskaltrust.Middleware and to a fiskaltrust.Middleware hosted in the cloud.
 
-## One receipt chain and one daily closing per fiskaltrust.Middleware
+## One receipt chain and shared closings per fiskaltrust.Middleware
 
 Every fiskaltrust.Middleware has exactly one receipt chain. This means that all input devices connected to the same fiskaltrust.Middleware share:
 
 - **One number series.** The fiskaltrust.Middleware assigns `ftReceiptIdentification` from one sequence for all its receipts and makes sure that the numbers are unique. Whether one number series for all input devices fits the internal processes of the PosOperator (for example for reconciliation) must be clarified by the PosCreator and the PosOperator.
-- **One daily closing.** A daily closing is executed per fiskaltrust.Middleware and covers the receipts of all input devices connected to it.
+- **The same closings.** All closings (for example daily, monthly and yearly closings) are executed per fiskaltrust.Middleware and cover the receipts of all input devices connected to it.
+- **The same exports.** The exports of the fiskaltrust.Middleware contain the receipts of all input devices connected to it.
 
 ## How many fiskaltrust.Middleware instances to roll out
 
@@ -39,7 +44,7 @@ There has to be at least one fiskaltrust.Middleware per location.
 The number of fiskaltrust.Middleware instances per location is decided by the architectural and operational requirements, in particular:
 
 - **Number series:** If separate number series are required, for example per POS terminal, roll out one fiskaltrust.Middleware per number series.
-- **Daily closings:** If separate daily closings are required, for example per POS terminal or per area, roll out one fiskaltrust.Middleware per daily closing.
+- **Closings:** If separate closings are required, for example per POS terminal or per area, roll out one fiskaltrust.Middleware per closing scope.
 - **Performance:** On-premise and cloud-hosted fiskaltrust.Middleware instances can differ in the load they can handle. In high-load scenarios (many input devices sending receipts simultaneously), evaluate the expected load for the chosen operation mode.
 
 If none of these requirements applies, a single fiskaltrust.Middleware with all input devices of the location connected to it is sufficient.
