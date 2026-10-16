@@ -32,7 +32,7 @@ To get an overview of active and inactive PosOperator accounts, for example to c
 
 ## Switch to a PosOperator account
 
-![PosOperators page in the fiskaltrust.Portal with the PosDealer menu opened in the left sidebar, the search field and the list of PosOperators: names of active accounts are links, names of inactive accounts are plain text, and the Export as CSV button](images/posoperators-list.png)
+![PosOperators page in the fiskaltrust.Portal with the PosDealer menu opened in the left sidebar, the search field, the list of PosOperators with one active account whose name is a link, and the Export as CSV button](images/posoperators-list.png)
 
 *Figure 1. The `PosOperators` page with the list of PosOperators.*
 
