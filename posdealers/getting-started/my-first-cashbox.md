@@ -115,7 +115,7 @@ The CashBox configuration determines how the Middleware runs:
 - **CloudCashbox**: fiskaltrust operates the Middleware, so you do not download anything. To connect, use the URL in the Queue configuration. For more information, see [CloudCashbox](../technical-operations/middleware/launchers/cloudcashbox.md).
 - **Local Middleware**: in `Configuration` > `CashBoxes`, click `Download` in the row of your CashBox to download the Launcher, then start it. The Launcher fetches the CashBox configuration each time it starts, so configuration changes apply after a restart. For more information, see [Windows, Linux & macOS](../technical-operations/middleware/launchers/desktop.md) and [Android](../technical-operations/middleware/launchers/android.md).
 
-## Running a test request
+## Run a test request
 
 After the Middleware is deployed and started, check that it is available and responds to requests.
 

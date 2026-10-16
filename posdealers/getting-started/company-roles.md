@@ -53,7 +53,7 @@ You can select more than one role. **Only pick the roles that apply to your busi
 - Your user has the `Contract conclusion` authorization. Without it, the role toggles are disabled. For more information, see [Manage user rights](registration.md#manage-user-rights).
 - If **PosOperator** is the only principal role of your company, you cannot activate PosDealer, PosCreator, Consultant or AppCreator. The Portal shows the tooltip "When PosOperator role is enabled, you can't sign any other roles."
 
-## How to activate a role
+## Activate a role
 
 1. In the left-hand navigation, open `Company info` > `Overview`.
 2. In the `Roles` section, **turn on the toggle** of the role you want to activate: from <em><img src={require("./images/company-roles/toggle-off.png").default} alt="Role toggle switched off" width="34" style={{verticalAlign: "middle"}} /></em> to <em><img src={require("./images/company-roles/toggle-on.png").default} alt="Role toggle switched on" width="34" style={{verticalAlign: "middle"}} /></em>. The Portal opens the agreement page of the role.
@@ -73,7 +73,7 @@ You can select more than one role. **Only pick the roles that apply to your busi
 
 **Result:** The role is active for your account. You receive an email confirming the activation of the role. In the `Roles` section, you can download the signed contract with `Download Contract (pdf.)`.
 
-## How to deactivate a role
+## Deactivate a role
 
 1. In the left-hand navigation, open `Company info` > `Overview`.
 2. In the `Roles` section, **turn off the toggle** of the role you want to deactivate: from <em><img src={require("./images/company-roles/toggle-on.png").default} alt="Role toggle switched on" width="34" style={{verticalAlign: "middle"}} /></em> to <em><img src={require("./images/company-roles/toggle-off.png").default} alt="Role toggle switched off" width="34" style={{verticalAlign: "middle"}} /></em>. The Portal opens the confirmation page for the termination of the role contract.

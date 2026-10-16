@@ -32,7 +32,7 @@ Work through the following checklist in order. Completing each step helps ensure
 Check your initial configuration in the [fiskaltrust.Portal](https://portal.fiskaltrust.de/):
 
 1. Complete the [Registration](./registration.md). Your fiskaltrust account is created in the Portal.
-2. Make sure the **PosDealer** role is assigned. Assign the **PosCreator** role only if you implemented your own POS system. For more information, see [How to activate a role](./company-roles.md#how-to-activate-a-role).
+2. Make sure the **PosDealer** role is assigned. Assign the **PosCreator** role only if you implemented your own POS system. For more information, see [Activate a role](./company-roles.md#activate-a-role).
 
 ## 2. Invitation process
 
