@@ -85,7 +85,7 @@ Whenever you enter your username and password for the fiskaltrust.Portal, make s
 
 ## Register a company
 
-On the login page, select `Register` to register a company and an associated user. Registration is independent of the company's future role (PosCreator, PosDealer, Consultant or PosOperator) in the fiskaltrust.Portal.
+On the login page, click `Register` to register a company and an associated user. Registration is independent of the company's future role (PosCreator, PosDealer, Consultant or PosOperator) in the fiskaltrust.Portal.
 
 The registration wizard has four steps: **Company identification**, **Company data**, **User data** and **Confirmation**.
 
@@ -99,10 +99,10 @@ The registration wizard has four steps: **Company identification**, **Company da
 The first step is headed **Find your company** and contains a single search field.
 
 1. Enter any identification number your market supports. You do not need to choose the number type first.
-2. In the productive Portal, confirm the reCAPTCHA under the search box by checking the checkbox. Sometimes reCAPTCHA opens a popup with a task (for example, select all images with traffic lights) before it finishes the verification. You solve the captcha once; the same confirmation covers the rest of the registration. The Sandbox skips this check.
-3. Select `Next`. The Portal detects the number type and prefills your company data.
+2. In the productive Portal, confirm the reCAPTCHA under the search box by selecting the checkbox. Sometimes reCAPTCHA opens a popup with a task (for example, select all images with traffic lights) before it finishes the verification. You solve the captcha once; the same confirmation covers the rest of the registration. The Sandbox skips this check.
+3. Click `Next`. The Portal detects the number type and prefills your company data.
 
-To enter all company data manually, leave the field empty and select `Next`.
+To enter all company data manually, leave the field empty and click `Next`.
 
 ![Registration wizard, step Company identification: the Find your company search field with the Next button](./images/registration/company_identification.png "Company identification")
 
@@ -138,15 +138,15 @@ Enter your company's master data. If you used the lookup in step 1, the fields a
 |:------|:-----------------|
 | **Company data** | `Company Name`, `Address line 1`, `Postal code`, `City` and `Country` are required; `Address line 2` is optional. The company name must match the name in the commercial registers and must not already be in use for a registration. |
 | **Company contact details** | A valid `E-mail address` is required. It can only be used once for a company in the fiskaltrust.Portal. If your E-Mail server supports "+" in the address (username+tag@domain is delivered to username@domain), each alias counts as a unique address, which is useful for testing. `Website` and `Telephone number` are optional. |
-| **Commercial no.** | The commercial and tax numbers your market uses (for example, in Germany the `USt-IdNr` and the `Tax number`). Select `Search company` next to a number to verify it against the registers and optionally prefill the form from it. |
+| **Commercial no.** | The commercial and tax numbers your market uses (for example, in Germany the `USt-IdNr` and the `Tax number`). Click `Search company` next to a number to verify it against the registers and optionally prefill the form from it. |
 
 *Table 3. Field groups of the Company data step shown in Figure 2.*
 
-Select `Next` to verify the entered numbers and proceed to step 3, **User data**.
+Click `Next` to verify the entered numbers and proceed to step 3, **User data**.
 
 :::note Company not found
 
-When you select `Next`, the Portal verifies every commercial number you entered that a register can check. If none of the registers recognizes a number, a **Company not found** dialog names the number. Choose:
+When you click `Next`, the Portal verifies every commercial number you entered that a register can check. If none of the registers recognizes a number, a **Company not found** dialog names the number. Choose:
 
 * `Cancel` to stay on this step with your data intact and correct the number.
 * `Continue anyway` to keep the number as entered and move on to the user data.
@@ -195,7 +195,7 @@ If the address entered in `Contact E-Mail address` is already in use in the fisk
 The last step shows a summary of the company and user data you entered.
 
 1. Read the Terms & Conditions and the Privacy Policy and accept them with the checkbox. The `Submit` button stays disabled until you do.
-2. Select `Submit` to create the registration.
+2. Click `Submit` to create the registration.
 
 ![Registration wizard, step Confirmation: data summary with the Terms and Conditions checkbox and the Submit button](images/registration/confirmation.png "Confirmation")
 
@@ -274,11 +274,11 @@ If you have lost or forgotten the password for the fiskaltrust.Portal, request a
 
 1. On the login screen of the fiskaltrust.Portal, click the link `If you have forgotten your password please click here:`.
 2. Solve the CAPTCHA.
-3. Enter the E-Mail address you used when registering your account and select `SEND LINK`.
+3. Enter the E-Mail address you used when registering your account and click `SEND LINK`.
 4. A confirmation shows that the password-reset link has been sent to the E-Mail address you entered. If the E-Mail does not arrive, check that the address is the one you used when you registered your account.
 5. After a few minutes, check the inbox of this E-Mail address. Click the link in the E-Mail to open the password-reset page of the fiskaltrust.Portal.
 6. Enter the E-Mail address of your fiskaltrust account and the new password, and confirm the password by entering it a second time.
-7. Select `Reset` to save the new password. A confirmation page appears, and you can log in to the fiskaltrust.Portal again.
+7. Click `Reset` to save the new password. A confirmation page appears, and you can log in to the fiskaltrust.Portal again.
 
 When you are logged in, you change your password in the user menu (the menu under your name at the top right) > `Change password`.
 
@@ -290,16 +290,16 @@ You can create another user for yourself, for example for security reasons, and 
 
 **Prerequisite:** your user has the `Manage` authorization.
 
-1. Select `Company info` > `Employees`, then `+Add`.
-2. Enter the E-Mail address of the new user in `E-Mail` and select `Search`.
+1. Open `Company info` > `Employees` and click `+Add`.
+2. Enter the E-Mail address of the new user in `E-Mail` and click `Search`.
 3. On the `Add employee` page, complete the **required** master data `First name` and `Last Name`. Optionally, add `Title`, `Suffix` and `Mobile phone number`.
 
    ![Add employee page in the fiskaltrust.Portal with the E-Mail address, the master data fields Title, First name, Last Name, Suffix and Mobile phone number, the Default Access Rights note, and the Access rights switches with Read and Write enabled](images/registration/user-data-employee.png)
 
    *Figure 7. The `Add employee` page with the default access rights `Read` and `Write` enabled.*
 
-4. Under `Access rights`, set the authorizations: switch to the right to enable a right, to the left to disable it. `Read` and `Write` are enabled by default, so new employees can view company data and perform basic operations immediately. At least `Read` must be enabled.
-5. Select `Save`. The new user receives an invitation to their E-Mail address. Inform them about the next steps and ask them to check their spam folder in case the invitation is filtered out. The new user must use this invitation to confirm their E-Mail address, set a password and link their account in the fiskaltrust.Portal with your company.
+4. Under `Access rights`, set the authorizations: turn on a toggle to enable a right, turn it off to disable it. `Read` and `Write` are enabled by default, so new employees can view company data and perform basic operations immediately. At least `Read` must be enabled.
+5. Click `Save`. The new user receives an invitation to their E-Mail address. Inform them about the next steps and ask them to check their spam folder in case the invitation is filtered out. The new user must use this invitation to confirm their E-Mail address, set a password and link their account in the fiskaltrust.Portal with your company.
 
 ### Activate the invitation (new user)
 
@@ -312,7 +312,7 @@ From then on, all users log in through the links listed in [Portal URLs](#portal
 
 ### Change user rights
 
-1. Select `Company info` > `Employees`. The section `Authorizations for the employee` explains each authorization.
+1. Open `Company info` > `Employees`. The section `Authorizations for the employee` explains each authorization.
 2. Check the existing rights in the `Authorizations` column. Inactive rights have a black symbol, active rights a blue symbol.
 3. To change the authorizations of a user, expand the line with the arrow on its left edge.
 
@@ -320,13 +320,13 @@ From then on, all users log in through the links listed in [Portal URLs](#portal
 
    *Figure 8. The `Employees` page with the authorization switches of one employee and the `Export as CSV` button.*
 
-4. Switch to the right to activate a right, to the left to deactivate it. A confirmation message appears at the top right.
-5. At `Set to new Primary Contact`, select `Primary Contact` **only if you want to hand over all** authorizations. Only employees with the `Manage` right can be set as the Primary Contact.
-6. To remove the user's assignment to your company, select `Remove assignment`. You cannot remove the assignment of the Primary Contact.
+4. Turn on a toggle to activate a right, turn it off to deactivate it. A confirmation message appears at the top right.
+5. At `Set to new Primary Contact`, click `Primary Contact` **only if you want to hand over all** authorizations. Only employees with the `Manage` right can be set as the Primary Contact.
+6. To remove the user's assignment to your company, click `Remove assignment`. You cannot remove the assignment of the Primary Contact.
 
 :::tip Export the employee list
 
-To download the list of employees as a CSV file, select **`Export as CSV`** below the list.
+To download the list of employees as a CSV file, click **`Export as CSV`** below the list.
 
 :::
 
@@ -369,7 +369,7 @@ We strongly recommend testing this process in the Sandbox first.
 
 :::
 
-1. Select `Company info` > `Employees` > `+Add`.
+1. Open `Company info` > `Employees` and click `+Add`.
 2. Add data records, if necessary with fictitious information. Only the E-Mail address must be correct, for example `peter.pattern@mycompany.com`.
 3. If employees are assigned to several accounts, create alias addresses and use these, for example `peter.pattern+1@mycompany.com`, `peter.pattern+2@mycompany.com` and so on.
 
@@ -409,23 +409,23 @@ You received your company's first invitation to the fiskaltrust.Portal, but you 
 
 1. You, as a new user, check the inbox of the E-Mail address used for the invitation.
 2. Use the confirmation link to activate the invitation. Read and accept the T&C and the Privacy Policy and add a password.
-3. Select `Company info` > `Employees` > `+Add`.
-4. Enter the E-Mail address of the desired user and select `Search`.
+3. Open `Company info` > `Employees` and click `+Add`.
+4. Enter the E-Mail address of the desired user and click `Search`.
 5. Complete the **required** master data.
-6. Enable all access rights, including `Manage`, and select `Save`. Note that this alone does not make the new user the Primary Contact.
+6. Enable all access rights, including `Manage`, and click `Save`. Note that this alone does not make the new user the Primary Contact.
 7. Inform the new user about the next steps: they must use the invitation to confirm their E-Mail address and set a password.
 8. The new user checks the inbox of the E-Mail address used for the invitation and opens the included link. They read and accept the T&C and the Privacy Policy, add a password and inform you about their registration in the fiskaltrust.Portal.
-9. You, as the Primary Contact, select `Company info` > `Employees` and expand the line of the desired employee.
-10. At `Set to new Primary Contact`, select `Primary Contact`, confirm with `Set Primary Contact` and log out.
+9. You, as the Primary Contact, open `Company info` > `Employees` and expand the line of the desired employee.
+10. At `Set to new Primary Contact`, click `Primary Contact`, confirm with `Set Primary Contact` and log out.
 11. The new user becomes the Primary Contact the next time they log in. If they wish, they can grant you access rights; otherwise, you have no further access or responsibilities.
 
 #### Solution for PosDealers
 
 You sent an invitation to a PosOperator with the wrong E-Mail address. As a PosDealer, you can redirect the invitation to another recipient as long as the original recipient has not yet activated it.
 
-1. Log in to the fiskaltrust.Portal and select `PosDealer` > `Invitation`.
-2. Search for the wrongly used E-Mail address and select `Edit` in its line.
-3. Change the E-Mail address in both `Email-address` and `Contact Email-address`, and select `Save`.
+1. Log in to the fiskaltrust.Portal and open `PosDealer` > `Invitation`.
+2. Search for the wrongly used E-Mail address and click `Edit` in its line.
+3. Change the E-Mail address in both `Email-address` and `Contact Email-address`, and click `Save`.
 4. Resend the invitation E-Mail with the resend action in the invitation's line (tooltip `Resend invitation to this PosOperator`).
 
-For more information, see [Invitation process](operator-onboarding/invitation-process.md).
+For more information, see [Invitation](operator-onboarding/invitation-process.md).

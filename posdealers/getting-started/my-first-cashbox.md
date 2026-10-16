@@ -27,9 +27,9 @@ If you do not have a Sandbox account yet, ask your PosCreator for an invitation 
 
 :::
 
-![Flowchart: after Prerequisites and Decision on creation, either Business and Technical Rollout or manual SCU, Helper, Queue and cashbox creation lead to CashBox rebuild, Launcher download and Middleware start](./images/my-first-cashbox/first-CashBox-flow.png "My first CashBox")
+![Workflow with two swimlanes, PosDealer account and PosOperator account: the PosDealer checks the prerequisites and decides whether to use a rollout plan. With a rollout plan, a Business Rollout for one or more PosOperators and a Technical Rollout follow. Without, the SCU, an optional Helper, the Queue and the CashBox are created manually in the PosOperator account. Both ways continue with rebuilding the CashBox, downloading the Launcher, and starting the Middleware and testing](./images/my-first-cashbox/first-cashbox-flowchart.svg)
 
-*Figure 1. Process flow for creating your first CashBox.*
+*Figure 1. Workflow for creating your first CashBox.*
 
 ## Prerequisites
 
@@ -37,7 +37,7 @@ Before you roll out a Middleware instance, make sure that the following prerequi
 
 - A working **Internet connection**. For more information, see [Network Requirements](../technical-operations/middleware/network-requirements.md).
 - An active **PosDealer account** in the fiskaltrust.Portal (Sandbox), either by [registration](registration.md) or by invitation through your PosCreator. In the `PosSystems` menu, check that a `PosSystemId` is available. This menu is not available in PosOperator accounts.
-- Checked **master data** and at least one **outlet**. For more information, see [Master Data](operator-onboarding/master-data.md).
+- Checked **master data** and at least one **outlet**. For more information, see [Master data](operator-onboarding/master-data.md).
 - For a local Middleware installation: a system that meets the **hardware and software requirements**. For more information, see [Supported Environments](../technical-operations/middleware/supported-environments.md).
 - Any **SSCD components** (hardware or SaaS credentials) that the setup requires, unless the setup itself creates them.
 
@@ -115,7 +115,7 @@ The CashBox configuration determines how the Middleware runs:
 - **CloudCashbox**: fiskaltrust operates the Middleware, so you do not download anything. To connect, use the URL in the Queue configuration. For more information, see [CloudCashbox](../technical-operations/middleware/launchers/cloudcashbox.md).
 - **Local Middleware**: in `Configuration` > `CashBoxes`, click `Download` in the row of your CashBox to download the Launcher, then start it. The Launcher fetches the CashBox configuration each time it starts, so configuration changes apply after a restart. For more information, see [Windows, Linux & macOS](../technical-operations/middleware/launchers/desktop.md) and [Android](../technical-operations/middleware/launchers/android.md).
 
-## Running a test request
+## Run a test request
 
 After the Middleware is deployed and started, check that it is available and responds to requests.
 

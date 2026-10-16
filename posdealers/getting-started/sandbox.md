@@ -35,7 +35,7 @@ Never deploy a Sandbox CashBox on a production system. Its signatures are not fi
 
 :::
 
-## How to reach the Sandbox
+## Reach the Sandbox
 
 All Sandbox systems use the same names as their live counterparts, with a `-sandbox` suffix (for example, `portal` &rarr; `portal-sandbox`). The exact URL depends on your market. Select your country:
 
