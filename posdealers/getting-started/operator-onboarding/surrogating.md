@@ -77,32 +77,28 @@ If a different user signed in on the same browser, the message also offers `Sign
 
 ## Check the PosOperator's master data
 
-![Company overview page of the PosOperator account listing the assigned roles, with the Overview menu entry and the activated PosOperator role switch marked 1 and 2](images/5-surrogating-accounts.png)
+PosOperators follow these steps in their own account after signing in. PosDealers follow them after switching to the PosOperator's account.
 
-*Figure 4. Overview of the PosOperator account.*
+1. In the Portal, open `Company info` > `Overview` in the left sidebar.
+2. In `Roles`, check that the `PosOperator` toggle, and no other role toggle, is turned on. If another role is turned on, deactivate it. For more information, see [Deactivate a role](../company-roles.md#deactivate-a-role).
 
-| Step | Description |
-|:----:|-------------|
-|![Number 1](images/Numbers/circle-1o.png) |After signing in (PosOperators) or switching to the PosOperator's account (PosDealers), choose `Company info` > `Overview`. |
-|![Number 2](images/Numbers/circle-2o.png) |Check that the PosOperator role, and no other role, is activated. Otherwise, cancel the undesired role. For more information, see [Company Roles](../company-roles.md). |
+   ![Roles section of the PosOperator account test1 in the fiskaltrust.Portal, with the PosOperator toggle turned on and the PosDealer, PosCreator, Consultant and AppCreator toggles turned off](images/surrogating-roles.png)
 
-*Table 1. Checking the PosOperator's activated roles, shown in Figure 4.*
+   *Figure 4. The `Roles` section of a PosOperator account with only the `PosOperator` role.*
 
-![Master data page of the PosOperator account with the menu entry, mandatory address fields, tax identification number fields, Data Check buttons, the button to return to your account and the Outlets menu entry marked 1 to 6](images/6-surrogating-accounts.png)
+3. Open `Company info` > `Master data` in the left sidebar.
 
-*Figure 5. Master data page of the PosOperator account.*
+   ![Master data page of the PosOperator account test1 in the fiskaltrust.Portal with the Address, Contact details and Identification numbers sections and a Data Check button](images/surrogating-master-data.png)
 
-| Step | Description |
-|:----:|-------------|
-|![Number 1](images/Numbers/circle-1o.png) |After checking the roles, choose `Company info` > `Master data`. |
-|![Number 2](images/Numbers/circle-2o.png) |Check the address fields. Optionally, enter a dedicated e-mail address for invoices in `Primary Billing E-Mail`. |
-|![Number 3](images/Numbers/circle-3o.png) |Check that the tax identification numbers are complete. They are not mandatory for the invitation process, but they are the basis for correct cash register management and a prerequisite for using third-party services. |
-|![Number 4](images/Numbers/circle-4o.png) |Validate the values with `Data Check`. Save your changes before you leave the page. |
-|![Number 5](images/Numbers/circle-5o.png) |Do not return to your account with `Back to your account` yet (PosDealers), and do not sign out yet (PosOperators). |
-|![Number 6](images/Numbers/circle-6o.png) |Choose `Outlets` and check the outlets for completeness and correctness. For more information, see [Master data](master-data.md). |
-| |Choose `Back to your account` to return to your account and check the accounts of other PosOperators. |
+   *Figure 5. The `Master data` page of a PosOperator account.*
 
-*Table 2. Checking and validating the PosOperator's master data, shown in Figure 5.*
+4. Check the fields in `Address` and `Contact details`. Optionally, enter a dedicated e-mail address for invoices in `E-Mail for Invoices`. If this field is empty, invoices are sent to the address in `E-Mail`.
+5. In `Identification numbers`, check that the tax identification numbers are complete. They are not mandatory for the invitation process, but they are the basis for correct cash register management and a prerequisite for using third-party services.
+6. Click `Data Check` to validate the values. Save your changes before you leave the page.
+7. Open `Company info` > `Outlets` in the left sidebar and check the outlets for completeness and correctness. For more information, see [Master data](master-data.md).
+8. When you have finished:
+   - PosDealers: click `Back to your account` to return to your account and check the accounts of other PosOperators.
+   - PosOperators: click `Sign out`.
 
 :::caution No access to employee data for PosDealers
 For data privacy reasons, you cannot manage the PosOperator's employee data in the fiskaltrust.Portal when you have switched to a PosOperator account as a PosDealer.
