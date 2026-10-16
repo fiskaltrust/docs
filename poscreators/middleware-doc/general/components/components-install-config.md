@@ -251,7 +251,7 @@ Once completed, the service should appear in the running daemon list.
 
 ## Android
 
-The fiskaltrust.Middleware for Android is available for the German and Italian markets. For more information about the platform specific installation, see the Android platform documentation for [Germany](../../middleware-de-kassensichv/operation-modes/on-premise-platforms/android.md) and [Italy](../../middleware-it-registratore-telematico/operation-modes/on-premise-platforms/android.md).
+The fiskaltrust.Middleware for Android is not available in every market. For availability and the platform specific installation, see the Android platform documentation of the respective market, for example [Germany](../../middleware-de-kassensichv/operation-modes/on-premise-platforms/android.md) or [Italy](../../middleware-it-registratore-telematico/operation-modes/on-premise-platforms/android.md).
 
 ## Migration of the fiskaltrust.Middleware instance to a different hardware
 

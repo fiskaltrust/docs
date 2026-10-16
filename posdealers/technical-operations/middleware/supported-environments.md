@@ -68,7 +68,7 @@ Android is currently supported in Germany and Italy. For other markets, see the 
 Android 7 and higher is supported. Due to the security restrictions of Android, the required packages cannot be loaded or updated when the service is started. The middleware for Android is therefore available for download with the following pre-configured packages:
 
 - Germany: SQLite Queue, fiskaly SCU, Swissbit SCU (e.g. via SD-cards)
-- Italy: SQLite Queue, Epson SCU, Custom SCU
+- Italy: see [Android](../../../poscreators/middleware-doc/middleware-it-registratore-telematico/operation-modes/on-premise-platforms/android.md#differences-to-fiskaltrustmiddleware-for-desktop)
 
 This Google security restriction also implies that our regular package update mechanism is not supported on Android. To receive the latest middleware updates, the APK must therefore be updated either via Google Play or Mobile Device Management.
 
