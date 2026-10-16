@@ -33,11 +33,9 @@
   <path d="M770,650 H342" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
   <path d="M210,682 V706" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
   <path d="M210,832 V870" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
-  <rect x="189.5" y="841.0" width="41" height="20" fill="#FFFFFF"/>
-  <text text-anchor="middle" font-size="13" font-family="IBM Plex Mono, monospace" letter-spacing="1.8" fill="#676A69"><tspan x="210" y="855.5">YES</tspan></text>
+  <text text-anchor="start" font-size="13" font-family="IBM Plex Mono, monospace" letter-spacing="1.8" fill="#676A69"><tspan x="220" y="855.5">YES</tspan></text>
   <path d="M350,770 H398" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
-  <rect x="358.0" y="760" width="32" height="20" fill="#FFFFFF"/>
-  <text text-anchor="middle" font-size="13" font-family="IBM Plex Mono, monospace" letter-spacing="1.8" fill="#676A69"><tspan x="374.0" y="774.5">NO</tspan></text>
+  <text text-anchor="middle" font-size="13" font-family="IBM Plex Mono, monospace" letter-spacing="1.8" fill="#676A69"><tspan x="374.0" y="762.5">NO</tspan></text>
   <path d="M530,802 V866" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
   <path d="M660,900 H1060 V450 H1032" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
 </svg>
