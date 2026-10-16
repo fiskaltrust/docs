@@ -77,12 +77,12 @@ flowchart LR
 *Figure 2. Hybrid model: local Middleware with a cloud signature service.*
 
 - No signature hardware has to be shipped, plugged in or replaced.
-- Signing needs an internet connection. If the signature service cannot be reached, the Middleware switches to failed mode and the POS system continues to operate. For more information, see [Failure Scenarios](../middleware-doc/general/cash-register-integration/cash-register-integration-failure-scenarios.md#signature-creation-unit-not-reachable-or-failing).
+- Signing needs an internet connection. If the signature service cannot be reached, the Middleware switches to failed mode. Whether the POS system may continue to issue receipts in this state depends on the market. For more information, see [Failure Scenarios](../middleware-doc/general/cash-register-integration/cash-register-integration-failure-scenarios.md#signature-creation-unit-not-reachable-or-failing) and the pages of your market.
 - You still install and maintain the Launcher on every site.
 
 ### Cloud: Middleware hosted by fiskaltrust
 
-fiskaltrust hosts the CashBox, including the Queue and the SCU, as the CloudCashbox. The POS system reaches the Middleware via a URL and authenticates with the CashBox ID and access token. Nothing is installed in the outlet.
+fiskaltrust hosts the CashBox, including the Queue and the SCU, as the CloudCashbox. The POS system reaches the Middleware via a URL and authenticates with the CashBox ID and access token. No Middleware is installed in the outlet. In some markets, the SCU still connects to a signature device on site, for example an RT printer or RT server in Italy.
 
 ```mermaid
 flowchart LR
@@ -100,8 +100,8 @@ flowchart LR
 
 *Figure 3. Cloud model: the CloudCashbox hosted by fiskaltrust.*
 
-- No installation, no Launcher and no signature hardware on site. fiskaltrust operates and updates the Middleware.
-- Every request needs an internet connection. If the Middleware cannot be reached, the POS system re-sends the receipts later in late-signing mode. For more information, see [Failure Scenarios](../middleware-doc/general/cash-register-integration/cash-register-integration-failure-scenarios.md#middleware-not-reachable-or-failing).
+- No Middleware installation and no Launcher on site. fiskaltrust operates and updates the Middleware.
+- Every request needs an internet connection. What the POS system may do while the Middleware cannot be reached depends on the market: in some markets it re-sends the receipts later in late-signing mode, in others it cannot issue a fiscal receipt until the connection is back, for example in Spain. For more information, see [Failure Scenarios](../middleware-doc/general/cash-register-integration/cash-register-integration-failure-scenarios.md#middleware-not-reachable-or-failing) and the pages of your market.
 - The CloudCashbox is a paid product, while the locally installed Middleware is free of charge.
 - The CloudCashbox is fiskaltrust's target architecture. Some features are only available with it, for example eInvoicing. For more information, see [eInvoicing — Overview](../middleware-doc/e-invoicing/overview.md#prerequisites-shared).
 
@@ -115,11 +115,13 @@ If your POS system runs in your own data center and you need the Middleware ther
 
 ### Comparison
 
+Where the Middleware runs and which signature device it uses are separate choices. The market decides which combinations are possible; see [Availability by market](#availability-by-market).
+
 | | Local | Hybrid | Cloud |
 |---|---|---|---|
 | **Where the Middleware runs** | POS device or local server | POS device or local server | fiskaltrust cloud |
-| **Signature device** | Hardware on site | Cloud service | Managed by fiskaltrust |
-| **Installation on site** | Launcher and signature hardware | Launcher | None |
+| **Signature device** | Hardware on site, or none where the market requires no device | Cloud service | Depends on the market: managed by fiskaltrust, or a device on site (for example an RT printer or RT server in Italy) |
+| **Installation on site** | Launcher, and signature hardware where required | Launcher | None, except a signature device where the market requires one on site |
 | **Internet for signing** | Not required | Required | Required |
 | **Updates** | Through the Launcher on each site; on Android through an app update | Through the Launcher on each site; on Android through an app update | Done by fiskaltrust |
 | **Middleware cost** | Free of charge | Free of charge | Paid product (CloudCashbox) |
@@ -156,7 +158,7 @@ Where a signature device is required, the type limits your options:
 | | Hardware device | Cloud service |
 |---|---|---|
 | **Examples** | Hardware TSE (USB, SD, microSD) in Germany, smart card in Austria, RT printer or RT server in Italy | Cloud TSE in Germany, online signing in Austria |
-| **Fits architecture** | Local | Hybrid or cloud |
+| **Fits architecture** | Local; in Italy also cloud (RT printer or RT server) | Hybrid or cloud |
 | **Works offline** | Yes | No |
 | **On site** | Device must be connected, protected and replaced when defective | Nothing to install |
 | **Sharing** | One device can serve several Queues in the same outlet, up to the device limit | Depends on the service; some cloud TSEs accept only one Queue |
