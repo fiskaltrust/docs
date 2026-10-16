@@ -44,6 +44,7 @@ If none of these requirements applies, a single queue with all input devices of 
 
 Country-specific requirements, for example regarding the signing device, are described in the market appendices:
 
+- Austria: [Queues and input stations](../../middleware-at-rksv/cash-register-integration/cash-register-integration.md#queues-and-input-stations)
 - Germany: [Queues, terminals and the TSE](../../middleware-de-kassensichv/cash-register-integration/cash-register-integration.md#queues-terminals-and-the-tse)
 
 For commercial limits, for example the number of queues or terminals per outlet, see the fair use policy of your market or contact your fiskaltrust commercial contact.
