@@ -11,13 +11,13 @@ This chapter describes the cash register integration for the Austrian market. It
 
 What Austria requires of a cash register as a whole - signing cash transactions, keeping and exporting the data collection log, and registering and notifying through FinanzOnline - is described in the [Introduction](../appendix-at-rksv.md). The Austrian terms used below are defined in [Terminology](../terminology/terminology.md). This page covers the part the POS system implements: which receipts it has to send, how the workflows behave, and how the receipt is structured.
 
-## Queues and input stations
+## fiskaltrust.Middleware and input stations
 
-The general model of queues, input devices and locations applies to Austria as well. For more information, see [Queues, Terminals and Locations](../../general/components/queues-terminals-locations.md).
+The general model of the fiskaltrust.Middleware, input devices and locations applies to Austria as well. For more information, see [fiskaltrust.Middleware, Terminals and Locations](../../general/components/queues-terminals-locations.md).
 
-In the terms of the RKSV, the cash register (Registrierkasse) is the POS system combined with the fiskaltrust.SecurityMechanism, that is, the queue. "Queue" and "Middleware" are fiskaltrust components, not legal terms. For more information, see [Terminology](../terminology/terminology.md).
+In the terms of the RKSV, the cash register (Registrierkasse) is the POS system combined with the fiskaltrust.SecurityMechanism, that is, the fiskaltrust.Middleware (queue). "Queue" and "Middleware" are fiskaltrust components, not legal terms. For more information, see [Terminology](../terminology/terminology.md).
 
-The cash register identification number (Kassenidentifikationsnummer) that is registered through FinanzOnline is the `ftCashBoxIdentification` of the queue. All input stations that send their receipts to the same queue therefore belong to the same cash register in the terms of the RKSV and share its receipt chain. For more information, see [Data Structures](../data-structures/data-structures.md) and [Introduction](../appendix-at-rksv.md#finanzonline-notifications-and-validations).
+The cash register identification number (Kassenidentifikationsnummer) that is registered through FinanzOnline is the `ftCashBoxIdentification` of the fiskaltrust.Middleware. All input stations that send their receipts to the same fiskaltrust.Middleware therefore belong to the same cash register in the terms of the RKSV and share its receipt chain. For more information, see [Data Structures](../data-structures/data-structures.md) and [Introduction](../appendix-at-rksv.md#finanzonline-notifications-and-validations).
 
 ## What your POS system has to implement
 

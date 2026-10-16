@@ -9,15 +9,15 @@ tags: [Germany, Printing, Signature, Cash Register Integration, KassenSichV]
 
 This chapter describes the cash register integration in accordance with German law. The general rules for cash register integration are described in the Chapter [Cash Register Integration](../../general/cash-register-integration/cash-register-integration-regular-workflow.md) of the general part.
 
-## Queues, terminals and the TSE
+## fiskaltrust.Middleware, terminals and the TSE
 
-The general model of queues, input devices and locations applies to Germany as well: the queue is the electronic recording system, and the POS terminals connected to it are input devices. For more information, see [Queues, Terminals and Locations](../../general/components/queues-terminals-locations.md).
+The general model of the fiskaltrust.Middleware, input devices and locations applies to Germany as well: the fiskaltrust.Middleware is the electronic recording system, and the POS terminals connected to it are input devices. For more information, see [fiskaltrust.Middleware, Terminals and Locations](../../general/components/queues-terminals-locations.md).
 
 In addition, the following applies to the TSE in Germany:
 
 - Every TSE is bound to one location. A PosOperator with several locations needs at least one TSE per location.
-- Several on-premise queues can share one TSE, within the number of clients the TSE supports.
-- A queue hosted in the cloud (CloudCashBox) needs its own TSE per installation.
+- Several on-premise fiskaltrust.Middleware instances can share one TSE, within the number of clients the TSE supports.
+- A fiskaltrust.Middleware hosted in the cloud (CloudCashBox) needs its own TSE per installation.
 
 For more information on the number of clients per TSE, see [On-Premise Installation](../operation-modes/on-premise-installation.md#scucharacteristics--platform-support-matrix).
 
@@ -27,8 +27,8 @@ The `cbTerminalID` sent by the POS system is not part of the DSFinV-K export. Fo
 
 Two failure situations must be distinguished:
 
-- **The POS system cannot reach the fiskaltrust.Middleware.** The POS system buffers the receipts and sends them to the Middleware as soon as it is reachable again.
-- **The fiskaltrust.Middleware cannot reach the TSE.** The Middleware continues to accept receipts in failed mode. These receipts are not sent again; a Zero-Receipt ends failed mode once the TSE is reachable again.
+- **The POS system cannot reach the fiskaltrust.Middleware.** The POS system buffers the receipts and sends them to the fiskaltrust.Middleware as soon as it is reachable again.
+- **The fiskaltrust.Middleware cannot reach the TSE.** The fiskaltrust.Middleware continues to accept receipts in failed mode. These receipts are not sent again; a Zero-Receipt ends failed mode once the TSE is reachable again.
 
 In Germany, the PosOperator must remedy the cause of both failure situations immediately (DE: unverzüglich). The law does not define a time frame. Configure the buffering of receipts on the POS system accordingly.
 
@@ -36,12 +36,12 @@ For more information, see [Failure Scenarios](../../general/cash-register-integr
 
 ### Resending receipts without signing them twice
 
-If the POS system did not receive a response, it cannot know whether the Middleware has already processed the receipt. To find out, send the receipt again with the flag `0x0000800000000000` (**Receipt request**) set in the `ftReceiptCase`:
+If the POS system did not receive a response, it cannot know whether the fiskaltrust.Middleware has already processed the receipt. To find out, send the receipt again with the flag `0x0000800000000000` (**Receipt request**) set in the `ftReceiptCase`:
 
 - Use the same `cbReceiptReference` and, if used, the same `cbTerminalID` as in the original request.
 - The ChargeItems and PayItems must be exactly the same as in the original request.
 
-If the queue has already processed a matching receipt, it returns the stored response of that receipt, and the receipt is not processed a second time. If no matching receipt is found, the queue returns no response; in this case, send the receipt as a new request, flagged as a failed receipt. For more information, see [Middleware not reachable or failing](../../general/cash-register-integration/cash-register-integration-failure-scenarios.md#middleware-not-reachable-or-failing) and [ftReceiptCaseFlag](../reference-tables/type-of-receipt-ftreceiptcase.md#ftreceiptcaseflag).
+If the fiskaltrust.Middleware has already processed a matching receipt, it returns the stored response of that receipt, and the receipt is not processed a second time. If no matching receipt is found, the fiskaltrust.Middleware returns no response; in this case, send the receipt as a new request, flagged as a failed receipt. For more information, see [Middleware not reachable or failing](../../general/cash-register-integration/cash-register-integration-failure-scenarios.md#middleware-not-reachable-or-failing) and [ftReceiptCaseFlag](../reference-tables/type-of-receipt-ftreceiptcase.md#ftreceiptcaseflag).
 
 ## Printing receipts
 Like in all other supported countries, the German Middleware returns all compliance-relevant data that need to be printed onto the receipt. In Germany, it's either possible to print a QR code **or** to print the data otherwise contained in this QR code as text. 
