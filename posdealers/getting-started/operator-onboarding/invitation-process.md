@@ -208,25 +208,15 @@ import FieldsES from '../../_markets/es/getting-started/operator-onboarding/invi
 
 ### Handling error messages
 
-If mandatory fields in the CSV file are empty or wrong, the import error page lists each error with its line (`Line`) and message (`Error`).
+If mandatory fields in the CSV file are empty or wrong, the `Import error` page opens. It lists the required fields and each error with its line (`Line`) and message (`Error`).
+
+![Import error page in the fiskaltrust.Portal with the list of required fields, including company name, postal code, city, country code and one of the business identifiers VAT number or TIN, a table of errors per CSV line for a missing address line 1, ZIP code and contact e-mail address, and the Back button](images/import-error.png)
+
+*Figure 5. The `Import error` page with the required fields and the errors per CSV line.*
 
 1. Note the error messages.
 2. Add the missing data in the respective lines of the CSV file.
 3. Click `Back` and import the corrected file again.
-
-![Import error page in the fiskaltrust.Portal listing CSV lines with missing e-mail address, address line 1, ZIP code, city and country, marked 1 to 5](images/7-onboarding-portal.png)
-
-*Figure 5. Import error messages after uploading an incomplete CSV file.*
-
-| Message | Description |
-|:-------:|-------------|
-|![Number 1](../../images/numbers/circle-1o.png) |`Email-address is required!` |
-|![Number 2](../../images/numbers/circle-2o.png) |`Address line 1 is required!` |
-|![Number 3](../../images/numbers/circle-3o.png) |`ZIP-code is required!` |
-|![Number 4](../../images/numbers/circle-4o.png) |`City is required!` |
-|![Number 5](../../images/numbers/circle-5o.png) |`Country is required!` |
-
-*Table 3. Import error messages for missing mandatory CSV fields.*
 
 ## Managing the invitations
 
@@ -236,14 +226,22 @@ If the preparation is complete, the invitation process runs automatically. If pr
 
 #### Status and error messages
 
-![List PosOperators that should be invited in the fiskaltrust.Portal with the search field, the columns Contact email, Contact first name, Contact last name, Company name, Email-address, Location, Country, Status and Actions, and one entry with the status Failed sending and the buttons to send the invitation, edit and delete](images/invitation-list.png)
+1. Check the `Status` of the invitation: `Invitation Sent`, `Press "Send" to invite PosOperator` or `Failed sending`.
+2. If the status is `Press "Send" to invite PosOperator`, the invitation is not sent yet. Use the buttons in the `Actions` column:
+   - Click `Send Invitation to this PosOperator` (envelope icon) to send this single e-mail invitation, or `Invite all PosOperators` to send all. For an invitation that was already sent, the row shows `Resend invitation to this PosOperator` instead.
+   - Click `Create (Auto Invitation)` (lightning icon) to create the PosOperator. This button is not shown in every account.
+   - Click `Edit` (pencil icon) to edit the invitation details, for example if the invitation cannot be assigned to your account because the PosOperator's data is incorrect or incomplete.
+   - Click `Delete` (recycle icon) to delete the invitation of a PosOperator who is not yet assigned.
 
-*Figure 6. The list `PosOperators that should be invited` with the invitation status and the row actions.*
+   ![List PosOperators that should be invited in the fiskaltrust.Portal with one entry with the status Press Send to invite PosOperator, which is not sent yet, and the buttons to send the invitation, create the PosOperator, edit and delete](images/invitation-status-not-sent.png)
 
-1. Check the `Status` of the invitation: `Invitation Sent`, `Press "Send" to invite PosOperator` (not sent yet), or `Failed sending` (red symbol; hover over it to see the reason).
-2. Click `Send Invitation to this PosOperator` (envelope icon) to send this single e-mail invitation, or `Invite all PosOperators` to send all. For an invitation that was already sent, the row shows `Resend invitation to this PosOperator` instead.
-3. If the invitation cannot be assigned to your account because the PosOperator's data is incorrect or incomplete, click `Edit` to correct it.
-4. Click `Delete` to remove the data of a PosOperator who is not yet assigned.
+   *Figure 6. An invitation with the status `Press "Send" to invite PosOperator`.*
+
+3. If the status is `Failed sending` (red symbol), hover over the status to see the reason.
+
+   ![List PosOperators that should be invited in the fiskaltrust.Portal with one entry with the status Failed sending, shown with a red symbol, and the buttons to send the invitation, edit and delete](images/invitation-status-failed.png)
+
+   *Figure 7. An invitation with the status `Failed sending`.*
 
 If `This E-Mail address already exists` appears, the PosOperator already has an account. For more information, see [Onboarding of existing PosOperators](#onboarding-of-existing-posoperators).
 
@@ -251,7 +249,7 @@ If `This E-Mail address already exists` appears, the PosOperator already has an 
 
 ![Invitation page in the fiskaltrust.Portal with the buttons to send all invitations, add a PosOperator and open the history marked 1 to 3](images/9-onboarding-portal.png)
 
-*Figure 7. Buttons for inviting PosOperators in a bulk process.*
+*Figure 8. Buttons for inviting PosOperators in a bulk process.*
 
 | Button | Description |
 |:------:|-------------|
@@ -259,7 +257,7 @@ If `This E-Mail address already exists` appears, the PosOperator already has an 
 |![Number 2](../../images/numbers/circle-2o.png) |`+Add`: adds a single PosOperator manually. For more information, see [Invitation of a single PosOperator](#invitation-of-a-single-posoperator). |
 |![Number 3](../../images/numbers/circle-3o.png) |`History`: opens the invitation history to check or repair e-mail invitations (see [Options with invited PosOperators](#options-with-invited-posoperators)). |
 
-*Table 4. Buttons for inviting PosOperators in a bulk process.*
+*Table 3. Buttons for inviting PosOperators in a bulk process.*
 
 #### Onboarding of existing PosOperators
 
@@ -271,7 +269,7 @@ If the message `This E-Mail address already exists` appears, another PosDealer h
 
 ![Workflow with two swimlanes, PosDealer and PosOperator: the invitation of the PosDealer fails with the error that the e-mail address already exists; the PosOperator searches for the PosDealer, checks name, e-mail address and access rights and requests the assignment; the PosDealer finds the PosOperator in PosOperators, clicks Accept and is then ready to surrogate](images/invitation-existing-posoperator-flowchart.svg)
 
-*Figure 8. Workflow for onboarding a PosOperator who already has an account.*
+*Figure 9. Workflow for onboarding a PosOperator who already has an account.*
 
 | Step | Description |
 |:----:|-------------|
@@ -283,7 +281,7 @@ If the message `This E-Mail address already exists` appears, another PosDealer h
 |![Number 6](../../images/numbers/circle-6o.png) |After checking name, e-mail address and access rights, the PosOperator chooses `Request assignment – dealer`. |
 |![Number 7](../../images/numbers/circle-7o.png) |You open `PosDealer` > `PosOperators`, find the new PosOperator and click `Accept`. The PosOperator's name becomes an active link that you can use for surrogating. |
 
-*Table 5. Steps to onboard a PosOperator who already has an account.*
+*Table 4. Steps to onboard a PosOperator who already has an account.*
 
 #### Options with invited PosOperators
 
@@ -291,7 +289,7 @@ Open `PosDealer` > `Invitation` and click `History` to open the invitation histo
 
 ![Invitation history in the fiskaltrust.Portal with the date fields and the row buttons marked 1 to 6](images/10-onboarding-portal.png)
 
-*Figure 9. Invitation history.*
+*Figure 10. Invitation history.*
 
 | Option | Description |
 |:------:|-------------|
@@ -302,6 +300,6 @@ Open `PosDealer` > `Invitation` and click `History` to open the invitation histo
 |![Number 5](../../images/numbers/circle-5o.png) |Delete the record. You cannot delete an e-mail address entirely in the fiskaltrust.Portal, so you cannot transfer an e-mail address that was used once to any other account. |
 |![Number 6](../../images/numbers/circle-6o.png) |`Copy link to Clipboard`: shows the direct invitation link. Copy it and send it to your PosOperator by direct message. |
 
-*Table 6. Options in the invitation history.*
+*Table 5. Options in the invitation history.*
 
 To return to the invitation page, click `Overview of PosOperator`.
