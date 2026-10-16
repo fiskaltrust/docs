@@ -66,7 +66,7 @@ Depending on the country, when a PosOperator is registered for the first time, f
 
 1. Open `PosDealer` > `Invitation`.
 2. Check the settings as described in [Preparation of invitations](#preparation-of-invitations).
-3. Click `+Add`.
+3. In `PosOperators that should be invited`, click `+Add`.
 4. Fill in the mandatory fields. They are required so that the PosOperator can be found and assigned correctly in the fiskaltrust.Portal via the e-mail address:
    - `Company data`: company name, e-mail address, address line 1, postal code, city, country
    - `User data`: first name, last name, contact e-mail address
@@ -142,11 +142,11 @@ Import a CSV file to invite many business partners at once. The fiskaltrust.Port
 
 1. Open `PosDealer` > `Invitation`.
 2. Check the settings as described in [Preparation of invitations](#preparation-of-invitations).
-3. Click `Download demo CSV file`.
+3. In `PosOperators that should be invited`, click `Download demo CSV file`.
 4. Open the demo CSV file.
 5. Add the data of the PosOperators as described in [Fields of the CSV file](#fields-of-the-csv-file) and save the file as a CSV file.
 6. Go back to the fiskaltrust.Portal and open `PosDealer` > `Invitation`.
-7. In `PosOperators that should be invited`, under `Import CSV file`, click `Choose file` and browse to your CSV file.
+7. In `PosOperators that should be invited`, click `Choose file` in `Import CSV file` and browse to your CSV file.
 8. Click `Import`. The data is uploaded and checked for duplicate or incomplete records. You can check and complete each record. If records are incomplete, the import error page opens (see [Handling error messages](#handling-error-messages)).
 9. Click `Invite all PosOperators` to send the e-mail invitation to each business partner in your CSV file. For a preview of the e-mail, see [Preview of the e-mail invitation](#preview-of-the-e-mail-invitation).
 
@@ -222,9 +222,7 @@ If mandatory fields in the CSV file are empty or wrong, the `Import error` page 
 
 If the preparation is complete, the invitation process runs automatically. If problems arise, you can fix most of them yourself. For example, if a PosOperator says that no e-mail invitation arrived, check the invitation history.
 
-### Troubleshooting
-
-#### Status and error messages
+### Status and error messages
 
 1. Check the `Status` of the invitation: `Invitation Sent`, `Press "Send" to invite PosOperator` or `Failed sending`.
 2. If the status is `Press "Send" to invite PosOperator`, the invitation is not sent yet. Use the buttons in the `Actions` column:
@@ -243,23 +241,9 @@ If the preparation is complete, the invitation process runs automatically. If pr
 
    *Figure 7. An invitation with the status `Failed sending`.*
 
-If `This E-Mail address already exists` appears, the PosOperator already has an account. For more information, see [Onboarding of existing PosOperators](#onboarding-of-existing-posoperators).
+4. If `This E-Mail address already exists` appears, the PosOperator already has an account. For more information, see [Onboarding of existing PosOperators](#onboarding-of-existing-posoperators).
 
-#### Inviting PosOperators in a bulk process
-
-![Invitation page in the fiskaltrust.Portal with the buttons to send all invitations, add a PosOperator and open the history marked 1 to 3](images/9-onboarding-portal.png)
-
-*Figure 8. Buttons for inviting PosOperators in a bulk process.*
-
-| Button | Description |
-|:------:|-------------|
-|![Number 1](../../images/numbers/circle-1o.png) |`Invite all PosOperators`: sends the e-mail invitation to **all** PosOperators in the list who have not yet been invited. |
-|![Number 2](../../images/numbers/circle-2o.png) |`+Add`: adds a single PosOperator manually. For more information, see [Invitation of a single PosOperator](#invitation-of-a-single-posoperator). |
-|![Number 3](../../images/numbers/circle-3o.png) |`History`: opens the invitation history to check or repair e-mail invitations (see [Options with invited PosOperators](#options-with-invited-posoperators)). |
-
-*Table 3. Buttons for inviting PosOperators in a bulk process.*
-
-#### Onboarding of existing PosOperators
+### Onboarding of existing PosOperators
 
 If the message `This E-Mail address already exists` appears, another PosDealer has already onboarded the PosOperator. In this case, the PosOperator requests the assignment to your account.
 
