@@ -24,7 +24,7 @@ Surrogating always works with your account and one PosOperator account; there is
 4. There have been no changes to other role contracts or to your authorizations.
 5. The PosOperator's account is active. To check, choose `PosDealer` > `PosOperators`:
    - If the PosOperator's name is an active link, the account is active.
-   - If the PosOperator's name is not an active link, your invitation has not been accepted yet. Follow the instructions in [Troubleshooting](invitation-process.md#troubleshooting).
+   - If the PosOperator's name is not an active link, your invitation has not been accepted yet. Follow the instructions in [Managing the invitations](invitation-process.md#managing-the-invitations).
 
 :::tip
 To get an overview of active and inactive PosOperator accounts, for example to contact them, choose `Export as CSV` on the list of PosOperators (`PosDealer` > `PosOperators`).

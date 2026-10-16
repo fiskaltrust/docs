@@ -253,7 +253,7 @@ If the message `This E-Mail address already exists` appears, another PosDealer h
 
 ![Workflow with two swimlanes, PosDealer and PosOperator: the invitation of the PosDealer fails with the error that the e-mail address already exists; the PosOperator searches for the PosDealer, checks name, e-mail address and access rights and requests the assignment; the PosDealer finds the PosOperator in PosOperators, clicks Accept and is then ready to surrogate](images/invitation-existing-posoperator-flowchart.svg)
 
-*Figure 9. Workflow for onboarding a PosOperator who already has an account.*
+*Figure 8. Workflow for onboarding a PosOperator who already has an account.*
 
 | Step | Description |
 |:----:|-------------|
@@ -265,15 +265,15 @@ If the message `This E-Mail address already exists` appears, another PosDealer h
 |![Number 6](../../images/numbers/circle-6o.png) |After checking name, e-mail address and access rights, the PosOperator chooses `Request assignment – dealer`. |
 |![Number 7](../../images/numbers/circle-7o.png) |You open `PosDealer` > `PosOperators`, find the new PosOperator and click `Accept`. The PosOperator's name becomes an active link that you can use for surrogating. |
 
-*Table 4. Steps to onboard a PosOperator who already has an account.*
+*Table 3. Steps to onboard a PosOperator who already has an account.*
 
-#### Options with invited PosOperators
+### Options with invited PosOperators
 
 Open `PosDealer` > `Invitation` and click `History` to open the invitation history.
 
 ![Invitation history in the fiskaltrust.Portal with the date fields and the row buttons marked 1 to 6](images/10-onboarding-portal.png)
 
-*Figure 10. Invitation history.*
+*Figure 9. Invitation history.*
 
 | Option | Description |
 |:------:|-------------|
@@ -284,6 +284,6 @@ Open `PosDealer` > `Invitation` and click `History` to open the invitation histo
 |![Number 5](../../images/numbers/circle-5o.png) |Delete the record. You cannot delete an e-mail address entirely in the fiskaltrust.Portal, so you cannot transfer an e-mail address that was used once to any other account. |
 |![Number 6](../../images/numbers/circle-6o.png) |`Copy link to Clipboard`: shows the direct invitation link. Copy it and send it to your PosOperator by direct message. |
 
-*Table 5. Options in the invitation history.*
+*Table 4. Options in the invitation history.*
 
 To return to the invitation page, click `Overview of PosOperator`.
