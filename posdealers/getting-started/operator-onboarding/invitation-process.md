@@ -270,7 +270,7 @@ If the message `This E-Mail address already exists` appears, another PosDealer h
 
 ### Invitation History
 
-1. In the Portal, open `PosDealer` > `Invitation` in the left sidebar and click `History`.
+1. In the Portal, open `PosDealer` > `Invitation` in the left sidebar and click `History` in `PosOperators that should be invited`.
 
    ![History page in the fiskaltrust.Portal with the search field, the start and end date fields, the Overview of PosOperator button and one sent invitation with the buttons for details, sending the invitation again and copying the link](images/invitation-history.png)
 
