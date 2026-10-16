@@ -18,7 +18,7 @@ After reading this, you can prepare a system where the Middleware will run.
 | ------------------------------------------ | ------------------------------------------------------ |
 | **Operating System:** <br /> Windows        | **Windows 7** or higher <br />**.NET Framework >= 4.8** |
 | **Operating System:** <br /> Linux & macOS  | Ubuntu or Debian recommended<br />**Mono >= 6.8.0**<br />SOAP is not supported, gRPC is recommended |
-| **Operating System:** <br /> Android        | **Germany only**<br />**Android 7** or higher<br />Swissbit or Fiskaly TSSs only |
+| **Operating System:** <br /> Android        | **Germany and Italy**<br />**Android 7** or higher<br />Germany: Swissbit or Fiskaly TSSs only<br />Italy: Epson or Custom SCUs only |
 | **Databases**                         | **SQLite** (local DB)<br />**MS SQL Server** (All versions currently supported by Microsoft)<br />**MySQL** (Germany only) |
 | **Hardware**                          | At least 200MB of memory per Queue<br/> |
 |**CPU Architecture**                   | Multicore CPU recommended <br /> * x86 <br/> * x64 <br/> * ARM usable with restrictions - [more details here](../../../poscreators/middleware-doc/general/components/components.md#arm-processor) <br />The actual memory amount depends on the amount of receipts to process. |
@@ -59,17 +59,16 @@ We're working on an updated version of the Launcher that doesn't rely on Mono an
 
 ## Android
 
-:::info Germany only
+:::info Germany and Italy
 
-Android is currently only supported in Germany.
+Android is currently supported in Germany and Italy. For other markets, see the pages of the respective market.
 
 :::
 
 Android 7 and higher is supported. Due to the security restrictions of Android, the required packages cannot be loaded or updated when the service is started. The middleware for Android is therefore available for download with the following pre-configured packages:
 
-- SQLite Queue
-- fiskaly SCU
-- Swissbit SCU (e.g. via SD-cards)
+- Germany: SQLite Queue, fiskaly SCU, Swissbit SCU (e.g. via SD-cards)
+- Italy: see [Android](../../../poscreators/middleware-doc/middleware-it-registratore-telematico/operation-modes/on-premise-platforms/android.md#differences-to-fiskaltrustmiddleware-for-desktop)
 
 This Google security restriction also implies that our regular package update mechanism is not supported on Android. To receive the latest middleware updates, the APK must therefore be updated either via Google Play or Mobile Device Management.
 

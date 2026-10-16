@@ -430,6 +430,7 @@ module.exports = [
             label: "On-Premise Platforms",
             key: "it-on-premise-platforms",
             items: [
+              "poscreators/middleware-doc/middleware-it-registratore-telematico/operation-modes/on-premise-platforms/android",
               "poscreators/middleware-doc/middleware-it-registratore-telematico/operation-modes/on-premise-platforms/linux",
               "poscreators/middleware-doc/middleware-it-registratore-telematico/operation-modes/on-premise-platforms/windows",
             ],

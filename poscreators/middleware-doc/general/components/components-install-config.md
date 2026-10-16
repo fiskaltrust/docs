@@ -54,7 +54,7 @@ The launcher variants and platform availability described below currently apply 
 
 *Table 1. Launcher package variants and their availability per market (AT, DE, FR, IT).*
 
-*Availability depends on the selected CashBox configuration. For more information, see the [Android platform documentation](../../middleware-de-kassensichv/operation-modes/on-premise-platforms/android.md).
+*Availability depends on the selected CashBox configuration. For more information, see the Android platform documentation for [Germany](../../middleware-de-kassensichv/operation-modes/on-premise-platforms/android.md) and [Italy](../../middleware-it-registratore-telematico/operation-modes/on-premise-platforms/android.md).
 
 The downloaded launcher package is provided as a ZIP archive. Extract the archive before use. The extracted folder can be moved or renamed if required.
 
@@ -251,7 +251,7 @@ Once completed, the service should appear in the running daemon list.
 
 ## Android
 
-The fiskaltrust.Middleware for Android is currently available for the German market only. For more information about the platform specific installation, see the see the [Android platform documentation](../../middleware-de-kassensichv/operation-modes/on-premise-platforms/android.md).
+The fiskaltrust.Middleware for Android is not available in every market. For availability and the platform specific installation, see the Android platform documentation of the respective market, for example [Germany](../../middleware-de-kassensichv/operation-modes/on-premise-platforms/android.md) or [Italy](../../middleware-it-registratore-telematico/operation-modes/on-premise-platforms/android.md).
 
 ## Migration of the fiskaltrust.Middleware instance to a different hardware
 

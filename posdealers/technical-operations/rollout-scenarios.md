@@ -133,11 +133,11 @@ Our partners' experiences showed that in exceptional cases, terminals become def
 *Figure 6. Separate queue per terminal hosted in the same CashBox for higher reliability.*
 
 ### Hosted Middleware & custom data centers
-This scenario works best in centralized system architectures. You connect many POS Systems or terminals to the hosted version of the fiskaltrust.Middleware. The Middleware operates either in the user's data center or our cloud (a SaaS product called SignatureCloud). This solution is recommended in countries where remote signing is allowed (Austria and France), as it does not require any locally installed Middleware instances.
+This scenario works best in centralized system architectures. You connect many POS Systems or terminals to the hosted version of the fiskaltrust.Middleware. The Middleware operates either in the user's data center (in Germany, for example, with _Bring your own Data Center_) or in our cloud (the SaaS product _CloudCashbox_; in Austria and France also _SignatureCloud_). It does not require any locally installed Middleware instances. For the markets in which the hosted Middleware is available, see [Operation Modes](../../poscreators/middleware-doc/general/operation-modes/operation-modes.md) and the country-specific notes.
 
 ![Main POS-System for multiple Terminals](images/scenario-6-RR.png "Main POS-System for multiple Terminals")
 
-*Figure 7. Hosted Middleware operating in a custom data center or the SignatureCloud.*
+*Figure 7. Hosted Middleware operating in a custom data center or the fiskaltrust cloud.*
 
 | Facts | Description                                                                                                         |
 | :---: | :------------------------------------------------------------------------------------------------------------------ |
