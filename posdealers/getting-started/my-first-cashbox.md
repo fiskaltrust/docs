@@ -27,9 +27,9 @@ If you do not have a Sandbox account yet, ask your PosCreator for an invitation 
 
 :::
 
-![Flowchart: after Prerequisites and Decision on creation, either Business and Technical Rollout or manual SCU, Helper, Queue and cashbox creation lead to CashBox rebuild, Launcher download and Middleware start](./images/my-first-cashbox/first-CashBox-flow.png "My first CashBox")
+![Workflow with two swimlanes, PosDealer account and PosOperator account: the PosDealer checks the prerequisites and decides whether to use a rollout plan. With a rollout plan, a Business Rollout for one or more PosOperators and a Technical Rollout follow. Without, the SCU, an optional Helper, the Queue and the CashBox are created manually in the PosOperator account. Both ways continue with rebuilding the CashBox, downloading the Launcher, and starting the Middleware and testing](./images/my-first-cashbox/first-cashbox-flowchart.svg)
 
-*Figure 1. Process flow for creating your first CashBox.*
+*Figure 1. Workflow for creating your first CashBox.*
 
 ## Prerequisites
 
