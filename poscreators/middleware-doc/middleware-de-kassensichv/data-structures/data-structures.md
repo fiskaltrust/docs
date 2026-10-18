@@ -26,6 +26,12 @@ Fields from the receipt request that need special handling for the German market
 
 *Table 1. Receipt request fields requiring special handling for the German market.*
 
+:::caution Missing `ftPosSystemId`
+
+If the receipt requests contain no `ftPosSystemId`, the cash register has no POS system for the notification to the tax office, and the fiskaltrust.Portal shows **There's no PosSystem linked to this cash register**. The DFKA export for DATEV MeinFiskal then fails its validation with missing `brand` and `model` of the cash register, which blocks the onboarding to MeinFiskal. For more information, see [DATEV MeinFiskal](../../../../posdealers/buy-resell/products/3rd-party/datev-meinfiskal.md#common-errors-in-the-validation-report) and [POS System and ftPosSystemId](../../general/pos-system/pos-system.md#missing-pos-system-id).
+
+:::
+
 Examples of using `cbReceiptReference` and `cbPreviousReceiptReference` to connect requests representing a business action can be found in our Postman collection.
 
 :::caution

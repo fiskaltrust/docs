@@ -27,23 +27,23 @@ In fiskaltrust, a **POS system** is a POS software product as its PosCreator dis
 
 *Table 1. Master data of a POS system in the fiskaltrust.Portal.*
 
-The PosCreator who registers the POS system owns it. PosDealers who sell and install the POS system are assigned to it, see [Assignment of a PosSystem](../../../getting-started/onboarding-posdealers.md#assignment-of-a-possystem).
+The PosCreator who registers the POS system owns it. PosDealers who sell and install the POS system are assigned to it. For more information, see [Assignment of a PosSystem](../../../getting-started/onboarding-posdealers.md#assignment-of-a-possystem).
 
 ## Getting the POS system ID {#getting-the-pos-system-id}
 
 The **POS system ID** is a UUID that the fiskaltrust.Portal assigns when the POS system is created:
 
 1. Log in to the fiskaltrust.Portal as a PosCreator.
-2. Select `PosSystems`, then `Add`, enter the master data and select `Create new`.
+2. Select `PosSystems` > `Add`, enter the master data and select `Create new`.
 3. The new POS system appears in the list of your POS systems, together with its `PosSystemId`. The ID cannot be changed.
 
-The step-by-step instructions with screenshots are in [Creation of a PosSystem](../../../getting-started/onboarding-posdealers.md#creation-of-a-possystem).
+For step-by-step instructions with screenshots, see [Creation of a PosSystem](../../../getting-started/onboarding-posdealers.md#creation-of-a-possystem).
 
 Create **one POS system per model**, not one per device or per installation. All installations of the same model send the same ID.
 
 :::caution One ID per Portal
 
-Each market has its own fiskaltrust.Portal, and the sandbox Portal is separate from the production Portal. A POS system is known only in the Portal where it was created. Create the POS system in the production Portal of every market where it is used, and send the ID from that market's Portal; see the [Integration Checklist](../../../getting-started/integration-checklist.md).
+Each market has its own fiskaltrust.Portal, and the sandbox Portal is separate from the production Portal. A POS system is known only in the Portal where it was created. Create the POS system in the production Portal of every market where it is used, and send the ID from that market's Portal. For more information, see [Integration Checklist](../../../getting-started/integration-checklist.md).
 
 :::
 
@@ -68,7 +68,7 @@ The ID is **not** configured per installation and is not entered by the PosDeale
 The POS system ID connects each receipt to the POS software that created it. fiskaltrust uses it:
 
 - **For audits:** it identifies the POS system behind a queue and behind each receipt.
-- **For tax-authority exports and notifications:** in markets where the POS system must be declared, its master data comes from the POS system registered under this ID. In Germany, for example, the POS system is part of the DSFinV-K and of the notification to the tax office; see [Data Structures (Germany)](../../middleware-de-kassensichv/data-structures/data-structures.md#single-fields).
+- **For tax-authority exports and notifications:** in markets where the POS system must be declared, its master data comes from the POS system registered under this ID. For more information on a market, see its data structures page, for example [Data Structures (Germany)](../../middleware-de-kassensichv/data-structures/data-structures.md#single-fields).
 - **As a basis for commission calculation.**
 
 ## Why the POS system ID matters {#why-the-pos-system-id-matters}
@@ -83,7 +83,7 @@ Without a valid POS system ID:
 
 When the ID is missing, in addition:
 
-- **Tax-authority notifications and exports lack the POS system data.** In Germany, the cash register has no POS system for the notification to the tax office, and the fiskaltrust.Portal shows *There's no PosSystem linked to this cash register*. The DFKA export for [DATEV MeinFiskal](../../../../posdealers/buy-resell/products/3rd-party/datev-meinfiskal.md#common-errors-in-the-validation-report) fails its validation with missing `brand` and `model` of the cash register, which blocks the onboarding to MeinFiskal.
+- **Tax-authority notifications and exports lack the POS system data** in the markets that require it. For more information on a market, see its data structures page, for example [Data Structures (Germany)](../../middleware-de-kassensichv/data-structures/data-structures.md#single-fields).
 - **The queue validation in the fiskaltrust.Portal fails** the check `Do the receipts include the PosSystemId?`.
 
 ## When the POS system ID is wrong {#when-the-pos-system-id-is-wrong}
@@ -94,7 +94,7 @@ The ID can only be fixed in the POS software, by the PosCreator. The following s
 
 The receipt request contains no `ftPosSystemId`, an empty value, or the empty UUID `00000000-0000-0000-0000-000000000000`. The fiskaltrust.Portal shows the warning **This receipt does not identify its POS system**.
 
-The POS system that created the receipt cannot be determined. In Germany, for example, the cash register then has no POS system for the notification to the tax office.
+The POS system that created the receipt cannot be determined.
 
 **How to fix it:**
 
