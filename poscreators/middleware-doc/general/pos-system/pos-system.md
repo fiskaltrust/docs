@@ -69,15 +69,26 @@ The POS system ID connects each receipt to the POS software that created it. fis
 
 - **For audits:** it identifies the POS system behind a queue and behind each receipt.
 - **For tax-authority exports and notifications:** in markets where the POS system must be declared, its master data comes from the POS system registered under this ID. In Germany, for example, the POS system is part of the DSFinV-K and of the notification to the tax office; see [Data Structures (Germany)](../../middleware-de-kassensichv/data-structures/data-structures.md#single-fields).
-- **As a basis for commission calculation** between fiskaltrust and its partners.
+- **As a basis for commission calculation.**
 
-The fiskaltrust.Portal also checks the receipts of a queue: the queue validation shows whether the receipts include the POS system ID (`Do the receipts include the PosSystemId?`).
+## Why the POS system ID matters {#why-the-pos-system-id-matters}
+
+The Middleware does not validate `ftPosSystemId`: a receipt with a missing, malformed or unknown POS system ID is signed like any other receipt. Nothing fails at the till, so the problem only shows later, when the POS system behind the receipts has to be determined — by then, every receipt sent with that value is affected. Receipts that were already signed keep the value they were sent with; only receipts sent after the POS software is fixed carry the correct ID.
+
+Without a valid POS system ID:
+
+- **The POS system behind a receipt or a queue cannot be identified**, for audits or when PosDealers, PosCreators and fiskaltrust support investigate a receipt.
+- **The receipts cannot be attributed to the POS system** for the commission calculation.
+- **The receipt page of the fiskaltrust.Portal shows a warning** on each affected receipt, as described below.
+
+When the ID is missing, in addition:
+
+- **Tax-authority notifications and exports lack the POS system data.** In Germany, the cash register has no POS system for the notification to the tax office, and the fiskaltrust.Portal shows *There's no PosSystem linked to this cash register*. The DFKA export for [DATEV MeinFiskal](../../../../posdealers/buy-resell/products/3rd-party/datev-meinfiskal.md#common-errors-in-the-validation-report) fails its validation with missing `brand` and `model` of the cash register, which blocks the onboarding to MeinFiskal.
+- **The queue validation in the fiskaltrust.Portal fails** the check `Do the receipts include the PosSystemId?`.
 
 ## When the POS system ID is wrong {#when-the-pos-system-id-is-wrong}
 
-The Middleware does not validate `ftPosSystemId`: a receipt with a missing or unknown POS system ID is still signed. The problem only shows later — in the queue validation, on the receipt page of the fiskaltrust.Portal, in a tax-authority notification or in an export — when the POS system behind the receipt has to be determined.
-
-The ID can only be fixed in the POS software. Receipts that were already signed keep the value they were sent with.
+The ID can only be fixed in the POS software, by the PosCreator. The following sections describe each case and how to fix it.
 
 ### The ID is missing {#missing-pos-system-id}
 
