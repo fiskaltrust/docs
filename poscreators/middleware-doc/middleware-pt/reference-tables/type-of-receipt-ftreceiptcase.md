@@ -81,7 +81,7 @@ version 2
 | `0001` | **Process as Late Signing Receipt**<br />Not supported in Portugal. Documents issued during an outage of the Middleware are recovered with the flag `0008` (Process as Handwritten Receipt). For more information, see [Middleware Not Reachable](../cash-register-integration/middleware-not-reachable.md). | 1.3.45 |
 | `0002` | **Training Receipt** | 1.3.45 |
 | `0004` | **IsVoid**<br />Marks Receipt as Void to previous one. Mark lineitems also as IsVoid to signal clear data.  | 1.3.45 |
-| `0008` | **Process as Handwritten Receipt**<br />Recovers an invoice that was issued on a pre-printed form while the Middleware was not reachable. For more information, see [Middleware Not Reachable](../cash-register-integration/middleware-not-reachable.md). | 1.3.45 |
+| `0008` | **Process as Handwritten Receipt**<br />Recovers a document that was issued on a pre-printed form while the Middleware was not reachable, in the manual series of its document type. For more information, see [Middleware Not Reachable](../cash-register-integration/middleware-not-reachable.md). | 1.3.45 |
 | `0010` | **IssuerIsSmallBusiness**<br />Businesses below a country-specific size in revenue need not declare VAT.<br />With this marker, the receipt shows no VAT, all prices are gross, and a country-specific hint must be printed. | 1.3.45 |
 | `0020` | **ReceiverIsBusiness**<br />Specific data need to be placed onto the receipt. | 1.3.45 |
 | `0040` | **ReceiverIsKnown**<br />Characteristics related to VAT taxes are given. For example, Name, Address, VAT-ID, other local info. | 1.3.45 |
