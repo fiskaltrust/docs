@@ -23,6 +23,24 @@ Instead, Portuguese law (*Despacho n.º 8632/2014*, section 2.4) defines how doc
 1. During the outage, documents are issued manually on **pre-printed forms** from a printing company authorized by the AT (*tipografia autorizada*).
 2. After the outage, each of these documents is **recovered**: it is entered into the certified program, which issues it in a dedicated manual series with a reference to the paper document.
 
+```mermaid
+flowchart TD
+    A["POS system sends ReceiptRequest"] --> B{"Response received?"}
+    B -- Yes --> P["Print the document from the response"]
+    B -- No --> C["Retry with the same<br/>x-operation-id and body"]
+    C --> D{"Response received?"}
+    D -- Yes --> P
+    D -- No --> E["Middleware not reachable:<br/>do not print a fiscal document of its own"]
+    E --> F["Issue the invoice<br/>on a pre-printed form"]
+    F --> G["Keep the paper document:<br/>series, number, date and time, content"]
+    G --> H{"Middleware reachable again?"}
+    H -- No --> F
+    H -- Yes --> I["Send each paper document as an invoice<br/>with the Handwritten flag, PT.Series, PT.Number<br/>and the original cbReceiptMoment"]
+    I --> J["Middleware issues the document in the manual series<br/>with the notice Cópia do documento original"]
+```
+
+*Figure 1. Behavior of the POS system when the Middleware does not respond, during the outage and after the Middleware is reachable again.*
+
 ## Before an outage: prepare the fallback
 
 - **Pre-printed forms.** The merchant keeps a stock of pre-printed invoice forms from an authorized printing company. These forms carry their own series and sequential numbering, printed by the printing company.
