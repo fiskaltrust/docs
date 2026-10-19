@@ -49,7 +49,7 @@ version 2
 | `010` | **ATCUD**<br />`ATCUD: <validation code>-<number>`. Must be printed on every page. | *(empty)* |
 | `012` | **Hash**<br />Full document hash. Flagged *Do not print*; kept for audit purposes. | `Hash` |
 | `013` | **HashPrint**<br />Reserved for the four hash characters (positions 1, 11, 21, 31). Currently returned as part of `014`. | |
-| `014` | **CertificationNo**<br />`<4 hash characters> - Processado por programa certificado n.º 3535/AT`. Must be printed exactly as returned. | `-----` |
+| `014` | **CertificationNo**<br />`<4 hash characters> - Processado por programa certificado n.º 3083/AT`. Must be printed exactly as returned. | `-----` |
 | `015` | **ReferenceForCreditNote**<br />Reference to the source document: `Referencia: <document>` on invoices created from working documents, and `Razão: Devolução` with caption `Referencia <document>` on credit notes. Must be printed when returned. | *(empty)* or `Referencia <document>` |
 | `016` | **PTAdditional**<br />Additional mandatory texts: `IVA incluido`, `Consumidor final`, `Origem: <document>`, `Este documento não serve de fatura` (working documents), `Cópia do documento original - FTM <series>/<number>` (manual documents). Must be printed when returned. | *(empty)* |
 | `1 001` | **InitialOperationReceipt** (t = 1, flag `0001` archiving required)<br />Returned for the queue-start receipt. | `Initial-operation receipt` |

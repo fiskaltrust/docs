@@ -13,7 +13,7 @@ This page describes what that certified rendering contains, so that PosCreators 
 
 :::tip Use the certified document
 
-The QR code signature item carries in its `Caption` the URL of the digital receipt rendered by fiskaltrust (`https://receipts.fiskaltrust.eu/{ftQueueID}/{ftQueueItemID}`, or the `receipts-sandbox` host in the sandbox). This rendering contains all mandatory elements, including copy and void markers, and is the document covered by certificate 3535. Hand this document (or the ESC-POS stream from `/issue`) to the customer.
+The QR code signature item carries in its `Caption` the URL of the digital receipt rendered by fiskaltrust (`https://receipts.fiskaltrust.eu/{ftQueueID}/{ftQueueItemID}`, or the `receipts-sandbox` host in the sandbox). This rendering contains all mandatory elements, including copy and void markers, and is the document covered by certificate 3083. Hand this document (or the ESC-POS stream from `/issue`) to the customer.
 
 :::
 
@@ -47,7 +47,7 @@ Every fiscal document (FS, FT, NC, RG, PF, OR, CM) contains the following elemen
 | Reference to source document | Signature items `ReferenceForCreditNote` / `PTAdditional` | *Referencia:* or *Origem:* followed by the referenced document number, and *Razão: Devolução* on credit notes. Must be printed whenever returned. |
 | Working-document notice | Signature item `PTAdditional` | *Este documento não serve de fatura* on PF, OR, and CM. Must be printed. |
 | Manual-document notice | Signature item `PTAdditional` | `Cópia do documento original` with the series and number of the paper document on recovered handwritten documents, for example `Cópia do documento original - FTM <series>/<number>` for an invoice. |
-| Hash and certificate line | Signature item `CertificationNo` | `<4 hash characters> - Processado por programa certificado n.º 3535/AT`. The four characters are positions 1, 11, 21, and 31 of the document hash. Print exactly as returned. |
+| Hash and certificate line | Signature item `CertificationNo` | `<4 hash characters> - Processado por programa certificado n.º 3083/AT`. The four characters are positions 1, 11, 21, and 31 of the document hash. Print exactly as returned. |
 | QR code | Signature item `PosReceipt` (format QR code) | Render the `Data` as a QR code, readable within the body of the document. |
 
 Additional layout rules:
@@ -71,7 +71,7 @@ The Middleware returns the following Portugal-specific signature items. The `ftS
 | `001` PosReceipt | URL of the digital receipt | QR code content (*Portaria n.º 195/2020*) | QR code | **Mandatory** as QR code. The caption may be printed as a link. |
 | `010` ATCUD | *(empty)* | `ATCUD: AAJFJNK6JJ-12` | Text | **Mandatory** on every page. |
 | `012` Hash | `Hash` | Full document hash | Text, flagged *Do not print* | Not printed. Kept for audit; the four print characters are in `014`. |
-| `014` CertificationNo | `-----` | `Rsur - Processado por programa certificado n.º 3535/AT` | Text | **Mandatory**. |
+| `014` CertificationNo | `-----` | `Rsur - Processado por programa certificado n.º 3083/AT` | Text | **Mandatory**. |
 | `015` ReferenceForCreditNote | *(empty)* or `Referencia <document>` | `Referencia: <document>` / `Razão: Devolução` | Text | **Mandatory** when returned (invoices from working documents, credit notes). |
 | `016` PTAdditional | *(empty)* | `IVA incluido`, `Consumidor final`, `Origem: <document>`, `Este documento não serve de fatura`, `Cópia do documento original - FTM <series>/<number>` | Text | **Mandatory** when returned. |
 | `1 001` InitialOperationReceipt | `Initial-operation receipt` | `Queue-ID: <id>` | Text | Lifecycle receipt; keep with the bookkeeping records. |

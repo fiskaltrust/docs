@@ -1,7 +1,7 @@
 ---
 slug: /poscreators/middleware-doc/portugal
 title: Introduction
-description: Entry point to the Portuguese appendix of the Middleware docs, including the AT-certified invoicing program under certificate 3535.
+description: Entry point to the Portuguese appendix of the Middleware docs, including the AT-certified invoicing program under certificate 3083.
 tags: [Portugal, Middleware, Certification, PosCreators]
 ---
 
@@ -17,6 +17,6 @@ Please note that this information is only complete when combined with the **Gene
 
 ## Certified invoicing program
 
-The fiskaltrust.Middleware, operated as the fiskaltrust.CloudCashBox, is certified by the Portuguese Tax and Customs Authority (AT) as an invoicing program under certificate number 3535. The [Certification](./certification/certification.md) chapter describes what the certificate covers, which document types are issued, and where the boundaries of the certified scope are. The AT's list of certified programs can be consulted on the [Portal das Finanças](https://www.portaldasfinancas.gov.pt/pt/consultaProgCertificadosM24.action).
+The fiskaltrust.Middleware, operated as the fiskaltrust.CloudCashBox, is certified by the Portuguese Tax and Customs Authority (AT) as an invoicing program under certificate number 3083. The [Certification](./certification/certification.md) chapter describes what the certificate covers, which document types are issued, and where the boundaries of the certified scope are. The AT's list of certified programs can be consulted on the [Portal das Finanças](https://www.portaldasfinancas.gov.pt/pt/consultaProgCertificadosM24.action).
 
 PosCreators can enter the Portuguese market either under this certificate or by certifying their own solution built on the fiskaltrust.Middleware. The [Go-to-Market](./go-to-market/go-to-market.md) chapter compares the two routes. The Certification chapter describes the first route; for the second route fiskaltrust is looking for a first partner (contact [sales@fiskaltrust.pt](mailto:sales@fiskaltrust.pt)).
