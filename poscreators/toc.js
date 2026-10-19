@@ -551,6 +551,7 @@ module.exports = [
         items: [
           "poscreators/middleware-doc/middleware-pt/cash-register-integration/cash-register-integration",
           "poscreators/middleware-doc/middleware-pt/cash-register-integration/error-handling",
+          "poscreators/middleware-doc/middleware-pt/cash-register-integration/middleware-not-reachable",
         ],
       },
       "poscreators/middleware-doc/middleware-pt/receipt-printing/receipt-printing",

@@ -46,7 +46,7 @@ Every fiscal document (FS, FT, NC, RG, PF, OR, CM) contains the following elemen
 | Payments | `cbPayItems` | Payment method and amount. Simplified invoices always contain a payment; working documents never do. |
 | Reference to source document | Signature items `ReferenceForCreditNote` / `PTAdditional` | *Referencia:* or *Origem:* followed by the referenced document number, and *Razão: Devolução* on credit notes. Must be printed whenever returned. |
 | Working-document notice | Signature item `PTAdditional` | *Este documento não serve de fatura* on PF, OR, and CM. Must be printed. |
-| Manual-document notice | Signature item `PTAdditional` | `Cópia do documento original - FTM <series>/<number>` on recovered handwritten invoices. |
+| Manual-document notice | Signature item `PTAdditional` | `Cópia do documento original` with the series and number of the paper document on recovered handwritten documents, for example `Cópia do documento original - FTM <series>/<number>` for an invoice. |
 | Hash and certificate line | Signature item `CertificationNo` | `<4 hash characters> - Processado por programa certificado n.º 3535/AT`. The four characters are positions 1, 11, 21, and 31 of the document hash. Print exactly as returned. |
 | QR code | Signature item `PosReceipt` (format QR code) | Render the `Data` as a QR code, readable within the body of the document. |
 
@@ -84,7 +84,7 @@ The recommended print order is: header, document type and number, date/time, ope
 - **Copy of an existing document.** Send `ftReceiptCase` `0x3010` with `cbPreviousReceiptReference` set to the original. Print the original content unchanged and mark the document *Duplicado*. Copies are supported for FS, FT, RG, PF, OR, and CM.
 - **Void.** A void (`IsVoid` flag `0x0004`) does not create a new document number. If the voided document is printed again, it must state *Documento anulado* and still contain the original ATCUD, QR code, and certificate line.
 - **Credit notes.** The credit note references the original document (*Referencia* / *Razão: Devolução*). All amounts are printed as absolute values; only the document type *Nota de crédito* indicates the direction.
-- **Recovered handwritten documents.** An invoice sent with the `Handwritten` flag (`0x0008`) is issued in the dedicated manual series and carries the `Cópia do documento original - FTM <series>/<number>` notice, which must be printed together with the regular elements.
+- **Recovered handwritten documents.** A document sent with the `Handwritten` flag (`0x0008`) is issued in the manual series of its document type and carries the `Cópia do documento original` notice with the series and number of the paper document, for example `Cópia do documento original - FTM <series>/<number>` for an invoice. The notice must be printed together with the regular elements. For more information, see [Middleware Not Reachable](../cash-register-integration/middleware-not-reachable.md).
 
 ## Checklist for PosCreators
 

@@ -191,7 +191,7 @@ The following SAF-T (PT) document types were part of the certification and are i
 | `PF` | Fatura pró-forma | `0x0007` Pro forma | Working document. Must not contain payment items. Can be invoiced later by referencing it. |
 | `OR` | Orçamento | `0x0007` with the Portuguese local flag `0x002` (i.e. `0x5054_2002_0000_0007`) | Working document (budget). Same rules as `PF`. |
 | `CM` | Consulta de mesa | `0x0006` Table check | Working document. Must not contain payment items. Only the last table check of a chain may be invoiced. |
-| `FT` (manual series) | Recolha de documentos manuais | `0x1xxx` with flag `0x0008` (Handwritten) | Recovery of documents issued on pre-printed forms during an outage. Only supported for invoices; the manual series and number are mandatory and may be collected only once. |
+| Manual series of the document type (for example `FT`) | Recolha de documentos manuais | Receipt case of the document type with flag `0x0008` (Handwritten) | Recovery of documents issued on pre-printed forms during an outage. Available for each document type for which a manual series is configured; the manual series and number are mandatory and may be collected only once. |
 
 In addition, the following operations were part of the certification but do not create a fiscal document of their own:
 

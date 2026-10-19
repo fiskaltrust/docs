@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   width="1280"
+   height="740"
+   viewBox="-20 -10 1280 740"
+   font-family="IBM Plex Sans, Helvetica Neue, Arial, sans-serif"
+   version="1.1"
+   xmlns="http://www.w3.org/2000/svg">
+  <title>Behavior of the POS system in Portugal when the fiskaltrust.Middleware is not reachable</title>
+  <desc>Flow diagram: the POS system retries the sign request, issues documents on pre-printed forms while the Queue is not reachable, and sends the paper documents with the Handwritten flag once the Queue is reachable again</desc>
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#002A34" />
+    </marker>
+    <marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#ED5565" />
+    </marker>
+  </defs>
+
+  <!-- background -->
+  <rect x="-20" y="-10" width="1280" height="740" fill="#FFFFFF" />
+
+  <!-- POS system frame and lanes -->
+  <rect x="0" y="20" width="980" height="700" fill="#FFFFFF" stroke="#002A34" stroke-width="1.5" />
+  <rect x="32" y="92" width="540" height="616" fill="#FFFFFF" stroke="#B9B9BB" stroke-width="1.5" />
+  <rect x="604" y="92" width="344" height="616" fill="#FFFFFF" stroke="#B9B9BB" stroke-width="1.5" />
+  <rect x="24" y="28" width="132" height="24" fill="#FFFFFF" />
+  <text x="36" y="46" font-size="19" font-weight="600" fill="#002A34">POS System</text>
+  <rect x="52" y="82" width="170" height="18" fill="#FFFFFF" />
+  <text x="62" y="96" font-family="IBM Plex Mono, monospace" font-size="13" letter-spacing="1.8" fill="#676A69">DURING THE OUTAGE</text>
+  <rect x="624" y="82" width="158" height="18" fill="#FFFFFF" />
+  <text x="634" y="96" font-family="IBM Plex Mono, monospace" font-size="13" letter-spacing="1.8" fill="#676A69">AFTER THE OUTAGE</text>
+
+  <!-- failed connection to the Queue -->
+  <g fill="none" stroke="#ED5565" stroke-width="1.5">
+    <path d="M437,140 V66 H1200 V340" marker-end="url(#ahr)" />
+  </g>
+  <path d="M1095,50 L1125,82 M1125,50 L1095,82" stroke="#ED5565" stroke-width="3" />
+  <text x="1110" y="38" font-size="13" fill="#676A69" text-anchor="middle">Queue is not reachable</text>
+
+  <!-- regular arrows -->
+  <g fill="none" stroke="#002A34" stroke-width="1.5">
+    <path d="M270,215 H334" marker-end="url(#ah)" />
+    <path d="M437,290 V340" marker-end="url(#ah)" />
+    <path d="M334,415 H270" marker-end="url(#ah)" />
+    <path d="M167,490 V540" marker-end="url(#ah)" />
+    <path d="M270,615 H334" marker-end="url(#ah)" />
+    <path d="M540,615 H588 V415 H636" marker-end="url(#ah)" />
+    <path d="M776,290 V340" marker-end="url(#ah)" />
+    <path d="M916,380 H1060" marker-end="url(#ah)" />
+    <path d="M1200,480 V615 H916" marker-end="url(#ah)" />
+  </g>
+
+  <!-- 01 -->
+  <rect x="64" y="140" width="206" height="150" fill="#FFFFFF" stroke="#B9B9BB" stroke-width="1.5" />
+  <text x="84" y="171" font-family="IBM Plex Mono, monospace" font-size="13" letter-spacing="1.8" fill="#007D9A">01</text>
+  <text x="84" y="209" font-size="18" fill="#002A34"><tspan x="84" dy="0">Send sign</tspan><tspan x="84" dy="24">request</tspan></text>
+
+  <!-- 02 -->
+  <rect x="334" y="140" width="206" height="150" fill="#FFFFFF" stroke="#B9B9BB" stroke-width="1.5" />
+  <text x="354" y="171" font-family="IBM Plex Mono, monospace" font-size="13" letter-spacing="1.8" fill="#007D9A">02</text>
+  <text x="354" y="209" font-size="18" fill="#002A34"><tspan x="354" dy="0">No response: retry</tspan><tspan x="354" dy="24">with the same</tspan><tspan x="354" dy="24">x-operation-id</tspan></text>
+
+  <!-- 03 -->
+  <rect x="334" y="340" width="206" height="150" fill="#FFFFFF" stroke="#B9B9BB" stroke-width="1.5" />
+  <text x="354" y="371" font-family="IBM Plex Mono, monospace" font-size="13" letter-spacing="1.8" fill="#B2404C">03</text>
+  <text x="354" y="409" font-size="18" fill="#002A34"><tspan x="354" dy="0">Do not print a</tspan><tspan x="354" dy="24">fiscal document</tspan><tspan x="354" dy="24">of its own</tspan></text>
+
+  <!-- 04 -->
+  <rect x="64" y="340" width="206" height="150" fill="#FFFFFF" stroke="#B9B9BB" stroke-width="1.5" />
+  <text x="84" y="371" font-family="IBM Plex Mono, monospace" font-size="13" letter-spacing="1.8" fill="#007D9A">04</text>
+  <text x="84" y="409" font-size="18" fill="#002A34"><tspan x="84" dy="0">Issue the document</tspan><tspan x="84" dy="24">on a pre-printed</tspan><tspan x="84" dy="24">form</tspan></text>
+
+  <!-- 05 -->
+  <rect x="64" y="540" width="206" height="150" fill="#FFFFFF" stroke="#B9B9BB" stroke-width="1.5" />
+  <text x="84" y="571" font-family="IBM Plex Mono, monospace" font-size="13" letter-spacing="1.8" fill="#007D9A">05</text>
+  <text x="84" y="609" font-size="18" fill="#002A34"><tspan x="84" dy="0">Keep the paper</tspan><tspan x="84" dy="24">document: series,</tspan><tspan x="84" dy="24">number, content</tspan></text>
+
+  <!-- paper documents -->
+  <rect x="334" y="565" width="206" height="100" fill="#E5F6FB" stroke="#7FCBE2" stroke-width="1.5" />
+  <g transform="translate(354,601)" fill="none" stroke="#00A7CE" stroke-width="1.5">
+    <path d="M2,0 H16 L24,8 V29 H2 Z" />
+    <path d="M16,0 V8 H24" />
+    <path d="M7,15 H19 M7,21 H19" />
+  </g>
+  <text x="392" y="621" font-family="IBM Plex Mono, monospace" font-size="15" letter-spacing="2.1" fill="#002A34">PAPER FORMS</text>
+
+  <!-- 06 -->
+  <rect x="636" y="140" width="280" height="150" fill="#FFFFFF" stroke="#B9B9BB" stroke-width="1.5" />
+  <text x="656" y="171" font-family="IBM Plex Mono, monospace" font-size="13" letter-spacing="1.8" fill="#007D9A">06</text>
+  <text x="656" y="209" font-size="18" fill="#002A34"><tspan x="656" dy="0">Middleware is reachable</tspan><tspan x="656" dy="24">again</tspan></text>
+
+  <!-- 07 -->
+  <rect x="636" y="340" width="280" height="150" fill="#FFFFFF" stroke="#B9B9BB" stroke-width="1.5" />
+  <text x="656" y="371" font-family="IBM Plex Mono, monospace" font-size="13" letter-spacing="1.8" fill="#007D9A">07</text>
+  <text x="656" y="409" font-size="18" fill="#002A34"><tspan x="656" dy="0">Send each paper document</tspan><tspan x="656" dy="24">with the Handwritten flag</tspan><tspan x="656" dy="24">and PT.Series, PT.Number</tspan></text>
+
+  <!-- 08 -->
+  <rect x="636" y="540" width="280" height="150" fill="#FFFFFF" stroke="#B9B9BB" stroke-width="1.5" />
+  <text x="656" y="571" font-family="IBM Plex Mono, monospace" font-size="13" letter-spacing="1.8" fill="#007D9A">08</text>
+  <text x="656" y="609" font-size="18" fill="#002A34"><tspan x="656" dy="0">Print the document with</tspan><tspan x="656" dy="24">the notice Cópia do</tspan><tspan x="656" dy="24">documento original</tspan></text>
+
+  <!-- Queue -->
+  <rect x="1060" y="340" width="180" height="140" fill="#E5F6FB" stroke="#7FCBE2" stroke-width="1.5" />
+  <g transform="translate(1080,380)" fill="none" stroke="#00A7CE" stroke-width="1.5">
+    <ellipse cx="13" cy="6" rx="11" ry="4.5" />
+    <path d="M2,6 V24 C2,26.5 6.9,28.5 13,28.5 C19.1,28.5 24,26.5 24,24 V6" />
+    <path d="M2,15 C2,17.5 6.9,19.5 13,19.5 C19.1,19.5 24,17.5 24,15" />
+  </g>
+  <text x="1080" y="438" font-family="IBM Plex Mono, monospace" font-size="15" letter-spacing="2.1" fill="#002A34">QUEUE</text>
+  <text x="1120" y="505" font-family="IBM Plex Mono, monospace" font-size="13" fill="#676A69" text-anchor="middle">Manual series</text>
+</svg>
