@@ -83,7 +83,7 @@ For handwritten receipts, only the following rules are checked in addition to th
 
 | What is validated | How to fix |
 |-------------------|------------|
-| The handwritten flag is used only for invoices (`0x1000`–`0x1003`). | Use an invoice case (`0x1000`–`0x1003`) together with the handwritten flag. |
+| The handwritten flag is used only for a document type for which a manual series is configured. | Use the receipt case of the document type of the paper document together with the handwritten flag, and check that a manual series is configured for this document type. |
 | The handwritten flag is not combined with a refund, partial refund or void. | Send refunds and voids without the handwritten flag. |
 | `ftReceiptCaseData` contains the series and number of the handwritten document in `PT.Series` and `PT.Number`, and `Number` is at least 1. | Send the series and number printed on the handwritten document. |
 | `PT.Series` contains no spaces. | Remove spaces from the series. |
