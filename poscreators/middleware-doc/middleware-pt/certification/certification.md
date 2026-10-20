@@ -1,7 +1,7 @@
 ---
 slug: /poscreators/middleware-doc/portugal/certification
 title: Certification
-description: What the AT certification (certificate 3535) of the fiskaltrust.CloudCashBox covers in Portugal — document types, layout, options, and boundaries.
+description: What the AT certification (certificate 3083) of the fiskaltrust.CloudCashBox covers in Portugal — document types, layout, options, and boundaries.
 tags: [Certification, Portugal, CashBox, Compliance, Printing]
 ---
 
@@ -11,7 +11,7 @@ In Portugal, invoices and other tax-relevant documents may only be issued by an 
 
 :::info This chapter describes Route 1 of the Go-to-Market
 
-Everything on this page (certificate number 3535, the certified scope, the document types, and the boundaries) applies when your POS system integrates with the **fiskaltrust.Middleware for Cloud (fiskaltrust.CloudCashBox)** under fiskaltrust's certificate. This is [Route 1](../go-to-market/route-1-fiskaltrust-certificate.md) of the [Go-to-Market](../go-to-market/go-to-market.md) chapter.
+Everything on this page (certificate number 3083, the certified scope, the document types, and the boundaries) applies when your POS system integrates with the **fiskaltrust.Middleware for Cloud (fiskaltrust.CloudCashBox)** under fiskaltrust's certificate. This is [Route 1](../go-to-market/route-1-fiskaltrust-certificate.md) of the [Go-to-Market](../go-to-market/go-to-market.md) chapter.
 
 If you certify your own solution on top of the fiskaltrust.Middleware ([Route 2](../go-to-market/route-2-own-certificate.md)), you hold your own certificate and define your own scope. This page then only tells you what the Middleware brings into your procedure; it does not describe your certificate.
 
@@ -21,14 +21,14 @@ The official list of certified programs is published by the AT and can be consul
 
 **[Consulta de programas certificados (Modelo 24) – Portal das Finanças](https://www.portaldasfinancas.gov.pt/pt/consultaProgCertificadosM24.action)**
 
-The fiskaltrust.CloudCashBox is certified under **certificate number 3535**. The entry is registered by *FISKALTRUST CONSULTING GMBH - Sucursal em Portugal* (NIF 980833310). The product is identified in the SAF-T (PT) header as `fiskaltrust.CloudCashBox/FISKALTRUST CONSULTING GMBH - Sucursal em Portugal`, product version `2.0`.
+The fiskaltrust.CloudCashBox is certified under **certificate number 3083** (certified on 13 February 2026). The entry is registered by *FISKALTRUST CONSULTING GMBH - Sucursal em Portugal* (NIF 980833310). The product is identified in the SAF-T (PT) header as `fiskaltrust.CloudCashBox/FISKALTRUST CONSULTING GMBH - Sucursal em Portugal`, product version `2.0`.
 
 :::info Where the certificate number appears
 
-The certificate number assigned by the AT (`3535`) is part of every fiscal document the Middleware produces:
+The certificate number assigned by the AT (`3083`) is part of every fiscal document the Middleware produces:
 
-- in the mandatory print line `<4 hash characters> - Processado por programa certificado n.º 3535/AT` (returned as a signature item),
-- in field `R` of the QR code (`R:3535`, *Portaria n.º 195/2020*), and
+- in the mandatory print line `<4 hash characters> - Processado por programa certificado n.º 3083/AT` (returned as a signature item),
+- in field `R` of the QR code (`R:3083`, *Portaria n.º 195/2020*), and
 - in the `SoftwareCertificateNumber` element of the SAF-T (PT) header.
 
 PosCreators must print these values exactly as returned by the Middleware and must not replace them with their own values. See [Receipt Printing](../receipt-printing/receipt-printing.md) for all mandatory elements of the printed document.
@@ -57,7 +57,7 @@ The certificate applies to the fiskaltrust.Middleware as operated by fiskaltrust
 
 ### Always provided by the fiskaltrust.Middleware
 
-The following components are part of the fiskaltrust.Middleware itself. They are provided on **both** routes of the [Go-to-Market](../go-to-market/go-to-market.md), whether the program runs as the fiskaltrust.CloudCashBox under certificate 3535 or as part of a partner's own certified solution. A PosCreator never has to build them, and on Route 2 they enter the partner's procedure as they are:
+The following components are part of the fiskaltrust.Middleware itself. They are provided on **both** routes of the [Go-to-Market](../go-to-market/go-to-market.md), whether the program runs as the fiskaltrust.CloudCashBox under certificate 3083 or as part of a partner's own certified solution. A PosCreator never has to build them, and on Route 2 they enter the partner's procedure as they are:
 
 | Component | What the Middleware does |
 | --------- | ------------------------ |
@@ -81,10 +81,10 @@ On Route 1 fiskaltrust is, in addition, the **producer and operator** of the cer
 
 | Component | What fiskaltrust does on Route 1 |
 | --------- | -------------------------------- |
-| **Registration with the AT** | fiskaltrust is listed in the AT register as the producer of the program (Modelo 24), holds certificate 3535, and is the contact for the AT in all questions concerning the program. |
+| **Registration with the AT** | fiskaltrust is listed in the AT register as the producer of the program (Modelo 24), holds certificate 3083, and is the contact for the AT in all questions concerning the program. |
 | **Series registration** | Document series are created for every queue and registered with the AT through the series webservice; the ATCUD validation codes are obtained without any action by the PosCreator or the merchant. |
 | **Signing key** | The RSA key pair is generated and held by fiskaltrust; the public key is declared to the AT, the private key never leaves the fiskaltrust cloud. |
-| **Program identification** | The SAF-T (PT) header carries fiskaltrust as producer, the product identification, and certificate number 3535; the certificate line and the QR code carry the same number. |
+| **Program identification** | The SAF-T (PT) header carries fiskaltrust as producer, the product identification, and certificate number 3083; the certificate line and the QR code carry the same number. |
 | **Document rendering** | The certified layout is rendered by fiskaltrust (PDF, digital receipt, ESC-POS); the print format is protected against changes by the merchant or the POS. |
 | **Operations** | Hosting in the fiskaltrust cloud, backups and continuity, system time, availability, and the protection of the database. |
 | **Regulatory maintenance** | Adaptation of the program when the regulation changes, and the dialogue with the AT when a change requires a new review. |
@@ -100,7 +100,7 @@ In Portugal the certification does not stop at the data. The AT reviews the docu
 - The **print format is maintained by fiskaltrust**. Neither the merchant nor the POS system can change the layout, the mandatory texts, or their position. This is a requirement of the AT (*print format protection*) and part of what was audited.
 - The rendering also tracks **delivery**: when and how a document was handed out, and whether a print is the original or a copy (*Duplicado*).
 
-A document layout rendered by other software, for example by the POS system itself from the data returned by the Middleware, has not been reviewed by the AT and is therefore **not covered by certificate 3535**. PosCreators should hand out the document produced by the Middleware (PDF, digital receipt link, or ESC-POS stream).
+A document layout rendered by other software, for example by the POS system itself from the data returned by the Middleware, has not been reviewed by the AT and is therefore **not covered by certificate 3083**. PosCreators should hand out the document produced by the Middleware (PDF, digital receipt link, or ESC-POS stream).
 
 :::note Layouts rendered by the POS system
 
@@ -113,7 +113,7 @@ The conditions under which a POS system may render the document itself from the 
 The certified document is rendered by the fiskaltrust receipt service from the signed request and response pair. Every rendering of a document is addressed by the same URL, which the Middleware returns as the caption of the QR code signature item:
 
 ```
-https://receipts.fiskaltrust.eu/{ftQueueID}/{ftQueueItemID}            (production, certificate 3535)
+https://receipts.fiskaltrust.eu/{ftQueueID}/{ftQueueItemID}            (production, certificate 3083)
 https://receipts-sandbox.fiskaltrust.eu/{ftQueueID}/{ftQueueItemID}    (sandbox, placeholder 9999)
 ```
 
@@ -172,7 +172,7 @@ After `/sign`, the POS hands the signed request and response pair to `/issue`. T
 
 ### Samples
 
-The following documents were rendered by the receipt service in the sandbox environment; they therefore carry the placeholder certificate number `9999` instead of `3535`. Production documents are identical apart from the number.
+The following documents were rendered by the receipt service in the sandbox environment; they therefore carry the placeholder certificate number `9999` instead of `3083`. Production documents are identical apart from the number.
 
 ![Sample document rendered by the receipt service in the sandbox](https://receipts-sandbox.fiskaltrust.eu/1def4d45-ae9f-4562-a548-b8f5e84b88fb/f186b146-9bf7-44c6-86e8-fb3322e87e22/png)
 
@@ -191,7 +191,7 @@ The following SAF-T (PT) document types were part of the certification and are i
 | `PF` | Fatura pró-forma | `0x0007` Pro forma | Working document. Must not contain payment items. Can be invoiced later by referencing it. |
 | `OR` | Orçamento | `0x0007` with the Portuguese local flag `0x002` (i.e. `0x5054_2002_0000_0007`) | Working document (budget). Same rules as `PF`. |
 | `CM` | Consulta de mesa | `0x0006` Table check | Working document. Must not contain payment items. Only the last table check of a chain may be invoiced. |
-| `FT` (manual series) | Recolha de documentos manuais | `0x1xxx` with flag `0x0008` (Handwritten) | Recovery of documents issued on pre-printed forms during an outage. Only supported for invoices; the manual series and number are mandatory and may be collected only once. |
+| Manual series of the document type (for example `FT`) | Recolha de documentos manuais | Receipt case of the document type with flag `0x0008` (Handwritten) | Recovery of documents issued on pre-printed forms during an outage. Available for each document type for which a manual series is configured; the manual series and number are mandatory and may be collected only once. |
 
 In addition, the following operations were part of the certification but do not create a fiscal document of their own:
 
@@ -234,13 +234,13 @@ Requests outside these boundaries are rejected and not signed. What the Middlewa
 
 ## What this means for PosCreators
 
-- **You integrate a certified program; you do not become one.** Your POS sends the business case to the fiskaltrust.CloudCashBox through the [PosSystem API](../../possystem-api/introduction.md). The Middleware numbers, signs, and exports the document under certificate 3535. Your software must not create, number, or sign fiscal documents itself.
+- **You integrate a certified program; you do not become one.** Your POS sends the business case to the fiskaltrust.CloudCashBox through the [PosSystem API](../../possystem-api/introduction.md). The Middleware numbers, signs, and exports the document under certificate 3083. Your software must not create, number, or sign fiscal documents itself.
 - **Use the certified document.** Hand the customer the document rendered by fiskaltrust: the PDF or digital receipt reachable through the link in the QR code signature item, or the ESC-POS stream from the `/issue` endpoint. A layout drawn by your own software is not covered by the certificate (see [Certified document layout](#certified-document-layout)).
 - **Print what you receive, unchanged.** If you display or print any returned element (document number, ATCUD, certificate line, QR code, mandatory texts), reproduce it exactly as returned. Never replace the certificate number, the hash characters, or the document number with your own values.
 - **Send complete and valid requests.** The Middleware rejects requests that would produce a non-compliant document (see [Validation errors](../cash-register-integration/error-handling.md#validation-errors)). Show the returned error to the operator and correct the request; do not retry with altered fiscal data.
 - **Respect the document flow.** Refunds, voids, copies, and payments reference the original document via `cbPreviousReceiptReference`. Working documents (pro forma, budget, table check) carry no payment and are invoiced by reference. Series and ATCUD are assigned by the Middleware; there is no way to choose them.
 - **Sandbox is not production.** Sandbox queues emit the placeholder certificate number `9999` and sandbox documents are never valid invoices. Use the sandbox for integration tests only; productive documents must be created on a production queue.
-- **Self-hosted deployments need their own certification.** Running the Middleware on your own infrastructure or on a device (e.g. the Android launcher) is outside certificate 3535.
+- **Self-hosted deployments need their own certification.** Running the Middleware on your own infrastructure or on a device (e.g. the Android launcher) is outside certificate 3083.
 
 ## What this means for PosOperators
 
@@ -248,6 +248,6 @@ Requests outside these boundaries are rejected and not signed. What the Middlewa
 - **Series are registered for you.** fiskaltrust registers the document series with the AT and obtains the ATCUD validation codes on your behalf. You cannot create manual series or numbers; the recovery of handwritten documents issued during an outage is done through the Middleware's manual series.
 - **SAF-T (PT) is your monthly obligation.** The Middleware produces the SAF-T (PT) file for your queue; submitting it to the AT within the legal deadline remains your responsibility (or your accountant's).
 - **Corrections go through the program.** A wrong document is voided or credited through the POS, which creates the corresponding void or credit note; documents cannot be edited or deleted. A reprint is always marked as a copy.
-- **The certificate number on your documents is 3535.** Documents that show `9999` were created in the sandbox and are not valid invoices.
+- **The certificate number on your documents is 3083.** Documents that show `9999` were created in the sandbox and are not valid invoices.
 - **Electronic delivery.** Documents you send as PDF are accepted as electronic invoices until 31 December 2026. From 1 January 2027 a qualified electronic signature or seal is required for PDF invoices sent electronically; fiskaltrust does not currently apply one.
 - **Limits you will encounter.** Simplified invoices are limited to 100 EUR net, cash payments to 3 000 EUR, only EUR is supported, and only the mainland tax region is available. Ask your POS provider to issue an invoice (FT) when a simplified invoice is not permitted.
