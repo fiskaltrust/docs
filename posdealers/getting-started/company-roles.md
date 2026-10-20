@@ -37,7 +37,6 @@ Depending on the market, the `Roles` section can show further roles.
 | Role | Shown in | Description |
 | ---- | -------- | ----------- |
 | **PosDealer auto-invitation (opt-in)** | Germany and Italy | An **optional add-on** to the PosDealer role for POS system distributors who want to automate the onboarding of their PosOperators as much as possible.<br /><br />Accounts with this role get an extended onboarding user interface. It allows them to fully and legally activate a PosOperator's account by signing the PosOperator's partner contracts as a representative, instead of sending a regular invitation that the PosOperator must accept first.<br /><br />The toggle is only shown when the PosDealer role is active. **This role may require particular attention to legal aspects on your side.** |
-| **PosDealer for RKSV Sign** | Austria | Adds the capability to manage RKSV.Sign products in the account. RKSV.Sign is a sign-only product in Austria that replaces HSMs and smart cards in existing implementations for POS systems where the Middleware cannot be used. |
 | **PosOperatorOptInIVAServizi** | Italy | For PosOperators who manage the provision of access credentials or delegation. To deactivate the PosOperator role, deactivate this role first. |
 
 *Table 2. Additional roles shown depending on the market.*
