@@ -40,11 +40,11 @@ Every architecture uses the same components. For details, see [Middleware Compon
 
 ### Local: Middleware and signature device on site
 
-The Launcher runs on the POS device or on a server in the outlet. The CashBox with the Queue and the SCU runs there, and the SCU talks to a signature device that is also on site, for example a hardware TSE on a USB port or microSD card.
+The Launcher runs on the POS device or on a server at the location. The CashBox with the Queue and the SCU runs there, and the SCU talks to a signature device that is also on site, for example a hardware TSE on a USB port or microSD card.
 
 ```mermaid
 flowchart LR
-    subgraph Outlet
+    subgraph Location
         POS[POS system] --> Q[Queue]
         subgraph CB[CashBox - started by the Launcher]
             Q --> SCU[SCU]
@@ -53,7 +53,7 @@ flowchart LR
     end
 ```
 
-*Figure 1. Local model: Middleware and signature device run in the outlet.*
+*Figure 1. Local model: Middleware and signature device run at the location.*
 
 - Signing does not depend on an internet connection, so the POS system can keep fiscalizing while offline. An internet connection is still recommended for configuration, updates and data services.
 - The fiskaltrust.Middleware itself is free of charge and open source.
@@ -65,7 +65,7 @@ The Launcher and the CashBox run on site as in the local model, but the SCU conn
 
 ```mermaid
 flowchart LR
-    subgraph Outlet
+    subgraph Location
         POS[POS system] --> Q[Queue]
         subgraph CB[CashBox - started by the Launcher]
             Q --> SCU[SCU]
@@ -82,11 +82,11 @@ flowchart LR
 
 ### Cloud: Middleware hosted by fiskaltrust
 
-fiskaltrust hosts the CashBox, including the Queue and the SCU, as the CloudCashbox. The POS system reaches the Middleware via a URL and authenticates with the CashBox ID and access token. No Middleware is installed in the outlet. In some markets, the SCU still connects to a signature device on site, for example an RT printer or RT server in Italy.
+fiskaltrust hosts the CashBox, including the Queue and the SCU, as the CloudCashbox. The POS system reaches the Middleware via a URL and authenticates with the CashBox ID and access token. No Middleware is installed at the location. In some markets, the SCU still connects to a signature device on site, for example an RT printer or RT server in Italy.
 
 ```mermaid
 flowchart LR
-    subgraph Outlet
+    subgraph Location
         POS[POS system]
     end
     subgraph fiskaltrust cloud
@@ -101,7 +101,7 @@ flowchart LR
 *Figure 3. Cloud model: the CloudCashbox hosted by fiskaltrust.*
 
 - No Middleware installation and no Launcher on site. fiskaltrust operates and updates the Middleware.
-- Every request needs an internet connection. What the POS system may do while the Middleware cannot be reached depends on the market: in some markets it re-sends the receipts later in late-signing mode, in others it cannot issue a fiscal receipt until the connection is back, for example in Spain. For more information, see [Failure Scenarios](../middleware-doc/general/cash-register-integration/cash-register-integration-failure-scenarios.md#middleware-not-reachable-or-failing) and the pages of your market.
+- Every request needs an internet connection. What the POS system may do while the Middleware cannot be reached depends on the market: in some markets it re-sends the receipts later in late-signing mode, in others it cannot issue a fiscal receipt until the connection is back, for example in Spain. For more information, see [When the fiskaltrust.Middleware is not reachable](../middleware-doc/general/components/queues-terminals-locations.md#when-the-fiskaltrustmiddleware-is-not-reachable) and the pages of your market.
 - The CloudCashbox is a paid product, while the locally installed Middleware is free of charge.
 - The CloudCashbox is fiskaltrust's target architecture. Some features are only available with it, for example eInvoicing. For more information, see [eInvoicing — Overview](../middleware-doc/e-invoicing/overview.md#prerequisites-shared).
 
@@ -140,7 +140,7 @@ Independently of where the Queue runs, you decide **where the SCU runs** and **h
 
 ```mermaid
 flowchart LR
-    subgraph Outlet
+    subgraph Location
         POS[POS system] --> Q[Queue]
     end
     subgraph fiskaltrust
@@ -158,7 +158,7 @@ flowchart LR
 
 ```mermaid
 flowchart LR
-    subgraph Outlet
+    subgraph Location
         subgraph P1[POS device 1]
             Q1[Queue 1]
         end
@@ -177,13 +177,14 @@ flowchart LR
 
 Sharing an SCU has limits:
 
-- An SCU and its signature device can only be shared within one physical outlet, never between outlets.
+- An SCU and its signature device can only be shared within one location, never between locations.
 - The signature device limits the number of Queues. Some German cloud TSEs accept only one Queue and cannot be shared at all. For the limit of each device, see the [SCU/characteristics & platform support matrix](../middleware-doc/middleware-de-kassensichv/operation-modes/on-premise-installation.md#scucharacteristics--platform-support-matrix) for Germany.
 - Sharing one external signature service between several CashBoxes is only available with cloud signing in Austria or with the fiskaly cloud TSE in Germany.
+- In Germany, only on-premise fiskaltrust.Middleware instances can share a TSE. A CloudCashBox needs its own TSE per installation. For more information, see [fiskaltrust.Middleware, terminals and the TSE](../middleware-doc/middleware-de-kassensichv/cash-register-integration/cash-register-integration.md#fiskaltrustmiddleware-terminals-and-the-tse).
 
 | | Dedicated | Shared |
 |---|---|---|
-| **Local SCU** | One SCU and signature device per Queue, on the same device as the Queue. Simplest setup, no network dependency between devices. | One SCU and signature device for several Queues of an outlet, for example on a back-office server or the main POS device. Fewer devices, but a single point of failure. |
+| **Local SCU** | One SCU and signature device per Queue, on the same device as the Queue. Simplest setup, no network dependency between devices. | One SCU and signature device for several Queues of a location, for example on a back-office server or the main POS device. Fewer devices, but a single point of failure. |
 | **Managed SCU** | A signing service operated by fiskaltrust, used by one Queue. Nothing to install, but needs internet. | A signing service operated by fiskaltrust, used by several Queues. Nothing to install, but needs internet, and the market must allow sharing the service. |
 
 *Table 3. SCU models by location and sharing.*
@@ -222,7 +223,7 @@ Where a signature device is required, the type limits your options:
 | **Fits architecture** | Local; in Italy also cloud (RT printer or RT server) | Hybrid or cloud |
 | **Works offline** | Yes | No |
 | **On site** | Device must be connected, protected and replaced when defective | Nothing to install |
-| **Sharing** | One device can serve several Queues in the same outlet, up to the device limit | Depends on the service; some cloud TSEs accept only one Queue |
+| **Sharing** | One device can serve several Queues in the same location, up to the device limit | Depends on the service; some cloud TSEs accept only one Queue |
 | **Platform** | Needs a supported port and driver on the device | Needs network access; some services need an additional local component |
 
 *Table 4. Hardware compared with cloud signature devices.*
@@ -282,15 +283,13 @@ flowchart TD
 
 *Figure 6. Decision diagram for choosing a Middleware architecture.*
 
-Different outlets of the same POS system can use different models. For example, a cloud POS system can use the CloudCashbox by default and a local installation only for outlets that must work offline.
+Different locations of the same POS system can use different models. For example, a cloud POS system can use the CloudCashbox by default and a local installation only for locations that must work offline.
 
-## Planning Queues and outlets
+## Planning fiskaltrust.Middleware instances per location
 
-The architecture also affects how you group Queues and signature devices:
+The fiskaltrust.Middleware (Queue) is the cash register in the regulatory sense, and the POS terminals connected to it are input devices that share its number series, closings and exports. You need at least one fiskaltrust.Middleware per location, and more if you need separate number series or closings, or for performance. This applies to every architecture model. For more information, see [fiskaltrust.Middleware, Terminals and Locations](../middleware-doc/general/components/queues-terminals-locations.md).
 
-- A Queue is a receipt chain and always belongs to one physical outlet. Queues and signature devices cannot be shared between outlets, because fiscal reporting is based on the physical outlet.
-- Within one outlet, several terminals can share one Queue, or each terminal can have its own Queue. A separate Queue per terminal is more robust: a defective terminal cannot block the other terminals. Use separate Queues as well if an outlet needs several daily closings.
-- In the local and hybrid models, several Queues can share one SCU and signature device, up to the limit of the device. For more information, see [Dedicated or shared SCU](#dedicated-or-shared-scu).
+The architecture adds one decision on top: in the local and hybrid models, several fiskaltrust.Middleware instances of a location can share one SCU and signature device, up to the limit of the device. For more information, see [Dedicated or shared SCU](#dedicated-or-shared-scu).
 
 For example layouts with pros and cons, see [Rollout Scenarios](../../posdealers/technical-operations/rollout-scenarios.md).
 
@@ -309,7 +308,7 @@ Use this checklist to document your decision before you start the integration:
 | **Who installs and maintains** the Middleware on site: you, your PosDealers, or nobody (cloud) | |
 | **Cloud-only features** required, for example eInvoicing | |
 | **API**: POS System API or classic Middleware API, and whether it is available locally in your markets | |
-| **Queue layout** per outlet: one Queue per outlet or one per terminal | |
+| **Number of fiskaltrust.Middleware instances** per location, based on number series, closings and load | |
 | **SCU model**: local or managed, dedicated or shared | |
 | **Chosen model** per market: local, hybrid or cloud | |
 
