@@ -10,8 +10,8 @@
 | AccountCountry         | ISO code (3166 ALPHA-2) of the country of the company's address. | yes |
 | AccountWeb             | URL of the company's website. | no |
 | AccountPhone           | Company phone number. | no |
-| AccountIdVat           | VAT number of the company, for example ATU12345678. Important for the reports to FinanzOnline.<br />**Important:** This is one of the identification criteria for the legalization of the service. | one of <sup>2</sup> |
-| AccountIdTax           | Tax office tax number of the company. Enter 9 digits without special characters and without spaces (2 digits tax office number, 3 digits "/" 4 digits tax number).<br />**Important:** This is one of the identification criteria for the legalization of the service. | one of <sup>2</sup> |
+| AccountIdVat           | VAT number of the company, for example ATU12345678. Important for the reports to FinanzOnline.<br />**Important:** This is one of the identification criteria for the legalization of the service. | no <sup>2</sup> |
+| AccountIdTax           | Tax office tax number of the company. Enter 9 digits without special characters and without spaces (2 digits tax office number, 3 digits "/" 4 digits tax number).<br />**Important:** This is one of the identification criteria for the legalization of the service. | no <sup>2</sup> |
 | AccountIdGln           | GLN (https://firmen.wko.at) of the company, for example 1234567890123. | no |
 | AccountIdFibu          | Company register number (if available). | no |
 | ContactFirstName       | First name of the primary contact. | yes |
@@ -25,6 +25,6 @@
 
 <sup>1</sup> Optionally, you can also provide a dedicated e-mail address for invoices in `Company info` > `Master data` (`Primary Billing E-Mail`).
 
-<sup>2</sup> The CSV import requires at least one business identifier: the VAT number (`AccountIdVat`) or the TIN (`AccountIdTax`). The other tax identification numbers are optional. All tax identification numbers are the basis for correct cash register management and a prerequisite for using third-party services.
+<sup>2</sup> The tax identification numbers are not mandatory for the invitation process. But they are the basis for correct cash register management and a prerequisite for using third-party services.
 
 <sup>3</sup> Not included in the current demo CSV file. Older CSV files with this column can still be imported; the column is ignored.

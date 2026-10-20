@@ -10,8 +10,8 @@
 | AccountCountry         | ISO code (3166 ALPHA-2) of the country of the company's address. | yes |
 | AccountWeb             | URL of the company's website. | no |
 | AccountPhone           | Company phone number. | no |
-| AccountUStIdNr         | VAT ID number (USt-IdNr.), for example DE999999999. It uniquely identifies a company within the European Union for sales tax purposes.<br />**Important:** This is one of the identification criteria for the legalization of the service. | one of <sup>2</sup> |
-| AccountStIdNr          | Tax number (St.-Nr.) that the tax office issues to every taxable person (natural or legal person) and under which the person or company is managed at the tax office. Its structure differs by federal state.<br />**Important:** This is one of the identification criteria for the legalization of the service. | one of <sup>2</sup> |
+| AccountUStIdNr         | VAT ID number (USt-IdNr.), for example DE999999999. It uniquely identifies a company within the European Union for sales tax purposes.<br />**Important:** This is one of the identification criteria for the legalization of the service. | no <sup>2</sup> |
+| AccountStIdNr          | Tax number (St.-Nr.) that the tax office issues to every taxable person (natural or legal person) and under which the person or company is managed at the tax office. Its structure differs by federal state.<br />**Important:** This is one of the identification criteria for the legalization of the service. | no <sup>2</sup> |
 | ContactFirstName       | First name of the primary contact. | yes |
 | ContactLastName        | Last name of the primary contact. | yes |
 | ContactEMail           | E-mail address of the primary contact.<br />**Important:** This e-mail address is the user's login to the newly created company. | yes |
@@ -22,6 +22,6 @@
 
 <sup>1</sup> Optionally, you can also provide a dedicated e-mail address for invoices in `Company info` > `Master data` (`Primary Billing E-Mail`).
 
-<sup>2</sup> The CSV import requires at least one business identifier: the VAT ID number (`AccountUStIdNr`) or the tax number (`AccountStIdNr`). The import error message names these fields `AccountIdVat` and `AccountIdTax`. Both tax identification numbers are the basis for correct cash register management and a prerequisite for using third-party services.
+<sup>2</sup> The tax identification numbers are not mandatory for the invitation process. But they are the basis for correct cash register management and a prerequisite for using third-party services.
 
 <sup>3</sup> Not included in the current demo CSV file. Older CSV files with this column can still be imported; the column is ignored.

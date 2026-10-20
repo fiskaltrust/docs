@@ -70,7 +70,7 @@ Depending on the country, when a PosOperator is registered for the first time, f
 4. Fill in the mandatory fields. They are required so that the PosOperator can be found and assigned correctly in the fiskaltrust.Portal via the e-mail address:
    - `Company data`: company name, e-mail address, address line 1, postal code, city, country
    - `User data`: first name, last name, contact e-mail address
-5. Fill in the tax identification numbers. They are not mandatory for the invitation, but they and their validation are **essential** for the correct management of the cash register systems (for example AccountIdVat, AccountIdGln, AccountUStIdNr).
+5. Fill in the tax identification numbers. They are not mandatory for the invitation, but they and their validation are **essential** for the correct management of the cash register systems (for example `AccountIdVat`, `AccountIdGln` or, in Germany, `AccountUStIdNr`).
 6. Click `Save`. The PosOperator is added to the list `PosOperators that should be invited`.
 7. Click `Invite all PosOperators` to send the e-mail invitation.
 
