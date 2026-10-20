@@ -30,7 +30,7 @@ A cash movement is sent as a payment transfer receipt (`ftReceiptCase` `0x4445_2
 
 The values `090` and `096` to `09F` of `lll` are reserved. Cash movements are not taxable: they are exported with the DSFinV-K VAT key (UST_SCHLUESSEL) `5`, except an [Einzahlung or Auszahlung with VAT](#einzahlung-and-auszahlung-with-vat). The receipt is a regular DSFinV-K receipt (BON_TYP `Beleg`) that is signed by the TSE with the process type `Kassenbeleg-V1`. A purpose with a sign that is not allowed, or a reserved value of `lll`, is not mapped to a cash movement.
 
-The local flags are also listed in the [Reference Tables](../../general/reference-tables/reference-tables.md#germany-de) of the general part.
+This page is the reference for the German local flags; the [Reference Tables](../../general/reference-tables/reference-tables.md#germany-de) of the general part only list them with a link to this page.
 
 ## Choosing the purpose
 
