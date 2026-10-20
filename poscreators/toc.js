@@ -11,6 +11,7 @@ module.exports = [
         label: "Middleware Integration",
         collapsed: true,
         items: [
+          "poscreators/getting-started/choosing-an-architecture",
           "poscreators/getting-started/middleware-integration",
           "poscreators/getting-started/integration-checklist",
         ],

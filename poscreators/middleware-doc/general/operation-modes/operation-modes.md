@@ -32,3 +32,5 @@ The availability of supported operational environments depends on the market, as
 | **Private Cloud**<br />*operated by fiskaltrust* | **Available**<br />*(by the fiskaltrust product CloudCashbox)* | **Available**<br />*(by the fiskaltrust product CloudCashbox)*  | **Available**<br />*(by the fiskaltrust product CloudCashbox)* | **Available** |
 
 *Table 2. Availability of supported operational environments per market.*
+
+For guidance on choosing between a local, hybrid and cloud setup, including a decision diagram and a checklist, see [Choosing a Middleware Architecture](../../../getting-started/choosing-an-architecture.md).
