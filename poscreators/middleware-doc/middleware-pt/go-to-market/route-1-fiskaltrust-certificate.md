@@ -1,13 +1,13 @@
 ---
 slug: /poscreators/middleware-doc/portugal/go-to-market/fiskaltrust-certificate
 title: 'Route 1: Using the fiskaltrust certificate'
-description: Route 1 in Portugal — integrating with the AT-certified fiskaltrust.CloudCashBox (certificate 3535), what to build, what not to, and onboarding steps.
+description: Route 1 in Portugal — integrating with the AT-certified fiskaltrust.CloudCashBox (certificate 3083), what to build, what not to, and onboarding steps.
 tags: [Certification, Portugal, Onboarding, CashBox, PosCreators]
 ---
 
 # Route 1: Using the fiskaltrust certificate
 
-On this route your POS system integrates with the **fiskaltrust.Middleware for Cloud** (fiskaltrust.CloudCashBox), which is certified by the AT under **certificate number 3535**. Your POS acts as the front end of a certified program: it collects the business case and sends it to the Middleware, and the Middleware creates the fiscal document. You do not go through a certification procedure yourself.
+On this route your POS system integrates with the **fiskaltrust.Middleware for Cloud** (fiskaltrust.CloudCashBox), which is certified by the AT under **certificate number 3083**. Your POS acts as the front end of a certified program: it collects the business case and sends it to the Middleware, and the Middleware creates the fiscal document. You do not go through a certification procedure yourself.
 
 This is the fastest way into the Portuguese market and the right choice whenever the [certified scope](../certification/certification.md#certified-document-types) covers your use case.
 
@@ -46,7 +46,7 @@ The following are part of the certified program and must stay with the Middlewar
 1. **Register in the fiskaltrust portal** for the sandbox and, when ready, for production, as described in [Portal Registration](../../../getting-started/portal-registration.md).
 2. **Integrate against the sandbox.** Sandbox queues emit the placeholder certificate number `9999`; sandbox documents are never valid invoices. Use the [certified document types](../certification/certification.md#certified-document-types) and the [Receipt Printing](../receipt-printing/receipt-printing.md) checklist to verify one sample of every document type you issue.
 3. **Run through the [Integration Checklist](../../../getting-started/integration-checklist.md)** and the Portuguese specifics: initial-operation receipt, every document type, a refund, a void, a copy, and a SAF-T (PT) export via the journal endpoint.
-4. **Go live.** Production queues emit certificate number `3535`. Series are registered with the AT by fiskaltrust when the queue is set up; no action is needed on your side.
+4. **Go live.** Production queues emit certificate number `3083`. Series are registered with the AT by fiskaltrust when the queue is set up; no action is needed on your side.
 
 ## Boundaries of this route
 

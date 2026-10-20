@@ -11,6 +11,7 @@ module.exports = [
         label: "Middleware Integration",
         collapsed: true,
         items: [
+          "poscreators/getting-started/choosing-an-architecture",
           "poscreators/getting-started/middleware-integration",
           "poscreators/getting-started/integration-checklist",
         ],
@@ -68,6 +69,7 @@ module.exports = [
             key: "general-components",
             items: [
               "poscreators/middleware-doc/general/components/components",
+              "poscreators/middleware-doc/general/components/queues-terminals-locations",
               "poscreators/middleware-doc/general/components/components-install-config",
             ],
           },
@@ -553,6 +555,7 @@ module.exports = [
         items: [
           "poscreators/middleware-doc/middleware-pt/cash-register-integration/cash-register-integration",
           "poscreators/middleware-doc/middleware-pt/cash-register-integration/error-handling",
+          "poscreators/middleware-doc/middleware-pt/cash-register-integration/middleware-not-reachable",
         ],
       },
       "poscreators/middleware-doc/middleware-pt/receipt-printing/receipt-printing",

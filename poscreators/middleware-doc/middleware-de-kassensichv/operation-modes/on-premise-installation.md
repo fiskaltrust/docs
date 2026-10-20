@@ -71,7 +71,7 @@ Following local data storage options can be configured in the queue:
 
 ## Configuration Scenarios
 
-For configuration scenarios for operating the fiskaltrust.Middleware, please refer to the [Rollout documentation](../../../../posdealers/buy-resell/rollout-plans.md).
+For how many fiskaltrust.Middleware instances to operate per location and how POS terminals connect to the fiskaltrust.Middleware, see [fiskaltrust.Middleware, Terminals and Locations](../../general/components/queues-terminals-locations.md). For ordering and activating the products for a rollout, see the [Rollout documentation](../../../../posdealers/buy-resell/rollout-plans.md).
 
 ## Installation
 

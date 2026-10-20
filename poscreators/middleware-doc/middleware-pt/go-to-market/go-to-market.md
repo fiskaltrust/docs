@@ -15,7 +15,7 @@ With the fiskaltrust.Middleware there are two ways to get there. Choosing the ro
 
 | | **Route 1: fiskaltrust certificate** | **Route 2: own certificate** |
 | --- | --- | --- |
-| Certified program | fiskaltrust.Middleware for Cloud (fiskaltrust.CloudCashBox), certificate **3535** | Your product, built on top of the fiskaltrust.Middleware, with your own certificate number |
+| Certified program | fiskaltrust.Middleware for Cloud (fiskaltrust.CloudCashBox), certificate **3083** | Your product, built on top of the fiskaltrust.Middleware, with your own certificate number |
 | Listed in the AT register | fiskaltrust | You |
 | Who talks to the AT | fiskaltrust | You, supported by fiskaltrust |
 | What you build | The POS front end that sends business cases through the PosSystem API and hands out the certified document | The POS including the document layout, master-data protection, user management, and everything else the AT audits |
@@ -28,7 +28,7 @@ With the fiskaltrust.Middleware there are two ways to get there. Choosing the ro
 - [Route 1: Using the fiskaltrust certificate](./route-1-fiskaltrust-certificate.md)
 - [Route 2: Certifying your own solution](./route-2-own-certificate.md)
 
-The [Certification](../certification/certification.md) chapter of this appendix describes Route 1: it documents certificate 3535, the certified scope, the components that are always provided by the Middleware, and those fiskaltrust additionally provides as operator. On Route 2 the certificate, its scope, and the responsibility towards the AT are yours.
+The [Certification](../certification/certification.md) chapter of this appendix describes Route 1: it documents certificate 3083, the certified scope, the components that are always provided by the Middleware, and those fiskaltrust additionally provides as operator. On Route 2 the certificate, its scope, and the responsibility towards the AT are yours.
 
 :::note Route 2 is open for a first partner
 
@@ -45,16 +45,16 @@ What differs is **who is responsible for the certified program as a whole**, and
 ## Frequently asked questions
 
 **Can I start on Route 1 and move to Route 2 later?**
-Yes. The API integration is the same. Moving to Route 2 adds the certification procedure and, if you self-host, the deployment work. Documents already issued under certificate 3535 remain valid.
+Yes. The API integration is the same. Moving to Route 2 adds the certification procedure and, if you self-host, the deployment work. Documents already issued under certificate 3083 remain valid.
 
 **Can I use fiskaltrust's certificate number on a self-hosted installation?**
-No. Certificate 3535 covers the fiskaltrust.CloudCashBox as operated by fiskaltrust. A self-hosted or on-device installation is a different program and needs its own certificate (Route 2).
+No. Certificate 3083 covers the fiskaltrust.CloudCashBox as operated by fiskaltrust. A self-hosted or on-device installation is a different program and needs its own certificate (Route 2).
 
 **Does Route 1 restrict how my POS looks?**
 No. The certificate covers the fiscal document, not your user interface. Your POS can look and behave as you like; the document handed to the customer is the one rendered by fiskaltrust.
 
 **Has a partner already been certified on Route 2?**
-Not yet. fiskaltrust holds certificate 3535 for its own program and knows the procedure from that experience, but no partner has certified a solution built on the Middleware so far. We are looking for a first partner; contact [sales@fiskaltrust.pt](mailto:sales@fiskaltrust.pt).
+Not yet. fiskaltrust holds certificate 3083 for its own program and knows the procedure from that experience, but no partner has certified a solution built on the Middleware so far. We are looking for a first partner; contact [sales@fiskaltrust.pt](mailto:sales@fiskaltrust.pt).
 
 **Who does the merchant deal with?**
 On both routes the merchant is the taxpayer and remains responsible for issuing documents and submitting the SAF-T (PT). See [What this means for PosOperators](../certification/certification.md#what-this-means-for-posoperators).
