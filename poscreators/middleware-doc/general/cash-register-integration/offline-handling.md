@@ -36,7 +36,7 @@ Whether an internet outage interrupts fiscalization depends on where the fiskalt
 
 *Table 2. Effect of an internet outage per architecture model.*
 
-In markets where every receipt is transmitted to the tax authority in real time, for example Spain or Greece, every receipt needs an internet connection regardless of the architecture. For more information on the architecture models and which market supports which, see [Choosing a Middleware Architecture](../../../getting-started/choosing-an-architecture.md).
+In markets where every receipt is transmitted to the tax authority in real time, every receipt needs an internet connection regardless of the architecture. For more information on the architecture models and which market supports which, see [Choosing a Middleware Architecture](../../../getting-started/choosing-an-architecture.md).
 
 ## POS system cannot reach the fiskaltrust.Middleware
 
@@ -58,7 +58,7 @@ The fiskaltrust.Middleware reaches the POS system but not the signature device, 
 
 A locally installed fiskaltrust.Middleware uses the fiskaltrust cloud for its configuration and packages, for uploading receipt data and for notifications. For the hostnames, see [Network Requirements](../../../../posdealers/technical-operations/middleware/network-requirements.md).
 
-- In Austria, Germany and France, the .NET Launcher and the Mono Launcher load the configuration and the required packages from the fiskaltrust package server during startup. For installations without an internet connection, the .NET Offline Launcher includes a static configuration and the required packages. For more information, see [Installing and Configuring Components](../components/components-install-config.md#download-of-the-launcher).
+- Depending on the market, the .NET Launcher and the Mono Launcher load the configuration and the required packages from the fiskaltrust package server during startup. For installations without an internet connection, the .NET Offline Launcher includes a static configuration and the required packages. For more information, see [Installing and Configuring Components](../components/components-install-config.md#download-of-the-launcher).
 - In offline mode, notifications are transported via Zero-Receipts within the signature block. For more information, see [Notifications](../configuration/configuration.md#notifications).
 
 ## Complete outage of the POS system
@@ -77,16 +77,14 @@ If the whole POS system is unavailable, for example during a power outage, recei
 
 ## Offline handling by market
 
-| Market | POS system cannot reach the fiskaltrust.Middleware | fiskaltrust.Middleware cannot reach the SCU | Details |
-|--------|-----------------------------------------------------|---------------------------------------------|---------|
-| Austria | Late signing | Failed mode; outages over 48 hours must be notified to FinanzOnline | [Offline Handling (AT)](../../middleware-at-rksv/cash-register-integration/offline-handling.md) |
-| Belgium | No offline mode: sales cannot be registered | Error; no VAT receipt may be issued | [Offline Handling (BE)](../../middleware-be/cash-register-integration/offline-handling.md) |
-| France | Late signing ("mode dégradé") | Not applicable: the Queue signs receipts itself | [Offline Handling (FR)](../../middleware-fr-boi-tva-decla-30-10-30/cash-register-integration/offline-handling.md) |
-| Germany | Late signing | Failed mode | [Offline Handling (DE)](../../middleware-de-kassensichv/cash-register-integration/offline-handling.md) |
-| Greece | Late signing, transmitted to myDATA as transmission failure | Real-time transmission to myDATA | [Offline Handling (GR)](../../middleware-gr/cash-register-integration/offline-handling.md) |
-| Italy | Not documented yet | Error; RT servers can buffer documents in asynchronous mode | [Offline Handling (IT)](../../middleware-it-registratore-telematico/cash-register-integration/offline-handling.md) |
-| Poland | Sales must not continue without a working register | Error; sales must stop | [Offline Handling (PL)](../../middleware-pl/cash-register-integration/offline-handling.md) |
-| Portugal | No late signing; pre-printed forms, recovered later | Not applicable: the Middleware signs documents itself | [Offline Handling (PT)](../../middleware-pt/cash-register-integration/offline-handling.md) |
-| Spain | No numbered invoice; provisional receipt only in exceptional cases | Error; the document is not issued | [Offline Handling (ES)](../../middleware-es/cash-register-integration/offline-handling.md) |
+The rules for each market are described on its own page:
 
-*Table 3. Offline handling per market.*
+- [Austria](../../middleware-at-rksv/cash-register-integration/offline-handling.md)
+- [Belgium](../../middleware-be/cash-register-integration/offline-handling.md)
+- [France](../../middleware-fr-boi-tva-decla-30-10-30/cash-register-integration/offline-handling.md)
+- [Germany](../../middleware-de-kassensichv/cash-register-integration/offline-handling.md)
+- [Greece](../../middleware-gr/cash-register-integration/offline-handling.md)
+- [Italy](../../middleware-it-registratore-telematico/cash-register-integration/offline-handling.md)
+- [Poland](../../middleware-pl/cash-register-integration/offline-handling.md)
+- [Portugal](../../middleware-pt/cash-register-integration/offline-handling.md)
+- [Spain](../../middleware-es/cash-register-integration/offline-handling.md)
