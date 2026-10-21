@@ -111,7 +111,7 @@ module.exports = [
           "posdealers/technical-operations/middleware/setup",
           "posdealers/technical-operations/middleware/supported-environments",
           "posdealers/technical-operations/middleware/network-requirements",
-          "posdealers/technical-operations/middleware/offline-handling",
+          "posdealers/technical-operations/middleware/middleware-not-reachable",
         ],
       },
       {

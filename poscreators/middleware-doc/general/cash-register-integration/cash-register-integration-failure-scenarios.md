@@ -6,7 +6,7 @@ tags: [Failure Handling, SCU, Cash Register Integration, Middleware]
 ---
 # Failure Scenarios
 
-This section describes failure scenarios when using the fiskaltrust.Middleware and how to handle them. For an overview of which connections the fiskaltrust.Middleware depends on and the offline rules of each market, see [Offline Handling](./offline-handling.md).
+This section describes failure scenarios when using the fiskaltrust.Middleware and how to handle them.
 
 On a high level, three types of failure scenarios must be considered. These are described in detail in the following sections:
 
@@ -46,6 +46,8 @@ We recommend to not manually print the text "SCU communication failed", but to p
 ## Middleware not reachable or failing
 
 If a cash register cannot communicate with the fiskaltrust.Middleware, the cause is typically a failure of the network connection, the Middleware host, or the Middleware itself. In this state, the electronic recording system is not operational, and access to the journal is not available.
+
+For the causes of this scenario, which connection the POS system depends on in each setup, and the rules of each market, see [Middleware Not Reachable](./middleware-not-reachable.md).
 
 :::info
 
