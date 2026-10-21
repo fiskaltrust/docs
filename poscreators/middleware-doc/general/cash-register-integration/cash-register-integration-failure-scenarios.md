@@ -6,7 +6,7 @@ tags: [Failure Handling, SCU, Cash Register Integration, Middleware]
 ---
 # Failure Scenarios
 
-This section describes failure scenarios when using the fiskaltrust.Middleware and how to handle them.
+This section describes failure scenarios when using the fiskaltrust.Middleware and how to handle them. For an overview of which connections the fiskaltrust.Middleware depends on and the offline rules of each market, see [Offline Handling](./offline-handling.md).
 
 On a high level, three types of failure scenarios must be considered. These are described in detail in the following sections:
 
