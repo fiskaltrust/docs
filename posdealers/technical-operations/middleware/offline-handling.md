@@ -17,7 +17,16 @@ import TabItem from '@theme/TabItem';
 
 ## Introduction
 
-Fiscalization can be interrupted at different points: the POS system cannot reach the Middleware, the Middleware cannot reach the signature device, signing service or tax authority, or the whole POS system is down. Whether a POS system may continue to sell in these situations, and what must be done afterwards, depends on the market.
+Offline means every situation in which the POS system does not receive a processed response from the Middleware, whatever the reason:
+
+- The network between the POS system and the Middleware fails, for example the local network or Wi-Fi, or the internet connection of the location to the CloudCashbox.
+- The device or server on which the Middleware runs is switched off, has no power or fails.
+- The Middleware has not been started, has been stopped or has crashed.
+- The request times out or the connection is interrupted.
+- The Middleware cannot store the request, for example because it has no access to its database.
+- The whole POS system is down, for example during a power outage.
+
+In addition, the Middleware itself can lose its connection to the signature device, signing service or tax authority while the POS system still reaches it. Whether a POS system may continue to sell in these situations, and what must be done afterwards, depends on the market.
 
 The implementation in the POS system is described for PosCreators in [Offline Handling](../../../poscreators/middleware-doc/general/cash-register-integration/offline-handling.md).
 
