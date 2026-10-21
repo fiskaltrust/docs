@@ -2,111 +2,41 @@
 slug: /posdealers/buy-resell/rollout-plans
 title: Rollout Plans
 description: Using Business Rollout plans in the Portal to buy, transfer and activate entitlements for multiple PosOperators and outlets at once.
+type: process
 tags: [Rollout Plans, Entitlements, Portal, PosDealers]
 ---
 # Rollout Plans
 
 :::info summary
 
-After reading this, you can buy or transfer selected entitlements most easily.
+After reading this, you can buy and transfer entitlements in the easiest way.
 
 :::
 
-## Introduction
+To roll out fiskaltrust products at scale, use `Rollout management` in the fiskaltrust.Portal. It offers two types of rollout plans: the **Business Rollout** and the **Technical Rollout**. This page describes the Business Rollout.
 
-For the scaled rollout of _fiskaltrust_ products, you as PosDealer use the rollout management as described under [`Getting-Started` / `My First CashBox`](../getting-started/my-first-cashbox.md). The Rollout Management consists of two types of plans:
+## Business Rollout
 
-### Business Rollout
+The Business Rollout combines the purchase of entitlements, their transfer to the outlets or Queues of your PosOperators and their activation for the PosOperators in one process:
 
-The business rollout simplifies acquiring entitlements, transferring them to the PosOperators outlets or queues and activating (generating) them for the PosOperator. You do not have to switch to the PosOperator's account to move and activate the products. The system will automatically select the required products for the chosen Business Rollout plan. This plan reduces the risk of an incorrect composition of the shopping basket. This can be done for multiple PosOperators and outlets or queues at the same time.
+- You do not need to switch to the PosOperator's account to transfer and activate the products.
+- The fiskaltrust.Portal selects the products required for the chosen rollout plan. This reduces the risk of a wrong composition of the shopping cart.
+- You can roll out to several PosOperators and outlets or Queues at the same time.
 
-This sketch shows the process :
+![Workflow with one swimlane, PosDealer in the fiskaltrust.Portal: open Rollout management and choose Business Rollout, select the rollout plan, select the PosOperators and outlets, create the quote and load it into the cart, and complete the checkout](./images/business-rollout-flowchart.svg)
 
-![Business rollout workflow: Rollout Management, Business Rollout, select rollout plan, select PosOperators and outlets, create quote and load into cart, binding order](./images/rollout-management.png)
+*Figure 1. Workflow of a Business Rollout.*
 
-*Figure 1. Process of the business rollout for acquiring and activating entitlements.*
+For a step-by-step example in the Sandbox, with the rollout plan of each market, see [Business Rollout](../getting-started/my-first-cashbox.md#business-rollout) on the My First Cashbox page.
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+## Benefits of rollout plans
 
-import BusinessRolloutFR from '../_markets/fr/getting-started/my-first-cashbox/_business.mdx';
-import BusinessRolloutDE from '../_markets/de/getting-started/my-first-cashbox/_business.mdx';
-import BusinessRolloutGR from '../_markets/gr/getting-started/my-first-cashbox/_business.mdx';
-import BusinessRolloutIT from '../_markets/it/getting-started/my-first-cashbox/_business.mdx';
-import BusinessRolloutPL from '../_markets/pl/getting-started/my-first-cashbox/_business.mdx';
-import BusinessRolloutPT from '../_markets/pt/getting-started/my-first-cashbox/_business.mdx';
-import BusinessRolloutES from '../_markets/es/getting-started/my-first-cashbox/_business.mdx';
-import BusinessRolloutAT from '../_markets/at/getting-started/my-first-cashbox/_business.mdx';
-import BusinessRolloutBE from '../_markets/be/getting-started/my-first-cashbox/_business.mdx';
+- **Save time**: you and your team create the key elements of a rollout quickly, which leaves more time to adapt each rollout to the requirements of the PosOperator.
+- **Improve communication**: you define which steps your team members take in each phase of the rollout.
+- **Keep track**: you identify the critical elements of each phase, and you see the current status quickly, for example when a fix is needed.
+- **Support your sales**: rollout plans help you explain to your PosOperators which products you offer and why.
+- **Organize your rollout**: rollout plans support a well-organized rollout strategy.
 
-<Tabs groupId="market">
+## Availability
 
-  <TabItem value="AT" label="Austria">
-    <BusinessRolloutAT />
-  </TabItem>
-
-  <TabItem value="BE" label="Belgium">
-    <BusinessRolloutBE />
-  </TabItem>
-
-  <TabItem value="FR" label="France">
-    <BusinessRolloutFR />
-  </TabItem>
-
-  <TabItem value="DE" label="Germany">
-    <BusinessRolloutDE />
-  </TabItem>
-
-  <TabItem value="GR" label="Greece">
-    <BusinessRolloutGR />
-  </TabItem>
-
-  <TabItem value="IT" label="Italy">
-    <BusinessRolloutIT />
-  </TabItem>
-
-  <TabItem value="PL" label="Poland">
-    <BusinessRolloutPL />
-  </TabItem>
-
-  <TabItem value="PT" label="Portugal">
-    <BusinessRolloutPT />
-  </TabItem>
-
-  <TabItem value="ES" label="Spain">
-    <BusinessRolloutES />
-  </TabItem>
-
-</Tabs>
-
-### Benefits of using a rollout plan
-
-#### Saving time
-
-Rollout plans allow you as a PosDealer or your team members to rapidly create the key elements.  
-You generate more time for making adjustments to meet the specific requirements of each PosOperator and their different demands.
-
-#### Improving communication
-
-With rollout plans, you clearly can define which action steps designated team members have to take during different rollout phases.
-You gain more flexibility to achieve your revenue and customer satisfaction goals.
-
-#### Decreasing stress 
-
-Rollout plans make it easier to identify the critical elements of each phase in the rollout.
-In the case of bug fixes, you get fast insight into the actual status.
-
-#### Increasing buy-in
-
-Focusing on rollout plans gives you a helping hand in explaining which products you offer and why. 
-This focus can boost the sales process with your PosOperators.
-
-#### Improving organization 
-
-Using rollout plans will support you as a PosDealer with a well-organized rollout strategy.
-
-## Further information
-
-Please check the offers at Rollout Management in your account.
-Please note that differences between the productive system and the sandbox are likely.
-The content in the sandbox is available to test new features for _fiskaltrust_ and friendly customers.
+The rollout plans available in your account are listed in `Rollout management`. They can differ between the live system and the Sandbox: the Sandbox is used to test new features with fiskaltrust and selected customers.

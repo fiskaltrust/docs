@@ -2,56 +2,71 @@
 slug: /posdealers/buy-resell/subscription-management
 title: Subscription management
 description: Managing PosOperator subscriptions in the Portal — automatic and manual annual renewals and cancellation.
+type: guide
 tags: [Subscriptions, Portal, PosDealers]
 ---
 # Subscription management
 
 :::info summary
 
-After reading this, you will be able to automatically or manually renew subscriptions, and to cancel them.
+After reading this, you can renew subscriptions automatically or manually, and cancel them.
 
 :::
 
-## Introduction
-_fiskaltrusts_ [recurrent products](products) operate on a subscription basis, requiring  payment annually. You can opt for either **automated** or **manual** renewals. 
-Otherwise if you no longer wish to use a particular product, you must cancel the subscription, which will take effect on the last day of the current subscription period.
+fiskaltrust's recurring products work on a subscription basis with annual payment. For the products, see [Products & Services](./products/overview.md). You renew subscriptions **automatically** or **manually**. If you no longer want to use a product, cancel its subscription. The cancellation takes effect on the last day of the current subscription period.
 
-## Subscription Page Overview
-As a PosDealer, you can get an overview of all your PosOperators' subscriptions in the `PosDealer` / `Subscriptions` tab of the fiskaltrust.Portal.
-You can filter the list to display overdue or upcoming subscriptions and renew payments for multiple subscriptions simultaneously. 
-On this page, you can also manage subscriptions by opting for automatic renewals, performing manual renewals, or canceling a subscription.
+## Subscriptions page
 
-[Subscription-management](./images/subscription-management.png)
+To get an overview of the subscriptions of all your PosOperators, open `PosDealer` > `PosOperator Subscriptions` in the left sidebar of the Portal. On this page, you can:
 
-## Renewals
-Renewing subscriptions is an annual process that can either be done manually, or automatically by the Portal. Both ways are described below; please note that the automatic renewal is an opt-in feature that needs to be activated.
+- filter the list, for example to show overdue or upcoming subscriptions
+- enable or disable automatic renewals
+- renew one or several subscriptions manually
+- cancel subscriptions
 
-### Automatic Renewals
-To enable automatic renewals, you need to sign a side letter to the PosDealer contract, allowing fiskaltrust to do these otherwise manual interactions for you. 
-The side letter can be signed either by sliding the toggle in the banner, or can be found in the `Company Info` / `Overview` tab of the fiskaltrust.Portal.
-Similarly as for the roles contracts, sliding the toggle from right to left will disallow the automatic renewal subscription.
+![Subscriptions page in the fiskaltrust.Portal with the Allow renewing subscriptions automatically toggle, the search field and status filter, and the list of subscriptions with their PosOperator, product, subscription target, renewal date, renewal type, status and actions](./images/subscription-management.png)
 
-This feature ensures that your PosOperators' product subscriptions are automatically renewed. Automatic renewals happen on a monthly basis - meaning that in the beginning of each month, the renewal process will be executed for all subscriptions that will expire in this month, and a collective invoice is created and sent to the PosDealer via email.
+*Figure 1. The page with the subscriptions of your PosOperators.*
 
-The column _Renewal type_ allows you to choose between enabling or disabling the automatic renewal feature for one specific subscriptions.
+## Renew subscriptions
 
-### Manual Renewals
-You always have the option to manually renew specific outlets - either because this is the default flow you prefer, or because you disabled automatic renewals for specific subscriptions. 
+Subscriptions are renewed every year, either manually or automatically by the fiskaltrust.Portal. Automatic renewal is an opt-in feature that you need to enable.
 
-Subscriptions can either be renewed one-by-one by selecting _Renew subscriptions_ in the _Actions_ column, or in a bulk operation by selecting multiple rows and clicking on the _Renew subscriptions_ button at the end of the page. Both ways will trigger a popup window where you can select if you either want your Quote to include the required entitlements for the renewals, or if you already have existing entitlements you want to consume.
+### Automatic renewals
 
-[Renew subscription](./images/renew-subscription.png)
+To enable automatic renewals, sign a side letter to the PosDealer contract. It allows fiskaltrust to renew the subscriptions for you. To sign it, turn on the `Allow renewing subscriptions automatically` toggle, either in the banner of the subscriptions page or in `Company info` > `Overview`. As with role contracts, turning off the toggle disallows automatic renewals again. For more information, see [Company Roles](../getting-started/company-roles.md).
 
-Confirming this dialog will create a Quote and automatically load it into the basket, where it can then be checked out.
+Automatic renewals run monthly: at the beginning of each month, the fiskaltrust.Portal renews all subscriptions that expire in this month and sends you a collective invoice by e-mail.
 
-## Cancellation
-Cancelling subscriptions can either be done one-by-one by selecting _Cancel subscription_ in the _Actions_ column of each row, or by multi-selecting multiple subscriptions and using the _Cancel subscriptions_ button at the end of the page. You will be asked for confirmation in both cases before the subscriptions are cancelled.
+To enable or disable the automatic renewal for a single subscription, select the value in its `Renewal type` column.
 
-When subscriptions are cancelled within the billing period, the cancellation will become effective at the end of the runtime period - i.e. the product can be used until then as before.
+### Manual renewals
 
+You can always renew subscriptions manually, for example because you prefer this, or because you disabled automatic renewal for some subscriptions.
+
+1. Choose the subscriptions to renew:
+   - **One subscription**: select `Renew subscriptions` in the `Actions` column of its row.
+   - **Several subscriptions**: select their rows and click `Renew subscriptions` below the list.
+2. In the dialog, choose whether the quote includes the required entitlements, or whether you use existing entitlements.
+
+   ![Dialog to renew subscriptions in the fiskaltrust.Portal with the choice between buying the required entitlements and using existing entitlements](./images/renew-subscription.png)
+
+   *Figure 2. The dialog to renew subscriptions.*
+
+3. Confirm the dialog. The fiskaltrust.Portal creates a quote and loads it into the shopping cart.
+4. Complete the checkout. For more information, see [Shop](./shop.md#buy-products-or-entitlements).
+
+## Cancel subscriptions
 
 :::caution
 
-**Cancelling subscriptions is a permanent action.** Once a subscription is canceled, you can't reactivate it or take any further actions.
+**Cancelling a subscription is permanent.** After you cancel a subscription, you cannot reactivate it or take any further action on it.
 
 :::
+
+1. Choose the subscriptions to cancel:
+   - **One subscription**: select `Cancel subscription` in the `Actions` column of its row.
+   - **Several subscriptions**: select their rows and click `Cancel subscriptions` below the list.
+2. Confirm the cancellation.
+
+**Result:** If you cancel a subscription during the billing period, the cancellation takes effect at the end of the period. Until then, the product works as before.
