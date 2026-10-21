@@ -106,9 +106,9 @@ To make the receipt available for delivery, call `/issue` with the **original `/
 
 Deliver the document with `PUT /issue/{queueId}/{queueItemId}`, choosing a delivery method: `IssueUpdateSend` (email/SMS), `IssueUpdatePrint`, `IssueUpdateDownload`, `IssueUpdateUpload`, or `IssueUpdateLink`. Peppol delivery uses one of the upload/send methods — confirm the exact one for Peppol with product.
 
-**Step 4 — Check delivery status** — optional
+**Step 4 — Check delivery status**
 
-Only applies if you registered the receipt via `/issue` in Step 2: the status call uses the `ftQueueID` / `ftQueueItemID` returned there. Poll `GET /issue/{queueId}/{queueItemId}` for the status until it reports **delivered**. There is **no callback or webhook**.
+Applies when you registered the receipt via `/issue` in Step 2: the status call uses the `ftQueueID` / `ftQueueItemID` returned there. Poll `GET /issue/{queueId}/{queueItemId}` for the status until it reports **delivered**. There is **no callback or webhook**.
 
 See the [POS System API reference](https://docs.fiskaltrust.eu/apis/pos-system-api) for the full `/issue` request/response schemas.
 
