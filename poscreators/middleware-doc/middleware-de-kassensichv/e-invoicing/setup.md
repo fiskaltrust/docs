@@ -18,6 +18,7 @@ eInvoicing rides on calls you already make. Setup is about **configuration** —
 | Requirement | Detail |
 | --- | --- |
 | fiskaltrust account + fiskaltrust.Middleware | An active account with a configured fiskaltrust.Middleware. See [Portal registration](../../../getting-started/portal-registration.md). |
+| CloudCashBox | eInvoicing is currently only available with a cloud-based fiskaltrust.Middleware (CloudCashBox), not with a local fiskaltrust.Middleware. For more information, see [Prerequisites (shared)](../../e-invoicing/overview.md#prerequisites-shared). |
 | Existing fiscalization integration | Your POS already fiscalizes in Germany via `/sign`. |
 | fiskaltrust.Middleware country configuration | The fiskaltrust.Middleware's country configuration is set to the **German locale**. |
 | PosSystem API (v2) | eInvoicing features are exposed through the **PosSystem API (v2)**. If you are on the v0 interface, plan your [migration](../../possystem-api/migration-guide.md) first. |
@@ -105,9 +106,9 @@ To make the receipt available for delivery, call `/issue` with the **original `/
 
 Deliver the document with `PUT /issue/{queueId}/{queueItemId}`, choosing a delivery method: `IssueUpdateSend` (email/SMS), `IssueUpdatePrint`, `IssueUpdateDownload`, `IssueUpdateUpload`, or `IssueUpdateLink`. Peppol delivery uses one of the upload/send methods — confirm the exact one for Peppol with product.
 
-**Step 4 — Check delivery status**
+**Step 4 — Check delivery status** — optional
 
-Poll `GET /issue/{queueId}/{queueItemId}` for the status until it reports **delivered**. There is **no callback or webhook**.
+Only applies if you registered the receipt via `/issue` in Step 2: the status call uses the `ftQueueID` / `ftQueueItemID` returned there. Poll `GET /issue/{queueId}/{queueItemId}` for the status until it reports **delivered**. There is **no callback or webhook**.
 
 See the [POS System API reference](https://docs.fiskaltrust.eu/apis/pos-system-api) for the full `/issue` request/response schemas.
 
