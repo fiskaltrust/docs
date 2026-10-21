@@ -55,6 +55,8 @@ For more information, see [VAT rules and rates](https://europa.eu/youreurope/bus
 
 In Portugal, `NN` carries the tax exemption code (*motivo de isenção*) of a charge item with 0 % VAT. Use `00` for charge items with VAT. For a charge item with 0 % VAT, set `NN` to the two digits of the exemption code from Table 3, for example `06` for M06. The Middleware writes the code to `TaxExemptionCode` and the mention to `TaxExemptionReason` of the SAF-T (PT) line. A 0 % charge item with `NN` `00` or with a value that is not listed in Table 3 is rejected.
 
+When `NN` is set, the charge item is exempt and the VAT rate (`V`) of `ftChargeItemCase` is ignored: the line is always reported with the tax code `ISE` (*Isento*), whether `V` is `8` (Not Taxable), `7` (Zero VAT rate) or another value. `VATRate` must be `0`. A charge item with a VAT rate other than 0 % and an `NN` other than `00` is rejected.
+
 For example, a not taxable (`V` = `8`) delivery (`S` = `1`) with the exemption code M06 has the `ftChargeItemCase` `0x5054_2000_0000_0618`.
 
 :::warning Portugal uses its own NN values
@@ -121,7 +123,7 @@ The following rules apply:
 
 - `TaxExemptionCode` takes precedence over `NN`. Without `TaxExemptionCode`, the code is read from `NN` as described above.
 - `TaxExemptionCode` must be one of the exemption codes in Table 3, for example `M06`. Upper and lower case and surrounding spaces are ignored. An unknown code is rejected; the Middleware does not fall back to `NN`.
-- `TaxExemptionCode` is only allowed on charge items with 0 % VAT.
+- `TaxExemptionCode` is only allowed on charge items with 0 % VAT. As with `NN`, the VAT rate (`V`) of `ftChargeItemCase` is then ignored and the line is reported with the tax code `ISE`.
 - `NN` must still be set to a value other than `00`.
 - The mention (`TaxExemptionReason`) is always taken from Table 3 and cannot be sent in the request.
 - A refund must repeat the `ftChargeItemCaseData` of the original charge item.
