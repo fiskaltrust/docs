@@ -57,7 +57,8 @@ The following sections describe what the Middleware validates and how to fix a r
 | The VAT rate is supported in Portugal: reduced (6 %), intermediate (13 %), normal (23 %) or not taxable (0 %). | Use one of these VAT rates in [ftChargeItemCase](../reference-tables/type-of-service-ftchargeitemcase.md). |
 | `VATRate` matches the VAT rate in `ftChargeItemCase`. | Send the percentage that belongs to the VAT rate of the case, for example `23` for the normal rate. |
 | `VATAmount` matches `Amount` and `VATRate`. | Calculate `VATAmount` as `Amount / (100 + VATRate) * VATRate`, or do not send it; the Middleware then calculates it. |
-| A charge item with 0 % VAT has a tax exemption reason. | Set the nature of VAT (`NN`) in `ftChargeItemCase` to the Portuguese tax exemption reason that applies. |
+| A charge item with 0 % VAT has a valid tax exemption code. | Set the nature of VAT (`NN`) in `ftChargeItemCase` to the Portuguese tax exemption code that applies. If you send the code in `ftChargeItemCaseData.PT.TaxExemptionCode`, use a code from the same table, for example `M06`, and still set `NN` to a value other than `00`. For more information, see [NN - nature of VAT](../reference-tables/type-of-service-ftchargeitemcase.md#nn---nature-of-vat). |
+| `ftChargeItemCaseData.PT.TaxExemptionCode` is only sent on charge items with 0 % VAT. | Remove `TaxExemptionCode` from charge items with VAT. |
 | The type of service in `ftChargeItemCase` is supported in Portugal. | Use one of the types of service listed in [ftChargeItemCase](../reference-tables/type-of-service-ftchargeitemcase.md). |
 | A discount or extra has the same VAT rate as the line item it belongs to. | Send the discount directly after its line item, with the same `VATRate` and the same VAT rate in `ftChargeItemCase`. |
 | A discount is negative and does not exceed the amount of its line item. | Send discounts with a negative `Amount`. Positive extras are not allowed. |
