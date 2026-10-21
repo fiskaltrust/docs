@@ -50,7 +50,7 @@ Where the API path is available, the flow is the same shape everywhere — your 
 | --- | --- |
 | 1. Sign | Call `/sign` as you do today. The response also carries the eInvoice document. |
 | 2. Issue for delivery (optional) | Register the receipt via `/issue`, then deliver it to a channel. |
-| 3. Poll for status | Poll `GET /issue/{queueId}/{queueItemId}` until delivered / cleared. No webhook. |
+| 3. Poll for status | Applies when you used Step 2. Poll `GET /issue/{queueId}/{queueItemId}` until delivered / cleared. No webhook. |
 
 ## Invoices and invoice types
 
