@@ -49,9 +49,9 @@ Like in all other supported countries, the German Middleware returns all complia
 We generally recommend using QR codes wherever possible to reduce the amount of required paper. 
 
 ### Printing receipts with QR codes
-As the Middleware returns additional data in the `ftSignatures` field that is e.g. used by ourselves to create the DSFinV-K, we introduced a flag for the `ftSignatureFormat` field that signalizes if a signature needs to be printed or is optional. More details about this flag are described [here](../reference-tables/type-of-signature-ftsignatureformat.md)
+As the Middleware returns additional data in the `ftSignatures` field that is, for example, used by fiskaltrust to create the DSFinV-K, we introduced a flag for the `ftSignatureFormat` field that indicates if a signature needs to be printed or is optional. For more information, see [Format of Signature: ftSignatureFormat](../reference-tables/type-of-signature-ftsignatureformat.md).
 
-Hence, when printing QR codes, all returned signatures should be printed that **do not** have the _ftSignatureFormatFlag_ `0x0000000000010000` ("printing is optional").
+Hence, when printing QR codes, all returned signatures should be printed that **do not** have the `ftSignatureFormatFlag` `0x0000000000010000` ("printing is optional").
 
 #### Content of the QR code
 
@@ -71,6 +71,8 @@ The structure of the QR code is defined in the DSFinV-K, Anhang I, chapter 2, "D
 ```
 
 The individual values of the QR code are also returned as separate text signature items, with the field name as the caption and the flag `0x0000000000010000` (printing is optional). If you print the QR code, you do not need to print them; they are only needed if you print the data as text instead of the QR code.
+
+The fields of the QR code:
 
 | **Field**               | **Content**                                      | **Example**                                | **ftSignatureType**  |
 | ----------------------- | ------------------------------------------------ | ------------------------------------------ | -------------------- |
@@ -92,7 +94,7 @@ The individual values of the QR code are also returned as separate text signatur
 The certification ID of the TSE (`0x4445000000000022`), the serial number of the TSE (`0x4445000000000023`) and the overall start time of the business case (`0x444500000000001F`) are not part of the QR code. For a complete example response, see [Single Receipt Creation](single-receipt-creation.md).
 
 ### Printing receipts without QR codes
-For supporting cases where the used printer does not support QR codes, the Middleware's returned signatures also contain all required information in textual form. The following items from the response's `ftSignatures` property needs to be printed:
+For supporting cases where the used printer does not support QR codes, the Middleware's returned signatures also contain all required information in textual form. The following items from the response's `ftSignatures` property need to be printed:
 
 | **Description**                         | **Caption**             | **ftSignatureType**  |
 | --------------------------------------- | ----------------------- | -------------------- |
