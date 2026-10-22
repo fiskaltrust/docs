@@ -47,6 +47,8 @@ We recommend to not manually print the text "SCU communication failed", but to p
 
 If a cash register cannot communicate with the fiskaltrust.Middleware, the cause is typically a failure of the network connection, the Middleware host, or the Middleware itself. In this state, the electronic recording system is not operational, and access to the journal is not available.
 
+For the causes of this scenario, which connection the POS system depends on in each setup, and the rules of each market, see [Middleware Not Reachable](./middleware-not-reachable.md).
+
 :::info
 
 The procedure depends on the market. In Portugal, late signing is not available; for more information, see [Middleware Not Reachable](../../middleware-pt/cash-register-integration/middleware-not-reachable.md).

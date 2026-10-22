@@ -54,7 +54,15 @@ module.exports = [
             key: "general-cash-register-integration",
             items: [
               "poscreators/middleware-doc/general/cash-register-integration/cash-register-integration-regular-workflow",
-              "poscreators/middleware-doc/general/cash-register-integration/cash-register-integration-failure-scenarios",
+              {
+                type: "category",
+                label: "Failure Scenarios",
+                key: "general-failure-scenarios",
+                items: [
+                  "poscreators/middleware-doc/general/cash-register-integration/cash-register-integration-failure-scenarios",
+                  "poscreators/middleware-doc/general/cash-register-integration/middleware-not-reachable",
+                ],
+              },
               "poscreators/middleware-doc/general/cash-register-integration/refunds-and-voids",
               "poscreators/middleware-doc/general/cash-register-integration/discounts-and-extras",
               "poscreators/middleware-doc/general/cash-register-integration/cash-drawer-movements",
@@ -153,6 +161,7 @@ module.exports = [
       "poscreators/middleware-doc/middleware-at-rksv/appendix-at-rksv",
       "poscreators/middleware-doc/middleware-at-rksv/terminology/terminology",
       "poscreators/middleware-doc/middleware-at-rksv/cash-register-integration/cash-register-integration",
+      "poscreators/middleware-doc/middleware-at-rksv/cash-register-integration/middleware-not-reachable",
       "poscreators/middleware-doc/middleware-at-rksv/data-structures/data-structures",
       "poscreators/middleware-doc/middleware-at-rksv/receipt-case-definitions/receipt-case-definitions",
       {
@@ -197,6 +206,7 @@ module.exports = [
       },
       "poscreators/middleware-doc/middleware-be/terminology/terminology",
       "poscreators/middleware-doc/middleware-be/cash-register-integration/cash-register-integration",
+      "poscreators/middleware-doc/middleware-be/cash-register-integration/middleware-not-reachable",
       "poscreators/middleware-doc/middleware-be/data-structures/data-structures",
       {
         type: "category",
@@ -228,6 +238,7 @@ module.exports = [
         key: "de-cash-register-integration",
         items: [
           "poscreators/middleware-doc/middleware-de-kassensichv/cash-register-integration/cash-register-integration",
+          "poscreators/middleware-doc/middleware-de-kassensichv/cash-register-integration/middleware-not-reachable",
           "poscreators/middleware-doc/middleware-de-kassensichv/cash-register-integration/single-receipt-creation",
           "poscreators/middleware-doc/middleware-de-kassensichv/cash-register-integration/receipt-sequences-creation",
           "poscreators/middleware-doc/middleware-de-kassensichv/cash-register-integration/cash-drawer-movements",
@@ -324,6 +335,7 @@ module.exports = [
       "poscreators/middleware-doc/middleware-es/declaration/declaration",
       "poscreators/middleware-doc/middleware-es/terminology/terminology",
       "poscreators/middleware-doc/middleware-es/cash-register-integration/cash-register-integration",
+      "poscreators/middleware-doc/middleware-es/cash-register-integration/middleware-not-reachable",
       "poscreators/middleware-doc/middleware-es/receipt-printing/receipt-printing",
       "poscreators/middleware-doc/middleware-es/data-structures/data-structures",
       {
@@ -396,6 +408,7 @@ module.exports = [
       "poscreators/middleware-doc/middleware-gr/licensing/licensing",
       "poscreators/middleware-doc/middleware-gr/terminology/terminology",
       "poscreators/middleware-doc/middleware-gr/cash-register-integration/cash-register-integration",
+      "poscreators/middleware-doc/middleware-gr/cash-register-integration/middleware-not-reachable",
       "poscreators/middleware-doc/middleware-gr/receipt-printing/receipt-printing",
       "poscreators/middleware-doc/middleware-gr/data-structures/data-structures",
       {
@@ -423,6 +436,7 @@ module.exports = [
       "poscreators/middleware-doc/middleware-it-registratore-telematico/appendix-it-registratore-telematico",
       "poscreators/middleware-doc/middleware-it-registratore-telematico/terminology/terminology",
       "poscreators/middleware-doc/middleware-it-registratore-telematico/cash-register-integration/cash-register-integration",
+      "poscreators/middleware-doc/middleware-it-registratore-telematico/cash-register-integration/middleware-not-reachable",
       {
         type: "category",
         label: "Operation Modes",
@@ -501,6 +515,7 @@ module.exports = [
       "poscreators/middleware-doc/middleware-pl/appendix-pl",
       "poscreators/middleware-doc/middleware-pl/terminology/terminology",
       "poscreators/middleware-doc/middleware-pl/cash-register-integration/cash-register-integration",
+      "poscreators/middleware-doc/middleware-pl/cash-register-integration/middleware-not-reachable",
       "poscreators/middleware-doc/middleware-pl/operation-modes/scu/posnet",
       "poscreators/middleware-doc/middleware-pl/data-structures/data-structures",
       "poscreators/middleware-doc/middleware-pl/receipt-case-definitions/receipt-case-definitions",
