@@ -1,8 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/germany/cash-register-integration
 title: Cash Register Integration
-description: Which ftSignatures to print on receipts in Germany, with or without a QR code, and how the printing-optional flag is used.
-tags: [Germany, Printing, Signature, Cash Register Integration, KassenSichV]
+description: Which ftSignatures to print on receipts in Germany, with or without a QR code, how the printing-optional flag is used, and how to late-sign and resend receipts.
+tags: [Germany, Printing, Signature, Cash Register Integration, KassenSichV, Late Signing]
 ---
 
 # Cash Register Integration
@@ -113,3 +113,23 @@ For supporting cases where the used printer does not support QR codes, the Middl
 | Overall start time of the business case | `<vorgangsbeginn>`      | `0x444500000000001F` |
 
 *Table 2. Signature items to print on receipts without a QR code, with their ftSignatureType values.*
+
+## Late signing and resending receipts
+
+The two interfaces use different bits for the same flags. When integrating via the PosSystem API (v2), set the v2 flag in `ftReceiptCase`. The queue interface values (v0/v1) apply only when calling the fiskaltrust.Middleware directly, and are documented in [Type of receipt: ftReceiptCase](../reference-tables/type-of-receipt-ftreceiptcase.md) for Germany.
+
+:::warning
+
+Both flags take effect only with a PosSystem API version that forwards them to the fiskaltrust.Middleware for Germany. Earlier versions do not pass them on: a request with the receipt requested flag is signed as a new receipt instead of returning the stored one. Until that version is available, do not rely on the receipt requested flag for protection against signing a receipt twice; the samples below are not executed against the sandbox.
+
+:::
+
+If the response to a request is lost (timeout, connection interrupted), first retry the unchanged request with the same `x-operation-id`, as described in [How the POS system should react](../../general/cash-register-integration/error-handling.md#how-the-pos-system-should-react). The PosSystem API then returns the result of the original operation, or waits until it is finished, and never executes it twice. The receipt requested flag is a separate operation: it looks up a receipt that has already been processed by its `cbReceiptReference`, for example when the POS system no longer has the `x-operation-id` of the original request.
+
+| Business case | `ftReceiptCase` PosSystem API (v2) | `ftReceiptCase` queue interface (v0/v1) | Sample |
+| --- | --- | --- | --- |
+| Response to a request not received (timeout, connection interrupted) | unchanged; retry the same request body with the same `x-operation-id` | – | see [How the POS system should react](../../general/cash-register-integration/error-handling.md#how-the-pos-system-should-react) |
+| Receipts recorded while the fiskaltrust.Middleware was unreachable and sent later | flag `0x0000_0000_0001_0000` (late signing), closed with a zero receipt | flag `0x0000_0000_0001_0000` (failed receipt) | [late-signing offline receipt](https://developer.fiskaltrust.eu/#/pos-system/DE?endpoint=sign&businesscase=SignRequest_Sale_Offline_Middleware_DE_3), [zero receipt](https://developer.fiskaltrust.eu/#/pos-system/DE?endpoint=sign&businesscase=SignRequest_Sale_Offline_Middleware_DE_Z) |
+| Looking up a receipt that has already been processed, without signing it twice (e.g. the `x-operation-id` of the original request is no longer known) | flag `0x0000_0000_8000_0000` (receipt requested), with the same `cbReceiptReference`, charge items and pay items; the Middleware returns the stored response of the already processed receipt | flag `0x0000_8000_0000_0000` (receipt request) | [sale](https://developer.fiskaltrust.eu/#/pos-system/DE?endpoint=sign&businesscase=SignRequest_Sale_Offline_Middleware_DE_1), [resent sale](https://developer.fiskaltrust.eu/#/pos-system/DE?endpoint=sign&businesscase=SignRequest_Sale_Offline_Middleware_DE_2), [resent late-signed receipt](https://developer.fiskaltrust.eu/#/pos-system/DE?endpoint=sign&businesscase=SignRequest_Sale_Offline_Middleware_DE_4) |
+
+*Table 3. Late signing, retry and receipt lookup cases a German integration has to cover.*
