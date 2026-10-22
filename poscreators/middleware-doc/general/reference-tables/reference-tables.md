@@ -233,18 +233,13 @@ For more information, see [VAT rules and rates](https://europa.eu/youreurope/bus
 <details>
 <summary>Choosing between 7 (Zero VAT rate) and 8 (Not taxable)</summary>
 
-Both values carry no VAT, so `VATRate` is `0` with either of them. They differ in whether the line falls under VAT at all:
+Both values carry no VAT, so `VATRate` is `0` with either of them.
 
-- **7 - Zero VAT rate**: the line is a supply of goods or services that falls under VAT, and the VAT rate that applies to it is 0 %.
-- **8 - Not taxable**: the line is outside the scope of VAT. Use it for:
-  - a tip to an employee (S=3),
-  - the sale of a multi-purpose voucher (S=4),
-  - a real grant (S=8),
-  - a cash transfer to or from the till (S=A, which accepts only V=8).
+- **8 - Not taxable, with a nature of VAT**: to give the legal reason why a line carries no VAT, for example an exemption, a supply not subject to VAT, an intra-community supply, an export or reverse charge, set V to `8` and give the reason in [NN - Nature of VAT](#nn---nature-of-vat). For example, `0x2000_0000_1118` is a delivery (S=1) that is not taxable (V=8) as an intra-community supply (NN=11).
+- **8 - Not taxable, required by the type of service**: some types of service require V=8, for example a tip to an employee, the sale of a multi-purpose voucher or a cash transfer. For more information, see [S - Type of Service](#s---type-of-service).
+- **7 - Zero VAT rate**: the line has a VAT rate of 0 %.
 
-The legal reason why a line carries no VAT, for example an exemption, an intra-community supply or an export, is not a VAT rate code: give it in [NN - Nature of VAT](#nn---nature-of-vat). For example, `0x2000_0000_1118` is a delivery (S=1) that is not taxable (V=8) as an intra-community supply (NN=11).
-
-Markets can report the two values differently. For more information, see the ftChargeItemCase reference table of the market.
+Markets report the two values differently. For more information, see the ftChargeItemCase reference table of the market.
 
 </details>
 
