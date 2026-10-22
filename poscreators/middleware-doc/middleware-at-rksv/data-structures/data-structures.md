@@ -98,6 +98,15 @@ The receipts listed here are described in ["Receipt for special functions"](../c
 
 ### Machine-readable code (QR code)
 
+The Middleware returns the machine-readable code ready to encode in one signature item. You do not need to assemble it yourself. The signature item has:
+
+- `ftSignatureFormat` `0x03` (QR code)
+- `ftSignatureType` `0x4154000000000001` (AT RKSV)
+- `Caption` `www.fiskaltrust.at`
+- `Data`: the complete machine-readable code according to the RKSV
+
+Encode the content of `Data` unchanged as a QR code and print it on the receipt. If the signature creation device has failed, the Middleware returns the same kind of signature item with the caption `Sicherheitseinrichtung ausgefallen`; print it in the same way, exactly as returned.
+
 The `Data` of the RKSV signature contains the machine-readable code required by the RKSV. Its fields are separated by `_`:
 
 ```
