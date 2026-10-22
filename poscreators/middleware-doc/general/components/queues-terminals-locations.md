@@ -25,7 +25,7 @@ Wherever national regulations require the cash register itself to be registered 
 
 Every device, client or POS terminal that sends requests to the fiskaltrust.Middleware is an **input device** (input station). From a regulatory point of view, an input device is not the cash register. Several input devices can send their receipts to the same fiskaltrust.Middleware.
 
-Integrators can optionally use `cbTerminalID` in the `ReceiptRequest` to differentiate between the input devices. `cbTerminalID` has no effect on the numbering of receipts or on any other mechanism of the fiskaltrust.Middleware. For more information, see [Data Structures](../data-structures/data-structures.md).
+Integrators can optionally use `cbTerminalID` in the `ReceiptRequest` to differentiate between the input devices. `cbTerminalID` has no effect on the numbering of receipts or on the receipt chain. If it is used, keep it stable per input device: some markets use it to match a resent request to the original receipt (for example [Germany](../../middleware-de-kassensichv/cash-register-integration/cash-register-integration.md#resending-receipts-without-signing-them-twice)). For more information, see [Data Structures](../data-structures/data-structures.md).
 
 This model is shared across markets: in every market, the fiskaltrust.Middleware is the central unit for fiscalization, number series and receipt chaining. It is also independent of the platform and the [operation mode](../operation-modes/operation-modes.md): the same applies to an on-premise fiskaltrust.Middleware and to a fiskaltrust.Middleware hosted in the cloud.
 
@@ -43,7 +43,7 @@ There has to be at least one fiskaltrust.Middleware per location.
 
 The number of fiskaltrust.Middleware instances per location is decided by the architectural and operational requirements, in particular:
 
-- **Number series:** If separate number series are required, for example per POS terminal, roll out one fiskaltrust.Middleware per number series.
+- **Number series:** If separate receipt number series are required, for example per POS terminal, roll out one fiskaltrust.Middleware per number series. This applies to the receipt counter of the fiskaltrust.Middleware (`ftReceiptIdentification`). Fiscal invoice numbers can follow their own rules per market: in Italy, for example, FatturaPA invoice numbers are assigned per merchant and year across all cashboxes, so additional fiskaltrust.Middleware instances do not create separate invoice series.
 - **Closings:** If separate closings are required, for example per POS terminal or per area, roll out one fiskaltrust.Middleware per closing scope.
 - **Performance:** On-premise and cloud-hosted fiskaltrust.Middleware instances can differ in the load they can handle. In high-load scenarios (many input devices sending receipts simultaneously), evaluate the expected load for the chosen operation mode.
 

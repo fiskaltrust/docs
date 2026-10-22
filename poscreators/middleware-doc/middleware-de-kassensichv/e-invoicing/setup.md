@@ -108,7 +108,9 @@ Deliver the document with `PUT /issue/{queueId}/{queueItemId}`, choosing a deliv
 
 **Step 4 — Check delivery status**
 
-Applies when you registered the receipt via `/issue` in Step 2: the status call uses the `ftQueueID` / `ftQueueItemID` returned there. Poll `GET /issue/{queueId}/{queueItemId}` for the status until it reports **delivered**. There is **no callback or webhook**.
+Applies when you registered the receipt via `/issue` in Step 2: the status call uses the `ftQueueID` / `ftQueueItemID` returned there. Check whether the document was delivered with `GET /issue/{queueId}/{queueItemId}/delivered`: it returns `200` when the document was delivered and `204` while it is still pending. To wait for the delivery instead of polling, call `GET /BlockIssueRequest/{queueId}/{queueItemId}/WhileDelivered`. There is **no callback or webhook**.
+
+`GET /issue/{queueId}/{queueItemId}` without `/delivered` is not a status call: it returns the issued document itself.
 
 See the [POS System API reference](https://docs.fiskaltrust.eu/apis/pos-system-api) for the full `/issue` request/response schemas.
 

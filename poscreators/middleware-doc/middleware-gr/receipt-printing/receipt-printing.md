@@ -68,7 +68,7 @@ The Middleware returns the following Greece-specific signature items. The `ftSig
 | `01A` QRCode | `qrUrl` | The QR URL returned by myDATA | QR code, flagged *Do not print* | Not printed; the QR code of the document is item `001`. |
 | `01B` HandwrittenSignature | *(empty)* | Link for the recovered handwritten document | Link, flagged *Do not print* | Not printed. |
 
-The recommended print order is: header with issuer, document type, series and number, date and time, customer, line items, totals, payments with EFTPOS data, then the unique document identifier, MARK, UID and authentication code, the QR code, the notices returned as text signature items, and the provider footer as the last lines. A signature item whose `ftSignatureType` carries the *Do not print* flag (`0x0020`) must not be visualised.
+The recommended print order is: header with issuer, document type, series and number, date and time, customer, line items, totals, payments with EFTPOS data, then the unique document identifier, MARK, UID and authentication code, the QR code, the notices returned as text signature items, and the provider footer as the last lines. A signature item whose `ftSignatureType` carries the *Do not print* flag must not be visualised. The flag is `0020` in the global flags segment (`gggg` in `CCCC_vlll_gggg_tsss`); test it with the full mask, `ftSignatureType & 0x0000_0000_0020_0000`.
 
 ## Refunds, cancellations and copies
 
