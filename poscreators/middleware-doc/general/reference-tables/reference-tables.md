@@ -230,18 +230,17 @@ For more information, see [VAT rules and rates](https://europa.eu/youreurope/bus
 
 *Table 13. VAT rate codes (V) of the ftChargeItemCase format.*
 
-<details>
-<summary>Choosing between 7 (Zero VAT rate) and 8 (Not taxable)</summary>
+:::tip Choosing between 7 (Zero VAT rate) and 8 (Not taxable)
 
 Both values carry no VAT, so `VATRate` is `0` with either of them.
 
-- **8 - Not taxable, with a nature of VAT**: to give the legal reason why a line carries no VAT, for example an exemption, a supply not subject to VAT, an intra-community supply, an export or reverse charge, set V to `8` and give the reason in [NN - Nature of VAT](#nn---nature-of-vat). For example, `0x2000_0000_1118` is a delivery (S=1) that is not taxable (V=8) as an intra-community supply (NN=11).
+- **8 - Not taxable, with a nature of VAT**: to give the legal reason why a line carries no VAT, for example an exemption, a supply not subject to VAT, an intra-community supply, an export or reverse charge, set V to `8` and give the reason in [NN - Nature of VAT](#nn---nature-of-vat). For example, `0xCCCC_2000_0000_1118` is a delivery (S=1) that is not taxable (V=8) as an intra-community supply (NN=11).
 - **8 - Not taxable, required by the type of service**: some types of service require V=8, for example a tip to an employee, the sale of a multi-purpose voucher or a cash transfer. For more information, see [S - Type of Service](#s---type-of-service).
-- **7 - Zero VAT rate**: the line has a VAT rate of 0 %.
+- **7 - Zero VAT rate**: there is no general rule for 7, because markets read it differently. Check the reference table of the market before you use it.
 
-Markets report the two values differently. For more information, see the ftChargeItemCase reference table of the market.
+For more information, see the ftChargeItemCase reference tables for [Belgium](../../middleware-be/reference-tables/type-of-service-ftchargeitemcase.md), [Spain](../../middleware-es/reference-tables/type-of-service-ftchargeitemcase.md) and [Poland](../../middleware-pl/reference-tables/type-of-service-ftchargeitemcase.md).
 
-</details>
+:::
 
 
 #### S - Type of Service
