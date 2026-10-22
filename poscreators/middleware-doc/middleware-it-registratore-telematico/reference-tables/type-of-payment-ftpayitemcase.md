@@ -27,14 +27,14 @@ version 2
 | `04` | **Debit card payment**<br />cash | 1.3.45 |
 | `05` | **Credit card payment**<br />cash | 1.3.45 |
 | `06` | **Voucher payment (coupon) - voucher by money value**<br />cash | 1.3.45 |
-| `07` | **Online payment**<br />noncash | 1.3.45 |
-| `08` | **Loyalty program customer card payment**<br />noncash | 1.3.45 |
+| `07` | **Online payment**<br />noncash (non riscosso) | 1.3.45 |
+| `08` | **Loyalty program customer card payment**<br />noncash (non riscosso) | 1.3.45 |
 | `09` | **Accounts receivable**<br />noncash, invoice to follow (non riscosso, segue fattura).<br />With the local flag `001`: non riscosso DCR a SSN (see Table 2). | 1.3.45 |
 | `0A` | **SEPA transfer**<br />| 1.3.45 |
 | `0B` | **Other bank transfer**<br />| 1.3.45 |
 | `0C` | **Transfer to Cashbook / Vault / Owner / Employee**<br />Positive (+) amount contributes to cashbox/vault. This higher the amount in cashbox/vault.<br />Negative (-) amount lowers the amount in cashbox/vault. | 1.3.45 |
-| `0D` | **Internal / Material consumption**<br />noncash | 1.3.45 |
-| `0E` | **Grant**<br />noncash | 1.3.45 |
+| `0D` | **Internal / Material consumption**<br />noncash (non riscosso) | 1.3.45 |
+| `0E` | **Grant**<br />noncash (non riscosso) | 1.3.45 |
 | `0F` | **Ticket Restaurant / (Sodexo, Edenred, USW)**<br />| 1.3.45 |
 
 *Table 1. Payment type (PP) values of ftPayItemCase for the Italian market.*
