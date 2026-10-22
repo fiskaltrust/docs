@@ -51,21 +51,82 @@ For more information, see [VAT rules and rates](https://europa.eu/youreurope/bus
 
 *Table 2. Type of Service (S) values of ftChargeItemCase for Portugal.*
 
-#### NN - nature of VAT  
+#### NN - nature of VAT
 
-| **Value** | **Description** | **Spec. for Portuguese reg.** | **Middleware Version** |
-| --------- | --------------- |  ---------------------------- | ---------------------- |
-| `00` | **Usual VAT applies** | | 1.3.45  |
-| `10` | **Not Taxable**<br />1x can be used to specify more country specific details. For example, IGL|*NI (N3) marker mandatory<br />[10] not taxable - exports<br />[11] non-taxable - intra-community supplies<br />[12] non-taxable - transfers to San Marino<br />[13] non-taxable - transactions assimilated to export supplies<br />[14] non-taxable - following declarations of intent<br />[15] non-taxable - other operations which do not contribute to the formation of the ceiling | 1.3.45 |
-| `20` | **Not Subject**<br />2x can be used to specify more country specific details.| *NS (N2) marker mandatory<br />[20] not subject to VAT pursuant to articles from 7 to 7-septies of Presidential Decree 633/72<br />[21] not subject, other cases| 1.3.45   |
-| `30` | **Exempt**<br /> 3x| *ES (N4) marker mandatory<br />[30] exempt | 1.3.45  |
-| `40` | **Margin scheme**<br /> Do not print/show VAT rate and amount on receipt/invoice.<br />4x can be used to specify more country specific details. | *RM (N5) marker mandatory<br />[40] margin scheme / VAT not shown on the invoice | 1.3.45 |
-| `50` | **Reverse charge**<br /> 5x | *AL (N6) marker mandatory<br />[50] reverse charge - disposal of scrap and other salvage materials<br />[51] reverse charge - sale of gold and silver pursuant to law 7/2000 as well as used jewellery to OPO<br />[52] reverse charge - subcontracting in the construction sector<br />[53] reverse charge - sale of buildings<br />[54] reverse charge - supply of mobile phones<br />[55] reverse charge - supply of electronic products<br />[56] reverse charge - performance in the construction sector and related sectors<br />[57] reverse charge - energy sector transactions<br />[58] reverse charge - other cases | 1.3.45 |
-| `60` | **VAT paid in other EU country** <br />6x| (N7) marker mandatory<br />[60] paid in another EU country (provision of telecommunications, broadcasting and electronic services pursuant to art. 7-octies, paragraph 1 letter a, b, art. 74-sexies of Presidential Decree 633/72) | 1.3.45 |
-| `70` | **VAT distribution**<br />7x | *VI (VI) is a fiscal VAT (IVA) regime that certain retailers can adopt. It allows the global registration of the daily takings amount without distinguishing the individual VAT rates. It only ever applies to goods. | 1.3.45 |
-| `80` | **Excluded**<br /> 8x| *EE (N1) marker mandatory<br />[80] excluded pursuant to art. 15 of Presidential Decree 633/72 | 1.3.45 |
+In Portugal, `NN` carries the tax exemption code (*motivo de isenção*) of a charge item with 0 % VAT. Use `00` for charge items with VAT. For a charge item with 0 % VAT, set `NN` to the two digits of the exemption code from Table 3, for example `06` for M06. The Middleware writes the code to `TaxExemptionCode` and the mention to `TaxExemptionReason` of the SAF-T (PT) line. A 0 % charge item with `NN` `00` or with a value that is not listed in Table 3 is rejected.
 
-*Table 3. Nature of VAT (NN) values of ftChargeItemCase for Portugal.*
+When `NN` is set, the charge item is exempt and the VAT rate (`V`) of `ftChargeItemCase` is ignored: the line is always reported with the tax code `ISE` (*Isento*), whether `V` is `8` (Not Taxable), `7` (Zero VAT rate) or another value. `VATRate` must be `0`. A charge item with a VAT rate other than 0 % and an `NN` other than `00` is rejected.
+
+For example, a not taxable (`V` = `8`) delivery (`S` = `1`) with the exemption code M06 has the `ftChargeItemCase` `0x5054_2000_0000_0618`.
+
+:::warning Portugal uses its own NN values
+The values in Table 3 replace the nature-of-VAT groups of the [general reference table](../../general/reference-tables/reference-tables.md#nn---nature-of-vat). For example, `30` is M30 (reverse charge) in Portugal, not "Exempt", and `10` is M10, not "Not Taxable".
+:::
+
+| **NN** | **Exemption code** | **Mention (`TaxExemptionReason`)** | **Legal basis** |
+| ------ | ------------------ | ---------------------------------- | --------------- |
+| `01` | M01 | Artigo 16.º, n.º 6 do CIVA | Artigo 16.º, n.º 6, alíneas a) a d) do CIVA |
+| `02` | M02 | Artigo 6.º do Decreto-Lei n.º 198/90, de 19 de junho | Artigo 6.º do Decreto-Lei n.º 198/90, de 19 de junho |
+| `04` | M04 | Isento artigo 13.º do CIVA | Artigo 13.º do CIVA |
+| `05` | M05 | Isento artigo 14.º do CIVA | Artigo 14.º do CIVA |
+| `06` | M06 | Isento artigo 15.º do CIVA | Artigo 15.º do CIVA |
+| `07` | M07 | Isento artigo 9.º do CIVA | Artigo 9.º do CIVA |
+| `09` | M09 | IVA - não confere direito a dedução | Artigo 62.º alínea b) do CIVA |
+| `10` | M10 | IVA – regime de isenção | Artigo 57.º do CIVA |
+| `11` | M11 | Regime particular do tabaco | Decreto-Lei n.º 346/85, de 23 de agosto |
+| `12` | M12 | Regime da margem de lucro – Agências de viagens | Decreto-Lei n.º 221/85, de 3 de julho |
+| `13` | M13 | Regime da margem de lucro – Bens em segunda mão | Decreto-Lei n.º 199/96, de 18 de outubro |
+| `14` | M14 | Regime da margem de lucro – Objetos de arte | Decreto-Lei n.º 199/96, de 18 de outubro |
+| `15` | M15 | Regime da margem de lucro – Objetos de coleção e antiguidades | Decreto-Lei n.º 199/96, de 18 de outubro |
+| `16` | M16 | Isento artigo 14.º do RITI | Artigo 14.º do RITI |
+| `19` | M19 | Outras isenções | Isenções temporárias determinadas em diploma próprio |
+| `20` | M20 | IVA - regime forfetário | Artigo 59.º-D n.º 2 do CIVA |
+| `21` | M21 | IVA – não confere direito à dedução (ou expressão similar) | Artigo 72.º n.º 4 do CIVA |
+| `25` | M25 | Mercadorias à consignação | Artigo 38.º n.º 1 alínea a) do CIVA |
+| `26` | M26 | Isenção de IVA com direito à dedução no cabaz alimentar | Lei n.º 17/2023, de 14 de abril |
+| `30` | M30 | IVA - autoliquidação | Artigo 2.º n.º 1 alínea i) do CIVA |
+| `31` | M31 | IVA - autoliquidação | Artigo 2.º n.º 1 alínea j) do CIVA |
+| `32` | M32 | IVA - autoliquidação | Artigo 2.º n.º 1 alínea l) do CIVA |
+| `33` | M33 | IVA - autoliquidação | Artigo 2.º n.º 1 alínea m) do CIVA |
+| `34` | M34 | IVA - autoliquidação | Artigo 2.º n.º 1 alínea n) do CIVA |
+| `40` | M40 | IVA - autoliquidação | Artigo 6.º n.º 6 alínea a) do CIVA, a contrário |
+| `41` | M41 | IVA - autoliquidação | Artigo 8.º n.º 3 do RITI |
+| `42` | M42 | IVA - autoliquidação | Decreto-Lei n.º 21/2007, de 29 de janeiro |
+| `43` | M43 | IVA - autoliquidação | Decreto-Lei n.º 362/99, de 16 de setembro |
+| `99` | M99 | Não sujeito ou não tributado | Outras situações de não liquidação do imposto |
+
+*Table 3. Nature of VAT (NN) values of ftChargeItemCase for Portugal: tax exemption codes.*
+
+#### Tax exemption code in ftChargeItemCaseData
+
+Instead of encoding the exemption code in `NN`, the exemption code can be sent explicitly in `ftChargeItemCaseData.PT.TaxExemptionCode`. This keeps `NN` free for its general meaning while the exact Portuguese code is still transmitted.
+
+```json
+{
+  "Position": 2,
+  "Quantity": 1,
+  "Amount": 50,
+  "Description": "Transporte internacional",
+  "VATRate": 0,
+  "ftChargeItemCase": 5788286605450031128,
+  "ftChargeItemCaseData": {
+    "PT": {
+      "TaxExemptionCode": "M06"
+    }
+  }
+}
+```
+
+The `ftChargeItemCase` in this example is `0x5054_2000_0000_3018`: not taxable, delivery, `NN` `30`.
+
+The following rules apply:
+
+- `TaxExemptionCode` takes precedence over `NN`. Without `TaxExemptionCode`, the code is read from `NN` as described above.
+- `TaxExemptionCode` must be one of the exemption codes in Table 3, for example `M06`. Upper and lower case and surrounding spaces are ignored. An unknown code is rejected; the Middleware does not fall back to `NN`.
+- `TaxExemptionCode` is only allowed on charge items with 0 % VAT. As with `NN`, the VAT rate (`V`) of `ftChargeItemCase` is then ignored and the line is reported with the tax code `ISE`.
+- `NN` must still be set to a value other than `00`.
+- The mention (`TaxExemptionReason`) is always taken from Table 3 and cannot be sent in the request.
+- A refund must repeat the `ftChargeItemCaseData` of the original charge item.
 
 
 #### lll - local tagging/flag
