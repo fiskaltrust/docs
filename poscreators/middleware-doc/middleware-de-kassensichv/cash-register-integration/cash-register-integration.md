@@ -55,13 +55,22 @@ Hence, when printing QR codes, all returned signatures should be printed that **
 
 #### Content of the QR code
 
-The QR code content is returned in the `Data` of the signature with the `ftSignatureType` `0x4445000000000001` and the caption `www.fiskaltrust.de`. Its fields are separated by `;`, in this order:
+The Middleware returns the QR code ready to encode in one signature item. You do not need to assemble it from the individual signature items. The signature item has:
+
+- `ftSignatureFormat` `0x03` (QR code)
+- `ftSignatureType` `0x4445000000000001` (QR code according to KassenSichV)
+- `Caption` `www.fiskaltrust.de`
+- `Data`: the complete QR code content
+
+Encode the content of `Data` unchanged as a QR code. The encoding is the same as the encoding of `processData` (UTF-8). The DSFinV-K recommends a size of at least 3 cm and a print quality of at least 300 dpi.
+
+The structure of the QR code is defined in the DSFinV-K, Anhang I, chapter 2, "Definition des QR-Codes für maschinell prüfbare Kassenbelege". Its fields are separated by `;`, in this order:
 
 ```
 <qr-code-version>;<kassen-seriennummer>;<processType>;<processData>;<transaktions-nummer>;<signatur-zaehler>;<start-zeit>;<log-time>;<sig-alg>;<log-time-format>;<signatur>;<public-key>
 ```
 
-Each field is also returned as a separate signature, with the field name as the caption:
+The individual values of the QR code are also returned as separate text signature items, with the field name as the caption and the flag `0x0000000000010000` (printing is optional). If you print the QR code, you do not need to print them; they are only needed if you print the data as text instead of the QR code.
 
 | **Field**               | **Content**                                      | **Example**                                | **ftSignatureType**  |
 | ----------------------- | ------------------------------------------------ | ------------------------------------------ | -------------------- |
