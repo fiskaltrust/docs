@@ -182,75 +182,75 @@ The response's signature block includes all information needed to be printed on 
             "Data": "HSmIZw0g6tpJ/UeNYutHic5PXORANAH5V9+Fon9SfCvx3A/gO7Dguaxd8Mn/YKadgfLTV7s1VzWPe/QolS6dAg=="
         },
         {
-            "ftSignatureFormat": 65537,
+            "ftSignatureFormat": 1,
             "ftSignatureType": 4919338167972134931,
             "Caption": "<qr-code-version>",
             "Data": "V0"
         },
         {
-            "ftSignatureFormat": 65537,
+            "ftSignatureFormat": 1,
             "ftSignatureType": 4919338167972134932,
             "Caption": "<kassen-seriennummer>",
             "Data": "220130d5-9060-4e26-b75c-35968f49aae3"
         },
         {
-            "ftSignatureFormat": 65537,
+            "ftSignatureFormat": 1,
             "ftSignatureType": 4919338167972134933,
             "Caption": "<processType>",
             "Data": "Kassenbeleg-V1"
         },
         {
-            "ftSignatureFormat": 65537,
+            "ftSignatureFormat": 1,
             "ftSignatureType": 4919338167972134934,
             "Caption": "<processData>",
             "Data": "Beleg^7.50_0.00_0.00_0.00_0.00^7.50:Bar"
         },
         {
-            "ftSignatureFormat": 65537,
+            "ftSignatureFormat": 1,
             "ftSignatureType": 4919338167972134935,
             "Caption": "<transaktions-nummer>",
             "Data": "11"
         },
         {
-            "ftSignatureFormat": 65537,
+            "ftSignatureFormat": 1,
             "ftSignatureType": 4919338167972134936,
             "Caption": "<signatur-zaehler>",
             "Data": "21"
         },
         {
-            "ftSignatureFormat": 65537,
+            "ftSignatureFormat": 1,
             // 0x4445 0000 0000 0019
             "ftSignatureType": 4919338167972134937,
             "Caption": "<start-zeit>",
             "Data": "2020-05-22T11:33:01.000Z"
         },
         {
-            "ftSignatureFormat": 65537,
+            "ftSignatureFormat": 1,
             // 0x4445 0000 0000 001A
             "ftSignatureType": 4919338167972134938,
             "Caption": "<log-time>",
             "Data": "2020-05-22T11:33:02.000Z"
         },
         {
-            "ftSignatureFormat": 65537,
+            "ftSignatureFormat": 1,
             "ftSignatureType": 4919338167972134939,
             "Caption": "<sig-alg>",
             "Data": "ecdsa-plain-SHA256"
         },
         {
-            "ftSignatureFormat": 65537,
+            "ftSignatureFormat": 1,
             "ftSignatureType": 4919338167972134940,
             "Caption": "<log-time-format>",
             "Data": "utcTime"
         },
         {
-            "ftSignatureFormat": 65537,
+            "ftSignatureFormat": 1,
             "ftSignatureType": 4919338167972134941,
             "Caption": "<signatur>",
             "Data": "HSmIZw0g6tpJ/UeNYutHic5PXORANAH5V9+Fon9SfCvx3A/gO7Dguaxd8Mn/YKadgfLTV7s1VzWPe/QolS6dAg=="
         },
         {
-            "ftSignatureFormat": 65537,
+            "ftSignatureFormat": 1,
             "ftSignatureType": 4919338167972134942,
             "Caption": "<public-key>",
             "Data": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAENFFPGk1vDk92IL6tjsVQ6kpwc4TCsYNNGGoc0cN4dUPQZwOo2tuQlrQAVvMfO+XHWsnphAtN5cUbIwdtMk/Z6g=="
@@ -567,43 +567,43 @@ nothing to print here.
             "Data": "+dZ0zPEUJbjd7/vp5hA8GtbcGJvPxT/SyNiBWLxs3EzgjqL4HPFrmET/jalGD/ZiyIdZq9mx+YphP5tjCiT1pw=="
         },
         {
-            "ftSignatureFormat": 65537,
+            "ftSignatureFormat": 1,
             "ftSignatureType": 4919338167972134931,
             "Caption": "<qr-code-version>",
             "Data": "V0"
         },
         {
-            "ftSignatureFormat": 65537,
+            "ftSignatureFormat": 1,
             "ftSignatureType": 4919338167972134932,
             "Caption": "<kassen-seriennummer>",
             "Data": "220130d5-9060-4e26-b75c-35968f49aae3"
         },
         {
-            "ftSignatureFormat": 65537,
+            "ftSignatureFormat": 1,
             "ftSignatureType": 4919338167972134933,
             "Caption": "<processType>",
             "Data": "Kassenbeleg-V1"
         },
         {
-            "ftSignatureFormat": 65537,
+            "ftSignatureFormat": 1,
             "ftSignatureType": 4919338167972134934,
             "Caption": "<processData>",
             "Data": "Beleg^7.50_0.00_0.00_0.00_0.00^7.50:Bar"
         },
         {
-            "ftSignatureFormat": 65537,
+            "ftSignatureFormat": 1,
             "ftSignatureType": 4919338167972134935,
             "Caption": "<transaktions-nummer>",
             "Data": "94"
         },
         {
-            "ftSignatureFormat": 65537,
+            "ftSignatureFormat": 1,
             "ftSignatureType": 4919338167972134936,
             "Caption": "<signatur-zaehler>",
             "Data": "168"
         },
         {
-            "ftSignatureFormat": 65537,
+            "ftSignatureFormat": 1,
             // 0x4445 0000 0000 0019
             "ftSignatureType": 4919338167972134937,
             "Caption": "<start-zeit>",
@@ -611,31 +611,31 @@ nothing to print here.
         },
         {
             // 0x4445 0000 0000 001A
-            "ftSignatureFormat": 65537,
+            "ftSignatureFormat": 1,
             "ftSignatureType": 4919338167972134938,
             "Caption": "<log-time>",
             "Data": "2020-05-29T14:08:24.000Z"
         },
         {
-            "ftSignatureFormat": 65537,
+            "ftSignatureFormat": 1,
             "ftSignatureType": 4919338167972134939,
             "Caption": "<sig-alg>",
             "Data": "ecdsa-plain-SHA256"
         },
         {
-            "ftSignatureFormat": 65537,
+            "ftSignatureFormat": 1,
             "ftSignatureType": 4919338167972134940,
             "Caption": "<log-time-format>",
             "Data": "utcTime"
         },
         {
-            "ftSignatureFormat": 65537,
+            "ftSignatureFormat": 1,
             "ftSignatureType": 4919338167972134941,
             "Caption": "<signatur>",
             "Data": "+dZ0zPEUJbjd7/vp5hA8GtbcGJvPxT/SyNiBWLxs3EzgjqL4HPFrmET/jalGD/ZiyIdZq9mx+YphP5tjCiT1pw=="
         },
         {
-            "ftSignatureFormat": 65537,
+            "ftSignatureFormat": 1,
             "ftSignatureType": 4919338167972134942,
             "Caption": "<public-key>",
             "Data": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAENFFPGk1vDk92IL6tjsVQ6kpwc4TCsYNNGGoc0cN4dUPQZwOo2tuQlrQAVvMfO+XHWsnphAtN5cUbIwdtMk/Z6g=="
@@ -935,75 +935,75 @@ nothing to print here.
             "Data": "FGq8kd0kuQjHmyK8/Ca73h1mqOSRsctDfM/h7zddskjM7iKLuVs+Mwff8WCUz45kA/F2lF9kI90zny8Tnuhf/w=="
         },
         {
-            "ftSignatureFormat": 65537,
+            "ftSignatureFormat": 1,
             "ftSignatureType": 4919338167972134931,
             "Caption": "<qr-code-version>",
             "Data": "V0"
         },
         {
-            "ftSignatureFormat": 65537,
+            "ftSignatureFormat": 1,
             "ftSignatureType": 4919338167972134932,
             "Caption": "<kassen-seriennummer>",
             "Data": "220130d5-9060-4e26-b75c-35968f49aae3"
         },
         {
-            "ftSignatureFormat": 65537,
+            "ftSignatureFormat": 1,
             "ftSignatureType": 4919338167972134933,
             "Caption": "<processType>",
             "Data": "Kassenbeleg-V1"
         },
         {
-            "ftSignatureFormat": 65537,
+            "ftSignatureFormat": 1,
             "ftSignatureType": 4919338167972134934,
             "Caption": "<processData>",
             "Data": "Beleg^7.50_0.00_0.00_0.00_0.00^7.50:Bar"
         },
         {
-            "ftSignatureFormat": 65537,
+            "ftSignatureFormat": 1,
             "ftSignatureType": 4919338167972134935,
             "Caption": "<transaktions-nummer>",
             "Data": "10"
         },
         {
-            "ftSignatureFormat": 65537,
+            "ftSignatureFormat": 1,
             "ftSignatureType": 4919338167972134936,
             "Caption": "<signatur-zaehler>",
             "Data": "19"
         },
         {
-            "ftSignatureFormat": 65537,
+            "ftSignatureFormat": 1,
             // 0x4445 0000 0000 0019
             "ftSignatureType": 4919338167972134937,
             "Caption": "<start-zeit>",
             "Data": "2020-05-22T10:47:42.000Z"
         },
         {
-            "ftSignatureFormat": 65537,
+            "ftSignatureFormat": 1,
             // 0x4445 0000 0000 001A
             "ftSignatureType": 4919338167972134938,
             "Caption": "<log-time>",
             "Data": "2020-05-22T10:48:17.000Z"
         },
         {
-            "ftSignatureFormat": 65537,
+            "ftSignatureFormat": 1,
             "ftSignatureType": 4919338167972134939,
             "Caption": "<sig-alg>",
             "Data": "ecdsa-plain-SHA256"
         },
         {
-            "ftSignatureFormat": 65537,
+            "ftSignatureFormat": 1,
             "ftSignatureType": 4919338167972134940,
             "Caption": "<log-time-format>",
             "Data": "utcTime"
         },
         {
-            "ftSignatureFormat": 65537,
+            "ftSignatureFormat": 1,
             "ftSignatureType": 4919338167972134941,
             "Caption": "<signatur>",
             "Data": "FGq8kd0kuQjHmyK8/Ca73h1mqOSRsctDfM/h7zddskjM7iKLuVs+Mwff8WCUz45kA/F2lF9kI90zny8Tnuhf/w=="
         },
         {
-            "ftSignatureFormat": 65537,
+            "ftSignatureFormat": 1,
             "ftSignatureType": 4919338167972134942,
             "Caption": "<public-key>",
             "Data": "MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAENFFPGk1vDk92IL6tjsVQ6kpwc4TCsYNNGGoc0cN4dUPQZwOo2tuQlrQAVvMfO+XHWsnphAtN5cUbIwdtMk/Z6g=="
