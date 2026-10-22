@@ -36,13 +36,19 @@ Instead, Portuguese law (*Despacho n.º 8632/2014*, section 2.4) defines how doc
 ## During an outage: what the POS system does
 
 1. **Retry the request.** If the POS system does not receive a response, it retries the request with the same `x-operation-id` and the same body (see [Process-Driven and Idempotent Design](../../possystem-api/introduction.md#process-driven-and-idempotent-design)). If the Middleware has already processed the receipt, it returns the original response, and the document can be printed as usual.
-2. **Do not issue a document without a response.** If the Middleware remains unreachable, the POS system must not print or hand out a fiscal document of its own. A request that did not receive a response must not be sent again later with its original `cbReceiptMoment`; it is rejected (see [Why late signing is not possible in Portugal](#why-late-signing-is-not-possible-in-portugal)).
+2. **Do not issue a document without a response.** If the Middleware remains unreachable, the POS system must not print or hand out a fiscal document of its own. A request that did not receive a response must not be submitted later as a new operation with its original `cbReceiptMoment`; it is rejected (see [Why late signing is not possible in Portugal](#why-late-signing-is-not-possible-in-portugal)). The retry of step 1 with the same `x-operation-id` and the same body is different only if the Middleware already processed the original request: it then returns the stored result. If the original request never reached the Middleware, the retry is its first execution and is validated like a new request, so after more than 1 minute it is rejected because of its `cbReceiptMoment`.
 3. **Switch to pre-printed forms.** The merchant issues the documents manually on the pre-printed forms of the respective document type.
 4. **Keep the paper documents.** The data of every paper document is needed for the recovery: series and number of the form, date and time of issue, customer, line items, VAT rates and payments.
 
 ## After the outage: recover the paper documents
 
-As soon as the Middleware is reachable again, each paper document is sent to the Middleware as a separate `ReceiptRequest`:
+As soon as the Middleware is reachable again, first resolve every request that did not receive a response: retry it with the same `x-operation-id` and the same body, and evaluate the `ftState` of the result:
+
+- **Fiscalized** (no error `ftState`): the document was issued before the response was lost. Do not send the same sale again as a recovered paper document.
+- **Validation error** (`ftState` `0x5054_2000_EEEE_EEEE`, for example because the `cbReceiptMoment` is too old): the receipt was not signed and no receipt number was consumed (see [Error Handling](error-handling.md#validation-errors)). Recover the paper document as described below.
+- **No response:** the outcome is still unknown. Do not recover the sale until a retry returns a result.
+
+Then each paper document is sent to the Middleware as a separate `ReceiptRequest`:
 
 | Field | Value |
 |-------|-------|
