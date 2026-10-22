@@ -64,7 +64,6 @@ module.exports = [
             label: "Signing devices and services",
             items: [
               "posdealers/buy-resell/products/signing/signing-overview",
-              "posdealers/buy-resell/products/signing/rksv-sign",
             ],
           },
           "posdealers/buy-resell/products/notifications",
