@@ -25,9 +25,9 @@ The section contains these pages:
 | [Registration](registration.md) | Create an account in the fiskaltrust.Portal, log in, invite employees and assign them rights. |
 | [Company Roles](company-roles.md) | Activate or deactivate the appropriate roles for customers and explain their effects. |
 | [PosDealer Onboarding](onboarding.md) | The onboarding steps from your initial account setup to a successful PosOperator rollout. |
-| [Invitation process](operator-onboarding/invitation-process.md) | Invite a single PosOperator or several PosOperators in a bulk invitation. |
+| [Invitation](operator-onboarding/invitation-process.md) | Invite a single PosOperator or several PosOperators in a bulk invitation. |
 | [Surrogating](operator-onboarding/surrogating.md) | The prerequisites for acting in the fiskaltrust.Portal on behalf of a PosOperator, and how to do it. |
-| [Master Data](operator-onboarding/master-data.md) | Keep your own and your PosOperators' master data up to date, and why this is important. |
+| [Master data](operator-onboarding/master-data.md) | Keep your own and your PosOperators' master data up to date, and why this is important. |
 | [My First Cashbox](my-first-cashbox.md) | Create a CashBox in the Sandbox and run a working fiskaltrust.Middleware instance. |
 
 *Table 1. Pages of the Getting Started section.*

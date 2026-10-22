@@ -14,7 +14,7 @@ After reading this, you can explain the tasks performed in the fiskaltrust.Porta
 
 The fiskaltrust.Portal is the central **management dashboard** for your fiskaltrust account and services. It covers your account and company data, PosOperator associations, configuration and rollout of your Middleware instances, and orders for products and services.
 
-![fiskaltrust.Portal Overview page: the sidebar menu (including Overview, Company info, PosOperator, PosDealer, Rollout management, Tools, PosSystems, Configuration and Shop), the Master data of User and Master data of company panels, and the user menu at the top right](./images/management-dashboard.png)
+![fiskaltrust.Portal Overview page of a PosDealer account: the sidebar menu with Overview, Workflows, Requests and Updates, Company info, PosOperator, PosDealer, Rollout management, Tools, PosSystems, Configuration, Shop and Help, the Master data of User and Master data of company panels, and the user menu](./images/management-dashboard.png)
 
 *Figure 1. The `Overview` page of the fiskaltrust.Portal with the sidebar menu, the user and company master data, and the user menu at the top right.*
 
@@ -66,7 +66,7 @@ Open the user menu under your name at the top right to manage your personal sett
 
 In the `PosDealer` menu, you **invite** your customers to fiskaltrust (`Invitation`) and manage their accounts (`PosOperators`). Once a PosOperator accepts your invitation and signs a **contract** for the PosOperator role, their **account is associated** with yours, which enables [surrogating](#surrogating).
 
-For more information, see [Invitation process](../getting-started/operator-onboarding/invitation-process.md).
+For more information, see [Invitation](../getting-started/operator-onboarding/invitation-process.md).
 
 ## Surrogating
 

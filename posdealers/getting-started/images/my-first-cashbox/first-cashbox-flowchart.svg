@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="1080" viewBox="0 0 1120 1080" font-family="IBM Plex Sans, Helvetica Neue, Arial, sans-serif">
+  <title>Workflow for creating your first CashBox in the fiskaltrust.Portal</title>
+  <desc>Flowchart: the PosDealer checks the prerequisites and decides whether to use a rollout plan. With a rollout plan, the PosDealer runs a Business Rollout for one or more PosOperators and then a Technical Rollout. Without a rollout plan, the SCU, an optional Helper, the Queue and the CashBox are created manually in the PosOperator account. Both ways continue with rebuilding the CashBox, downloading the Launcher, and starting the Middleware and testing.</desc>
+  <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#002A34"/></marker></defs>
+  <rect x="0" y="0" width="1120" height="1080" fill="#FFFFFF"/>
+  <rect x="20" y="20" width="1080" height="1040" fill="#FFFFFF" stroke="#002A34" stroke-width="1.5"/>
+  <line x1="20" y1="56" x2="1100" y2="56" stroke="#002A34" stroke-width="1.5"/>
+  <text text-anchor="start" font-size="18" font-weight="600" fill="#002A34"><tspan x="36" y="44.3">Workflow - creating your first CashBox</tspan></text>
+  <rect x="20" y="56" width="540" height="34" fill="#E5E6E7" stroke="#002A34" stroke-width="1.5"/>
+  <text text-anchor="middle" font-size="16" font-weight="600" fill="#002A34"><tspan x="290.0" y="78.6">PosDealer account · fiskaltrust.Portal</tspan></text>
+  <rect x="560" y="56" width="540" height="34" fill="#E5F6FB" stroke="#002A34" stroke-width="1.5"/>
+  <text text-anchor="middle" font-size="16" font-weight="600" fill="#002A34"><tspan x="830.0" y="78.6">PosOperator account (surrogating)</tspan></text>
+  <line x1="560" y1="90" x2="560" y2="1060" stroke="#002A34" stroke-width="1.5"/>
+  <rect x="160.0" y="118.0" width="260" height="64" rx="10" fill="#FFFFFF" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="290" y="155.6">Check the prerequisites</tspan></text>
+  <polygon points="290,218 430,280 290,342 150,280" fill="#FDF0D6" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="15" fill="#002A34"><tspan x="290" y="275.5">Use a</tspan><tspan x="290" y="295.0">rollout plan?</tspan></text>
+  <rect x="160.0" y="398.0" width="260" height="64" rx="10" fill="#FFFFFF" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="290" y="425.2">Business Rollout for one</tspan><tspan x="290" y="446.0">or more PosOperators</tspan></text>
+  <rect x="160.0" y="508.0" width="260" height="64" rx="10" fill="#FFFFFF" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="290" y="545.6">Technical Rollout</tspan></text>
+  <polygon points="726.0,248.0 986.0,248.0 954.0,312.0 694.0,312.0" fill="#E5F6FB" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="840" y="285.6">Create the SCU</tspan></text>
+  <polygon points="726.0,368.0 986.0,368.0 954.0,432.0 694.0,432.0" fill="#E5F6FB" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="840" y="405.6">Add a Helper (optional)</tspan></text>
+  <polygon points="726.0,488.0 986.0,488.0 954.0,552.0 694.0,552.0" fill="#E5F6FB" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="840" y="525.6">Create the Queue</tspan></text>
+  <polygon points="726.0,608.0 986.0,608.0 954.0,672.0 694.0,672.0" fill="#E5F6FB" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="840" y="645.6">Create the CashBox</tspan></text>
+  <polygon points="726.0,728.0 986.0,728.0 954.0,792.0 694.0,792.0" fill="#E5F6FB" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="840" y="765.6">Rebuild the CashBox</tspan></text>
+  <polygon points="726.0,848.0 986.0,848.0 954.0,912.0 694.0,912.0" fill="#E5F6FB" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="840" y="885.6">Download the Launcher</tspan></text>
+  <rect x="720.0" y="963.0" width="240" height="64" rx="32.0" fill="#FFFFFF" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="840" y="990.2">Start the Middleware</tspan><tspan x="840" y="1011.0">and test</tspan></text>
+  <path d="M290,182 V216" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+  <path d="M290,342 V396" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+  <text text-anchor="start" font-size="13" font-family="IBM Plex Mono, monospace" letter-spacing="1.8" fill="#676A69"><tspan x="300" y="373.6">YES</tspan></text>
+  <path d="M290,462 V506" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+  <path d="M290,572 V760 H708" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+  <path d="M430,280 H708" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+  <text text-anchor="middle" font-size="13" font-family="IBM Plex Mono, monospace" letter-spacing="1.8" fill="#676A69"><tspan x="500" y="272.6">NO</tspan></text>
+  <path d="M840,312 V366" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+  <path d="M840,432 V486" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+  <path d="M840,552 V606" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+  <path d="M840,672 V726" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+  <path d="M840,792 V846" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+  <path d="M840,912 V967" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+</svg>

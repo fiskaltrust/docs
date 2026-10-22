@@ -46,7 +46,7 @@ The API is available at `https://helipad.fiskaltrust.cloud/api/configuration` an
 
 :::tip sandbox
 
-As mentioned in the chapter [Sandbox](../../getting-started/sandbox.md#how-to-reach-the-sandbox), there's also a `-sandbox` suffixed version available at `https://helipad-sandbox.fiskaltrust.cloud/api/configuration`.
+As mentioned in the chapter [Sandbox](../../getting-started/sandbox.md#reach-the-sandbox), there's also a `-sandbox` suffixed version available at `https://helipad-sandbox.fiskaltrust.cloud/api/configuration`.
 
 :::
 

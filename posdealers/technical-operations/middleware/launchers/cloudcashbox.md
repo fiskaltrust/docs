@@ -16,6 +16,10 @@ After reading this, you can explain what the _CloudCashbox_ solution is, how it 
 ## Introduction
 The CloudCashbox is a fully hosted SaaS version of fiskaltrust's Middleware, offering a centralized and reliable fiscalization solution. Hosted on Microsoft Azure in the market country, it simplifies the complexity of fiscal compliance by eliminating the need for local software configuration and installation. Users can easily connect to the Middleware using an access token and URL, without the need to manage SCUs.
 
+:::info Availability
+The CloudCashbox is available in selected markets, for example Austria, Germany and Italy. The `Shop` shows the CloudCashbox products available for your market. Migrating existing CashBoxes to the CloudCashbox is available for Germany only.
+:::
+
 
 
 ### Key features include:

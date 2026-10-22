@@ -43,7 +43,7 @@ The Middleware is available for all supported countries. It provides a **single,
 
 :::info Middleware versions
 
-Austria and France continue to use Middleware version 1.2. A unified version for all markets is in development.
+Austria and France continue to use Middleware version 1.2. A unified version for all markets is in development. The hosted Middleware ([CloudCashbox](../technical-operations/middleware/launchers/cloudcashbox.md)) is also available in Austria.
 
 :::
 
