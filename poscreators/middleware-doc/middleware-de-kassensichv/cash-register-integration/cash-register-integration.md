@@ -44,14 +44,14 @@ If the POS system did not receive a response, it cannot know whether the fiskalt
 If the fiskaltrust.Middleware has already processed a matching receipt, it returns the stored response of that receipt, and the receipt is not processed a second time. If no matching receipt is found, the fiskaltrust.Middleware returns no response; in this case, send the receipt as a new request, flagged as a failed receipt. For more information, see [Middleware not reachable or failing](../../general/cash-register-integration/cash-register-integration-failure-scenarios.md#middleware-not-reachable-or-failing) and [ftReceiptCaseFlag](../reference-tables/type-of-receipt-ftreceiptcase.md#ftreceiptcaseflag).
 
 ## Printing receipts
-Like in all other supported countries, the German Middleware returns all compliance-relevant data that need to be printed onto the receipt. In Germany, it's either possible to print a QR code **or** to print the data otherwise contained in this QR code as text. 
+Like in all other supported countries, the German Middleware returns all compliance-relevant data that need to be printed onto the receipt. In Germany, it's either possible to print a QR code **or** to print the data otherwise contained in this QR code as text. Printing both is also allowed. This option exists since June 2021; previously, the textual information was mandatory. For more information, see the [enactment by the German government](https://dserver.bundestag.de/btd/19/290/1929085.pdf).
 
 We generally recommend using QR codes wherever possible to reduce the amount of required paper. 
 
-### Printing receipts with QR codes
+### Printing receipts with a QR code
 As the Middleware returns additional data in the `ftSignatures` field that is, for example, used by fiskaltrust to create the DSFinV-K, we introduced a flag for the `ftSignatureFormat` field that indicates if a signature needs to be printed or is optional. For more information, see [Format of Signature: ftSignatureFormat](../reference-tables/type-of-signature-ftsignatureformat.md).
 
-Hence, when printing QR codes, all returned signatures should be printed that **do not** have the `ftSignatureFormatFlag` `0x0000000000010000` ("printing is optional").
+Hence, when printing a QR code, all returned signatures should be printed that **do not** have the `ftSignatureFormatFlag` `0x0000000000010000` ("printing is optional").
 
 #### Content of the QR code
 
@@ -93,7 +93,7 @@ The fields of the QR code:
 
 The certification ID of the TSE (`0x4445000000000022`), the serial number of the TSE (`0x4445000000000023`) and the overall start time of the business case (`0x444500000000001F`) are not part of the QR code. For a complete example response, see [Single Receipt Creation](single-receipt-creation.md).
 
-### Printing receipts without QR codes
+### Printing receipts without a QR code
 For supporting cases where the used printer does not support QR codes, the Middleware's returned signatures also contain all required information in textual form. The following items from the response's `ftSignatures` property need to be printed:
 
 | **Description**                         | **Caption**             | **ftSignatureType**  |
@@ -112,4 +112,4 @@ For supporting cases where the used printer does not support QR codes, the Middl
 | TSE signature                           | `<signatur>`            | `0x444500000000001D` |
 | Overall start time of the business case | `<vorgangsbeginn>`      | `0x444500000000001F` |
 
-*Table 2. Signature items to print on receipts without QR codes, with their ftSignatureType values.*
+*Table 2. Signature items to print on receipts without a QR code, with their ftSignatureType values.*
