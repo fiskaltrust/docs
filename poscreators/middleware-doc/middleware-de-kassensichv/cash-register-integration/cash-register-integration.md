@@ -53,6 +53,35 @@ As the Middleware returns additional data in the `ftSignatures` field that is e.
 
 Hence, when printing QR codes, all returned signatures should be printed that **do not** have the _ftSignatureFormatFlag_ `0x0000000000010000` ("printing is optional").
 
+#### Content of the QR code
+
+The QR code content is returned in the `Data` of the signature with the `ftSignatureType` `0x4445000000000001` and the caption `www.fiskaltrust.de`. Its fields are separated by `;`, in this order:
+
+```
+<qr-code-version>;<kassen-seriennummer>;<processType>;<processData>;<transaktions-nummer>;<signatur-zaehler>;<start-zeit>;<log-time>;<sig-alg>;<log-time-format>;<signatur>;<public-key>
+```
+
+Each field is also returned as a separate signature, with the field name as the caption:
+
+| **Field**               | **Content**                                      | **Example**                                | **ftSignatureType**  |
+| ----------------------- | ------------------------------------------------ | ------------------------------------------ | -------------------- |
+| `<qr-code-version>`     | Version of the QR code format                    | `V0`                                       | `0x4445000000000013` |
+| `<kassen-seriennummer>` | Serial number of the cash register               | `220130d5-9060-4e26-b75c-35968f49aae3`     | `0x4445000000000014` |
+| `<processType>`         | Process type of the TSE transaction              | `Kassenbeleg-V1`                           | `0x4445000000000015` |
+| `<processData>`         | Process data of the TSE transaction              | `Beleg^7.50_0.00_0.00_0.00_0.00^7.50:Bar`  | `0x4445000000000016` |
+| `<transaktions-nummer>` | TSE transaction number                           | `11`                                       | `0x4445000000000017` |
+| `<signatur-zaehler>`    | TSE signature counter                            | `21`                                       | `0x4445000000000018` |
+| `<start-zeit>`          | TSE start time                                   | `2020-05-22T11:33:01.000Z`                 | `0x4445000000000019` |
+| `<log-time>`            | TSE log time                                     | `2020-05-22T11:33:02.000Z`                 | `0x444500000000001A` |
+| `<sig-alg>`             | TSE signature algorithm                          | `ecdsa-plain-SHA256`                       | `0x444500000000001B` |
+| `<log-time-format>`     | TSE log time format                              | `utcTime`                                  | `0x444500000000001C` |
+| `<signatur>`            | TSE signature                                    | Base64 string                              | `0x444500000000001D` |
+| `<public-key>`          | Public key of the TSE                            | Base64 string                              | `0x444500000000001E` |
+
+*Table 1. Fields of the QR code, with their ftSignatureType values.*
+
+The certification ID of the TSE (`0x4445000000000022`), the serial number of the TSE (`0x4445000000000023`) and the overall start time of the business case (`0x444500000000001F`) are not part of the QR code. For a complete example response, see [Single Receipt Creation](single-receipt-creation.md).
+
 ### Printing receipts without QR codes
 For supporting cases where the used printer does not support QR codes, the Middleware's returned signatures also contain all required information in textual form. The following items from the response's `ftSignatures` property needs to be printed:
 
@@ -72,4 +101,4 @@ For supporting cases where the used printer does not support QR codes, the Middl
 | TSE signature                           | `<signatur>`            | `0x444500000000001D` |
 | Overall start time of the business case | `<vorgangsbeginn>`      | `0x444500000000001F` |
 
-*Table 1. Signature items to print on receipts without QR codes, with their ftSignatureType values.*
+*Table 2. Signature items to print on receipts without QR codes, with their ftSignatureType values.*
