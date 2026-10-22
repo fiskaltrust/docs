@@ -2,112 +2,67 @@
 slug: /posdealers/buy-resell/overview
 title: Overview - Buy & Resell
 description: How PosDealers buy entitlements and resell fiskaltrust products, including credit limits, volume purchase agreements and price lists.
+type: overview
 tags: [Entitlements, Volume Purchase Agreement, Pricing, PosDealers, Portal]
 ---
 # Overview - Buy & Resell
 
 :::info summary
 
-After reading this, you will know how to buy and resell fiskaltrust products.
+After reading this, you know how to buy and resell fiskaltrust products.
 
 :::
 
-fiskaltrust offers the license-free fiskaltrust.Middleware for PosCreators. You, as a PosDealer, can choose from fee-based add-ons (based on the fiskaltrust.Middleware) and individual products (independent of the fiskaltrust.Middleware) for your PosOperators.
+fiskaltrust offers the license-free fiskaltrust.Middleware for PosCreators. As a PosDealer, you choose from fee-based add-ons, which are based on the fiskaltrust.Middleware, and individual products, which are independent of it, for your PosOperators. For the current products, see [Products & Services](./products/overview.md).
 
-For a current listing of our products, please refer to our [product description](./products/overview.md).
+As a PosDealer, you do not buy the products themselves in the fiskaltrust.Portal. You buy **Entitlements**: claims to the products, which you transfer to your PosOperators individually and activate per outlet.
 
-As a PosDealer, do not buy products in the fiskaltrust.Portal, but so-called **Entitlements**, claims to the products, which you can transfer to the PosOperators individually and activate them per outlet. 
+To buy and resell fiskaltrust products:
 
-To buy and resell fiskaltrust products, you have to:
-* Register in the fiskaltrust.Portal.
-* Sign the cooperation agreement as PosDealer.
-* Determine your need for products and product bundles.
-* If you plan to buy and resell more than ten carefree bundles, it is recommended to [contact us](overview.md#contact-information-and-pricelists) to get a volume purchase agreement. 
-* If your planned amount exceeds the standard credit limit, [contact us](overview.md#contact-information-and-pricelists).
+1. Register in the fiskaltrust.Portal. For more information, see [Registration](../getting-started/registration.md).
+2. Sign the cooperation agreement as PosDealer. For more information, see [Company Roles](../getting-started/company-roles.md).
+3. Determine which products and product bundles you need.
+4. If you plan to buy ten or more product bundles, contact fiskaltrust for a [volume purchase agreement](#volume-purchase-agreement).
+5. If the planned amount exceeds your [credit limit](#credit-limit), contact fiskaltrust.
 
+For the contacts per market, see [Contact information and price lists](#contact-information-and-price-lists).
 
 ## Credit limit
 
-With your activation of the PosDealer role, you get a credit limit in the fiskaltrust.Portal. Note that the limit in the productive system is significantly lower than in the sandbox.
+When you activate the PosDealer role, you get a credit limit in the fiskaltrust.Portal. The credit limit in the live system is significantly lower than in the Sandbox.
 
-Suppose the invoice amounts exceed the credit limit during rollout management or purchases in the store. In that case, a corresponding message will notify you of the credit limit when creating other offers. 
-If it is impossible to settle the open invoices, [contact us](overview.md#contact-information-and-pricelists) with a request to grant you a higher credit limit. 
+If the invoice amounts exceed the credit limit during a rollout or a purchase in the `Shop`, the fiskaltrust.Portal shows a message about the credit limit when you create further quotes. If you cannot settle the open invoices, contact fiskaltrust and request a higher credit limit.
 
 ## Volume purchase agreement
 
-As mentioned in the section [Business Model](../business-basics/business-model.md), _fiskaltrust_ offers discounted prices if you agree to a particular purchase quantity. Therefore, you should consider this option if you plan to purchase ten or more product bundles. You find descriptions of fiskaltrust products and product bundles [here](./products/overview.md).  
-If you are committing to purchase **large quantities of product bundles** of your choice over a year, a **Volume Purchase Agreement** is the best option. This agreement allows you to achieve significant discounts depending on your planned sales volume.
-The standard period is one year, but it can be agreed on individually. 
+fiskaltrust offers discounted prices if you commit to a purchase quantity. For more information, see [Business Model](../business-basics/business-model.md). Consider this option if you plan to buy ten or more product bundles. For the products and product bundles, see [Products & Services](./products/overview.md).
 
-### How to get a volume purchase agreement
+With a **volume purchase agreement**, you commit to buying **large quantities of product bundles** of your choice over a period, and you get discounts depending on your planned sales volume. The standard period is one year, but you can agree on another period.
 
-* Contact fiskaltrust sales via email and state company name, contact, product name/number and the amount you need.
-* Our sales team will contact you and send you the volume purchase agreement, including the discount calculated.
-* Sign the volume purchase agreement and send it back to the sales team.
-* After successful confirmation, we will send the signed agreement back to you.
-* The ordered products will be placed in the fiskaltrust.Shop with the agreed prices and are ready to buy for your account.
+### Get a volume purchase agreement
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+1. Send an e-mail to the fiskaltrust sales team with your company name, your contact person, the product names or numbers and the quantity you need. For the address, see [Contact information and price lists](#contact-information-and-price-lists).
+2. The sales team sends you the volume purchase agreement, including the calculated discount.
+3. Sign the volume purchase agreement and send it back to the sales team.
+4. After the confirmation, fiskaltrust sends you the countersigned agreement.
 
-## Contact information and pricelists
+**Result:** The ordered products are available in the `Shop` of your account at the agreed prices.
 
-import VolumePurchaseAT from '../_markets/at/buy-resell/volume-purchase-agreement/_volume.mdx';
-import VolumePurchaseBE from '../_markets/be/buy-resell/volume-purchase-agreement/_volume.mdx';
-import VolumePurchaseFR from '../_markets/fr/buy-resell/volume-purchase-agreement/_volume.mdx';
-import VolumePurchaseDE from '../_markets/de/buy-resell/volume-purchase-agreement/_volume.mdx';
-import VolumePurchaseGR from '../_markets/gr/buy-resell/volume-purchase-agreement/_volume.mdx';
-import VolumePurchaseIT from '../_markets/it/buy-resell/volume-purchase-agreement/_volume.mdx';
-import VolumePurchasePL from '../_markets/pl/buy-resell/volume-purchase-agreement/_volume.mdx';
-import VolumePurchasePT from '../_markets/pt/buy-resell/volume-purchase-agreement/_volume.mdx';
-import VolumePurchaseES from '../_markets/es/buy-resell/volume-purchase-agreement/_volume.mdx';
+## Contact information and price lists
 
-<Tabs groupId="market">
+| Market | Contact | Price list |
+|---|---|---|
+| Austria | info@fiskaltrust.at | [Products and prices in Austria](https://www.fiskaltrust.at/products/product_01/) |
+| France | contact@fiskaltrust.fr | [Products and prices in France](https://fiskaltrust.fr/en/products-prices/) |
+| Germany | sales@fiskaltrust.de | In the [download area](https://portal.fiskaltrust.de/AccountProfile/Download) of the fiskaltrust.Portal |
 
-  <TabItem value="AT" label="Austria">
-    <VolumePurchaseAT />
-  </TabItem>
-
-  <TabItem value="BE" label="Belgium">
-    <VolumePurchaseBE />
-  </TabItem>
-
-  <TabItem value="FR" label="France">
-    <VolumePurchaseFR />
-  </TabItem>
-
-  <TabItem value="DE" label="Germany">
-    <VolumePurchaseDE />
-  </TabItem>
-
-  <TabItem value="GR" label="Greece">
-    <VolumePurchaseGR />
-  </TabItem>
-
-  <TabItem value="IT" label="Italy">
-    <VolumePurchaseIT />
-  </TabItem>
-
-  <TabItem value="PL" label="Poland">
-    <VolumePurchasePL />
-  </TabItem>
-
-  <TabItem value="PT" label="Portugal">
-    <VolumePurchasePT />
-  </TabItem>
-
-  <TabItem value="ES" label="Spain">
-    <VolumePurchaseES />
-  </TabItem>
-
-</Tabs>
+*Table 1. Contacts and price lists per market.*
 
 ## Next steps
 
-Once you have finished these preparations, you can purchase fiskaltrust products in two ways:
+After these preparations, you buy fiskaltrust products in one of two ways:
 
-* [Rollout Plans](./rollout-plans.md): The most straightforward way, but not available for all products and markets.
-* [Shop](./shop.md): Available for all markets and products
+- **Rollout plans**: the easiest way, but not available for all products and markets. For more information, see [Rollout Plans](./rollout-plans.md).
+- **Shop**: available for all markets and products. For more information, see [Shop](./shop.md).
 
-How to manage your purchased subscriptions:
-* [Subscription Management](./subscription-management.md)
+To manage the subscriptions you bought, see [Subscription management](./subscription-management.md).
