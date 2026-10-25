@@ -43,7 +43,7 @@ For more information, see [Downpayments](../cash-register-integration/downpaymen
 
 ## Payment Transfer
 
-A payment transfer moves money without a sale, for example cash taken out of the till or put into it. It creates no turnover: the POS system sends it as its own receipt with a charge item of the type of service `A` Cash transfer, not as a sale with a negative price.
+A payment transfer moves money without a sale, for example cash taken out of the till or put into it. It creates no turnover and is not sent as a sale with a negative price: the POS system sends it as its own receipt, either with a charge item of the type of service `A` Cash transfer or, where the market supports it, with offsetting pay items only.
 
 For more information, see [Cash Drawer Movements](../cash-register-integration/cash-drawer-movements.md).
 
