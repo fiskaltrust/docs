@@ -43,7 +43,7 @@ For more information, see [VAT rules and rates](https://europa.eu/youreurope/bus
 | `3` | **Tip**<br /> For owner use V=0 to 7, related to total amount <br /> For Employee use V=8, Not Taxable (as of 1.1.2022, this is calculated with 5%). | 1.3.45 |
 | `4` | **Voucher**<br />For Single-Use-Voucher use V=0 to 7<br />For Multi-Use-Voucher use V=8, Not Taxable<br />Voucher Sale is a positive (+) amount.<br />Voucher Redeem is a negative (-) amount.<br />IsVoid can be applied to reverse amounts.<br />Avoid to use this for Multi-Use-Voucher, use PayItem instead, with ShowInChargeItems flag. For Single-Use-Voucher, apply the ShowInPayItems flag to visualize it similar to payment and to keep the total amount unreduced. | 1.3.45 |
 | `5` | **Catalog service** | 1.3.45 |
-| `6` | **Not own sales / Agency business** | 1.3.45 |
+| `6` | **Not own sales / Agency business**<br />Not supported in Portugal; rejected with `EEEE_UnsupportedChargeItemServiceType`. | 1.3.45 |
 | `7` | **Own Consumption** | 1.3.45 |
 | `8` | **Grant**<br />For Unreal Grant use V=0 to 7<br />For Real Grant use V=8  |1.3.45| 
 | `9` | **Receivable**<br />Receivable creation is negative (-) amount<br />Receivable reduction is positive (+) amount.<br />IsVoid can be applied to reverse amounts.<br />Avoid to use this, use PayItem instead.  |1.3.45|   
