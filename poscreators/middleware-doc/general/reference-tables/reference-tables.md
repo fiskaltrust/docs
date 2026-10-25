@@ -361,7 +361,7 @@ version 2
 | `0008` | **Downpayment**<br />Marks `PayItem` as a downpayment. Positive (+) amount is reduction of downpayment. Negative (-) amount is creation of downpayment. |
 | `0010` | **IsForeignCurrency**<br />Amount is still in EUR at the moment of acceptance. `ftPayItemData` requires two data elements with `foreignCurrencySymbol` and `foreignCurrencyAmount` to persist data for daily closing and later bookkeeping transactions. |
 | `0020` | **IsChange**<br />Usually contains a negative (-) amount. (`IsVoid` => can be inverted) |
-| `0040` | **IsTip**<br />Must be a negative (-) amount to flow out of the payment method. `ShowInChargeItems` flag can be used to raise the total amount by the tip amount for better visualization. |
+| `0040` | **IsTip**<br />Must be a negative (-) amount to flow out of the payment method. `ShowInChargeItems` flag can be used to raise the total amount by the tip amount for better visualization.<br />The pay item of the payment includes the tip. The tip pay item follows it directly, with the same payment type (`PP`); see [Tips](../receipt-case-definitions/receipt-case-definitions.md#tips). |
 | `0080` | **IsDigital/IsElectronic**<br />Electronic or digital money. |
 | `0100` | **IsInterface/AmountVerified**<br />Amount was verified by interface; automated amount transfer. |
 | `4000` | Respond in **ReceiptResponse**. |

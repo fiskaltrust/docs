@@ -1,7 +1,7 @@
 ---
 slug: /poscreators/middleware-doc/general/cash-register-integration/downpayments
 title: Downpayments
-description: How to record a downpayment with the Downpayment flag of ftChargeItemCase, deduct it on the final receipt or invoice, and reverse it.
+description: How to record a downpayment with the Downpayment flag of ftChargeItemCase, deduct it on the final receipt or invoice, including when it covers or exceeds the final amount, and reverse it.
 tags: [Downpayment, ftChargeItemCase, Invoice, Refund, Cash Register Integration]
 ---
 
@@ -64,6 +64,24 @@ On the final receipt, the goods cost 1,200.00 and the downpayment is deducted:
 
 *Table 3. The final receipt, with `ftReceiptCase` `0xCCCC_2000_0000_0001`.*
 
+### When the downpayment covers or exceeds the final amount
+
+If the downpayment equals the final amount, the receipt total is `0.00` and the customer pays nothing more. The POS system sends `cbPayItems` as an empty array (`[]`), not `null`.
+
+If the downpayment is higher than the final amount, the receipt total is negative. The POS system pays the difference back on the same final receipt or invoice, with a pay item with a negative `Amount` and the payment type of the money paid back. Neither the receipt nor the pay item carries the flag `IsReturn/IsRefund`: the final receipt or invoice is not a refund, and the POS system does not send a separate refund for the difference.
+
+For example, a downpayment of 300.00 is received by bank transfer, and the final invoice is 200.00:
+
+| Line | `Amount` | Case |
+|------|---------:|------|
+| Service (charge item) | 200.00 | `0xCCCC_2000_0000_0023` |
+| Downpayment (charge item) | -300.00 | `0xCCCC_2000_0008_0023` |
+| **Bank transfer** (pay item) | -100.00 | `0xCCCC_2000_0000_000A` |
+
+*Table 4. A final invoice with a downpayment higher than the final amount.*
+
+Whether a market accepts a final receipt or invoice with a total of `0.00` or a negative total depends on the national format; see [Market-specific considerations](#market-specific-considerations).
+
 ## Reversing a downpayment
 
 A receipt or invoice with a downpayment is voided or refunded like any other receipt, for example with a full refund when the order is cancelled and the downpayment is paid back. The downpayment charge item is inverted together with the other items; combined with `IsVoid` or `IsReturn/IsRefund`, the meaning of its sign is inverted as well. For more information, see [Refunds and Voids](refunds-and-voids.md).
@@ -73,7 +91,8 @@ A receipt or invoice with a downpayment is voided or refunded like any other rec
 The model on this page is the interface default. Markets add constraints, depending on what the national format and the fiscal device or service can represent. Before implementing, consult the market pages for:
 
 - whether a negative downpayment item is accepted outside a void, full refund, partial refund or exchange; for the rule, see [Rules applied by the Middleware](refunds-and-voids.md#rules-applied-by-the-middleware),
-- which receipt cases accept downpayments.
+- which receipt cases accept downpayments,
+- whether a final receipt or invoice with a total of `0.00` or a negative total is accepted.
 
 ## Related pages
 
