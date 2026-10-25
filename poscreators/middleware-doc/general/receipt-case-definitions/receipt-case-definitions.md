@@ -1,8 +1,8 @@
 ---
 slug: /poscreators/middleware-doc/general/receipt-case-definitions
 title: Receipt Case Definitions
-description: Definitions of business cases such as POS sales receipt, invoice, single and multi-use vouchers, agency business, delivery note and tips.
-tags: [Receipt Case, Vouchers, Agency Business, Tips, Middleware]
+description: Definitions of business cases such as POS sales receipt, invoice, single and multi-use vouchers, agency business, downpayment, payment transfer, delivery note and tips.
+tags: [Receipt Case, Vouchers, Agency Business, Downpayment, Payment Transfer, Tips, Middleware]
 ---
 
 # Receipt Case Definitions
@@ -33,7 +33,19 @@ Turnover is created in the moment when the voucher is redeemed. This is usually 
 
 Agency businesses are not own sales but sales made on behalf of a 3<sup>rd</sup> party. Thus, no own sales can be processed on the same receipt as an agency business.
 
-For further information, refer to the appropriate Appendix for the specific country.
+For further information, refer to the appropriate Appendix for the specific country. Not every market supports agency business; whether a market accepts the type of service `6` Not own sales is described in the type of service table of the market.
+
+## Downpayment
+
+A downpayment is money the customer pays before the goods are delivered or the service is provided. It is recorded when it is received and deducted from the final receipt or invoice.
+
+For more information, see [Downpayments](../cash-register-integration/downpayments.md).
+
+## Payment Transfer
+
+A payment transfer moves money without a sale, for example cash taken out of the till or put into it. It creates no turnover and is not sent as a sale with a negative price: the POS system sends it as its own receipt, either with a charge item of the type of service `A` Cash transfer or, where the market supports it, with offsetting pay items only.
+
+For more information, see [Cash Drawer Movements](../cash-register-integration/cash-drawer-movements.md).
 
 ## Delivery Note
 

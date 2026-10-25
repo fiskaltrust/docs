@@ -101,7 +101,7 @@ Not every reduction of the amount to pay is a discount. The following cases have
 |------|--------------------|
 | **Multi-purpose voucher** redeemed, for example a gift voucher with a monetary value | Pay item with payment type `06` Voucher. The receipt total is not reduced; the voucher pays for the purchase. |
 | **Single-purpose voucher** redeemed, for example a voucher for 2 × coffee | Charge item with type of service `4` Voucher, a negative amount and the flag `ShowInPayments` (`0x0000_0000_8000_0000`), which shows it like a payment and keeps the total amount unreduced. |
-| **Downpayment** deducted from the final receipt | Charge item with the flag `Downpayment` (`0x0000_0000_0008_0000`) and a negative amount. |
+| **Downpayment** deducted from the final receipt | Charge item with the flag `Downpayment` (`0x0000_0000_0008_0000`) and a negative amount; see [Downpayments](downpayments.md). |
 | **Tip** | Charge item with type of service `3` Tip, or pay item with the flag `IsTip`. |
 
 *Table 5. Price reductions that are not discounts.*

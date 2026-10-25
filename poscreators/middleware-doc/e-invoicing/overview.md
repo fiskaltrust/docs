@@ -66,6 +66,10 @@ An invoice differs from a receipt in that it identifies the buyer: every invoice
 
 For every invoice type, an eInvoice XML is generated, whatever the buyer's country, and validated semantically. If the validation fails, the `/sign` call fails. Which `cbCustomer` fields are required, for example `CustomerVATId`, depends on the situation, the market and the buyer. Fields that do not apply to the buyer can be left out or sent empty. For the full list of receipt cases, see [ftReceiptCase](../possystem-api/migration-guide.md#ftreceiptcase).
 
+### Downpayments
+
+An invoice for a downpayment is a prepayment invoice, which needs the expected date of the delivery or service (EN 16931 BT-134). The POS system sends this date in `Moment` on every charge item with the flag `Downpayment`. If `Moment` is missing, the eInvoice is rejected with the signature `einvoicing-rejected`, for example: "cbChargeItems[0] is a downpayment without Moment: a prepayment invoice needs the expected service date (BT-134)." For how downpayments are recorded, see [Downpayments](../general/cash-register-integration/downpayments.md).
+
 ## What varies by market
 
 The model is constant; the specifics are market-driven:
