@@ -34,24 +34,19 @@ The [POSNET register](../operation-modes/scu/posnet.md) prints a charge item wit
 
 In Poland, the receipt (*paragon fiskalny*) is printed by the [POSNET register](../operation-modes/scu/posnet.md), not rendered by fiskaltrust. The fields described in [Additional Lines on the Receipt](../../general/cash-register-integration/additional-lines.md) are therefore printed by the register. Everything below is printed **inside the fiscal receipt**: the receipt and its additional lines are one document with one document number, and the paper is cut once, after the last line. The POSNET SCU is in preview; see [Scope of the preview](../operation-modes/scu/posnet.md#scope-of-the-preview).
 
-| Option | Sent in | Status | Where it is printed |
-|--------|---------|--------|---------------------|
-| Lines for the whole receipt (`cbReceiptLines`) | `ftReceiptCaseData` | Supported | Left-aligned lines after the fiscal footer of the receipt |
-| Payment receipt (`cbPayItemLines`, `Receipt`) | `ftPayItemCaseData` of a pay item | Supported | Left-aligned lines after the lines for the whole receipt |
-| Barcode (`PL.printout.barcode`) | `ftReceiptCaseData` | Supported | At the end of the receipt |
-| Footer lines (`PL.printout.lines`) | `ftReceiptCaseData` | Planned | |
-| Information lines (`PL.printout.infoLines`) | `ftReceiptCaseData` | Planned | |
-| QR code (`PL.printout.qrCode`) | `ftReceiptCaseData` | Planned | |
-| Cashier and register number in the fiscal footer | `cbUser`, `cbTerminalID` | Planned | |
-| Sublines below a charge item (`cbChargeItemLines`) | `ftChargeItemCaseData` of a charge item | Planned | |
+| Option | Sent in | Where it is printed |
+|--------|---------|---------------------|
+| Lines for the whole receipt (`cbReceiptLines`) | `ftReceiptCaseData` | Left-aligned lines after the fiscal footer of the receipt |
+| Payment receipt (`cbPayItemLines`, `Receipt`) | `ftPayItemCaseData` of a pay item | Left-aligned lines after the lines for the whole receipt |
+| Barcode (`PL.printout.barcode`) | `ftReceiptCaseData` | At the end of the receipt |
 
-*Table 1. Additional lines on the Polish receipt and their status.*
+*Table 1. Supported additional lines on the Polish receipt.*
 
-Only the options marked *Supported* are described on this page. The planned options are not available for integration yet.
+Further options are planned; see [Planned options](#planned-options).
 
 ### Tested devices
 
-POSNET offers several fiscal printer models, with different firmware versions, and not every model or firmware version prints these options in the same way or supports them at all. *Supported* in Table 1 means that the option was tested and its printout checked on the devices in Table 2. On other models or firmware versions, the options have not been tested yet.
+POSNET offers several fiscal printer models, with different firmware versions, and not every model or firmware version prints these options in the same way or supports them at all. The options in Table 1 were tested and their printout checked on the devices in Table 2. On other models or firmware versions, they have not been tested yet.
 
 | Printer | Software version | Connection | Host | Fiscalized |
 |---------|------------------|------------|------|------------|
@@ -71,7 +66,7 @@ KARTA Mastercard                  100,00 PLN
 8008CC3B99C59F0806E02A8DD8398A559E591894
                ZBF 2101002396
 Dziękujemy za zakupy!
-Karta klubowa: 238689
+Zwrot towaru do dnia: 2026-10-30
 |--------------------------------------|
 |CARDHOLDER COPY                       |
 |Card                          ****9999|
@@ -85,10 +80,25 @@ Karta klubowa: 238689
 
 ### Lines for the whole receipt
 
-The register prints the strings of `cbReceiptLines` in `ftReceiptCaseData`, described in [Lines for the whole receipt](../../general/cash-register-integration/additional-lines.md#lines-for-the-whole-receipt), inside the fiscal receipt:
+Use `cbReceiptLines` in `ftReceiptCaseData` to print additional text on the receipt, for example a thank-you note, the return period, an order reference or a loyalty card number. The field is described in [Lines for the whole receipt](../../general/cash-register-integration/additional-lines.md#lines-for-the-whole-receipt).
 
-- Every string is printed as its own left-aligned line, after the fiscal footer of the receipt and before the payment receipts.
+On the printed receipt, the register prints these lines inside the fiscal receipt, below its fiscal footer:
+
+- Every string is printed as its own left-aligned line in normal size, in the order of the array.
+- The lines follow the fiscal footer of the receipt and come before the payment receipts and the barcode.
+- The lines are text only: they do not change the items, the totals or the fiscal data of the receipt.
 - A line holds up to 40 characters. Send one line per entry.
+
+The same lines are also shown on the [digital receipt](../../digital-receipt/introduction.md), so the customer sees the same additional text on paper and on the digital version of the receipt.
+
+```json
+"ftReceiptCaseData": {
+  "cbReceiptLines": [
+    "Dziękujemy za zakupy!",
+    "Zwrot towaru do dnia: 2026-10-30"
+  ]
+}
+```
 
 ### Payment receipts
 
@@ -101,15 +111,12 @@ The register prints the payment receipt of a pay item, sent in `cbPayItemLines` 
 
 ### Barcode
 
-The barcode is sent in `ftReceiptCaseData` as `PL.printout.barcode`. The register prints it at the end of the receipt, after all additional lines, with its text below it. The barcode holds up to 30 characters, ASCII letters and digits only.
-
-`cbReceiptLines` and the barcode are sent in the same `ftReceiptCaseData`:
+The barcode is sent in `ftReceiptCaseData` as `PL.printout.barcode`. The register prints it at the end of the receipt, after all additional lines, with its text below it. The barcode holds up to 30 characters, ASCII letters and digits only. It can be sent in the same `ftReceiptCaseData` as `cbReceiptLines`:
 
 ```json
 "ftReceiptCaseData": {
   "cbReceiptLines": [
-    "Dziękujemy za zakupy!",
-    "Karta klubowa: 238689"
+    "Dziękujemy za zakupy!"
   ],
   "PL": {
     "printout": {
@@ -170,7 +177,7 @@ A sale paid by debit card, with lines for the whole receipt, a payment receipt a
   "ftReceiptCaseData": {
     "cbReceiptLines": [
       "Dziękujemy za zakupy!",
-      "Karta klubowa: 238689"
+      "Zwrot towaru do dnia: 2026-10-30"
     ],
     "PL": {
       "printout": {
@@ -182,3 +189,11 @@ A sale paid by debit card, with lines for the whole receipt, a payment receipt a
 ```
 
 `5786034805636333569` is `ftReceiptCase` `0x504C_2000_0000_0001` (POS receipt), `5786034805636333571` is `ftChargeItemCase` `0x504C_2000_0000_0013` (normal VAT rate of 23%), and `5786034805636333572` is `ftPayItemCase` `0x504C_2000_0000_0004` (debit card payment).
+
+### Planned options
+
+The following options are planned. They are not available for integration yet and will be documented once they are tested on the devices:
+
+- Further elements of `PL.printout` in `ftReceiptCaseData` besides the barcode
+- Cashier and register number in the fiscal footer, from `cbUser` and `cbTerminalID`
+- Sublines below a charge item (`cbChargeItemLines` in `ftChargeItemCaseData`)
