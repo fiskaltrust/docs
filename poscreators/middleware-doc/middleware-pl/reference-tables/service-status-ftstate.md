@@ -27,9 +27,8 @@ version 2
 
 #### lll - local flags
 
-The middle three nibbles carry the Polish local flags. The lowest local-flag bit marks **"fiscal register unreachable"** — in Poland a non-working register legally means no sale (Art. 111(3) VAT Act), so this failure is distinguishable from any other error.
+The middle three nibbles carry the Polish local flags. No Polish local flags are defined at the moment: every error is returned as `0x504C_2000_EEEE_EEEE`, and the `FAILURE` signature tells the reason.
 
 | **Value** | **Description** | **Middleware Version** |
 | --------- | --------------- | ---------------------- |
-| `0x504C_2000_EEEE_EEEE` | **Error**<br />The request failed for a reason other than register unavailability. The error reason is shown within the responded ftSignatureItems. | preview |
-| `0x504C_2001_EEEE_EEEE` | **Register unreachable (DeviceUnreachableError)**<br />The certified register could not be reached, so the receipt was **not** fiscalized. Under Art. 111(3) of the Polish VAT Act sales must not continue without a working register — the POS must stop selling and surface the failure to the operator. There is no late-signing fallback for fiscal receipt cases in Poland. | preview |
+| `0x504C_2000_EEEE_EEEE` | **Error**<br />The request failed. A signature with the caption `FAILURE` says what to do next: if the register could not be reached, the receipt was **not** fiscalized and can be sent again once the register is reachable; if the receipt was not issued, the message says so; for a validation error, it names the field to correct. Under Art. 111(3) of the Polish VAT Act sales must not continue without a working register. There is no late-signing fallback for fiscal receipt cases in Poland. See [Failure handling](../operation-modes/scu/posnet.md#failure-handling). | preview |

@@ -34,7 +34,7 @@ Fiscalizing a Polish register is a certified-technician (serwis) act — it is n
 
 ## Register unreachable — Art. 111(3)
 
-Under Art. 111(3) of the Polish VAT Act, sales must not continue without a working register. When the register cannot be reached, the Middleware does not queue the receipt for later signing; it responds with the dedicated error state `0x504C_2001_EEEE_EEEE` (see [Service Status: ftState](../reference-tables/service-status-ftstate.md)) so the POS can stop selling and surface the failure to the operator.
+Under Art. 111(3) of the Polish VAT Act, sales must not continue without a working register. When the register cannot be reached, the Middleware does not queue the receipt for later signing; it responds with the error state `0x504C_2000_EEEE_EEEE` and a `FAILURE` signature that says the receipt was not issued (see [Service Status: ftState](../reference-tables/service-status-ftstate.md)), so the POS can stop selling and surface the failure to the operator. A receipt that the register may still print is never reported as failed; see [Failure handling](../operation-modes/scu/posnet.md#failure-handling).
 
 ## Invoices
 
