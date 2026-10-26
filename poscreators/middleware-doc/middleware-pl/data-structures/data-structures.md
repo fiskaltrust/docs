@@ -39,6 +39,7 @@ In Poland, the receipt (*paragon fiskalny*) is printed by the [POSNET register](
 | Lines for the whole receipt (`cbReceiptLines`) | `ftReceiptCaseData` | Left-aligned lines after the fiscal footer of the receipt |
 | Payment receipt (`cbPayItemLines`, `Receipt`) | `ftPayItemCaseData` of a pay item | Left-aligned lines after the lines for the whole receipt |
 | Barcode (`PL.printout.barcode`) | `ftReceiptCaseData` | At the end of the receipt |
+| QR code (`PL.printout.qrCode`) | `ftReceiptCaseData` | At the end of the receipt, above or below the barcode |
 
 *Table 1. Supported additional lines on the Polish receipt.*
 
@@ -56,7 +57,7 @@ POSNET offers several fiscal printer models, with different firmware versions, a
 
 ### Order on the receipt
 
-The register prints the receipt in a fixed order. The additional lines follow the fiscal footer (document number, register number and cashier, signature and the unique number of the register): first the lines for the whole receipt, then the payment receipts. The barcode is always printed last:
+The register prints the receipt in a fixed order. The additional lines follow the fiscal footer (document number, register number and cashier, signature and the unique number of the register): first the lines for the whole receipt, then the payment receipts. The barcode and the QR code are always printed last:
 
 ```text
 SUMA PLN                              100,00
@@ -126,15 +127,64 @@ The barcode is sent in `ftReceiptCaseData` as `PL.printout.barcode`. The registe
 }
 ```
 
+### QR code
+
+The QR code is sent in `ftReceiptCaseData` as `PL.printout.qrCode`. The register prints it at the end of the receipt, next to the barcode. Only `data` is required:
+
+| Property | Description | Values | Default |
+|----------|-------------|--------|---------|
+| `data` | Content of the QR code, encoded as UTF-8 | Up to 2000 bytes | Required |
+| `pixelSize` | Size of one dot of the QR code, in printer pixels | `2`–`8` | `2` |
+| `errorCorrection` | Error correction level: a higher level makes the code readable when it is damaged, and makes it larger | `0` (L), `1` (M), `2` (Q), `3` (H) | `0` |
+| `position` | Whether the QR code is printed above or below the barcode; without a barcode, it has no effect | `above`, `below` | `below` |
+
+*Table 3. Properties of `PL.printout.qrCode`.*
+
+The register prints a standard QR code. A GS1 QR code (FNC1 in first position, symbology identifier `]Q3`) cannot be printed: the register has no option for it, and characters in front of the data, such as `]Q3` or the GS character, are printed as part of the content.
+
+A QR code with the defaults:
+
+```json
+"ftReceiptCaseData": {
+  "PL": {
+    "printout": {
+      "qrCode": {
+        "data": "https://www.example.com/receipt/20260930004000200016"
+      }
+    }
+  }
+}
+```
+
+A larger QR code with a higher error correction level, printed above the barcode:
+
+```json
+"ftReceiptCaseData": {
+  "PL": {
+    "printout": {
+      "barcode": "20260930004000200016",
+      "qrCode": {
+        "data": "https://www.example.com/receipt/20260930004000200016",
+        "pixelSize": 4,
+        "errorCorrection": 1,
+        "position": "above"
+      }
+    }
+  }
+}
+```
+
+The QR code and the barcode are always printed at the end of the receipt, after all additional lines; their place on the receipt cannot be changed. A receipt carries at most one QR code.
+
 ### Limits and error handling
 
-- Values that the register cannot print, for example a barcode with more than 30 characters, are rejected with a validation error that names the field, before anything is printed. Send values within the limits.
+- Values that the register cannot print, for example a barcode with more than 30 characters or a QR code `pixelSize` outside `2`–`8`, are rejected with a validation error that names the field, before anything is printed. Send values within the limits.
 - The register prints at most 60 lines after a receipt: the lines for the whole receipt and the lines of all payment receipts together. A receipt with more lines is rejected before anything is printed.
 - The additional lines are printed after the register has closed the fiscal receipt. If printing them fails, for example because the connection to the register is lost, the receipt is still issued: the response is successful and carries a signature with the caption `Dodatkowe linie nie wydrukowane`, whose text ends with "The fiscal receipt was issued: do not send it again." Do not send such a receipt again; it would be issued a second time.
 
 ### Example
 
-A sale paid by debit card, with lines for the whole receipt, a payment receipt and a barcode:
+A sale paid by debit card, with lines for the whole receipt, a payment receipt, a barcode and a QR code below it:
 
 ```json
 {
@@ -181,7 +231,13 @@ A sale paid by debit card, with lines for the whole receipt, a payment receipt a
     ],
     "PL": {
       "printout": {
-        "barcode": "20260930004000200016"
+        "barcode": "20260930004000200016",
+        "qrCode": {
+          "data": "https://www.example.com/receipt/20260930004000200016",
+          "pixelSize": 4,
+          "errorCorrection": 1,
+          "position": "below"
+        }
       }
     }
   }
@@ -194,6 +250,6 @@ A sale paid by debit card, with lines for the whole receipt, a payment receipt a
 
 The following options are planned. They are not available for integration yet and will be documented once they are tested on the devices:
 
-- Further elements of `PL.printout` in `ftReceiptCaseData` besides the barcode
+- Further elements of `PL.printout` in `ftReceiptCaseData` besides the barcode and the QR code
 - Cashier and register number in the fiscal footer, from `cbUser` and `cbTerminalID`
 - Sublines below a charge item (`cbChargeItemLines` in `ftChargeItemCaseData`)
