@@ -42,7 +42,7 @@ In Poland, the receipt (*paragon fiskalny*) is printed by the [POSNET register](
 
 *Table 1. Supported additional lines on the Polish receipt.*
 
-Further options are planned; see [Planned options](#planned-options).
+Further options are planned; see [Planned options](#planned-options). All elements the POSNET printer can print, and which of them the fiskaltrust.Middleware supports, are listed in [POSNET Receipt Elements](../operation-modes/scu/posnet-receipt-elements.md).
 
 ### Tested devices
 
