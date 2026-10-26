@@ -124,6 +124,7 @@ The following rules apply:
 The fields on this page are the interface default. Markets restrict them or add options, depending on the national receipt format and on the fiscal device or service that prints the receipt. Before implementing, consult the market pages:
 
 - Italy: [Additional lines on the RT receipt](../../middleware-it-registratore-telematico/data-structures/data-structures.md#additional-lines-on-the-rt-receipt)
+- Poland: [Additional lines on the receipt](../../middleware-pl/data-structures/data-structures.md#additional-lines-on-the-receipt), which also lists the options that are supported and those that are planned
 - Portugal: [Receipt options, configuration, and extension points](../../middleware-pt/certification/certification.md#receipt-options-configuration-and-extension-points)
 
 ## Related pages
