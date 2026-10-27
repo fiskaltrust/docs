@@ -21,6 +21,14 @@ As a PosDealer, you either pay directly during a rollout or buy **Entitlements**
 
 Your entitlements are used when you roll out products and when you renew subscriptions with existing entitlements. For more information, see [Rollout management](./rollout-plans.md) and [Manual renewals](./subscription-management.md#manual-renewals).
 
+## Buy products and entitlements
+
+1. Open `Shop` > `Products` in the left sidebar.
+2. Choose the product or entitlement, enter the quantity and click its shopping cart symbol.
+3. Open the shopping cart in the upper-right corner and click `Checkout`.
+4. Check the products, quantities and prices before placing the order.
+5. Submit the binding order. The Portal displays an order confirmation and sends you a copy by e-mail.
+
 ## Check orders, invoices and entitlements
 
 ### Orders
