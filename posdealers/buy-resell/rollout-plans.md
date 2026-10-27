@@ -9,7 +9,7 @@ tags: [Rollout Plans, Entitlements, Portal, PosDealers]
 
 :::info summary
 
-After reading this, you can buy and transfer entitlements in the easiest way.
+After reading this, you can buy and rollout fiskaltrust products.
 
 :::
 
