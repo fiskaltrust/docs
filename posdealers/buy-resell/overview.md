@@ -51,6 +51,6 @@ With a **volume purchase agreement**, you commit to buying **large quantities of
 After these preparations, you buy fiskaltrust products in one of two ways:
 
 - **Rollout management**: the main way to buy fiskaltrust products, in all markets. For more information, see [Rollout management](./rollout-plans.md).
-- **Shop**: only for buying dealer entitlements and some hardware products. For more information, see [Shop](./shop.md).
+- **Shop**: PosDealers use the `Shop` to buy dealer entitlements on stock and some hardware products. For more information, see [Shop](./shop.md).
 
 To manage the subscriptions you bought, see [Subscription management](./subscription-management.md).

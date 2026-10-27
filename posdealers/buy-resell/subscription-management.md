@@ -47,14 +47,16 @@ You can always renew subscriptions manually, for example because you prefer this
 1. Choose the subscriptions to renew:
    - **One subscription**: select `Renew subscriptions` in the `Actions` column of its row.
    - **Several subscriptions**: select their rows and click `Renew subscriptions` below the list.
-2. In the dialog, choose whether the quote includes the required entitlements, or whether you use existing entitlements.
+2. In the dialog, choose how the quote covers the entitlements:
+   - **Dealer package**: if you do not have the entitlements in your account, the quote includes a dealer package, and you buy the required entitlements during the checkout.
+   - **Move entitlements**: the quote moves existing entitlements from your account to the PosOperator.
 
    ![Dialog to renew subscriptions in the fiskaltrust.Portal with the choice between buying the required entitlements and using existing entitlements](./images/renew-subscription.png)
 
    *Figure 2. The dialog to renew subscriptions.*
 
 3. Confirm the dialog. The fiskaltrust.Portal creates a quote and loads it into the shopping cart.
-4. Complete the checkout. For more information, see [Shop](./shop.md#buy-products-or-entitlements).
+4. Complete the checkout.
 
 ## Cancel subscriptions
 
