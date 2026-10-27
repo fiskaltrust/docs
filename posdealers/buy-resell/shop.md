@@ -23,9 +23,11 @@ Your entitlements are used when you roll out products and when you renew subscri
 
 ## Buy products and entitlements
 
-1. Open `Shop` > `Products` in the left sidebar.
-2. Choose the product or entitlement, enter the quantity and click its shopping cart symbol.
-3. Open the shopping cart in the upper-right corner and click `Checkout`.
+1. In the Portal, open `Shop` > `Products` in the left sidebar.
+2. Choose the product or entitlement, enter the quantity and click its basket button. The product is added to the `Basket`.
+3. Open the `Basket` in one of these ways, then click `Checkout`:
+   - In the left sidebar, open `Shop` > `Basket`.
+   - Click the `Shopping Cart` icon in the upper-right corner.
 4. Check the products, quantities and prices before placing the order.
 5. Submit the binding order. The Portal displays an order confirmation and sends you a copy by e-mail.
 

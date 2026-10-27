@@ -20,10 +20,10 @@ To roll out fiskaltrust products at scale, use `Rollout management` in the fiska
 The Business Rollout combines the purchase of entitlements, their transfer to the outlets or Queues of your PosOperators and their activation for the PosOperators in one process:
 
 - You do not need to switch to the PosOperator's account to transfer and activate the products.
-- The fiskaltrust.Portal selects the products required for the chosen rollout plan. This reduces the risk of a wrong composition of the shopping cart.
+- The fiskaltrust.Portal selects the products required for the chosen rollout plan. This reduces the risk of a wrong composition of the `Basket`.
 - You can roll out to several PosOperators and outlets or Queues at the same time.
 
-![Workflow with one swimlane, PosDealer in the fiskaltrust.Portal: open Rollout management and choose Business Rollout, select the rollout plan, select the PosOperators and outlets, create the quote and load it into the cart, and complete the checkout](./images/business-rollout-flowchart.svg)
+![Workflow with one swimlane, PosDealer in the fiskaltrust.Portal: open Rollout management and choose Business Rollout, select the rollout plan, select the PosOperators and outlets, create the quote and go to the Basket, and complete the checkout](./images/business-rollout-flowchart.svg)
 
 *Figure 1. Workflow of a Business Rollout.*
 

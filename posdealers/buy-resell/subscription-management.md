@@ -55,7 +55,7 @@ You can always renew subscriptions manually, for example because you prefer this
 
    *Figure 2. The dialog to renew subscriptions.*
 
-3. Confirm the dialog. The fiskaltrust.Portal creates a quote and loads it into the shopping cart.
+3. Confirm the dialog. The fiskaltrust.Portal creates a quote and loads it into the `Basket`.
 4. Complete the checkout.
 
 ## Cancel subscriptions
