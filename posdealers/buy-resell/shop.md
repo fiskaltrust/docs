@@ -37,22 +37,28 @@ Your entitlements are used when you roll out products and when you renew subscri
 
 To check the status of your orders, open `Shop` > `Orders` in the left sidebar.
 
-![Orders page in the fiskaltrust.Portal shop listing the placed orders with their status](./images/orders.png)
+![Orders page in the fiskaltrust.Portal shop with the search field for order numbers, the status filter and the list of orders with their date, amount, status, shipping notes and invoices](./images/shop-orders.png)
 
-*Figure 1. The `Orders` page.*
+*Figure 1. The `Orders` page with the list of your orders.*
 
 ### Invoices
 
 To find the invoices of your orders, open `Shop` > `Invoices` in the left sidebar.
 
-![Invoices page in the fiskaltrust.Portal shop listing the invoices](./images/invoices.png)
+![Invoices page in the fiskaltrust.Portal shop with the search field and the list of invoices with their date, amount and order, and the action buttons of each invoice](./images/shop-invoices.png)
 
-*Figure 2. The `Invoices` page.*
+*Figure 2. The `Invoices` page with the list of your invoices.*
 
 ### Your entitlements
 
-After an order is processed, the entitlements you bought are listed in `Shop` > `Entitlements`. To see the history of your purchases, click `History`. There, you can also search for an order number.
+After an order is processed, the entitlements you bought are listed in `Shop` > `Entitlements`.
 
-![Entitlements page in the fiskaltrust.Portal shop listing the purchased entitlements with the History button](./images/entitlements.png)
+![Entitlements page in the fiskaltrust.Portal shop with the History button, the search field, the filter set to Hide inactive entitlements and the list of entitlements with their name, remaining quantity, status and incidents](./images/shop-entitlements.png)
 
-*Figure 3. The `Entitlements` page.*
+*Figure 3. The `Entitlements` page with your entitlements.*
+
+To see the history of your purchases, click `History`. There, you can also search for an order number.
+
+![Entitlements History page in the fiskaltrust.Portal shop with the Back to Entitlements button, the search field and the list of entitlements with their total terms, description, start date and order number](./images/shop-entitlements-history.png)
+
+*Figure 4. The `History` page with the history of your entitlements.*
