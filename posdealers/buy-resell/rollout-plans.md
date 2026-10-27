@@ -13,7 +13,7 @@ After reading this, you can buy and rollout fiskaltrust products.
 
 :::
 
-To roll out fiskaltrust products at scale, use `Rollout management` in the fiskaltrust.Portal. It offers two types of rollout plans: the **Business Rollout** and the **Technical Rollout**. This page describes the Business Rollout.
+To roll out fiskaltrust products at scale, use `Rollout management` in the fiskaltrust.Portal. The **Business Rollout** is used to rollout products to PosOperators.
 
 ## Business Rollout
 
