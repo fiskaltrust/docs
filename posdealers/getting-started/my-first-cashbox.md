@@ -14,7 +14,7 @@ After reading this, you can create a CashBox in the Sandbox and have a functioni
 
 As a PosDealer, you have two options to create your first CashBox in the fiskaltrust.Portal:
 
-- **Rollout plans (recommended)**: the deployment wizards of the Portal. They create, buy and set up CashBoxes and related components for your PosOperators, and you can select several PosOperators and outlets at the same time. For more information, see [Rollout plans](#rollout-plans).
+- **Rollout management (recommended)**: the deployment wizards of the Portal. They create, buy and set up CashBoxes and related components for your PosOperators, and you can select several PosOperators and outlets at the same time. For more information, see [Rollout management](#rollout-management).
 - **Manual configuration**: you create the components yourself. First read [Architecture](../business-basics/architecture.md) to learn which components a CashBox needs, then follow [Manual CashBox Creation](../technical-operations/middleware/manual-configuration.md).
 
 Both options require the legal and commercial preparations described earlier in this documentation. They are summarized under [Prerequisites](#prerequisites).
@@ -41,7 +41,7 @@ Before you roll out a Middleware instance, make sure that the following prerequi
 - For a local Middleware installation: a system that meets the **hardware and software requirements**. For more information, see [Supported Environments](../technical-operations/middleware/supported-environments.md).
 - Any **SSCD components** (hardware or SaaS credentials) that the setup requires, unless the setup itself creates them.
 
-## Rollout plans
+## Rollout management
 
 ### Business Rollout
 
