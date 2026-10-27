@@ -43,9 +43,9 @@ To check the status of your orders, open `Shop` > `Orders` in the left sidebar.
 
 ### Invoices
 
-To find the invoices of your orders, open `Shop` > `Invoices` in the left sidebar.
+To find the invoices of your orders, open `Shop` > `Invoices` in the left sidebar. To download an invoice, click `Download Invoice` (download icon) in its row.
 
-![Invoices page in the fiskaltrust.Portal shop with the search field and the list of invoices with their date, amount and order, and the action buttons of each invoice](./images/shop-invoices.png)
+![Invoices page in the fiskaltrust.Portal shop with the search field and the list of invoices with their date, amount and order, and the Download Invoice button of each invoice](./images/shop-invoices.png)
 
 *Figure 2. The `Invoices` page with the list of your invoices.*
 
