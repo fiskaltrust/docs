@@ -69,16 +69,16 @@ A POSNET printer accepts a whole receipt even when it cannot print, for example 
 
 - Before a receipt is opened and before it is closed, the SCU checks that the printer is ready. If it is not, the receipt is **not issued** and the response is an error.
 - Every failure before the receipt is closed means that the receipt was not issued; the SCU cancels the open receipt. The error message says "The receipt was NOT issued", and the POS can send the receipt again.
-- If the printer does not confirm closing the receipt, the SCU waits until the printer is ready again and then reads its counters: if the receipt was issued, the response is successful as for any other receipt; if not, the response is an error. There is no time limit on this wait, because an answer given while the printer still holds the receipt could be wrong. While the SCU waits, the [zero receipt](#printer-status-on-the-zero-receipt) shows what the printer is waiting for.
+- If the printer does not confirm closing the receipt, the SCU waits until the printer is ready again and then reads its counters: if the receipt was issued, the response is successful as for any other receipt; if not, the response is an error. There is no time limit on this wait, because an answer given while the printer still holds the receipt could be wrong. The Queue processes requests one at a time, so a zero receipt sent to the same Queue waits until the pending receipt is answered; check the printer itself (paper, cover, cable) to see what it is waiting for.
 - After the receipt is closed, nothing fails it: if the connection is lost before the SCU has read the receipt's numbers, it waits for the printer and reads them again. A failure while printing the additional lines is reported in the response, see [Additional lines on the receipt](../../data-structures/data-structures.md).
 - The daily closing is handled in the same way; its error message says "The daily report was NOT issued".
 - If the printer is ready again but does not report the counters needed to decide, the outcome is **unknown**: the `FAILURE` signature says so. Check the last document on the printer before sending the request again, and send it again only if it was not issued.
 
-Errors are returned with the state `0x504C_2000_EEEE_EEEE` (see [Service Status: ftState](../../reference-tables/service-status-ftstate.md)) and a signature with the caption `FAILURE` that says what to do next.
+Errors are returned with the state `0x504C_2000_EEEE_EEEE` (see [Service Status: ftState](../../reference-tables/service-status-ftstate.md)) and a signature of the failure category that says what to do next: for an SCU or printer error its caption is `FAILURE`; for a validation error of the Queue the caption names the rule, such as `[Error] CurrencyMustMatchMarket`. Read the `Data` of every signature of the failure category.
 
 ### Printer status on the zero receipt
 
-The zero receipt (`0x2000`) returns the live state of the printer in `ftStateData`, also while a receipt waits for the printer:
+The zero receipt (`0x2000`) returns the live state of the printer in `ftStateData`. It is processed after any request that is still pending in the same Queue:
 
 ```json
 "ftStateData": {

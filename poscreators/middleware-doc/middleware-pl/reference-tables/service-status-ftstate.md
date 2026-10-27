@@ -25,8 +25,8 @@ The Polish Queue returns only the global flags below. Unlike in other markets, i
 
 #### lll - local flags
 
-The middle three nibbles carry the Polish local flags. No Polish local flags are defined at the moment: every error is returned as `0x504C_2000_EEEE_EEEE`, and the `FAILURE` signature tells the reason.
+The middle three nibbles carry the Polish local flags. No Polish local flags are defined at the moment: every error is returned as `0x504C_2000_EEEE_EEEE`, and the signatures of the failure category tell the reason.
 
 | **Value** | **Description** | **Middleware Version** |
 | --------- | --------------- | ---------------------- |
-| `0x504C_2000_EEEE_EEEE` | **Error**<br />The request failed. A signature with the caption `FAILURE` says what to do next: if the register could not be reached, the receipt was **not** fiscalized and can be sent again once the register is reachable; if the receipt was not issued, the message says so; for a validation error, it names the field to correct. Under Art. 111(3) of the Polish VAT Act sales must not continue without a working register. There is no late-signing fallback for fiscal receipt cases in Poland. See [Failure handling](../operation-modes/scu/posnet.md#failure-handling). | preview |
+| `0x504C_2000_EEEE_EEEE` | **Error**<br />The request failed. The signatures of the failure category say why; read their `Data`. An SCU or printer error has the caption `FAILURE`, a validation error of the Queue a caption that names the rule, such as `[Error] CurrencyMustMatchMarket`. The `FAILURE` signature says what to do next: if the register could not be reached, the receipt was **not** fiscalized and can be sent again once the register is reachable; if the receipt was not issued, the message says so; for a validation error, it names the field to correct. Under Art. 111(3) of the Polish VAT Act sales must not continue without a working register. There is no late-signing fallback for fiscal receipt cases in Poland. See [Failure handling](../operation-modes/scu/posnet.md#failure-handling). | preview |
