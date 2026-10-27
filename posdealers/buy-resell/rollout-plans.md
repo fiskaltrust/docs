@@ -29,14 +29,6 @@ The Business Rollout combines the purchase of entitlements, their transfer to th
 
 For a step-by-step example in the Sandbox, with the rollout plan of each market, see [Business Rollout](../getting-started/my-first-cashbox.md#business-rollout) on the My First Cashbox page.
 
-## Benefits of rollout plans
-
-- **Save time**: you and your team create the key elements of a rollout quickly, which leaves more time to adapt each rollout to the requirements of the PosOperator.
-- **Improve communication**: you define which steps your team members take in each phase of the rollout.
-- **Keep track**: you identify the critical elements of each phase, and you see the current status quickly, for example when a fix is needed.
-- **Support your sales**: rollout plans help you explain to your PosOperators which products you offer and why.
-- **Organize your rollout**: rollout plans support a well-organized rollout strategy.
-
 ## Availability
 
 The rollout plans available in your account are listed in `Rollout management`. They can differ between the live system and the Sandbox: the Sandbox is used to test new features with fiskaltrust and selected customers.
