@@ -244,7 +244,7 @@ A sale paid by debit card, with lines for the whole receipt, a payment receipt, 
 }
 ```
 
-`5786034805636333569` is `ftReceiptCase` `0x504C_2000_0000_0001` (POS receipt), `5786034805636333571` is `ftChargeItemCase` `0x504C_2000_0000_0013` (normal VAT rate of 23%), and `5786034805636333572` is `ftPayItemCase` `0x504C_2000_0000_0004` (debit card payment).
+`5786034805636333569` is `ftReceiptCase` `0x504C_2000_0000_0001` (POS receipt), `5786034805636333571` is `ftChargeItemCase` `0x504C_2000_0000_0003` (unknown service type, normal VAT rate of 23%), and `5786034805636333572` is `ftPayItemCase` `0x504C_2000_0000_0004` (debit card payment).
 
 ### Planned options
 

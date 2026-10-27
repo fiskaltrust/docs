@@ -70,7 +70,7 @@ The printer always prints the following elements, as the Polish regulations requ
 
 | Element | Printer command | Options | Optional | Position | Set | fiskaltrust.Middleware |
 |---------|-----------------|---------|----------|----------|-----|------------------------|
-| Cashier and register number | `ftrcfg` (`cc` up to 32, `cn` up to 8, `ca`), `login` | For the next receipt only or permanently; default *#001 KIEROWNIK* | Yes | Fixed, fiscal footer | Per receipt or in the printer | Planned |
+| Cashier and register number | `ftrcfg` (`cc` up to 32, `cn` up to 8, `ca`), `login` | For the next receipt only or permanently | The register number and cashier are always printed; sending them is optional, otherwise the printer prints its defaults *#001 KIEROWNIK* | Fixed, fiscal footer | Per receipt or in the printer | Planned |
 | Additional lines | `trftrln` (`id` 0–42, `na`, `sw`, `sh`) | 40 predefined labels (for example *Nr transakcji*, *Ilość sprzedanych towarów*, *Numer klienta*), plain text, left-aligned text, small font; up to 56 characters on 80 mm paper and 40 on 57 mm paper; double width or height; up to 60 lines | Yes | After the fiscal footer, in order | Per receipt | Supported as left-aligned text: `cbReceiptLines` and payment receipts, see [Additional lines on the receipt](../../data-structures/data-structures.md#additional-lines-on-the-receipt). Labels and the other line types: Planned |
 | System number | `ftrcfg` (`sn`) | Up to 30 characters, printed as a line *Nr sys.* | Yes | Fixed, footer | Per receipt | Not available |
 | Information lines | `ftrcfg` (`ln`, `lb`), `ftrinfoset` (`tx`, `lb`) | Up to 3 lines, formatting as in the header | Yes | Fixed, end of the receipt, above the barcode | Per receipt or in the printer | Planned |
