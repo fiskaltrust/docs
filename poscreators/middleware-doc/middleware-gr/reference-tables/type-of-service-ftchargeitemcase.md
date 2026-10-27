@@ -43,7 +43,7 @@ For more information, see [VAT rules and rates](https://europa.eu/youreurope/bus
 | `3` | **Tip**<br /> For owner use V=0 to 7, related to total amount <br /> For Employee use V=8, Not Taxable. | 1.3.67  |
 | `4` | **Voucher**<br /> For Single-Use-Voucher use V=0 to 7<br />For Multi-Use-Voucher use V=8, Not Taxable<br />Voucher Sale is a positive (+) amount.<br />Voucher Redeem is a negative (-) amount.<br />IsVoid can be applied to reverse amounts.<br />Avoid to use this for Multi-Use-Voucher, use PayItem instead, with ShowInChargeItems flag. For Single-Use-Voucher, apply the ShowInPayItems flag to visualize it similar to payment and to keep the total amount unreduced. | 
 | `5` | **Catalog service** | 
-| `6` | **Not own sales / Agency business** | 
+| `6` | **Not own sales / Agency business**<br />A receipt or invoice with only not own sales items is transmitted as myDATA type 11.5 or 1.4, see [txcc - ReceiptCase](type-of-receipt-ftreceiptcase.md#txcc---receiptcase). On an invoice with only not own sales items (myDATA type 1.4), myDATA rejects the transmitted `vatCategory 8` with error 216: "Vat category must have value other than 8 for this invoice type". A line with `V` = `8` Not taxable and `NN` = `00` is transmitted with `vatCategory 8`; with any other `NN` it is transmitted with `vatCategory 7`, see [NN - nature of VAT](#nn---nature-of-vat). | 
 | `7` | **Own Consumption** | 
 | `8` | **Grant**<br />For Unreal Grant use V=0 to 7<br />For Real Grant use V=8  | 
 | `9` | **Receivable**<br />Receivable creation is negative (-) amount<br />Receivable reduction is positive (+) amount.<br />IsVoid can be applied to reverse amounts.<br />Avoid to use this, use PayItem instead.  |1.3.67|   

@@ -698,7 +698,8 @@ A systematic approach to updating case values:
 | `0x2000_ooo8_ooo6` | `0x4445_0000_0000_0087` | Downpayment (amount > 0) type of service, parking type of vat => not defined in v0, goto unknown |
 | `0x2000_ooo8_ooo7` | `0x4445_0000_0000_008E` | Downpayment (amount > 0) type of service, zero type of vat |
 | `0x2000_ooo8_ooo8` | `0x4445_0000_0000_008D` | Downpayment (amount > 0) type of service, not taxable type of vat |
-| `0x2000_oooo_ooA8` | `0x4445_0000_0000_0097 X TODO different cash transfers` | Cash transfer type of service, not taxable type of vat |
+| `0x2lll_oooo_ooA8` | `0x4445_0000_0000_0090` to `0x4445_0000_0000_0097` | Cash transfer type of service, not taxable type of vat. The local flag `lll` and the sign of the amount select the v0 value, see [Cash Drawer Movements (Kassenlade)](../middleware-de-kassensichv/cash-register-integration/cash-drawer-movements.md#integrations-with-v0-case-values) |
+| `0x2000_oooo_ooAV` (V = 0 to 7) | `0x4445_0000_0000_00B1` to `0x4445_0000_0000_00B7` | Cash transfer type of service with a VAT rate (Einzahlung/Auszahlung with VAT); the sign of the amount decides between Einzahlung and Auszahlung, see [Cash Drawer Movements (Kassenlade)](../middleware-de-kassensichv/cash-register-integration/cash-drawer-movements.md#einzahlung-and-auszahlung-with-vat) |
 | `0x2000_oooo_5oo8` | `0x4445_0000_0000_00A1` | Not taxable type of vat, reverse charge => v0 specific implementation |
 | `0x2000_oooo_oo61` | `0x4445_0000_0000_00A2` | Agency business type of service, discounted1 type of vat |
 | `0x2000_oooo_oo62` | `0x4445_0000_0000_00A2` | Agency business type of service, discounted2 type of vat |
@@ -815,19 +816,14 @@ A systematic approach to updating case values:
 | `0x2000_oooo_oo09` | `0x4445_0000_0000_000E` | Accounts receiveable |
 | `0x2000_oooo_oo0A` | `0x4445_0000_0000_0008` | Sepa wire transfer |
 | `0x2000_oooo_oo0B` | `0x4445_0000_0000_0009` | Other wire/bank transer |
-| `0x2000_oooo_oo0C` | `0x4445_0000_0000_0012` | Transfer to ... [cashbook / vault / owner / employee], amount negativ, ??? MoneyGroup == "EmptyTill" => v0 cash transfer to empty till |
-| `0x2000_oooo_oo0C` | `0x4445_0000_0000_0013` | Transfer to ... [cashbook / vault / owner / employee], MoneyGroup == ??? "Owner" => v0 cash transfer to owner |
-| `0x2000_oooo_oo0C` | `0x4445_0000_0000_0014` | Transfer to ... [cashbook / vault / owner / employee], MoneyGroup == ??? "Till", => v0 cash transfer from/to till |
-| `0x2000_oooo_oo0C` | `0x4445_0000_0000_0015` | Transfer to ... [cashbook / vault / owner / employee], MoneyGroup == ??? "Employee" => v0 cash transfer to employee |
-| `0x2000_oooo_oo0C` | `0x4445_0000_0000_0016` | Transfer to ... [cashbook / vault / owner / employee], MoneyGroup == ??? "Cashbook" => v0 cash transfer from/to cashbook |
-| `0x2000_oooo_oo0C` | `0x4445_0000_0000_0017` | Transfer to ... [cashbook / vault / owner / employee], MoneyGroup == ??? "CashDifference" => v0 cash difference in till |
+| `0x2000_oooo_oo0C` | `0x4445_0000_0000_0014` | Transfer to cashbook/vault/owner/employee => v0 cash transfer from/to till (Geldtransit). For other purposes, use a cash transfer charge item with a local flag, see [Cash Drawer Movements (Kassenlade)](../middleware-de-kassensichv/cash-register-integration/cash-drawer-movements.md) |
 | `0x2000_oooo_oo0D` | `0x4445_0000_0000_000A` | Internal / material consumption |
 | `0x2000_oooo_oo0E` | `0x4445_0000_0000_0011` | Grant => v0 (real)grant |
 | `0x2000_oooo_oo0F` | `0x4445_0000_0000_0006` | Ticket restaurant => v0 voucher |
 | `0x2000_ooo8_oo09` | `0x4445_0000_0000_000F` | Accounts receiveable, downpayment flag => v0 downpayment |
 | `0x2000_oo2o_oo01` | `0x4445_0000_0000_000B` | Cash payment, change flag => v0 change |
 | `0x2000_oo3o_oo01` | `0x4445_0000_0000_000C` | Cash payment, in foreign currency, change flag => v0 change in foreign currency |
-| `0x2000_oo4o_oo01` | `0x4445_0000_0040_0012` | Cash payment, tip flag => v0 tip to employee |
+| `0x2000_oo4o_oo01` | `0x4445_0000_0000_0010` | Cash payment, tip flag => v0 tip to employee |
 
 *Table 11. Germany (DE) ftPayItemCase mappings between v2 and v0 values.*
 

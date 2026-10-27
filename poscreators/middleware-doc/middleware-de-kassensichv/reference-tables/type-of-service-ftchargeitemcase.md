@@ -134,6 +134,10 @@ This table expands on the values provided in the [Type of Service: ftChargeItemC
 
 *Table 1. ftChargeItemCase values with their DSFinV-K tax key (UST_SCHLUESSEL) and business case type (GV_TYP) for the German market.*
 
+:::tip Cash drawer movements
+The values `0x4445000000000090` to `0x4445000000000097` record cash put into or taken out of the cash drawer (Kassenlade) without a sale, such as Geldtransit or Privatentnahme. For how to choose the purpose and how the v2 values map to them, see [Cash Drawer Movements (Kassenlade)](../cash-register-integration/cash-drawer-movements.md).
+:::
+
 ## ftChargeItemCaseFlag
 
 This table shows flags that can be added to each `ftChargeItemCase` with values applicable to the German market.

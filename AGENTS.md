@@ -12,6 +12,7 @@ Guidance for AI agents working in this repository. See [README.md](README.md) fo
 - Content only; the site is built by [fiskaltrust/service-docs-ui](https://github.com/fiskaltrust/service-docs-ui) (Docusaurus). A local build is usually not available here, so verify links and anchors manually, as described in [Writing conventions](#writing-conventions).
 - The sidebar is defined manually in `poscreators/toc.js` and `posdealers/toc.js`. A page that is not listed there is still built and reachable by URL. Check `toc.js` and search for incoming links before deleting or renaming a page.
 - Documentation pages should start with front matter with the fields `slug`, `title`, `description`, `tags` and `type`. For `slug`, `title`, `description` and `tags`, see [Writing Documentation Pages](README.md#writing-documentation-pages) in the README. For `type`, see [Document type](#document-type).
+- `poscreators/middleware-doc/` is the only copy of the Middleware documentation. It is no longer mirrored to `fiskaltrust/businesscase`; that repository keeps only the business case samples (`example/`).
 - Agent instruction files (`AGENTS.md`, `CLAUDE.md`) are excluded from the site build by the docs plugin configuration in service-docs-ui (`docusaurus.config.js`, `exclude`). Do not add front matter to them.
 
 ## Document type
