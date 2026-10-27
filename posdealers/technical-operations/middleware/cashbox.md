@@ -144,7 +144,7 @@ Subsequently, you will be redirected back to the list of CashBoxes, where your n
 
 CashBox templates are customizable blueprints for CashBoxes and, depending on their Configuration, come with several components already pre-configured.
 
-You can create CashBoxes with templates in the context of the shop and API templating, as well as part of a technical rollout. Please see the chapters [Templates](../rollout-automation/templates.md) and [Rollout Plans](../../buy-resell/rollout-plans.md) for more information on these topics.
+You can create CashBoxes with templates in the context of the shop and API templating, as well as part of a technical rollout. Please see the chapters [Templates](../rollout-automation/templates.md) and [Rollout management](../../buy-resell/rollout-plans.md) for more information on these topics.
 
 ### Configuring a CashBox
 

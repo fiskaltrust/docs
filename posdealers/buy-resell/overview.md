@@ -1,11 +1,11 @@
 ---
 slug: /posdealers/buy-resell/overview
-title: Overview - Buy & Resell
+title: Overview
 description: How PosDealers buy entitlements and resell fiskaltrust products, including credit limits, volume purchase agreements and price lists.
 type: overview
 tags: [Entitlements, Volume Purchase Agreement, Pricing, PosDealers, Portal]
 ---
-# Overview - Buy & Resell
+# Overview
 
 :::info summary
 
@@ -50,7 +50,7 @@ With a **volume purchase agreement**, you commit to buying **large quantities of
 
 After these preparations, you buy fiskaltrust products in one of two ways:
 
-- **Rollout plans**: the main way to buy fiskaltrust products, in all markets. For more information, see [Rollout Plans](./rollout-plans.md).
+- **Rollout management**: the main way to buy fiskaltrust products, in all markets. For more information, see [Rollout management](./rollout-plans.md).
 - **Shop**: only for buying dealer entitlements and some hardware products. For more information, see [Shop](./shop.md).
 
 To manage the subscriptions you bought, see [Subscription management](./subscription-management.md).

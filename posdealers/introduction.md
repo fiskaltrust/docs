@@ -26,7 +26,7 @@ Before you roll out a POS system at a PosOperator, make sure the following is in
 
 *Table 1. Prerequisites for a first rollout.*
 
-To **buy and resell** in the live system, you additionally need to sign the cooperation agreement as PosDealer. For more information, see [Overview - Buy & Resell](buy-resell/overview.md).
+To **buy and resell** in the live system, you additionally need to sign the cooperation agreement as PosDealer. For more information, see [Overview](buy-resell/overview.md) in Buy & Resell.
 
 :::caution
 
@@ -40,7 +40,7 @@ Run all first steps in the Sandbox. Sandbox signatures are for testing only, are
 2. **Set up the Sandbox.** Register a Sandbox account free of charge and activate the PosDealer role. For more information, see [Sandbox](getting-started/sandbox.md) and [Registration](getting-started/registration.md).
 3. **Onboard a PosOperator.** Invite a PosOperator, or act on their behalf by surrogating, and verify their master data. For more information, see [Operator Onboarding](getting-started/operator-onboarding/invitation-process.md).
 4. **Create your first CashBox.** Use a Rollout Plan (recommended) or a manual configuration, then run a test request. For more information, see [My First Cashbox](getting-started/my-first-cashbox.md).
-5. **Plan purchasing.** Buy Entitlements and transfer them to PosOperators. If you plan to buy ten or more product bundles, consider a volume purchase agreement. For more information, see [Overview - Buy & Resell](buy-resell/overview.md).
+5. **Plan purchasing.** Buy Entitlements and transfer them to PosOperators. If you plan to buy ten or more product bundles, consider a volume purchase agreement. For more information, see [Overview](buy-resell/overview.md) in Buy & Resell.
 6. **Roll out and operate.** Choose a rollout scenario, automate rollouts with templates, and set up monitoring and maintenance. For more information, see [Overview - Technical Operations](technical-operations/overview-technical-operations.md).
 
 ## Documentation sections
@@ -49,7 +49,7 @@ Run all first steps in the Sandbox. Sandbox signatures are for testing only, are
 |---|---|---|
 | **Business Basics** | Business model, company roles, services, supported countries, architecture, fiskaltrust.Portal, Fair Use Policy. | [Overview](business-basics/overview-business-basics.md) |
 | **Getting Started** | Sandbox, registration, company roles, PosOperator onboarding (invitation, surrogating, master data), first CashBox. | [Overview - Getting Started](getting-started/overview-getting-started.md) |
-| **Buy & Resell** | Entitlements, credit limit, volume purchase agreements, rollout plans, Shop, subscription management, products and bundles. | [Overview - Buy & Resell](buy-resell/overview.md) |
+| **Buy & Resell** | Entitlements, credit limit, volume purchase agreements, rollout plans, Shop, subscription management, products and bundles. | [Overview](buy-resell/overview.md) |
 | **Technical Operations** | Rollout scenarios, Middleware launchers and configuration, PosSystem API platforms, rollout automation, troubleshooting, maintenance and exports. | [Overview - Technical Operations](technical-operations/overview-technical-operations.md) |
 | **Information Sources** | Knowledge base, support cases, downloads, third-party partner status, news, videos, webinars, contacting support. | [Overview - Information Sources](information-sources/overview-information-sources.md) |
 

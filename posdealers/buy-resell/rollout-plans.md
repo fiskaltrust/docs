@@ -1,19 +1,19 @@
 ---
 slug: /posdealers/buy-resell/rollout-plans
-title: Rollout Plans
+title: Rollout management
 description: Using Business Rollout plans in the Portal to buy, transfer and activate entitlements for multiple PosOperators and outlets at once.
 type: process
 tags: [Rollout Plans, Entitlements, Portal, PosDealers]
 ---
-# Rollout Plans
+# Rollout management
 
 :::info summary
 
-After reading this, you can buy and rollout fiskaltrust products.
+After reading this, you can buy and roll out fiskaltrust products.
 
 :::
 
-To roll out fiskaltrust products at scale, use `Rollout management` in the fiskaltrust.Portal. The **Business Rollout** is used to rollout products to PosOperators.
+To roll out fiskaltrust products at scale, use `Rollout management` in the fiskaltrust.Portal. With the **Business Rollout**, you roll out products to your PosOperators.
 
 ## Business Rollout
 

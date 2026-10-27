@@ -17,7 +17,7 @@ The `Shop` is the basic way for PosDealers and PosOperators to buy fiskaltrust p
 
 :::info prerequisites
 
-- **PosDealers**: you know how to switch to a PosOperator's account, and you have a credit limit. For larger quantities, you have signed a volume purchase agreement. For more information, see [Surrogating](../getting-started/operator-onboarding/surrogating.md) and [Overview - Buy & Resell](overview.md).
+- **PosDealers**: you know how to switch to a PosOperator's account, and you have a credit limit. For larger quantities, you have signed a volume purchase agreement. For more information, see [Surrogating](../getting-started/operator-onboarding/surrogating.md) and [Overview](overview.md).
 - **PosOperators**: clarify with your PosDealer whether you buy the products yourself or through your PosDealer.
 
 :::
