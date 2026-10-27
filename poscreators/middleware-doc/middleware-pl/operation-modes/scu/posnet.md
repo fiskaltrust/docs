@@ -15,7 +15,7 @@ tags: [POSNET, SCU, Configuration, Poland]
 
 The _fiskaltrust.Middleware.SCU.PL.PosNet_ package connects the middleware with a **POSNET Online fiscal printer**. The printer is the certified register: it assigns the fiscal document numbers, owns the PTU (VAT) rate table and the daily (Z) reports, and transmits the fiscal data to the CRK. The SCU translates the middleware receipt into POSNET protocol commands and returns the register's identifiers on the response (see [Type of Signature: ftSignatureType](../../reference-tables/type-of-signature-ftsignaturetype.md)).
 
-The devices on which the SCU has been tested are listed in [Tested devices](../../data-structures/data-structures.md#tested-devices).
+The devices on which the SCU has been tested are listed on the [Data Structures](../../data-structures/data-structures.md) page.
 
 ### Connection
 
@@ -51,12 +51,12 @@ In the preview, the SCU processes the following receipt cases:
 
 | Receipt case | What the printer does |
 |--------------|-----------------------|
-| POS receipt `0x0001`, unknown `0x0000`, e-commerce `0x0004` | Prints the fiscal receipt (*paragon fiskalny*), including discounts and extras (see [Discounts and extras](../../data-structures/data-structures.md#discounts-and-extras)) and the [additional lines](../../data-structures/data-structures.md#additional-lines-on-the-receipt). |
+| POS receipt `0x0001`, unknown `0x0000`, e-commerce `0x0004` | Prints the fiscal receipt (*paragon fiskalny*), including discounts and extras (see [Discounts and extras](../../data-structures/data-structures.md#discounts-and-extras)) and the [additional lines](../../data-structures/data-structures.md). |
 | POS receipt with the flag `IsReturn/IsRefund` | Prints the return as a document of its own, see [Sale and return positions](../../data-structures/data-structures.md#sale-and-return-positions). |
 | Zero receipt `0x2000` | Prints nothing. Returns the printer status, see [Printer status on the zero receipt](#printer-status-on-the-zero-receipt). |
 | Daily closing `0x2011` | Prints the daily report (*raport dobowy*). |
-| Monthly closing `0x2012` | Prints the monthly report of the month of `cbReceiptMoment`. |
-| Yearly closing `0x2013` | Prints a periodic report from 1 January up to the day of `cbReceiptMoment`; the printer has no yearly report of its own. Send it on 31 December to cover the whole year. |
+| Monthly closing `0x2012` | Prints the monthly report of the month of `cbReceiptMoment`, converted to Polish time (Europe/Warsaw). |
+| Yearly closing `0x2013` | Prints a periodic report from 1 January up to the day of `cbReceiptMoment`, converted to Polish time (Europe/Warsaw); the printer has no yearly report of its own. Send it on 31 December, Polish time, to cover the whole year: for example, `2026-12-31T23:30:00Z` is already 1 January 2027 in Poland. |
 | Invoices `0x1xxx` | Not sent to the printer. A Polish invoice is issued through KSeF. |
 
 *Table 3. Receipt cases processed by the POSNET SCU.*
@@ -65,13 +65,14 @@ The initial-operation receipt checks that the printer reports itself as fiscaliz
 
 ### Failure handling
 
-A POSNET printer accepts a whole receipt even when it cannot print, for example with the cover open or without paper. It then holds the closed receipt and prints and fiscalizes it as soon as the fault is cleared. No command withdraws such a receipt. The SCU therefore never reports a receipt as failed that the printer may still issue:
+A POSNET printer accepts a whole receipt even when it cannot print, for example with the cover open or without paper. It then holds the closed receipt and prints and fiscalizes it as soon as the fault is cleared. No command withdraws such a receipt. The SCU therefore never reports a receipt as *not issued* while the printer may still issue it:
 
 - Before a receipt is opened and before it is closed, the SCU checks that the printer is ready. If it is not, the receipt is **not issued** and the response is an error.
 - Every failure before the receipt is closed means that the receipt was not issued; the SCU cancels the open receipt. The error message says "The receipt was NOT issued", and the POS can send the receipt again.
 - If the printer does not confirm closing the receipt, the SCU waits until the printer is ready again and then reads its counters: if the receipt was issued, the response is successful as for any other receipt; if not, the response is an error. There is no time limit on this wait, because an answer given while the printer still holds the receipt could be wrong. While the SCU waits, the [zero receipt](#printer-status-on-the-zero-receipt) shows what the printer is waiting for.
-- After the receipt is closed, nothing fails it: if the connection is lost before the SCU has read the receipt's numbers, it waits for the printer and reads them again. A failure while printing the additional lines is reported in the response, see [Additional lines on the receipt](../../data-structures/data-structures.md#additional-lines-on-the-receipt).
+- After the receipt is closed, nothing fails it: if the connection is lost before the SCU has read the receipt's numbers, it waits for the printer and reads them again. A failure while printing the additional lines is reported in the response, see [Additional lines on the receipt](../../data-structures/data-structures.md).
 - The daily closing is handled in the same way; its error message says "The daily report was NOT issued".
+- If the printer is ready again but does not report the counters needed to decide, the outcome is **unknown**: the `FAILURE` signature says so. Check the last document on the printer before sending the request again, and send it again only if it was not issued.
 
 Errors are returned with the state `0x504C_2000_EEEE_EEEE` (see [Service Status: ftState](../../reference-tables/service-status-ftstate.md)) and a signature with the caption `FAILURE` that says what to do next.
 
