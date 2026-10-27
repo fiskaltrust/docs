@@ -25,8 +25,6 @@ To buy and resell fiskaltrust products:
 4. If you plan to buy ten or more product bundles, contact fiskaltrust for a [volume purchase agreement](#volume-purchase-agreement).
 5. If the planned amount exceeds your [credit limit](#credit-limit), contact fiskaltrust.
 
-For the contacts per market, see [Contact information and price lists](#contact-information-and-price-lists).
-
 ## Credit limit
 
 When you activate the PosDealer role, you get a credit limit in the fiskaltrust.Portal. The credit limit in the live system is significantly lower than in the Sandbox.
@@ -41,28 +39,18 @@ With a **volume purchase agreement**, you commit to buying **large quantities of
 
 ### Get a volume purchase agreement
 
-1. Send an e-mail to the fiskaltrust sales team with your company name, your contact person, the product names or numbers and the quantity you need. For the address, see [Contact information and price lists](#contact-information-and-price-lists).
+1. Send an e-mail to the fiskaltrust sales team with your company name, your contact person, the product names or numbers and the quantity you need.
 2. The sales team sends you the volume purchase agreement, including the calculated discount.
 3. Sign the volume purchase agreement and send it back to the sales team.
 4. After the confirmation, fiskaltrust sends you the countersigned agreement.
 
 **Result:** The ordered products are available in the `Shop` of your account at the agreed prices.
 
-## Contact information and price lists
-
-| Market | Contact | Price list |
-|---|---|---|
-| Austria | info@fiskaltrust.at | [Products and prices in Austria](https://www.fiskaltrust.at/products/product_01/) |
-| France | contact@fiskaltrust.fr | [Products and prices in France](https://fiskaltrust.fr/en/products-prices/) |
-| Germany | sales@fiskaltrust.de | In the [download area](https://portal.fiskaltrust.de/AccountProfile/Download) of the fiskaltrust.Portal |
-
-*Table 1. Contacts and price lists per market.*
-
 ## Next steps
 
 After these preparations, you buy fiskaltrust products in one of two ways:
 
-- **Rollout plans**: the easiest way, but not available for all products and markets. For more information, see [Rollout Plans](./rollout-plans.md).
-- **Shop**: available for all markets and products. For more information, see [Shop](./shop.md).
+- **Rollout plans**: the main way to buy fiskaltrust products, in all markets. For more information, see [Rollout Plans](./rollout-plans.md).
+- **Shop**: only for buying dealer entitlements and some hardware products. For more information, see [Shop](./shop.md).
 
 To manage the subscriptions you bought, see [Subscription management](./subscription-management.md).

@@ -13,7 +13,7 @@ After reading this, you can buy and transfer entitlements manually.
 
 :::
 
-The `Shop` is the basic way for PosDealers and PosOperators to buy fiskaltrust products. For the products, see [Products & Services](./products/overview.md). For the price lists, see [Contact information and price lists](overview.md#contact-information-and-price-lists).
+The `Shop` is the basic way for PosDealers and PosOperators to buy fiskaltrust products. For the products, see [Products & Services](./products/overview.md).
 
 :::info prerequisites
 
