@@ -1,13 +1,13 @@
 ---
 slug: /poscreators/middleware-doc/general/platforms
 title: Platforms
-description: Overview of the platforms the fiskaltrust.Middleware runs on — Windows, Linux, macOS, Android, Docker and the hosted CloudCashbox — with download links and installation steps.
+description: Overview of the platforms the fiskaltrust.Middleware runs on — Windows, Linux, macOS, Android, Docker and the hosted fiskaltrust.Middleware for Cloud — with download links and installation steps.
 tags: [Platforms, Launcher, Installation, Windows, Linux, macOS, Android, Middleware]
 ---
 
 # Platforms
 
-The fiskaltrust.Middleware runs either locally on the POS device or in a data center. On a local device, a **Launcher** starts the components of the CashBox (Queue, SCU, Helpers). In a data center, the Middleware runs in a container or is hosted by fiskaltrust as the CloudCashbox.
+The fiskaltrust.Middleware runs either locally on the POS device or in a data center. On a local device, a **Launcher** starts the components of the fiskaltrust.Middleware (Queue, SCU, Helpers). In a data center, the fiskaltrust.Middleware runs in a container or is hosted by fiskaltrust as the fiskaltrust.Middleware for Cloud.
 
 This page gives an overview of the available platforms, where to download the matching Launcher and how to install it. Which platforms are available depends on the market. For the platforms per market, see [Availability by market](../../../getting-started/choosing-an-architecture.md#availability-by-market).
 
@@ -21,7 +21,7 @@ This page gives an overview of the available platforms, where to download the ma
 | Linux, macOS | Launcher 2.0 (`fiskaltrust.Launcher`) | None (self-contained) | fiskaltrust.Portal, [GitHub](https://github.com/fiskaltrust/middleware-launcher/releases) | [Linux and macOS](#linux-and-macos) |
 | Android | Android Launcher (app) | Android 7 or higher | fiskaltrust.Portal (APK), Google Play | [Android](#android) |
 | Docker, Kubernetes | Bring your own Data Center (Germany only) | Docker; Helm for Kubernetes | [GitHub](https://github.com/fiskaltrust/product-de-bring-your-own-datacenter) | [Docker and Kubernetes](#docker-and-kubernetes) |
-| Any (hosted) | None | None | No download | [CloudCashbox](#cloudcashbox) |
+| Any (hosted) | None | None | No download | [fiskaltrust.Middleware for Cloud](#fiskaltrustmiddleware-for-cloud) |
 
 *Table 1. Platforms of the fiskaltrust.Middleware with Launcher, prerequisites, download and installation.*
 
@@ -137,13 +137,13 @@ Bring your own Data Center is only available in Germany.
 
 :::
 
-For cloud POS systems in a private data center or a public cloud (for example Azure or AWS), the Middleware runs in a Docker container. For high-load installations, a Helm chart for Kubernetes clusters is provided. We recommend the CloudCashbox over a Bring your own Data Center setup for simpler installation and maintenance.
+For cloud POS systems in a private data center or a public cloud (for example Azure or AWS), the Middleware runs in a Docker container. For high-load installations, a Helm chart for Kubernetes clusters is provided. We recommend the fiskaltrust.Middleware for Cloud over a Bring your own Data Center setup for simpler installation and maintenance.
 
 The installation guidelines are maintained in the [product-de-bring-your-own-datacenter](https://github.com/fiskaltrust/product-de-bring-your-own-datacenter) repository. For more information, see [Custom data center](../../../../posdealers/technical-operations/middleware/launchers/custom-data-center.md).
 
-## CloudCashbox
+## fiskaltrust.Middleware for Cloud
 
-The CloudCashbox is the Middleware hosted by fiskaltrust. Nothing is installed on the POS device, so any platform with an internet connection can use it, including iOS and web-based POS systems. The POS system connects with the CashBox ID, an access token and a URL.
+The fiskaltrust.Middleware for Cloud is the fiskaltrust.Middleware hosted by fiskaltrust. Nothing is installed on the POS device, so any platform with an internet connection can use it, including iOS and web-based POS systems. The POS system connects with the CashBox ID, an access token and a URL.
 
 For more information, see [CloudCashbox](../../../../posdealers/technical-operations/middleware/launchers/cloudcashbox.md).
 
