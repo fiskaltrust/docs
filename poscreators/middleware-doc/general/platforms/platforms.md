@@ -55,7 +55,7 @@ For Windows, Linux, macOS and Android, download the Launcher for a configured Ca
 3. Select `Rebuild configuration` for the CashBox, and wait for the success confirmation.
 4. Select `Download` for the CashBox and choose the Launcher for the operating system **and** the processor architecture of the target device.
 
-The download is a ZIP archive that already contains the configuration of the CashBox (CashBox ID and access token). Extract it into the folder from which the Middleware is to run.
+For Windows, Linux and macOS, the download is a ZIP archive that already contains the configuration of the CashBox (CashBox ID and access token). Extract it into the folder from which the Middleware is to run. For Android, the download is an APK; see [Android](#android) for installation and startup.
 
 For a description of the Launcher variants offered in the download dialog (.NET Launcher, .NET Offline Launcher, Mono Launcher, Android Launcher), see [Download of the Launcher](../components/components-install-config.md#download-of-the-launcher).
 
