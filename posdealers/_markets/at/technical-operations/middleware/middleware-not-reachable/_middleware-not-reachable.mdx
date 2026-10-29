@@ -1,0 +1,6 @@
+- **Connection:** a locally installed Middleware is reached over the local network, the hosted Middleware (SignatureCloud) over the internet connection of the location.
+- **During the failure:** the POS system issues receipts with the hint "Security mechanism not reachable" and buffers them.
+- **Afterwards:** the POS system sends the buffered receipts to the Middleware. Have the operator send a Zero-Receipt to end late-signing mode.
+- **48-hour rule:** if the late-signed receipts span more than 48 hours, FinanzOnline notifications are generated. With a fiskaltrust.Carefree or Notification subscription, they are carried out automatically. For more information, see [FinanzOnline Management](../../../../../buy-resell/products/3rd-party/finanzonline-management.md).
+
+For the POS system integration, see [Middleware Not Reachable (AT)](../../../../../../poscreators/middleware-doc/middleware-at-rksv/cash-register-integration/middleware-not-reachable.md).
