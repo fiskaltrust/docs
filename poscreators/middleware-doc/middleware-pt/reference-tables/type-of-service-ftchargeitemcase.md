@@ -19,17 +19,19 @@ version 2
 
 For more information, see [VAT rules and rates](https://europa.eu/youreurope/business/taxation/vat/vat-rules-rates/index_en.htm).
 
-| **Value** | **Description**| **Middleware Version** |
-| --------- | -------------- | ---------------------- |
-| `0` | **Unknown type of service for PT**<br />With the help of the VAT-rates table saved within fiskaltrust.SecurityMechanisms. | 1.3.45 |
-| `1` | **Discounted-1 VAT rate**<br />(as of 1.1.2022, this is 10%). | 1.3.45 |
-| `2` | **Discounted 2 VAT rate**<br />(as of 1.1.2022, this is calculated with 5%). | 1.3.45   |
-| `3` | **Normal VAT rate**<br />(as of 1.1.2022, this is calculated with 22%). | 1.3.45  |
-| `4` | **Super reduced 1 VAT rate**<br /> | 1.3.45 |
-| `5` | **Super reduced 2 VAT rate**<br /> | 1.3.45 |
-| `6` | **Parking VAT rate**<br />Reversal of tax liability. | 1.3.45 |
-| `7` | **Zero VAT rate**<br />In the data, a VAT-rate can be indicated. | 1.3.45 |
-| `8` | **Not Taxable**<br />For processing, see (`0x5054000000000001`) | 1.3.45 |
+`VATRate` must match the rate of the VAT value. The Middleware accepts only the rates listed in Table 1; the regional rates of Madeira and the Azores are not supported.
+
+| **Value** | **Description** | **SAF-T `TaxType` / `TaxCode`** |
+| --------- | --------------- | ------------------------------- |
+| `0` | **Unknown VAT rate**<br />Not supported in Portugal; rejected. | – |
+| `1` | **Discounted-1 VAT rate**<br />Reduced rate (*taxa reduzida*), 6 %. | `IVA` / `RED` |
+| `2` | **Discounted-2 VAT rate**<br />Intermediate rate (*taxa intermédia*), 13 %. | `IVA` / `INT` |
+| `3` | **Normal VAT rate**<br />Normal rate (*taxa normal*), 23 %. | `IVA` / `NOR` |
+| `4` | **Super reduced 1 VAT rate**<br />Not supported in Portugal; rejected. | – |
+| `5` | **Super reduced 2 VAT rate**<br />Not supported in Portugal; rejected. | – |
+| `6` | **Parking VAT rate**<br />Not supported in Portugal; rejected. | – |
+| `7` | **Zero VAT rate**<br />0 %, exempt. Requires a tax exemption code in `ftChargeItemCaseData.PT.TaxExemptionCode`. For more information, see [Tax exemption code in ftChargeItemCaseData](#tax-exemption-code-in-ftchargeitemcasedata). | `IVA` / `ISE` (*Isenta*, exempt) |
+| `8` | **Not Taxable**<br />0 %. Not subject to VAT (*não sujeito*). If `NN` is set, the line is exempt instead; see [NN - nature of VAT](#nn---nature-of-vat). | `NS` / `NS` (not subject to VAT or Stamp Duty) |
 
 *Table 1. VAT (V) values of ftChargeItemCase for Portugal.*
 
@@ -51,22 +53,80 @@ For more information, see [VAT rules and rates](https://europa.eu/youreurope/bus
 
 *Table 2. Type of Service (S) values of ftChargeItemCase for Portugal.*
 
-#### NN - nature of VAT  
+#### NN - nature of VAT
 
-| **Value** | **Description** | **Spec. for Portuguese reg.** | **Middleware Version** |
-| --------- | --------------- |  ---------------------------- | ---------------------- |
-| `00` | **Usual VAT applies** | | 1.3.45  |
-| `10` | **Not Taxable**<br />1x can be used to specify more country specific details. For example, IGL|*NI (N3) marker mandatory<br />[10] not taxable - exports<br />[11] non-taxable - intra-community supplies<br />[12] non-taxable - transfers to San Marino<br />[13] non-taxable - transactions assimilated to export supplies<br />[14] non-taxable - following declarations of intent<br />[15] non-taxable - other operations which do not contribute to the formation of the ceiling | 1.3.45 |
-| `20` | **Not Subject**<br />2x can be used to specify more country specific details.| *NS (N2) marker mandatory<br />[20] not subject to VAT pursuant to articles from 7 to 7-septies of Presidential Decree 633/72<br />[21] not subject, other cases| 1.3.45   |
-| `30` | **Exempt**<br /> 3x| *ES (N4) marker mandatory<br />[30] exempt | 1.3.45  |
-| `40` | **Margin scheme**<br /> Do not print/show VAT rate and amount on receipt/invoice.<br />4x can be used to specify more country specific details. | *RM (N5) marker mandatory<br />[40] margin scheme / VAT not shown on the invoice | 1.3.45 |
-| `50` | **Reverse charge**<br /> 5x | *AL (N6) marker mandatory<br />[50] reverse charge - disposal of scrap and other salvage materials<br />[51] reverse charge - sale of gold and silver pursuant to law 7/2000 as well as used jewellery to OPO<br />[52] reverse charge - subcontracting in the construction sector<br />[53] reverse charge - sale of buildings<br />[54] reverse charge - supply of mobile phones<br />[55] reverse charge - supply of electronic products<br />[56] reverse charge - performance in the construction sector and related sectors<br />[57] reverse charge - energy sector transactions<br />[58] reverse charge - other cases | 1.3.45 |
-| `60` | **VAT paid in other EU country** <br />6x| (N7) marker mandatory<br />[60] paid in another EU country (provision of telecommunications, broadcasting and electronic services pursuant to art. 7-octies, paragraph 1 letter a, b, art. 74-sexies of Presidential Decree 633/72) | 1.3.45 |
-| `70` | **VAT distribution**<br />7x | *VI (VI) is a fiscal VAT (IVA) regime that certain retailers can adopt. It allows the global registration of the daily takings amount without distinguishing the individual VAT rates. It only ever applies to goods. | 1.3.45 |
-| `80` | **Excluded**<br /> 8x| *EE (N1) marker mandatory<br />[80] excluded pursuant to art. 15 of Presidential Decree 633/72 | 1.3.45 |
+Use `00` for charge items with VAT.
 
-*Table 3. Nature of VAT (NN) values of ftChargeItemCase for Portugal.*
+Whenever `NN` is set to a value other than `00`, the charge item is exempt and the VAT rate (`V`) is ignored: the line is reported with the tax type `IVA` and the tax code `ISE` (*Isenta*, exempt), whatever `V` is. This also applies to `V` = `8`. `VATRate` must be `0`; a charge item with a VAT rate other than 0 % and an `NN` other than `00` is rejected.
 
+The individual values of `NN` for exempt charge items are not yet specified for Portugal. Send the tax exemption code of an exempt charge item in `ftChargeItemCaseData`, as described in the next section.
+
+#### Tax exemption code in ftChargeItemCaseData
+
+An exempt charge item needs a tax exemption code (*motivo de isenção*). Send it in `ftChargeItemCaseData.PT.TaxExemptionCode` and use the zero VAT rate (`V` = `7`) in `ftChargeItemCase`. The Middleware writes the code to `TaxExemptionCode` and the mention to `TaxExemptionReason` of the SAF-T (PT) line, and reports the line with the tax type `IVA` and the tax code `ISE` (*Isenta*, exempt).
+
+```json
+{
+  "Position": 2,
+  "Quantity": 1,
+  "Amount": 50,
+  "Description": "Transporte internacional",
+  "VATRate": 0,
+  "ftChargeItemCase": 5788286605450018839,
+  "ftChargeItemCaseData": {
+    "PT": {
+      "TaxExemptionCode": "M06"
+    }
+  }
+}
+```
+
+The `ftChargeItemCase` in this example is `0x5054_2000_0000_0017`: zero VAT rate, delivery, `NN` `00`.
+
+The following rules apply:
+
+- `TaxExemptionCode` must be one of the exemption codes in Table 3, for example `M06`. Upper and lower case and surrounding spaces are ignored. An unknown code is rejected.
+- `TaxExemptionCode` is only allowed on charge items with 0 % VAT, and `V` must be `7` (Zero VAT rate). Any other `V`, including `8` (Not Taxable), is rejected.
+- `NN` is not evaluated and can be `00`.
+- The mention (`TaxExemptionReason`) is always taken from Table 3 and cannot be sent in the request.
+- A refund must repeat the `ftChargeItemCaseData` of the original charge item.
+
+| **Exemption code** | **Mention (`TaxExemptionReason`)** | **Legal basis** |
+| ------------------ | ---------------------------------- | --------------- |
+| `M01` | Artigo 16.º, n.º 6 do CIVA | Artigo 16.º, n.º 6, alíneas a) a d) do CIVA |
+| `M02` | Artigo 6.º do Decreto-Lei n.º 198/90, de 19 de junho | Artigo 6.º do Decreto-Lei n.º 198/90, de 19 de junho |
+| `M04` | Isento artigo 13.º do CIVA | Artigo 13.º do CIVA |
+| `M05` | Isento artigo 14.º do CIVA | Artigo 14.º do CIVA |
+| `M06` | Isento artigo 15.º do CIVA | Artigo 15.º do CIVA |
+| `M07` | Isento artigo 9.º do CIVA | Artigo 9.º do CIVA |
+| `M09` | IVA - não confere direito a dedução | Artigo 62.º alínea b) do CIVA |
+| `M10` | IVA – regime de isenção | Artigo 57.º do CIVA |
+| `M11` | Regime particular do tabaco | Decreto-Lei n.º 346/85, de 23 de agosto |
+| `M12` | Regime da margem de lucro – Agências de viagens | Decreto-Lei n.º 221/85, de 3 de julho |
+| `M13` | Regime da margem de lucro – Bens em segunda mão | Decreto-Lei n.º 199/96, de 18 de outubro |
+| `M14` | Regime da margem de lucro – Objetos de arte | Decreto-Lei n.º 199/96, de 18 de outubro |
+| `M15` | Regime da margem de lucro – Objetos de coleção e antiguidades | Decreto-Lei n.º 199/96, de 18 de outubro |
+| `M16` | Isento artigo 14.º do RITI | Artigo 14.º do RITI |
+| `M19` | Outras isenções | Isenções temporárias determinadas em diploma próprio |
+| `M20` | IVA - regime forfetário | Artigo 59.º-D n.º 2 do CIVA |
+| `M21` | IVA – não confere direito à dedução (ou expressão similar) | Artigo 72.º n.º 4 do CIVA |
+| `M25` | Mercadorias à consignação | Artigo 38.º n.º 1 alínea a) do CIVA |
+| `M26` | Isenção de IVA com direito à dedução no cabaz alimentar | Lei n.º 17/2023, de 14 de abril |
+| `M30` | IVA - autoliquidação | Artigo 2.º n.º 1 alínea i) do CIVA |
+| `M31` | IVA - autoliquidação | Artigo 2.º n.º 1 alínea j) do CIVA |
+| `M32` | IVA - autoliquidação | Artigo 2.º n.º 1 alínea l) do CIVA |
+| `M33` | IVA - autoliquidação | Artigo 2.º n.º 1 alínea m) do CIVA |
+| `M34` | IVA - autoliquidação | Artigo 2.º n.º 1 alínea n) do CIVA |
+| `M40` | IVA - autoliquidação | Artigo 6.º n.º 6 alínea a) do CIVA, a contrário |
+| `M41` | IVA - autoliquidação | Artigo 8.º n.º 3 do RITI |
+| `M42` | IVA - autoliquidação | Decreto-Lei n.º 21/2007, de 29 de janeiro |
+| `M43` | IVA - autoliquidação | Decreto-Lei n.º 362/99, de 16 de setembro |
+| `M44` | IVA – Regras específicas - artigo 6.º | Artigo 6.º do CIVA |
+| `M45` | IVA – regime transfronteiriço de isenção | Artigo 58.º-A do CIVA |
+| `M46` | IVA – e-TaxFree | Decreto-Lei n.º 19/2017, de 14 de fevereiro |
+| `M99` | Não sujeito ou não tributado | Outras situações de não liquidação do imposto |
+
+*Table 3. Tax exemption codes for ftChargeItemCaseData.PT.TaxExemptionCode.*
 
 #### lll - local tagging/flag
 
