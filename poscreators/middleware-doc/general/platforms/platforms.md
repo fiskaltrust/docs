@@ -19,7 +19,7 @@ This page gives an overview of the available platforms, where to download the ma
 | Windows | Launcher 2.0 (`fiskaltrust.Launcher.exe`) | None (self-contained) | fiskaltrust.Portal, [GitHub](https://github.com/fiskaltrust/middleware-launcher/releases) | [Windows](#windows) |
 | Linux, macOS | Launcher 1.3 (`fiskaltrust.exe` on Mono) | Mono 6.8.0 or higher | fiskaltrust.Portal | [Linux and macOS](#linux-and-macos) |
 | Linux, macOS | Launcher 2.0 (`fiskaltrust.Launcher`) | None (self-contained) | fiskaltrust.Portal, [GitHub](https://github.com/fiskaltrust/middleware-launcher/releases) | [Linux and macOS](#linux-and-macos) |
-| Android | fiskaltrust.Middleware for Android (app) | Android 7 or higher | [GitHub](https://github.com/fiskaltrust/middleware-launcher-android/releases) (APK) | [Android](#android) |
+| Android | fiskaltrust.Middleware for Android (app) | Android 7 or higher | [GitHub](https://github.com/fiskaltrust/middleware-launcher-android/releases), `v2.0.0` pre-release (APK) | [Android](#android) |
 | Docker, Kubernetes | Bring your own Data Center (Germany only) | Docker; Helm for Kubernetes | [GitHub](https://github.com/fiskaltrust/product-de-bring-your-own-datacenter) | [Docker and Kubernetes](#docker-and-kubernetes) |
 | Any (hosted) | None | None | No download | [fiskaltrust.Middleware for Cloud](#fiskaltrustmiddleware-for-cloud) |
 
@@ -117,7 +117,13 @@ The Queue and SCU packages are bundled with the app and cannot be downloaded at 
 
 **Download**
 
-Download the APK from the [releases of the middleware-launcher-android repository](https://github.com/fiskaltrust/middleware-launcher-android/releases).
+The app is released as Android Launcher 2.0, currently as a beta (pre-release) version. Download `eu.fiskaltrust.androidlauncher-Signed.apk` from the latest `v2.0.0` pre-release on the [releases page of the middleware-launcher-android repository](https://github.com/fiskaltrust/middleware-launcher-android/releases).
+
+:::caution
+
+The releases marked as **Latest** (`v1.3.x`) contain the legacy HTTP and gRPC apps, which do not provide the POS System API over Android IPC.
+
+:::
 
 **Installation**
 
