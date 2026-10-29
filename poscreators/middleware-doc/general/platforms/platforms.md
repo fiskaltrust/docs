@@ -73,8 +73,8 @@ For the supported Windows versions per market, see [Windows (Germany)](../../mid
 | Step | Launcher 1.3 | Launcher 2.0 |
 | ---- | ------------ | ------------ |
 | Test in the console | Run `test.cmd` as administrator. | Run `launcher-test.cmd`. |
-| Install as a Windows service | Run `install-service.cmd` as administrator. | Run `launcher-install.cmd`. |
-| Uninstall the service | Run `uninstall-service.cmd` as administrator. | Run `launcher-uninstall.cmd`. |
+| Install as a Windows service | Run `install-service.cmd` as administrator. | Run `launcher-install.cmd` as administrator. |
+| Uninstall the service | Run `uninstall-service.cmd` as administrator. | Run `launcher-uninstall.cmd` as administrator. |
 | Start and stop the service | Windows Services dashboard, or `net start [SERVICENAME]` and `net stop [SERVICENAME]` | Windows Services dashboard, or `net start [SERVICENAME]` and `net stop [SERVICENAME]` |
 
 *Table 3. Installation steps on Windows for Launcher 1.3 and Launcher 2.0.*
@@ -96,9 +96,9 @@ The supported distributions, data storages and SCUs differ per market. For more 
 | Step | Launcher 1.3 (Mono) | Launcher 2.0 |
 | ---- | ------------------- | ------------ |
 | Test in the console | Run `test.sh`, or `sudo mono fiskaltrust.exe -test`. | Run `launcher-test.sh`. |
-| Install as a service | Run `install-service.sh` as root. | Run `launcher-install.sh` (requires `systemd`). |
-| Uninstall the service | Run `uninstall-service.sh` as root. | Run `launcher-uninstall.sh`. |
-| Start and stop the service | For example `systemctl start [SERVICENAME]` and `systemctl stop [SERVICENAME]` | For example `systemctl start [SERVICENAME]` and `systemctl stop [SERVICENAME]` |
+| Install as a service | Run `install-service.sh` as root. | Linux only: run `launcher-install.sh` (requires `systemd` and `sudo` rights). Not available on macOS. |
+| Uninstall the service | Run `uninstall-service.sh` as root. | Linux only: run `launcher-uninstall.sh` (requires `sudo` rights). |
+| Start and stop the service | For example `systemctl start [SERVICENAME]` and `systemctl stop [SERVICENAME]` | Linux only: `systemctl start [SERVICENAME]` and `systemctl stop [SERVICENAME]` |
 
 *Table 4. Installation steps on Linux and macOS for Launcher 1.3 and Launcher 2.0.*
 
@@ -148,3 +148,12 @@ For more information, see [CloudCashbox](../../../../posdealers/technical-operat
 ## Network requirements
 
 The Launchers download their configuration and, except on Android, their packages from the fiskaltrust servers. Allow the outbound connections listed in [Network requirements](../../../../posdealers/technical-operations/middleware/network-requirements.md).
+
+Launcher 2.0 additionally uses the following hosts by default (HTTPS, TCP port 443):
+
+| Host | Sandbox host | Purpose |
+| ---- | ------------ | ------- |
+| `configuration.fiskaltrust.cloud` | `configuration-sandbox.fiskaltrust.cloud` | Configuration |
+| `packages-2-0.fiskaltrust.cloud` | `packages-2-0-sandbox.fiskaltrust.cloud` | Packages |
+
+*Table 5. Default endpoints of Launcher 2.0 in addition to the general network requirements.*
