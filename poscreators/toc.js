@@ -503,6 +503,7 @@ module.exports = [
       "poscreators/middleware-doc/middleware-pl/terminology/terminology",
       "poscreators/middleware-doc/middleware-pl/cash-register-integration/cash-register-integration",
       "poscreators/middleware-doc/middleware-pl/operation-modes/scu/posnet",
+      "poscreators/middleware-doc/middleware-pl/operation-modes/scu/posnet-receipt-elements",
       "poscreators/middleware-doc/middleware-pl/data-structures/data-structures",
       "poscreators/middleware-doc/middleware-pl/receipt-case-definitions/receipt-case-definitions",
       {
