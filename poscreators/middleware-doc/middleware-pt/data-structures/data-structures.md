@@ -13,6 +13,6 @@ This chapter expands on the descriptions of the country-specific Data Structures
 
 | **Field** | **Type** | **Description** |
 | --------- | -------- | --------------- |
-| `PT.TaxExemptionCode` | `string` | Portuguese tax exemption code of a charge item with 0 % VAT, for example `M06`. Takes precedence over the code in the nature of VAT (`NN`) of `ftChargeItemCase`. For more information, see [Tax exemption code in ftChargeItemCaseData](../reference-tables/type-of-service-ftchargeitemcase.md#tax-exemption-code-in-ftchargeitemcasedata). |
+| `PT.TaxExemptionCode` | `string` | Portuguese tax exemption code of a charge item with 0 % VAT, for example `M06`. Takes precedence over the code in the nature of VAT (`NN`) of `ftChargeItemCase`. Requires the zero VAT rate (`V` = `7`) in `ftChargeItemCase`. For more information, see [Tax exemption code in ftChargeItemCaseData](../reference-tables/type-of-service-ftchargeitemcase.md#tax-exemption-code-in-ftchargeitemcasedata). |
 
 *Table 1. Portugal-specific fields in ftChargeItemCaseData.*
