@@ -21,17 +21,17 @@ For more information, see [VAT rules and rates](https://europa.eu/youreurope/bus
 
 `VATRate` must match the rate of the VAT value. The Middleware accepts only the rates listed in Table 1; the regional rates of Madeira and the Azores are not supported.
 
-| **Value** | **Description** | **SAF-T tax code** |
-| --------- | --------------- | ------------------ |
+| **Value** | **Description** | **SAF-T `TaxType` / `TaxCode`** |
+| --------- | --------------- | ------------------------------- |
 | `0` | **Unknown VAT rate**<br />Not supported in Portugal; rejected. | – |
-| `1` | **Discounted-1 VAT rate**<br />Reduced rate (*taxa reduzida*), 6 %. | `RED` |
-| `2` | **Discounted-2 VAT rate**<br />Intermediate rate (*taxa intermédia*), 13 %. | `INT` |
-| `3` | **Normal VAT rate**<br />Normal rate (*taxa normal*), 23 %. | `NOR` |
+| `1` | **Discounted-1 VAT rate**<br />Reduced rate (*taxa reduzida*), 6 %. | `IVA` / `RED` |
+| `2` | **Discounted-2 VAT rate**<br />Intermediate rate (*taxa intermédia*), 13 %. | `IVA` / `INT` |
+| `3` | **Normal VAT rate**<br />Normal rate (*taxa normal*), 23 %. | `IVA` / `NOR` |
 | `4` | **Super reduced 1 VAT rate**<br />Not supported in Portugal; rejected. | – |
 | `5` | **Super reduced 2 VAT rate**<br />Not supported in Portugal; rejected. | – |
 | `6` | **Parking VAT rate**<br />Not supported in Portugal; rejected. | – |
-| `7` | **Zero VAT rate**<br />0 %. Only allowed together with a tax exemption code in `ftChargeItemCaseData.PT.TaxExemptionCode`. For more information, see [Tax exemption code in ftChargeItemCaseData](#tax-exemption-code-in-ftchargeitemcasedata). | `ISE` |
-| `8` | **Not Taxable**<br />0 %. Charge items with 0 % VAT need a tax exemption code; for exempt sales, use `7` with `ftChargeItemCaseData.PT.TaxExemptionCode`. | `ISE` |
+| `7` | **Zero VAT rate**<br />0 %. Only allowed together with a tax exemption code in `ftChargeItemCaseData.PT.TaxExemptionCode`. For more information, see [Tax exemption code in ftChargeItemCaseData](#tax-exemption-code-in-ftchargeitemcasedata). | `IVA` / `ISE` (*Isenta*, exempt) |
+| `8` | **Not Taxable**<br />0 %. Not subject to VAT (*não sujeito*). | `NS` / `NS` (not subject to VAT or Stamp Duty) |
 
 *Table 1. VAT (V) values of ftChargeItemCase for Portugal.*
 
@@ -59,7 +59,7 @@ Use `00` for charge items with VAT. The values of `NN` for charge items with 0 %
 
 #### Tax exemption code in ftChargeItemCaseData
 
-A charge item with 0 % VAT needs a tax exemption code (*motivo de isenção*). Send it in `ftChargeItemCaseData.PT.TaxExemptionCode` and use the zero VAT rate (`V` = `7`) in `ftChargeItemCase`. The Middleware writes the code to `TaxExemptionCode` and the mention to `TaxExemptionReason` of the SAF-T (PT) line, and reports the line with the tax code `ISE` (*Isento*).
+An exempt charge item needs a tax exemption code (*motivo de isenção*). Send it in `ftChargeItemCaseData.PT.TaxExemptionCode` and use the zero VAT rate (`V` = `7`) in `ftChargeItemCase`. The Middleware writes the code to `TaxExemptionCode` and the mention to `TaxExemptionReason` of the SAF-T (PT) line, and reports the line with the tax type `IVA` and the tax code `ISE` (*Isenta*, exempt).
 
 ```json
 {
