@@ -19,7 +19,7 @@ This page gives an overview of the available platforms, where to download the ma
 | Windows | Launcher 2.0 (`fiskaltrust.Launcher.exe`) | None (self-contained) | fiskaltrust.Portal, [GitHub](https://github.com/fiskaltrust/middleware-launcher/releases) | [Windows](#windows) |
 | Linux, macOS | Launcher 1.3 (`fiskaltrust.exe` on Mono) | Mono 6.8.0 or higher | fiskaltrust.Portal | [Linux and macOS](#linux-and-macos) |
 | Linux, macOS | Launcher 2.0 (`fiskaltrust.Launcher`) | None (self-contained) | fiskaltrust.Portal, [GitHub](https://github.com/fiskaltrust/middleware-launcher/releases) | [Linux and macOS](#linux-and-macos) |
-| Android | Android Launcher (app) | Android 7 or higher | fiskaltrust.Portal (APK), Google Play | [Android](#android) |
+| Android | fiskaltrust.Middleware for Android (app) | Android 7 or higher | [GitHub](https://github.com/fiskaltrust/middleware-launcher-android/releases) (APK) | [Android](#android) |
 | Docker, Kubernetes | Bring your own Data Center (Germany only) | Docker; Helm for Kubernetes | [GitHub](https://github.com/fiskaltrust/product-de-bring-your-own-datacenter) | [Docker and Kubernetes](#docker-and-kubernetes) |
 | Any (hosted) | None | None | No download | [fiskaltrust.Middleware for Cloud](#fiskaltrustmiddleware-for-cloud) |
 
@@ -48,16 +48,16 @@ Launcher 2.0 supports the operating system versions that [.NET 8 supports](https
 
 ## Download from the fiskaltrust.Portal
 
-For Windows, Linux, macOS and Android, download the Launcher for a configured CashBox from the fiskaltrust.Portal:
+For Windows, Linux and macOS, download the Launcher for a configured CashBox from the fiskaltrust.Portal:
 
 1. Open the fiskaltrust.Portal in the environment you need (sandbox or production).
 2. Select `Configuration` > `CashBoxes`.
 3. Select `Rebuild configuration` for the CashBox, and wait for the success confirmation.
 4. Select `Download` for the CashBox and choose the Launcher for the operating system **and** the processor architecture of the target device.
 
-For Windows, Linux and macOS, the download is a ZIP archive that already contains the configuration of the CashBox (CashBox ID and access token). Extract it into the folder from which the Middleware is to run. For Android, the download is an APK; see [Android](#android) for installation and startup.
+The download is a ZIP archive that already contains the configuration of the CashBox (CashBox ID and access token). Extract it into the folder from which the Middleware is to run.
 
-For a description of the Launcher variants offered in the download dialog (.NET Launcher, .NET Offline Launcher, Mono Launcher, Android Launcher), see [Download of the Launcher](../components/components-install-config.md#download-of-the-launcher).
+For a description of the Launcher variants offered in the download dialog (.NET Launcher, .NET Offline Launcher, Mono Launcher), see [Download of the Launcher](../components/components-install-config.md#download-of-the-launcher).
 
 ## Windows
 
@@ -109,25 +109,23 @@ For more information, see [Mono Service Installation](../components/components-i
 **Requirements**
 
 - Android 7 or higher.
-- A CashBox with only the packages that the Android Launcher contains. If the CashBox contains other Queues or SCUs, the Launcher throws an exception.
+- A CashBox with only the Queue and SCU packages that the app contains. If the CashBox contains other Queues or SCUs, the Launcher throws an exception.
 
-The Android Launcher is an app that runs the Middleware as a foreground service. The Queue and SCU packages are bundled with the app and cannot be downloaded at runtime, so updates are rolled out as app updates. We recommend a mobile device management (MDM) solution to control the rollout of updates.
+The fiskaltrust.Middleware for Android (`eu.fiskaltrust.androidlauncher`) is a single app that runs the fiskaltrust.Middleware as a foreground service. The POS app calls it through the POS System API over Android IPC, so no network configuration is needed on the device. For more information, see [Android IPC Transport](../../possystem-api/android-ipc.md).
 
-To keep the app small, there are separate apps for HTTP and gRPC:
+The Queue and SCU packages are bundled with the app and cannot be downloaded at runtime, so updates are rolled out as app updates. We recommend a mobile device management (MDM) solution to control the rollout of updates.
 
-| | fiskaltrust.Middleware for Android (HTTP) | fiskaltrust.Middleware for Android (gRPC) |
-| --- | --- | --- |
-| **Google Play** | [Download on Google Play](https://play.google.com/store/apps/details?id=eu.fiskaltrust.androidlauncher.http) | [Download on Google Play](https://play.google.com/store/apps/details?id=eu.fiskaltrust.androidlauncher.grpc) |
-| **APK** | fiskaltrust.Portal, `Download` on the CashBox | fiskaltrust.Portal, `Download` on the CashBox |
+**Download**
 
-*Table 5. Download options for the HTTP and gRPC variants of the Android Launcher.*
+Download the APK from the [releases of the middleware-launcher-android repository](https://github.com/fiskaltrust/middleware-launcher-android/releases).
 
 **Installation**
 
-1. Install the app from Google Play, or install the APK from the fiskaltrust.Portal (ideally through MDM).
-2. Start the Middleware from the POS app via Android intents. An internet connection is required at least on the first start, to download the configuration.
+1. Install the APK on the device, ideally through MDM.
+2. Exempt the app from battery optimization, so that it can run in the background.
+3. Call the POS System API from the POS app through the bound service (recommended) or the Activity Intent. For more information, see [Choosing a transport](../../possystem-api/android-ipc.md#choosing-a-transport).
 
-The bundled packages differ per market. For more information, see [Android (Germany)](../../middleware-de-kassensichv/operation-modes/on-premise-platforms/android.md), [Android (Italy)](../../middleware-it-registratore-telematico/operation-modes/on-premise-platforms/android.md), [Launcher for Android](../../../../posdealers/technical-operations/middleware/launchers/android.md) and the [Android demo repository](https://github.com/fiskaltrust/middleware-demo-android).
+An internet connection is required at least on the first start, to download the configuration.
 
 ## Docker and Kubernetes
 
