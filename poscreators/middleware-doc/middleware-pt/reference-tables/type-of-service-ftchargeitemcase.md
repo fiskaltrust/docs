@@ -115,6 +115,9 @@ The following rules apply:
 | `M41` | IVA - autoliquidação | Artigo 8.º n.º 3 do RITI |
 | `M42` | IVA - autoliquidação | Decreto-Lei n.º 21/2007, de 29 de janeiro |
 | `M43` | IVA - autoliquidação | Decreto-Lei n.º 362/99, de 16 de setembro |
+| `M44` | IVA – Regras específicas - artigo 6.º | Artigo 6.º do CIVA |
+| `M45` | IVA – regime transfronteiriço de isenção | Artigo 58.º-A do CIVA |
+| `M46` | IVA – e-TaxFree | Decreto-Lei n.º 19/2017, de 14 de fevereiro |
 | `M99` | Não sujeito ou não tributado | Outras situações de não liquidação do imposto |
 
 *Table 3. Tax exemption codes for ftChargeItemCaseData.PT.TaxExemptionCode.*
