@@ -99,7 +99,7 @@ The values in Table 3 replace the nature-of-VAT groups of the [general reference
 
 #### Tax exemption code in ftChargeItemCaseData
 
-Instead of encoding the exemption code in `NN`, the exemption code can be sent explicitly in `ftChargeItemCaseData.PT.TaxExemptionCode`. This keeps `NN` free for its general meaning while the exact Portuguese code is still transmitted.
+Instead of encoding the exemption code in `NN`, the exemption code can be sent explicitly in `ftChargeItemCaseData.PT.TaxExemptionCode`. In this case `NN` is not needed and not evaluated: the exemption code comes from `TaxExemptionCode`, and the 0 % from the zero VAT rate (`V` = `7`).
 
 ```json
 {
@@ -108,7 +108,7 @@ Instead of encoding the exemption code in `NN`, the exemption code can be sent e
   "Amount": 50,
   "Description": "Transporte internacional",
   "VATRate": 0,
-  "ftChargeItemCase": 5788286605450031127,
+  "ftChargeItemCase": 5788286605450018839,
   "ftChargeItemCaseData": {
     "PT": {
       "TaxExemptionCode": "M06"
@@ -117,14 +117,14 @@ Instead of encoding the exemption code in `NN`, the exemption code can be sent e
 }
 ```
 
-The `ftChargeItemCase` in this example is `0x5054_2000_0000_3017`: zero VAT rate, delivery, `NN` `30`.
+The `ftChargeItemCase` in this example is `0x5054_2000_0000_0017`: zero VAT rate, delivery, `NN` `00`.
 
 The following rules apply:
 
 - `TaxExemptionCode` takes precedence over `NN`. Without `TaxExemptionCode`, the code is read from `NN` as described above.
 - `TaxExemptionCode` must be one of the exemption codes in Table 3, for example `M06`. Upper and lower case and surrounding spaces are ignored. An unknown code is rejected; the Middleware does not fall back to `NN`.
 - `TaxExemptionCode` is only allowed on charge items with 0 % VAT. Because `NN` does not carry the exemption code in this case, the 0 % must be stated by the VAT rate: `V` must be `7` (Zero VAT rate). Any other `V`, including `8` (Not Taxable), is rejected. The line is reported with the tax code `ISE`.
-- `NN` must still be set to a value other than `00`.
+- `NN` is not evaluated and can be `00`.
 - The mention (`TaxExemptionReason`) is always taken from Table 3 and cannot be sent in the request.
 - A refund must repeat the `ftChargeItemCaseData` of the original charge item.
 
