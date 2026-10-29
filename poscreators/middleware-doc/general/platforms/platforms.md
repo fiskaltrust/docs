@@ -44,7 +44,7 @@ Launcher 2.0 is built for the following operating systems and architectures:
 
 *Table 2. Operating systems and architectures for which Launcher 2.0 is built.*
 
-Launcher 2.0 supports the operating system versions that [.NET 8 supports](https://github.com/dotnet/core/blob/main/release-notes/8.0/supported-os.md).
+Launcher 2.0 is built on .NET 10 (since `v2.0.0-rc.36`; earlier versions on .NET 8) and supports the operating system versions that [.NET 10 supports](https://github.com/dotnet/core/blob/main/release-notes/10.0/supported-os.md).
 
 ## Download from the fiskaltrust.Portal
 
@@ -64,7 +64,7 @@ For a description of the Launcher variants offered in the download dialog (.NET 
 **Requirements**
 
 - Launcher 1.3: Windows 7 or higher, 32 or 64 bit; .NET Framework 4.8 recommended.
-- Launcher 2.0: a Windows version supported by .NET 8, x86 or x64; no additional software.
+- Launcher 2.0: a Windows version supported by .NET 10, x86 or x64; no additional software.
 
 For the supported Windows versions per market, see [Windows (Germany)](../../middleware-de-kassensichv/operation-modes/on-premise-platforms/windows.md) and [Windows (Italy)](../../middleware-it-registratore-telematico/operation-modes/on-premise-platforms/windows.md).
 
