@@ -76,6 +76,7 @@ module.exports = [
           },
           "poscreators/middleware-doc/general/configuration/configuration",
           "poscreators/middleware-doc/general/data-structures/data-structures",
+          "poscreators/middleware-doc/general/pos-system/pos-system",
           "poscreators/middleware-doc/general/function-structures/function-structures",
           "poscreators/middleware-doc/general/communication/communication",
           "poscreators/middleware-doc/general/receipt-case-definitions/receipt-case-definitions",
