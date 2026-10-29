@@ -30,8 +30,8 @@ For more information, see [VAT rules and rates](https://europa.eu/youreurope/bus
 | `4` | **Super reduced 1 VAT rate**<br />Not supported in Portugal; rejected. | – |
 | `5` | **Super reduced 2 VAT rate**<br />Not supported in Portugal; rejected. | – |
 | `6` | **Parking VAT rate**<br />Not supported in Portugal; rejected. | – |
-| `7` | **Zero VAT rate**<br />0 %. Only allowed together with a tax exemption code in `ftChargeItemCaseData.PT.TaxExemptionCode`. For more information, see [Tax exemption code in ftChargeItemCaseData](#tax-exemption-code-in-ftchargeitemcasedata). | `IVA` / `ISE` (*Isenta*, exempt) |
-| `8` | **Not Taxable**<br />0 %. Not subject to VAT (*não sujeito*). | `NS` / `NS` (not subject to VAT or Stamp Duty) |
+| `7` | **Zero VAT rate**<br />0 %, exempt. Requires a tax exemption code in `ftChargeItemCaseData.PT.TaxExemptionCode`. For more information, see [Tax exemption code in ftChargeItemCaseData](#tax-exemption-code-in-ftchargeitemcasedata). | `IVA` / `ISE` (*Isenta*, exempt) |
+| `8` | **Not Taxable**<br />0 %. Not subject to VAT (*não sujeito*). If `NN` is set, the line is exempt instead; see [NN - nature of VAT](#nn---nature-of-vat). | `NS` / `NS` (not subject to VAT or Stamp Duty) |
 
 *Table 1. VAT (V) values of ftChargeItemCase for Portugal.*
 
@@ -55,7 +55,11 @@ For more information, see [VAT rules and rates](https://europa.eu/youreurope/bus
 
 #### NN - nature of VAT
 
-Use `00` for charge items with VAT. The values of `NN` for charge items with 0 % VAT are not yet specified for Portugal. Send the tax exemption code of a charge item with 0 % VAT in `ftChargeItemCaseData`, as described in the next section.
+Use `00` for charge items with VAT.
+
+Whenever `NN` is set to a value other than `00`, the charge item is exempt and the VAT rate (`V`) is ignored: the line is reported with the tax type `IVA` and the tax code `ISE` (*Isenta*, exempt), whatever `V` is. This also applies to `V` = `8`. `VATRate` must be `0`; a charge item with a VAT rate other than 0 % and an `NN` other than `00` is rejected.
+
+The individual values of `NN` for exempt charge items are not yet specified for Portugal. Send the tax exemption code of an exempt charge item in `ftChargeItemCaseData`, as described in the next section.
 
 #### Tax exemption code in ftChargeItemCaseData
 
