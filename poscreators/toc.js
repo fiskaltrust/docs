@@ -74,6 +74,7 @@ module.exports = [
               "poscreators/middleware-doc/general/components/components-install-config",
             ],
           },
+          "poscreators/middleware-doc/general/platforms/platforms",
           "poscreators/middleware-doc/general/configuration/configuration",
           "poscreators/middleware-doc/general/data-structures/data-structures",
           "poscreators/middleware-doc/general/function-structures/function-structures",

@@ -68,6 +68,8 @@ For the operation of the installed components of the fiskaltrust.Middleware foll
 
 ### Supported software platforms
 
+For an overview of all platforms with download links and installation steps, see [Platforms](../platforms/platforms.md).
+
 For detailed information on supported platforms and its restrictions, please refer to the linked appendices of the applicable markets in the table below:
 
 | Platform        | AT            | DE                                                                                               | FR            | IT                                                                                                           |
