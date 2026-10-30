@@ -3,10 +3,10 @@ slug: /poscreators/middleware-doc/e-invoicing/overview
 title: eInvoicing
 description: How eInvoicing is layered onto the /sign and /issue calls, what varies by market, and availability for Austria, France, Germany, Italy and Poland.
 tags: [eInvoicing, Peppol, Issue Endpoint, Middleware, PosCreators]
-sidebar_label: "eInvoicing — Overview"
+sidebar_label: "Overview"
 ---
 
-# eInvoicing — Overview
+# Overview
 
 This page describes how eInvoicing works across fiskaltrust markets from a PosCreator's perspective: the **shared integration model** that every market follows, and what changes from one market to the next. For a specific market, follow its country page (see [Availability by market](#availability-by-market)).
 
