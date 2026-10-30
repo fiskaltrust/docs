@@ -90,7 +90,7 @@ else
 }
 ```
 
-The upper part of the `ftState` keeps the country code (`CCCC`) and can contain local flags (`lll`) that further specify an error. For example, in Poland `0x504C_2001_EEEE_EEEE` indicates that the fiscal register could not be reached. The local flags are described in the `ftState` reference table of each country-specific appendix.
+The upper part of the `ftState` keeps the country code (`CCCC`) and can contain local flags (`lll`) that further specify an error. The local flags are described in the `ftState` reference table of each country-specific appendix.
 
 ### How error messages are returned
 
@@ -133,7 +133,7 @@ If a request fails validation, the response may contain one failure signature pe
 | Middleware | `ftState` OK | Print or issue the receipt, including all returned `ftSignatures`. |
 | Middleware | `ftState` with status flags | Print or issue the receipt, including all returned `ftSignatures`, and signal the state to the operator. Resolve the state as described for the flag, usually with a Zero-Receipt or the due closing receipt (see [Service Status: ftState](../reference-tables/reference-tables.md#service-status-ftstate) and [Failure Scenarios](./cash-register-integration-failure-scenarios.md)). |
 | Middleware | `ftState` `0000_0001` | Start the queue with an initial-operation receipt. A stopped queue cannot be reopened; a new queue must be created and started instead (see [Stop Receipt](./cash-register-integration-regular-workflow.md#stop-receipt-closing-receipt)). |
-| Middleware | `ftState` `EEEE_EEEE` or `FFFF_FFFF` | The receipt was not fiscalized and must not be issued as a fiscal receipt. Show the error message from the failure signature(s) to the operator, correct the cause, and send the request again. Check the country-specific appendix for market-specific rules. For example, in Poland sales must not continue while the fiscal register is unreachable (see [Cash Register Integration (PL)](../../middleware-pl/cash-register-integration/cash-register-integration.md)). The state `0x504C_2001_EEEE_EEEE` is also returned when the outcome on the register is unknown, so the device state must be verified (for example via a Zero-Receipt) before the request is sent again (see [Response handling — ambiguous outcomes](../../middleware-pl/operation-modes/scu/posnet.md#response-handling--ambiguous-outcomes)). |
+| Middleware | `ftState` `EEEE_EEEE` or `FFFF_FFFF` | The receipt was not fiscalized and must not be issued as a fiscal receipt. Show the error message from the failure signature(s) to the operator, correct the cause, and send the request again. Check the country-specific appendix for market-specific rules. For example, in Poland sales must not continue while the fiscal register is unreachable (see [Cash Register Integration (PL)](../../middleware-pl/cash-register-integration/cash-register-integration.md)). If the failure signature says that the outcome is unknown, check the last document on the register before sending the request again, and send it again only if it was not issued (see [Failure handling](../../middleware-pl/operation-modes/scu/posnet.md#failure-handling)). |
 
 *Table 4. Recommended reactions of the POS system per error level and situation.*
 

@@ -1,7 +1,7 @@
 ---
 slug: /poscreators/middleware-doc/poland/reference-tables/ftstate
 title: 'Service Status: ftState'
-description: ftState values for Poland — global flags and the Polish local flag for an unreachable fiscal register (Art. 111(3) VAT Act).
+description: ftState values the Polish Queue returns — out of operation and error; no failed mode, as sales must not continue without a working register (Art. 111(3) VAT Act).
 tags: [ftState, Poland, Reference Tables, Failure Handling]
 ---
 
@@ -16,20 +16,17 @@ version 2
 
 #### gggg_gggg - global tagging/flag
 
+The Polish Queue returns only the global flags below. Unlike in other markets, it has no "SCU temporarily out of service" mode (`0000_0002`): a receipt that the register cannot fiscalize is refused, not stored for later signing.
+
 | **Value** | **Description** | **Middleware Version** |
 | --------- | --------------- | ---------------------- |
 | `0000_0001` | **Security Mechanism is out of Operation**<br />Queue is not started or already stopped. | preview |
-| `0000_0002` | **SCU (Signature Creation Unit) temporary out of service**<br />For at least one receipt, it was not possible to receive the signature from an allocated SCU, therefore the security mechanism has been put into "signature creation device out of service" mode. Regardless of whether an allocated SCU is available again or not, the mode remains in place until a ZeroReceipt cleans up the state and takes the market specific action required. | preview |
-| `0000_0040` | **Message Pending**<br />Middleware/Queue is a headless background service, but there are situations where communication with the cashier/operator or the cash register is necessary. By executing a ZeroReceipt, the cashier can read the message or instruction on the printed or displayed receipt. | preview |
-| `0000_0100` | **DailyClosing due**<br />When the first cbReceiptMoment used since the last DailyClosing and the current/latest cbReceiptMoment in the ReceiptRequest have a date-gap of more than two days, then this state indicates, a Daily Closing should be done.<br />In Poland the daily closing triggers the daily (Z) report on the register. | preview |
 | `EEEE_EEEE` | **Error**<br />Something went wrong while processing the last request. QueueItem exists but didn’t reach the state of a ReceiptItem. Error reason is shown within the responded ftSignatureItems.<br />This happens, for example, if the ReceiptCase is not recognized or is wrong. | preview |
-| `FFFF_FFFF` | **Fail**<br />Something went wrong while processing the last request, and nothing persisted within the Queue. Fail reason is shown within the responded ftSignatureItems.<br />This happens, for example, if the fiskaltrust.Middleware has no access to its database and therefore cannot store the request. | preview |
 
 #### lll - local flags
 
-The middle three nibbles carry the Polish local flags. The lowest local-flag bit marks **"fiscal register unreachable"** — in Poland a non-working register legally means no sale (Art. 111(3) VAT Act), so this failure is distinguishable from any other error.
+The middle three nibbles carry the Polish local flags. No Polish local flags are defined at the moment: every error is returned as `0x504C_2000_EEEE_EEEE`, and the signatures of the failure category tell the reason.
 
 | **Value** | **Description** | **Middleware Version** |
 | --------- | --------------- | ---------------------- |
-| `0x504C_2000_EEEE_EEEE` | **Error**<br />The request failed for a reason other than register unavailability. The error reason is shown within the responded ftSignatureItems. | preview |
-| `0x504C_2001_EEEE_EEEE` | **Register unreachable (DeviceUnreachableError)**<br />The certified register could not be reached, so the receipt was **not** fiscalized. Under Art. 111(3) of the Polish VAT Act sales must not continue without a working register — the POS must stop selling and surface the failure to the operator. There is no late-signing fallback for fiscal receipt cases in Poland. | preview |
+| `0x504C_2000_EEEE_EEEE` | **Error**<br />The request failed. The signatures of the failure category say why; read their `Data`. An SCU or printer error has the caption `FAILURE`, a validation error of the Queue a caption that names the rule, such as `[Error] CurrencyMustMatchMarket`. The `FAILURE` signature says what to do next: if the register could not be reached, the receipt was **not** fiscalized and can be sent again once the register is reachable; if the receipt was not issued, the message says so; for a validation error, it names the field to correct. Under Art. 111(3) of the Polish VAT Act sales must not continue without a working register. There is no late-signing fallback for fiscal receipt cases in Poland. See [Failure handling](../operation-modes/scu/posnet.md#failure-handling). | preview |
