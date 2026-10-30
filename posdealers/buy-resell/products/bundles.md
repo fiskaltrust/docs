@@ -2,12 +2,15 @@
 slug: /posdealers/buy-resell/products/product-bundles
 title: Product bundles
 description: Market-specific product bundles for carefree fiscalization, listed for Austria, France and Germany.
+type: reference
 tags: [Product Bundles, Carefree, PosDealers, Austria, France, Germany]
 ---
 
 # Product bundles
 
-We package all relevant products for a specific market into product bundles that are required to be fully legally compliant without any further requirements, providing **carefree fiscalization**.
+fiskaltrust packages all products that are required to be fully legally compliant in a market into **product bundles**. A bundle needs no further products, which provides **carefree fiscalization**.
+
+The bundles differ per market. Select your market in the following tabs.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

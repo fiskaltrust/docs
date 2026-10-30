@@ -2,16 +2,25 @@
 slug: /posdealers/buy-resell/products/signing
 title: Signing devices and services
 description: Signing devices and services PosDealers can obtain via the Portal shop, with country-specific variants for Austria, France and Germany.
+type: overview
 tags: [Signature, SCU, TSE, PosDealers, Austria, Germany]
 ---
 
 # Signing devices and services
-_Signing receipts_ is the main functionality of the Middleware and the core of fiscalization regulations in general. Depending on the country of operation, receipts can be signed by **software services** or by **hardware devices**.
 
-As part of our _carefree fiscalization_ approach, fiskaltrust aims to provide both variants, either by hosting appropriate solutions ourselves (like in Austria) re-distributing existing solutions in the market (like in Germany), or handling software-based signing directly in the Middleware (like in France). However, all three approaches have the common trait that PosDealers can now obtain the best-matching signing solution for their scenarios via the **Portal's shop**.
+**Signing receipts** is the main function of the Middleware and the core of fiscalization regulations. Depending on the country, receipts are signed by **software services** or by **hardware devices**.
 
-## Country-specific variants
-As signing is the most country-specific aspect of fiscalization, the variants available in each country naturally highly differ. Please select the market you're interested in below for further details.
+fiskaltrust provides the signing solution in one of three ways, depending on the country:
+
+- **Hosted by fiskaltrust**, for example in Austria.
+- **Resold** from existing solutions on the market, for example in Germany.
+- **Built into the Middleware** as software-based signing, for example in France.
+
+In all three cases, PosDealers get the signing solution that best fits their scenario in the `Shop` of the fiskaltrust.Portal.
+
+## Signing products per market
+
+Signing is the most country-specific part of fiscalization, so the available products differ widely per country. Select your market in the following tabs.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
