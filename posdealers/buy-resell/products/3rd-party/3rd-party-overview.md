@@ -1,13 +1,14 @@
 ---
 slug: /posdealers/buy-resell/products/3rd-party
-title: Overview about 3rd-party products
+title: Overview
 description: Third-party products integrated with the fiskaltrust Middleware, such as accounting connections, listed per market for Austria, France and Germany.
+type: overview
 tags: [Third-Party Products, PosDealers, Austria, France, Germany]
 ---
 
-# Overview of third-party products
+# Overview
 
-There are several third-party products integrated into our products. This way, our partners can use our international, generic Middleware interface to provide additional services to you, e.g., end-to-end receipt handling from the POS System to accounting. These are often market-specific.
+Several third-party products are integrated into fiskaltrust's products. This way, partners use the international, generic Middleware interface to provide additional services, for example end-to-end receipt handling from the POS system into accounting. These products are often market-specific. Select your market in the following tabs.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

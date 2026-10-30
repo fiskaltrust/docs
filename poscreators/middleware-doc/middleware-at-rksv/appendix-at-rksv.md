@@ -27,7 +27,7 @@ See [Data Collection Log](cash-register-integration/cash-register-integration.md
 
 ### FinanzOnline notifications and validations
 
-The signature creation unit and the cash register must be registered with the tax authority through [FinanzOnline](https://finanzonline.bmf.gv.at/), together with the AES key used to encrypt the cumulative sales counter (§16 RKSV). After the registration, the start receipt must be created from the POS and the start receipt validated with Finanzonline to check the signature creation and the encryption of the cumulative sales counter (§6 Abs 4 RKSV). Yearly receipts must be validated, SCU outages > 48h and the deregistration of an SCU and a queue. This can be achieved by using the fiskaltrust.Carefree or Notification subscription or manually - see [FinanzOnline Management](../../../posdealers/buy-resell/products/3rd-party/finanzonline-management.md).
+The signature creation unit and the cash register must be registered with the tax authority through [FinanzOnline](https://finanzonline.bmf.gv.at/), together with the AES key used to encrypt the cumulative sales counter (§16 RKSV). After the registration, the start receipt must be created from the POS and the start receipt validated with Finanzonline to check the signature creation and the encryption of the cumulative sales counter (§6 Abs 4 RKSV). Yearly receipts must be validated, SCU outages > 48h and the deregistration of an SCU and a queue. This can be achieved by using the fiskaltrust.Carefree or Notification subscription or manually - see [FinanzOnline management](../../../posdealers/buy-resell/products/3rd-party/finanzonline-management.md).
 
 ## Where to start
 

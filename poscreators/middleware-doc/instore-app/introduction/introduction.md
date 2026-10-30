@@ -96,7 +96,7 @@ This high-level overview shows the steps required to implement and configure the
 
 ## Configuring Master Data
 
-For more information about the configuration steps for the master data, see [Digital Receipt Introduction](../../../../posdealers/buy-resell/products/digital-receipt.md#introduction).
+For more information about the configuration steps for the master data, see [Prepare digital receipts](../../../../posdealers/buy-resell/products/digital-receipt.md#prepare-digital-receipts).
 
 ## Implementing InStore App
 

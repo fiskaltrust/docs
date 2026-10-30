@@ -2,48 +2,47 @@
 slug: /posdealers/buy-resell/products/middleware
 title: Middleware
 description: The fiskaltrust.Middleware as a product for PosDealers — its security mechanism, deployment options and country-specific variants.
+type: overview
 tags: [Middleware, Signature, PosDealers]
 ---
 
 # Middleware
 
-The Middleware is fiskaltrust's core product. It is a freely available software solution that complements your POS System and provides the central service of issuing signatures for POS receipts and keeping track of both receipts and their signatures in its chained receipt datastore. It does so using the relevant and mandatory national signing mechanisms.
+The fiskaltrust.Middleware is fiskaltrust's core product. It is free software that complements your POS system:
 
-The Middleware is available for all supported countries and provides a single, standardized, and unified communication interface.
+- It issues the signatures for POS receipts, using the signing mechanisms required in each country.
+- It keeps track of the receipts and their signatures in its chained receipt data store.
+- It provides a single, standardized communication interface for all supported countries, using REST, gRPC or SOAP.
 
-It features a REST-, gRPC- and SOAP-compatible interface for communication with POS Systems and is available for on-premise deployment on Desktop devices and Android, as well as an off-premise SaaS solution.
+The Middleware runs on-premise on desktop devices and Android, or off-premise as SaaS.
 
 ## Security mechanism
 
-The fiskaltrust.Middleware processes some of the most essential data fields on the receipt. The receipt number, serving as a unique identifier of a receipt transmitted by the cash register, is created by the fiskaltrust.Middleware to ensure that each receipt is properly processed.
+The fiskaltrust.Middleware processes some of the most important data fields of a receipt. It creates the receipt number, the unique identifier of each receipt that the POS system sends, to make sure that every receipt is processed.
 
-Compliance is achieved through a combination of several methods and components.
+Compliance is achieved by a combination of methods and components:
 
-First, the fiskaltrust.Middleware ensures that all receipts are processed by a third-party in addition to the PosCreator and PosOperator. This is the _organizational_ implementation of security.
+1. **Organizational security**: the fiskaltrust.Middleware makes sure that every receipt is processed by a third party in addition to the PosCreator and the PosOperator.
+2. **Technical security**: each request and response is hashed to ensure the integrity of the data. To make the data immutable, a further hash value covers the whole request-response cycle: the cycle identification, the time of operation, the human-readable document number, and the hash values of the request, the response and the previous receipt. This chaining of receipt hash values makes the data immutable and reveals any change or deletion of actions sent by the POS system.
 
-First, the fiskaltrust.Middleware ensures that all receipts are processed by a third party, in addition to the PosCreator and PosOperator. This represents the organizational implementation of security.
+   ![Receipt chain diagram: each request and response hash plus JournalId, Moment and Identification feed a receipt hash that starts the next chain link](../images/receipt-chain.svg)
 
-As the technical implementation of security, each request and response is hashed to ensure the integrity of the data. To guarantee immutability, another hash value is generated that relates to the entire request-response cycle. This includes the cycle identification, the time of operation, the human-readable document number, and the hash values of the request, response, and the previous receipt, called the document hash value. This concatenation of the receipt hash value provides immutability and the ability to detect any changes or deletions in actions provided by the POS system.
+   *Figure 1. The receipt chaining mechanism that makes receipts immutable.*
 
-![Receipt chain diagram: each request and response hash plus JournalId, Moment and Identification feed a receipt hash that starts the next chain link](../images/receipt-chain.svg)
+3. **Data mirror**: to limit the risk of attacks on the chain that start from the last unlinked hash value, the Middleware mirrors the current data to the fiskaltrust cloud. The mirror detects attacks that would not be visible at the cash register.
+4. **Market-specific security mechanisms**: the fiskaltrust.Middleware implements all relevant security mechanisms of each market directly, for example smart cards and online signing in Austria, and **all** TSSs in Germany.
 
-*Figure 1. Receipt chaining mechanism used to ensure the immutability of receipts.*
-
-To limit the risk of attacks on the chain originating from the last unlinked hash value, fiskaltrust provides a mechanism that mirrors the current data to the fiskaltrust cloud. This data mirror can detect attacks that would not be visible at the cash register itself.
-
-As the final component of the security mechanism, the fiskaltrust.Middleware also provides direct implementations for all relevant market-related security mechanisms (e.g., smart cards and online signing in Austria, and **all** TSSs in Germany).
-
-To remain open to different platforms and operating systems and to act as a stable interface to the POS system, the fiskaltrust.Middleware follows a strict architecture:
+To stay open to different platforms and operating systems, and to act as a stable interface for the POS system, the fiskaltrust.Middleware follows a strict architecture:
 
 ![Architecture diagram: POS system talks over the international iPOS interface to the Middleware CashBox, where the international Queue connects to a market-specific SCU](../images/mw-architecture.svg)
 
 *Figure 2. Architecture of the fiskaltrust.Middleware.*
 
-The configuration container - identified by the unique `CashboxId` - can be integrated into various platforms and operating systems. The management of the configuration and status of these components is handled through the market-related fiskaltrust.Portal. The fiskaltrust security mechanism is provided by the Queue component and the SCU (Signature Creation Unit) component, which implements the market-related security mechanism requirements.
+The configuration container, the CashBox, is identified by its unique `CashboxId` and can be integrated into various platforms and operating systems. You manage its configuration and status in the fiskaltrust.Portal of your market. The security mechanism is provided by the Queue and the SCU (signature creation unit), which implements the security requirements of the market.
 
-## Country-specific variants
+## Hosted Middleware per market
 
-Wherever possible, fiskaltrust offers a cloud-hosted version of the Middleware to simplify the rollout process. Using this product, the Middleware doesn't need to be installed on-site, drastically reducing the installation effort. Please select the market you're interested in below for further details.
+Where possible, fiskaltrust offers a cloud-hosted version of the Middleware to simplify the rollout. With it, you do not install the Middleware on-site, which significantly reduces the installation effort. Select your market in the following tabs.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

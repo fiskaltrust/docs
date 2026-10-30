@@ -2,13 +2,13 @@
 slug: /posdealers/buy-resell/products/notifications
 title: Tax authority notifications
 description: Tax authority notification products per market — FinanzOnline for Austria, the notification workflow for Germany, none for France.
+type: overview
 tags: [Notifications, PosDealers, Austria, Germany, France]
 ---
 
 # Tax authority notifications
 
-Products including tax authority notifications give you the possibility to perform these necessary notifications in an easy and legally compliant way. 
-As these depend on local regulations, the products are highly country-specific.
+With products that include tax authority notifications, you perform the notifications required by law in an easy and compliant way. The notifications depend on local regulations, so the products are highly country-specific. Select your market in the following tabs.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

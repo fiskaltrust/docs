@@ -1,7 +1,8 @@
 ---
 slug: /posdealers/buy-resell/products/digital-receipt
 title: Digital Receipt
-description: Preparations PosDealers and PosOperators need for digital receipts, general and per country, plus how to evaluate digital receipt retrievals.
+description: Preparations PosDealers and PosOperators need for digital receipts, plus how to evaluate digital receipt retrievals.
+type: guide
 tags: [Digital receipt, Portal, PosDealers]
 ---
 
@@ -13,223 +14,46 @@ After reading this, you can explain the preparations for PosOperators to use dig
 
 :::
 
-## Introduction
+If you include digital receipts in the sales process, the customer chooses between a digital receipt and a printout. With digital receipts, the PosOperator reduces the cost of printouts and helps the environment. As a PosDealer, you offer a state-of-the-art POS system.
 
-If you include digital receipts in the sales process, the customer can choose between a digital receipt and a printout.  
-With digital receipts, the PosOperator can reduce expenses for printouts and help the environment.  
-As a PosDealer, you thus offer a state-of-the-art PosSystem.  
+Regulations and requirements can differ depending on the country where the POS system is used. Check the regulations of your country. The Sandbox can look different from the live system.
 
+## Prepare digital receipts
 
-![Flowchart: PosDealer opens the Portal, switches to the PosOperator, checks master data, then edits the outlet and adds an outlet logo](../images/buy_resell-digital-receipt-3.png)
+PosDealers or PosOperators prepare digital receipts in the fiskaltrust.Portal. The only requirement is access to the fiskaltrust.Portal with **write authorizations**.
 
-*Figure 1. Portal steps to prepare digital receipts: the PosDealer switches to the PosOperator, checks the master data, then checks the outlet data and adds an outlet logo.*
+![Workflow with two swimlanes, PosDealer in the fiskaltrust.Portal and PosOperator account: the PosDealer switches to the PosOperator account, checks the master data with Data Check and saves, then edits the outlet, checks its data, adds the outlet logo and saves](../images/digital-receipt-flowchart.svg)
 
-Please note that the visualization in the sandbox may look different than in the productive system.
-Please also note that different regulations or requirements may apply depending on the country where your PosSystem is used. Please refer to the country-specific regulations. Please understand that we can only describe these details without claiming to be complete.
+*Figure 1. Workflow for preparing digital receipts.*
 
-## Preparations general
+1. If you are a PosDealer, switch to the PosOperator's account. For more information, see [Surrogating](../../getting-started/operator-onboarding/surrogating.md).
+2. Check that the **master data** of the PosOperator's account is complete, and validate the tax identification numbers.
+3. Check the **outlet** data for completeness and correct it if necessary. The digital receipt shows the address of the outlet, not the address of the company.
+4. Optionally, add a **logo** to the outlet. The digital receipt shows it at the top. For the best result, use a PNG file with a transparent background.
 
-PosDealers or PosOperators can make the preparations for having digital receipts available. For this, only access to the fiskaltrust.Portal with **Write authorizations** is required.  
+For the steps in the fiskaltrust.Portal, see [Master data](../../getting-started/operator-onboarding/master-data.md) and [Edit outlets](../../getting-started/operator-onboarding/master-data.md#edit-outlets).
 
-The Master Data of the PosOperators account in the fiskaltrust.Portal must be complete. The stored tax identification numbers should be verified.  
+## Evaluate retrievals of digital receipts
 
-The details of the Outlet, not the company, are used as the address on the digital receipt. Therefore, these should be checked for completeness and corrected if necessary.  
+For a tax audit, or in general, you can check which receipts were transmitted, retrieved or printed with an export in the fiskaltrust.Portal.
 
-The digital receipt may list a logo at the top. If this logo is desired, you should add it to the data of the Outlet. 
-We recommend using a file in ~.png-format with transparent background for best results. 
+1. In the Portal, open `Configuration` > `Queues` in the left sidebar and select the Queue.
+2. Click `Export`. The page for creating a new export opens.
+3. Select the export type `Full export (XML)` and create the export.
 
-## Preparations country-specific
+With digital receipts, the `Full export (XML)` contains an additional file with the status of each digital receipt. You link its records to the raw and print data records by the `ftReceiptJournalID`, which all of them contain.
 
-  <details>
+The file has a simple format that you can open with a spreadsheet application, for example Excel. *Table 1* describes its fields.
 
-  <summary>Work steps to check Master data</summary>  
+| Field name | Description | Example |
+|:---|:---|:---|
+| `ftReceiptMoment` | **Time** (UTC +2) at which the fiskaltrust.Middleware processed the receipt. | 04/14/2023 11:20:31 |
+| `ftReceiptIdentification` | **Number** of the receipt, assigned by the fiskaltrust security mechanism. | ft1D#24 |
+| `ftQueueItemid` | Number of the **Queue** item that processed the receipt. | 9df671cf-d0a8-4824-9bd0-9000d8dcd8ea |
+| `ftReceiptJournalId` | **Number** created by the fiskaltrust.ReceiptJournal, which collects, hashes and links all receipt requests from the Middleware. | 1626d96a-ae5b-4a6bb1f9-6468a83ef749 |
+| `ftSubmittedMoment` | **Time** (UTC +2) at which the taxpayer provided the QR code. | 04/14/2023 11:21:09 |
+| `ftDeliveredMoment` | **Time** (UTC +2) at which the consumer retrieved the QR code. | 04/14/2023 11:21:09 |
+| `ftDeliveredStatus` | Output or retrieval **status** of the receipt: `printed` (the receipt was printed), `accepted` (the receipt was received elsewhere), `submitted` (the taxpayer provided the receipt) or `delivered` (the consumer received the receipt). | `printed` |
+| `ftDeliveredStatusData` | Additional **parameters**, for example the model number of the terminal. This function is not active yet. | Hobex ViA Pro |
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import PreviewAT from '../../_markets/at/getting-started/operator-onboarding/master-data/_edit-master.mdx';
-import PreviewBE from '../../_markets/be/getting-started/operator-onboarding/master-data/_edit-master.mdx';
-import PreviewFR from '../../_markets/fr/getting-started/operator-onboarding/master-data/_edit-master.mdx';
-import PreviewDE from '../../_markets/de/getting-started/operator-onboarding/master-data/_edit-master.mdx';
-import PreviewGR from '../../_markets/gr/getting-started/operator-onboarding/master-data/_edit-master.mdx';
-import PreviewIT from '../../_markets/it/getting-started/operator-onboarding/master-data/_edit-master.mdx';
-import PreviewPL from '../../_markets/pl/getting-started/operator-onboarding/master-data/_edit-master.mdx';
-import PreviewPT from '../../_markets/pt/getting-started/operator-onboarding/master-data/_edit-master.mdx';
-import PreviewES from '../../_markets/es/getting-started/operator-onboarding/master-data/_edit-master.mdx';
-
-<Tabs groupId="market">
-
-  <TabItem value="AT" label="Austria">
-    <PreviewAT />
-  </TabItem>
-
-  <TabItem value="BE" label="Belgium">
-    <PreviewBE />
-  </TabItem>
-
-  <TabItem value="FR" label="France">
-    <PreviewFR />
-  </TabItem>
-
-  <TabItem value="DE" label="Germany">
-    <PreviewDE />
-  </TabItem>
-
-  <TabItem value="GR" label="Greece">
-    <PreviewGR />
-  </TabItem>
-
-  <TabItem value="IT" label="Italy">
-    <PreviewIT />
-  </TabItem>
-
-  <TabItem value="PL" label="Poland">
-    <PreviewPL />
-  </TabItem>
-
-  <TabItem value="PT" label="Portugal">
-    <PreviewPT />
-  </TabItem>
-
-  <TabItem value="ES" label="Spain">
-    <PreviewES />
-  </TabItem>
-
-</Tabs>
-
-  </details>
-
-  <details>
-
-  <summary>Work steps to check outlets</summary>  
-
-import OutletAT from '../../_markets/at/getting-started/operator-onboarding/master-data/_checking-outlets.mdx';
-import OutletBE from '../../_markets/be/getting-started/operator-onboarding/master-data/_checking-outlets.mdx';
-import OutletFR from '../../_markets/fr/getting-started/operator-onboarding/master-data/_checking-outlets.mdx';
-import OutletDE from '../../_markets/de/getting-started/operator-onboarding/master-data/_checking-outlets.mdx';
-import OutletGR from '../../_markets/gr/getting-started/operator-onboarding/master-data/_checking-outlets.mdx';
-import OutletIT from '../../_markets/it/getting-started/operator-onboarding/master-data/_checking-outlets.mdx';
-import OutletPL from '../../_markets/pl/getting-started/operator-onboarding/master-data/_checking-outlets.mdx';
-import OutletPT from '../../_markets/pt/getting-started/operator-onboarding/master-data/_checking-outlets.mdx';
-import OutletES from '../../_markets/es/getting-started/operator-onboarding/master-data/_checking-outlets.mdx';
-
-<Tabs groupId="market">
-
-  <TabItem value="AT" label="Austria">
-    <OutletAT />
-  </TabItem>
-
-  <TabItem value="BE" label="Belgium">
-    <OutletBE />
-  </TabItem>
-
-  <TabItem value="FR" label="France">
-    <OutletFR />
-  </TabItem>
-
-  <TabItem value="DE" label="Germany">
-    <OutletDE />
-  </TabItem>
-
-  <TabItem value="GR" label="Greece">
-    <OutletGR />
-  </TabItem>
-
-  <TabItem value="IT" label="Italy">
-    <OutletIT />
-  </TabItem>
-
-  <TabItem value="PL" label="Poland">
-    <OutletPL />
-  </TabItem>
-
-  <TabItem value="PT" label="Portugal">
-    <OutletPT />
-  </TabItem>
-
-  <TabItem value="ES" label="Spain">
-    <OutletES />
-  </TabItem>
-
-</Tabs>
-
-</details>
-
-<details>
-
-  <summary>Edit outlets</summary>  
-
-
-import EditOutletAT from '../../_markets/at/getting-started/operator-onboarding/master-data/_edit-outlet.mdx';
-import EditOutletBE from '../../_markets/be/getting-started/operator-onboarding/master-data/_edit-outlet.mdx';
-import EditOutletFR from '../../_markets/fr/getting-started/operator-onboarding/master-data/_edit-outlet.mdx';
-import EditOutletDE from '../../_markets/de/getting-started/operator-onboarding/master-data/_edit-outlet.mdx';
-import EditOutletGR from '../../_markets/gr/getting-started/operator-onboarding/master-data/_edit-outlet.mdx';
-import EditOutletIT from '../../_markets/it/getting-started/operator-onboarding/master-data/_edit-outlet.mdx';
-import EditOutletPL from '../../_markets/pl/getting-started/operator-onboarding/master-data/_edit-outlet.mdx';
-import EditOutletPT from '../../_markets/pt/getting-started/operator-onboarding/master-data/_edit-outlet.mdx';
-import EditOutletES from '../../_markets/es/getting-started/operator-onboarding/master-data/_edit-outlet.mdx';
-
-<Tabs groupId="market">
-
-  <TabItem value="AT" label="Austria">
-    <EditOutletAT />
-  </TabItem>
-
-  <TabItem value="BE" label="Belgium">
-    <EditOutletBE />
-  </TabItem>
-
-  <TabItem value="FR" label="France">
-    <EditOutletFR />
-  </TabItem>
-
-  <TabItem value="DE" label="Germany">
-    <EditOutletDE />
-  </TabItem>
-
-  <TabItem value="GR" label="Greece">
-    <EditOutletGR />
-  </TabItem>
-
-  <TabItem value="IT" label="Italy">
-    <EditOutletIT />
-  </TabItem>
-
-  <TabItem value="PL" label="Poland">
-    <EditOutletPL />
-  </TabItem>
-
-  <TabItem value="PT" label="Portugal">
-    <EditOutletPT />
-  </TabItem>
-
-  <TabItem value="ES" label="Spain">
-    <EditOutletES />
-  </TabItem>
-
-</Tabs>
-
-</details>
-
-## Evaluation of retrievals of digital receipts
-
-In an audit case for the tax authorities (or in general), you, as a PosDealer or PosOperator, can verify which documents were transmitted and retrieved or printed using an export via the fiskaltrust.Portal. 
-
-Use `Configuration` / `Queue` and select the desired Queue. The button `Export` leads you to a page for creating new exports (Tools / Export / Create new). When using the digital receipt, an additional file is added to the `Full export (XML)` Export type. This file provides information about the status of the individual digital receipts. In addition, linking the data records is possible using the ftReceiptJournalID, which is contained both in the raw and in the print data records.  
-
-The file format and its structure were deliberately kept simple for your support.  
-The file format allows the data to be opened and read with a standard spreadsheet (e.g., Excel).  
-The structure of the records is built up as follows:
-
-|**Field name**|**Description**|**Example**|
-|:----------------------|:----------------------|:----------------------|
-|**ftReceiptMoment**|**Time** (UTC +2) at which the fiskaltrust.middleware processed the document.|04/14/2023 11:20:31|
-|**ftReceiptIdentification**| The **number** of the receipt, which was assigned by the fiskaltrust.SecurityMechanism.|ft1D#24|
-|**ftQueueItemid**|Number of the **queue** by which the receipt was processed 	| 9df671cf-d0a8-4824- 9bd0-9000d8dcd8ea|
-|**ftReceiptJournalId**|The fiskaltrust.ReceiptJournal draws, hashes and links all receipt requests from the middleware and creates a **number** from them 	|1626d96a-ae5b-4a6bb1f9-6468a83ef749|
-|**ftSubmittedMoment**|**Time** (UTC +2 ) when the QR code was provided by the taxpayer.	|04/14/2023 11:21:09|
-|**ftDeliveredMoment**|**Time** (UTC +2) at which the QR code was retrieved by the consumer.	|04/14/2023 11:21:09|
-|**ftDeliveredStatus**|Output or retrieval **status** of the Receipt: `printed`: _Receipt was printed_, `accepted`: _Receipt was received elsewhere_, `submitted`: _Receipt was provided by the taxpayer_, `delivered`: _Receipt was received by the consumer_	|`Printed`|
-|**ftDeliveredStatusData**|**Outputs** additional parameters, such as model number of the terminal. _Function currently not yet active_	|Hobex ViA Pro |
-
-*Table 1. Fields in the digital receipt export file.*
+*Table 1. Fields of the digital receipt status file in the export.*

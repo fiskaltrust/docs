@@ -2,10 +2,13 @@
 slug: /posdealers/buy-resell/products/professional-services
 title: Professional services
 description: Professional services offered per market, with country tabs for Austria, Germany and France (ConseilCertif).
+type: overview
 tags: [Professional Services, PosDealers, France, Austria, Germany]
 ---
 
 # Professional services
+
+In countries where professional services are useful, fiskaltrust offers consulting or certification support. Currently, this is only the case in France, where POS systems must be certified. Select your market in the following tabs.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

@@ -2,24 +2,35 @@
 slug: /posdealers/buy-resell/products/revision-safe-archiving
 title: Revision-safe archiving
 description: Cloud-based revision-safe receipt archiving mirrored from the Middleware, with country-specific storage variants for Austria, France and Germany.
+type: overview
 tags: [Revision-Safe Archiving, Journal, PosDealers, Austria, France, Germany]
 ---
 
-# Revision-safe archiving in fiskaltrust's cloud
-In addition to basic fiscalization, we offer cloud-based add-ons for revision-safe storage, which is required by law in most countries with fiscalization regulations. While it's technically possible to implement these requirements by oneself, securely storing data for up to 12 years (which is required in some countries) has proven to be of high organizational effort, e.g., due to the requirement of regular backups.
+# Revision-safe archiving
 
-:::tip tip
+In addition to basic fiscalization, fiskaltrust offers cloud-based add-ons for revision-safe storage, which is required by law in most countries with fiscalization regulations. You can implement these requirements yourself, but storing data securely for up to 12 years, as some countries require, takes a high organizational effort, for example for regular backups.
 
-In this context, **revision-safe** means that data is stored in a secure and immutable way that makes it impossible to be changed after it was saved once.
+:::tip
+
+**Revision-safe** means that data is stored in a secure and immutable way: it cannot be changed after it was saved.
 
 :::
 
 ## Receipt archiving
-fiskaltrust's cloud services are deeply integrated with the fiskaltrust.Middleware, which mirrors the data to the cloud as part of the security mechanism. Data integrity is ensured by the hash value of the requests and responses, and completeness can be verified by traversing the cash receipt hash chain. This means that all original records are **preserved** and **immutable**. Protection against data loss is ensured by duplicating the data into different cloud regions. We store data according to tax regulations, meaning that German receipt data is stored in German data centers.
 
-## Country-specific variants
-Depending on the market's requirements, we offer different kinds of revision-safe storage. Storing receipts is the _base product_ offered in each market we operate in. All storage products share the common trait that data is ensured to be stored for at least the amount of time required by tax regulations. Please select the market you're interested in below for further details.
+fiskaltrust's cloud services are closely integrated with the fiskaltrust.Middleware, which mirrors the data to the cloud as part of its security mechanism:
 
+- **Integrity**: the hash values of the requests and responses ensure the integrity of the data.
+- **Completeness**: you can verify completeness by following the receipt hash chain.
+- **Preservation**: all original records are **preserved** and **immutable**.
+- **Protection against data loss**: the data is duplicated in different cloud regions.
+- **Location**: the data is stored according to tax regulations, for example German receipt data in German data centers.
+
+For more information on the hash chain, see [Security mechanism](middleware.md#security-mechanism).
+
+## Archiving products per market
+
+The kind of revision-safe storage depends on the requirements of the market. Storing receipts is the base product in every market. All storage products keep the data for at least as long as the tax regulations require. Select your market in the following tabs.
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';

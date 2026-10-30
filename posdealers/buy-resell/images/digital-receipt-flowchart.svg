@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="1120" viewBox="0 0 1120 1120" font-family="IBM Plex Sans, Helvetica Neue, Arial, sans-serif">
+  <title>Workflow for preparing digital receipts in the fiskaltrust.Portal</title>
+  <desc>Flowchart: the PosDealer opens the fiskaltrust.Portal, opens PosDealer, PosOperators and switches to the account of the PosOperator. In the PosOperator account, the PosDealer opens Company info, Master data, checks the master data, clicks Data Check and saves, then opens Company info, Outlets, edits the outlet and checks its data, adds the outlet logo and saves.</desc>
+  <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#002A34"/></marker></defs>
+  <rect x="0" y="0" width="1120" height="1120" fill="#FFFFFF"/>
+  <rect x="20" y="20" width="1080" height="1080" fill="#FFFFFF" stroke="#002A34" stroke-width="1.5"/>
+  <line x1="20" y1="56" x2="1100" y2="56" stroke="#002A34" stroke-width="1.5"/>
+  <text text-anchor="start" font-size="18" font-weight="600" fill="#002A34"><tspan x="36" y="44.3">Workflow - preparing digital receipts</tspan></text>
+  <rect x="20" y="56" width="540" height="34" fill="#E5E6E7" stroke="#002A34" stroke-width="1.5"/>
+  <text text-anchor="middle" font-size="16" font-weight="600" fill="#002A34"><tspan x="290.0" y="78.6">PosDealer · fiskaltrust.Portal</tspan></text>
+  <rect x="560" y="56" width="540" height="34" fill="#E5F6FB" stroke="#002A34" stroke-width="1.5"/>
+  <text text-anchor="middle" font-size="16" font-weight="600" fill="#002A34"><tspan x="830.0" y="78.6">PosOperator account (surrogating)</tspan></text>
+  <line x1="560" y1="90" x2="560" y2="1100" stroke="#002A34" stroke-width="1.5"/>
+  <rect x="160.0" y="118.0" width="260" height="64" rx="10" fill="#FFFFFF" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="290" y="155.6">Open the fiskaltrust.Portal</tspan></text>
+  <rect x="160.0" y="218.0" width="260" height="64" rx="10" fill="#FFFFFF" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="290" y="245.2">Open PosDealer &gt;</tspan><tspan x="290" y="266.0">PosOperators</tspan></text>
+  <rect x="160.0" y="318.0" width="260" height="64" rx="10" fill="#FFFFFF" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="290" y="345.2">Switch to the</tspan><tspan x="290" y="366.0">PosOperator's account</tspan></text>
+  <polygon points="726.0,318.0 986.0,318.0 954.0,382.0 694.0,382.0" fill="#E5F6FB" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="840" y="345.2">Open Company info &gt;</tspan><tspan x="840" y="366.0">Master data</tspan></text>
+  <polygon points="726.0,418.0 986.0,418.0 954.0,482.0 694.0,482.0" fill="#E5F6FB" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="840" y="455.6">Check the master data</tspan></text>
+  <polygon points="726.0,518.0 986.0,518.0 954.0,582.0 694.0,582.0" fill="#E5F6FB" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="840" y="555.6">Click Data Check</tspan></text>
+  <polygon points="726.0,618.0 986.0,618.0 954.0,682.0 694.0,682.0" fill="#E5F6FB" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="840" y="655.6">Save</tspan></text>
+  <polygon points="726.0,718.0 986.0,718.0 954.0,782.0 694.0,782.0" fill="#E5F6FB" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="840" y="745.2">Open Company info &gt;</tspan><tspan x="840" y="766.0">Outlets</tspan></text>
+  <polygon points="726.0,818.0 986.0,818.0 954.0,882.0 694.0,882.0" fill="#E5F6FB" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="840" y="845.2">Edit the outlet and</tspan><tspan x="840" y="866.0">check its data</tspan></text>
+  <polygon points="726.0,918.0 986.0,918.0 954.0,982.0 694.0,982.0" fill="#E5F6FB" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="840" y="955.6">Add the outlet logo</tspan></text>
+  <rect x="730.0" y="1022.0" width="220" height="56" rx="28.0" fill="#FFFFFF" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="840" y="1055.6">Save</tspan></text>
+  <path d="M290,182 V216" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+  <path d="M290,282 V316" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+  <path d="M420,350 H708" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+  <path d="M840,382 V416" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+  <path d="M840,482 V516" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+  <path d="M840,582 V616" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+  <path d="M840,682 V716" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+  <path d="M840,782 V816" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+  <path d="M840,882 V916" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+  <path d="M840,982 V1022" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+</svg>

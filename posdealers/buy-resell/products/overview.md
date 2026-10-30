@@ -1,34 +1,31 @@
 ---
 slug: /posdealers/buy-resell/products
-title: Product overview
+title: Overview
 description: Categories of fiskaltrust products for PosDealers — bundles, the free Middleware, signing devices and services, and add-on subscriptions.
+type: overview
 tags: [Products, Product Bundles, Middleware, Signature, PosDealers]
 ---
 
-# Products & Services Overview
+# Overview
 
 :::info summary
 
-After reading this, you can explain the products _fiskaltrust_ offers.
+After reading this, you can explain the products fiskaltrust offers.
 
 :::
 
-On top of its free core product - *fiskaltrust.Middleware* - *fiskaltrust* also offers several additional **services and subscriptions** which are based on the Middleware and expand its functionality and feature set.
+On top of its free core product, the fiskaltrust.Middleware, fiskaltrust offers **services and subscriptions** that are based on the Middleware and extend its features.
 
-These products may differ between the markets we operate in, as they're designed to solve the different problems the respective country's laws and regulations implicate. However, they can be grouped into some categories, which are described in this area of the documentation. 
+The products differ between markets, because each market's laws and regulations require different solutions. They fall into the following categories:
 
-**fiskaltrust currently provides the following kinds of products:**
+| Category | Description |
+|---|---|
+| [Product bundles](bundles.md) | All products required to be fully legally compliant in a market, packaged into one bundle for **carefree fiscalization**. The products of the other categories are usually available in these bundles. |
+| [Middleware](middleware.md) | The free core product that fiscalizes receipts and abstracts signing devices and services. It runs in the cloud or on-premise. |
+| [Signing devices and services](signing/signing-overview.md) | The signing required by law, either as a signing service hosted by fiskaltrust or as third-party devices and services sold in the `Shop`. |
+| [Revision-safe archiving](revision-safe-archiving.md) | Add-on products that store POS data in a revision-safe storage, which is required in most countries with fiscalization laws. |
+| [Third-party products](3rd-party/3rd-party-overview.md) | Third-party services integrated with the Middleware, for example end-to-end receipt handling from the POS system into accounting with [DATEV MeinFiskal](3rd-party/datev-meinfiskal.md). |
+| [Tax authority notifications](notifications.md) | Notifications to the tax authorities where required by law, for example when a POS system is put into operation or taken out of operation. |
+| [Professional services](professional-services.md) | Consulting and certification support. Currently offered only in France, where POS systems must be certified. |
 
-First, the products listed below are usually available in market-specific [**product bundles**](bundles.md). In these bundles, we package all relevant products that are required to be fully legally compliant without any further requirements, providing **carefree fiscalization**.
-
-The [**Middleware**](middleware.md) is the free core product that is used to fiscalize receipts and abstract signing devices and services. It's either running in the cloud or directly at the user (on-premise).
-
-Those above [**signing devices and services**](signing/signing-overview.md) are also distributed by fiskaltrust. We work closely with our partners to ensure that we make obtaining legally required signing as easy as possible - either by providing hosted signing services where applicable or by re-distributing 3rd-party devices or services via our shop.
-
-Add-on products for [**archiving**](revision-safe-archiving.md) can be used to securely store POS data in revision-safe storage, which is required in most countries where fiscalization laws are in place. 
-
-The integration of [**third-party services**](3rd-party/3rd-party-overview.md) into our products enables partners to benefit from the international, generic Middleware interface and can e.g., be used to provide end-to-end receipt handling from the POS System into accounting ([**DATEV MeinFiskal**](3rd-party/datev-meinfiskal.md)).
-
-If required by law, fiskaltrust also takes care of [**tax authority notifications**](notifications.md), e.g., when a POS System is initialized or decommissioned.
-
-In countries where [**professional services**](professional-services.md) are beneficial, fiskaltrust, e.g., offers consulting or certification support. However, this is only the case in France, where POS Systems must be certified.
+*Table 1. Categories of fiskaltrust products.*
