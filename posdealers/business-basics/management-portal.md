@@ -96,4 +96,4 @@ For more information, see [Manual Configuration](../technical-operations/middlew
 
 ## Shop
 
-The `Shop` menu gives access to all fiskaltrust **add-on products and services**, for example product bundles, hardware solutions and archives. Purchase items individually or as part of pre-configured **rollout plans**. For more information, see [Shop](../buy-resell/shop.md) and [Rollout Plans](../buy-resell/rollout-plans.md).
+The `Shop` menu gives access to all fiskaltrust **add-on products and services**, for example product bundles, hardware solutions and archives. Purchase items individually or as part of pre-configured **rollout plans**. For more information, see [Shop](../buy-resell/shop.md) and [Rollout management](../buy-resell/rollout-plans.md).

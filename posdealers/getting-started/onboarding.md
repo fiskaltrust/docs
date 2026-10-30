@@ -71,7 +71,7 @@ Align on rollout and technical requirements:
 
 ## 6. Procurement and subscription
 
-Make sure you understand the procurement process through **Entitlements** and **Business Rollout**. For more information, see [Overview - Buy & Resell](../buy-resell/overview.md).
+Make sure you understand the procurement process through **Entitlements** and **Business Rollout**. For more information, see [Overview](../buy-resell/overview.md) in Buy & Resell.
 
 ## 7. Contracts
 
