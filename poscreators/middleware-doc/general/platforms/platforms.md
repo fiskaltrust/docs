@@ -109,7 +109,6 @@ For more information, see [Mono Service Installation](../components/components-i
 **Requirements**
 
 - Android 7 or higher.
-- A CashBox with only the Queue and SCU packages that the app contains. If the CashBox contains other Queues or SCUs, the Launcher throws an exception.
 
 The fiskaltrust.Middleware for Android (`eu.fiskaltrust.androidlauncher`) is a single app that runs the fiskaltrust.Middleware as a foreground service. The POS app calls it through the POS System API over Android IPC, so no network configuration is needed on the device. For more information, see [Android IPC Transport](../../possystem-api/android-ipc.md).
 
