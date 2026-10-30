@@ -23,7 +23,7 @@ Across markets, eInvoicing is layered onto the existing fiscalization flow throu
 | Element | Role in eInvoicing |
 | --- | --- |
 | `/sign` | Produces the structured eInvoice document (an EN 16931 profile, or a national schema) **alongside** the existing fiscalized receipt. |
-| `/issue` | **Optional.** Registers the receipt (`ReceiptRequest` + `ReceiptResponse`) and delivers it to a recipient — a channel such as email/SMS, print, download, or a network. |
+| `/issue` | **Optional.** Two calls: `POST /issue` registers the receipt (`ReceiptRequest` + `ReceiptResponse`), then `PUT /issue/{queueId}/{queueItemId}` delivers it to a recipient — a channel such as email/SMS, print, download, or a network. |
 | `/journal` | Exports the operation data you sent, for audit and closings. It does **not** archive the eInvoice — revision-safe archiving is a separate concern. |
 
 The connection, authentication, and endpoint surface do **not** change — no new endpoints, request headers, or credentials.
@@ -44,13 +44,14 @@ The PosSystem API is request/response and idempotent. **There is no status webho
 
 ## The integration flow
 
-Where the API path is available, the flow is the same shape everywhere — your existing fiscalization flow with one added step:
+Where the API path is available, the flow is the same shape everywhere — your existing fiscalization flow with two added `/issue` calls:
 
 | Step | What happens |
 | --- | --- |
 | 1. Sign | Call `/sign` as you do today. The response also carries the eInvoice document. |
-| 2. Issue for delivery (optional) | Register the receipt via `/issue`, then deliver it to a channel. |
-| 3. Poll for status | Applies when you used Step 2. Poll `GET /issue/{queueId}/{queueItemId}` until delivered / cleared. No webhook. |
+| 2. Issue (optional) | Call `POST /issue` with the original `/sign` request and its response (`ReceiptRequest` + `ReceiptResponse`). The response returns the `ftQueueID` / `ftQueueItemID` used by the delivery and status calls. |
+| 3. Deliver to a channel (optional) | Call `PUT /issue/{queueId}/{queueItemId}` with a delivery method, for example email/SMS, print, download or upload. |
+| 4. Poll for status | Applies when you used Steps 2 and 3. Poll `GET /issue/{queueId}/{queueItemId}` until delivered / cleared. No webhook. |
 
 ## Invoices and invoice types
 
