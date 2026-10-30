@@ -118,7 +118,7 @@ In short, a traditional JSON string with quotation marks escaped with a slash, n
 
 :::tip
 
-You can escape the template with a [number of tools](https://google.com/search?q=escape+json), such as e.g. [freeformatter.com](https://www.freeformatter.com/json-escape.html) or [codebeautify.org](https://codebeautify.org/json-escape-unescape). If you are comfortable with the browser console (F12), you can also use [JSON.stringify()](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) to escape the template object. **Please make sure quotation marks enclose the string.**
+You can escape the template with a [number of tools](https://google.com/search?q=escape+json), such as e.g. [JSONViewerTool JSON Escape](https://jsonviewertool.com/json-escape) or [codebeautify.org](https://codebeautify.org/json-escape-unescape). If you are comfortable with the browser console (F12), you can also use [JSON.stringify()](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) to escape the template object. **Please make sure quotation marks enclose the string.**
 
 :::
 
