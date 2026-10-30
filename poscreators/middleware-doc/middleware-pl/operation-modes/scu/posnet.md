@@ -78,26 +78,28 @@ Errors are returned with the state `0x504C_2000_EEEE_EEEE` (see [Service Status:
 
 ### Printer status on the zero receipt
 
-The zero receipt (`0x2000`) returns the live state of the printer in `ftStateData`. It is processed after any request that is still pending in the same Queue:
+The zero receipt (`0x2000`) returns the live state of the printer in `ftStateData`, under `PL.PosNet.PrinterStatus`. The fields are specific to POSNET printers; the `PosNet` level names the device family. It is processed after any request that is still pending in the same Queue:
 
 ```json
 "ftStateData": {
   "PL": {
-    "PrinterStatus": {
-      "Ready": true,
-      "Problem": null,
-      "Mechanism": 0,
-      "MechanismText": "ready",
-      "DeviceStatus": 0,
-      "DeviceStatusText": "ready",
-      "QueueEmpty": true,
-      "PaperNearEnd": false,
-      "TransactionOpen": false,
-      "FiscalMode": false,
-      "ReadOnlyMode": false,
-      "UniqueDeviceNumber": "ZBF 2101002396",
-      "DeviceType": "POSNET THERMAL XL2 ONLINE",
-      "SoftwareVersion": "30.01"
+    "PosNet": {
+      "PrinterStatus": {
+        "Ready": true,
+        "Problem": null,
+        "Mechanism": 0,
+        "MechanismText": "ready",
+        "DeviceStatus": 0,
+        "DeviceStatusText": "ready",
+        "QueueEmpty": true,
+        "PaperNearEnd": false,
+        "TransactionOpen": false,
+        "FiscalMode": false,
+        "ReadOnlyMode": false,
+        "UniqueDeviceNumber": "ZBF 2101002396",
+        "DeviceType": "POSNET THERMAL XL2 ONLINE",
+        "SoftwareVersion": "30.01"
+      }
     }
   }
 }
@@ -116,7 +118,7 @@ The zero receipt (`0x2000`) returns the live state of the printer in `ftStateDat
 | `UniqueDeviceNumber` | The unique number of the printer (*numer unikatowy*). |
 | `DeviceType`, `SoftwareVersion` | The model and the software version of the printer. |
 
-*Table 4. Fields of `PL.PrinterStatus`.*
+*Table 4. Fields of `PL.PosNet.PrinterStatus`.*
 
 `FiscalMode`, `ReadOnlyMode`, `UniqueDeviceNumber`, `DeviceType` and `SoftwareVersion` are only read while the printer is ready; otherwise they are `null`. A printer that does not answer at all makes the zero receipt fail.
 
