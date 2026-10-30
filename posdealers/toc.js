@@ -141,6 +141,14 @@ module.exports = [
       },
       {
         type: "category",
+        label: "Changes and Retirements",
+        items: [
+          "posdealers/technical-operations/changes-and-retirements/overview",
+          "posdealers/technical-operations/changes-and-retirements/signaturcloud-tls-retirement",
+        ],
+      },
+      {
+        type: "category",
         label: "Maintenance",
         items: [
           "posdealers/technical-operations/maintenance/proactive-actions",

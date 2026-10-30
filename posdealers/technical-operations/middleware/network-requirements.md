@@ -50,6 +50,23 @@ In case of connectivity issues, please check out the dedicated chapter [Network 
 
 
 
+### SignaturCloud (Austria and France)
+
+If you use a Cloud CashBox, the Middleware runs in the fiskaltrust cloud and your POS Systems connect to it over the internet. In Austria and France, POS Systems that use the v0 API connect to SignaturCloud. Please ensure these POS Systems have network access to the following hostnames.
+
+| Hostname                             | Protocol | Port(s) | Description                       |
+|--------------------------------------|----------|---------|-----------------------------------|
+| signaturcloud.fiskaltrust.at         | TCP      | 443     | SignaturCloud Austria, production |
+| signaturcloud-sandbox.fiskaltrust.at | TCP      | 443     | SignaturCloud Austria, sandbox    |
+| signaturcloud.fiskaltrust.fr         | TCP      | 443     | SignaturCloud France, production  |
+| signaturcloud-sandbox.fiskaltrust.fr | TCP      | 443     | SignaturCloud France, sandbox     |
+
+*Table 2. Hostnames that POS Systems using SignaturCloud must be able to reach.*
+
+From 1 December 2026, SignaturCloud accepts only TLS 1.2 or higher. For more information, see [Retirement of TLS 1.0 and TLS 1.1 for SignaturCloud Austria and France](../changes-and-retirements/signaturcloud-tls-retirement.md).
+
+
+
 ### Additional access permissions
 
 This section describes external third-party endpoints that the Middleware uses in some cases. This usage is currently only the case when using cloud TSSs in Germany.
@@ -105,9 +122,9 @@ import HostsES from '../../_markets/es/technical-operations/middleware/network-r
 </Tabs>
 <br />
 
-:::tip address lookup
+:::caution allow hostnames, not IP addresses
 
-Should you need to determine the IP addresses of these hostnames for your network policies, please use the appropriate tools on your local workstation (e.g., nslookup or dig) or an [online lookup service](https://google.com/search?q=dns+lookup+online).
+The IP addresses behind fiskaltrust hostnames can change, for example when a service moves to new infrastructure. Firewall and proxy rules based on IP addresses then stop working. Please configure your rules with the hostnames listed on this page, not with their IP addresses.
 
 :::
 
@@ -134,7 +151,7 @@ Setting the configuration parameters can be done using the Launcher's [`-proxy` 
 | bypass          | A regular expression with host addresses and names that ought to be exempt from proxying<br />*Can be used more than once* | No       |
 | bypasslocalhost | Indicates whether local connections require proxying as well (`false` or `true`)                                           | No       |
 
-*Table 2. Arguments of the Launcher `-proxy` connection string.*
+*Table 3. Arguments of the Launcher `-proxy` connection string.*
 
 #### Example Proxy Strings
 

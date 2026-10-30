@@ -15,4 +15,4 @@ After reading this, you, as a PosDealer, will master fiskaltrust.Middleware impl
 
 ## Introduction
 
-The **Technical Operations** section of the documentation offers you, as a PosDealer, guidance on implementing and maintaining the fiskaltrust.Middleware solution. The pages detail various rollout scenarios, the integration process, solution monitoring, troubleshooting, and maintenance, including data exports.
+The **Technical Operations** section of the documentation offers you, as a PosDealer, guidance on implementing and maintaining the fiskaltrust.Middleware solution. The pages detail various rollout scenarios, the integration process, solution monitoring, troubleshooting, and maintenance, including data exports. The [Changes and Retirements](changes-and-retirements/overview.md) section lists upcoming changes to fiskaltrust services that may need action on your side.
