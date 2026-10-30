@@ -89,7 +89,7 @@ For more information, see [Launcher for Windows, Linux and macOS](../../../../po
 - Launcher 1.3: Mono 6.8.0 or higher. The Mono versions in the default package repositories are usually outdated; install Mono following the [official Mono guidelines](https://www.mono-project.com/download/stable/#download-lin-ubuntu).
 - Launcher 2.0: no additional software.
 
-The supported distributions, data storages and SCUs differ per market. For more information, see [Linux and macOS (Germany)](../../middleware-de-kassensichv/operation-modes/on-premise-platforms/linux.md) and [Linux and macOS (Italy)](../../middleware-it-registratore-telematico/operation-modes/on-premise-platforms/linux.md).
+Which distributions, data storages and SCUs are supported depends on the market, because each market uses its own signature devices (with their own drivers and certifications) and, depending on the market, Launcher 1.3 on Mono or the self-contained Launcher 2.0. For more information, see [Linux and macOS (Germany)](../../middleware-de-kassensichv/operation-modes/on-premise-platforms/linux.md) and [Linux and macOS (Italy)](../../middleware-it-registratore-telematico/operation-modes/on-premise-platforms/linux.md).
 
 **Installation**
 
