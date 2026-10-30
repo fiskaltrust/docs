@@ -51,7 +51,7 @@ The values below are the PosSystem API (v2) tagging values documented in [Type o
 
 *Table 2. Operational receipts required by the RKSV.*
 
-The start receipt and the annual receipt must also be validated with FinanzOnline, and a failure of the signature creation device lasting longer than 48 hours as well as the deregistration of a signature creation unit or a queue must be notified there. These validations and notifications are created from requests sent by the POS system, but they are sent and managed by the fiskaltrust.Portal, automatically with a fiskaltrust.Carefree or Notification subscription, see [FinanzOnline Management](../../../../posdealers/buy-resell/products/3rd-party/finanzonline-management.md).
+The start receipt and the annual receipt must also be validated with FinanzOnline, and a failure of the signature creation device lasting longer than 48 hours as well as the deregistration of a signature creation unit or a queue must be notified there. These validations and notifications are created from requests sent by the POS system, but they are sent and managed by the fiskaltrust.Portal, automatically with a fiskaltrust.Carefree or Notification subscription, see [FinanzOnline management](../../../../posdealers/buy-resell/products/3rd-party/finanzonline-management.md).
 
 :::tip Try the samples
 
@@ -104,7 +104,7 @@ Once the queue has been closed with a stop receipt, no hashing and signing of re
 
 If, for technical reasons, signatures cannot be created by the fiskaltrust.SecurityMechanism, receipts need to be issued (according to the RKSV) and marked with a comment "security mechanism failed". Once the technical failure has been resolved, a signed collective receipt must be issued to make up for the signature linking of all receipts issued during the technical failure.
 
-Outages that exceed 48 hours must be notified to FinanzOnline. This can be done automatically with a fiskaltrust.Carefree or Notification subscription, see [FinanzOnline Management](../../../../posdealers/buy-resell/products/3rd-party/finanzonline-management.md). Find more details on possible Failure Scenarios and handling in the Chapter "[Failure Scenarios](../../general/cash-register-integration/cash-register-integration-failure-scenarios.md)" of the general part
+Outages that exceed 48 hours must be notified to FinanzOnline. This can be done automatically with a fiskaltrust.Carefree or Notification subscription, see [FinanzOnline management](../../../../posdealers/buy-resell/products/3rd-party/finanzonline-management.md). Find more details on possible Failure Scenarios and handling in the Chapter "[Failure Scenarios](../../general/cash-register-integration/cash-register-integration-failure-scenarios.md)" of the general part
 
 ### Monthly Receipt
 

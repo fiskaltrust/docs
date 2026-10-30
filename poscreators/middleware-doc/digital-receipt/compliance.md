@@ -37,7 +37,7 @@ It is required in Austria to implement the POS-API with the /print endpoint or u
 
 For an evaluation of receipt retrieval, it is possible to verify in an audit case (or in general), which receipts were transmitted, retrieved, or printed through the fiskaltrust.Portal using the export function.
 
-You can visit following link in the POS Dealer section for further details: [evaluation of retrievals of digital receipts](../../../posdealers/buy-resell/products/digital-receipt.md#evaluation-of-retrievals-of-digital-receipts)
+You can visit following link in the POS Dealer section for further details: [Evaluate retrievals of digital receipts](../../../posdealers/buy-resell/products/digital-receipt.md#evaluate-retrievals-of-digital-receipts)
 
 ## Germany requirements 
 

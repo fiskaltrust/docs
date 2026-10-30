@@ -1,424 +1,422 @@
-Notification to the responsible tax office for the activation and deactivation of digital recording systems starting 2025. 
+Since 2025, the activation and deactivation of electronic recording systems must be reported to the responsible tax office.
 
-## Feature Overview
+## Notifications workflow
 
-The core purpose of the Notifications workflow is to **enable Dealers to support Operators** by managing their onboarding process through structured and trackable notifications. This ensures that company, outlet, and register data are correctly completed, which is essential for successful fiscalization and compliance.
+The notifications workflow **enables PosDealers to support their PosOperators** during onboarding with structured and trackable notifications. It makes sure that the company, outlet and cash register data are complete and correct, which is essential for fiscalization and compliance.
 
-### Roles & Responsibilities
+![Workflow with two swimlanes, PosDealer and PosOperator: the PosDealer checks the subscription of the PosOperator, buys or extends it if needed, and enables notifications, which sends the onboarding email. The PosOperator updates the data in the form, fixes any issues and submits the form, and the PosDealer monitors the notification status](./images/notification-flowchart.svg)
 
-- **Dealer**: Enables notifications, assists with data entry and troubleshooting, tracks status, and ensures Operators complete the onboarding form.
-- **Operator**: Enters accurate company, outlet, and register information and submits the required onboarding form.
-- **fiskaltrust**: Provides technical support to Dealers and helps resolve any system or data-related issues.
+*Figure 1. Workflow of the tax authority notifications in Germany.*
 
-### Access & Navigation
+### Roles and responsibilities
 
-Dealers can access the **Notifications page** via the Dealer Portal by navigating to:  
-**PosDealer** → **Notifications**.  
-This page lists all associated Operators and their notification statuses.
+- **PosDealer**: enables notifications, helps with data entry and troubleshooting, tracks the status, and makes sure that the PosOperators complete the onboarding form.
+- **PosOperator**: enters correct company, outlet and cash register data and submits the onboarding form.
+- **fiskaltrust**: provides technical support to PosDealers and helps solve system or data issues.
 
-### Subscription Requirements
+### Open the notifications page
 
-Notifications can only be enabled if the Operator has an **active subscription** to one of the required products:
+In the Portal, open `PosDealer` > `PosOperator Notifications` in the left sidebar. The page lists all your PosOperators and the status of their notifications.
 
-- **fiskaltrust.Carefree without TSE** or
-- **fiskaltrust.Carefree with TSE-as-a-Service** or
-- **fiskaltrust. Finanzamtsmeldung**
+### Subscription requirements
 
-These subscriptions can be purchased via [**Rollout Management**](https://docs.fiskaltrust.eu/docs/posdealers/buy-resell/rollout-plans#introduction).
+You can enable notifications only if the PosOperator has an **active subscription** to one of these products:
 
-If no valid subscription is detected for an Operator:
+- fiskaltrust.Carefree without TSE
+- fiskaltrust.Carefree with TSE-as-a-Service
+- fiskaltrust.Finanzamtsmeldung
 
-- The notifications dropdown is **disabled**, and
-- Dealers must first ensure the product is purchased before notifications can be sent.
+You buy these subscriptions in `Rollout management`. For more information, see [Rollout management](../../../../buy-resell/rollout-plans.md).
 
-### Sending and Managing Notifications
+Without a valid subscription, the notifications drop-down of the PosOperator is **disabled**. Buy the product first, then enable the notifications.
 
-To enable notifications:
+### Enable notifications
 
-- Dealers set the Operator’s notification dropdown to **“Enabled”**.
-- This action sends an **onboarding email** to the Operator:
+1. Open the notifications drop-down of the PosOperator and select `Enabled`.
 
-![Onboarding Email](./images/OnboardingEmail_DE.png)
+   The fiskaltrust.Portal sends an **onboarding email** to the PosOperator. It explains the notification process and contains a link to the data form.
 
-*Figure 1. Onboarding email sent to the Operator to start the notifications data form.*
+   ![Onboarding email to the PosOperator in German, with the steps to update the cash register data and the link to the form](./images/OnboardingEmail_DE.png)
 
-The onboarding email includes:
+   *Figure 2. The onboarding email to the PosOperator.*
 
-- A brief explanation of the notifications process
-- A link to a **4-step data form** for the PosOperator to complete:
-    1. Company information
-    2. Outlet details
-    3. Cash register setup
-    4. Final review and submission
+2. The PosOperator completes the form in four steps:
+   1. Company information
+   2. Outlet details
+   3. Cash register setup
+   4. Final review and submission
 
-Form submission is only possible if **all required fields** are completed correctly.
+   The form can be submitted only if **all required fields** are complete and correct. For more information, see [Instructions for the PosOperator form](#instructions-for-the-posoperator-form).
 
-### Why Accurate Data Matters
+### Why accurate data matters
 
-Notifications rely on **complete and correct data** to be delivered successfully. Missing or malformed inputs like:
+Notifications need **complete and correct data**. Missing or wrong data prevents the notification from being sent, for example:
 
-- Incorrect **Steuernummer (Tax ID)**
-- Missing **POSsystemID**
-- Incomplete addresses  
-    can all prevent the successful sending of notifications.
+- a wrong **Steuernummer** (tax number)
+- a missing **PosSystemId**
+- an incomplete address
 
-### Notification Lifecycle
+### Notification lifecycle
 
-After form submission:
+After the PosOperator submits the form, the system **schedules** the notification for the next available time slot. The frequency and timing follow an internal schedule.
 
-- The system **schedules** the notification for the next available time slot.
-- Frequency and timing are determined by internal scheduling and will be documented in more detail later.
+If the PosOperator has not submitted the form, you can **resend the onboarding email** from the fiskaltrust.Portal. You can also:
 
-If the Operator hasn’t submitted the form:
+- enable or disable notifications
+- filter by status
+- trigger the sending of a notification manually
+- review the **Issues** listed per PosOperator, for example missing data
 
-- Dealers can **resend the onboarding email** from the portal.
+When the notification was successful, the PosOperator receives a **confirmation email** with the ELSTER transmission protocol (ELSTER-Übermittlungsprotokoll) attached.
 
-Dealers can also:
+![Confirmation email to the PosOperator in German, with the ELSTER transmission protocol attached](./images/ConfirmationEmail_DE.png)
 
-- Enable/disable notifications
-- Filter by status
-- Manually trigger notification sending
-- Review **Issues** listed per Operator (e.g., missing data)
+*Figure 3. The confirmation email with the ELSTER transmission protocol.*
 
-If the notification was successful, the operator receives a **confirmation email** with the ELSTER-Übermittlungsprotokoll attached:
+### Responsibilities per step
 
-![Confirmation Email](./images/ConfirmationEmail_DE.png)
+| Step | PosDealer | PosOperator |
+| --- | --- | --- |
+| 1. Check the subscription | Check that the PosOperator has an active subscription to fiskaltrust.Carefree without TSE, fiskaltrust.Carefree with TSE-as-a-Service or fiskaltrust.Finanzamtsmeldung. If needed, buy the product in `Rollout management` or extend the subscription in the subscriptions page. | — |
+| 2. Enable notifications | Open the notifications page and set the notification status of the PosOperator to `Enabled`. This sends the onboarding email. | — |
+| 3. Enter the data | — | Open the onboarding email and complete the four steps of the form: company details, outlet information, cash register setup, and review and submission. |
+| 4. Validate the data | Follow the progress of the PosOperator on the notifications page. Resend the onboarding email if the form was not submitted or if the PosOperator asks for the link. Check the **Issues** column for missing or wrong data, and help the PosOperator correct it. | Correct the errors highlighted in the form. Contact the PosDealer for help if needed. |
+| 5. Track the status | Track the notification status (scheduled, sent, failed, blocked). Enable, disable or trigger notifications manually. Use filters to prioritize PosOperators. Keep records for compliance and support. | Watch for the confirmation and follow-up emails. Stay informed if notifications are paused or disabled. |
+| 6. Ongoing support | Keep in touch with your PosOperators. Contact fiskaltrust support for technical issues. | Contact the PosDealer with questions or for help. |
 
-*Figure 2. Confirmation email with the ELSTER transmission protocol attached.*
+*Table 1. Responsibilities of the PosDealer and the PosOperator per step.*
 
-## Troubleshooting & Support  
+## Troubleshooting and support
 
-### Common Problems
+### Common problems
 
-- **Wrong Outlet configuration**:  
-    If a Queue is linked to the wrong Outlet, Dealers should correct the Outlet configuration.
-- **Duplicate Outlets**:  
-    If multiple outlets represent the same physical location (e.g., due to virtual duplicates), use the **Location ID** field in the Outlet Edit screen to group them as one.
+- **Wrong outlet configuration**: if a Queue is linked to the wrong outlet, correct the outlet configuration.
+- **Duplicate outlets**: if several outlets represent the same physical location, for example virtual duplicates, group them with the `Location ID` field when you edit the outlet.
 
-### Dealing with Notification Failures
+### Notification failures
 
 If a notification fails:
 
-- Review the **Issues** column for missing or incorrect data
-- Assist the Operator in correcting the information
-- Resend the onboarding email if needed
+1. Check the **Issues** column for missing or wrong data.
+2. Help the PosOperator correct the data.
+3. If needed, resend the onboarding email.
 
-If notifications are disabled and later re-enabled:
+If notifications are disabled and enabled again later:
 
-- The Operator can still access the form
-- Notifications are only sent if status is “Enabled”
-- Dealers should clearly inform Operators when notifications are paused
+- The PosOperator can still access the form.
+- Notifications are sent only while their status is `Enabled`.
+- Inform your PosOperators clearly when notifications are paused.
 
-### Email & Status Communication
+### Email and status communication
 
-- **Dealers**: See real-time statuses in the portal and may opt into **consolidated email summaries** (weekly or bi-weekly).
-- **Operators**: Receive onboarding emails and updates.
+- **PosDealers** see the current status in the fiskaltrust.Portal and can opt in to **summary emails**, weekly or every two weeks.
+- **PosOperators** receive the onboarding email and updates.
 
-### Best Practices for Dealers
+### Best practices for PosDealers
 
-- Regularly check notification statuses and Issues column
-- Actively assist Operators in form completion
-- Use filters to prioritize attention (e.g., failed notifications)
-- Use bulk actions for efficient management
-- Maintain logs for compliance and support
+- Check the notification status and the **Issues** column regularly.
+- Actively help your PosOperators complete the form.
+- Use filters to prioritize, for example failed notifications.
+- Use bulk actions to manage many PosOperators efficiently.
+- Keep records for compliance and support.
 
-| Step | Dealer Responsibilities | Operator Responsibilities |
-| --- | --- | --- |
-| 1\. Subscription Check | \- Check that Operator has an active subscription (fiskaltrust.Carefree without TSE / fiskaltrust.Carefree with TSE-as-a-Service or fiskaltrust. Finanzamtsmeldung).<br/>  \- Purchase product if needed via Rollout Management or extend existing subscription via Subscriptions | —   |
-| 2\. Enabling Notifications | \- Go to Notifications page in Dealer Portal.<br/>  \- Set Operator’s notification status to Enabled (this sends onboarding email).<br/> | —   |
-| 3\. Operator Data Entry | —   | \- Open onboarding email.<br/>  \- Complete 4-step data form:<br/>  \- Company details<br/>  \- Outlet information <br/> \- Cash register setup<br/>  \- Review and submit form. |
-| 4\. Data Validation & Troubleshooting | \- Monitor Operator progress on Notifications page.  <br/>\- Resend onboarding email if form not submitted or link to form is requested by operator<br/>  \- Check Issues column for missing/incorrect data.<br/>  \- Assist Operator in correcting errors. | \- Correct any errors highlighted in the form.<br/>  \- Contact Dealer for help if needed. |
-| 5\. Notification Sending & Status Tracking | \- Track notification status (scheduled, sent, failed, blocked).<br/>  \- Enable/disable or trigger notifications manually.<br/>  \- Use filters to prioritize Operators.<br/>  \- Keep records for compliance and support.<br/> | \- Monitor confirmation or follow-up emails.<br/>  \- Stay informed if notifications are paused or disabled. |
-| 6\. Ongoing Support | \- Maintain communication with Operators.<br/>  \- Contact fiskaltrust support for technical issues. | \- Reach out to Dealer with questions or for assistance. |
+## Legal basis
 
-*Table 1. Dealer and Operator responsibilities across the notification onboarding steps.*
+- Law: [§ 146a Abs. 4 AO](https://www.gesetze-im-internet.de/ao_1977/__146a.html)
+- Application decree: [Anwendungserlass zu § 146a AO](https://www.bundesfinanzministerium.de/Content/DE/Downloads/BMF_Schreiben/Weitere_Steuerthemen/Abgabenordnung/AO-Anwendungserlass/2023-06-30-AEAO-Par-146-AO.pdf?__blob=publicationFile&v=1)
 
-![Notification Flow](./images/NotificationFlow_DE.png)
+### When a notification is mandatory
 
-*Figure 3. Overview of the notification workflow between Dealer, Operator, and fiskaltrust.*
-
-## Legal Baseline
-Law: [§ 146a Abs. 4 AO](https://www.gesetze-im-internet.de/ao_1977/__146a.html)
-Anwendungserlass: Anwendungserlass zu § 146a AO](https://www.bundesfinanzministerium.de/Content/DE/Downloads/BMF_Schreiben/Weitere_Steuerthemen/Abgabenordnung/AO-Anwendungserlass/2023-06-30-AEAO-Par-146-AO.pdf?__blob=publicationFile&v=1)
-
-### In which cases is a notification mandatory?
-- initial commissioning of the Cashregister: If the fiskaltrust.Middleware is used then this reflects the initial-operation-receipt
-- decommissioning of the Cashregister: If the fiskaltrust.Middleware is used then this reflects the out-of-operation-receipt
-
-#### Whenever the mandatory data of the last notification changed a new notification needs to be sent to update the data at the financial authorities
-This includes...
-- Changing the used TSE
-- Changes in the mandatory master data
+- **Initial commissioning** of the cash register. With the fiskaltrust.Middleware, this corresponds to the initial-operation receipt.
+- **Decommissioning** of the cash register. With the fiskaltrust.Middleware, this corresponds to the out-of-operation receipt.
+- **Changes**: whenever the mandatory data of the last notification changes, a new notification updates the data at the tax authorities, for example when you change the TSE or the mandatory master data.
 
 ### Deadlines
-A notification is mandatory within a month whenever an initial commissioning, decommissioning, or update/correction of the previous notification occurs.
 
-#### For the start of the notifications in 2025 a transitional period was introduced:
-- Cashregisters commissioned before July 1st 2025 need to be included in the notification by July 31st 2025
-- Cashregisters decommissioned before July 1st 2025 only need to be included in the notification if this Cashregister has been part of a notification before _fiskaltrust won't notify about Cashregisters before July 1st 2025_
-- Cashregisters commissioned on/after July 1st 2025 need to be included in the notification within a month
+A notification is due within one month of an initial commissioning, a decommissioning, or an update or correction of the previous notification.
 
-## Technical Background
-_Please note that the following information may be subject to change in the future._
+For the start of the notifications in 2025, a transition period applied:
 
-All cash registers at an outlet must be included in the notification. For those using the fiskaltrust.Middleware, we already have most of the necessary information. Cash registers not using the fiskaltrust.Middleware can still be added to the fiskaltrust.Notification through various user-friendly methods. Fiskaltrust will generate the notification and use the ERiC interface to submit the notification to ELSTER.
+- Cash registers commissioned before July 1, 2025 had to be included in a notification by July 31, 2025.
+- Cash registers decommissioned before July 1, 2025 need to be included only if they were part of a notification before. fiskaltrust does not report cash registers decommissioned before July 1, 2025.
+- Cash registers commissioned on or after July 1, 2025 must be included in a notification within one month.
 
-If we lack some data needed for an outlet's notification, we have a straightforward automated process in place that will prompt the POS operator to provide the missing information.
+## Technical background
 
-### Prerequisites for POSDealers/Operators
-Since we use data from the fiskaltrust.Middleware and fiskaltrust.Portal to generate the notification, certain master data values must be present in the POSOperator's account. As previously mentioned, the POS operator will be prompted to provide any missing information before we create the notification. However, the more of the following values that are already filled out, the less the POSOperator will need to fill out later.
+:::info
+The following information can change in the future.
+:::
+
+All cash registers of an outlet must be included in the notification. For cash registers that use the fiskaltrust.Middleware, fiskaltrust already has most of the information. Cash registers that do not use the fiskaltrust.Middleware can also be added to the notification in several ways. fiskaltrust generates the notification and submits it to ELSTER through the ERiC interface.
+
+If data for the notification of an outlet is missing, an automated process asks the PosOperator to provide it.
+
+### Prerequisites for PosDealers and PosOperators
+
+fiskaltrust generates the notification from the data in the fiskaltrust.Middleware and the fiskaltrust.Portal, so the PosOperator's account needs certain master data. The PosOperator is asked for missing values before the notification is created, but the more values are already filled in, the less the PosOperator needs to enter later.
 
 | Source | Path | Value | Description |
-|-----------|-----------------|-----------------------------------------------------|-------------------------|
-| POSOperator-Account | Company info / Master Data | tax number | The taxId (Steuernummer) is mandatory for the notification. Using the USt-IdNr is not possible. |
-| POSOperator-Account | Company info / Master Data | Address | Streetname and Housenumber are mandatory.|
-| POSOperator-Account | Company info / Master Data | Postal code | The postal code is mandatory.|
-| POSOperator-Account | Company info / Master Data | City | The city is mandatory.|
-| POSOperator-Account | Company info / Outlets | Address | Streetname and Housenumber are mandatory.|
-| POSOperator-Account | Company info / Outlets | Postal code | The postal code is mandatory.|
-| POSOperator-Account | Company info / Outlets | City | The city is mandatory.|
+|---|---|---|---|
+| PosOperator account | `Company info` > `Master data` | Tax number | The tax number (Steuernummer) is mandatory. The VAT ID number (USt-IdNr.) cannot be used. |
+| PosOperator account | `Company info` > `Master data` | Address | Street name and house number are mandatory. |
+| PosOperator account | `Company info` > `Master data` | Postal code | Mandatory. |
+| PosOperator account | `Company info` > `Master data` | City | Mandatory. |
+| PosOperator account | `Company info` > `Outlets` | Address | Street name and house number are mandatory. |
+| PosOperator account | `Company info` > `Outlets` | Postal code | Mandatory. |
+| PosOperator account | `Company info` > `Outlets` | City | Mandatory. |
 
-*Table 2. Master data values required in the POSOperator account for the notification.*
+*Table 2. Master data required in the PosOperator account for the notification.*
 
-### Preriquities for POSCreators
-The fiskaltrust.Notification product won't require a new implementation. However there are processes, receipts and data that have already been part of the fiskaltrust.Middleware that are now mandatory for the notification. 
+### Prerequisites for PosCreators
 
-#### Receipts
-- Initial-Operation-Receipt
-- Out-Of-Operation-Receipt
-- Initiate-Switch-Receipt
-- Finish-Switch-Receipt
+The notification needs no new implementation. However, some processes, receipts and data that were already part of the fiskaltrust.Middleware are now mandatory for the notification:
 
-#### PosSystemId
-The PosSytemId has been mandatory since the beginning. We use the PosSystemId to map the masterdata of your POSSystem to the individual Middleware-Instances. POSSystem masterdata is a mandatory part of the notification.
+- **Receipts**: the initial-operation receipt, the out-of-operation receipt, the initiate-switch receipt and the finish-switch receipt.
+- **PosSystemId**: mandatory from the beginning. fiskaltrust uses it to map the master data of your POS system to the individual Middleware instances. The POS system master data is a mandatory part of the notification.
 
-# Instructions for the Operator Form
-Instructions for the form to update cash register data for tax office reporting (§146a Paragraph 4 AO)
+## Instructions for the PosOperator form
 
-## Note
-A report to the tax office can only be made if no information is missing in the form and all fields contain valid data.
+With this form, the PosOperator updates the cash register data for the notification to the tax office (§ 146a Abs. 4 AO).
 
-## The Form
+:::info
+The notification can be sent only if no information is missing and all fields contain valid data.
+:::
 
-### 1. Overview of Steps
-After opening the form link, the steps to be performed are displayed.
+### 1. Overview of the steps
 
-You can return to previous steps in the form at any time. Closing and reopening the form via the same link is also possible without issues. The steps are saved, and progress is preserved.  
-![Form Opening](./images/1_Opening_Page_Form_DE.png)
+After you open the form link, the form shows the steps to complete.
 
-*Figure 4. Opening page of the operator form showing the steps to complete.*
+You can go back to previous steps at any time. You can also close the form and open it again with the same link: your progress is saved.
 
-### 2. Verify Company Data
-Check and, if necessary, correct the displayed data. This concerns the master data of the company's headquarters, i.e., the address for which the tax office has assigned the tax number to the company. If the displayed information is incorrect, it must be corrected in the form.  
-![HQ Masterdata](./images/2_HQ_masterdata_DE.png)
+![Opening page of the PosOperator form in German, with the four steps and the start button](./images/1_Opening_Page_Form_DE.png)
 
-*Figure 5. Company headquarters master data step of the operator form.*
+*Figure 4. The opening page of the form with the steps to complete.*
 
-#### Fields to Complete
-| Field                        | Explanation                                                                                                                                                            |
-|-----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Tax Number                | Your tax number assigned by the tax office. You can find it on your last tax notice, typically in the upper left corner. **Important:** Do **not** enter the tax ID number here. Enter the tax number in the format shown on the tax notice. |
-| Street (Company Headquarters) | Enter the address registered for the above-mentioned tax number. Individual branch locations, if applicable, will be addressed later in the form. |
-| House Number (Company Headquarters) | Enter the address registered for the above-mentioned tax number. Individual branch locations, if applicable, will be addressed later in the form. |
-| Postal Code (Company Headquarters) | Enter the address registered for the above-mentioned tax number. Individual branch locations, if applicable, will be addressed later in the form. |
-| City (Company Headquarters) | Enter the address registered for the above-mentioned tax number. Individual branch locations, if applicable, will be addressed later in the form. |
+### 2. Verify the company data
 
-*Table 3. Fields to complete for the company headquarters in the operator form.*
+Check the displayed master data of the company headquarters, which is the address for which the tax office assigned the tax number, and correct it in the form if needed.
 
-#### Tax Number
-Example tax notice:  
-![Steuernummer](./images/2_steuerbescheid_DE.jpg)
+![Company data step of the PosOperator form in German, with the company name, tax number and headquarters address fields](./images/2_HQ_masterdata_DE.png)
 
-*Figure 6. Example tax notice showing where to find the tax number.*
+*Figure 5. The company data step of the form.*
 
-### 3. Review Existing Data
-The information already available at fiskaltrust regarding branch locations and cash registers is displayed. Missing or invalid data is marked in red.
+| Field | Description |
+|---|---|
+| Tax number | The tax number assigned by the tax office. You find it on your last tax notice, usually at the top. **Important:** do **not** enter the tax identification number (IdNr.) here. Enter the tax number in the format shown on the tax notice. |
+| Street, house number, postal code and city of the company headquarters | The address registered for this tax number. Individual outlets follow later in the form. |
 
-Data for each branch location is listed in a separate row.  
-![Outlet to Review](./images/3_Outlet_Data_DE.png)
+*Table 3. Fields of the company data step.*
 
-*Figure 7. Review of existing branch location data, with missing or invalid entries marked in red.*
+The following example tax notice shows where to find the tax number.
 
-#### Verify and Edit Location Data
-First, review the displayed address of the location. If the information is incorrect, it can be edited via the **Edit** button.  
-![Outlet Edit](./images/3_Outlet_Edit_DE.png)
+![Example tax notice from the tax office Soest with the tax number marked](./images/2_steuerbescheid_DE.jpg)
 
-*Figure 8. Edit button used to correct a location's address.*
+*Figure 6. An example tax notice with the tax number.*
 
-Data for the location can now be adjusted and saved in the edit menu.  
-![Outlet Window](./images/3_Outlet_Edit_windows_DE.png)
+### 3. Review the existing data
 
-*Figure 9. Edit menu for adjusting and saving location data.*
+The form shows the data fiskaltrust already has about the outlets and cash registers. Each outlet is listed in its own row. Missing or invalid data is marked in red.
 
-#### Edit Cash Register Data
-Missing mandatory information for cash registers is displayed in red. The individual cash registers of a location can be listed by selecting the **>** button next to the location name.
+![Review step of the PosOperator form in German, listing the outlets with their address, cash registers with missing data and last update](./images/3_Outlet_Data_DE.png)
 
-If more cash registers are listed than actually exist at the location, they must be deactivated via the cash register software or in the fiskaltrust.Portal. If in doubt, contact your cash register provider.  
-![POS Edit](./images/3_pos_Edit_DE.png)
+*Figure 7. The existing outlet data, with missing or invalid data marked in red.*
 
-*Figure 10. Cash registers listed for a location, expanded via the > button.*
+#### Verify and edit the outlet data
 
-Missing information can be added using the **Edit** button.  
-![POS Edit Window](./images/3_pos_Edit_windows_DE.png)
+1. Check the displayed address of the outlet. To correct it, click `Edit` in its row.
 
-*Figure 11. Edit window for completing missing cash register information.*
+   ![Outlet row in the PosOperator form in German with the Edit button](./images/3_Outlet_Edit_DE.png)
 
-##### Possible Fields
-| Field                                 | Explanation                                                                                                                        |
-|-------------------------------------|--------------------------------------------------------------------------------------------------------------------------------|
-| Purchase Date of the Cash Register       | Enter the purchase date (invoice date) or the lease date of the cash register.                          |
-| Date of Cash Register Activation | Enter the date the cash register was activated. This is the point at which the cash register could be used for business transactions. **Note:** TSE activation is not relevant here. |
+   *Figure 8. The `Edit` button of an outlet.*
 
-*Table 4. Cash register fields available in the edit window.*
+2. Correct the outlet data and save it.
 
-#### Completion of Review
-Once all data has been supplemented or corrected, all locations and cash registers are marked in green.  
-![Green Fields](./images/3_Outlet_green_DE.png)
+   ![Dialog to edit the outlet data in the PosOperator form in German, with the outlet name and address fields and the Cancel and Save buttons](./images/3_Outlet_Edit_windows_DE.png)
 
-*Figure 12. All locations and cash registers marked green once data is complete.*
+   *Figure 9. The dialog to edit the outlet data.*
 
-### 4. Add External Cash Registers
-If there are additional cash registers at the locations that are not listed on the [3. Review Existing Data](#3-review-existing-data) page, these are so-called **external cash registers**. This usually occurs when there are cash registers from various manufacturers at a location that are not all connected via the fiskaltrust.Middleware.
+#### Edit the cash register data
 
-The law requires that all cash registers at a branch location must be reported according to §146a Paragraph 4 AO. Thus, it is mandatory to add all cash registers not shown on the [3. Review Existing Data](#3-review-existing-data) page to the report.  
-![External POS](./images/4_external_pos_DE.png)
+Missing mandatory cash register data is shown in red. If more cash registers are listed than actually exist at the outlet, deactivate them in the cash register software or in the fiskaltrust.Portal. If in doubt, contact your cash register provider.
 
-*Figure 13. Adding external cash registers not connected via the Middleware.*
+1. To list the cash registers of an outlet, click the **>** button next to the outlet name.
 
-For adding external cash registers, the form provides two options:
+   ![Outlet in the PosOperator form in German expanded to show its cash registers, with the Edit button of a cash register](./images/3_pos_Edit_DE.png)
 
-#### Import of DSFinV-K (ZIP) or DFKA-Taxonomy (JSON)
-The DSFinV-K export is a mandatory feature of every cash register. If a DSFinV-K export is performed on the cash register(s), this file can be used to add missing cash registers to the form. It does not matter whether the DSFinV-K contains all cash registers of a location or just individual cash registers.
+   *Figure 10. The cash registers of an outlet.*
 
-**Note:** DSFinV-K import is only possible if the export complies with the legal structure and definition. If errors occur during import, contact the manufacturer.
+2. To add missing data, click `Edit` for the cash register, enter the data and save it.
 
-Select **Choose File** to upload the DSFinV-K in ZIP format.  
-![DSFinV-K Upload](./images/4_dsfinvk_DE.png)
+   ![Dialog to edit the cash register data in the PosOperator form in German, with the purchase date and activation date fields marked as missing](./images/3_pos_Edit_windows_DE.png)
 
-*Figure 14. Choosing a DSFinV-K ZIP file to upload.*
+   *Figure 11. The dialog to edit the cash register data.*
 
-The DSFinV-K is imported into the form by clicking **Import File**.  
-![DSFinV-K Import](./images/4_dsfinvk_importr.png)
+| Field | Description |
+|---|---|
+| Purchase date of the cash register | The purchase date (invoice date) or the start of the lease of the cash register. |
+| Activation date of the cash register | The date from which the cash register could be used for business transactions. **Note:** the TSE activation does not matter here. |
 
-*Figure 15. Importing the uploaded DSFinV-K file into the form.*
+*Table 4. Fields of the cash register dialog.*
 
-You must now select the location the DSFinV-K originates from. Click **Import** to import the cash registers.  
-![Outlet Select](./images/4_select_outlet_DE.png)
+#### Complete the review
 
-*Figure 16. Selecting the location the DSFinV-K originates from before import.*
+When all data is added or corrected, all outlets and cash registers are marked in green.
 
-The list now shows imported cash registers by location. The import process can be repeated as often as necessary.  
-![List](./images/4_pos_list_DE.png)
+![Review step of the PosOperator form in German with all outlets marked green](./images/3_Outlet_green_DE.png)
 
-*Figure 17. Imported cash registers listed by location.*
+*Figure 12. All outlets and cash registers marked green.*
 
-#### Manually Add Cash Register
-If a DSFinV-K export is not possible or import errors occur, you can manually add the cash register using the **Manually Add Cash Register** button.  
-![Manual Third Party POS](./images/4_manual_DE.png)
+### 4. Add external cash registers
 
-*Figure 18. Manually adding a cash register.*
+Cash registers at your outlets that are not listed in [step 3](#3-review-the-existing-data) are **external cash registers**. This usually happens when an outlet uses cash registers from several manufacturers that are not all connected to the fiskaltrust.Middleware.
 
-##### Fields
-| Field                | Description                                                                                                                      |
-|---------------------|----------------------------------------------------------------------------------------------------------------------------------|
-| Software            | Enter the name of your cash register's software.                                                                          |
-| Software Version    | Enter the software version or designation.                                                         |
-| Cash Register Serial Number | The serial number must match the one registered in the TSE. This can be found on receipts. |
-| Manufacturer          | Enter the manufacturer of your cash register.                                                                                   |
-| Model              | Enter the model name of your cash register.                                                                            |
-| TSE Serial Number    | Enter the serial number of the TSE used.                                                                         |
-| BSI-ID              | Every TSE is certified by the BSI and receives a BSI-ID. This can be found on [Wikipedia](https://de.wikipedia.org/wiki/Technische_Sicherheitseinrichtung#%C3%9Cbersicht_der_zertifizierten_TSE). Provide the value without `BSI-K-TR-`. Example: 0412-2020 |
-| TSE Activation Date  | Enter the date the TSE was activated.                                                           |
-| Purchase Date           | Enter the purchase date (invoice date) or the lease date of the cash register.                           |
-| Activation Date | Enter the date the cash register was activated. This is the point at which it was usable for business transactions. |
+By law (§ 146a Abs. 4 AO), all cash registers of an outlet must be reported, so add every cash register that is not shown in step 3.
 
-*Table 5. Fields for manually adding an external cash register.*
+![External cash registers step of the PosOperator form in German, with the DSFinV-K or DFKA file upload and the button to add a cash register manually](./images/4_external_pos_DE.png)
 
-##### Verify and Complete Data
-If data is still missing after importing the DSFinV-K or manually adding the cash register, it can be completed or corrected as described in [Edit Cash Register Data](#edit-cash-register-data). Possible fields are described in [Manually Add Cash Register](#fields).
+*Figure 13. The step to add external cash registers.*
 
-##### Remove Location/Cash Registers
-If incorrect cash registers were imported or the wrong location was selected, they can be removed via the _trash icon_.  
-![Delete](./images/4_delete_DE.png)
+You add external cash registers in one of two ways.
 
-*Figure 19. Removing an incorrect location or cash register via the trash icon.*
+#### Import a DSFinV-K (ZIP) or DFKA taxonomy (JSON) file
 
-### 5. Completion
-All steps performed are displayed. If information is missing or invalid in any step, it will also be displayed in this overview. A report can only be made if all steps are error-free.  
-![Overview](./images/5_overview_DE.png)
+Every cash register must support the DSFinV-K export. You can use a DSFinV-K export to add the missing cash registers. It can contain all cash registers of an outlet or only some of them.
 
-*Figure 20. Completion overview listing all performed steps and any remaining errors.*
+:::info
+The import works only if the export follows the legal structure and definition. If errors occur during the import, contact the manufacturer.
+:::
 
-Click **Submit** to open the mandatory confirmation regarding the accuracy and completeness of the data.  
-![Confirm](./images/5_confirm_DE.png)
+1. Click `Choose File` and select the DSFinV-K file in ZIP format.
 
-*Figure 21. Confirmation dialog on the accuracy and completeness of the data.*
+   ![File field to choose a DSFinV-K or DFKA file in the PosOperator form in German](./images/4_dsfinvk_DE.png)
 
-After confirming, the cash register operator will receive an email informing them about the data update. The data will be transmitted to the tax office the following Sunday. The cash register operator will then receive the ELSTER transmission protocol, which we recommend storing in the procedural documentation.
+   *Figure 14. Choosing the DSFinV-K file.*
 
-## Finding Data for the ELSTER Form
+2. Click `Import File`.
 
-If the manual entry of data into the ELSTER form is preferred over the convenient fiskaltrust process, the following list can assist in locating the required data.
+   ![Selected DSFinV-K file in the PosOperator form in German with the import button](./images/4_dsfinvk_importr.png)
 
-| XML/ELSTER Formular Feld                                                   | DSFinV-K Table      | DSFinV-K Field       | Data for ELSTER                         | Where to Find                              |
-|----------------------------------------------------------------------------|---------------------|----------------------|------------------------------------------|-------------------------------------------|
-| Aufzeichnung146a/StNr                                                       | cashpointclosing    | STNR                 | Operator.Account.masterData.TaxId        | Company info/master data            |
-| AllgAngabenNichtNatuerlichePerson/Firmenname                                | cashpointclosing    | NAME                 | Operator.Account.masterData.AccountName  | Company info/master data            |
-| AllgAngabenNichtNatuerlichePerson/Adresse/AdrInl/Strasse                    | cashpointclosing    | STRASSE              | Operator.Account.masterData.Street       | Company info/master data            |
-| AllgAngabenNichtNatuerlichePerson/Adresse/AdrInl/Hausnummer                 | cashpointclosing    | STRASSE              | Operator.Account.masterData.Street       | Company info/master data            |
-| AllgAngabenNichtNatuerlichePerson/Adresse/AdrInl/Postleitzahl               | cashpointclosing    | PLZ                  | Operator.Account.masterData.Zip          | Company info/master data            |
-| AllgAngabenNichtNatuerlichePerson/Adresse/AdrInl/Ort                        | cashpointclosing    | ORT                  | Operator.Account.masterData.City         | Company info/master data            |
-| AngabenZuBetriebsstaette/AnzahlAufzeichnungssysteme                         |                     |                      | Configuration.Queue                      | Total number of active queues              |
-| AngabenZuBetriebsstaette/Adresse/Strasse                                    | location            | LOC_STRASSE          | Operator.Account.Outlet.Street           | Company info/outlets              |
-| AngabenZuBetriebsstaette/Adresse/Hausnummer                                 | location            | LOC_STRASSE          | Operator.Account.Outlet.Street           | Company info/outlets              |
-| AngabenZuBetriebsstaette/Adresse/Postleitzahl                               | location            | LOC_PLZ              | Operator.Account.Outlet.Zip              | Company info/outlets              |
-| AngabenZuBetriebsstaette/Adresse/Ort                                        | location            | LOC_ORT              | Operator.Account.Outlet.City             | Company info/outlets              |
-| AngabenAufzeichnungssystem/Art                                              |                     |                      |                                          | Select from dropdown in ELSTER form        |
-| AngabenAufzeichnungssystem/Software                                         | cashregister        | KASSE_SW_BRAND       | fiskaltrust.Middleware                   | Enter "fiskaltrust.Middleware"             |
-| AngabenAufzeichnungssystem/SoftwareVersion                                  | cashregister        | KASSE_SW_VERSION     | 1.3                                      | Enter the Middleware version (1.3)         |
-| AngabenAufzeichnungssystem/SeriennummerAS                                   | cashregister        | Z_KASSE_ID           | CashboxIdentification                    | Configuration/Queue/Details                |
-| AngabenAufzeichnungssystem/Hersteller                                       | cashregister        | KASSE_BRAND          | Creator.Account.posSystem.Brand          | Provided by the manufacturer               |
-| AngabenAufzeichnungssystem/Modell                                           | cashregister        | KASSE_MODELL         | Creator.Account.posSystem.Model          | Provided by the manufacturer               |
-| AngabenAufzeichnungssystem/SeriennummerTSE                                  | tse                 | TSE_SERIAL           | Configuration.Signature Creation Unit.Details.SerialNumberOctet | Configuration/Signature Creation Unit/Details/SerialNumberOctet |
-| AngabenAufzeichnungssystem/InbetriebnahmeTSE                                |                     |                      | Queue.ActionJournal.Initial-Operation    | Configuration/Queue/ActionJournal (select initial operation receipt and enter the date) |
-| AngabenAufzeichnungssystem/BSIID                                            | tse                 | TSE_ZERTIFIKAT       | Configuration.Signature Creation Unit.Details.CertificationIdentification | Configuration/Signature Creation Unit/Details/CertificationIdentification |
-| AngabenAufzeichnungssystem/AnschaffungAS                                    |                     |                      | Not provided by fiskaltrust               | Date of cash register acquisition          |
-| AngabenAufzeichnungssystem/InbetriebnahmeAS                                 |                     |                      | Not provided by fiskaltrust               | Date of cash register commissioning        |
+   *Figure 15. Importing the DSFinV-K file.*
 
-*Table 6. Mapping of ELSTER form fields to DSFinV-K fields and where to find the data.*
+3. Select the outlet the DSFinV-K comes from and click `Import`.
 
-Guidelines from the Ministry of Finance: [PDF](https://www.bundesfinanzministerium.de/Content/DE/Downloads/Steuern/FAQ-Ausfuellanleitung.pdf?__blob=publicationFile&v=2)
+   ![Dialog to select the outlet for the imported cash registers in the PosOperator form in German](./images/4_select_outlet_DE.png)
 
+   *Figure 16. Selecting the outlet of the DSFinV-K.*
+
+**Result:** The list shows the imported cash registers per outlet. You can repeat the import as often as needed.
+
+![List of recently added external cash registers per outlet in the PosOperator form in German](./images/4_pos_list_DE.png)
+
+*Figure 17. The imported cash registers per outlet.*
+
+#### Add a cash register manually
+
+If a DSFinV-K export is not possible or the import fails, click `Manually Add Cash Register` and enter the data.
+
+![Dialog to add an external cash register manually in the PosOperator form in German, with the outlet, software, serial number, manufacturer, model, TSE and date fields](./images/4_manual_DE.png)
+
+*Figure 18. Adding a cash register manually.*
+
+| Field | Description |
+|---|---|
+| Software | The name of the cash register software. |
+| Software version | The version or designation of the software. |
+| Cash register serial number | Must match the serial number registered in the TSE. You find it on the receipts. |
+| Manufacturer | The manufacturer of the cash register. |
+| Model | The model name of the cash register. |
+| TSE serial number | The serial number of the TSE used. |
+| BSI-ID | Every TSE is certified by the BSI and has a BSI-ID. You find it on [Wikipedia](https://de.wikipedia.org/wiki/Technische_Sicherheitseinrichtung#%C3%9Cbersicht_der_zertifizierten_TSE). Enter the value without `BSI-K-TR-`, for example `0412-2020`. |
+| TSE activation date | The date the TSE was activated. |
+| Purchase date | The purchase date (invoice date) or the start of the lease of the cash register. |
+| Activation date | The date from which the cash register could be used for business transactions. |
+
+*Table 5. Fields to add an external cash register manually.*
+
+#### Complete or remove cash registers
+
+- If data is still missing after the import or the manual entry, complete or correct it as described in [Edit the cash register data](#edit-the-cash-register-data). For the fields, see *Table 5*.
+- If wrong cash registers were imported or the wrong outlet was selected, remove them with the trash icon.
+
+  ![External cash registers in the PosOperator form in German with the trash icons to remove an outlet or a cash register](./images/4_delete_DE.png)
+
+  *Figure 19. Removing an outlet or a cash register.*
+
+### 5. Complete the form
+
+The form shows all steps you performed, including any missing or invalid information. The notification can be sent only if all steps are free of errors.
+
+1. Check the overview.
+
+   ![Completion step of the PosOperator form in German listing the completed steps and the submit button](./images/5_overview_DE.png)
+
+   *Figure 20. The overview of all steps.*
+
+2. Click `Submit`, then confirm that the data is correct and complete.
+
+   ![Dialog in the PosOperator form in German to confirm that the data is correct and complete](./images/5_confirm_DE.png)
+
+   *Figure 21. The confirmation of the data.*
+
+**Result:** The PosOperator receives an email about the data update. The data is sent to the tax office on the following Sunday. The PosOperator then receives the ELSTER transmission protocol. Store it in your procedural documentation.
+
+## Find the data for the ELSTER form
+
+If you prefer to enter the data manually in the ELSTER form instead of using the fiskaltrust process, *Table 6* shows where to find it.
+
+| XML or ELSTER form field | DSFinV-K table | DSFinV-K field | Data for ELSTER | Where to find it |
+|---|---|---|---|---|
+| Aufzeichnung146a/StNr | cashpointclosing | STNR | Operator.Account.masterData.TaxId | `Company info` > `Master data` |
+| AllgAngabenNichtNatuerlichePerson/Firmenname | cashpointclosing | NAME | Operator.Account.masterData.AccountName | `Company info` > `Master data` |
+| AllgAngabenNichtNatuerlichePerson/Adresse/AdrInl/Strasse | cashpointclosing | STRASSE | Operator.Account.masterData.Street | `Company info` > `Master data` |
+| AllgAngabenNichtNatuerlichePerson/Adresse/AdrInl/Hausnummer | cashpointclosing | STRASSE | Operator.Account.masterData.Street | `Company info` > `Master data` |
+| AllgAngabenNichtNatuerlichePerson/Adresse/AdrInl/Postleitzahl | cashpointclosing | PLZ | Operator.Account.masterData.Zip | `Company info` > `Master data` |
+| AllgAngabenNichtNatuerlichePerson/Adresse/AdrInl/Ort | cashpointclosing | ORT | Operator.Account.masterData.City | `Company info` > `Master data` |
+| AngabenZuBetriebsstaette/AnzahlAufzeichnungssysteme | | | Configuration.Queue | Total number of active Queues |
+| AngabenZuBetriebsstaette/Adresse/Strasse | location | LOC_STRASSE | Operator.Account.Outlet.Street | `Company info` > `Outlets` |
+| AngabenZuBetriebsstaette/Adresse/Hausnummer | location | LOC_STRASSE | Operator.Account.Outlet.Street | `Company info` > `Outlets` |
+| AngabenZuBetriebsstaette/Adresse/Postleitzahl | location | LOC_PLZ | Operator.Account.Outlet.Zip | `Company info` > `Outlets` |
+| AngabenZuBetriebsstaette/Adresse/Ort | location | LOC_ORT | Operator.Account.Outlet.City | `Company info` > `Outlets` |
+| AngabenAufzeichnungssystem/Art | | | | Select it from the drop-down in the ELSTER form |
+| AngabenAufzeichnungssystem/Software | cashregister | KASSE_SW_BRAND | fiskaltrust.Middleware | Enter `fiskaltrust.Middleware` |
+| AngabenAufzeichnungssystem/SoftwareVersion | cashregister | KASSE_SW_VERSION | 1.3 | Enter the Middleware version (1.3) |
+| AngabenAufzeichnungssystem/SeriennummerAS | cashregister | Z_KASSE_ID | CashboxIdentification | `Configuration` > `Queues`, Queue details |
+| AngabenAufzeichnungssystem/Hersteller | cashregister | KASSE_BRAND | Creator.Account.posSystem.Brand | Provided by the manufacturer |
+| AngabenAufzeichnungssystem/Modell | cashregister | KASSE_MODELL | Creator.Account.posSystem.Model | Provided by the manufacturer |
+| AngabenAufzeichnungssystem/SeriennummerTSE | tse | TSE_SERIAL | Configuration.Signature Creation Unit.Details.SerialNumberOctet | `Configuration` > `Signature creation unit`, details, `SerialNumberOctet` |
+| AngabenAufzeichnungssystem/InbetriebnahmeTSE | | | Queue.ActionJournal.Initial-Operation | `Configuration` > `Queues`, `ActionJournal`: select the initial-operation receipt and enter its date |
+| AngabenAufzeichnungssystem/BSIID | tse | TSE_ZERTIFIKAT | Configuration.Signature Creation Unit.Details.CertificationIdentification | `Configuration` > `Signature creation unit`, details, `CertificationIdentification` |
+| AngabenAufzeichnungssystem/AnschaffungAS | | | Not provided by fiskaltrust | Date of the cash register acquisition |
+| AngabenAufzeichnungssystem/InbetriebnahmeAS | | | Not provided by fiskaltrust | Date of the cash register commissioning |
+
+*Table 6. ELSTER form fields, the matching DSFinV-K fields, and where to find the data.*
+
+For the guidelines of the Federal Ministry of Finance, see the [FAQ and completion instructions (PDF)](https://www.bundesfinanzministerium.de/Content/DE/Downloads/Steuern/FAQ-Ausfuellanleitung.pdf?__blob=publicationFile&v=2).
 
 ## FAQ
-In the following you'll find frequently asked questions. If you have further questions then you can send us an email to support@fiskaltrust.de
 
-### What should be specified as the acquisition date of the cash register?
-The acquisition date of the cash register should be the date of purchase or the start of the leasing period of the cash register. Both the acquisition date and the commissioning date of the cash register are independent of the start of fiscalization. If you purchased a cash register in 2005 and connected a TSE to it in 2021, the year 2005 is decisive for this value. We at fiskaltrust are not permitted to provide legal advice. If you have detailed questions about the acquisition date, please contact a tax advisor.
+For further questions, send an email to support@fiskaltrust.de.
 
----
+### What is the acquisition date of the cash register?
 
-### Can the form data also be entered by the manufacturer/dealer?
-Both the cash register dealer and the cash register manufacturer will have the ability to manage data in the fiskaltrust.Portal.
+The acquisition date is the date of purchase or the start of the lease of the cash register. Both the acquisition date and the commissioning date are independent of the start of fiscalization. For example, if you bought a cash register in 2005 and connected a TSE to it in 2021, the acquisition date is in 2005. fiskaltrust is not permitted to provide legal advice. For detailed questions about the acquisition date, contact a tax advisor.
 
----
+### Can the manufacturer or dealer enter the form data?
 
-### In what format must the tax number be provided?
-We do not require the nationwide standard tax number (13 digits). However, if you know it, you are welcome to enter it. Generally, please enter the tax number in the format assigned to you by the tax office. You can find it, for example, on any tax assessment notice.
+Both the cash register dealer and the cash register manufacturer can manage the data in the fiskaltrust.Portal.
 
----
-### Which contact receives the link to the operator form?
+### In what format is the tax number entered?
 
-The email with the corresponding link is sent to the primary contact of the operator account that is registered in the fiskaltrust.Portal.
+The 13-digit nationwide standard tax number is not required, but you can enter it if you know it. Enter the tax number in the format the tax office assigned to you. You find it, for example, on any tax assessment notice.
 
----
+### Which contact receives the link to the PosOperator form?
 
-### How often must a notification be made?
+The email with the link is sent to the primary contact of the PosOperator account registered in the fiskaltrust.Portal.
 
-A notification to the tax office is only required when there is a new entry or a change in the data. For example, a cash register remains active for the tax office until a deactivation is reported.
+### How often is a notification required?
 
----
+A notification to the tax office is required only for a new entry or a change in the data. For example, a cash register remains active for the tax office until its deactivation is reported.
 
-### Will there be an automatic option to update the data?
+### Is there an automatic way to update the data?
 
-For customers with a large number of cash registers and locations, there will be an option to update the data collectively.
+For customers with many cash registers and outlets, there will be an option to update the data collectively.
