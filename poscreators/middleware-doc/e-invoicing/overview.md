@@ -3,10 +3,9 @@ slug: /poscreators/middleware-doc/e-invoicing/overview
 title: eInvoicing
 description: How eInvoicing is layered onto the /sign and /issue calls, what varies by market, and availability for Austria, France, Germany, Italy and Poland.
 tags: [eInvoicing, Peppol, Issue Endpoint, Middleware, PosCreators]
-sidebar_label: "eInvoicing — Overview"
 ---
 
-# eInvoicing — Overview
+# Overview
 
 This page describes how eInvoicing works across fiskaltrust markets from a PosCreator's perspective: the **shared integration model** that every market follows, and what changes from one market to the next. For a specific market, follow its country page (see [Availability by market](#availability-by-market)).
 
@@ -23,7 +22,7 @@ Across markets, eInvoicing is layered onto the existing fiscalization flow throu
 | Element | Role in eInvoicing |
 | --- | --- |
 | `/sign` | Produces the structured eInvoice document (an EN 16931 profile, or a national schema) **alongside** the existing fiscalized receipt. |
-| `/issue` | **Optional.** Registers the receipt (`ReceiptRequest` + `ReceiptResponse`) and delivers it to a recipient — a channel such as email/SMS, print, download, or a network. |
+| `/issue` | **Optional.** `POST /issue` registers the receipt (`ReceiptRequest` + `ReceiptResponse`). Depending on the market, this call already transmits the eInvoice to the network. `PUT /issue/{queueId}/{queueItemId}` then delivers it to a channel such as email/SMS, print, download, or a network. For what each call does in a market, see [Availability by market](#availability-by-market). |
 | `/journal` | Exports the operation data you sent, for audit and closings. It does **not** archive the eInvoice — revision-safe archiving is a separate concern. |
 
 The connection, authentication, and endpoint surface do **not** change — no new endpoints, request headers, or credentials.
@@ -44,13 +43,14 @@ The PosSystem API is request/response and idempotent. **There is no status webho
 
 ## The integration flow
 
-Where the API path is available, the flow is the same shape everywhere — your existing fiscalization flow with one added step:
+Where the API path is available, the flow is the same shape everywhere — your existing fiscalization flow with up to two added `/issue` calls. What each `/issue` call delivers depends on the market; the market setup guides describe it.
 
 | Step | What happens |
 | --- | --- |
 | 1. Sign | Call `/sign` as you do today. The response also carries the eInvoice document. |
-| 2. Issue for delivery (optional) | Register the receipt via `/issue`, then deliver it to a channel. |
-| 3. Poll for status | Applies when you used Step 2. Poll `GET /issue/{queueId}/{queueItemId}` until delivered / cleared. No webhook. |
+| 2. Issue (optional) | Call `POST /issue` with the original `/sign` request and its response (`ReceiptRequest` + `ReceiptResponse`). The response returns the `ftQueueID` / `ftQueueItemID` used by the delivery and status calls. In some markets, this call already transmits the eInvoice to the network. |
+| 3. Deliver to a channel (optional) | Call `PUT /issue/{queueId}/{queueItemId}` with a delivery method, for example email/SMS, print, download or upload. Where Step 2 already transmits to the network, use this step only for additional channels. |
+| 4. Poll for status | Applies when you delivered to a channel in Step 3. Poll `GET /issue/{queueId}/{queueItemId}` until delivered / cleared. No webhook. |
 
 ## Invoices and invoice types
 
@@ -89,11 +89,11 @@ Exact case codes, delivery targets, and go-live status live on each **country pa
 | **Austria (AT)** | B2G mandated; B2B optional | API — `/sign` + `/issue` via Peppol / the national portal |
 | **France (FR)** | B2B, decentralised (PDP) | API — `/sign` + `/issue` via the Plateforme Agréée |
 | **Germany (DE)** | B2B, post-audit | API — `/sign` + `/issue` via Peppol |
-| **Italy (IT)** | B2G/B2B/B2C, centralised clearance | API — `/sign` + `/issue` via SDI. Supported: B2C and B2B, sending only — see [What fiskaltrust supports](../middleware-it-registratore-telematico/e-invoicing/overview.md#what-fiskaltrust-supports). |
+| **Italy (IT)** | B2G/B2B/B2C, centralised clearance | API — `/sign` + `/issue` via SDI; `POST /issue` transmits to SDI. Supported: B2C and B2B, sending only — see [What fiskaltrust supports](../middleware-it-registratore-telematico/e-invoicing/overview.md#what-fiskaltrust-supports). |
 | **Poland (PL)** | B2B, centralised clearance | API (preview) — `/sign` + `/issue` via KSeF |
 | **EU (cross-border)** | Voluntary — no national mandate | API — `/sign` + `/issue` via Peppol |
 
-Each market's **Overview** and **Setup & testing** pages live under its entry in **Country-Specific Guides** (in the sidebar).
+Each market's **Overview** and **Setup & testing** pages are in the sidebar, under the market's name > **eInvoicing**.
 
 ## Prerequisites (shared)
 
