@@ -89,7 +89,7 @@ Exact case codes, delivery targets, and go-live status live on each **country pa
 | **Austria (AT)** | B2G mandated; B2B optional | API — `/sign` + `/issue` via Peppol / the national portal |
 | **France (FR)** | B2B, decentralised (PDP) | API — `/sign` + `/issue` via the Plateforme Agréée |
 | **Germany (DE)** | B2B, post-audit | API — `/sign` + `/issue` via Peppol |
-| **Italy (IT)** | B2G/B2B/B2C, centralised clearance | API — `/sign` + `/issue` via SDI. Supported: B2C and B2B, sending only — see [What fiskaltrust supports](../middleware-it-registratore-telematico/e-invoicing/overview.md#what-fiskaltrust-supports). |
+| **Italy (IT)** | B2G/B2B/B2C, centralised clearance | API — `/sign` + `/issue` via SDI; `POST /issue` transmits to SDI. Supported: B2C and B2B, sending only — see [What fiskaltrust supports](../middleware-it-registratore-telematico/e-invoicing/overview.md#what-fiskaltrust-supports). |
 | **Poland (PL)** | B2B, centralised clearance | API (preview) — `/sign` + `/issue` via KSeF |
 | **EU (cross-border)** | Voluntary — no national mandate | API — `/sign` + `/issue` via Peppol |
 
