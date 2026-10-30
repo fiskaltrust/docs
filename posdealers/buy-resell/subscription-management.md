@@ -24,10 +24,6 @@ To get an overview of the subscriptions of all your PosOperators, open `PosDeale
 - renew one or several subscriptions manually
 - cancel subscriptions
 
-![Subscriptions page in the fiskaltrust.Portal with the Allow renewing subscriptions automatically toggle, the search field and status filter, and the list of subscriptions with their PosOperator, product, subscription target, renewal date, renewal type, status and actions](./images/subscription-management.png)
-
-*Figure 1. The page with the subscriptions of your PosOperators.*
-
 ## Renew subscriptions
 
 Subscriptions are renewed every year, either manually or automatically by the fiskaltrust.Portal. Automatic renewal is an opt-in feature that you need to enable.
@@ -50,11 +46,6 @@ You can always renew subscriptions manually, for example because you prefer this
 2. In the dialog, choose how the quote covers the entitlements:
    - **Dealer package**: if you do not have the entitlements in your account, the quote includes a dealer package, and you buy the required entitlements during the checkout.
    - **Move entitlements**: the quote moves existing entitlements from your account to the PosOperator.
-
-   ![Dialog to renew subscriptions in the fiskaltrust.Portal with the choice between buying the required entitlements and using existing entitlements](./images/renew-subscription.png)
-
-   *Figure 2. The dialog to renew subscriptions.*
-
 3. Confirm the dialog. The fiskaltrust.Portal creates a quote and loads it into the `Basket`.
 4. Complete the checkout.
 
