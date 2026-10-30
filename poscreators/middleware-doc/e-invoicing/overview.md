@@ -93,7 +93,7 @@ Exact case codes, delivery targets, and go-live status live on each **country pa
 | **Poland (PL)** | B2B, centralised clearance | API (preview) — `/sign` + `/issue` via KSeF |
 | **EU (cross-border)** | Voluntary — no national mandate | API — `/sign` + `/issue` via Peppol |
 
-Each market's **Overview** and **Setup & testing** pages live under its entry in **Country-Specific Guides** (in the sidebar).
+Each market's **Overview** and **Setup & testing** pages are in the sidebar, under the market's name > **eInvoicing**.
 
 ## Prerequisites (shared)
 
