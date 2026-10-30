@@ -180,6 +180,12 @@ If the screen immediately clears and only shows a text cursor, you have establis
 
 All outbound connections established by the Middleware are HTTPS-protected and require a properly configured SSL setup, particularly regarding the SSL version and the root certificates of the involved certificate authorities.
 
+:::info TLS 1.2 for SignaturCloud
+
+From 1 December 2026, SignaturCloud Austria and France accept only TLS 1.2 or higher. For more information, see [Retirement of TLS 1.0 and TLS 1.1 for SignaturCloud Austria and France](../changes-and-retirements/signaturcloud-tls-retirement.md).
+
+:::
+
 If your Middleware instance provided you with error messages which indicate possible SSL issues, you could first run the check from [Checking web services](#checking-web-services) (please make sure to use an HTTPS URL). Depending on its output, you can also use additional tools, such as [OpenSSL](https://github.com/openssl/openssl/wiki/Binaries), to run other checks. For example, the following command would try to establish an SSL connection to `packages.fiskaltrust.cloud` on port 443 (i.e. `https://packages.fiskaltrust.cloud`)
 
 ```console
