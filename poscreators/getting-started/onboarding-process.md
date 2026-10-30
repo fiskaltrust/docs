@@ -33,7 +33,7 @@ The onboarding process is a phased progression. Each role completes a specific s
 
 ### Phase 3: Team and Permissions (PosDealer)
 
-- Assign and sign off on [all required user roles](../../posdealers/getting-started/company-roles.md#how-to-activate-a-role) within the portal.
+- Assign and sign off on [all required user roles](../../posdealers/getting-started/company-roles.md#activate-a-role) within the portal.
 - Create [employee profiles](../../posdealers/getting-started/company-roles.md) with specific, tiered permission levels.
 
 ### Phase 4: Data and Compliance Verification (PosDealer)

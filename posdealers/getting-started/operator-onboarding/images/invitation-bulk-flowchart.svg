@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="1070" viewBox="0 0 1120 1070" font-family="IBM Plex Sans, Helvetica Neue, Arial, sans-serif">
+  <title>Workflow for inviting PosOperators in a bulk process in the fiskaltrust.Portal</title>
+  <desc>Flowchart: the PosDealer opens PosDealer, Invitation, checks the invitation settings, downloads the demo CSV file and enters the data, imports the CSV file and clicks Invite all PosOperators. Each PosOperator accepts the e-mail invitation, activates the PosOperator role and verifies master data and outlets. The PosDealer opens PosDealer, PosOperators and checks whether the PosOperator name is an active link: if yes, the PosDealer is ready to surrogate; if no, the PosDealer opens the invitation history and resends the invitation or copies the link and sends it.</desc>
+  <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#002A34"/></marker></defs>
+  <rect x="0" y="0" width="1120" height="1070" fill="#FFFFFF"/>
+  <rect x="20" y="20" width="1080" height="1030" fill="#FFFFFF" stroke="#002A34" stroke-width="1.5"/>
+  <line x1="20" y1="56" x2="1100" y2="56" stroke="#002A34" stroke-width="1.5"/>
+  <text text-anchor="start" font-size="18" font-weight="600" fill="#002A34"><tspan x="36" y="44.3">Workflow - inviting PosOperators in a bulk process</tspan></text>
+  <rect x="20" y="56" width="680" height="34" fill="#E5E6E7" stroke="#002A34" stroke-width="1.5"/>
+  <text text-anchor="middle" font-size="16" font-weight="600" fill="#002A34"><tspan x="360.0" y="78.6">PosDealer · fiskaltrust.Portal</tspan></text>
+  <rect x="700" y="56" width="400" height="34" fill="#E5F6FB" stroke="#002A34" stroke-width="1.5"/>
+  <text text-anchor="middle" font-size="16" font-weight="600" fill="#002A34"><tspan x="900.0" y="78.6">PosOperator</tspan></text>
+  <line x1="700" y1="90" x2="700" y2="1050" stroke="#002A34" stroke-width="1.5"/>
+  <rect x="80.0" y="118.0" width="260" height="64" rx="10" fill="#FFFFFF" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="210" y="145.2">Open PosDealer &gt;</tspan><tspan x="210" y="166.0">Invitation</tspan></text>
+  <rect x="80.0" y="218.0" width="260" height="64" rx="10" fill="#FFFFFF" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="210" y="245.2">Check the invitation</tspan><tspan x="210" y="266.0">settings</tspan></text>
+  <rect x="80.0" y="318.0" width="260" height="64" rx="10" fill="#FFFFFF" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="210" y="345.2">Click Download demo CSV</tspan><tspan x="210" y="366.0">file and enter the data</tspan></text>
+  <rect x="80.0" y="418.0" width="260" height="64" rx="10" fill="#FFFFFF" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="210" y="455.6">Import the CSV file</tspan></text>
+  <rect x="80.0" y="518.0" width="260" height="64" rx="10" fill="#FFFFFF" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="210" y="545.2">Click Invite all</tspan><tspan x="210" y="566.0">PosOperators</tspan></text>
+  <polygon points="786.0,518.0 1046.0,518.0 1014.0,582.0 754.0,582.0" fill="#E5F6FB" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="900" y="545.2">Accept the e-mail</tspan><tspan x="900" y="566.0">invitation</tspan></text>
+  <polygon points="786.0,618.0 1046.0,618.0 1014.0,682.0 754.0,682.0" fill="#E5F6FB" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="900" y="645.2">Activate the</tspan><tspan x="900" y="666.0">PosOperator role</tspan></text>
+  <polygon points="786.0,718.0 1046.0,718.0 1014.0,782.0 754.0,782.0" fill="#E5F6FB" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="900" y="745.2">Verify master data</tspan><tspan x="900" y="766.0">and outlets</tspan></text>
+  <rect x="80.0" y="718.0" width="260" height="64" rx="10" fill="#FFFFFF" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="210" y="745.2">Open PosDealer &gt;</tspan><tspan x="210" y="766.0">PosOperators</tspan></text>
+  <polygon points="210,808 350,870 210,932 70,870" fill="#FDF0D6" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="15" fill="#002A34"><tspan x="210" y="865.5">PosOperator name</tspan><tspan x="210" y="885.0">is an active link?</tspan></text>
+  <rect x="100.0" y="972.0" width="220" height="56" rx="28.0" fill="#FFFFFF" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="210" y="1005.6">Ready to surrogate</tspan></text>
+  <rect x="400.0" y="838.0" width="260" height="64" rx="10" fill="#FFFFFF" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="530" y="865.2">Open PosDealer &gt;</tspan><tspan x="530" y="886.0">Invitation &gt; History</tspan></text>
+  <rect x="400.0" y="968.0" width="260" height="64" rx="10" fill="#FFFFFF" stroke="#002A34" stroke-width="1.5"/><text text-anchor="middle" font-size="16" fill="#002A34"><tspan x="530" y="995.2">Resend the invitation or</tspan><tspan x="530" y="1016.0">copy the link and send it</tspan></text>
+  <path d="M210,182 V216" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+  <path d="M210,282 V316" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+  <path d="M210,382 V416" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+  <path d="M210,482 V516" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+  <path d="M340,550 H768" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+  <path d="M900,582 V616" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+  <path d="M900,682 V716" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+  <path d="M770,750 H342" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+  <path d="M210,782 V806" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+  <path d="M210,932 V970" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+  <text text-anchor="start" font-size="13" font-family="IBM Plex Mono, monospace" letter-spacing="1.8" fill="#676A69"><tspan x="220" y="955.5">YES</tspan></text>
+  <path d="M350,870 H398" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+  <text text-anchor="middle" font-size="13" font-family="IBM Plex Mono, monospace" letter-spacing="1.8" fill="#676A69"><tspan x="374.0" y="862.5">NO</tspan></text>
+  <path d="M530,902 V966" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+  <path d="M660,1000 H1060 V550 H1032" fill="none" stroke="#002A34" stroke-width="1.5" marker-end="url(#ah)"/>
+</svg>
